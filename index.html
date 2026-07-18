@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>50 Mirars | Premium Watches & Sunglasses</title>
+<title>50 Mirars | Watches & Sunglasses</title>
 
 <style>
 
@@ -12,231 +12,290 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial,Helvetica,sans-serif;
 scroll-behavior:smooth;
 }
 
 body{
-background:#0b0b0b;
-color:white;
+font-family:Arial, sans-serif;
+background:#fff;
+color:#111;
 }
 
+/* HEADER */
+
 header{
-position:fixed;
-top:0;
-width:100%;
+background:#fff;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:20px 8%;
-background:rgba(0,0,0,.85);
-backdrop-filter:blur(10px);
+padding:15px 80px;
+box-shadow:0 2px 10px rgba(0,0,0,.08);
+position:sticky;
+top:0;
 z-index:1000;
 }
 
-.logo{
-font-family:"Times New Roman", serif;
-font-size:42px;
-font-weight:600;
-letter-spacing:5px;
-color:#d4af37;
-text-transform:uppercase;
+.logo img{
+height:80px;
 }
 
 nav a{
-color:#f5f5f5;
 text-decoration:none;
+color:#111;
 margin-left:35px;
-font-size:14px;
-font-weight:400;
-letter-spacing:2px;
-text-transform:uppercase;
-transition:0.3s ease;
+font-weight:600;
+letter-spacing:1px;
+transition:.3s;
 }
 
 nav a:hover{
-color:#d4af37;
+color:#c9a24d;
 }
 
+/* HERO */
+
 .hero{
-height:100vh;
+height:90vh;
+background:url('https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=2000') center center/cover;
 display:flex;
-justify-content:center;
 align-items:center;
-text-align:center;
-padding:20px;
-background:linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),
-url("https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=1500&q=80");
-background-size:cover;
-background-position:center;
+padding:0 8%;
+}
+
+.hero-content{
+max-width:650px;
+}
+
+.hero-tag{
+color:#c9a24d;
+font-size:28px;
+margin-bottom:20px;
+font-family:Georgia, serif;
 }
 
 .hero h1{
-font-size:60px;
-margin-bottom:20px;
+font-family:Georgia, serif;
+font-size:72px;
+line-height:1.1;
+margin-bottom:25px;
+}
+
+.hero h1 span{
+color:#c9a24d;
 }
 
 .hero p{
-font-size:22px;
-color:#ddd;
+font-size:24px;
+color:#444;
 margin-bottom:35px;
+line-height:1.5;
 }
 
 .btn{
 display:inline-block;
-padding:15px 35px;
-background:#C9A227;
-color:black;
-font-weight:bold;
+padding:18px 35px;
+background:#111;
+color:#fff;
 text-decoration:none;
-border-radius:40px;
-transition:.3s;
+border-radius:4px;
+font-weight:bold;
 }
 
-.btn:hover{
-transform:scale(1.05);
-}
+/* COLLECTIONS */
 
-section{
-padding:90px 8%;
-}
-
-.section-title{
-font-size:40px;
+.collections{
+padding:100px 8%;
 text-align:center;
-margin-bottom:50px;
-color:#d4af37;
 }
 
-.cards{
+.collections small{
+color:#c9a24d;
+font-size:18px;
+letter-spacing:2px;
+}
+
+.collections h2{
+font-family:Georgia, serif;
+font-size:52px;
+margin:15px 0 50px;
+}
+
+.collection-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
 gap:30px;
 }
 
 .card{
-background:#161616;
-border-radius:18px;
+position:relative;
 overflow:hidden;
-transition:.4s;
-}
-
-.card:hover{
-transform:translateY(-10px);
 }
 
 .card img{
 width:100%;
-height:260px;
+height:500px;
 object-fit:cover;
+display:block;
 }
 
-.card h3{
-padding:20px;
-text-align:center;
+.card-content{
+position:absolute;
+bottom:30px;
+left:30px;
+color:white;
+text-align:left;
 }
 
-.about{
-max-width:900px;
-margin:auto;
-text-align:center;
-line-height:1.8;
-font-size:18px;
-color:#ddd;
-}
-
-.features{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:25px;
-margin-top:50px;
-}
-
-.feature{
-background:#151515;
-padding:30px;
-border-radius:15px;
-text-align:center;
-}
-
-.feature h3{
-color:#d4af37;
+.card-content h3{
+font-size:40px;
+font-family:Georgia, serif;
 margin-bottom:10px;
 }
 
-.faq{
-max-width:900px;
-margin:auto;
-}
-
-details{
-background:#151515;
-margin-bottom:18px;
-padding:20px;
-border-radius:10px;
-}
-
-summary{
-cursor:pointer;
-font-weight:bold;
-color:#d4af37;
-}
-
-.contact{
-text-align:center;
-}
-
-.contact p{
-margin:10px 0;
+.card-content p{
 font-size:18px;
 }
 
-.whatsapp{
-display:inline-block;
-margin-top:25px;
-padding:15px 30px;
-background:#25D366;
+/* ABOUT */
+
+.about{
+padding:100px 8%;
+background:#f8f8f8;
+text-align:center;
+}
+
+.about h2{
+font-size:48px;
+font-family:Georgia, serif;
+margin-bottom:25px;
+}
+
+.about p{
+max-width:900px;
+margin:auto;
+font-size:22px;
+line-height:1.8;
+color:#444;
+}
+
+/* FAQ */
+
+.faq{
+padding:100px 8%;
+}
+
+.faq h2{
+text-align:center;
+font-family:Georgia, serif;
+font-size:48px;
+margin-bottom:50px;
+}
+
+.faq-item{
+margin-bottom:30px;
+}
+
+.faq-item h3{
+margin-bottom:10px;
+color:#c9a24d;
+}
+
+/* CONTACT */
+
+.contact{
+background:#070707;
 color:white;
+padding:80px 8%;
+}
+
+.contact-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+}
+
+.contact h2{
+color:#c9a24d;
+margin-bottom:30px;
+font-family:Georgia, serif;
+}
+
+.contact p{
+margin-bottom:15px;
+font-size:18px;
+}
+
+.whatsapp-box{
+border:1px solid #c9a24d;
+padding:30px;
+}
+
+.whatsapp-box h3{
+color:#c9a24d;
+margin-bottom:15px;
+}
+
+.whatsapp-box a{
+display:inline-block;
+margin-top:15px;
+padding:15px 30px;
+background:#c9a24d;
+color:black;
 text-decoration:none;
-border-radius:40px;
 font-weight:bold;
 }
 
 footer{
-padding:30px;
-text-align:center;
 background:black;
-color:#888;
+color:white;
+text-align:center;
+padding:25px;
 }
+
+/* MOBILE */
 
 @media(max-width:768px){
 
 header{
 flex-direction:column;
+padding:20px;
 }
 
 nav{
 margin-top:15px;
 }
 
+nav a{
+display:inline-block;
+margin:8px;
+}
+
+.hero{
+padding:40px;
+height:auto;
+}
+
 .hero h1{
-font-size:38px;
-font-weight:500;
-letter-spacing:1px;
-font-family:"Times New Roman", serif;
+font-size:42px;
 }
 
 .hero p{
 font-size:18px;
-color:#d0d0d0;
-max-width:700px;
-margin:20px auto;
-line-height:1.7;
 }
+
+.contact-grid{
+grid-template-columns:1fr;
+}
+
+.collections h2,
+.about h2,
+.faq h2{
+font-size:36px;
+}
+
 }
 
 </style>
-
 </head>
 
 <body>
@@ -244,207 +303,148 @@ line-height:1.7;
 <header>
 
 <div class="logo">
-50 Mirars
+<img src="logo.jpeg" alt="50 Mirars">
 </div>
 
 <nav>
-
+<a href="#home">Home</a>
 <a href="#collections">Collections</a>
-
 <a href="#about">About</a>
-
 <a href="#faq">FAQ</a>
-
 <a href="#contact">Contact</a>
-
 </nav>
 
 </header>
 
-<section class="hero">
+<section class="hero" id="home">
+
+<div class="hero-content">
+
+<div class="hero-tag">50 MIRARS</div>
+
+<h1>
+TIMELESS ELEGANCE.<br>
+UNMATCHED <span>STYLE.</span>
+</h1>
+
+<p>
+Premium watches and sunglasses crafted for those who value perfection.
+</p>
+
+<a href="https://wa.me/918209989013" class="btn">
+SHOP ON WHATSAPP
+</a>
+
+</div>
+
+</section>
+
+<section class="collections" id="collections">
+
+<small>OUR COLLECTIONS</small>
+
+<h2>EXPLORE OUR COLLECTIONS</h2>
+
+<div class="collection-grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?q=80&w=1200">
+<div class="card-content">
+<h3>WATCHES</h3>
+<p>Precision. Craftsmanship. Elegance.</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=1200">
+<div class="card-content">
+<h3>SUNGLASSES</h3>
+<p>Style that defines you.</p>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section class="about" id="about">
+
+<h2>About 50 Mirars</h2>
+
+<p>
+50 Mirars is dedicated to bringing premium watches and stylish sunglasses
+to customers who appreciate luxury, elegance, and timeless fashion.
+Our mission is to offer carefully selected products that combine quality,
+design, and affordability.
+</p>
+
+</section>
+
+<section class="faq" id="faq">
+
+<h2>Frequently Asked Questions</h2>
+
+<div class="faq-item">
+<h3>How can I place an order?</h3>
+<p>Simply contact us through WhatsApp and we'll assist you directly.</p>
+</div>
+
+<div class="faq-item">
+<h3>Do you deliver across India?</h3>
+<p>Yes, we provide delivery services across India.</p>
+</div>
+
+<div class="faq-item">
+<h3>What products do you offer?</h3>
+<p>Premium watches and fashionable sunglasses.</p>
+</div>
+
+</section>
+
+<section class="contact" id="contact">
+
+<div class="contact-grid">
 
 <div>
 
-<h1>Timeless Elegance</h1>
+<h2>Contact Us</h2>
 
-<p>Premium watches and sunglasses for modern sophistication.</p>
+<p><strong>WhatsApp:</strong> +91 8209989013</p>
 
-<a class="btn" href="#collections">Explore Collection</a>
+<p><strong>Email:</strong> 50mirars@gmail.com</p>
 
-</div>
+<p><strong>Instagram:</strong> @50mirars</p>
 
-</section>
+<p><strong>Address:</strong> Chitrakoot, Jaipur, Rajasthan - 302021</p>
 
-<section id="collections">
-
-<h2 class="section-title">Our Collections</h2>
-
-<div class="cards">
-
-<div class="card">
-
-<img src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=700&q=80">
-
-<h3>Luxury Watches</h3>
+<p><strong>Business Hours:</strong><br>
+Monday to Sunday, 9:00 AM - 9:00 PM</p>
 
 </div>
 
-<div class="card">
+<div>
 
-<img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=700&q=80">
+<div class="whatsapp-box">
 
-<h3>Premium Sunglasses</h3>
+<h3>CHAT ON WHATSAPP</h3>
 
-</div>
+<p>We're here to help you.</p>
 
-<div class="card">
-
-<img src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&w=700&q=80">
-
-<h3>Men's Collection</h3>
-
-</div>
-
-<div class="card">
-
-<img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=700&q=80">
-
-<h3>Women's Collection</h3>
+<a href="https://wa.me/918209989013">
+MESSAGE NOW
+</a>
 
 </div>
 
 </div>
-
-</section>
-
-<section id="about">
-
-<h2 class="section-title">About 50 Mirars</h2>
-
-<div class="about">
-
-At <strong>50 Mirars</strong>, we believe luxury should be accessible.
-Our carefully selected watches and sunglasses combine elegance,
-craftsmanship, and everyday sophistication. Every piece is chosen to
-help you express confidence and style without compromise.
-
-</div>
-
-<div class="features">
-
-<div class="feature">
-
-<h3>Premium Quality</h3>
-
-<p>Luxury-inspired collections built to impress.</p>
-
-</div>
-
-<div class="feature">
-
-<h3>Affordable Luxury</h3>
-
-<p>Exceptional style without premium pricing.</p>
-
-</div>
-
-<div class="feature">
-
-<h3>Fast Support</h3>
-
-<p>Quick responses and reliable customer service.</p>
-
-</div>
-
-<div class="feature">
-
-<h3>Trusted Brand</h3>
-
-<p>Committed to customer satisfaction and quality.</p>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="faq">
-
-<h2 class="section-title">Frequently Asked Questions</h2>
-
-<div class="faq">
-
-<details>
-
-<summary>Do you deliver across India?</summary>
-
-<p>Yes, we deliver to customers across India.</p>
-
-</details>
-
-<details>
-
-<summary>How can I place an order?</summary>
-
-<p>You can place your order directly through WhatsApp.</p>
-
-</details>
-
-<details>
-
-<summary>Do your products come with secure packaging?</summary>
-
-<p>Yes. Every order is packed carefully to ensure it reaches you safely.</p>
-
-</details>
-
-</div>
-
-</section>
-
-<section id="contact">
-
-<h2 class="section-title">Contact Us</h2>
-
-<div class="contact">
-
-<p>WhatsApp: +91 8209989013</p>
-
-<a class="whatsapp" href="https://wa.me/918209989013
-    
-    ">Order on WhatsApp</a>
-</footer>
-
-        </a>
-    </p>
-
-    <p><strong>Email:</strong>
-        <a href="mailto:50mirars@gmail.com">
-            50mirars@gmail.com
-        </a>
-    </p>
-
-    <p><strong>Instagram:</strong>
-        <a href="https://instagram.com/50mirars" target="_blank">
-            @50mirars
-        </a>
-    </p>
-
-    <p><strong>Address:</strong><br>
-        Chitrakoot, Jaipur, Rajasthan - 302021
-    </p>
-
-    <p><strong>Business Hours:</strong><br>
-        Monday to Sunday, 9:00 AM – 9:00 PM
-    </p>
-</section></body>
-</html>
 
 </div>
 
 </section>
 
 <footer>
-
 © 2026 50 Mirars. All Rights Reserved.
+</footer>
 
+</body>
+</html>
