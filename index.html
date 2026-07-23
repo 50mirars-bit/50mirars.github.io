@@ -30,6 +30,43 @@ background:#fff;
 color:#111;
 }
 
+.search-container{
+    position:relative;
+    max-width:500px;
+    margin:auto;
+}
+
+#searchInput{
+    width:100%;
+    padding:14px;
+    font-size:16px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    box-sizing:border-box;
+}
+
+#searchResults{
+    position:absolute;
+    width:100%;
+    background:white;
+    border:1px solid #ddd;
+    border-top:none;
+    z-index:999;
+    max-height:300px;
+    overflow-y:auto;
+    text-align:left;
+}
+
+.result-item{
+    padding:12px;
+    cursor:pointer;
+    border-bottom:1px solid #eee;
+}
+
+.result-item:hover{
+    background:#f4f4f4;
+}
+
 /* HEADER */
 
 header{
@@ -475,12 +512,16 @@ font-size:36px;
 <img src="logo.jpeg" alt="50 Mirars">
 </div>
 
-<nav>
-<input type="text" id="searchInput" placeholder="Search products...">
+<div class="search-container">
 
-<button onclick="searchProducts()">
-    Search
-</button>
+    <input type="text"
+           id="searchInput"
+           placeholder="Search products..."
+           onkeyup="searchProducts()">
+
+    <div id="searchResults"></div>
+
+</div>
 <a href="#home">Home</a>
 <a href="#collections">Collections</a>
 <a href="about.html">About Us</a>
@@ -693,53 +734,103 @@ MESSAGE NOW
 
 <script>
 
-const products = {
+const products = [
 
-    "rolex": "watches.html",
-    "tissot": "watches.html",
-    "casio": "watches.html",
-    "seiko": "watches.html",
-    "omega": "watches.html",
-    "rado": "watches.html",
-    "tag heuer": "watches.html",
-    "armani": "watches.html",
-    "tommy": "watches.html",
-    "fossil": "watches.html",
-    "citizen": "watches.html",
-    "patek": "watches.html",
-    "audemars": "watches.html",
-    "jacob": "watches.html",
+"Rolex Cosmograph",
+"Rolex Cosmograph Daytona John Walker",
+"Rolex Daytona Rainbow",
+"Rolex Yacht-Master 42",
+"Rolex Sky-Dweller Couple Watch",
+"Rolex Automatic Couple Watch",
 
-    "gucci": "sunglasses.html",
-    "maybach": "sunglasses.html",
-    "cartier": "sunglasses.html",
-    "balmain": "sunglasses.html",
-    "dita": "sunglasses.html",
-    "chrome hearts": "sunglasses.html"
+"Tissot PRX",
+"Tissot Carson",
+"Tissot Gentleman Powermatic 80",
+"Tissot Gentle Couple Watch",
 
-};
+"Casio G-Shock",
+"Casio Edifice ECB-2000DD",
+"Casio Edifice EFR-539SG-1AVUDF",
+"Casio Vintage Couple Watch",
 
-function searchProducts() {
+"Omega Constellation Couple Watch",
+"Omega X Swatch Moon's Watch",
 
-    let input = document.getElementById("searchInput")
-    .value
-    .toLowerCase()
-    .trim();
+"Seiko Mod",
+"Seiko Mod Date-Just",
+"Seiko Pepsi Edition",
+"Seiko Presage Cocktail Time",
+"Seiko Blue Moon SSA347J1",
+"Seiko SRPL64",
 
-    for (let key in products) {
+"Audemars Piguet Royal Oak",
+"Swatch X Audemars Piguet Royal Pop",
 
-        if(input.includes(key)) {
+"Patek Philippe Nautilus Chain",
+"Patek Philippe Nautilus Band",
 
-            window.location.href = products[key];
-            return;
+"Tommy Hilfiger TW001863-001",
+"Tommy Hilfiger Automatic Skeleton Watch",
 
-        }
+"Fossil Nick Jonas Couple Watch",
 
+"Emporio Armani Ceramica",
+"Emporio Armani BSF954",
+"Emporio Armani Luigi AR187",
+"Emporio Armani Luigi AR1808",
+
+"Armani Exchange Hampton AX2418",
+
+"Citizen Classic Couple Watch",
+
+"Rado Centrix Jubile Couple Watch",
+"Rado Diastar Couple Watch",
+
+"Tag Heuer Grand Carrera CR7",
+
+"Longiness Master Collection",
+
+"Maserati R8853100027 Competizione Plain",
+
+"Jacob & Co CR7 Watch",
+
+"Danial Wellington Couple",
+
+"Cartier Santos Dumont Couple Watch",
+"Cartier Santos Roman Couple Watch"
+
+];
+
+function searchProducts(){
+
+    let input = document.getElementById("searchInput").value.toLowerCase();
+
+    let resultsBox = document.getElementById("searchResults");
+
+    resultsBox.innerHTML = "";
+
+    if(input.length < 1){
+        return;
     }
+
+    let matches = products.filter(product =>
+        product.toLowerCase().includes(input)
+    );
+
+    matches.forEach(product => {
+
+        let div = document.createElement("div");
+
+        div.className = "result-item";
+
+        div.textContent = product;
+
+        resultsBox.appendChild(div);
+
+    });
 
 }
 
 </script>
-
 </body>
 </html>
