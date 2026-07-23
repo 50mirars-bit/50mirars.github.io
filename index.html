@@ -476,7 +476,11 @@ font-size:36px;
 </div>
 
 <nav>
-<input type="text" id="searchInput" placeholder="Search products..." onkeyup="searchProducts()">
+<input type="text" id="searchInput" placeholder="Search products...">
+
+<button onclick="searchProducts()">
+    Search
+</button>
 <a href="#home">Home</a>
 <a href="#collections">Collections</a>
 <a href="about.html">About Us</a>
@@ -688,17 +692,53 @@ MESSAGE NOW
 </footer>
 
 <script>
+
+const products = {
+
+    "rolex": "watches.html",
+    "tissot": "watches.html",
+    "casio": "watches.html",
+    "seiko": "watches.html",
+    "omega": "watches.html",
+    "rado": "watches.html",
+    "tag heuer": "watches.html",
+    "armani": "watches.html",
+    "tommy": "watches.html",
+    "fossil": "watches.html",
+    "citizen": "watches.html",
+    "patek": "watches.html",
+    "audemars": "watches.html",
+    "jacob": "watches.html",
+
+    "gucci": "sunglasses.html",
+    "maybach": "sunglasses.html",
+    "cartier": "sunglasses.html",
+    "balmain": "sunglasses.html",
+    "dita": "sunglasses.html",
+    "chrome hearts": "sunglasses.html"
+
+};
+
 function searchProducts() {
-    let input = document.getElementById("searchInput").value.toLowerCase();
 
-    if(input.includes("watch") || input.includes("rolex") || input.includes("tissot")){
-        window.location.href = "watches.html";
+    let input = document.getElementById("searchInput")
+    .value
+    .toLowerCase()
+    .trim();
+
+    for (let key in products) {
+
+        if(input.includes(key)) {
+
+            window.location.href = products[key];
+            return;
+
+        }
+
     }
 
-    if(input.includes("sunglass") || input.includes("gucci") || input.includes("maybach") || input.includes("cartier") || input.includes("balmain")){
-        window.location.href = "sunglasses.html";
-    }
 }
+
 </script>
 
 </body>
