@@ -21,6 +21,25 @@ body{
     font-size:48px;
 }
 
+.title-line{
+    width:160px;
+    height:2px;
+    background:#c9a24d;
+    margin:0 auto;
+    position:relative;
+}
+
+.title-line::after{
+    content:"";
+    width:12px;
+    height:12px;
+    background:#c9a24d;
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%) rotate(45deg);
+}
+    
 .product-grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
@@ -96,8 +115,9 @@ body{
     
 <div class="page-title">
     <h1>Luxury Articles</h1>
+    <div class="title-line"></div>
 </div>
-
+    
 <div class="product-grid">
 
 <div class="product-card">
