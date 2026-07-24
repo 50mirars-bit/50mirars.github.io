@@ -15,67 +15,65 @@
 }
 
 body{
-    font-family:Arial, sans-serif;
+    font-family:Arial,sans-serif;
     background:#f5f3ee;
     color:#111;
 }
 
-/* Back Button */
+/* BACK BUTTON */
 
 .back-btn{
     display:inline-block;
-    margin:25px 0 0 45px;
+    margin:30px 50px;
     background:#111;
     color:#fff;
     text-decoration:none;
-    padding:15px 28px;
+    padding:14px 28px;
     border-radius:8px;
-    font-size:20px;
     font-weight:600;
     transition:.3s;
 }
 
 .back-btn:hover{
     background:#c9a24d;
+    color:#111;
 }
 
-/* Header Section */
+/* PAGE HEADER */
 
 .page-header{
     text-align:center;
-    padding:120px 20px 80px;
+    padding:40px 20px 80px;
 }
 
 .page-header h1{
-    font-size:78px;
-    font-weight:700;
-    margin-bottom:25px;
+    font-size:72px;
+    margin-bottom:20px;
+    font-family:Georgia,serif;
 }
-
-/* Gold Divider */
 
 .divider{
-    width:200px;
-    height:20px;
-    margin:0 auto 35px;
+    width:220px;
+    margin:0 auto 25px;
     position:relative;
+    height:20px;
 }
 
-.divider::before,
-.divider::after{
+.divider:before,
+.divider:after{
     content:"";
     position:absolute;
     top:50%;
-    width:85px;
+    width:90px;
     height:2px;
     background:#c9a24d;
 }
 
-.divider::before{
+.divider:before{
     left:0;
 }
 
-.divider::after{
+.divider:after{
     right:0;
 }
 
@@ -90,59 +88,18 @@ body{
 }
 
 .page-header p{
-    font-size:22px;
-    color:#555;
-}
-
-/* Coming Soon Section */
-
-.coming-soon{
-    text-align:center;
-    padding:40px 20px 120px;
-}
-
-.coming-soon h2{
-    font-size:40px;
-    color:#c9a24d;
-    margin-bottom:15px;
-    font-family:Georgia, serif;
-}
-
-.coming-soon p{
-    font-size:20px;
     color:#666;
+    font-size:22px;
 }
 
-/* Mobile */
-
-@media(max-width:768px){
-
-.page-header{
-    padding:80px 20px 50px;
-}
-
-.page-header h1{
-    font-size:48px;
-}
-
-.page-header p{
-    font-size:18px;
-}
-
-.back-btn{
-    margin:20px;
-    font-size:16px;
-}
-
-}
-/* PRODUCTS GRID */
+/* PRODUCTS */
 
 .products-grid{
     width:90%;
     max-width:1400px;
-    margin:50px auto 100px;
+    margin:0 auto 100px;
     display:grid;
-    grid-template-columns:repeat(3, 1fr);
+    grid-template-columns:repeat(3,1fr);
     gap:35px;
 }
 
@@ -150,7 +107,7 @@ body{
     background:#fff;
     border-radius:15px;
     overflow:hidden;
-    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
     transition:.3s;
 }
 
@@ -165,26 +122,29 @@ body{
     display:block;
 }
 
-.product-card h3{
-    padding:20px 20px 10px;
-    font-size:28px;
+.product-info{
+    padding:20px;
+}
+
+.product-info h3{
+    font-size:24px;
+    margin-bottom:10px;
 }
 
 .price{
-    padding:0 20px;
-    font-size:36px;
-    font-weight:bold;
     color:#c9a24d;
+    font-size:34px;
+    font-weight:bold;
+    margin-bottom:20px;
 }
 
 .enquire-btn{
     display:block;
-    margin:20px;
     text-align:center;
     background:#111;
-    color:white;
+    color:#fff;
     text-decoration:none;
-    padding:15px;
+    padding:14px;
     border-radius:8px;
     font-weight:600;
     transition:.3s;
@@ -192,66 +152,69 @@ body{
 
 .enquire-btn:hover{
     background:#c9a24d;
-    color:black;
+    color:#111;
 }
 
-/* Mobile */
+/* MOBILE */
 
 @media(max-width:1000px){
-    .products-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
+
+.products-grid{
+    grid-template-columns:repeat(2,1fr);
+}
+
+.page-header h1{
+    font-size:54px;
+}
+
 }
 
 @media(max-width:700px){
-    .products-grid{
-        grid-template-columns:1fr;
-    }
+
+.products-grid{
+    grid-template-columns:1fr;
 }
+
+.page-header h1{
+    font-size:40px;
+}
+
+.page-header p{
+    font-size:18px;
+}
+
+.back-btn{
+    margin:20px;
+}
+
+}
+
 </style>
 </head>
 
 <body>
 
-<a href="index.html" class="back-btn">
-    ← Back to Home
+<a href="watches.html" class="back-btn">
+← Back to Watches
 </a>
 
 <section class="page-header">
 
-    <h1>Couple Watches</h1>
+<h1>Couple Watches</h1>
 
-    <div class="divider">
-        <span></span>
-    </div>
+<div class="divider">
+<span></span>
+</div>
 
-    <p>Luxury matching watches crafted for couples.</p>
+<p>Luxury matching watches crafted for couples.</p>
 
 </section>
 
-<section class="products-grid">
+<div class="products-grid">
 
-    <!-- ALL PRODUCT CARDS HERE -->
+<!-- PASTE PRODUCTS HERE -->
 
-</section>
-
-<div class="product-grid">
-
-<!-- Products will go here -->
-
-<div class="product-card">
-    <img src="Cartier Santos Dumont Couple Watch.jpeg" alt="Cartier Santos Dumont Couple Watch">
-
-    <h3>Cartier Santos Dumont Couple Watch</h3>
-
-    <div class="price">₹4,500</div>
-
-    <a class="enquire-btn"
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Cartier%20Santos%20Dumont%20Couple%20Watch.">
-       Enquire Now
-    </a>
 </div>
-    
-</div>
+
 </body>
 </html>
