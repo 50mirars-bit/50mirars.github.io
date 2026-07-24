@@ -137,41 +137,35 @@ transform:translateY(-2px);
 
 .search-container{
     position:relative;
-    width:300px;
-}
-
-#searchInput{
-    width:100%;
-    padding:10px 15px;
-    border:1px solid #ccc;
-    border-radius:25px;
-    font-size:15px;
+    display:inline-block;
 }
 
 #searchResults{
     position:absolute;
     top:45px;
     left:0;
-    width:100%;
+    width:250px;
     background:white;
-    border-radius:10px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.15);
+    border:1px solid #ddd;
     display:none;
-    z-index:9999;
     max-height:300px;
     overflow-y:auto;
+    z-index:9999;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
 }
 
 #searchResults a{
     display:block;
-    padding:12px;
+    padding:10px;
     color:#111;
     text-decoration:none;
     border-bottom:1px solid #eee;
+    margin:0;
 }
 
 #searchResults a:hover{
-    background:#f4f1ea;
+    background:#f5f5f5;
+    color:#c9a24d;
 }
     
 /* COLLECTIONS */
@@ -516,19 +510,21 @@ font-size:36px;
     <img src="logo.jpeg" alt="50 Mirars">
     
 </div>
+<nav>
+
 <div class="search-container">
     <input type="text" id="searchInput" placeholder="Search products...">
     <div id="searchResults"></div>
 </div>
-    
-<nav>
-    <a href="#home">Home</a>
-    <a href="#collections">Collections</a>
-    <a href="about.html">About Us</a>
-    <a href="faq.html">FAQ</a>
-    <a href="terms.html">Terms & Conditions</a>
-</nav>
 
+<a href="#home">Home</a>
+<a href="#collections">Collections</a>
+<a href="about.html">About Us</a>
+<a href="faq.html">FAQ</a>
+<a href="terms.html">Terms & Conditions</a>
+
+</nav>
+    
 </header>
 <section class="hero" id="home">
 
@@ -732,84 +728,119 @@ MESSAGE NOW
 const products = [
 
 {
-name:"Balmain Paris 7020 Purple Shade Sunglasses",
-url:"<div id="balmain-purple" class="product-card">"
+name:"Balmain Paris 7020 Green Shade Sunglasses",
+link:"sunglasses.html"
 },
 
 {
-name:"Balmain Paris 7020 Green Shade Sunglasses",
-url:"<div id="balmain-green" class="product-card">"
+name:"Balmain Paris 7020 Purple Shade Sunglasses",
+link:"sunglasses.html"
+},
+
+{
+name:"Panthere de Cartier",
+link:"sunglasses.html"
 },
 
 {
 name:"MayBach Karan Aujla Edition Sunglasses",
-url:"sunglasses.html"
+link:"most-selling.html"
 },
 
 {
 name:"Cartier Aqua Green Karan Aujla Edition",
-url:"<div id="Cartier-green" class="product-card">"
+link:"most-selling.html"
 },
 
 {
 name:"Tissot PRX",
-url:"watches.html"
+link:"most-selling.html"
 },
 
 {
-name:"King Seiko Vanac SLA087",
-url:"watches.html"
+name:"Tissot PRX Band",
+link:"most-selling.html"
+},
+
+{
+name:"Casio Edifice EFR-539SG-1AVUDF",
+link:"most-selling.html"
 },
 
 {
 name:"Rolex Sky-Dweller",
-url:"luxuryarticles.html"
+link:"luxury-articles.html"
+},
+
+{
+name:"Rolex GMT-Master II",
+link:"luxury-articles.html"
+},
+
+{
+name:"Omega Speedmaster Snoopy Blue",
+link:"luxury-articles.html"
+},
+
+{
+name:"Ray-Ban Meta Gen-2",
+link:"luxury-articles.html"
 },
 
 {
 name:"Patek Philippe Nautilus 5711",
-url:"luxuryarticles.html"
+link:"luxury-articles.html"
 }
 
 ];
 
-const input = document.getElementById("searchInput");
-const results = document.getElementById("searchResults");
+const searchInput = document.getElementById("searchInput");
+const searchResults = document.getElementById("searchResults");
 
-input.addEventListener("keyup", function(){
+searchInput.addEventListener("input", function(){
 
-let value = this.value.toLowerCase();
+const value = this.value.toLowerCase();
 
-results.innerHTML = "";
+searchResults.innerHTML = "";
 
-if(value.length === 0){
-results.style.display = "none";
+if(value.length < 2){
+searchResults.style.display = "none";
 return;
 }
 
-let matches = products.filter(product =>
+const matches = products.filter(product =>
 product.name.toLowerCase().includes(value)
 );
 
+if(matches.length === 0){
+searchResults.innerHTML =
+"<div style='padding:10px;'>No products found</div>";
+searchResults.style.display = "block";
+return;
+}
+
 matches.forEach(product => {
 
-results.innerHTML += `
-<a href="${product.url}">
-${product.name}
-</a>
-`;
+const item = document.createElement("a");
+
+item.href = product.link;
+
+item.textContent = product.name;
+
+searchResults.appendChild(item);
 
 });
 
-results.style.display =
-matches.length ? "block" : "none";
+searchResults.style.display = "block";
 
 });
 
 document.addEventListener("click", function(e){
 
 if(!document.querySelector(".search-container").contains(e.target)){
-results.style.display = "none";
+
+searchResults.style.display = "none";
+
 }
 
 });
