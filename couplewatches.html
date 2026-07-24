@@ -1,69 +1,171 @@
-.products{
-    padding:80px 8%;
-    text-align:center;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Couple Watches | 50 Mirars</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-.products h1{
-    font-size:52px;
+body{
+    font-family:Arial, sans-serif;
+    background:#f5f3ee;
+    color:#111;
+}
+
+/* Back Button */
+
+.back-btn{
+    display:inline-block;
+    margin:25px 0 0 45px;
+    background:#111;
+    color:#fff;
+    text-decoration:none;
+    padding:15px 28px;
+    border-radius:8px;
+    font-size:20px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.back-btn:hover{
+    background:#c9a24d;
+}
+
+/* Header Section */
+
+.page-header{
+    text-align:center;
+    padding:120px 20px 80px;
+}
+
+.page-header h1{
+    font-size:78px;
+    font-weight:700;
+    margin-bottom:25px;
+}
+
+/* Gold Divider */
+
+.divider{
+    width:200px;
+    height:20px;
+    margin:0 auto 35px;
+    position:relative;
+}
+
+.divider::before,
+.divider::after{
+    content:"";
+    position:absolute;
+    top:50%;
+    width:85px;
+    height:2px;
+    background:#c9a24d;
+}
+
+.divider::before{
+    left:0;
+}
+
+.divider::after{
+    right:0;
+}
+
+.divider span{
+    position:absolute;
+    left:50%;
+    top:50%;
+    width:14px;
+    height:14px;
+    background:#c9a24d;
+    transform:translate(-50%,-50%) rotate(45deg);
+}
+
+.page-header p{
+    font-size:22px;
+    color:#555;
+}
+
+/* Coming Soon Section */
+
+.coming-soon{
+    text-align:center;
+    padding:40px 20px 120px;
+}
+
+.coming-soon h2{
+    font-size:40px;
+    color:#c9a24d;
     margin-bottom:15px;
     font-family:Georgia, serif;
 }
 
-.products p{
+.coming-soon p{
+    font-size:20px;
     color:#666;
-    margin-bottom:40px;
 }
 
-.products-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:30px;
+/* Mobile */
+
+@media(max-width:768px){
+
+.page-header{
+    padding:80px 20px 50px;
 }
 
-.product-card{
-    background:#fff;
-    border-radius:10px;
-    overflow:hidden;
-    box-shadow:0 5px 20px rgba(0,0,0,.08);
+.page-header h1{
+    font-size:48px;
 }
 
-.product-card img{
-    width:100%;
-    height:350px;
-    object-fit:cover;
+.page-header p{
+    font-size:18px;
 }
 
-.product-card h3{
-    padding:20px;
+.back-btn{
+    margin:20px;
+    font-size:16px;
 }
 
-.btn{
-    display:inline-block;
-    margin-bottom:20px;
-    padding:12px 25px;
-    background:#c9a24d;
-    color:#fff;
-    text-decoration:none;
 }
 
-<section class="products">
+</style>
+</head>
 
-<h1>Couple Watches</h1>
-<p>Luxury matching watches crafted for couples.</p>
+<body>
 
-<div class="products-grid">
+<a href="index.html" class="back-btn">
+    ← Back to Home
+</a>
 
-<div class="product-card">
-    <img src="Cartier Santos Dumont Couple Watch.jpeg"
-         alt="Cartier Couple Watch">
+<section class="page-header">
 
-    <h3>Cartier Santos Couple Watch</h3>
+    <h1>Couple Watches</h1>
 
-    <a href="https://wa.me/918209989013" class="btn">
-        Enquire Now
-    </a>
-</div>
+    <div class="divider">
+        <span></span>
+    </div>
 
-</div>
+    <p>Luxury matching watches crafted for couples.</p>
 
 </section>
+
+<section class="coming-soon">
+
+    <h2>Coming Soon</h2>
+
+    <p>
+        Our exclusive collection of matching couple watches will be available soon.
+    </p>
+
+</section>
+
+</body>
+</html>
