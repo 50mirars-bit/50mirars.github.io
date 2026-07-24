@@ -39,7 +39,7 @@ body{
     color:#111;
 }
 
-/* HEADER */
+/* PAGE HEADER */
 
 .page-header{
     text-align:center;
@@ -48,7 +48,7 @@ body{
 
 .page-header h1{
     font-size:72px;
-    font-family:Georgia, serif;
+    font-family:Georgia,serif;
     margin-bottom:20px;
 }
 
@@ -97,9 +97,7 @@ body{
 .products-grid{
     width:90%;
     max-width:1400px;
-    margin:auto;
-    margin-bottom:100px;
-
+    margin:0 auto 100px;
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:35px;
@@ -119,7 +117,47 @@ body{
     transform:translateY(-8px);
 }
 
-/* IMAGE SLIDER */
+.product-card img{
+    width:100%;
+    height:320px;
+    object-fit:cover;
+    display:block;
+}
+
+.product-info{
+    padding:20px;
+}
+
+.product-info h3{
+    font-size:24px;
+    margin-bottom:10px;
+}
+
+.price{
+    color:#c9a24d;
+    font-size:32px;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+.enquire-btn{
+    display:block;
+    text-align:center;
+    background:#111;
+    color:#fff;
+    text-decoration:none;
+    padding:14px;
+    border-radius:8px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.enquire-btn:hover{
+    background:#c9a24d;
+    color:#111;
+}
+
+/* IMAGE SLIDER READY */
 
 .slider{
     position:relative;
@@ -134,7 +172,7 @@ body{
     height:100%;
     object-fit:cover;
     opacity:0;
-    transition:.4s;
+    transition:.5s;
 }
 
 .slide.active{
@@ -153,7 +191,7 @@ body{
     background:rgba(0,0,0,.6);
     color:#fff;
     cursor:pointer;
-    z-index:10;
+    font-size:18px;
 }
 
 .prev{
@@ -169,40 +207,6 @@ body{
     background:#c9a24d;
 }
 
-/* PRODUCT INFO */
-
-.product-info{
-    padding:20px;
-}
-
-.product-info h3{
-    font-size:22px;
-    margin-bottom:10px;
-}
-
-.price{
-    color:#c9a24d;
-    font-size:30px;
-    font-weight:bold;
-    margin-bottom:20px;
-}
-
-.enquire-btn{
-    display:block;
-    text-align:center;
-    background:#111;
-    color:#fff;
-    text-decoration:none;
-    padding:14px;
-    border-radius:8px;
-    font-weight:600;
-}
-
-.enquire-btn:hover{
-    background:#c9a24d;
-    color:#111;
-}
-
 /* TABLET */
 
 @media(max-width:1000px){
@@ -212,7 +216,7 @@ body{
 }
 
 .page-header h1{
-    font-size:55px;
+    font-size:54px;
 }
 
 }
@@ -262,87 +266,40 @@ body{
 
 <div class="products-grid">
 
-<!-- ADD ALL WATCHES HERE -->
+<!-- PASTE ALL PRODUCT CARDS HERE -->
 
-<div class="product-card">
-    <img src="Cartier Santos Dumont Couple Watch.jpeg" alt="Cartier Santos Dumont Couple Watch">
-
-    <h3>Cartier Santos Dumont Couple Watch</h3>
-
-    <div class="price">₹4,500</div>
-
-    <a class="enquire-btn"
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Cartier%20Santos%20Dumont%20Couple%20Watch.">
-       Enquire Now
-    </a>
-</div>
-
-<div class="product-card">
-    <img src="Tissot Gentel Couple Watch.jpeg" alt="Tissot Gentel Couple Watch">
-
-    <h3>Tissot Gentel Couple Watch</h3>
-
-    <div class="price">₹5,000</div>
-
-    <a class="enquire-btn"
-    href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Tissot%20Gentel%20Couple%20Watch.">
-    Enquire Now
-    </a>
-</div>
-    
 </div>
 
 <script>
 
 document.querySelectorAll(".slider").forEach(slider=>{
 
-const slides = slider.querySelectorAll(".slide");
-const nextBtn = slider.querySelector(".next");
-const prevBtn = slider.querySelector(".prev");
+    const slides = slider.querySelectorAll(".slide");
+    const nextBtn = slider.querySelector(".next");
+    const prevBtn = slider.querySelector(".prev");
 
-let current = 0;
+    let current = 0;
 
-function showSlide(index){
+    function showSlide(index){
+        slides.forEach(slide=>slide.classList.remove("active"));
+        slides[index].classList.add("active");
+    }
 
-slides.forEach(slide=>{
-slide.classList.remove("active");
-});
+    if(nextBtn){
+        nextBtn.addEventListener("click",()=>{
+            current++;
+            if(current >= slides.length) current = 0;
+            showSlide(current);
+        });
+    }
 
-slides[index].classList.add("active");
-
-}
-
-if(nextBtn){
-
-nextBtn.addEventListener("click",()=>{
-
-current++;
-
-if(current >= slides.length){
-current = 0;
-}
-
-showSlide(current);
-
-});
-
-}
-
-if(prevBtn){
-
-prevBtn.addEventListener("click",()=>{
-
-current--;
-
-if(current < 0){
-current = slides.length - 1;
-}
-
-showSlide(current);
-
-});
-
-}
+    if(prevBtn){
+        prevBtn.addEventListener("click",()=>{
+            current--;
+            if(current < 0) current = slides.length - 1;
+            showSlide(current);
+        });
+    }
 
 });
 
