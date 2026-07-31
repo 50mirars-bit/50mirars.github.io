@@ -71,6 +71,32 @@ h1{
     line-height:1.8;
 }
 
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 10px 0;
+  color: #222;
+}
+
+.faq-answer {
+  display: none;
+  padding-top: 10px;
+  line-height: 1.8;
+}
+
+.faq-item.active .faq-answer {
+  display: block;
+}
+
+.faq-item {
+  transition: all 0.3s ease;
+}
+
 .footer{
     text-align:center;
     padding:30px;
@@ -166,6 +192,16 @@ h1{
 
 </div>
 
+<script>
+const faqItems = document.querySelectorAll('.faq-item');
+
+faqItems.forEach(item => {
+  const question = item.querySelector('.faq-question');
+  question.addEventListener('click', () => {
+    item.classList.toggle('active');
+  });
+});
+</script>
 
 <div class="footer">
 © 2026 50 Mirars. All Rights Reserved.
