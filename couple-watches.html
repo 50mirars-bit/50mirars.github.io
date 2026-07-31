@@ -103,6 +103,45 @@ body{
     color:black;
 }
 
+/* Slider styling */
+.slider {
+  position: relative;
+  width: 100%;
+  height: 350px;
+  overflow: hidden;
+}
+
+.slider img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+}
+
+.slider img.active {
+  display: block;
+}
+
+.slider button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.slider .prev {
+  left: 10px;
+}
+
+.slider .next {
+  right: 10px;
+}
+
 /* Responsive */
 @media(max-width:768px){
     .page-title h1{font-size:42px;}
@@ -171,4 +210,31 @@ body{
     Enquire Now
     </a>
     </div>
+
+<script>
+document.querySelectorAll('.slider').forEach(function(slider) {
+  let slides = slider.querySelectorAll('.slide');
+  let currentIndex = 0;
+
+  const showSlide = (index) => {
+    slides.forEach((img, i) => {
+      img.classList.toggle('active', i === index);
+    });
+  };
+
+  slider.querySelector('.prev').addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    showSlide(currentIndex);
+  });
+
+  slider.querySelector('.next').addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % slides.length;
+    showSlide(currentIndex);
+  });
+
+  // Initialize
+  showSlide(currentIndex);
+});
+</script>
     
+</body>
