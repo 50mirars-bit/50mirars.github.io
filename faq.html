@@ -43,11 +43,38 @@ h1{
     margin-bottom:20px;
     border-left:4px solid #c79a3b;
     box-shadow:0 5px 15px rgba(0,0,0,0.05);
+    transition:all 0.3s ease;
 }
 
-.faq-item h2{
-    margin-top:0;
+.faq-question{
+    width:100%;
+    background:none;
+    border:none;
+    text-align:left;
     font-size:22px;
+    font-weight:bold;
+    cursor:pointer;
+    padding:10px 0;
+    color:#222;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.faq-icon{
+    font-size:24px;
+    color:#c79a3b;
+    transition:transform 0.3s ease;
+}
+
+.faq-answer{
+    display:none;
+    padding-top:10px;
+    line-height:1.8;
+}
+
+.faq-item.active .faq-answer{
+    display:block;
 }
 
 .back-btn{
@@ -67,36 +94,6 @@ h1{
     color:black;
 }
 
-.faq-item p{
-    line-height:1.8;
-}
-
-.faq-question {
-  width: 100%;
-  background: none;
-  border: none;
-  text-align: left;
-  font-size: 22px;
-  font-weight: bold;
-  cursor: pointer;
-  padding: 10px 0;
-  color: #222;
-}
-
-.faq-answer {
-  display: none;
-  padding-top: 10px;
-  line-height: 1.8;
-}
-
-.faq-item.active .faq-answer {
-  display: block;
-}
-
-.faq-item {
-  transition: all 0.3s ease;
-}
-
 .footer{
     text-align:center;
     padding:30px;
@@ -109,96 +106,26 @@ h1{
 <body>
 
 <div class="header">
-
 <div class="container">
-  <h1>Frequently Asked Questions</h1>
 
-  <div class="faq-item">
-    <button class="faq-question">1. How can I place an order?</button>
-    <div class="faq-answer">
-      <p>You can place an order directly through our WhatsApp contact.</p>
-    </div>
-  </div>
+<h1>Frequently Asked Questions</h1>
 
-  <div class="faq-item">
-    <button class="faq-question">2. Do you deliver across India?</button>
-    <div class="faq-answer">
-      <p>Yes, we offer delivery services across India.</p>
-    </div>
+<!-- Example FAQ item -->
+<div class="faq-item">
+  <button class="faq-question">
+    Your Question Here
+    <span class="faq-icon">+</span>
+  </button>
+  <div class="faq-answer">
+    <p>Your answer goes here.</p>
   </div>
+</div>
 
-  <div class="faq-item">
-    <button class="faq-question">3. What products does 50 Mirars offer?</button>
-    <div class="faq-answer">
-      <p>We specialize in premium watches and stylish sunglasses.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <button class="faq-question">4. How long does delivery take?</button>
-    <div class="faq-answer">
-      <p>Most orders are delivered within 3–7 business days.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <button class="faq-question">5. Do your watches come with a warranty?</button>
-    <div class="faq-answer">
-      <p>Warranty details vary by product and will be shared during purchase.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <button class="faq-question">6. Can I return or exchange a product?</button>
-    <div class="faq-answer">
-      <p>Please contact us directly for return and exchange assistance.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <button class="faq-question">7. Are the sunglasses UV protected?</button>
-    <div class="faq-answer">
-      <p>Yes, our sunglasses are selected with quality and eye protection in mind.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <button class="faq-question">8. What payment methods do you accept?</button>
-    <div class="faq-answer">
-      <p>Payment options will be shared during order confirmation.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <button class="faq-question">9. Can I track my order?</button>
-    <div class="faq-answer">
-      <p>Yes, tracking details will be provided once your order is shipped.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <button class="faq-question">10. Do you offer cash on delivery?</button>
-    <div class="faq-answer">
-      <p>COD availability depends on your location and order value.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <button class="faq-question">11. How can I contact customer support?</button>
-    <div class="faq-answer">
-      <p>You can reach us via WhatsApp, Instagram, or email.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <button class="faq-question">12. Are your products original and quality checked?</button>
-    <div class="faq-answer">
-      <p>Yes, every product is checked before dispatch to ensure quality.</p>
-    </div>
-  </div>
+<!-- Add more faq-item blocks as needed -->
 
 <a href="index.html" class="back-btn">← Back to Home</a>
 
+</div>
 </div>
 
 <script>
@@ -206,8 +133,15 @@ const faqItems = document.querySelectorAll('.faq-item');
 
 faqItems.forEach(item => {
   const question = item.querySelector('.faq-question');
+  const icon = item.querySelector('.faq-icon');
+
   question.addEventListener('click', () => {
     item.classList.toggle('active');
+    if (item.classList.contains('active')) {
+      icon.textContent = '–';
+    } else {
+      icon.textContent = '+';
+    }
   });
 });
 </script>
