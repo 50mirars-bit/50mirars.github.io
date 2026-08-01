@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=1200">
 <title>Your Cart | 50 Mirars</title>
-<link rel="stylesheet" href="style.css"> <!-- reuse your main CSS -->
 <style>
 body {
   font-family: Arial, sans-serif;
@@ -118,3 +117,52 @@ header h1 {
   <div id="cart-items"></div>
   <div id="cart-summary"></div>
 </section>
+
+<footer>
+  <p style="text-align:center; background:#111; color:#fff; padding:20px;">
+    © 2026 50 Mirars. All Rights Reserved.
+  </p>
+</footer>
+
+<script>
+function renderCart() {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let cartItems = document.getElementById("cart-items");
+  let cartSummary = document.getElementById("cart-summary");
+
+  cartItems.innerHTML = "";
+  cartSummary.innerHTML = "";
+
+  if (cart.length === 0) {
+    cartItems.innerHTML = "<p>Your cart is empty.</p>";
+    return;
+  }
+
+  let total = 0;
+  cart.forEach((item, index) => {
+    total += parseFloat(item.price);
+    cartItems.innerHTML += `
+      <div class="cart-item">
+        <h3>${item.name}</h3>
+        <p>$${item.price}</p>
+        <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
+      </div>
+    `;
+  });
+
+  cartSummary.innerHTML = `<p><strong>Total:</strong> $${total}</p>
+    <button class="checkout-btn">Proceed to Checkout</button>`;
+}
+
+function removeItem(index) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cart.splice(index, 1);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  renderCart();
+}
+
+renderCart();
+</script>
+
+</body>
+</html>
