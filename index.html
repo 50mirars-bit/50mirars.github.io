@@ -399,24 +399,35 @@ font-size:36px;
 }   /* CLOSES THE MOBILE MEDIA QUERY */
 
 .floating-cart {
-  position:fixed;
-  bottom:25px;
-  right:25px;
-  background:#c9a24d;
-  color:#fff;
-  font-size:24px;
-  padding:15px;
-  border-radius:50%;
-  box-shadow:0 4px 12px rgba(0,0,0,0.2);
-  text-decoration:none;
-  transition:0.3s;
-  z-index:1000;
-}
-.floating-cart:hover {
-  background:#111;
-  transform:scale(1.1);
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: #c9a24d;
+  color: #fff;
+  font-size: 24px;
+  padding: 15px;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  text-decoration: none;
+  transition: 0.3s;
+  z-index: 1000;
 }
 
+.floating-cart:hover {
+  background: #111;
+  transform: scale(1.1);
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+  .floating-cart {
+    bottom: 20px;
+    right: 20px;
+    font-size: 22px;
+    padding: 14px;
+  }
+}
+  
 /* GET IN TOUCH */
 
 .get-touch{
@@ -769,7 +780,7 @@ font-size:36px;
 <a href="about.html">About Us</a>
 <a href="faq.html">FAQ</a>
 <a href="terms.html">Terms & Conditions</a>
-<a href="cart.html" class="cart-btn">🛒 Cart</a>
+<a href="cart.html" class="floating-cart">🛒</a>
 </nav>
     
 </header>
