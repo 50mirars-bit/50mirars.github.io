@@ -159,18 +159,23 @@ function renderCart() {
 
   let total = 0;
   cart.forEach((item, index) => {
-    total += parseFloat(item.price);
+    // Convert price to number safely
+    let price = parseFloat(item.price.replace(/[^0-9.]/g, ""));
+    total += price;
+
     cartItems.innerHTML += `
       <div class="cart-item">
         <h3>${item.name}</h3>
-        <p>₹${item.price}</p>
+        <p>₹${price.toLocaleString("en-IN")}</p>
         <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
       </div>
     `;
   });
 
-  cartSummary.innerHTML = `<p><strong>Total:</strong> ₹${total}</p>
-    <button class="checkout-btn">Proceed to Checkout</button>`;
+  cartSummary.innerHTML = `
+    <p><strong>Total:</strong> ₹${total.toLocaleString("en-IN")}</p>
+    <button class="checkout-btn">Proceed to Checkout</button>
+  `;
 }
 
 function removeItem(index) {
