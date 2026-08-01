@@ -16,12 +16,30 @@ body {
 header {
   background: #111;
   padding: 20px;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 header h1 {
   color: #c9a24d;
   font-family: Georgia, serif;
+  margin: 0 auto;
+}
+
+.back-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #111;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.back-btn:hover {
+  background: #c9a24d;
+  color: #111;
 }
 
 .cart-page {
@@ -109,6 +127,7 @@ header h1 {
 <body>
 
 <header>
+  <a href="index.html" class="back-btn">← Back to Home</a>
   <h1>Your Cart</h1>
 </header>
 
@@ -144,13 +163,13 @@ function renderCart() {
     cartItems.innerHTML += `
       <div class="cart-item">
         <h3>${item.name}</h3>
-        <p>$${item.price}</p>
+        <p>₹${item.price}</p>
         <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
       </div>
     `;
   });
 
-  cartSummary.innerHTML = `<p><strong>Total:</strong> $${total}</p>
+  cartSummary.innerHTML = `<p><strong>Total:</strong> ₹${total}</p>
     <button class="checkout-btn">Proceed to Checkout</button>`;
 }
 
