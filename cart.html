@@ -1,147 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=1200">
-<title>Your Cart - 50 Mirars</title>
-<link rel="stylesheet" href="style.css"> <!-- reuse your main CSS -->
-<style>
-.cart-page {
-  padding: 80px 8%;
-  background: #f8f8f8;
-}
-
-.cart-page h1 {
-  text-align: center;
-  font-family: Georgia, serif;
-  font-size: 48px;
-  margin-bottom: 40px;
-}
-
-.cart-items {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.cart-item {
-  display: flex;
-  align-items: center;
-  background: #fff;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-}
-
-.cart-item img {
-  width: 120px;
-  height: auto;
-  border-radius: 6px;
-  margin-right: 20px;
-}
-
-.cart-details h3 {
-  margin: 0 0 8px;
-}
-
-.remove-btn {
-  background: #c9a24d;
-  color: #fff;
-  border: none;
-  padding: 8px 14px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.remove-btn:hover {
-  background: #111;
-}
-
-.cart-summary {
-  margin-top: 30px;
-  text-align: right;
-}
-
-.checkout-btn {
-  background: #c9a24d;
-  color: #fff;
-  border: none;
-  padding: 12px 25px;
-  border-radius: 6px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.checkout-btn:hover {
-  background: #111;
-}
-
-/* Mobile */
-@media(max-width:768px){
-  .cart-item {
-    flex-direction: column;
-    text-align: center;
-  }
-  .cart-item img {
-    margin-bottom: 15px;
-  }
-  .cart-summary {
-    text-align: center;
-  }
-}
-</style>
-</head>
-<body>
-
-<header>
-  <div class="logo">
-    <img src="logo.jpeg" alt="50 Mirars">
-  </div>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="watches.html">Watches</a>
-    <a href="sunglasses.html">Sunglasses</a>
-    <a href="about.html">About Us</a>
-    <a href="faq.html">FAQ</a>
-    <a href="terms.html">Terms & Conditions</a>
-    <a href="cart.html" class="cart-btn">🛒 Cart</a>
-  </nav>
-</header>
-
 <section class="cart-page">
   <h1>Your Cart</h1>
-
-  <div class="cart-items">
-    <!-- Example items -->
-    <div class="cart-item">
-      <img src="images/cartier-watch.jpg" alt="Cartier Watch">
-      <div class="cart-details">
-        <h3>Cartier Watch</h3>
-        <p>$5,000</p>
-        <button class="remove-btn">Remove</button>
-      </div>
-    </div>
-
-    <div class="cart-item">
-      <img src="images/rolex-submariner.jpg" alt="Rolex Submariner">
-      <div class="cart-details">
-        <h3>Rolex Submariner</h3>
-        <p>$8,500</p>
-        <button class="remove-btn">Remove</button>
-      </div>
-    </div>
-  </div>
-
-  <div class="cart-summary">
-    <p><strong>Total:</strong> $13,500</p>
-    <button class="checkout-btn">Proceed to Checkout</button>
-  </div>
+  <div id="cart-items"></div>
+  <div id="cart-summary"></div>
 </section>
 
-<footer>
-  <p>© 2026 50 Mirars. All Rights Reserved.</p>
-</footer>
-</body>
-</html>
+<script>
+function renderCart() {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let cartItems = document.getElementById("cart-items");
+  let cartSummary = document.getElementById("cart-summary");
+
+  cartItems.innerHTML = "";
+  cartSummary.innerHTML = "";
+
+  if (cart.length === 0) {
+    cartItems.innerHTML = "<p>Your cart is empty.</p>";
+    return;
+  }
+
+  let total = 0;
+  cart.forEach((item, index) => {
+    total += parseFloat(item.price);
+    cartItems.innerHTML += `
+      <div class="cart-item">
+        <h3>${item.name}</h3>
+        <p>$${item.price}</p>
+        <button onclick="removeItem(${index})">Remove</button>
+      </div>
+    `;
+  });
+
+  cartSummary.innerHTML = `<p><strong>Total:</strong> $${total}</p>
+    <button class="checkout-btn">Proceed to Checkout</button>`;
+}
+
+function removeItem(index) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cart.splice(index, 1);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  renderCart();
+}
+
+renderCart();
+</script>
