@@ -4,47 +4,37 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=1200">
 <title>Your Cart | 50 Mirars</title>
+<link rel="stylesheet" href="style.css">
 <style>
 body {
   font-family: Arial, sans-serif;
-  background: #f9f9f9;
   margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  background: #f9f9f9;
+  color: #333;
 }
 
 /* Header */
 header {
-  background: #111;
+  background: #fff;
   padding: 20px 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-bottom: 1px solid #ddd;
 }
 
 header h1 {
-  color: #c9a24d;
-  font-family: Georgia, serif;
-  font-size: 32px;
+  font-size: 28px;
   text-align: center;
   flex: 1;
 }
 
 .back-btn {
-  display: inline-block;
-  padding: 10px 20px;
   background: #111;
   color: #fff;
+  padding: 10px 20px;
   text-decoration: none;
   border-radius: 6px;
-  transition: 0.3s;
-}
-
-.back-btn:hover {
-  background: #c9a24d;
-  color: #111;
 }
 
 .logo {
@@ -56,8 +46,6 @@ header h1 {
 .cart-page {
   max-width: 1200px;
   margin: 40px auto;
-  padding: 20px;
-  flex-grow: 1;
   display: flex;
   gap: 30px;
 }
@@ -68,57 +56,65 @@ header h1 {
   background: #fff;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-.cart-items h2 {
-  text-align: center;
-  font-size: 28px;
-  margin-bottom: 20px;
-  color: #111;
+.cart-items table {
+  width: 100%;
+  border-collapse: collapse;
 }
 
-.cart-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: #f8f8f8;
+.cart-items th, .cart-items td {
   padding: 15px;
-  margin-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+.cart-items img {
+  width: 80px;
   border-radius: 6px;
 }
 
-.cart-item img {
-  width: 100px;
-  height: auto;
-  border-radius: 6px;
-  margin-right: 20px;
-}
-
-.cart-item h3 {
-  margin: 0;
-  flex: 1;
-}
-
-.cart-item p {
-  margin: 0 20px;
-  color: #c9a24d;
-  font-weight: bold;
-}
-
-.remove-btn, .plus-btn {
-  background: #c9a24d;
+.quantity-btn {
+  background: #009688;
   color: #fff;
   border: none;
-  padding: 8px 14px;
-  border-radius: 6px;
+  padding: 6px 12px;
+  border-radius: 4px;
   cursor: pointer;
-  transition: 0.3s;
-  margin-left: 10px;
 }
 
-.remove-btn:hover, .plus-btn:hover {
-  background: #111;
+.remove-btn {
+  background: #e53935;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Coupon */
+.coupon {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.coupon input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.coupon button {
+  background: #009688;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin-left: 10px;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 /* Right side: summary */
@@ -127,14 +123,12 @@ header h1 {
   background: #fff;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  height: fit-content;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .cart-summary h3 {
   margin-top: 0;
-  font-size: 24px;
-  color: #111;
+  font-size: 22px;
 }
 
 .cart-summary p {
@@ -142,86 +136,14 @@ header h1 {
 }
 
 .checkout-btn {
-  background: #c9a24d;
+  background: #009688;
   color: #fff;
   border: none;
-  padding: 12px 25px;
+  padding: 12px;
   border-radius: 6px;
   font-size: 16px;
   cursor: pointer;
-  transition: 0.3s;
   width: 100%;
 }
 
-.checkout-btn:hover {
-  background: #111;
-}
-
-/* Footer */
-footer {
-  background: #111;
-  color: #fff;
-  text-align: center;
-  padding: 20px;
-  margin-top: auto;
-}
-
-.social-links {
-  margin-top: 10px;
-}
-
-.social-links a {
-  color: #c9a24d;
-  text-decoration: none;
-  margin: 0 10px;
-  font-weight: bold;
-}
-
-.social-links a:hover {
-  color: #fff;
-}
-
-/* Mobile */
-@media(max-width:768px){
-  .cart-page {
-    flex-direction: column;
-  }
-  .cart-item {
-    flex-direction: column;
-    text-align: center;
-  }
-  .cart-item img {
-    margin-bottom: 10px;
-  }
-  .cart-summary {
-    text-align: center;
-  }
-}
-</style>
-</head>
-<body>
-
-<header>
-  <a href="index.html" class="back-btn">← Back to Home</a>
-  <h1>Your Cart</h1>
-  <img src="logo.jpeg" alt="50 Mirars Logo" class="logo">
-</header>
-
-<section class="cart-page">
-  <!-- Left side: items -->
-  <div class="cart-items">
-    <h2>Items in Your Cart</h2>
-    <div id="cart-items"></div>
-  </div>
-
-  <!-- Right side: summary -->
-  <div class="cart-summary" id="cart-summary">
-    <h3>Order Summary</h3>
-    <p id="subtotal"></p>
-    <p id="shipping">Shipping: Free</p>
-    <p id="total"></p>
-    <button class="checkout-btn">Proceed to Checkout</button>
-  </div>
-</section>
-
-<footer>
+/* Footer
