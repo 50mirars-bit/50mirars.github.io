@@ -78,7 +78,7 @@ header h1 {
   font-weight: bold;
 }
 
-.remove-btn {
+.remove-btn, .plus-btn {
   background: #c9a24d;
   color: #fff;
   border: none;
@@ -86,9 +86,10 @@ header h1 {
   border-radius: 6px;
   cursor: pointer;
   transition: 0.3s;
+  margin-left: 10px;
 }
 
-.remove-btn:hover {
+.remove-btn:hover, .plus-btn:hover {
   background: #111;
 }
 
@@ -159,7 +160,6 @@ function renderCart() {
 
   let total = 0;
   cart.forEach((item, index) => {
-    // Convert price to number safely
     let price = parseFloat(item.price.replace(/[^0-9.]/g, ""));
     total += price;
 
@@ -167,7 +167,10 @@ function renderCart() {
       <div class="cart-item">
         <h3>${item.name}</h3>
         <p>₹${price.toLocaleString("en-IN")}</p>
-        <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
+        <div>
+          <button class="plus-btn" onclick="addAgain(${index})">+</button>
+          <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
+        </div>
       </div>
     `;
   });
@@ -181,6 +184,14 @@ function renderCart() {
 function removeItem(index) {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
   cart.splice(index, 1);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  renderCart();
+}
+
+function addAgain(index) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let item = cart[index];
+  cart.push({ name: item.name, price: item.price });
   localStorage.setItem("cart", JSON.stringify(cart));
   renderCart();
 }
