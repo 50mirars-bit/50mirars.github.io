@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=1200">
 <title>Your Cart | 50 Mirars</title>
-<link rel="stylesheet" href="style.css">
 <style>
 body {
   font-family: Arial, sans-serif;
@@ -124,6 +123,7 @@ header h1 {
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  height: fit-content;
 }
 
 .cart-summary h3 {
@@ -146,4 +146,163 @@ header h1 {
   width: 100%;
 }
 
-/* Footer
+/* Footer */
+footer {
+  background: #111;
+  color: #fff;
+  padding: 40px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+footer div {
+  flex: 1;
+  margin: 10px;
+}
+
+footer h4 {
+  margin-bottom: 10px;
+}
+
+footer a {
+  color: #c9a24d;
+  text-decoration: none;
+  display: block;
+  margin: 5px 0;
+}
+
+footer a:hover {
+  color: #fff;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  flex-basis: 100%;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="back-btn">← Back to Home</a>
+  <h1>Your Cart</h1>
+  <img src="logo.jpeg" alt="50 Mirars Logo" class="logo">
+</header>
+
+<section class="cart-page">
+  <!-- Left side: items -->
+  <div class="cart-items">
+    <table>
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Subtotal</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="cart-items"></tbody>
+    </table>
+
+    <div class="coupon">
+      <input type="text" placeholder="Coupon Code">
+      <button>Apply Coupon</button>
+    </div>
+  </div>
+
+  <!-- Right side: summary -->
+  <div class="cart-summary">
+    <h3>Order Summary</h3>
+    <p id="subtotal"></p>
+    <p id="discount">Discount: ₹0</p>
+    <p id="shipping">Shipping: Free</p>
+    <p id="total"></p>
+    <button class="checkout-btn">Proceed to Checkout</button>
+  </div>
+</section>
+
+<footer>
+  <div>
+    <h4>About</h4>
+    <p>50 Mirars premium watches and accessories.</p>
+  </div>
+  <div>
+    <h4>Categories</h4>
+    <a href="#">Watches</a>
+    <a href="#">Sunglasses</a>
+    <a href="#">Limited Editions</a>
+  </div>
+  <div>
+    <h4>Support</h4>
+    <a href="mailto:50mirars@gmail.com">Email</a>
+    <a href="https://wa.me/918209989013" target="_blank">WhatsApp</a>
+    <a href="https://www.instagram.com/50mirars" target="_blank">Instagram</a>
+  </div>
+  <div class="footer-bottom">
+    © 2026 50 Mirars. All Rights Reserved.
+  </div>
+</footer>
+
+<script>
+function renderCart() {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let cartTable = document.getElementById("cart-items");
+  let subtotalBox = document.getElementById("subtotal");
+  let totalBox = document.getElementById("total");
+
+  cartTable.innerHTML = "";
+  subtotalBox.innerHTML = "";
+  totalBox.innerHTML = "";
+
+  if (cart.length === 0) {
+    cartTable.innerHTML = "<tr><td colspan='6'>Your cart is empty.</td></tr>";
+    subtotalBox.innerHTML = "Subtotal: ₹0";
+    totalBox.innerHTML = "Total: ₹0";
+    return;
+  }
+
+  let subtotal = 0;
+  cart.forEach((item, index) => {
+    let price = parseFloat(item.price.replace(/[^0-9.]/g, ""));
+    subtotal += price;
+
+    cartTable.innerHTML += `
+      <tr>
+        <td><img src="images/${item.name.toLowerCase().replace(/ /g,'-')}.jpg" alt="${item.name}"></td>
+        <td>${item.name}</td>
+        <td>₹${price.toLocaleString("en-IN")}</td>
+        <td><button class="quantity-btn" onclick="addAgain(${index})">+</button></td>
+        <td>₹${price.toLocaleString("en-IN")}</td>
+        <td><button class="remove-btn" onclick="removeItem(${index})">Remove</button></td>
+      </tr>
+    `;
+  });
+
+  subtotalBox.innerHTML = `Subtotal: ₹${subtotal.toLocaleString("en-IN")}`;
+  totalBox.innerHTML = `Total: ₹${subtotal.toLocaleString("en-IN")}`;
+}
+
+function removeItem(index) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cart.splice(index, 1);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  renderCart();
+}
+
+function addAgain(index) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let item = cart[index];
+  cart.push({ name: item.name, price: item.price });
+  localStorage.setItem("cart", JSON.stringify(cart));
+  renderCart();
+}
+
+renderCart();
+</script>
+
+</body>
+</html>
