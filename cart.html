@@ -53,41 +53,56 @@ header h1 {
   height: auto;
 }
 
-/* Cart Section */
+/* Cart Layout */
 .cart-page {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 40px auto;
-  padding: 30px;
-  background: #fff;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  border-radius: 8px;
+  padding: 20px;
   flex-grow: 1;
+  display: flex;
+  gap: 30px;
 }
 
-.cart-page h2 {
+/* Left side: items */
+.cart-items {
+  flex: 2;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.cart-items h2 {
   text-align: center;
-  font-size: 36px;
-  margin-bottom: 30px;
+  font-size: 28px;
+  margin-bottom: 20px;
   color: #111;
 }
 
-/* Cart Items */
 .cart-item {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   background: #f8f8f8;
   padding: 15px;
   margin-bottom: 15px;
   border-radius: 6px;
 }
 
+.cart-item img {
+  width: 100px;
+  height: auto;
+  border-radius: 6px;
+  margin-right: 20px;
+}
+
 .cart-item h3 {
   margin: 0;
+  flex: 1;
 }
 
 .cart-item p {
-  margin: 0;
+  margin: 0 20px;
   color: #c9a24d;
   font-weight: bold;
 }
@@ -107,10 +122,24 @@ header h1 {
   background: #111;
 }
 
-/* Summary Box */
+/* Right side: summary */
 .cart-summary {
-  text-align: right;
-  margin-top: 20px;
+  flex: 1;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  height: fit-content;
+}
+
+.cart-summary h3 {
+  margin-top: 0;
+  font-size: 24px;
+  color: #111;
+}
+
+.cart-summary p {
+  margin: 10px 0;
 }
 
 .checkout-btn {
@@ -122,6 +151,7 @@ header h1 {
   font-size: 16px;
   cursor: pointer;
   transition: 0.3s;
+  width: 100%;
 }
 
 .checkout-btn:hover {
@@ -154,16 +184,15 @@ footer {
 
 /* Mobile */
 @media(max-width:768px){
-  header {
+  .cart-page {
     flex-direction: column;
-    text-align: center;
-  }
-  .logo {
-    margin-top: 10px;
   }
   .cart-item {
     flex-direction: column;
     text-align: center;
+  }
+  .cart-item img {
+    margin-bottom: 10px;
   }
   .cart-summary {
     text-align: center;
@@ -180,9 +209,20 @@ footer {
 </header>
 
 <section class="cart-page">
-  <h2>Items in Your Cart</h2>
-  <div id="cart-items"></div>
-  <div id="cart-summary"></div>
+  <!-- Left side: items -->
+  <div class="cart-items">
+    <h2>Items in Your Cart</h2>
+    <div id="cart-items"></div>
+  </div>
+
+  <!-- Right side: summary -->
+  <div class="cart-summary" id="cart-summary">
+    <h3>Order Summary</h3>
+    <p id="subtotal"></p>
+    <p id="shipping">Shipping: Free</p>
+    <p id="total"></p>
+    <button class="checkout-btn">Proceed to Checkout</button>
+  </div>
 </section>
 
 <footer>
@@ -198,23 +238,28 @@ footer {
 function renderCart() {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
   let cartItems = document.getElementById("cart-items");
-  let cartSummary = document.getElementById("cart-summary");
+  let subtotalBox = document.getElementById("subtotal");
+  let totalBox = document.getElementById("total");
 
   cartItems.innerHTML = "";
-  cartSummary.innerHTML = "";
+  subtotalBox.innerHTML = "";
+  totalBox.innerHTML = "";
 
   if (cart.length === 0) {
     cartItems.innerHTML = "<p>Your cart is empty.</p>";
+    subtotalBox.innerHTML = "Subtotal: ₹0";
+    totalBox.innerHTML = "Total: ₹0";
     return;
   }
 
-  let total = 0;
+  let subtotal = 0;
   cart.forEach((item, index) => {
     let price = parseFloat(item.price.replace(/[^0-9.]/g, ""));
-    total += price;
+    subtotal += price;
 
     cartItems.innerHTML += `
       <div class="cart-item">
+        <img src="images/${item.name.toLowerCase().replace(/ /g,'-')}.jpg" alt="${item.name}">
         <h3>${item.name}</h3>
         <p>₹${price.toLocaleString("en-IN")}</p>
         <div>
@@ -225,5 +270,27 @@ function renderCart() {
     `;
   });
 
-  cartSummary.innerHTML = `
-    <p><strong>Total:</strong> ₹${total.toLocaleString("en-IN")}</p>
+  subtotalBox.innerHTML = `Subtotal: ₹${subtotal.toLocaleString("en-IN")}`;
+  totalBox.innerHTML = `Total: ₹${subtotal.toLocaleString("en-IN")}`;
+}
+
+function removeItem(index) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cart.splice(index, 1);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  renderCart();
+}
+
+function addAgain(index) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let item = cart[index];
+  cart.push({ name: item.name, price: item.price });
+  localStorage.setItem("cart", JSON.stringify(cart));
+  renderCart();
+}
+
+renderCart();
+</script>
+
+</body>
+</html>
