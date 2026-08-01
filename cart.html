@@ -1,45 +1,120 @@
-<section class="cart-page">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1200">
+<title>Your Cart | 50 Mirars</title>
+<link rel="stylesheet" href="style.css"> <!-- reuse your main CSS -->
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f9f9f9;
+  color: #222;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: #111;
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  color: #c9a24d;
+  font-family: Georgia, serif;
+}
+
+.cart-page {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 8px;
+}
+
+.cart-page h2 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 30px;
+  color: #111;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8f8f8;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+}
+
+.cart-item h3 {
+  margin: 0;
+}
+
+.cart-item p {
+  margin: 0;
+  color: #c9a24d;
+  font-weight: bold;
+}
+
+.remove-btn {
+  background: #c9a24d;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.remove-btn:hover {
+  background: #111;
+}
+
+.cart-summary {
+  text-align: right;
+  margin-top: 20px;
+}
+
+.checkout-btn {
+  background: #c9a24d;
+  color: #fff;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.checkout-btn:hover {
+  background: #111;
+}
+
+/* Mobile */
+@media(max-width:768px){
+  .cart-item {
+    flex-direction: column;
+    text-align: center;
+  }
+  .cart-summary {
+    text-align: center;
+  }
+}
+</style>
+</head>
+<body>
+
+<header>
   <h1>Your Cart</h1>
+</header>
+
+<section class="cart-page">
+  <h2>Items in Your Cart</h2>
   <div id="cart-items"></div>
   <div id="cart-summary"></div>
 </section>
-
-<script>
-function renderCart() {
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  let cartItems = document.getElementById("cart-items");
-  let cartSummary = document.getElementById("cart-summary");
-
-  cartItems.innerHTML = "";
-  cartSummary.innerHTML = "";
-
-  if (cart.length === 0) {
-    cartItems.innerHTML = "<p>Your cart is empty.</p>";
-    return;
-  }
-
-  let total = 0;
-  cart.forEach((item, index) => {
-    total += parseFloat(item.price);
-    cartItems.innerHTML += `
-      <div class="cart-item">
-        <h3>${item.name}</h3>
-        <p>$${item.price}</p>
-        <button onclick="removeItem(${index})">Remove</button>
-      </div>
-    `;
-  });
-
-  cartSummary.innerHTML = `<p><strong>Total:</strong> $${total}</p>
-    <button class="checkout-btn">Proceed to Checkout</button>`;
-}
-
-function removeItem(index) {
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  cart.splice(index, 1);
-  localStorage.setItem("cart", JSON.stringify(cart));
-  renderCart();
-}
-
-renderCart();
-</script>
