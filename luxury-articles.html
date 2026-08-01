@@ -362,6 +362,21 @@ body{
     <p>₹5,000</p>
     <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Submarine%20Green.%20Please%20share%20availability%20and%20details.">Enquire Now</a>
 </div>
+
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+document.querySelectorAll(".add-to-cart").forEach(button => {
+  button.addEventListener("click", () => {
+    let name = button.dataset.name;
+    let price = button.dataset.price;
+
+    cart.push({ name, price });
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert(name + " added to cart!");
+  });
+});
+</script>
     
 </body>
 </html>
