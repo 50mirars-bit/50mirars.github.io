@@ -8,7 +8,6 @@
 body {
   font-family: Arial, sans-serif;
   background: #f9f9f9;
-  color: #222;
   margin: 0;
   padding: 0;
   min-height: 100vh;
@@ -226,71 +225,3 @@ footer {
 </section>
 
 <footer>
-  © 2026 50 Mirars. All Rights Reserved.
-  <div class="social-links">
-    <a href="https://www.instagram.com/50mirars" target="_blank">Instagram</a> |
-    <a href="https://wa.me/918209989013" target="_blank">WhatsApp</a> |
-    <a href="mailto:50mirars@gmail.com">Email</a>
-  </div>
-</footer>
-
-<script>
-function renderCart() {
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  let cartItems = document.getElementById("cart-items");
-  let subtotalBox = document.getElementById("subtotal");
-  let totalBox = document.getElementById("total");
-
-  cartItems.innerHTML = "";
-  subtotalBox.innerHTML = "";
-  totalBox.innerHTML = "";
-
-  if (cart.length === 0) {
-    cartItems.innerHTML = "<p>Your cart is empty.</p>";
-    subtotalBox.innerHTML = "Subtotal: ₹0";
-    totalBox.innerHTML = "Total: ₹0";
-    return;
-  }
-
-  let subtotal = 0;
-  cart.forEach((item, index) => {
-    let price = parseFloat(item.price.replace(/[^0-9.]/g, ""));
-    subtotal += price;
-
-    cartItems.innerHTML += `
-      <div class="cart-item">
-        <img src="images/${item.name.toLowerCase().replace(/ /g,'-')}.jpg" alt="${item.name}">
-        <h3>${item.name}</h3>
-        <p>₹${price.toLocaleString("en-IN")}</p>
-        <div>
-          <button class="plus-btn" onclick="addAgain(${index})">+</button>
-          <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
-        </div>
-      </div>
-    `;
-  });
-
-  subtotalBox.innerHTML = `Subtotal: ₹${subtotal.toLocaleString("en-IN")}`;
-  totalBox.innerHTML = `Total: ₹${subtotal.toLocaleString("en-IN")}`;
-}
-
-function removeItem(index) {
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  cart.splice(index, 1);
-  localStorage.setItem("cart", JSON.stringify(cart));
-  renderCart();
-}
-
-function addAgain(index) {
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  let item = cart[index];
-  cart.push({ name: item.name, price: item.price });
-  localStorage.setItem("cart", JSON.stringify(cart));
-  renderCart();
-}
-
-renderCart();
-</script>
-
-</body>
-</html>
