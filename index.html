@@ -124,19 +124,6 @@ background:#c9a24d;
 transform:translateY(-2px);
 }    
 
-.search-bar {
-  text-align:center;
-  margin:30px 0;
-}
-
-.search-bar input {
-  width:60%;
-  padding:12px;
-  font-size:16px;
-  border:1px solid #ccc;
-  border-radius:6px;
-}
-
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -755,10 +742,6 @@ font-size:36px;
 
 <div class="logo">
     <img src="logo.jpeg" alt="50 Mirars">
-
-<div class="search-bar">
-  <input type="text" id="productSearch" placeholder="Search products...">
-</div>
     
 </div>
 <nav>
@@ -1096,21 +1079,6 @@ Premium watches and sunglasses crafted for those who value perfection.
 <footer>
     <p>© 2026 50 Mirars. All Rights Reserved.</p>
 </footer>
-
-<script>
-document.getElementById('productSearch').addEventListener('keyup', function() {
-  let filter = this.value.toLowerCase();
-  let products = document.querySelectorAll('.product-card');
-
-  products.forEach(product => {
-    let name = product.querySelector('.product-name').textContent.toLowerCase();
-    if (name.includes(filter)) {
-      product.style.display = "block";
-    } else {
-      product.style.display = "none";
-    }
-  });
-});
 </script>
     
 </body>
