@@ -391,42 +391,45 @@ body{
 </div>
 
 <script>
-document.querySelectorAll('.slider').forEach(function(slider) {
-  let slides = slider.querySelectorAll('.slide');
-  let currentIndex = 0;
 
-  const showSlide = (index) => {
-    slides.forEach((img, i) => {
-      img.classList.toggle('active', i === index);
+document.querySelectorAll('.slider').forEach(slider => {
+
+    const slides = slider.querySelectorAll('.slide');
+    let current = 0;
+
+    slider.querySelector('.next').addEventListener('click', () => {
+        slides[current].classList.remove('active');
+        current = (current + 1) % slides.length;
+        slides[current].classList.add('active');
     });
-  };
 
-  slider.querySelector('.prev').addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-    showSlide(currentIndex);
-  });
+    slider.querySelector('.prev').addEventListener('click', () => {
+        slides[current].classList.remove('active');
+        current = (current - 1 + slides.length) % slides.length;
+        slides[current].classList.add('active');
+    });
 
-  slider.querySelector('.next').addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % slides.length;
-    showSlide(currentIndex);
-  });
-
-  // Initialize
-  showSlide(currentIndex);
 });
+
 </script>
 
 <script>
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-document.querySelectorAll(".add-to-cart").forEach(button => {
+document.querySelectorAll(".add-to-cart-btn, .add-to-cart").forEach(button => {
   button.addEventListener("click", () => {
     let name = button.dataset.name;
     let price = button.dataset.price;
 
+    // Get existing cart or create new
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Add product
     cart.push({ name, price });
+
+    // Save back to localStorage
     localStorage.setItem("cart", JSON.stringify(cart));
-    alert(name + " added to cart!");
+
+    // Redirect to cart page
+    window.location.href = "cart.html";
   });
 });
 </script>
