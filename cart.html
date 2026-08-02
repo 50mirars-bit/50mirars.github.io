@@ -195,18 +195,15 @@ footer a:hover {
   <!-- Left side: items -->
   <div class="cart-items">
     <table>
-      <thead>
-        <tr>
-          <th>Product</th>
-          <th>Name</th>
-          <th>Price</th>
-          <th>Quantity</th>
-          <th>Subtotal</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody id="cart-items"></tbody>
-    </table>
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th>Quantity</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody id="cart-items"></tbody>
+</table>
 
     <div class="coupon">
       <input type="text" placeholder="Coupon Code">
@@ -259,7 +256,7 @@ function renderCart() {
   totalBox.innerHTML = "";
 
   if (cart.length === 0) {
-    cartTable.innerHTML = "<tr><td colspan='6'>Your cart is empty.</td></tr>";
+    cartTable.innerHTML = "<tr><td colspan='3'>Your cart is empty.</td></tr>";
     subtotalBox.innerHTML = "Subtotal: ₹0";
     totalBox.innerHTML = "Total: ₹0";
     return;
@@ -271,37 +268,17 @@ function renderCart() {
     subtotal += price;
 
     cartTable.innerHTML += `
-  <tr>
-    <td>${item.name}</td>
-    <td>₹${price.toLocaleString("en-IN")}</td>
-    <td><button class="quantity-btn" onclick="addAgain(${index})">+</button></td>
-    <td>₹${price.toLocaleString("en-IN")}</td>
-    <td><button class="remove-btn" onclick="removeItem(${index})">Remove</button></td>
-  </tr>
-`;
-
+      <tr>
+        <td>${item.name}</td>
+        <td><button class="quantity-btn" onclick="addAgain(${index})">+</button></td>
+        <td>₹${price.toLocaleString("en-IN")}</td>
+      </tr>
+    `;
   });
 
   subtotalBox.innerHTML = `Subtotal: ₹${subtotal.toLocaleString("en-IN")}`;
   totalBox.innerHTML = `Total: ₹${subtotal.toLocaleString("en-IN")}`;
 }
-
-function removeItem(index) {
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  cart.splice(index, 1);
-  localStorage.setItem("cart", JSON.stringify(cart));
-  renderCart();
-}
-
-function addAgain(index) {
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  let item = cart[index];
-  cart.push({ name: item.name, price: item.price });
-  localStorage.setItem("cart", JSON.stringify(cart));
-  renderCart();
-}
-
-renderCart();
 </script>
 
 </body>
