@@ -116,4 +116,16 @@ function validateForm() {
   window.location.href = "payment.html"; // redirect to payment page
   return true;
 }
+
+emailjs.send("service_id","template_id",{
+  name: document.getElementById("name").value,
+  contact: document.getElementById("contact").value,
+  email: document.getElementById("email").value,
+  address: document.getElementById("address").value,
+  city: document.getElementById("city").value,
+  state: document.getElementById("state").value,
+  pincode: document.getElementById("pincode").value,
+  landmark: document.getElementById("landmark").value
+});
+
 </script>
