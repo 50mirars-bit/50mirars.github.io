@@ -271,14 +271,15 @@ function renderCart() {
     subtotal += price;
 
     cartTable.innerHTML += `
-      <tr>
-        <td>${item.name}</td>
-        <td>₹${price.toLocaleString("en-IN")}</td>
-        <td><button class="quantity-btn" onclick="addAgain(${index})">+</button></td>
-        <td>₹${price.toLocaleString("en-IN")}</td>
-        <td><button class="remove-btn" onclick="removeItem(${index})">Remove</button></td>
-      </tr>
-    `;
+  <tr>
+    <td>${item.name}</td>
+    <td>₹${price.toLocaleString("en-IN")}</td>
+    <td><button class="quantity-btn" onclick="addAgain(${index})">+</button></td>
+    <td>₹${price.toLocaleString("en-IN")}</td>
+    <td><button class="remove-btn" onclick="removeItem(${index})">Remove</button></td>
+  </tr>
+`;
+
   });
 
   subtotalBox.innerHTML = `Subtotal: ₹${subtotal.toLocaleString("en-IN")}`;
