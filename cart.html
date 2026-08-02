@@ -49,13 +49,16 @@ header h1 {
   gap: 30px;
 }
 
-/* Left side: items */
-.cart-items {
-  flex: 2;
+.cart-summary {
+  flex: 1;
   background: #fff;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  height: fit-content;
+  align-self: flex-start;
+  position: sticky;
+  top: 20px;
 }
 
 .cart-items table {
@@ -128,9 +131,15 @@ header h1 {
 
 /* Right side: summary */
 .cart-summary {
-.cart-summary h3 {
-  margin-top: 0;
-  font-size: 22px;
+  flex: 1;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  height: fit-content;
+  align-self: flex-start; /* keeps it aligned at the top */
+  position: sticky;       /* optional: keeps it visible while scrolling */
+  top: 20px;
 }
 
 .cart-summary p {
@@ -204,18 +213,20 @@ footer a:hover {
           <th>Repeat</th>
           <th>Subtotal</th>
           <th>Remove</th>
-         </tr>
+        </tr>
       </thead>
       <tbody id="cart-items"></tbody>
     </table>
 
-  <div class="coupon">
-  <input type="text" id="coupon-code" placeholder="Coupon Code">
-  <button onclick="applyCoupon()">Apply Coupon</button>
-<button class="remove-coupon-btn" onclick="removeCoupon()">Remove Coupon</button>
-</div>
+    <!-- Coupon section -->
+    <div class="coupon">
+      <input type="text" id="coupon-code" placeholder="Coupon Code">
+      <button onclick="applyCoupon()">Apply Coupon</button>
+      <button class="remove-coupon-btn" onclick="removeCoupon()">Remove Coupon</button>
+    </div>
+  </div>
 
-   <!-- Right side: summary -->
+  <!-- ✅ Right side: Order Summary -->
   <div class="cart-summary">
     <h3>Order Summary</h3>
     <p id="subtotal"></p>
