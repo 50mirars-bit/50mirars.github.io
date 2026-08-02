@@ -93,28 +93,26 @@
         </div>
       </div>
 
-      <button type="submit">Confirm & Continue</button>
-    </form>
-  </div>
+       <button type="submit">Confirm & Continue</button>
+</form>
 
-  <script>
-    document.getElementById("checkoutForm").addEventListener("submit", function(e){
-      e.preventDefault(); // stop normal form submission
+<script>
+document.getElementById("checkoutForm").addEventListener("submit", function(e){
+  e.preventDefault();
 
-      // Send details to Formspree
-      fetch("https://formspree.io/f/xdaqrvld", {
-        method: "POST",
-        body: new FormData(this)
-      }).then(response => {
-        if (response.ok) {
-          // Redirect to payment page after successful submission
-          window.location.href = "payment.html";
-        } else {
-          alert("There was a problem submitting your details.");
-        }
-      }).catch(() => alert("Network error. Please try again."));
-    });
-  </script>
-
+  // Send details to Formspree
+  fetch("https://formspree.io/f/xdaqrvld", {
+    method: "POST",
+    body: new FormData(this)
+  }).then(response => {
+    if (response.ok) {
+      // ✅ Force redirect after successful submission
+      window.location.href = "payment.html";
+    } else {
+      alert("There was a problem submitting your details.");
+    }
+  }).catch(() => alert("Network error. Please try again."));
+});
+</script>
 </body>
 </html>
