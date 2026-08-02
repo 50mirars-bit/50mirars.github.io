@@ -208,22 +208,19 @@ footer a:hover {
       <tbody id="cart-items"></tbody>
     </table>
 
-    <!-- Coupon Input -->
     <div class="coupon">
-      <input type="text" id="coupon-code" placeholder="Enter coupon code">
-      <button onclick="applyCoupon()">Apply Coupon</button>
-      <button onclick="removeCoupon()">Remove Coupon</button>
+      <input type="text" placeholder="Coupon Code">
+      <button>Apply Coupon</button>
     </div>
-    <p id="coupon-message" style="color:#009688;font-weight:bold;"></p>
   </div>
 
   <!-- Right side: summary -->
   <div class="cart-summary">
     <h3>Order Summary</h3>
-    <p>Subtotal: ₹<span id="order-subtotal">0</span></p>
-    <p>Discount: ₹<span id="order-discount">0</span></p>
-    <p>Shipping: Free</p>
-    <p><strong>Total: ₹<span id="order-total">0</span></strong></p>
+    <p id="subtotal"></p>
+    <p id="discount">Discount: ₹0</p>
+    <p id="shipping">Shipping: Free</p>
+    <p id="total"></p>
     <button class="checkout-btn">Proceed to Checkout</button>
   </div>
 </section>
@@ -251,65 +248,61 @@ footer a:hover {
 </footer>
 
 <script>
-let subtotal = 0; 
-let discount = 0;
-let appliedCoupon = null;
-
-function updateCartTotals() {
-  document.getElementById("order-subtotal").innerText = subtotal.toLocaleString("en-IN");
-  document.getElementById("order-discount").innerText = discount.toLocaleString("en-IN");
-  document.getElementById("order-total").innerText = (subtotal - discount).toLocaleString("en-IN");
-}
-
-function applyCoupon() {
-  const code = document.getElementById("coupon-code").value.trim().toUpperCase();
-  discount = 0;
-  appliedCoupon = null;
-
-  if (code === "BIRTH1") {
-    discount = subtotal * 0.20;
-    appliedCoupon = "BIRTH1";
-    document.getElementById("coupon-message").innerText = "Coupon Applied: 20% OFF (BIRTH1)";
-  } else if (code === "10OFF10") {
-    discount = subtotal * 0.10;
-    appliedCoupon = "10OFF10";
-    document.getElementById("coupon-message").innerText = "Coupon Applied: 10% OFF (10OFF10)";
-  } else {
-    document.getElementById("coupon-message").innerText = "Invalid coupon code";
-  }
-
-  updateCartTotals();
-}
-
-function removeCoupon() {
-  discount = 0;
-  appliedCoupon = null;
-  document.getElementById("coupon-code").value = "";
-  document.getElementById("coupon-message").innerText = "Coupon removed";
-  updateCartTotals();
-}
-
 function renderCart() {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
   let cartTable = document.getElementById("cart-items");
+  let subtotalBox = document.getElementById("subtotal");
+  let totalBox = document.getElementById("total");
 
   cartTable.innerHTML = "";
+  subtotalBox.innerHTML = "";
+  totalBox.innerHTML = "";
 
   if (cart.length === 0) {
     cartTable.innerHTML = "<tr><td colspan='6'>Your cart is empty.</td></tr>";
-    subtotal = 0;
-    updateCartTotals();
+    subtotalBox.innerHTML = "Subtotal: ₹0";
+    totalBox.innerHTML = "Total: ₹0";
     return;
   }
 
-  subtotal = 0; // update global subtotal
+  let subtotal = 0;
   cart.forEach((item, index) => {
     let price = parseFloat(item.price.replace(/[^0-9.]/g, ""));
     subtotal += price;
 
     cartTable.innerHTML += `
       <tr>
+        <td><img src="images/${item.name.toLowerCase().replace(/ /g,'-')}.jpg" alt="${item.name}"></td>
         <td>${item.name}</td>
         <td>₹${price.toLocaleString("en-IN")}</td>
         <td><button class="quantity-btn" onclick="addAgain(${index})">+</button></td>
-        <td>₹${price.toLocaleString("
+        <td>₹${price.toLocaleString("en-IN")}</td>
+        <td><button class="remove-btn" onclick="removeItem(${index})">Remove</button></td>
+      </tr>
+    `;
+  });
+
+  subtotalBox.innerHTML = `Subtotal: ₹${subtotal.toLocaleString("en-IN")}`;
+  totalBox.innerHTML = `Total: ₹${subtotal.toLocaleString("en-IN")}`;
+}
+
+function removeItem(index) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cart.splice(index, 1);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  renderCart();
+}
+
+function addAgain(index) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let item = cart[index];
+  cart.push({ name: item.name, price: item.price });
+  localStorage.setItem("cart", JSON.stringify(cart));
+  renderCart();
+}
+
+renderCart();
+</script>
+
+</body>
+</html>
