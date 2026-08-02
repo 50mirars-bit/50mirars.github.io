@@ -187,17 +187,22 @@ header h1 {
   margin: 10px 0;
 }
 
-.checkout-btn {
-  background: #009688;
+.checkout button {
+  background: #28a745; /* green for success */
   color: #fff;
+  padding: 14px 28px;
+  font-size: 18px;
   border: none;
-  padding: 12px;
   border-radius: 6px;
-  font-size: 16px;
   cursor: pointer;
+  margin-top: 20px;
   width: 100%;
 }
 
+.checkout button:hover {
+  background: #218838;
+}
+  
 /* Footer */
 footer {
   background: #111;
@@ -276,6 +281,11 @@ footer a:hover {
     <p id="total"></p>
     <button class="checkout-btn">Proceed to Checkout</button>
   </div>
+
+<div class="checkout">
+  <button onclick="proceedToCheckout()">Proceed to Checkout</button>
+</div>
+  
 </section>
   
 <footer>
@@ -406,6 +416,15 @@ function updateSummary(subtotal) {
 }
 
 renderCart();
+
+function proceedToCheckout() {
+  // Save current cart state if needed
+  localStorage.setItem("cart", JSON.stringify(JSON.parse(localStorage.getItem("cart")) || []));
+  
+  // Redirect to checkout page
+  window.location.href = "checkout.html";
+}
+  
 </script>
 
 </body>
