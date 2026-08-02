@@ -116,6 +116,16 @@ header h1 {
   cursor: pointer;
 }
 
+.remove-coupon-btn {
+  background: #e53935;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin-left: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
 /* Right side: summary */
 .cart-summary {
   flex: 1;
@@ -207,17 +217,17 @@ footer a:hover {
       <tbody id="cart-items"></tbody>
     </table>
 
-    <div class="coupon">
-      <input type="text" placeholder="Coupon Code">
-      <button>Apply Coupon</button>
-    </div>
-  </div>
+  <div class="coupon">
+  <input type="text" id="coupon-code" placeholder="Coupon Code">
+  <button onclick="applyCoupon()">Apply Coupon</button>
+<button class="remove-coupon-btn" onclick="removeCoupon()">Remove Coupon</button>
+</div>
 
   <!-- Right side: summary -->
   <div class="cart-summary">
     <h3>Order Summary</h3>
     <p id="subtotal"></p>
-    <p id="discount">Discount: ₹0</p>
+    <p id="discount"></p>
     <p id="shipping">Shipping: Free</p>
     <p id="total"></p>
     <button class="checkout-btn">Proceed to Checkout</button>
@@ -298,6 +308,57 @@ function addAgain(index) {
   cart.push({ name: item.name, price: item.price });
   localStorage.setItem("cart", JSON.stringify(cart));
   renderCart();
+}
+
+let discount = 0;
+let appliedCoupon = null;
+
+function applyCoupon() {
+  const code = document.getElementById("coupon-code").value.trim().toUpperCase();
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let subtotal = 0;
+
+  cart.forEach(item => {
+    subtotal += parseFloat(item.price.replace(/[^0-9.]/g, ""));
+  });
+
+  discount = 0;
+  appliedCoupon = null;
+
+  // 🎟️ Define your coupon codes
+  if (code === "BIRTH1") {
+    discount = subtotal * 0.20; // 20% off
+    appliedCoupon = "BIRTH1";
+  } else if (code === "10OFF10") {
+    discount = subtotal * 0.10; // 10% off
+    appliedCoupon = "10OFF10";
+  } else {
+    alert("Invalid coupon code");
+  }
+
+  updateSummary(subtotal);
+}
+
+function removeCoupon() {
+  discount = 0;
+  appliedCoupon = null;
+  document.getElementById("coupon-code").value = "";
+
+  // Recalculate subtotal without discount
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let subtotal = 0;
+  cart.forEach(item => {
+    subtotal += parseFloat(item.price.replace(/[^0-9.]/g, ""));
+  });
+
+  updateSummary(subtotal);
+}
+
+function updateSummary(subtotal) {
+  const total = subtotal - discount;
+  document.getElementById("subtotal").innerText = `Subtotal: ₹${subtotal.toLocaleString("en-IN")}`;
+  document.getElementById("discount").innerText = `Discount: ₹${discount.toLocaleString("en-IN")}`;
+  document.getElementById("total").innerText = `Total: ₹${total.toLocaleString("en-IN")}`;
 }
 
 renderCart();
