@@ -66,10 +66,22 @@ header h1 {
   border-collapse: collapse;
 }
 
-.cart-items th, .cart-items td {
-  padding: 15px;
-  border-bottom: 1px solid #ddd;
-  text-align: center;
+.cart-items {
+  flex: 3; /* ⬆️ make left side wider */
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.cart-summary {
+  flex: 1; /* ⬇️ make right side narrower */
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  height: fit-content;
+  align-self: flex-start;
 }
 
 .cart-items img {
@@ -131,17 +143,15 @@ header h1 {
 
 /* Right side: summary */
 .cart-summary {
-  flex: 1;
+  flex: 1; /* ⬇️ make right side narrower */
   background: #fff;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   height: fit-content;
-  align-self: flex-start; /* keeps it aligned at the top */
-  position: sticky;       /* optional: keeps it visible while scrolling */
-  top: 20px;
+  align-self: flex-start;
 }
-
+  
 .cart-summary p {
   margin: 10px 0;
 }
