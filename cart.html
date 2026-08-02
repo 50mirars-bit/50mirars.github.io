@@ -302,7 +302,7 @@ function renderCart() {
     return;
   }
 
-  subtotal = 0;
+  subtotal = 0; // update global subtotal
   cart.forEach((item, index) => {
     let price = parseFloat(item.price.replace(/[^0-9.]/g, ""));
     subtotal += price;
@@ -310,4 +310,6 @@ function renderCart() {
     cartTable.innerHTML += `
       <tr>
         <td>${item.name}</td>
-        <td>₹${
+        <td>₹${price.toLocaleString("en-IN")}</td>
+        <td><button class="quantity-btn" onclick="addAgain(${index})">+</button></td>
+        <td>₹${price.toLocaleString("
