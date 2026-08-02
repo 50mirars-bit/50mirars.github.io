@@ -225,6 +225,23 @@ footer a:hover {
   </div>
 </section>
 
+<!-- Cart Section -->
+<div id="cart">
+  <h2>Your Cart</h2>
+  <div id="cart-items"></div>
+  <div class="cart-total">
+    <p>Subtotal: ₹<span id="subtotal">0</span></p>
+    <p>Discount: ₹<span id="discount">0</span></p>
+    <p><strong>Total: ₹<span id="total">0</span></strong></p>
+  </div>
+
+  <!-- Coupon Input -->
+  <div class="coupon-section">
+    <input type="text" id="coupon-code" placeholder="Enter coupon code">
+    <button onclick="applyCoupon()">Apply Coupon</button>
+  </div>
+</div>
+
 <footer>
   <div>
     <h4>About</h4>
@@ -246,6 +263,34 @@ footer a:hover {
     © 2026 50 Mirars. All Rights Reserved.
   </div>
 </footer>
+
+<script>
+let subtotal = 0; // dynamically updated when items are added
+let discount = 0;
+
+function updateCartTotals() {
+  document.getElementById("subtotal").innerText = subtotal;
+  document.getElementById("discount").innerText = discount;
+  document.getElementById("total").innerText = subtotal - discount;
+}
+
+function applyCoupon() {
+  const code = document.getElementById("coupon-code").value.trim().toUpperCase();
+  discount = 0;
+
+  if (code === "BIRTH1") {
+    discount = subtotal * 0.20; // 20% OFF
+    alert("Coupon applied: 20% OFF");
+  } else if (code === "10OFF10") {
+    discount = subtotal * 0.10; // 10% OFF
+    alert("Coupon applied: 10% OFF");
+  } else {
+    alert("Invalid coupon code");
+  }
+
+  updateCartTotals();
+}
+</script>
 
 <script>
 function renderCart() {
