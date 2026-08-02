@@ -3,7 +3,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Replace with your Gmail
     $to = "50mirars@gmail.com"; 
     $subject = "New Customer Delivery Details";
-
+    
     $message = "Name: ".$_POST['name']."\n".
                "Contact: ".$_POST['contact']."\n".
                "Email: ".$_POST['email']."\n".
