@@ -2,7 +2,7 @@
 .delivery-form {
   max-width: 600px;
   margin: 50px auto;
-  background: #ffffff; /* clean white card */
+  background: #ffffff;
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -14,7 +14,7 @@
   text-align: center;
   font-size: 24px;
   font-weight: 700;
-  color: #009688; /* brand teal */
+  color: #009688;
 }
 
 .form-group {
@@ -46,7 +46,7 @@
 }
 
 .delivery-form button {
-  background-color: #009688; /* same as Apply Coupon */
+  background-color: #009688;
   color: #fff;
   padding: 14px;
   font-size: 17px;
@@ -63,57 +63,58 @@
   background-color: #00796b;
   transform: translateY(-2px);
 }
-
 </style>
-</head>
 
 <div class="delivery-form">
   <h2>Delivery Details</h2>
-  <form id="deliveryForm" onsubmit="return validateForm()">
+  <form action="https://formspree.io/f/xdaqrvld" method="POST">
     
-    <form action="https://formspree.io/f/xdaqrvld" method="POST">
-  <div class="form-group">
-    <label for="name">Full Name</label>
-    <input type="text" name="name" required>
-  </div>
+    <div class="form-group">
+      <label for="name">Full Name</label>
+      <input type="text" name="name" id="name" required>
+    </div>
 
-  <div class="form-group">
-    <label for="contact">Contact Number</label>
-    <input type="tel" name="contact" pattern="[0-9]{10}" required>
-  </div>
+    <div class="form-group">
+      <label for="contact">Contact Number</label>
+      <input type="tel" name="contact" id="contact" pattern="[0-9]{10}" required>
+    </div>
 
-  <div class="form-group">
-    <label for="email">Mail ID</label>
-    <input type="email" name="email" required>
-  </div>
+    <div class="form-group">
+      <label for="email">Mail ID</label>
+      <input type="email" name="email" id="email" required>
+    </div>
 
-  <div class="form-group">
-    <label for="address">Address</label>
-    <textarea name="address" rows="3" required></textarea>
-  </div>
+    <div class="form-group">
+      <label for="address">Address</label>
+      <textarea name="address" id="address" rows="3" required></textarea>
+    </div>
 
-  <div class="form-group">
-    <label for="city">City</label>
-    <input type="text" name="city" required>
-  </div>
+    <div class="form-group">
+      <label for="city">City</label>
+      <input type="text" name="city" id="city" required>
+    </div>
 
-  <div class="form-group">
-    <label for="state">State</label>
-    <input type="text" name="state" required>
-  </div>
+    <div class="form-group">
+      <label for="state">State</label>
+      <input type="text" name="state" id="state" required>
+    </div>
 
-  <div class="form-group">
-    <label for="pincode">Pincode</label>
-    <input type="text" name="pincode" pattern="[0-9]{6}" required>
-  </div>
+    <div class="form-group">
+      <label for="pincode">Pincode</label>
+      <input type="text" name="pincode" id="pincode" pattern="[0-9]{6}" required>
+    </div>
 
-  <div class="form-group">
-    <label for="landmark">Landmark</label>
-    <input type="text" name="landmark" required>
-  </div>
+    <div class="form-group">
+      <label for="landmark">Landmark</label>
+      <input type="text" name="landmark" id="landmark" required>
+    </div>
 
-  <button type="submit">Confirm & Continue</button>
-</form>
+    <!-- Redirect to payment page after submission -->
+    <input type="hidden" name="_redirect" value="payment.html">
+
+    <button type="submit">Confirm & Continue</button>
+  </form>
+</div>
 
 <script>
 
