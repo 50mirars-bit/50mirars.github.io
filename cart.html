@@ -196,15 +196,15 @@ footer a:hover {
   <div class="cart-items">
     <table>
       <thead>
-  <tr>
-    <th>Product Name</th>
-    <th>Price</th>
-    <th>Quantity</th>
-    <th>Subtotal</th>
-    <th>Action</th>
-  </tr>
-</thead>
-
+        <tr>
+          <th>Product</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Subtotal</th>
+          <th>Action</th>
+        </tr>
+      </thead>
       <tbody id="cart-items"></tbody>
     </table>
 
@@ -270,16 +270,16 @@ function renderCart() {
     let price = parseFloat(item.price.replace(/[^0-9.]/g, ""));
     subtotal += price;
 
-    cartItems.innerHTML += `
-  <tr>
-    <td>${item.name}</td>
-    <td>₹${price.toLocaleString("en-IN")}</td>
-    <td><button class="quantity-btn" onclick="addAgain(${index})">+</button></td>
-    <td>₹${price.toLocaleString("en-IN")}</td>
-    <td><button class="remove-btn" onclick="removeItem(${index})">Remove</button></td>
-  </tr>
-`;
-
+    cartTable.innerHTML += `
+      <tr>
+        <td><img src="images/${item.name.toLowerCase().replace(/ /g,'-')}.jpg" alt="${item.name}"></td>
+        <td>${item.name}</td>
+        <td>₹${price.toLocaleString("en-IN")}</td>
+        <td><button class="quantity-btn" onclick="addAgain(${index})">+</button></td>
+        <td>₹${price.toLocaleString("en-IN")}</td>
+        <td><button class="remove-btn" onclick="removeItem(${index})">Remove</button></td>
+      </tr>
+    `;
   });
 
   subtotalBox.innerHTML = `Subtotal: ₹${subtotal.toLocaleString("en-IN")}`;
