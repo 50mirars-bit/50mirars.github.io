@@ -871,20 +871,16 @@ document.querySelectorAll('.slider').forEach(slider => {
 
 <script>
 document.querySelectorAll(".add-to-cart-btn, .add-to-cart").forEach(button => {
-  button.addEventListener("click", () => {
+  button.addEventListener("click", (event) => {
+    event.preventDefault(); // save before redirect
+
     let name = button.dataset.name;
     let price = button.dataset.price;
 
-    // Get existing cart or create new
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-    // Add product
     cart.push({ name, price });
-
-    // Save back to localStorage
     localStorage.setItem("cart", JSON.stringify(cart));
 
-    // Redirect to cart page
     window.location.href = "cart.html";
   });
 });
