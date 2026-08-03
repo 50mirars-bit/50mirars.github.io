@@ -13,20 +13,15 @@
       justify-content:center;
       padding:40px;
     }
-    .container {
-      display:flex;
-      gap:40px;
-      max-width:1200px;
-      width:100%;
-    }
-    .payment-options {
-      flex:2;
+    .payment-box {
       background:#fff8f0;
-      padding:30px;
+      padding:40px;
       border-radius:16px;
       box-shadow:0 8px 20px rgba(0,0,0,0.1);
+      max-width:800px;
+      width:100%;
     }
-    .payment-options h2 {
+    h2 {
       color:#ff6f00;
       margin-bottom:20px;
     }
@@ -48,12 +43,12 @@
       border:1px solid #ddd;
       border-radius:12px;
     }
-    .transaction-section label {
+    label {
       font-weight:600;
       margin-bottom:10px;
       display:block;
     }
-    .transaction-section input {
+    input {
       width:100%;
       padding:14px;
       border:1px solid #ccc;
@@ -81,44 +76,41 @@
   </style>
 </head>
 <body>
-  <div class="container">
-    <!-- Payment Options -->
-    <div class="payment-options">
-      <h2>Choose Payment Method</h2>
+  <div class="payment-box">
+    <h2>Choose Payment Method</h2>
 
-      <div class="option">
-        <div style="display:flex; align-items:center; justify-content:space-between;">
-          <div>
-            <h3>UPI QR Code</h3>
-            <p>Scan the QR code to pay instantly.</p>
-          </div>
-          <img src="QR CODE.jpeg" alt="UPI QR Code" style="width:180px; border-radius:10px;">
+    <div class="option">
+      <div style="display:flex; align-items:center; justify-content:space-between;">
+        <div>
+          <h3>UPI QR Code</h3>
+          <p>Scan the QR code to pay instantly.</p>
         </div>
+        <img src="QR CODE.jpeg" alt="UPI QR Code" style="width:180px; border-radius:10px;">
       </div>
+    </div>
 
-      <div class="option">
-        <h3>UPI ID</h3>
-        <p>Use this UPI ID to make payment:</p>
-        <strong>yourupi@bank</strong>
-      </div>
+    <div class="option">
+      <h3>UPI ID</h3>
+      <p>Use this UPI ID to make payment:</p>
+      <strong>yourupi@bank</strong>
+    </div>
 
-      <div class="option">
-        <h3>Bank Transfer</h3>
-        <p>Transfer to the following bank details:</p>
-        <strong>Account Name:</strong> Your Name <br>
-        <strong>Account Number:</strong> 1234567890 <br>
-        <strong>IFSC:</strong> ABCD0123456 <br>
-        <strong>Bank:</strong> Your Bank Name
-      </div>
+    <div class="option">
+      <h3>Bank Transfer</h3>
+      <p>Transfer to the following bank details:</p>
+      <strong>Account Name:</strong> Your Name <br>
+      <strong>Account Number:</strong> 1234567890 <br>
+      <strong>IFSC:</strong> ABCD0123456 <br>
+      <strong>Bank:</strong> Your Bank Name
+    </div>
 
-      <!-- Transaction ID Section -->
-      <div class="transaction-section">
-        <form id="transactionForm" action="https://formspree.io/f/xjgnnebl" method="POST">
-          <label for="transactionId">Enter Transaction ID</label>
-          <input type="text" id="transactionId" name="transactionId" required>
-          <button type="submit" class="submit-btn">Submit Transaction</button>
-        </form>
-      </div>
+    <!-- Transaction ID Section -->
+    <div class="transaction-section">
+      <form id="transactionForm" action="https://formspree.io/f/xjgnnebl" method="POST">
+        <label for="transactionId">Enter Transaction ID</label>
+        <input type="text" id="transactionId" name="transactionId" required>
+        <button type="submit" class="submit-btn">Submit Transaction</button>
+      </form>
     </div>
   </div>
 
