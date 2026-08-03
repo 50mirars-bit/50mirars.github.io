@@ -41,30 +41,27 @@
       margin-bottom:10px;
       color:#333;
     }
-    .order-summary {
-      flex:1;
-      background:#ffffff;
-      padding:30px;
-      border-radius:16px;
-      box-shadow:0 8px 20px rgba(0,0,0,0.1);
-      position:sticky;
-      top:40px;
-      height:fit-content;
+    .transaction-section {
+      margin-top:30px;
+      padding:20px;
+      background:#fff;
+      border:1px solid #ddd;
+      border-radius:12px;
     }
-    .order-summary h2 {
-      color:#ff6f00;
+    .transaction-section label {
+      font-weight:600;
+      margin-bottom:10px;
+      display:block;
+    }
+    .transaction-section input {
+      width:100%;
+      padding:14px;
+      border:1px solid #ccc;
+      border-radius:10px;
+      font-size:15px;
       margin-bottom:20px;
     }
-    .summary-item {
-      display:flex;
-      justify-content:space-between;
-      margin-bottom:12px;
-      font-size:16px;
-    }
-    .summary-item strong {
-      color:#333;
-    }
-    .checkout-btn {
+    .submit-btn {
       width:100%;
       padding:16px;
       background:#ff6f00;
@@ -76,7 +73,7 @@
       cursor:pointer;
       transition:0.3s;
     }
-    .checkout-btn:hover {
+    .submit-btn:hover {
       background:#e65100;
       transform:translateY(-2px);
       box-shadow:0 6px 12px rgba(0,0,0,0.2);
@@ -90,65 +87,58 @@
       <h2>Choose Payment Method</h2>
 
       <div class="option">
-  <div style="display:flex; align-items:center; justify-content:space-between;">
-    <div>
-      <h3>UPI QR Code</h3>
-      <p>Scan the QR code to pay instantly.</p>
-    </div>
-    <img src="OR CODE 1.jpeg " alt="UPI QR Code" style="width:180px; border-radius:10px;">
-  </div>
-</div>
-      
+        <div style="display:flex; align-items:center; justify-content:space-between;">
+          <div>
+            <h3>UPI QR Code</h3>
+            <p>Scan the QR code to pay instantly.</p>
+          </div>
+          <img src="QR CODE.jpeg" alt="UPI QR Code" style="width:180px; border-radius:10px;">
+        </div>
+      </div>
+
       <div class="option">
         <h3>UPI ID</h3>
         <p>Use this UPI ID to make payment:</p>
-        <strong>gy70353@ybl</strong>
+        <strong>yourupi@bank</strong>
       </div>
 
       <div class="option">
         <h3>Bank Transfer</h3>
         <p>Transfer to the following bank details:</p>
-        <strong>Account Holder Name:</strong> Gaurav Yadav <br>
-        <strong>Account Number:</strong> 92198100000572 <br>
-        <strong>IFSC:</strong> BARB0DBKOOT (fifth letter is zero) <br> 
-        <strong>Bank:</strong> Bank Of Baroda
+        <strong>Account Name:</strong> Your Name <br>
+        <strong>Account Number:</strong> 1234567890 <br>
+        <strong>IFSC:</strong> ABCD0123456 <br>
+        <strong>Bank:</strong> Your Bank Name
+      </div>
+
+      <!-- Transaction ID Section -->
+      <div class="transaction-section">
+        <form id="transactionForm" action="https://formspree.io/f/xjgnnebl" method="POST">
+          <label for="transactionId">Enter Transaction ID</label>
+          <input type="text" id="transactionId" name="transactionId" required>
+          <button type="submit" class="submit-btn">Submit Transaction</button>
+        </form>
       </div>
     </div>
-
-    <!-- Order Summary -->
-    <div class="order-summary">
-  <h2>Order Summary</h2>
-  <div class="summary-item"><span>Subtotal:</span><strong id="subtotal">₹0</strong></div>
-  <div class="summary-item"><span>Shipping:</span><strong>Free</strong></div>
-  <div class="summary-item"><span>Discount:</span><strong id="discount">₹0</strong></div>
-  <div class="summary-item"><span>Total:</span><strong id="total">₹0</strong></div>
-  <button class="checkout-btn">Proceed to Checkout</button>
-</div>
-
+  </div>
 
   <script>
-    // Example: values passed from cart page
-    let subtotal = 6000;   // Example subtotal
-    let discount = 1000;   // Example discount
-    let total = subtotal - discount;
-
-    // Update DOM
-    document.getElementById("subtotal").textContent = "₹" + subtotal;
-    document.getElementById("discount").textContent = "₹" + discount;
-    document.getElementById("total").textContent = "₹" + total;
+    // Handle form submission with Formspree and redirect
+    const form = document.getElementById("transactionForm");
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (response.ok) {
+        window.location.href = "confirmation.html";
+      } else {
+        alert("Error submitting transaction. Please try again.");
+      }
+    });
   </script>
-  
-<script>
-  // Fetch values from localStorage
-  let subtotal = localStorage.getItem("subtotal") || 0;
-  let discount = localStorage.getItem("discount") || 0;
-  let total = localStorage.getItem("total") || 0;
-
-  // Update the order summary dynamically
-  document.getElementById("subtotal").textContent = "₹" + subtotal;
-  document.getElementById("discount").textContent = "₹" + discount;
-  document.getElementById("total").textContent = "₹" + total;
-</script>
-  
 </body>
 </html>
