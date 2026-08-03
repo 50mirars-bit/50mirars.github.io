@@ -2,13 +2,137 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Payment Page</title>
+  <style>
+    body {
+      margin:0;
+      font-family:'Segoe UI',Arial,sans-serif;
+      background:#f5f5f5;
+      display:flex;
+      justify-content:center;
+      padding:40px;
+    }
+    .container {
+      display:flex;
+      gap:40px;
+      max-width:1200px;
+      width:100%;
+    }
+    .payment-options {
+      flex:2;
+      background:#fff8f0;
+      padding:30px;
+      border-radius:16px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.1);
+    }
+    .payment-options h2 {
+      color:#ff6f00;
+      margin-bottom:20px;
+    }
+    .option {
+      margin-bottom:25px;
+      padding:20px;
+      border:1px solid #ddd;
+      border-radius:12px;
+      background:#fff;
+    }
+    .option h3 {
+      margin-bottom:10px;
+      color:#333;
+    }
+    .order-summary {
+      flex:1;
+      background:#ffffff;
+      padding:30px;
+      border-radius:16px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.1);
+      position:sticky;
+      top:40px;
+      height:fit-content;
+    }
+    .order-summary h2 {
+      color:#ff6f00;
+      margin-bottom:20px;
+    }
+    .summary-item {
+      display:flex;
+      justify-content:space-between;
+      margin-bottom:12px;
+      font-size:16px;
+    }
+    .summary-item strong {
+      color:#333;
+    }
+    .checkout-btn {
+      width:100%;
+      padding:16px;
+      background:#ff6f00;
+      color:#fff;
+      font-size:17px;
+      font-weight:600;
+      border:none;
+      border-radius:10px;
+      cursor:pointer;
+      transition:0.3s;
+    }
+    .checkout-btn:hover {
+      background:#e65100;
+      transform:translateY(-2px);
+      box-shadow:0 6px 12px rgba(0,0,0,0.2);
+    }
+  </style>
 </head>
 <body>
-  <h2>Make Your Payment</h2>
-  <p>Scan the QR code below or use your preferred payment method.</p>
-  <!-- Example placeholder -->
-  <img src="upi-qr.png" alt="UPI QR Code" width="200">
-  <p>After payment, please enter your Transaction ID on the next page.</p>
+  <div class="container">
+    <!-- Payment Options -->
+    <div class="payment-options">
+      <h2>Choose Payment Method</h2>
+
+      <div class="option">
+        <h3>UPI QR Code</h3>
+        <p>Scan the QR code to pay instantly.</p>
+        <!-- Add your QR image here -->
+        <img src="your-qr-code.png" alt="UPI QR Code" style="width:200px;">
+      </div>
+
+      <div class="option">
+        <h3>UPI ID</h3>
+        <p>Use this UPI ID to make payment:</p>
+        <strong>yourupi@bank</strong>
+      </div>
+
+      <div class="option">
+        <h3>Bank Transfer</h3>
+        <p>Transfer to the following bank details:</p>
+        <strong>Account Name:</strong> Your Name <br>
+        <strong>Account Number:</strong> 1234567890 <br>
+        <strong>IFSC:</strong> ABCD0123456 <br>
+        <strong>Bank:</strong> Your Bank Name
+      </div>
+    </div>
+
+    <!-- Order Summary -->
+    <div class="order-summary">
+      <h2>Order Summary</h2>
+      <div class="summary-item"><span>Subtotal:</span><strong id="subtotal">₹0</strong></div>
+      <div class="summary-item"><span>Shipping:</span><strong>Free</strong></div>
+      <div class="summary-item"><span>Discount:</span><strong id="discount">₹0</strong></div>
+      <div class="summary-item"><span>Total:</span><strong id="total">₹0</strong></div>
+      <button class="checkout-btn">Proceed to Checkout</button>
+    </div>
+  </div>
+
+  <script>
+    // Example: values passed from cart page
+    let subtotal = 6000;   // Example subtotal
+    let discount = 1000;   // Example discount
+    let total = subtotal - discount;
+
+    // Update DOM
+    document.getElementById("subtotal").textContent = "₹" + subtotal;
+    document.getElementById("discount").textContent = "₹" + discount;
+    document.getElementById("total").textContent = "₹" + total;
+  </script>
 </body>
 </html>
