@@ -436,10 +436,10 @@ function proceedToCheckout() {
 </script>
 
 <script>
-  // Example: after you calculate totals in cart page
-  let subtotal = 5000;   // replace with your cart calculation
-  let discount = 1000;   // replace with your coupon calculation
-  let total = subtotal - discount;
+  // Replace these variables with your actual cart calculations
+  let subtotal = document.getElementById("subtotalValue").textContent.replace("₹", "");
+  let discount = document.getElementById("discountValue").textContent.replace("₹", "");
+  let total = document.getElementById("totalValue").textContent.replace("₹", "");
 
   // Save values for payment page
   localStorage.setItem("subtotal", subtotal);
