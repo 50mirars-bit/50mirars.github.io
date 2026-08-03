@@ -435,46 +435,5 @@ function proceedToCheckout() {
   
 </script>
 
-<script>
-  // Example cart array (replace with your actual cart logic)
-  let cart = []; // empty by default
-
-  const checkoutBtn = document.getElementById("checkoutBtn");
-
-  function updateCheckoutButton() {
-    if (cart.length === 0) {
-      checkoutBtn.disabled = true;
-      checkoutBtn.style.background = "#ccc";   // greyed out
-      checkoutBtn.style.cursor = "not-allowed";
-    } else {
-      checkoutBtn.disabled = false;
-      checkoutBtn.style.background = "#ff6f00"; // active orange
-      checkoutBtn.style.cursor = "pointer";
-    }
-  }
-
-  // Call this whenever cart changes
-  updateCheckoutButton();
-
-  // Checkout button click
-  checkoutBtn.addEventListener("click", () => {
-    if (cart.length > 0) {
-      window.location.href = "checkout.html";
-    }
-  });
-</script>
-
-<script>
-  // Replace these variables with your actual cart calculations
-  let subtotal = document.getElementById("subtotalValue").textContent.replace("₹", "");
-  let discount = document.getElementById("discountValue").textContent.replace("₹", "");
-  let total = document.getElementById("totalValue").textContent.replace("₹", "");
-
-  // Save values for payment page
-  localStorage.setItem("subtotal", subtotal);
-  localStorage.setItem("discount", discount);
-  localStorage.setItem("total", total);
-</script>
-
 </body>
 </html>
