@@ -175,12 +175,13 @@
         </div>
       </div>
 
-  <button type="submit">Confirm & Continue</button>
+  <button type="submit" class="submit-btn">
+  Confirm & Continue
+    </button>
 
 </form>
-      <button type="submit" class="submit-btn">Confirm & Continue</button>
-    </form>
   </div>
+  
 <script>
 document.getElementById("checkoutForm").addEventListener("submit", async function(e) {
     e.preventDefault();
@@ -198,8 +199,9 @@ document.getElementById("checkoutForm").addEventListener("submit", async functio
         });
 
         if (response.ok) {
-            window.location.href = "payment.html";
-        } else {
+    alert("Form submitted successfully!");
+    window.location.href = "payment.html";
+} else {
             alert("Failed to submit delivery details.");
         }
     } catch (error) {
