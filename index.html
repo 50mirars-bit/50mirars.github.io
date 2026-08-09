@@ -166,6 +166,63 @@ transform:translateY(-2px);
   font-weight: bold;
 }
 
+/* Navigation Bar */
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  padding: 15px 0;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #111;
+  font-weight: 600;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #1a3d7c; /* royal blue hover */
+}
+
+/* Moving Offer Line */
+.headline-bar {
+  background: rgba(255, 255, 255, 0.1); /* transparent slim box */
+  border-top: 1px solid rgba(0,0,0,0.1);
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.headline-text {
+  display: inline-block;
+  padding: 10px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #2c2c2c; /* premium charcoal */
+  animation: scroll-left 15s linear infinite;
+}
+
+.headline-text strong {
+  color: #1a3d7c; /* royal blue for coupon code */
+}
+
+@keyframes scroll-left {
+  0%   { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
 .headline-bar {
   background: rgba(255, 255, 255, 0.1); /* transparent slim box */
   border-top: 1px solid rgba(0,0,0,0.1);
@@ -803,21 +860,24 @@ font-size:36px;
     <img src="logo.jpeg" alt="50 Mirars">
     
 </div>
-<nav>
-<a href="#home">Home</a>
-<a href="#collections">Collections</a>
-<a href="about.html">About Us</a>
-<a href="faq.html">FAQ</a>
-<a href="terms.html">Terms & Conditions</a>
-<a href="cart.html" class="floating-cart">🛒</a>
+<!-- Navigation -->
+<nav class="navbar">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="collections.html">Collections</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="terms.html">Terms & Conditions</a></li>
+  </ul>
 </nav>
-</div>
 
+<!-- Moving Offer Line -->
 <div class="headline-bar">
   <div class="headline-text">
-    🎉 Enjoy 10% OFF with code <strong>10OFF10</strong> — Elevate your style with premium Watches & Sunglasses 🎉
+    🎉 Enjoy 10% OFF with code <strong>10OFF10</strong> — Elevate your style with premium watches & sunglasses 🎉
   </div>
 </div>
+
     
 </header>
 <section class="hero" id="home">
