@@ -2,11 +2,19 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>50 Mirars | Watches & Sunglasses</title>
 
+
 <style>
+
+/* =========================================================
+   GLOBAL RESET
+========================================================= */
 
 * {
     margin: 0;
@@ -15,37 +23,66 @@
     scroll-behavior: smooth;
 }
 
+html {
+    width: 100%;
+    overflow-x: hidden;
+}
+
 body {
+    width: 100%;
+    min-height: 100%;
     font-family: Arial, sans-serif;
     background: #fff;
     color: #111;
+    overflow-x: hidden;
 }
 
-/* =========================
-   HEADER / NAVIGATION
-========================= */
+img {
+    max-width: 100%;
+}
+
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* =========================================================
+   HEADER / DESKTOP NAVIGATION
+========================================================= */
 
 header {
+    width: 100%;
     background: #fff;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     padding: 15px 80px;
-    box-shadow: 0 2px 10px rgba(0,0,0,.08);
+
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+
     position: sticky;
     top: 0;
+
     z-index: 1000;
 }
 
 .logo img {
     height: 80px;
+    width: auto;
     display: block;
+    object-fit: contain;
 }
 
 .navbar ul {
     list-style: none;
+
     display: flex;
+    align-items: center;
+
     gap: 40px;
+
     margin: 0;
     padding: 0;
 }
@@ -53,9 +90,12 @@ header {
 .navbar a {
     text-decoration: none;
     color: #111;
+
     font-weight: 600;
     font-size: 16px;
+
     letter-spacing: 1px;
+
     transition: color 0.3s ease;
 }
 
@@ -64,15 +104,17 @@ header {
 }
 
 
-/* =========================
-   MOVING OFFER LINE
-========================= */
+/* =========================================================
+   MOVING OFFER BAR
+========================================================= */
 
 .headline-bar {
     width: 100%;
+
     background: #fff;
-    border-top: 1px solid rgba(0,0,0,0.1);
-    border-bottom: 1px solid rgba(0,0,0,0.1);
+
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
 
     overflow: hidden;
     white-space: nowrap;
@@ -83,17 +125,22 @@ header {
 
 .headline-text {
     display: inline-block;
-    padding: 10px 0;
 
-    font-size: 18px;
-    font-weight: 600;
-    color: #2c2c2c;
+    padding: 11px 0;
 
-    animation: scroll-left 10s linear infinite;
+    font-size: 17px;
+    font-weight: 500;
+
+    letter-spacing: 0.5px;
+
+    color: #222;
+
+    animation: scroll-left 18s linear infinite;
 }
 
 .headline-text strong {
     color: #1a3d7c;
+    font-weight: 700;
 }
 
 @keyframes scroll-left {
@@ -109,16 +156,18 @@ header {
 }
 
 
-/* =========================
+/* =========================================================
    HERO
-========================= */
+========================================================= */
 
 .hero {
+    width: 100%;
     height: 90vh;
+    min-height: 600px;
 
     background:
         url('https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=2000')
-        center center / cover;
+        center center / cover no-repeat;
 
     display: flex;
     align-items: center;
@@ -127,20 +176,27 @@ header {
 }
 
 .hero-content {
+    width: 100%;
     max-width: 650px;
 }
 
 .hero-tag {
     color: #c9a24d;
+
     font-size: 28px;
+
     margin-bottom: 20px;
+
     font-family: Georgia, serif;
 }
 
 .hero h1 {
     font-family: Georgia, serif;
+
     font-size: 72px;
+
     line-height: 1.1;
+
     margin-bottom: 25px;
 }
 
@@ -150,306 +206,261 @@ header {
 
 .hero p {
     font-size: 24px;
+
     color: #f8f6f2;
+
     margin-bottom: 35px;
+
     line-height: 1.5;
+
     font-weight: 500;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+
     letter-spacing: 0.5px;
 }
 
 
-/* =========================
+/* =========================================================
    BUTTONS
-========================= */
+========================================================= */
 
-.btn {
-    display: inline-block;
-    padding: 18px 40px;
-    background: #111;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 6px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    transition: 0.3s ease;
-}
-
-.btn:hover {
-    background: #c9a24d;
-    transform: translateY(-2px);
-}
-
+.btn,
 .whatsapp-btn {
-    display: inline-block;
+    display: inline-flex;
+
+    justify-content: center;
+    align-items: center;
+
     padding: 18px 40px;
+
     background: #111;
+
     color: #fff;
+
     text-decoration: none;
+
     border-radius: 6px;
+
     font-weight: 600;
+
     letter-spacing: 1px;
-    transition: 0.3s ease;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
 }
 
+.btn:hover,
 .whatsapp-btn:hover {
     background: #c9a24d;
+
     transform: translateY(-2px);
 }
 
 
-/* =========================
+/* =========================================================
    COLLECTIONS
-========================= */
+========================================================= */
 
 .collections {
+    width: 100%;
+
     padding: 100px 8%;
+
     text-align: center;
 }
 
 .collections small {
     color: #c9a24d;
+
     font-size: 18px;
+
     letter-spacing: 2px;
 }
 
 .collections h2 {
     font-family: Georgia, serif;
+
     font-size: 52px;
+
     margin: 15px 0 50px;
 }
 
 .categories-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
     width: 100%;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 25px;
+}
+
+.categories-grid > a {
+    display: block;
+
+    width: 100%;
+
+    text-decoration: none;
+
+    color: inherit;
 }
 
 .card {
     position: relative;
+
+    width: 100%;
+
     overflow: hidden;
+
+    background: #111;
 }
 
 .card img {
     width: 100%;
+
     height: 500px;
+
     object-fit: cover;
+
     display: block;
+
+    transition: transform 0.5s ease;
+}
+
+.card:hover img {
+    transform: scale(1.04);
 }
 
 .card-content {
     position: absolute;
+
     bottom: 30px;
     left: 30px;
+    right: 20px;
+
     color: white;
+
     text-align: left;
+
+    z-index: 2;
 }
 
 .card-content h3 {
     font-size: 40px;
+
     font-family: Georgia, serif;
+
     margin-bottom: 10px;
+
+    line-height: 1.1;
 }
 
 .card-content p {
     font-size: 18px;
+
+    line-height: 1.4;
 }
 
 
-/* =========================
-   ABOUT
-========================= */
-
-.about {
-    padding: 100px 8%;
-    background: #f8f8f8;
-    text-align: center;
-}
-
-.about h2 {
-    font-size: 48px;
-    font-family: Georgia, serif;
-    margin-bottom: 25px;
-}
-
-.about p {
-    max-width: 900px;
-    margin: auto;
-    font-size: 22px;
-    line-height: 1.8;
-    color: #444;
-}
-
-
-/* =========================
-   FAQ
-========================= */
-
-.faq {
-    padding: 100px 8%;
-}
-
-.faq h2 {
-    text-align: center;
-    font-family: Georgia, serif;
-    font-size: 48px;
-    margin-bottom: 50px;
-}
-
-.faq-item {
-    margin-bottom: 30px;
-}
-
-.faq-item h3 {
-    margin-bottom: 10px;
-    color: #c9a24d;
-}
-
-
-/* =========================
-   CONTACT
-========================= */
-
-.contact {
-    background: #070707;
-    color: white;
-    padding: 80px 8%;
-    margin-bottom: 0;
-}
-
-.contact h2 {
-    color: #c9a24d;
-    margin-bottom: 30px;
-    font-family: Georgia, serif;
-}
-
-.contact p {
-    margin-bottom: 15px;
-    font-size: 18px;
-}
-
-.whatsapp-box {
-    border: 1px solid #c9a24d;
-    padding: 30px;
-}
-
-.whatsapp-box h3 {
-    color: #c9a24d;
-    margin-bottom: 15px;
-}
-
-.whatsapp-box a {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 15px 30px;
-    background: #c9a24d;
-    color: black;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-
-/* =========================
-   FOOTER
-========================= */
-
-footer {
-    background: #fff;
-    color: #111;
-    text-align: center;
-    padding: 40px 0;
-    border-top: 2px solid #eee;
-}
-
-
-/* =========================
-   FLOATING CART
-========================= */
-
-.floating-cart {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-
-    background: #c9a24d;
-    color: #fff;
-
-    font-size: 24px;
-    padding: 15px;
-
-    border-radius: 50%;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-
-    text-decoration: none;
-    transition: 0.3s;
-
-    z-index: 1000;
-}
-
-.floating-cart:hover {
-    background: #111;
-    transform: scale(1.1);
-}
-
-
-/* =========================
+/* =========================================================
    GET IN TOUCH
-========================= */
+========================================================= */
 
 .get-touch {
+    width: 100%;
+
     padding: 100px 8%;
+
     background: #f8f8f8;
+
     text-align: center;
+
     margin-bottom: 120px;
 }
 
 .get-touch h2 {
     font-size: 56px;
+
     color: #c9a24d;
+
     font-family: Georgia, serif;
+
     margin-bottom: 20px;
 }
 
 .get-touch p {
     color: #666;
+
     font-size: 22px;
+
+    line-height: 1.5;
+
     margin-bottom: 50px;
 }
 
 .touch-form {
+    width: 100%;
     max-width: 900px;
+
     margin: auto;
+
     background: white;
+
     padding: 40px;
+
     border-radius: 12px;
-    box-shadow: 0 0 20px rgba(0,0,0,.08);
+
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
 }
 
 .touch-form input,
 .touch-form textarea {
     width: 100%;
+
     padding: 18px;
+
     margin-bottom: 20px;
+
     border: 1px solid #ddd;
+
     border-radius: 8px;
+
     font-size: 16px;
+
+    font-family: Arial, sans-serif;
+
+    outline: none;
+}
+
+.touch-form input:focus,
+.touch-form textarea:focus {
+    border-color: #c9a24d;
 }
 
 .touch-form textarea {
     height: 180px;
-    resize: none;
+
+    resize: vertical;
 }
 
 .touch-form button {
     background: #c9a24d;
+
     color: white;
+
     border: none;
+
     padding: 16px 40px;
+
     border-radius: 8px;
+
     font-size: 18px;
+
     cursor: pointer;
-    transition: .3s;
+
+    transition: 0.3s;
 }
 
 .touch-form button:hover {
@@ -457,47 +468,118 @@ footer {
 }
 
 
-/* =========================
+/* =========================================================
    BUSINESS PARTNER
-========================= */
+========================================================= */
 
 .business-partner {
+    width: 100%;
+
     padding: 100px 8%;
-    background: #ffffff;
+
+    background: #fff;
+
     text-align: center;
+
     margin-top: 60px;
 }
 
-.business-partner small {
+.partner-header {
+    text-align: center;
+
+    margin-bottom: 40px;
+}
+
+.partner-header small {
+    display: block;
+
     color: #c9a24d;
+
     letter-spacing: 2px;
+
     font-size: 16px;
 }
 
-.business-partner h2 {
+.partner-header h2 {
     font-family: Georgia, serif;
+
     font-size: 48px;
-    margin: 15px 0 50px;
+
     color: #111;
+
+    margin: 15px 0 20px;
 }
 
-.business-partner h2::after {
+.partner-header h2::after {
     content: "";
+
     display: block;
+
     width: 120px;
+
     height: 2px;
+
     background: #c9a24d;
+
     margin: 20px auto 0;
 }
 
+.partner-container {
+    width: 100%;
+
+    display: flex;
+
+    justify-content: space-around;
+
+    align-items: center;
+
+    gap: 30px;
+
+    flex-wrap: wrap;
+}
+
+.partner-left,
+.partner-right {
+    width: 30%;
+
+    text-align: center;
+}
+
+.partner-center {
+    width: 30%;
+
+    text-align: center;
+}
+
+.partner-img {
+    width: 100%;
+
+    max-width: 350px;
+
+    height: auto;
+
+    border-radius: 10px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
 .partner-card {
+    width: 100%;
+
     max-width: 400px;
-    margin: 40px auto;
+
+    margin: 0 auto;
+
     background: white;
+
     padding: 40px;
+
     border-radius: 15px;
+
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+
     transition: 0.3s;
+
     text-align: center;
 }
 
@@ -507,123 +589,105 @@ footer {
 
 .partner-card img {
     display: block;
+
     margin: 0 auto 25px;
+
     max-width: 180px;
+
     height: auto;
 }
 
 .partner-card h3 {
     font-size: 28px;
+
     margin-bottom: 10px;
 }
 
 .partner-card p {
     color: #666;
+
     font-size: 16px;
-}
 
-.partner-header {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.partner-header small {
-    display: block;
-    color: #c9a24d;
-    letter-spacing: 2px;
-    font-size: 16px;
-}
-
-.partner-header h2 {
-    font-family: Georgia, serif;
-    font-size: 48px;
-    color: #111;
-    margin: 15px 0 20px;
-    position: relative;
-}
-
-.partner-header h2::after {
-    content: "";
-    display: block;
-    width: 120px;
-    height: 2px;
-    background: #c9a24d;
-    margin: 20px auto 0;
+    line-height: 1.5;
 }
 
 .partner-btn {
     display: inline-block;
+
     margin-top: 15px;
+
     padding: 12px 25px;
+
     background-color: #c9a24d;
+
     color: #fff;
+
     font-weight: 600;
+
     text-decoration: none;
+
     border-radius: 6px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+
+    transition:
+        background-color 0.3s ease,
+        transform 0.2s ease;
 }
 
 .partner-btn:hover {
     background-color: #111;
+
     transform: scale(1.05);
 }
 
-.partner-container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-}
 
-.partner-left,
-.partner-right {
-    width: 30%;
-    text-align: center;
-}
-
-.partner-center {
-    width: 30%;
-    text-align: center;
-}
-
-.partner-img {
-    width: 100%;
-    max-width: 350px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-
-
-/* =========================
+/* =========================================================
    WHY CHOOSE US
-========================= */
+========================================================= */
 
 .why-choose {
+    width: 100%;
+
     padding: 100px 8%;
+
     background: #f8f6f2;
+
     text-align: center;
 }
 
 .why-choose h2 {
     font-family: Georgia, serif;
+
     font-size: 48px;
+
     margin-bottom: 60px;
+
     color: #111;
 }
 
 .why-grid {
+    width: 100%;
+
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
     gap: 30px;
+
     max-width: 1200px;
+
     margin: auto;
 }
 
 .why-box {
     background: white;
+
     padding: 35px;
+
     border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+
     transition: 0.3s;
 }
 
@@ -633,38 +697,59 @@ footer {
 
 .why-box h3 {
     color: #c9a24d;
+
     margin-bottom: 15px;
+
     font-size: 22px;
+
+    line-height: 1.3;
 }
 
 .why-box p {
     color: #666;
+
     line-height: 1.7;
+
+    font-size: 16px;
 }
 
 
-/* =========================
+/* =========================================================
    STATISTICS
-========================= */
+========================================================= */
 
 .stats-section {
+    width: 100%;
+
     background: #111;
+
     color: white;
+
     padding: 100px 8%;
+
     text-align: center;
 }
 
 .stats-section h2 {
     font-family: Georgia, serif;
+
     font-size: 48px;
+
     margin-bottom: 60px;
 }
 
 .stats-grid {
+    width: 100%;
+
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
     gap: 40px;
+
     max-width: 1000px;
+
     margin: auto;
 }
 
@@ -674,191 +759,939 @@ footer {
 
 .stat-box h3 {
     font-size: 60px;
+
     color: #c9a24d;
+
     margin-bottom: 10px;
 }
 
 .stat-box p {
     font-size: 20px;
+
     color: #ddd;
 }
 
 
-/* =========================
-   MOBILE
-========================= */
+/* =========================================================
+   CONTACT
+========================================================= */
 
-@media (max-width: 768px) {
+.contact {
+    width: 100%;
+
+    background: #070707;
+
+    color: white;
+
+    padding: 80px 8%;
+
+    margin-bottom: 0;
+}
+
+.contact-grid {
+    width: 100%;
+
+    max-width: 1200px;
+
+    margin: auto;
+}
+
+.contact h2 {
+    color: #c9a24d;
+
+    margin-bottom: 30px;
+
+    font-family: Georgia, serif;
+
+    font-size: 42px;
+}
+
+.contact p {
+    margin-bottom: 15px;
+
+    font-size: 18px;
+
+    line-height: 1.6;
+
+    color: white;
+}
+
+.contact a {
+    word-break: break-word;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    width: 100%;
+
+    background: #fff;
+
+    color: #111;
+
+    text-align: center;
+
+    padding: 40px 20px;
+
+    border-top: 2px solid #eee;
+}
+
+footer p {
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   FLOATING CART
+========================================================= */
+
+.floating-cart {
+    position: fixed;
+
+    bottom: 25px;
+
+    right: 25px;
+
+    width: 56px;
+    height: 56px;
+
+    background: #c9a24d;
+
+    color: #fff;
+
+    font-size: 24px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+    text-decoration: none;
+
+    transition: 0.3s;
+
+    z-index: 1000;
+}
+
+.floating-cart:hover {
+    background: #111;
+
+    transform: scale(1.1);
+}
+
+
+/* =========================================================
+   LARGE TABLETS / SMALL DESKTOPS
+========================================================= */
+
+@media (max-width: 1100px) {
 
     header {
-        flex-direction: column;
-        padding: 15px 20px;
-    }
-
-    .logo img {
-        height: 65px;
-    }
-
-    .navbar {
-        width: 100%;
-        margin-top: 15px;
+        padding: 15px 40px;
     }
 
     .navbar ul {
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 15px;
+        gap: 24px;
     }
 
     .navbar a {
         font-size: 14px;
     }
 
-    .headline-text {
-        font-size: 15px;
-        padding: 9px 0;
-    }
-
-    .hero {
-        padding: 50px 25px;
-        height: auto;
-        min-height: 75vh;
-    }
-
     .hero h1 {
-        font-size: 42px;
+        font-size: 60px;
     }
 
     .hero p {
-        font-size: 18px;
-    }
-
-    .hero-tag {
-        font-size: 22px;
-    }
-
-    .collections {
-        padding: 70px 20px;
-    }
-
-    .collections h2,
-    .about h2,
-    .faq h2 {
-        font-size: 36px;
-    }
-
-    .categories-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .card img {
-        height: 400px;
+        font-size: 21px;
     }
 
     .card-content h3 {
-        font-size: 30px;
+        font-size: 34px;
     }
 
+    .why-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .partner-left,
+    .partner-center,
+    .partner-right {
+        width: 30%;
+    }
+}
+
+
+/* =========================================================
+   MOBILE — 768px AND BELOW
+========================================================= */
+
+@media (max-width: 768px) {
+
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    body {
+        font-size: 16px;
+    }
+
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+        width: 100%;
+
+        padding: 12px 15px;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        justify-content: center;
+
+        position: sticky;
+
+        top: 0;
+
+        z-index: 1000;
+    }
+
+    .logo {
+        width: 100%;
+
+        display: flex;
+
+        justify-content: center;
+
+        margin-bottom: 12px;
+    }
+
+    .logo img {
+        width: auto;
+
+        height: 60px;
+
+        max-width: 150px;
+
+        object-fit: contain;
+    }
+
+
+    /* =========================
+       MOBILE NAVIGATION
+    ========================= */
+
+    .navbar {
+        width: 100%;
+    }
+
+    .navbar ul {
+        width: 100%;
+
+        display: flex;
+
+        justify-content: center;
+
+        align-items: center;
+
+        flex-wrap: wrap;
+
+        gap: 8px 15px;
+    }
+
+    .navbar li {
+        display: block;
+    }
+
+    .navbar a {
+        display: block;
+
+        font-size: 12px;
+
+        letter-spacing: 0.5px;
+
+        padding: 5px 2px;
+
+        white-space: nowrap;
+    }
+
+
+    /* =========================
+       OFFER BAR
+    ========================= */
+
+    .headline-bar {
+        width: 100%;
+
+        overflow: hidden;
+
+        white-space: nowrap;
+    }
+
+    .headline-text {
+        display: inline-block;
+
+        padding: 10px 0;
+
+        font-size: 14px;
+
+        line-height: 1.4;
+
+        animation: scroll-left 18s linear infinite;
+    }
+
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+        width: 100%;
+
+        min-height: 78vh;
+
+        height: auto;
+
+        padding: 60px 22px;
+
+        display: flex;
+
+        align-items: center;
+
+        background-position: center center;
+
+        background-size: cover;
+    }
+
+    .hero-content {
+        width: 100%;
+
+        max-width: 100%;
+    }
+
+    .hero-tag {
+        font-size: 20px;
+
+        margin-bottom: 15px;
+    }
+
+    .hero h1 {
+        font-size: clamp(38px, 11vw, 52px);
+
+        line-height: 1.05;
+
+        margin-bottom: 20px;
+    }
+
+    .hero p {
+        font-size: 17px;
+
+        line-height: 1.5;
+
+        margin-bottom: 28px;
+    }
+
+    .btn,
+    .whatsapp-btn {
+        display: inline-flex;
+
+        justify-content: center;
+
+        align-items: center;
+
+        width: 100%;
+
+        max-width: 300px;
+
+        padding: 16px 20px;
+
+        font-size: 14px;
+
+        text-align: center;
+    }
+
+
+    /* =========================
+       COLLECTIONS
+    ========================= */
+
+    .collections {
+        width: 100%;
+
+        padding: 70px 18px;
+    }
+
+    .collections small {
+        font-size: 14px;
+
+        letter-spacing: 1.5px;
+    }
+
+    .collections h2 {
+        font-size: clamp(32px, 9vw, 42px);
+
+        line-height: 1.15;
+
+        margin: 12px 0 35px;
+    }
+
+    .categories-grid {
+        width: 100%;
+
+        display: grid;
+
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+    .categories-grid > a {
+        width: 100%;
+
+        display: block;
+    }
+
+    .card {
+        width: 100%;
+
+        min-height: 0;
+
+        border-radius: 4px;
+
+        overflow: hidden;
+    }
+
+    .card img {
+        width: 100%;
+
+        height: 390px;
+
+        object-fit: cover;
+    }
+
+    .card-content {
+        left: 20px;
+
+        right: 15px;
+
+        bottom: 20px;
+    }
+
+    .card-content h3 {
+        font-size: 28px;
+
+        line-height: 1.1;
+
+        margin-bottom: 7px;
+    }
+
+    .card-content p {
+        font-size: 14px;
+
+        line-height: 1.4;
+    }
+
+
+    /* =========================
+       GET IN TOUCH
+    ========================= */
+
     .get-touch {
-        padding: 70px 20px;
+        width: 100%;
+
+        padding: 70px 18px;
+
         margin-bottom: 60px;
     }
 
     .get-touch h2 {
-        font-size: 42px;
+        font-size: 40px;
+
+        line-height: 1.1;
+    }
+
+    .get-touch p {
+        font-size: 17px;
+
+        line-height: 1.5;
+
+        margin-bottom: 30px;
     }
 
     .touch-form {
-        padding: 25px;
+        width: 100%;
+
+        padding: 22px 18px;
+
+        border-radius: 10px;
+    }
+
+    .touch-form input,
+    .touch-form textarea {
+        width: 100%;
+
+        font-size: 16px;
+
+        padding: 15px;
+    }
+
+    .touch-form textarea {
+        height: 150px;
+    }
+
+    .touch-form button {
+        width: 100%;
+
+        padding: 15px;
+
+        font-size: 16px;
+    }
+
+
+    /* =========================
+       BUSINESS PARTNER
+    ========================= */
+
+    .business-partner {
+        width: 100%;
+
+        padding: 70px 18px;
+
+        margin-top: 0;
+    }
+
+    .partner-header {
+        margin-bottom: 30px;
+    }
+
+    .partner-header small {
+        font-size: 14px;
+    }
+
+    .partner-header h2 {
+        font-size: 38px;
+
+        line-height: 1.1;
+
+        margin: 12px 0 20px;
+    }
+
+    .partner-container {
+        width: 100%;
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 25px;
     }
 
     .partner-left,
     .partner-center,
     .partner-right {
         width: 100%;
-        margin-bottom: 30px;
+
+        margin: 0;
     }
 
-    .business-partner {
-        padding: 70px 20px;
+    .partner-left {
+        order: 1;
     }
 
-    .business-partner h2,
-    .partner-header h2 {
-        font-size: 38px;
+    .partner-center {
+        order: 2;
     }
+
+    .partner-right {
+        order: 3;
+    }
+
+    .partner-img {
+        width: 100%;
+
+        max-width: 100%;
+
+        height: auto;
+
+        border-radius: 10px;
+    }
+
+    .partner-card {
+        width: 100%;
+
+        max-width: 100%;
+
+        margin: 0;
+
+        padding: 30px 20px;
+
+        border-radius: 12px;
+    }
+
+    .partner-card img {
+        max-width: 150px;
+    }
+
+    .partner-card h3 {
+        font-size: 26px;
+    }
+
+    .partner-card p {
+        font-size: 15px;
+
+        line-height: 1.5;
+    }
+
+    .partner-btn {
+        width: 100%;
+
+        padding: 14px 20px;
+    }
+
+
+    /* =========================
+       WHY CHOOSE US
+    ========================= */
 
     .why-choose {
-        padding: 70px 20px;
+        width: 100%;
+
+        padding: 70px 18px;
     }
 
     .why-choose h2 {
         font-size: 38px;
+
+        line-height: 1.15;
+
+        margin-bottom: 40px;
     }
 
+    .why-grid {
+        width: 100%;
+
+        display: grid;
+
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+    }
+
+    .why-box {
+        width: 100%;
+
+        padding: 28px 22px;
+    }
+
+    .why-box h3 {
+        font-size: 20px;
+    }
+
+    .why-box p {
+        font-size: 15px;
+
+        line-height: 1.6;
+    }
+
+
+    /* =========================
+       STATISTICS
+    ========================= */
+
     .stats-section {
-        padding: 70px 20px;
+        width: 100%;
+
+        padding: 70px 18px;
     }
 
     .stats-section h2 {
         font-size: 38px;
+
+        line-height: 1.15;
+
+        margin-bottom: 40px;
+    }
+
+    .stats-grid {
+        width: 100%;
+
+        display: grid;
+
+        grid-template-columns: 1fr;
+
+        gap: 10px;
+    }
+
+    .stat-box {
+        padding: 25px 15px;
     }
 
     .stat-box h3 {
         font-size: 48px;
     }
 
+    .stat-box p {
+        font-size: 17px;
+    }
+
+
+    /* =========================
+       CONTACT
+    ========================= */
+
     .contact {
+        width: 100%;
+
         padding: 60px 20px;
     }
 
-    .floating-cart {
-        bottom: 20px;
-        right: 20px;
-        font-size: 22px;
-        padding: 14px;
+    .contact-grid {
+        width: 100%;
     }
+
+    .contact h2 {
+        font-size: 38px;
+
+        margin-bottom: 25px;
+    }
+
+    .contact p {
+        font-size: 16px;
+
+        line-height: 1.6;
+
+        word-break: break-word;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+        width: 100%;
+
+        padding: 30px 20px;
+    }
+
+    footer p {
+        font-size: 13px;
+
+        line-height: 1.5;
+    }
+
+
+    /* =========================
+       FLOATING CART
+    ========================= */
+
+    .floating-cart {
+        width: 52px;
+
+        height: 52px;
+
+        bottom: 18px;
+
+        right: 18px;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        font-size: 21px;
+
+        padding: 0;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES — 480px AND BELOW
+========================================================= */
+
+@media (max-width: 480px) {
+
+    header {
+        padding: 10px;
+    }
+
+    .logo img {
+        height: 55px;
+    }
+
+    .navbar ul {
+        gap: 6px 11px;
+    }
+
+    .navbar a {
+        font-size: 11px;
+    }
+
+    .headline-text {
+        font-size: 13px;
+    }
+
+    .hero {
+        min-height: 75vh;
+
+        padding: 50px 18px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .hero-tag {
+        font-size: 18px;
+    }
+
+    .collections {
+        padding: 60px 14px;
+    }
+
+    .collections h2 {
+        font-size: 31px;
+    }
+
+    .card img {
+        height: 340px;
+    }
+
+    .card-content h3 {
+        font-size: 25px;
+    }
+
+    .card-content p {
+        font-size: 13px;
+    }
+
+    .get-touch h2,
+    .partner-header h2,
+    .why-choose h2,
+    .stats-section h2 {
+        font-size: 34px;
+    }
+
+    .partner-card {
+        padding: 25px 16px;
+    }
+
+    .stat-box h3 {
+        font-size: 44px;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES — 360px AND BELOW
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .navbar ul {
+        gap: 5px 8px;
+    }
+
+    .navbar a {
+        font-size: 10px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+
+    .card img {
+        height: 300px;
+    }
+
 }
 
 </style>
+
 </head>
 
 
 <body>
 
 
-<!-- =========================
+<!-- =========================================================
      NAVIGATION HEADER
-========================= -->
+========================================================= -->
 
 <header>
 
     <div class="logo">
-        <img src="logo.jpeg" alt="50 Mirars">
+
+        <img
+            src="logo.jpeg"
+            alt="50 Mirars"
+        >
+
     </div>
+
 
     <nav class="navbar">
 
         <ul>
 
             <li>
-                <a href="index.html">Home</a>
+                <a href="index.html">
+                    Home
+                </a>
             </li>
 
             <li>
-                <a href="collections.html">Collections</a>
+                <a href="collections.html">
+                    Collections
+                </a>
             </li>
 
             <li>
-                <a href="about.html">About Us</a>
+                <a href="about.html">
+                    About Us
+                </a>
             </li>
 
             <li>
-                <a href="faq.html">FAQ</a>
+                <a href="faq.html">
+                    FAQ
+                </a>
             </li>
 
             <li>
-                <a href="terms.html">Terms & Conditions</a>
+                <a href="terms.html">
+                    Terms & Conditions
+                </a>
             </li>
 
         </ul>
@@ -868,22 +1701,28 @@ footer {
 </header>
 
 
-<!-- =========================
+<!-- =========================================================
      MOVING OFFER BAR
-     NOW OUTSIDE HEADER
-========================= -->
+========================================================= -->
 
 <div class="headline-bar">
+
     <div class="headline-text">
-        ✦ A Touch of Luxury Awaits — Enjoy <strong>10% OFF</strong> with Code
-        <strong>10OFF10</strong> | Timeless Watches • Premium Sunglasses ✦
+
+        ✦ A Touch of Luxury Awaits — Enjoy
+        <strong>10% OFF</strong>
+        with Code
+        <strong>10OFF10</strong>
+        | Timeless Watches • Premium Sunglasses ✦
+
     </div>
-    
+
 </div>
 
-<!-- =========================
+
+<!-- =========================================================
      HERO
-========================= -->
+========================================================= -->
 
 <section class="hero" id="home">
 
@@ -893,21 +1732,33 @@ footer {
             50 MIRARS
         </div>
 
+
         <h1>
+
             TIMELESS ELEGANCE.<br>
-            UNMATCHED <span>STYLE.</span>
+
+            UNMATCHED
+            <span>STYLE.</span>
+
         </h1>
 
+
         <p>
-            Premium watches and sunglasses crafted for those who value perfection.
+
+            Premium watches and sunglasses crafted
+            for those who value perfection.
+
         </p>
+
 
         <a
             class="btn"
             href="https://wa.me/c/918209989013"
             target="_blank"
         >
+
             SHOP ON WHATSAPP
+
         </a>
 
     </div>
@@ -915,31 +1766,47 @@ footer {
 </section>
 
 
-<!-- =========================
+<!-- =========================================================
      COLLECTIONS
-========================= -->
+========================================================= -->
 
-<section class="collections" id="collections">
+<section
+    class="collections"
+    id="collections"
+>
 
     <small>
+
         OUR COLLECTIONS
+
     </small>
 
+
     <h2>
+
         EXPLORE OUR COLLECTIONS
+
     </h2>
+
 
     <div class="categories-grid">
 
 
-        <a href="watches.html" style="text-decoration:none;color:inherit;">
+        <!-- WATCHES -->
+
+        <a
+            href="watches.html"
+            style="text-decoration:none;color:inherit;"
+        >
 
             <div class="card">
 
                 <img
                     src="Rolex Yatch-Master 42.jpeg"
                     alt="Watches"
+                    loading="lazy"
                 >
+
 
                 <div class="card-content">
 
@@ -958,14 +1825,21 @@ footer {
         </a>
 
 
-        <a href="sunglasses.html" style="text-decoration:none;color:inherit;">
+        <!-- SUNGLASSES -->
+
+        <a
+            href="sunglasses.html"
+            style="text-decoration:none;color:inherit;"
+        >
 
             <div class="card">
 
                 <img
                     src="Cartier Aqua Green Karan Aujla Edition.jpeg"
                     alt="Sunglasses"
+                    loading="lazy"
                 >
+
 
                 <div class="card-content">
 
@@ -984,14 +1858,21 @@ footer {
         </a>
 
 
-        <a href="most-selling.html" style="text-decoration:none;color:inherit;">
+        <!-- MOST SELLING -->
+
+        <a
+            href="most-selling.html"
+            style="text-decoration:none;color:inherit;"
+        >
 
             <div class="card">
 
                 <img
                     src="most selling.jpeg"
                     alt="Most Selling Articles"
+                    loading="lazy"
                 >
+
 
                 <div class="card-content">
 
@@ -1010,14 +1891,21 @@ footer {
         </a>
 
 
-        <a href="couple-watches.html" style="text-decoration:none;color:inherit;">
+        <!-- COUPLE WATCHES -->
+
+        <a
+            href="couple-watches.html"
+            style="text-decoration:none;color:inherit;"
+        >
 
             <div class="card">
 
                 <img
                     src="Tissot Gentel Couple Watch.jpeg"
                     alt="Couple Watches"
+                    loading="lazy"
                 >
+
 
                 <div class="card-content">
 
@@ -1036,14 +1924,21 @@ footer {
         </a>
 
 
-        <a href="limited-editions.html" style="text-decoration:none;color:inherit;">
+        <!-- LIMITED EDITIONS -->
+
+        <a
+            href="limited-editions.html"
+            style="text-decoration:none;color:inherit;"
+        >
 
             <div class="card">
 
                 <img
                     src="Seiko Mod Date-Just.jpeg"
                     alt="Limited Editions"
+                    loading="lazy"
                 >
+
 
                 <div class="card-content">
 
@@ -1062,14 +1957,21 @@ footer {
         </a>
 
 
-        <a href="luxury-articles.html" style="text-decoration:none;color:inherit;">
+        <!-- LUXURY ARTICLES -->
+
+        <a
+            href="luxury-articles.html"
+            style="text-decoration:none;color:inherit;"
+        >
 
             <div class="card">
 
                 <img
                     src="tissot prx.png"
                     alt="Luxury Articles"
+                    loading="lazy"
                 >
+
 
                 <div class="card-content">
 
@@ -1093,9 +1995,9 @@ footer {
 </section>
 
 
-<!-- =========================
+<!-- =========================================================
      GET IN TOUCH
-========================= -->
+========================================================= -->
 
 <section class="get-touch">
 
@@ -1103,9 +2005,12 @@ footer {
         Get In Touch
     </h2>
 
+
     <p>
+
         Have a question, enquiry, feedback or complaint?
         We are here to help.
+
     </p>
 
 
@@ -1122,6 +2027,7 @@ footer {
             required
         >
 
+
         <input
             type="email"
             name="email"
@@ -1129,11 +2035,13 @@ footer {
             required
         >
 
+
         <input
             type="tel"
             name="phone"
             placeholder="Your Phone Number"
         >
+
 
         <textarea
             name="message"
@@ -1141,8 +2049,11 @@ footer {
             required
         ></textarea>
 
+
         <button type="submit">
+
             Send Message
+
         </button>
 
     </form>
@@ -1150,17 +2061,19 @@ footer {
 </section>
 
 
-<!-- =========================
+<!-- =========================================================
      BUSINESS PARTNER
-========================= -->
+========================================================= -->
 
 <section class="business-partner">
+
 
     <div class="partner-header">
 
         <small>
             OUR PARTNER
         </small>
+
 
         <h2>
             Business Partner
@@ -1180,6 +2093,7 @@ footer {
                 src="left-image.jpeg"
                 alt="50 Scents Perfume Bottle"
                 class="partner-img"
+                loading="lazy"
             >
 
         </div>
@@ -1194,22 +2108,28 @@ footer {
                 <img
                     src="partner-logo.jpeg"
                     alt="Business Partner Logo"
+                    loading="lazy"
                 >
+
 
                 <h3>
                     50 Scents
                 </h3>
 
+
                 <p>
                     Trusted business partner of 50 Mirars.
                 </p>
+
 
                 <a
                     href="https://wa.me/c/918233355877"
                     target="_blank"
                     class="partner-btn"
                 >
+
                     Click to View Business
+
                 </a>
 
             </div>
@@ -1225,6 +2145,7 @@ footer {
                 src="right-image.jpeg"
                 alt="50 Scents Branding Card"
                 class="partner-img"
+                loading="lazy"
             >
 
         </div>
@@ -1235,9 +2156,9 @@ footer {
 </section>
 
 
-<!-- =========================
+<!-- =========================================================
      WHY CHOOSE US
-========================= -->
+========================================================= -->
 
 <section class="why-choose">
 
@@ -1306,9 +2227,9 @@ footer {
 </section>
 
 
-<!-- =========================
+<!-- =========================================================
      STATISTICS
-========================= -->
+========================================================= -->
 
 <section class="stats-section">
 
@@ -1364,11 +2285,14 @@ footer {
 </section>
 
 
-<!-- =========================
+<!-- =========================================================
      CONTACT
-========================= -->
+========================================================= -->
 
-<section class="contact" id="contact">
+<section
+    class="contact"
+    id="contact"
+>
 
     <div class="contact-grid">
 
@@ -1385,12 +2309,15 @@ footer {
                     WhatsApp:
                 </strong>
 
+
                 <a
                     href="https://wa.me/918209989013"
                     target="_blank"
                     style="color:white;text-decoration:none;"
                 >
+
                     +91 8209989013
+
                 </a>
 
             </p>
@@ -1402,11 +2329,14 @@ footer {
                     Email:
                 </strong>
 
+
                 <a
                     href="mailto:50mirars@gmail.com"
                     style="color:white;text-decoration:none;"
                 >
+
                     50mirars@gmail.com
+
                 </a>
 
             </p>
@@ -1418,12 +2348,15 @@ footer {
                     Instagram:
                 </strong>
 
+
                 <a
                     href="https://instagram.com/50mirars"
                     target="_blank"
                     style="color:white;text-decoration:none;"
                 >
+
                     @50mirars
+
                 </a>
 
             </p>
@@ -1460,9 +2393,9 @@ footer {
 </section>
 
 
-<!-- =========================
+<!-- =========================================================
      FOOTER
-========================= -->
+========================================================= -->
 
 <footer>
 
