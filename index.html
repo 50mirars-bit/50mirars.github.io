@@ -418,6 +418,34 @@ font-size:36px;
   transform: scale(1.1);
 }
 
+nav {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.search-bar {
+  flex: 1;
+  display: flex;
+  gap: 10px;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.search-bar button {
+  background: #009688;
+  color: #fff;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
 /* Mobile optimization */
 @media (max-width: 768px) {
   .floating-cart {
@@ -774,14 +802,24 @@ font-size:36px;
     <img src="logo.jpeg" alt="50 Mirars">
     
 </div>
-<nav>
-<a href="#home">Home</a>
-<a href="#collections">Collections</a>
-<a href="about.html">About Us</a>
-<a href="faq.html">FAQ</a>
-<a href="terms.html">Terms & Conditions</a>
-<a href="cart.html" class="floating-cart">🛒</a>
-</nav>
+
+<header>
+  <nav>
+    <!-- Search Bar -->
+    <div class="search-bar">
+      <input type="text" id="search-input" placeholder="Search products...">
+      <button onclick="searchProducts()">Search</button>
+    </div>
+
+    <!-- Navigation Links -->
+    <a href="#home">Home</a>
+    <a href="#collections">Collections</a>
+    <a href="about.html">About Us</a>
+    <a href="faq.html">FAQ</a>
+    <a href="terms.html">Terms & Conditions</a>
+    <a href="cart.html" class="floating-cart">🛒</a>
+  </nav>
+</header>
     
 </header>
 <section class="hero" id="home">
