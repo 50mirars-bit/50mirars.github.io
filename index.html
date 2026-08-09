@@ -1148,8 +1148,14 @@ Premium watches and sunglasses crafted for those who value perfection.
     const cards = document.querySelectorAll(".product-card");
 
     cards.forEach(card => {
-      const title = card.querySelector("h3").innerText.toLowerCase();
-      if (title.includes(filter)) {
+      const titleElement = card.querySelector("h3");
+      const priceElement = card.querySelector(".price");
+
+      const title = titleElement ? titleElement.innerText.toLowerCase() : "";
+      const price = priceElement ? priceElement.innerText.toLowerCase() : "";
+
+      // ✅ Match by product name OR price
+      if (title.includes(filter) || price.includes(filter)) {
         card.style.display = "";
       } else {
         card.style.display = "none";
@@ -1167,11 +1173,11 @@ Premium watches and sunglasses crafted for those who value perfection.
     }
   });
 </script>
+
     
 <footer>
     <p>© 2026 50 Mirars. All Rights Reserved.</p>
 </footer>
-</script>
     
 </body>
 </html>
