@@ -309,14 +309,23 @@ text-decoration:none;
 font-weight:bold;
 }
 
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1; /* ensures content pushes footer down */
+}
+
 footer {
   background: #fff;              /* white background */
-  color: #111;                   /* dark text */
+  color: #111;                   /* black text */
   text-align: center;
   padding: 40px 0;
   border-top: 2px solid #eee;    /* subtle divider line */
-  position: relative;            /* ensures footer stays at bottom */
-  bottom: 0;
   width: 100%;
 }
 
