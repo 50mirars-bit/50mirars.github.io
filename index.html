@@ -166,6 +166,32 @@ transform:translateY(-2px);
   font-weight: bold;
 }
 
+.headline-bar {
+  background: rgba(255, 255, 255, 0.1); /* transparent slim box */
+  border-top: 1px solid rgba(0,0,0,0.1);
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.headline-text {
+  display: inline-block;
+  padding: 10px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #2c2c2c; /* premium charcoal */
+  animation: scroll-left 15s linear infinite;
+}
+
+.headline-text strong {
+  color: #1a3d7c; /* royal blue for coupon code */
+}
+
+@keyframes scroll-left {
+  0%   { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
 /* COLLECTIONS */
 
 .collections{
@@ -785,6 +811,12 @@ font-size:36px;
 <a href="terms.html">Terms & Conditions</a>
 <a href="cart.html" class="floating-cart">🛒</a>
 </nav>
+
+<div class="headline-bar">
+  <div class="headline-text">
+    🎉 Enjoy 10% OFF with code <strong>10OFF10</strong> — Elevate your style with premium watches & sunglasses 🎉
+  </div>
+</div>
     
 </header>
 <section class="hero" id="home">
