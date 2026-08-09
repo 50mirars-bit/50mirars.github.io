@@ -1097,19 +1097,39 @@ Premium watches and sunglasses crafted for those who value perfection.
 </section>
 
 <script>
-function searchProducts() {
-  const query = document.getElementById("search-input").value.toLowerCase();
-  const products = document.querySelectorAll(".product-card");
+  // Loop through all product cards
+  document.querySelectorAll(".product-card").forEach(card => {
+    // Skip if button already exists
+    if (!card.querySelector(".add-to-cart-btn")) {
+      const name = card.querySelector("h3").innerText;
+      const price = card.querySelector(".price").innerText.replace("₹", "").replace(",", "");
 
-  products.forEach(product => {
-    const name = product.querySelector("h3").innerText.toLowerCase();
-    if (name.includes(query)) {
-      product.style.display = "block"; // show matching product
-    } else {
-      product.style.display = "none";  // hide non-matching product
+      // Create wrapper div if missing
+      let btnWrapper = card.querySelector(".product-buttons");
+      if (!btnWrapper) {
+        btnWrapper = document.createElement("div");
+        btnWrapper.className = "product-buttons";
+        card.appendChild(btnWrapper);
+      }
+
+      // Add Enquire button (if not already there)
+      if (!card.querySelector(".enquire-btn")) {
+        const enquire = document.createElement("a");
+        enquire.className = "enquire-btn";
+        enquire.href = `https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20${encodeURIComponent(name)}.`;
+        enquire.innerText = "Enquire Now";
+        btnWrapper.appendChild(enquire);
+      }
+
+      // Add Add to Cart button
+      const cartBtn = document.createElement("button");
+      cartBtn.className = "add-to-cart-btn";
+      cartBtn.setAttribute("data-name", name);
+      cartBtn.setAttribute("data-price", price);
+      cartBtn.innerText = "Add to Cart";
+      btnWrapper.appendChild(cartBtn);
     }
   });
-}
 </script>
     
 <footer>
