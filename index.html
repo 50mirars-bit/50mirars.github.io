@@ -309,55 +309,12 @@ text-decoration:none;
 font-weight:bold;
 }
 
-.footer {
-  text-align: center;
-  padding: 30px;
-  background: #fff;      /* white background */
-  color: #111;           /* dark text */
-  border-top: 2px solid #eee; /* subtle divider line */
-  width: 100%;
-}
-
-.navbar {
-  text-align: center;
-  margin-top: 10px;
-}
-
-.nav-link {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  text-decoration: none;
-  color: #111;
-  margin: 0 20px;
-  position: relative;
-  transition: all 0.3s ease;
-}
-
-.nav-link:hover {
-  color: gold;
-}
-
-.nav-link::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 0;
-  height: 2px;
-  background-color: gold;
-  transition: width 0.3s ease;
-}
-
-.nav-link:hover::after {
-  width: 100%;
-}
-
-.nav-link.active {
-  color: #111; /* black */
-}
-
-.nav-link.active::after {
-  width: 100%;
+footer{
+  background:#fff; /* white background */
+  color:#111; /* dark text */
+  text-align:center;
+  padding:40px 0;
+  border-top:2px solid #eee; /* subtle divider line */
 }
 
 /* MOBILE */
@@ -441,7 +398,6 @@ font-size:36px;
     
 }   /* CLOSES THE MOBILE MEDIA QUERY */
 
-
 .floating-cart {
   position: fixed;
   bottom: 25px;
@@ -460,40 +416,6 @@ font-size:36px;
 .floating-cart:hover {
   background: #111;
   transform: scale(1.1);
-}
-
-nav {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.search-container {
-  display: flex;
-  justify-content: center;
-  margin: 20px 0;
-}
-
-#search-bar {
-  padding: 10px;
-  width: 250px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-#search-btn {
-  padding: 10px 20px;
-  margin-left: 10px;
-  background-color: #111;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  border-radius: 4px;
-}
-
-#search-btn:hover {
-  background-color: gold;
-  color: #111;
 }
 
 /* Mobile optimization */
@@ -590,48 +512,38 @@ nav {
   align-items: center; /* centers everything horizontally */
 }
 
-.contact-form {
-  max-width: 600px;
-  margin: 0 auto;
-  background: #fff;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+.contact-header {
+  text-align: center;
+  margin-bottom: 40px;
 }
+
+.contact-header h2 {
+  font-size: 48px;
+  color: #c9a24d;
+  font-weight: 700;
+}
+
+.contact-header p {
+  font-size: 18px;
+  color: #555;
+}
+
 
 .contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 16px;
-  box-sizing: border-box;
+.contact-form textarea{
+    width:100%;
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:5px;
+    font-size:16px;
+    box-sizing:border-box;
 }
 
-.contact-form textarea {
-  height: 120px;
-  resize: none;
-}
+.contact-form textarea{
+    height:120px;
+    resize:none;
+} */
 
-.contact-form button {
-  padding: 14px;
-  background: #c9a24d;
-  color: #111;
-  border: none;
-  border-radius: 6px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.3s ease;
-}
-
-.contact-form button:hover {
-  background: #111;
-  color: #fff;
-}
 <hr style="width:80%;margin:auto;border:0;border-top:2px solid #eee;margin-bottom:60px;">
     
 /* Business Partner */
@@ -857,27 +769,21 @@ nav {
 <body>
 
 <header>
-  <div class="header-top">
-    <div class="logo">
-      <img src="logo.jpeg" alt="50 Mirars Logo">
-    </div>
 
-    <div class="search-container">
-      <input type="text" id="search-bar" placeholder="Search products...">
-      <button id="search-btn">Search</button>
-    </div>
-  </div>
-
-  <nav>
-    <a href="#home" class="nav-link active">Home</a>
-    <a href="#collections" class="nav-link">Collections</a>
-    <a href="about.html" class="nav-link">About Us</a>
-    <a href="faq.html" class="nav-link">FAQ</a>
-    <a href="terms.html" class="nav-link">Terms & Conditions</a>
-    <a href="cart.html" class="floating-cart">🛒</a>
-  </nav>
+<div class="logo">
+    <img src="logo.jpeg" alt="50 Mirars">
+    
+</div>
+<nav>
+<a href="#home">Home</a>
+<a href="#collections">Collections</a>
+<a href="about.html">About Us</a>
+<a href="faq.html">FAQ</a>
+<a href="terms.html">Terms & Conditions</a>
+<a href="cart.html" class="floating-cart">🛒</a>
+</nav>
+    
 </header>
-
 <section class="hero" id="home">
 
 <div class="hero-content">
@@ -1150,43 +1056,12 @@ Premium watches and sunglasses crafted for those who value perfection.
     
 </div>
 
-<script>
-  const searchInput = document.getElementById("search-bar");
-  const searchBtn = document.getElementById("search-btn");
-
-  function searchProducts() {
-    const filter = searchInput.value.toLowerCase().trim();
-    const cards = document.querySelectorAll(".product-card");
-
-    cards.forEach(card => {
-      const titleElement = card.querySelector("h3");
-      const priceElement = card.querySelector(".price");
-
-      const title = titleElement ? titleElement.innerText.toLowerCase() : "";
-      const price = priceElement ? priceElement.innerText.toLowerCase() : "";
-
-      // ✅ Match by product name OR price
-      if (title.includes(filter) || price.includes(filter)) {
-        card.style.display = "";
-      } else {
-        card.style.display = "none";
-      }
-    });
-  }
-
-  // Run search when button is clicked
-  searchBtn.addEventListener("click", searchProducts);
-
-  // Also run search when pressing Enter
-  searchInput.addEventListener("keyup", function(event) {
-    if (event.key === "Enter") {
-      searchProducts();
-    }
-  });
+</section>
+    
+<footer>
+    <p>© 2026 50 Mirars. All Rights Reserved.</p>
+</footer>
 </script>
     
-<footer class="footer">
-    © 2026 50 Mirars. All Rights Reserved.
-  </footer>
 </body>
 </html>
