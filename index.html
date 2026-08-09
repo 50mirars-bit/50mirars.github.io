@@ -1095,6 +1095,22 @@ Premium watches and sunglasses crafted for those who value perfection.
 </div>
 
 </section>
+
+<script>
+function searchProducts() {
+  const query = document.getElementById("search-input").value.toLowerCase();
+  const products = document.querySelectorAll(".product-card");
+
+  products.forEach(product => {
+    const name = product.querySelector("h3").innerText.toLowerCase();
+    if (name.includes(query)) {
+      product.style.display = "block"; // show matching product
+    } else {
+      product.style.display = "none";  // hide non-matching product
+    }
+  });
+}
+</script>
     
 <footer>
     <p>© 2026 50 Mirars. All Rights Reserved.</p>
