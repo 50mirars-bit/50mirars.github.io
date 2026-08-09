@@ -424,26 +424,32 @@ nav {
   gap: 15px;
 }
 
-.search-bar {
-  flex: 1;
+.search-container {
   display: flex;
-  gap: 10px;
+  justify-content: center;
+  margin: 20px 0;
 }
 
-.search-bar input {
-  flex: 1;
-  padding: 8px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
+#search-bar {
+  padding: 10px;
+  width: 250px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-.search-bar button {
-  background: #009688;
+#search-btn {
+  padding: 10px 20px;
+  margin-left: 10px;
+  background-color: #111;
   color: #fff;
   border: none;
-  padding: 8px 15px;
-  border-radius: 6px;
   cursor: pointer;
+  border-radius: 4px;
+}
+
+#search-btn:hover {
+  background-color: gold;
+  color: #111;
 }
 
 /* Mobile optimization */
@@ -803,13 +809,11 @@ nav {
     
 </div>
 
-<header>
-  <nav>
-    <!-- Search Bar -->
-    <div class="search-bar">
-      <input type="text" id="search-input" placeholder="Search products...">
-      <button onclick="searchProducts()">Search</button>
-    </div>
+<div class="search-container">
+  <input type="text" id="search-bar" placeholder="Search products...">
+  <button id="search-btn">Search</button>
+</div>
+
 
     <!-- Navigation Links -->
     <a href="#home">Home</a>
