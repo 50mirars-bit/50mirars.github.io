@@ -1,639 +1,556 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=1200">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>50 Mirars | Watches & Sunglasses</title>
 
 <style>
+
 * {
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  scroll-behavior:smooth;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 body {
-  font-family:Arial, sans-serif;
-  background:#fff;
-  color:#111;
+    font-family: Arial, sans-serif;
+    background: #fff;
+    color: #111;
 }
 
-/* HEADER */
+/* =========================
+   HEADER / NAVIGATION
+========================= */
+
 header {
-  background:#fff;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:15px 80px;
-  box-shadow:0 2px 10px rgba(0,0,0,.08);
-  position:sticky;
-  top:0;
-  z-index:1000;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 80px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .logo img {
-  height:80px;
+    height: 80px;
+    display: block;
 }
 
 .navbar ul {
-  list-style:none;
-  display:flex;
-  gap:40px;
-  margin:0;
-  padding:0;
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
 }
 
 .navbar a {
-  text-decoration:none;
-  color:#111;
-  font-weight:600;
-  font-size:16px;
-  letter-spacing:1px;
-  transition:color 0.3s ease;
+    text-decoration: none;
+    color: #111;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
 }
 
 .navbar a:hover {
-  color:#c9a24d; /* gold hover */
+    color: #c9a24d;
 }
 
-/* Moving Offer Line */
+
+/* =========================
+   MOVING OFFER LINE
+========================= */
+
 .headline-bar {
-  background:rgba(255,255,255,0.2); /* subtle transparent box */
-  border-top:1px solid rgba(0,0,0,0.1);
-  border-bottom:1px solid rgba(0,0,0,0.1);
-  overflow:hidden;
-  white-space:nowrap;
+    width: 100%;
+    background: #fff;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+
+    overflow: hidden;
+    white-space: nowrap;
+
+    position: relative;
+    z-index: 999;
 }
 
 .headline-text {
-  display:inline-block;
-  padding:10px 0;
-  font-size:18px;
-  font-weight:600;
-  color:#2c2c2c; /* premium charcoal */
-  animation:scroll-left 15s linear infinite;
+    display: inline-block;
+    padding: 10px 0;
+
+    font-size: 18px;
+    font-weight: 600;
+    color: #2c2c2c;
+
+    animation: scroll-left 15s linear infinite;
 }
 
 .headline-text strong {
-  color:#1a3d7c; /* royal blue for coupon code */
+    color: #1a3d7c;
 }
 
 @keyframes scroll-left {
-  0%   { transform:translateX(100%); }
-  100% { transform:translateX(-100%); }
+
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+
 }
 
-/* HERO */
+
+/* =========================
+   HERO
+========================= */
+
 .hero {
-  height:90vh;
-  background:url('https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=2000') center center/cover;
-  display:flex;
-  align-items:center;
-  padding:0 8%;
+    height: 90vh;
+
+    background:
+        url('https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=2000')
+        center center / cover;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 8%;
 }
 
 .hero-content {
-  max-width:650px;
+    max-width: 650px;
 }
 
 .hero-tag {
-  color:#c9a24d;
-  font-size:28px;
-  margin-bottom:20px;
-  font-family:Georgia, serif;
+    color: #c9a24d;
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-family: Georgia, serif;
 }
 
 .hero h1 {
-  font-family:Georgia, serif;
-  font-size:72px;
-  line-height:1.1;
-  margin-bottom:25px;
+    font-family: Georgia, serif;
+    font-size: 72px;
+    line-height: 1.1;
+    margin-bottom: 25px;
 }
 
 .hero h1 span {
-  color:#c9a24d;
+    color: #c9a24d;
 }
 
 .hero p {
-  font-size:24px;
-  color:#f8f6f2; /* soft ivory */
-  margin-bottom:35px;
-  line-height:1.5;
-  font-weight:500;
-  text-shadow:0 1px 3px rgba(0,0,0,0.4);
-  letter-spacing:0.5px;
+    font-size: 24px;
+    color: #f8f6f2;
+    margin-bottom: 35px;
+    line-height: 1.5;
+    font-weight: 500;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+    letter-spacing: 0.5px;
 }
 
+
+/* =========================
+   BUTTONS
+========================= */
+
 .btn {
-  display:inline-block;
-  padding:18px 40px;
-  background:#111;
-  color:#fff;
-  text-decoration:none;
-  border-radius:6px;
-  font-weight:600;
-  letter-spacing:1px;
-  transition:0.3s ease;
+    display: inline-block;
+    padding: 18px 40px;
+    background: #111;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: 0.3s ease;
 }
-  
+
 .btn:hover {
-  background:#c9a24d;
-  transform:translateY(-2px);
+    background: #c9a24d;
+    transform: translateY(-2px);
 }
 
 .whatsapp-btn {
-  display:inline-block;
-  padding:18px 40px;
-  background:#111;
-  color:#fff;
-  text-decoration:none;
-  border-radius:6px;
-  font-weight:600;
-  letter-spacing:1px;
-  transition:0.3s ease;
+    display: inline-block;
+    padding: 18px 40px;
+    background: #111;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: 0.3s ease;
 }
 
 .whatsapp-btn:hover {
-  background:#c9a24d;
-  transform:translateY(-2px);
+    background: #c9a24d;
+    transform: translateY(-2px);
 }
 
-/* COLLECTIONS */
+
+/* =========================
+   COLLECTIONS
+========================= */
+
 .collections {
-  padding:100px 8%;
-  text-align:center;
+    padding: 100px 8%;
+    text-align: center;
 }
 
 .collections small {
-  color:#c9a24d;
-  font-size:18px;
-  letter-spacing:2px;
+    color: #c9a24d;
+    font-size: 18px;
+    letter-spacing: 2px;
 }
 
 .collections h2 {
-  font-family:Georgia, serif;
-  font-size:52px;
-  margin:15px 0 50px;
-}
-
-.categories-grid {
-  display:grid;
-  grid-template-columns:repeat(2, 1fr);
-  gap:25px;
-  width:100%;
-}
-    
-.card {
-  position:relative;
-  overflow:hidden;
-}
-
-.card img {
-  width:100%;
-  height:500px;
-  object-fit:cover;
-  display:block;
-}
-
-.card-content {
-  position:absolute;
-  bottom:30px;
-  left:30px;
-  color:white;
-  text-align:left;
-}
-
-.card-content h3 {
-  font-size:40px;
-  font-family:Georgia, serif;
-  margin-bottom:10px;
-}
-
-.card-content p {
-  font-size:18px;
-}
-  
-/* ABOUT */
-
-.about{
-padding:100px 8%;
-background:#f8f8f8;
-text-align:center;
-}
-
-.about h2{
-font-size:48px;
-font-family:Georgia, serif;
-margin-bottom:25px;
-}
-
-.about p{
-max-width:900px;
-margin:auto;
-font-size:22px;
-line-height:1.8;
-color:#444;
-}
-
-/* FAQ */
-
-.faq{
-padding:100px 8%;
-}
-
-.faq h2{
-text-align:center;
-font-family:Georgia, serif;
-font-size:48px;
-margin-bottom:50px;
-}
-
-.faq-item{
-margin-bottom:30px;
-}
-
-.faq-item h3{
-margin-bottom:10px;
-color:#c9a24d;
-}
-
-/* CONTACT */
-
-.contact{
-  background:#070707;
-  color:black;
-  padding:80px 8%;
-  margin-bottom:0; /* ensure no overlap */
+    font-family: Georgia, serif;
+    font-size: 52px;
+    margin: 15px 0 50px;
 }
 
 .categories-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-}
-    
-.contact h2{
-color:#c9a24d;
-margin-bottom:30px;
-font-family:Georgia, serif;
+    gap: 25px;
+    width: 100%;
 }
 
-.contact p{
-margin-bottom:15px;
-font-size:18px;
+.card {
+    position: relative;
+    overflow: hidden;
 }
 
-.whatsapp-box{
-border:1px solid #c9a24d;
-padding:30px;
+.card img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: block;
 }
 
-.whatsapp-box h3{
-color:#c9a24d;
-margin-bottom:15px;
+.card-content {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    color: white;
+    text-align: left;
 }
 
-.whatsapp-box a{
-display:inline-block;
-margin-top:15px;
-padding:15px 30px;
-background:#c9a24d;
-color:black;
-text-decoration:none;
-font-weight:bold;
+.card-content h3 {
+    font-size: 40px;
+    font-family: Georgia, serif;
+    margin-bottom: 10px;
 }
 
-footer{
-  background:#fff; /* white background */
-  color:#111; /* dark text */
-  text-align:center;
-  padding:40px 0;
-  border-top:2px solid #eee; /* subtle divider line */
+.card-content p {
+    font-size: 18px;
 }
 
-/* MOBILE */
 
-/* @media(max-width:768px){
-    
-header{
-flex-direction:column;
-padding:20px;
+/* =========================
+   ABOUT
+========================= */
+
+.about {
+    padding: 100px 8%;
+    background: #f8f8f8;
+    text-align: center;
 }
 
-nav{
-margin-top:15px;
+.about h2 {
+    font-size: 48px;
+    font-family: Georgia, serif;
+    margin-bottom: 25px;
 }
 
-nav a{
-display:inline-block;
-margin:8px;
+.about p {
+    max-width: 900px;
+    margin: auto;
+    font-size: 22px;
+    line-height: 1.8;
+    color: #444;
 }
 
-.hero{
-padding:40px;
-height:auto;
+
+/* =========================
+   FAQ
+========================= */
+
+.faq {
+    padding: 100px 8%;
 }
 
-.hero h1{
-font-size:42px;
+.faq h2 {
+    text-align: center;
+    font-family: Georgia, serif;
+    font-size: 48px;
+    margin-bottom: 50px;
 }
 
-.hero p{
-font-size:18px;
+.faq-item {
+    margin-bottom: 30px;
 }
 
-.contact-grid{
-grid-template-columns:1fr;
+.faq-item h3 {
+    margin-bottom: 10px;
+    color: #c9a24d;
 }
 
-.collections h2,
-.about h2,
-.faq h2{
-font-size:36px;
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact {
+    background: #070707;
+    color: white;
+    padding: 80px 8%;
+    margin-bottom: 0;
 }
 
-.contact-section{
-    padding:80px 20px;
-    background:#f8f8f8;
-    text-align:center;
+.contact h2 {
+    color: #c9a24d;
+    margin-bottom: 30px;
+    font-family: Georgia, serif;
 }
 
-.contact-section h2{
-    font-size:42px;
-    margin-bottom:10px;
+.contact p {
+    margin-bottom: 15px;
+    font-size: 18px;
 }
 
-.contact-section p{
-    color:#555;
-    margin-bottom:30px;
+.whatsapp-box {
+    border: 1px solid #c9a24d;
+    padding: 30px;
 }
 
-.contact-section a{
-    color:white;
-    text-decoration:none;
+.whatsapp-box h3 {
+    color: #c9a24d;
+    margin-bottom: 15px;
 }
 
-.contact-section a:hover{
-    color:#c9a24d;
+.whatsapp-box a {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 15px 30px;
+    background: #c9a24d;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
 }
 
-.contact-form{
-    max-width:600px;
-    margin:0 auto;
-    background:white;
-    padding:30px;
-    border-radius:10px;
-    box-shadow:0 0 15px rgba(0,0,0,0.1);
 
-    display:flex;
-    flex-direction:column;
-    gap:15px;
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #fff;
+    color: #111;
+    text-align: center;
+    padding: 40px 0;
+    border-top: 2px solid #eee;
 }
-    
-}   /* CLOSES THE MOBILE MEDIA QUERY */
+
+
+/* =========================
+   FLOATING CART
+========================= */
 
 .floating-cart {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  background: #c9a24d;
-  color: #fff;
-  font-size: 24px;
-  padding: 15px;
-  border-radius: 50%;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  text-decoration: none;
-  transition: 0.3s;
-  z-index: 1000;
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+
+    background: #c9a24d;
+    color: #fff;
+
+    font-size: 24px;
+    padding: 15px;
+
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+
+    text-decoration: none;
+    transition: 0.3s;
+
+    z-index: 1000;
 }
 
 .floating-cart:hover {
-  background: #111;
-  transform: scale(1.1);
+    background: #111;
+    transform: scale(1.1);
 }
 
-/* Mobile optimization */
-@media (max-width: 768px) {
-  .floating-cart {
-    bottom: 20px;
-    right: 20px;
+
+/* =========================
+   GET IN TOUCH
+========================= */
+
+.get-touch {
+    padding: 100px 8%;
+    background: #f8f8f8;
+    text-align: center;
+    margin-bottom: 120px;
+}
+
+.get-touch h2 {
+    font-size: 56px;
+    color: #c9a24d;
+    font-family: Georgia, serif;
+    margin-bottom: 20px;
+}
+
+.get-touch p {
+    color: #666;
     font-size: 22px;
-    padding: 14px;
-  }
-}
-  
-/* GET IN TOUCH */
-
-.get-touch{
-    padding:100px 8%;
-    background:#f8f8f8;
-    text-align:center;
-    margin-bottom:120px; /* pushes Business Partner further down */
+    margin-bottom: 50px;
 }
 
-.get-touch h2{
-    font-size:56px;
-    color:#c9a24d;
-    font-family:Georgia, serif;
-    margin-bottom:20px;
-}
-
-.get-touch p{
-    color:#666;
-    font-size:22px;
-    margin-bottom:50px;
-}
-
-.touch-form{
-    max-width:900px;
-    margin:auto;
-    background:white;
-    padding:40px;
-    border-radius:12px;
-    box-shadow:0 0 20px rgba(0,0,0,.08);
+.touch-form {
+    max-width: 900px;
+    margin: auto;
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,0,0,.08);
 }
 
 .touch-form input,
-.touch-form textarea{
-    width:100%;
-    padding:18px;
-    margin-bottom:20px;
-    border:1px solid #ddd;
-    border-radius:8px;
-    font-size:16px;
+.touch-form textarea {
+    width: 100%;
+    padding: 18px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
 }
 
-.touch-form textarea{
-    height:180px;
-    resize:none;
+.touch-form textarea {
+    height: 180px;
+    resize: none;
 }
 
-.touch-form button{
-    background:#c9a24d;
-    color:white;
-    border:none;
-    padding:16px 40px;
-    border-radius:8px;
-    font-size:18px;
-    cursor:pointer;
-    transition:.3s;
+.touch-form button {
+    background: #c9a24d;
+    color: white;
+    border: none;
+    padding: 16px 40px;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: .3s;
 }
 
-.touch-form button:hover{
-    background:#111;
-}
-
-.contact-header {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.contact-header h2 {
-  font-size: 48px;
-  color: #c9a24d; /* gold tone */
-  font-weight: 700;
-}
-
-.contact-header p {
-  font-size: 18px;
-  color: #555;
-}
-
-.contact-section {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* centers everything horizontally */
-}
-
-.contact-header {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.contact-header h2 {
-  font-size: 48px;
-  color: #c9a24d;
-  font-weight: 700;
-}
-
-.contact-header p {
-  font-size: 18px;
-  color: #555;
+.touch-form button:hover {
+    background: #111;
 }
 
 
-.contact-form input,
-.contact-form textarea{
-    width:100%;
-    padding:12px;
-    border:1px solid #ddd;
-    border-radius:5px;
-    font-size:16px;
-    box-sizing:border-box;
+/* =========================
+   BUSINESS PARTNER
+========================= */
+
+.business-partner {
+    padding: 100px 8%;
+    background: #ffffff;
+    text-align: center;
+    margin-top: 60px;
 }
 
-.contact-form textarea{
-    height:120px;
-    resize:none;
-} */
-
-<hr style="width:80%;margin:auto;border:0;border-top:2px solid #eee;margin-bottom:60px;">
-    
-/* Business Partner */
-.business-partner{
-    padding:100px 8%;
-    background:#ffffff;
-    text-align:center;
-    margin-top:60px; /* balanced gap from previous section */
+.business-partner small {
+    color: #c9a24d;
+    letter-spacing: 2px;
+    font-size: 16px;
 }
 
-.business-partner small{
-    color:#c9a24d;
-    letter-spacing:2px;
-    font-size:16px;
+.business-partner h2 {
+    font-family: Georgia, serif;
+    font-size: 48px;
+    margin: 15px 0 50px;
+    color: #111;
 }
 
-.business-partner h2{
-    font-family:Georgia, serif;
-    font-size:48px;
-    margin:15px 0 50px;
-    color:#111;
-}
-
-.business-partner h2::after{
-    content:"";
-    display:block;
-    width:120px;
-    height:2px;
-    background:#c9a24d;
-    margin:20px auto 0;
-    position:relative;
+.business-partner h2::after {
+    content: "";
+    display: block;
+    width: 120px;
+    height: 2px;
+    background: #c9a24d;
+    margin: 20px auto 0;
 }
 
 .partner-card {
-  max-width: 400px;
-  margin: 40px auto; /* centers the card horizontally */
-  background: white;
-  padding: 40px;
-  border-radius: 15px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-  transition: 0.3s;
-  text-align: center; /* centers text inside the card */
+    max-width: 400px;
+    margin: 40px auto;
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    transition: 0.3s;
+    text-align: center;
 }
 
-.partner-card:hover{
-    transform:translateY(-5px);
+.partner-card:hover {
+    transform: translateY(-5px);
 }
 
 .partner-card img {
-  display: block;
-  margin: 0 auto 25px; /* centers the logo */
-  max-width: 180px;
-  height: auto;
+    display: block;
+    margin: 0 auto 25px;
+    max-width: 180px;
+    height: auto;
 }
 
-.partner-card h3{
-    font-size:28px;
-    margin-bottom:10px;
+.partner-card h3 {
+    font-size: 28px;
+    margin-bottom: 10px;
 }
 
-.partner-card p{
-    color:#666;
-    font-size:16px;
+.partner-card p {
+    color: #666;
+    font-size: 16px;
 }
 
 .partner-header {
-  text-align: center;
-  margin-bottom: 40px;
+    text-align: center;
+    margin-bottom: 40px;
 }
 
 .partner-header small {
-  display: block;
-  color: #c9a24d;
-  letter-spacing: 2px;
-  font-size: 16px;
+    display: block;
+    color: #c9a24d;
+    letter-spacing: 2px;
+    font-size: 16px;
 }
 
 .partner-header h2 {
-  font-family: Georgia, serif;
-  font-size: 48px;
-  color: #111;
-  margin: 15px 0 20px;
-  position: relative;
+    font-family: Georgia, serif;
+    font-size: 48px;
+    color: #111;
+    margin: 15px 0 20px;
+    position: relative;
 }
 
 .partner-header h2::after {
-  content: "";
-  display: block;
-  width: 120px;
-  height: 2px;
-  background: #c9a24d;
-  margin: 20px auto 0;
+    content: "";
+    display: block;
+    width: 120px;
+    height: 2px;
+    background: #c9a24d;
+    margin: 20px auto 0;
 }
 
-    
 .partner-btn {
     display: inline-block;
     margin-top: 15px;
@@ -652,419 +569,915 @@ font-size:36px;
 }
 
 .partner-container {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
-.partner-left, .partner-right {
-  width: 30%;
-  text-align: center;
+.partner-left,
+.partner-right {
+    width: 30%;
+    text-align: center;
 }
 
 .partner-center {
-  width: 30%;
-  text-align: center;
+    width: 30%;
+    text-align: center;
 }
 
 .partner-img {
-  width: 100%;
-  max-width: 350px;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-    
-/* WHY CHOOSE US */
-   .why-choose{
-    padding:100px 8%;
-    background:#f8f6f2;
-    text-align:center;
+    width: 100%;
+    max-width: 350px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
-.why-choose h2{
-    font-family:Georgia, serif;
-    font-size:48px;
-    margin-bottom:60px;
-    color:#111;
+
+/* =========================
+   WHY CHOOSE US
+========================= */
+
+.why-choose {
+    padding: 100px 8%;
+    background: #f8f6f2;
+    text-align: center;
 }
 
-.why-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:30px;
-    max-width:1200px;
-    margin:auto;
+.why-choose h2 {
+    font-family: Georgia, serif;
+    font-size: 48px;
+    margin-bottom: 60px;
+    color: #111;
 }
 
-.why-box{
-    background:white;
-    padding:35px;
-    border-radius:12px;
-    box-shadow:0 5px 20px rgba(0,0,0,0.08);
-    transition:0.3s;
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: auto;
 }
 
-.why-box:hover{
-    transform:translateY(-8px);
+.why-box {
+    background: white;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    transition: 0.3s;
 }
 
-.why-box h3{
-    color:#c9a24d;
-    margin-bottom:15px;
-    font-size:22px;
+.why-box:hover {
+    transform: translateY(-8px);
 }
 
-.why-box p{
-    color:#666;
-    line-height:1.7;
+.why-box h3 {
+    color: #c9a24d;
+    margin-bottom: 15px;
+    font-size: 22px;
 }
 
-/* STATISTICS */
-
-.stats-section{
-    background:#111;
-    color:white;
-    padding:100px 8%;
-    text-align:center;
+.why-box p {
+    color: #666;
+    line-height: 1.7;
 }
 
-.stats-section h2{
-    font-family:Georgia, serif;
-    font-size:48px;
-    margin-bottom:60px;
+
+/* =========================
+   STATISTICS
+========================= */
+
+.stats-section {
+    background: #111;
+    color: white;
+    padding: 100px 8%;
+    text-align: center;
 }
 
-.stats-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:40px;
-    max-width:1000px;
-    margin:auto;
+.stats-section h2 {
+    font-family: Georgia, serif;
+    font-size: 48px;
+    margin-bottom: 60px;
 }
 
-.stat-box{
-    padding:30px;
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 40px;
+    max-width: 1000px;
+    margin: auto;
 }
 
-.stat-box h3{
-    font-size:60px;
-    color:#c9a24d;
-    margin-bottom:10px;
+.stat-box {
+    padding: 30px;
 }
 
-.stat-box p{
-    font-size:20px;
-    color:#ddd;
+.stat-box h3 {
+    font-size: 60px;
+    color: #c9a24d;
+    margin-bottom: 10px;
+}
+
+.stat-box p {
+    font-size: 20px;
+    color: #ddd;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    header {
+        flex-direction: column;
+        padding: 15px 20px;
+    }
+
+    .logo img {
+        height: 65px;
+    }
+
+    .navbar {
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    .navbar ul {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .navbar a {
+        font-size: 14px;
+    }
+
+    .headline-text {
+        font-size: 15px;
+        padding: 9px 0;
+    }
+
+    .hero {
+        padding: 50px 25px;
+        height: auto;
+        min-height: 75vh;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .hero p {
+        font-size: 18px;
+    }
+
+    .hero-tag {
+        font-size: 22px;
+    }
+
+    .collections {
+        padding: 70px 20px;
+    }
+
+    .collections h2,
+    .about h2,
+    .faq h2 {
+        font-size: 36px;
+    }
+
+    .categories-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card img {
+        height: 400px;
+    }
+
+    .card-content h3 {
+        font-size: 30px;
+    }
+
+    .get-touch {
+        padding: 70px 20px;
+        margin-bottom: 60px;
+    }
+
+    .get-touch h2 {
+        font-size: 42px;
+    }
+
+    .touch-form {
+        padding: 25px;
+    }
+
+    .partner-left,
+    .partner-center,
+    .partner-right {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .business-partner {
+        padding: 70px 20px;
+    }
+
+    .business-partner h2,
+    .partner-header h2 {
+        font-size: 38px;
+    }
+
+    .why-choose {
+        padding: 70px 20px;
+    }
+
+    .why-choose h2 {
+        font-size: 38px;
+    }
+
+    .stats-section {
+        padding: 70px 20px;
+    }
+
+    .stats-section h2 {
+        font-size: 38px;
+    }
+
+    .stat-box h3 {
+        font-size: 48px;
+    }
+
+    .contact {
+        padding: 60px 20px;
+    }
+
+    .floating-cart {
+        bottom: 20px;
+        right: 20px;
+        font-size: 22px;
+        padding: 14px;
+    }
 }
 
 </style>
 </head>
 
+
 <body>
+
+
+<!-- =========================
+     NAVIGATION HEADER
+========================= -->
 
 <header>
 
-<div class="logo">
-    <img src="logo.jpeg" alt="50 Mirars">
-    
-</div>
-<!-- Navigation -->
-<nav class="navbar">
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="collections.html">Collections</a></li>
-    <li><a href="about.html">About Us</a></li>
-    <li><a href="faq.html">FAQ</a></li>
-    <li><a href="terms.html">Terms & Conditions</a></li>
-  </ul>
-</nav>
+    <div class="logo">
+        <img src="logo.jpeg" alt="50 Mirars">
+    </div>
 
-<!-- Moving Offer Line -->
-<div class="headline-bar">
-  <div class="headline-text">
-    🎉 Enjoy 10% OFF with code <strong>10OFF10</strong> — Elevate your style with premium watches & sunglasses 🎉
-  </div>
-</div>
+    <nav class="navbar">
+
+        <ul>
+
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+
+            <li>
+                <a href="collections.html">Collections</a>
+            </li>
+
+            <li>
+                <a href="about.html">About Us</a>
+            </li>
+
+            <li>
+                <a href="faq.html">FAQ</a>
+            </li>
+
+            <li>
+                <a href="terms.html">Terms & Conditions</a>
+            </li>
+
+        </ul>
+
+    </nav>
 
 </header>
-<section class="hero" id="home">
 
-<div class="hero-content">
 
-<div class="hero-tag">50 MIRARS</div>
+<!-- =========================
+     MOVING OFFER BAR
+     NOW OUTSIDE HEADER
+========================= -->
 
-<h1>
-TIMELESS ELEGANCE.<br>
-UNMATCHED <span>STYLE.</span>
-</h1>
+<div class="headline-bar">
 
-<p>
-Premium watches and sunglasses crafted for those who value perfection.
-</p>
+    <div class="headline-text">
 
-<a class="btn" href="https://wa.me/c/918209989013" target="_blank">
-    SHOP ON WHATSAPP
-</a>
-    
+        🎉 Enjoy 10% OFF with code
+        <strong>10OFF10</strong>
+        — Elevate your style with premium watches & sunglasses 🎉
+
+    </div>
+
 </div>
 
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="hero-tag">
+            50 MIRARS
+        </div>
+
+        <h1>
+            TIMELESS ELEGANCE.<br>
+            UNMATCHED <span>STYLE.</span>
+        </h1>
+
+        <p>
+            Premium watches and sunglasses crafted for those who value perfection.
+        </p>
+
+        <a
+            class="btn"
+            href="https://wa.me/c/918209989013"
+            target="_blank"
+        >
+            SHOP ON WHATSAPP
+        </a>
+
+    </div>
+
 </section>
+
+
+<!-- =========================
+     COLLECTIONS
+========================= -->
 
 <section class="collections" id="collections">
 
-<small>OUR COLLECTIONS</small>
+    <small>
+        OUR COLLECTIONS
+    </small>
 
-<h2>EXPLORE OUR COLLECTIONS</h2>
+    <h2>
+        EXPLORE OUR COLLECTIONS
+    </h2>
 
-<div class="categories-grid">
-    
-<a href="watches.html" style="text-decoration:none;color:inherit;">
-    <div class="card">
-    <img src="Rolex Yatch-Master 42.jpeg" alt="Watches">
+    <div class="categories-grid">
 
-        <div class="card-content">
-            <h3>WATCHES</h3>
-            <p>Luxury. Precision. Elegance.</p>
-        </div>
+
+        <a href="watches.html" style="text-decoration:none;color:inherit;">
+
+            <div class="card">
+
+                <img
+                    src="Rolex Yatch-Master 42.jpeg"
+                    alt="Watches"
+                >
+
+                <div class="card-content">
+
+                    <h3>
+                        WATCHES
+                    </h3>
+
+                    <p>
+                        Luxury. Precision. Elegance.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <a href="sunglasses.html" style="text-decoration:none;color:inherit;">
+
+            <div class="card">
+
+                <img
+                    src="Cartier Aqua Green Karan Aujla Edition.jpeg"
+                    alt="Sunglasses"
+                >
+
+                <div class="card-content">
+
+                    <h3>
+                        SUNGLASSES
+                    </h3>
+
+                    <p>
+                        Luxury. Style. Confidence.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <a href="most-selling.html" style="text-decoration:none;color:inherit;">
+
+            <div class="card">
+
+                <img
+                    src="most selling.jpeg"
+                    alt="Most Selling Articles"
+                >
+
+                <div class="card-content">
+
+                    <h3>
+                        MOST SELLING ARTICLES
+                    </h3>
+
+                    <p>
+                        Our most popular watches loved by customers.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <a href="couple-watches.html" style="text-decoration:none;color:inherit;">
+
+            <div class="card">
+
+                <img
+                    src="Tissot Gentel Couple Watch.jpeg"
+                    alt="Couple Watches"
+                >
+
+                <div class="card-content">
+
+                    <h3>
+                        COUPLE WATCHES
+                    </h3>
+
+                    <p>
+                        Elegant timepieces designed for couples.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <a href="limited-editions.html" style="text-decoration:none;color:inherit;">
+
+            <div class="card">
+
+                <img
+                    src="Seiko Mod Date-Just.jpeg"
+                    alt="Limited Editions"
+                >
+
+                <div class="card-content">
+
+                    <h3>
+                        LIMITED EDITIONS
+                    </h3>
+
+                    <p>
+                        Rare and exclusive collectible pieces.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <a href="luxury-articles.html" style="text-decoration:none;color:inherit;">
+
+            <div class="card">
+
+                <img
+                    src="tissot prx.png"
+                    alt="Luxury Articles"
+                >
+
+                <div class="card-content">
+
+                    <h3>
+                        LUXURY ARTICLES
+                    </h3>
+
+                    <p>
+                        Exclusive luxury accessories and collectibles.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </a>
+
 
     </div>
-</a>
-    
-<a href="sunglasses.html" style="text-decoration:none;color:inherit;">
-    <div class="card">
-        <img src="Cartier Aqua Green Karan Aujla Edition.jpeg" alt="Sunglasses">
-
-        <div class="card-content">
-            <h3>SUNGLASSES</h3>
-            <p>Luxury. Style. Confidence.</p>
-        </div>
-
-    </div>
-</a>
-
-<a href="most-selling.html" style="text-decoration:none;color:inherit;">
-    <div class="card">
-        <img src="most selling.jpeg" alt="Most Selling Articles">
-        
-        <div class="card-content">
-            <h3>MOST SELLING ARTICLES</h3>
-            <p>Our most popular watches loved by customers.</p>
-        </div>
-       
-      </div>   
-    </a>
-
-<a href="couple-watches.html" style="text-decoration:none;color:inherit;">
-  <div class="card">
-    <img src="Tissot Gentel Couple Watch.jpeg" alt="Couple Watches">
-    <div class="card-content">
-      <h3>COUPLE WATCHES</h3>
-      <p>Elegant timepieces designed for couples.</p>
-    </div>
-  </div>
-</a>
-
-<a href="limited-editions.html" style="text-decoration:none;color:inherit;">
-  <div class="card">
-    <img src="Seiko Mod Date-Just.jpeg" alt="Limited Editions">
-    <div class="card-content">
-      <h3>LIMITED EDITIONS</h3>
-      <p>Rare and exclusive collectible pieces.</p>
-    </div>
-  </div>
-</a>
-    
-    <a href="luxury-articles.html" style="text-decoration:none;color:inherit;">
-    <div class="card">
-        <img src="tissot prx.png" alt="Luxury Articles">
-
-        <div class="card-content">
-            <h3>LUXURY ARTICLES</h3>
-            <p>Exclusive luxury accessories and collectibles.</p>
-        </div>
-
-      </div>  
-    </a>
-</div>
 
 </section>
 
+
+<!-- =========================
+     GET IN TOUCH
+========================= -->
+
 <section class="get-touch">
 
-    <h2>Get In Touch</h2>
+    <h2>
+        Get In Touch
+    </h2>
 
     <p>
         Have a question, enquiry, feedback or complaint?
         We are here to help.
     </p>
 
-    <form class="touch-form"
-          action="https://formspree.io/f/mlgqpono"
-          method="POST">
+
+    <form
+        class="touch-form"
+        action="https://formspree.io/f/mlgqpono"
+        method="POST"
+    >
 
         <input
             type="text"
             name="name"
             placeholder="Your Name"
-            required>
+            required
+        >
 
         <input
             type="email"
             name="email"
             placeholder="Your Email"
-            required>
+            required
+        >
 
         <input
             type="tel"
             name="phone"
-            placeholder="Your Phone Number">
+            placeholder="Your Phone Number"
+        >
 
         <textarea
             name="message"
             placeholder="Write your enquiry or complaint here..."
-            required></textarea>
+            required
+        ></textarea>
 
         <button type="submit">
             Send Message
         </button>
 
     </form>
-    </section> 
+
+</section>
+
+
+<!-- =========================
+     BUSINESS PARTNER
+========================= -->
 
 <section class="business-partner">
-  <div class="partner-header">
-    <small>OUR PARTNER</small>
-    <h2>Business Partner</h2>
-  </div>
 
-  <div class="partner-container">
-    <!-- Left side image -->
-    <div class="partner-left">
-      <img src="left-image.jpeg" alt="50 Scents Perfume Bottle" class="partner-img">
+    <div class="partner-header">
+
+        <small>
+            OUR PARTNER
+        </small>
+
+        <h2>
+            Business Partner
+        </h2>
+
     </div>
 
-    <!-- Center card -->
-    <div class="partner-center">
-      <div class="partner-card">
-        <img src="partner-logo.jpeg" alt="Business Partner Logo">
-        <h3>50 Scents</h3>
-        <p>Trusted business partner of 50 Mirars.</p>
-        <a href="https://wa.me/c/918233355877" target="_blank" class="partner-btn">
-          Click to View Business
-        </a>
-      </div>
+
+    <div class="partner-container">
+
+
+        <!-- LEFT IMAGE -->
+
+        <div class="partner-left">
+
+            <img
+                src="left-image.jpeg"
+                alt="50 Scents Perfume Bottle"
+                class="partner-img"
+            >
+
+        </div>
+
+
+        <!-- CENTER CARD -->
+
+        <div class="partner-center">
+
+            <div class="partner-card">
+
+                <img
+                    src="partner-logo.jpeg"
+                    alt="Business Partner Logo"
+                >
+
+                <h3>
+                    50 Scents
+                </h3>
+
+                <p>
+                    Trusted business partner of 50 Mirars.
+                </p>
+
+                <a
+                    href="https://wa.me/c/918233355877"
+                    target="_blank"
+                    class="partner-btn"
+                >
+                    Click to View Business
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT IMAGE -->
+
+        <div class="partner-right">
+
+            <img
+                src="right-image.jpeg"
+                alt="50 Scents Branding Card"
+                class="partner-img"
+            >
+
+        </div>
+
+
     </div>
 
-    <!-- Right side image -->
-    <div class="partner-right">
-      <img src="right-image.jpeg" alt="50 Scents Branding Card" class="partner-img">
-    </div>
-  </div>
 </section>
-    
+
+
+<!-- =========================
+     WHY CHOOSE US
+========================= -->
+
 <section class="why-choose">
-    <h2>Why Choose 50 Mirars?</h2>
+
+    <h2>
+        Why Choose 50 Mirars?
+    </h2>
+
 
     <div class="why-grid">
-        <div class="why-box">
-            <h3>100% Authentic Products</h3>
-            <p>Premium watches, sunglasses and luxury accessories.</p>
-        </div>
+
 
         <div class="why-box">
-            <h3>Trusted Service</h3>
-            <p>Dedicated customer support for every enquiry.</p>
+
+            <h3>
+                100% Authentic Products
+            </h3>
+
+            <p>
+                Premium watches, sunglasses and luxury accessories.
+            </p>
+
         </div>
 
-        <div class="why-box">
-            <h3>Fast Response</h3>
-            <p>Quick assistance through WhatsApp and email.</p>
-        </div>
 
         <div class="why-box">
-            <h3>Customer Satisfaction</h3>
-            <p>Your trust and satisfaction are our top priorities.</p>
+
+            <h3>
+                Trusted Service
+            </h3>
+
+            <p>
+                Dedicated customer support for every enquiry.
+            </p>
+
         </div>
+
+
+        <div class="why-box">
+
+            <h3>
+                Fast Response
+            </h3>
+
+            <p>
+                Quick assistance through WhatsApp and email.
+            </p>
+
+        </div>
+
+
+        <div class="why-box">
+
+            <h3>
+                Customer Satisfaction
+            </h3>
+
+            <p>
+                Your trust and satisfaction are our top priorities.
+            </p>
+
+        </div>
+
+
     </div>
+
 </section>
 
+
+<!-- =========================
+     STATISTICS
+========================= -->
+
 <section class="stats-section">
-    <h2>50 Mirars In Numbers</h2>
+
+    <h2>
+        50 Mirars In Numbers
+    </h2>
+
 
     <div class="stats-grid">
 
-        <div class="stat-box">
-            <h3>950+</h3>
-            <p>Happy Customers</p>
-        </div>
 
         <div class="stat-box">
-            <h3>1000+</h3>
-            <p>Products Sold</p>
+
+            <h3>
+                950+
+            </h3>
+
+            <p>
+                Happy Customers
+            </p>
+
         </div>
 
+
         <div class="stat-box">
-            <h3>24/7</h3>
-            <p>Support</p>
+
+            <h3>
+                1000+
+            </h3>
+
+            <p>
+                Products Sold
+            </p>
+
+        </div>
+
+
+        <div class="stat-box">
+
+            <h3>
+                24/7
+            </h3>
+
+            <p>
+                Support
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section class="contact" id="contact">
+
+    <div class="contact-grid">
+
+        <div>
+
+            <h2>
+                Contact Us
+            </h2>
+
+
+            <p>
+
+                <strong style="color:white;">
+                    WhatsApp:
+                </strong>
+
+                <a
+                    href="https://wa.me/918209989013"
+                    target="_blank"
+                    style="color:white;text-decoration:none;"
+                >
+                    +91 8209989013
+                </a>
+
+            </p>
+
+
+            <p>
+
+                <strong style="color:white;">
+                    Email:
+                </strong>
+
+                <a
+                    href="mailto:50mirars@gmail.com"
+                    style="color:white;text-decoration:none;"
+                >
+                    50mirars@gmail.com
+                </a>
+
+            </p>
+
+
+            <p>
+
+                <strong style="color:white;">
+                    Instagram:
+                </strong>
+
+                <a
+                    href="https://instagram.com/50mirars"
+                    target="_blank"
+                    style="color:white;text-decoration:none;"
+                >
+                    @50mirars
+                </a>
+
+            </p>
+
+
+            <p style="color:white;">
+
+                <strong>
+                    Address:
+                </strong>
+
+                Chitrakoot, Jaipur, Rajasthan - 302021
+
+            </p>
+
+
+            <p style="color:white;">
+
+                <strong>
+                    Business Hours:
+                </strong>
+
+                <br>
+
+                Monday to Sunday, 9:00 AM - 9:00 PM
+
+            </p>
+
+
         </div>
 
     </div>
-</section>
-    
-<section class="contact" id="contact">
-
-<div class="contact-grid">
-
-<div>
-
-<h2>Contact Us</h2>
-
-<p>
-  <strong style="color:white;">WhatsApp:</strong>
-  <a href="https://wa.me/918209989013"
-     target="_blank"
-     style="color:white;text-decoration:none;">
-     +91 8209989013
-  </a>
-</p>
-
-<p>
-    <strong style="color:white;">Email:</strong>
-    <a href="mailto:50mirars@gmail.com"
-       style="color:white;text-decoration:none;">
-       50mirars@gmail.com
-    </a>
-</p>
-    
-<p>
-    <strong style="color:white;">Instagram:</strong>
-    <a href="https://instagram.com/50mirars"
-       target="_blank"
-       style="color:white;text-decoration:none;">
-       @50mirars
-    </a>
-</p>
-    
-<p style="color:white;">
-  <strong>Address:</strong> Chitrakoot, Jaipur, Rajasthan - 302021
-</p>
-    
-<p style="color:white;">
-  <strong>Business Hours:</strong><br>
-  Monday to Sunday, 9:00 AM - 9:00 PM
-</p>
-    
-</div>
-    
-</div>
 
 </section>
-    
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
-    <p>© 2026 50 Mirars. All Rights Reserved.</p>
+
+    <p>
+        © 2026 50 Mirars. All Rights Reserved.
+    </p>
+
 </footer>
-</script>
-    
+
+
 </body>
+
 </html>
