@@ -3,1642 +3,1859 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- IMPORTANT: This makes the website use the actual phone/tablet width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>50 Mirars | Watches & Sunglasses</title>
+    <meta name="theme-color" content="#ffffff">
 
+    <title>50 Mirars | Watches & Sunglasses</title>
 
-<style>
 
-/* =========================================================
-   GLOBAL RESET
-========================================================= */
+    <style>
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
+        /* =====================================================
+           GLOBAL RESET
+        ===================================================== */
 
-html {
-    width: 100%;
-    overflow-x: hidden;
-}
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body {
-    width: 100%;
-    min-height: 100%;
-    font-family: Arial, sans-serif;
-    background: #fff;
-    color: #111;
-    overflow-x: hidden;
-}
 
-img {
-    max-width: 100%;
-}
+        html {
+            width: 100%;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
 
-a {
-    -webkit-tap-highlight-color: transparent;
-}
 
+        body {
+            width: 100%;
+            min-width: 0;
 
-/* =========================================================
-   HEADER / DESKTOP NAVIGATION
-========================================================= */
+            font-family: Arial, Helvetica, sans-serif;
 
-header {
-    width: 100%;
-    background: #fff;
+            background: #ffffff;
+            color: #111111;
 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+            overflow-x: hidden;
+        }
 
-    padding: 15px 80px;
 
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        img {
+            display: block;
+            max-width: 100%;
+        }
 
-    position: sticky;
-    top: 0;
 
-    z-index: 1000;
-}
+        a {
+            -webkit-tap-highlight-color: transparent;
+        }
 
-.logo img {
-    height: 80px;
-    width: auto;
-    display: block;
-    object-fit: contain;
-}
 
-.navbar ul {
-    list-style: none;
+        /* =====================================================
+           HEADER
+        ===================================================== */
 
-    display: flex;
-    align-items: center;
+        header {
+            width: 100%;
 
-    gap: 40px;
+            background: #ffffff;
 
-    margin: 0;
-    padding: 0;
-}
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
 
-.navbar a {
-    text-decoration: none;
-    color: #111;
+            gap: 30px;
 
-    font-weight: 600;
-    font-size: 16px;
+            padding: 12px 70px;
 
-    letter-spacing: 1px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
 
-    transition: color 0.3s ease;
-}
+            position: relative;
 
-.navbar a:hover {
-    color: #c9a24d;
-}
+            z-index: 1000;
+        }
 
 
-/* =========================================================
-   MOVING OFFER BAR
-========================================================= */
+        /* LOGO */
 
-.headline-bar {
-    width: 100%;
+        .logo {
+            flex-shrink: 0;
 
-    background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-    border-top: 1px solid #e5e5e5;
-    border-bottom: 1px solid #e5e5e5;
 
-    overflow: hidden;
-    white-space: nowrap;
+        .logo img {
+            width: auto;
+            height: 75px;
 
-    position: relative;
-    z-index: 999;
-}
+            max-width: 160px;
 
-.headline-text {
-    display: inline-block;
+            object-fit: contain;
+        }
 
-    padding: 11px 0;
 
-    font-size: 17px;
-    font-weight: 500;
+        /* NAVIGATION */
 
-    letter-spacing: 0.5px;
+        .navbar {
+            flex: 1;
 
-    color: #222;
+            display: flex;
+            justify-content: flex-end;
+        }
 
-    animation: scroll-left 18s linear infinite;
-}
 
-.headline-text strong {
-    color: #1a3d7c;
-    font-weight: 700;
-}
+        .navbar ul {
+            list-style: none;
 
-@keyframes scroll-left {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
 
-    0% {
-        transform: translateX(100%);
-    }
+            flex-wrap: wrap;
 
-    100% {
-        transform: translateX(-100%);
-    }
+            gap: 28px;
+        }
 
-}
 
+        .navbar li {
+            list-style: none;
+        }
 
-/* =========================================================
-   HERO
-========================================================= */
 
-.hero {
-    width: 100%;
-    height: 90vh;
-    min-height: 600px;
+        .navbar a {
+            display: block;
 
-    background:
-        url('https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=2000')
-        center center / cover no-repeat;
+            color: #111111;
 
-    display: flex;
-    align-items: center;
+            text-decoration: none;
 
-    padding: 0 8%;
-}
+            font-size: 15px;
 
-.hero-content {
-    width: 100%;
-    max-width: 650px;
-}
+            font-weight: 600;
 
-.hero-tag {
-    color: #c9a24d;
+            letter-spacing: 0.5px;
 
-    font-size: 28px;
+            white-space: nowrap;
 
-    margin-bottom: 20px;
+            transition: color 0.3s ease;
+        }
 
-    font-family: Georgia, serif;
-}
 
-.hero h1 {
-    font-family: Georgia, serif;
+        .navbar a:hover {
+            color: #c9a24d;
+        }
 
-    font-size: 72px;
 
-    line-height: 1.1;
+        /* =====================================================
+           MOVING OFFER BAR
+        ===================================================== */
 
-    margin-bottom: 25px;
-}
+        .headline-bar {
+            width: 100%;
 
-.hero h1 span {
-    color: #c9a24d;
-}
+            overflow: hidden;
 
-.hero p {
-    font-size: 24px;
+            white-space: nowrap;
 
-    color: #f8f6f2;
+            background: #ffffff;
 
-    margin-bottom: 35px;
+            border-top: 1px solid #eeeeee;
+            border-bottom: 1px solid #eeeeee;
+        }
 
-    line-height: 1.5;
 
-    font-weight: 500;
+        .headline-text {
+            display: inline-block;
 
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+            white-space: nowrap;
 
-    letter-spacing: 0.5px;
-}
+            padding: 10px 0;
 
+            font-size: 17px;
 
-/* =========================================================
-   BUTTONS
-========================================================= */
+            font-weight: 600;
 
-.btn,
-.whatsapp-btn {
-    display: inline-flex;
+            color: #292929;
 
-    justify-content: center;
-    align-items: center;
+            letter-spacing: 0.4px;
 
-    padding: 18px 40px;
+            animation: offer-scroll 16s linear infinite;
+        }
 
-    background: #111;
 
-    color: #fff;
+        .headline-text strong {
+            color: #b38a38;
 
-    text-decoration: none;
+            font-weight: 700;
+        }
 
-    border-radius: 6px;
 
-    font-weight: 600;
+        @keyframes offer-scroll {
 
-    letter-spacing: 1px;
+            0% {
+                transform: translateX(100%);
+            }
 
-    transition:
-        background 0.3s ease,
-        transform 0.3s ease;
-}
+            100% {
+                transform: translateX(-100%);
+            }
 
-.btn:hover,
-.whatsapp-btn:hover {
-    background: #c9a24d;
+        }
 
-    transform: translateY(-2px);
-}
 
+        /* =====================================================
+           HERO
+        ===================================================== */
 
-/* =========================================================
-   COLLECTIONS
-========================================================= */
+        .hero {
+            width: 100%;
 
-.collections {
-    width: 100%;
+            min-height: 90vh;
 
-    padding: 100px 8%;
+            display: flex;
+            align-items: center;
 
-    text-align: center;
-}
+            padding: 80px 8%;
 
-.collections small {
-    color: #c9a24d;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(0, 0, 0, 0.58),
+                    rgba(0, 0, 0, 0.18)
+                ),
+                url("https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=2000")
+                center center / cover no-repeat;
+        }
 
-    font-size: 18px;
 
-    letter-spacing: 2px;
-}
+        .hero-content {
+            width: 100%;
 
-.collections h2 {
-    font-family: Georgia, serif;
+            max-width: 700px;
 
-    font-size: 52px;
+            color: #ffffff;
+        }
 
-    margin: 15px 0 50px;
-}
 
-.categories-grid {
-    width: 100%;
+        .hero-tag {
+            color: #d4ad5b;
 
-    display: grid;
+            font-family: Georgia, "Times New Roman", serif;
 
-    grid-template-columns: repeat(2, 1fr);
+            font-size: 27px;
 
-    gap: 25px;
-}
+            letter-spacing: 2px;
 
-.categories-grid > a {
-    display: block;
+            margin-bottom: 18px;
+        }
 
-    width: 100%;
 
-    text-decoration: none;
+        .hero h1 {
+            font-family: Georgia, "Times New Roman", serif;
 
-    color: inherit;
-}
+            font-size: 72px;
 
-.card {
-    position: relative;
+            line-height: 1.05;
 
-    width: 100%;
+            font-weight: 700;
 
-    overflow: hidden;
+            margin-bottom: 25px;
+        }
 
-    background: #111;
-}
 
-.card img {
-    width: 100%;
+        .hero h1 span {
+            color: #d4ad5b;
+        }
 
-    height: 500px;
 
-    object-fit: cover;
+        .hero p {
+            max-width: 620px;
 
-    display: block;
+            color: #f8f6f2;
 
-    transition: transform 0.5s ease;
-}
+            font-size: 22px;
 
-.card:hover img {
-    transform: scale(1.04);
-}
+            line-height: 1.55;
 
-.card-content {
-    position: absolute;
+            font-weight: 500;
 
-    bottom: 30px;
-    left: 30px;
-    right: 20px;
+            letter-spacing: 0.3px;
 
-    color: white;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
 
-    text-align: left;
+            margin-bottom: 35px;
+        }
 
-    z-index: 2;
-}
 
-.card-content h3 {
-    font-size: 40px;
+        .btn {
+            display: inline-flex;
 
-    font-family: Georgia, serif;
+            align-items: center;
+            justify-content: center;
 
-    margin-bottom: 10px;
+            min-height: 52px;
 
-    line-height: 1.1;
-}
+            padding: 16px 32px;
 
-.card-content p {
-    font-size: 18px;
+            background: #111111;
 
-    line-height: 1.4;
-}
+            color: #ffffff;
 
+            text-decoration: none;
 
-/* =========================================================
-   GET IN TOUCH
-========================================================= */
+            border-radius: 6px;
 
-.get-touch {
-    width: 100%;
+            font-size: 15px;
 
-    padding: 100px 8%;
+            font-weight: 700;
 
-    background: #f8f8f8;
+            letter-spacing: 0.8px;
 
-    text-align: center;
+            transition: all 0.3s ease;
+        }
 
-    margin-bottom: 120px;
-}
 
-.get-touch h2 {
-    font-size: 56px;
+        .btn:hover {
+            background: #c9a24d;
 
-    color: #c9a24d;
+            transform: translateY(-2px);
+        }
 
-    font-family: Georgia, serif;
 
-    margin-bottom: 20px;
-}
+        /* =====================================================
+           COLLECTIONS
+        ===================================================== */
 
-.get-touch p {
-    color: #666;
+        .collections {
+            width: 100%;
 
-    font-size: 22px;
+            padding: 100px 7%;
 
-    line-height: 1.5;
+            background: #ffffff;
 
-    margin-bottom: 50px;
-}
+            text-align: center;
+        }
 
-.touch-form {
-    width: 100%;
-    max-width: 900px;
 
-    margin: auto;
+        .collections > small {
+            display: block;
 
-    background: white;
+            color: #c9a24d;
 
-    padding: 40px;
+            font-size: 16px;
 
-    border-radius: 12px;
+            font-weight: 700;
 
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
-}
+            letter-spacing: 2px;
 
-.touch-form input,
-.touch-form textarea {
-    width: 100%;
+            margin-bottom: 14px;
+        }
 
-    padding: 18px;
 
-    margin-bottom: 20px;
+        .collections > h2 {
+            font-family: Georgia, "Times New Roman", serif;
 
-    border: 1px solid #ddd;
+            font-size: 50px;
 
-    border-radius: 8px;
+            line-height: 1.15;
 
-    font-size: 16px;
+            margin-bottom: 50px;
+        }
 
-    font-family: Arial, sans-serif;
 
-    outline: none;
-}
+        .categories-grid {
+            width: 100%;
 
-.touch-form input:focus,
-.touch-form textarea:focus {
-    border-color: #c9a24d;
-}
+            display: grid;
 
-.touch-form textarea {
-    height: 180px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
 
-    resize: vertical;
-}
+            gap: 25px;
+        }
 
-.touch-form button {
-    background: #c9a24d;
 
-    color: white;
+        .categories-grid > a {
+            width: 100%;
 
-    border: none;
+            display: block;
 
-    padding: 16px 40px;
+            text-decoration: none;
 
-    border-radius: 8px;
+            color: inherit;
+        }
 
-    font-size: 18px;
 
-    cursor: pointer;
+        .card {
+            width: 100%;
 
-    transition: 0.3s;
-}
+            position: relative;
 
-.touch-form button:hover {
-    background: #111;
-}
+            overflow: hidden;
 
+            background: #111111;
+        }
 
-/* =========================================================
-   BUSINESS PARTNER
-========================================================= */
 
-.business-partner {
-    width: 100%;
+        .card img {
+            width: 100%;
 
-    padding: 100px 8%;
+            height: 500px;
 
-    background: #fff;
+            object-fit: cover;
 
-    text-align: center;
+            display: block;
 
-    margin-top: 60px;
-}
+            transition: transform 0.5s ease;
+        }
 
-.partner-header {
-    text-align: center;
 
-    margin-bottom: 40px;
-}
+        .card:hover img {
+            transform: scale(1.04);
+        }
 
-.partner-header small {
-    display: block;
 
-    color: #c9a24d;
+        .card-content {
+            position: absolute;
 
-    letter-spacing: 2px;
+            left: 30px;
+            right: 20px;
+            bottom: 30px;
 
-    font-size: 16px;
-}
+            color: #ffffff;
 
-.partner-header h2 {
-    font-family: Georgia, serif;
+            text-align: left;
 
-    font-size: 48px;
+            z-index: 2;
+        }
 
-    color: #111;
 
-    margin: 15px 0 20px;
-}
+        .card-content::before {
+            content: "";
 
-.partner-header h2::after {
-    content: "";
+            position: absolute;
 
-    display: block;
+            left: -30px;
+            right: -20px;
+            bottom: -30px;
 
-    width: 120px;
+            height: 150px;
 
-    height: 2px;
+            background: linear-gradient(
+                transparent,
+                rgba(0, 0, 0, 0.65)
+            );
 
-    background: #c9a24d;
+            z-index: -1;
+        }
 
-    margin: 20px auto 0;
-}
 
-.partner-container {
-    width: 100%;
+        .card-content h3 {
+            font-family: Georgia, "Times New Roman", serif;
 
-    display: flex;
+            font-size: 38px;
 
-    justify-content: space-around;
+            line-height: 1.1;
 
-    align-items: center;
+            margin-bottom: 8px;
+        }
 
-    gap: 30px;
 
-    flex-wrap: wrap;
-}
+        .card-content p {
+            font-size: 17px;
 
-.partner-left,
-.partner-right {
-    width: 30%;
+            line-height: 1.4;
+        }
 
-    text-align: center;
-}
 
-.partner-center {
-    width: 30%;
+        /* =====================================================
+           GET IN TOUCH
+        ===================================================== */
 
-    text-align: center;
-}
+        .get-touch {
+            width: 100%;
 
-.partner-img {
-    width: 100%;
+            padding: 100px 7%;
 
-    max-width: 350px;
+            background: #f8f8f8;
 
-    height: auto;
+            text-align: center;
+        }
 
-    border-radius: 10px;
 
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
+        .get-touch h2 {
+            color: #c9a24d;
 
-.partner-card {
-    width: 100%;
+            font-family: Georgia, "Times New Roman", serif;
 
-    max-width: 400px;
+            font-size: 54px;
 
-    margin: 0 auto;
+            line-height: 1.1;
 
-    background: white;
+            margin-bottom: 20px;
+        }
 
-    padding: 40px;
 
-    border-radius: 15px;
+        .get-touch > p {
+            max-width: 750px;
 
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            margin: 0 auto 45px;
 
-    transition: 0.3s;
+            color: #666666;
 
-    text-align: center;
-}
+            font-size: 20px;
 
-.partner-card:hover {
-    transform: translateY(-5px);
-}
+            line-height: 1.6;
+        }
 
-.partner-card img {
-    display: block;
 
-    margin: 0 auto 25px;
+        .touch-form {
+            width: 100%;
 
-    max-width: 180px;
+            max-width: 900px;
 
-    height: auto;
-}
+            margin: 0 auto;
 
-.partner-card h3 {
-    font-size: 28px;
+            padding: 40px;
 
-    margin-bottom: 10px;
-}
+            background: #ffffff;
 
-.partner-card p {
-    color: #666;
+            border-radius: 12px;
 
-    font-size: 16px;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.08);
+        }
 
-    line-height: 1.5;
-}
 
-.partner-btn {
-    display: inline-block;
+        .touch-form input,
+        .touch-form textarea {
+            width: 100%;
 
-    margin-top: 15px;
+            display: block;
 
-    padding: 12px 25px;
+            padding: 17px;
 
-    background-color: #c9a24d;
+            margin-bottom: 18px;
 
-    color: #fff;
+            border: 1px solid #dddddd;
 
-    font-weight: 600;
+            border-radius: 7px;
 
-    text-decoration: none;
+            background: #ffffff;
 
-    border-radius: 6px;
+            color: #111111;
 
-    transition:
-        background-color 0.3s ease,
-        transform 0.2s ease;
-}
+            font-family: Arial, sans-serif;
 
-.partner-btn:hover {
-    background-color: #111;
+            font-size: 16px;
 
-    transform: scale(1.05);
-}
+            outline: none;
+        }
 
 
-/* =========================================================
-   WHY CHOOSE US
-========================================================= */
+        .touch-form input:focus,
+        .touch-form textarea:focus {
+            border-color: #c9a24d;
+        }
 
-.why-choose {
-    width: 100%;
 
-    padding: 100px 8%;
+        .touch-form textarea {
+            min-height: 180px;
 
-    background: #f8f6f2;
+            resize: vertical;
+        }
 
-    text-align: center;
-}
 
-.why-choose h2 {
-    font-family: Georgia, serif;
+        .touch-form button {
+            display: inline-flex;
 
-    font-size: 48px;
+            align-items: center;
+            justify-content: center;
 
-    margin-bottom: 60px;
+            min-height: 50px;
 
-    color: #111;
-}
+            padding: 15px 35px;
 
-.why-grid {
-    width: 100%;
+            border: none;
 
-    display: grid;
+            border-radius: 7px;
 
-    grid-template-columns:
-        repeat(4, minmax(0, 1fr));
+            background: #c9a24d;
 
-    gap: 30px;
+            color: #ffffff;
 
-    max-width: 1200px;
+            font-size: 16px;
 
-    margin: auto;
-}
+            font-weight: 700;
 
-.why-box {
-    background: white;
+            cursor: pointer;
 
-    padding: 35px;
+            transition: all 0.3s ease;
+        }
 
-    border-radius: 12px;
 
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        .touch-form button:hover {
+            background: #111111;
+        }
 
-    transition: 0.3s;
-}
 
-.why-box:hover {
-    transform: translateY(-8px);
-}
+        /* =====================================================
+           BUSINESS PARTNER
+        ===================================================== */
 
-.why-box h3 {
-    color: #c9a24d;
+        .business-partner {
+            width: 100%;
 
-    margin-bottom: 15px;
+            padding: 100px 7%;
 
-    font-size: 22px;
+            background: #ffffff;
 
-    line-height: 1.3;
-}
+            text-align: center;
+        }
 
-.why-box p {
-    color: #666;
 
-    line-height: 1.7;
+        .partner-header {
+            margin-bottom: 50px;
+        }
 
-    font-size: 16px;
-}
 
+        .partner-header small {
+            display: block;
 
-/* =========================================================
-   STATISTICS
-========================================================= */
+            color: #c9a24d;
 
-.stats-section {
-    width: 100%;
+            font-size: 16px;
 
-    background: #111;
+            font-weight: 700;
 
-    color: white;
+            letter-spacing: 2px;
 
-    padding: 100px 8%;
+            margin-bottom: 12px;
+        }
 
-    text-align: center;
-}
 
-.stats-section h2 {
-    font-family: Georgia, serif;
+        .partner-header h2 {
+            font-family: Georgia, "Times New Roman", serif;
 
-    font-size: 48px;
+            color: #111111;
 
-    margin-bottom: 60px;
-}
+            font-size: 50px;
 
-.stats-grid {
-    width: 100%;
+            line-height: 1.15;
+        }
 
-    display: grid;
 
-    grid-template-columns:
-        repeat(3, minmax(0, 1fr));
+        .partner-header h2::after {
+            content: "";
 
-    gap: 40px;
+            display: block;
 
-    max-width: 1000px;
+            width: 110px;
 
-    margin: auto;
-}
+            height: 2px;
 
-.stat-box {
-    padding: 30px;
-}
+            background: #c9a24d;
 
-.stat-box h3 {
-    font-size: 60px;
+            margin: 20px auto 0;
+        }
 
-    color: #c9a24d;
 
-    margin-bottom: 10px;
-}
+        .partner-container {
+            width: 100%;
 
-.stat-box p {
-    font-size: 20px;
+            display: grid;
 
-    color: #ddd;
-}
+            grid-template-columns:
+                minmax(0, 1fr)
+                minmax(300px, 400px)
+                minmax(0, 1fr);
 
+            align-items: center;
 
-/* =========================================================
-   CONTACT
-========================================================= */
+            gap: 35px;
+        }
 
-.contact {
-    width: 100%;
 
-    background: #070707;
+        .partner-left,
+        .partner-center,
+        .partner-right {
+            width: 100%;
 
-    color: white;
+            text-align: center;
+        }
 
-    padding: 80px 8%;
 
-    margin-bottom: 0;
-}
+        .partner-img {
+            width: 100%;
 
-.contact-grid {
-    width: 100%;
+            max-width: 350px;
 
-    max-width: 1200px;
+            height: auto;
 
-    margin: auto;
-}
+            margin: 0 auto;
 
-.contact h2 {
-    color: #c9a24d;
+            border-radius: 10px;
 
-    margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
 
-    font-family: Georgia, serif;
 
-    font-size: 42px;
-}
+        .partner-card {
+            width: 100%;
 
-.contact p {
-    margin-bottom: 15px;
+            max-width: 400px;
 
-    font-size: 18px;
+            margin: 0 auto;
 
-    line-height: 1.6;
+            padding: 40px 30px;
 
-    color: white;
-}
+            background: #ffffff;
 
-.contact a {
-    word-break: break-word;
-}
+            border-radius: 15px;
 
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
 
-/* =========================================================
-   FOOTER
-========================================================= */
+            text-align: center;
 
-footer {
-    width: 100%;
+            transition: transform 0.3s ease;
+        }
 
-    background: #fff;
 
-    color: #111;
+        .partner-card:hover {
+            transform: translateY(-5px);
+        }
 
-    text-align: center;
 
-    padding: 40px 20px;
+        .partner-card img {
+            width: 100%;
 
-    border-top: 2px solid #eee;
-}
+            max-width: 180px;
 
-footer p {
-    font-size: 14px;
+            height: auto;
 
-    line-height: 1.5;
-}
+            margin: 0 auto 25px;
+        }
 
 
-/* =========================================================
-   FLOATING CART
-========================================================= */
+        .partner-card h3 {
+            font-size: 28px;
 
-.floating-cart {
-    position: fixed;
+            margin-bottom: 10px;
+        }
 
-    bottom: 25px;
 
-    right: 25px;
+        .partner-card p {
+            color: #666666;
 
-    width: 56px;
-    height: 56px;
+            font-size: 16px;
 
-    background: #c9a24d;
+            line-height: 1.6;
 
-    color: #fff;
+            margin-bottom: 10px;
+        }
 
-    font-size: 24px;
 
-    display: flex;
+        .partner-btn {
+            display: inline-flex;
 
-    align-items: center;
-    justify-content: center;
+            align-items: center;
+            justify-content: center;
 
-    border-radius: 50%;
+            min-height: 46px;
 
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            margin-top: 15px;
 
-    text-decoration: none;
+            padding: 12px 24px;
 
-    transition: 0.3s;
+            background: #c9a24d;
 
-    z-index: 1000;
-}
+            color: #ffffff;
 
-.floating-cart:hover {
-    background: #111;
+            font-weight: 700;
 
-    transform: scale(1.1);
-}
+            text-decoration: none;
 
+            border-radius: 6px;
 
-/* =========================================================
-   LARGE TABLETS / SMALL DESKTOPS
-========================================================= */
+            transition: all 0.3s ease;
+        }
 
-@media (max-width: 1100px) {
 
-    header {
-        padding: 15px 40px;
-    }
+        .partner-btn:hover {
+            background: #111111;
 
-    .navbar ul {
-        gap: 24px;
-    }
+            transform: translateY(-2px);
+        }
 
-    .navbar a {
-        font-size: 14px;
-    }
 
-    .hero h1 {
-        font-size: 60px;
-    }
+        /* =====================================================
+           WHY CHOOSE US
+        ===================================================== */
 
-    .hero p {
-        font-size: 21px;
-    }
+        .why-choose {
+            width: 100%;
 
-    .card-content h3 {
-        font-size: 34px;
-    }
+            padding: 100px 7%;
 
-    .why-grid {
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr));
-    }
+            background: #f8f6f2;
 
-    .partner-left,
-    .partner-center,
-    .partner-right {
-        width: 30%;
-    }
-}
+            text-align: center;
+        }
 
 
-/* =========================================================
-   MOBILE — 768px AND BELOW
-========================================================= */
+        .why-choose > h2 {
+            font-family: Georgia, "Times New Roman", serif;
 
-@media screen and (max-width: 1024px) {
+            font-size: 50px;
 
-   
-    html,
-    body {
-        width: 100%;
-        max-width: 100%;
-        overflow-x: hidden;
-    }
+            line-height: 1.15;
 
-    body {
-        font-size: 16px;
-    }
+            margin-bottom: 55px;
+        }
 
 
-    /* =========================
-       HEADER
-    ========================= */
+        .why-grid {
+            width: 100%;
 
-    header {
-        width: 100%;
+            max-width: 1200px;
 
-        padding: 12px 15px;
+            margin: 0 auto;
 
-        display: flex;
+            display: grid;
 
-        flex-direction: column;
+            grid-template-columns:
+                repeat(4, minmax(0, 1fr));
 
-        align-items: center;
+            gap: 25px;
+        }
 
-        justify-content: center;
 
-        position: sticky;
+        .why-box {
+            width: 100%;
 
-        top: 0;
+            padding: 35px 25px;
 
-        z-index: 1000;
-    }
+            background: #ffffff;
 
-    .logo {
-        width: 100%;
+            border-radius: 12px;
 
-        display: flex;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
 
-        justify-content: center;
+            transition: transform 0.3s ease;
+        }
 
-        margin-bottom: 12px;
-    }
 
-    .logo img {
-        width: auto;
+        .why-box:hover {
+            transform: translateY(-7px);
+        }
 
-        height: 60px;
 
-        max-width: 150px;
+        .why-box h3 {
+            color: #c9a24d;
 
-        object-fit: contain;
-    }
+            font-size: 21px;
 
+            line-height: 1.3;
 
-    /* =========================
-       MOBILE NAVIGATION
-    ========================= */
+            margin-bottom: 15px;
+        }
 
-    .navbar {
-        width: 100%;
-    }
 
-    .navbar ul {
-        width: 100%;
+        .why-box p {
+            color: #666666;
 
-        display: flex;
+            font-size: 15px;
 
-        justify-content: center;
+            line-height: 1.7;
+        }
 
-        align-items: center;
 
-        flex-wrap: wrap;
+        /* =====================================================
+           STATISTICS
+        ===================================================== */
 
-        gap: 8px 15px;
-    }
+        .stats-section {
+            width: 100%;
 
-    .navbar li {
-        display: block;
-    }
+            padding: 100px 7%;
 
-    .navbar a {
-        display: block;
+            background: #111111;
 
-        font-size: 12px;
+            color: #ffffff;
 
-        letter-spacing: 0.5px;
+            text-align: center;
+        }
 
-        padding: 5px 2px;
 
-        white-space: nowrap;
-    }
+        .stats-section > h2 {
+            font-family: Georgia, "Times New Roman", serif;
 
+            font-size: 50px;
 
-    /* =========================
-       OFFER BAR
-    ========================= */
+            line-height: 1.15;
 
-    .headline-bar {
-        width: 100%;
+            margin-bottom: 55px;
+        }
 
-        overflow: hidden;
 
-        white-space: nowrap;
-    }
+        .stats-grid {
+            width: 100%;
 
-    .headline-text {
-        display: inline-block;
+            max-width: 1000px;
 
-        padding: 10px 0;
+            margin: 0 auto;
 
-        font-size: 14px;
+            display: grid;
 
-        line-height: 1.4;
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
 
-        animation: scroll-left 18s linear infinite;
-    }
+            gap: 30px;
+        }
 
 
-    /* =========================
-       HERO
-    ========================= */
+        .stat-box {
+            padding: 25px 15px;
+        }
 
-    .hero {
-        width: 100%;
 
-        min-height: 78vh;
+        .stat-box h3 {
+            color: #c9a24d;
 
-        height: auto;
+            font-size: 60px;
 
-        padding: 60px 22px;
+            line-height: 1;
 
-        display: flex;
+            margin-bottom: 12px;
+        }
 
-        align-items: center;
 
-        background-position: center center;
+        .stat-box p {
+            color: #dddddd;
 
-        background-size: cover;
-    }
+            font-size: 19px;
 
-    .hero-content {
-        width: 100%;
+            line-height: 1.5;
+        }
 
-        max-width: 100%;
-    }
 
-    .hero-tag {
-        font-size: 20px;
+        /* =====================================================
+           CONTACT
+        ===================================================== */
 
-        margin-bottom: 15px;
-    }
+        .contact {
+            width: 100%;
 
-    .hero h1 {
-        font-size: clamp(38px, 11vw, 52px);
+            padding: 80px 7%;
 
-        line-height: 1.05;
+            background: #070707;
 
-        margin-bottom: 20px;
-    }
+            color: #ffffff;
+        }
 
-    .hero p {
-        font-size: 17px;
 
-        line-height: 1.5;
+        .contact-grid {
+            width: 100%;
 
-        margin-bottom: 28px;
-    }
+            max-width: 1200px;
 
-    .btn,
-    .whatsapp-btn {
-        display: inline-flex;
+            margin: 0 auto;
+        }
 
-        justify-content: center;
 
-        align-items: center;
+        .contact h2 {
+            color: #c9a24d;
 
-        width: 100%;
+            font-family: Georgia, "Times New Roman", serif;
 
-        max-width: 300px;
+            font-size: 48px;
 
-        padding: 16px 20px;
+            line-height: 1.15;
 
-        font-size: 14px;
+            margin-bottom: 30px;
+        }
 
-        text-align: center;
-    }
 
+        .contact p {
+            margin-bottom: 14px;
 
-    /* =========================
-       COLLECTIONS
-    ========================= */
+            color: #ffffff;
 
-    .collections {
-        width: 100%;
+            font-size: 17px;
 
-        padding: 70px 18px;
-    }
+            line-height: 1.7;
 
-    .collections small {
-        font-size: 14px;
+            overflow-wrap: anywhere;
+        }
 
-        letter-spacing: 1.5px;
-    }
 
-    .collections h2 {
-        font-size: clamp(32px, 9vw, 42px);
+        .contact strong {
+            color: #ffffff;
+        }
 
-        line-height: 1.15;
 
-        margin: 12px 0 35px;
-    }
+        .contact a {
+            color: #ffffff;
 
-    .categories-grid {
-        width: 100%;
+            text-decoration: none;
 
-        display: grid;
+            overflow-wrap: anywhere;
+        }
 
-        grid-template-columns: 1fr;
 
-        gap: 20px;
-    }
+        .contact a:hover {
+            color: #c9a24d !important;
+        }
 
-    .categories-grid > a {
-        width: 100%;
 
-        display: block;
-    }
+        /* =====================================================
+           FOOTER
+        ===================================================== */
 
-    .card {
-        width: 100%;
+        footer {
+            width: 100%;
 
-        min-height: 0;
+            padding: 30px 20px;
 
-        border-radius: 4px;
+            background: #ffffff;
 
-        overflow: hidden;
-    }
+            color: #111111;
 
-    .card img {
-        width: 100%;
+            text-align: center;
 
-        height: 390px;
+            border-top: 2px solid #eeeeee;
+        }
 
-        object-fit: cover;
-    }
 
-    .card-content {
-        left: 20px;
+        footer p {
+            font-size: 14px;
 
-        right: 15px;
+            line-height: 1.5;
+        }
 
-        bottom: 20px;
-    }
 
-    .card-content h3 {
-        font-size: 28px;
+        /* =====================================================
+           TABLET
+           769px - 1024px
+        ===================================================== */
 
-        line-height: 1.1;
+        @media screen and (max-width: 1024px) {
 
-        margin-bottom: 7px;
-    }
+            header {
+                padding: 12px 30px;
 
-    .card-content p {
-        font-size: 14px;
+                gap: 20px;
+            }
 
-        line-height: 1.4;
-    }
 
+            .navbar ul {
+                gap: 18px;
+            }
 
-    /* =========================
-       GET IN TOUCH
-    ========================= */
 
-    .get-touch {
-        width: 100%;
+            .navbar a {
+                font-size: 14px;
+            }
 
-        padding: 70px 18px;
 
-        margin-bottom: 60px;
-    }
+            .hero {
+                min-height: 75vh;
 
-    .get-touch h2 {
-        font-size: 40px;
+                padding: 70px 6%;
+            }
 
-        line-height: 1.1;
-    }
 
-    .get-touch p {
-        font-size: 17px;
+            .hero h1 {
+                font-size: 60px;
+            }
 
-        line-height: 1.5;
 
-        margin-bottom: 30px;
-    }
+            .hero p {
+                font-size: 20px;
+            }
 
-    .touch-form {
-        width: 100%;
 
-        padding: 22px 18px;
+            .categories-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+            }
 
-        border-radius: 10px;
-    }
 
-    .touch-form input,
-    .touch-form textarea {
-        width: 100%;
+            .card img {
+                height: 430px;
+            }
 
-        font-size: 16px;
 
-        padding: 15px;
-    }
+            .why-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+            }
 
-    .touch-form textarea {
-        height: 150px;
-    }
 
-    .touch-form button {
-        width: 100%;
+            .partner-container {
+                grid-template-columns:
+                    repeat(3, minmax(0, 1fr));
 
-        padding: 15px;
+                gap: 18px;
+            }
 
-        font-size: 16px;
-    }
+        }
 
 
-    /* =========================
-       BUSINESS PARTNER
-    ========================= */
+        /* =====================================================
+           MOBILE
+           768px AND BELOW
+        ===================================================== */
 
-    .business-partner {
-        width: 100%;
+        @media screen and (max-width: 768px) {
 
-        padding: 70px 18px;
+            html,
+            body {
+                width: 100% !important;
 
-        margin-top: 0;
-    }
+                max-width: 100% !important;
 
-    .partner-header {
-        margin-bottom: 30px;
-    }
+                min-width: 0 !important;
 
-    .partner-header small {
-        font-size: 14px;
-    }
+                overflow-x: hidden !important;
+            }
 
-    .partner-header h2 {
-        font-size: 38px;
 
-        line-height: 1.1;
+            /* HEADER */
 
-        margin: 12px 0 20px;
-    }
+            header {
+                width: 100% !important;
 
-    .partner-container {
-        width: 100%;
+                display: flex !important;
 
-        display: flex;
+                flex-direction: column !important;
 
-        flex-direction: column;
+                align-items: center !important;
 
-        gap: 25px;
-    }
+                justify-content: center !important;
 
-    .partner-left,
-    .partner-center,
-    .partner-right {
-        width: 100%;
+                gap: 8px !important;
 
-        margin: 0;
-    }
+                padding: 10px 8px 12px !important;
 
-    .partner-left {
-        order: 1;
-    }
+                position: relative !important;
+            }
 
-    .partner-center {
-        order: 2;
-    }
 
-    .partner-right {
-        order: 3;
-    }
+            .logo {
+                width: 100% !important;
 
-    .partner-img {
-        width: 100%;
+                display: flex !important;
 
-        max-width: 100%;
+                justify-content: center !important;
 
-        height: auto;
+                margin: 0 !important;
+            }
 
-        border-radius: 10px;
-    }
 
-    .partner-card {
-        width: 100%;
+            .logo img {
+                width: auto !important;
 
-        max-width: 100%;
+                height: 55px !important;
 
-        margin: 0;
+                max-width: 145px !important;
+            }
 
-        padding: 30px 20px;
 
-        border-radius: 12px;
-    }
+            /* MOBILE NAV */
 
-    .partner-card img {
-        max-width: 150px;
-    }
+            .navbar {
+                width: 100% !important;
 
-    .partner-card h3 {
-        font-size: 26px;
-    }
+                display: block !important;
+            }
 
-    .partner-card p {
-        font-size: 15px;
 
-        line-height: 1.5;
-    }
+            .navbar ul {
+                width: 100% !important;
 
-    .partner-btn {
-        width: 100%;
+                display: flex !important;
 
-        padding: 14px 20px;
-    }
+                flex-direction: row !important;
 
+                flex-wrap: wrap !important;
 
-    /* =========================
-       WHY CHOOSE US
-    ========================= */
+                align-items: center !important;
 
-    .why-choose {
-        width: 100%;
+                justify-content: center !important;
 
-        padding: 70px 18px;
-    }
+                gap: 4px 10px !important;
+            }
 
-    .why-choose h2 {
-        font-size: 38px;
 
-        line-height: 1.15;
+            .navbar li {
+                display: block !important;
 
-        margin-bottom: 40px;
-    }
+                flex: 0 0 auto !important;
+            }
 
-    .why-grid {
-        width: 100%;
 
-        display: grid;
+            .navbar a {
+                display: block !important;
 
-        grid-template-columns: 1fr;
+                padding: 4px 2px !important;
 
-        gap: 18px;
-    }
+                font-size: 11px !important;
 
-    .why-box {
-        width: 100%;
+                line-height: 1.2 !important;
 
-        padding: 28px 22px;
-    }
+                letter-spacing: 0.2px !important;
 
-    .why-box h3 {
-        font-size: 20px;
-    }
+                white-space: nowrap !important;
+            }
 
-    .why-box p {
-        font-size: 15px;
 
-        line-height: 1.6;
-    }
+            /* OFFER BAR */
 
+            .headline-bar {
+                width: 100% !important;
 
-    /* =========================
-       STATISTICS
-    ========================= */
+                overflow: hidden !important;
 
-    .stats-section {
-        width: 100%;
+                white-space: nowrap !important;
+            }
 
-        padding: 70px 18px;
-    }
 
-    .stats-section h2 {
-        font-size: 38px;
+            .headline-text {
+                display: inline-block !important;
 
-        line-height: 1.15;
+                width: max-content !important;
 
-        margin-bottom: 40px;
-    }
+                max-width: none !important;
 
-    .stats-grid {
-        width: 100%;
+                padding: 9px 0 !important;
 
-        display: grid;
+                font-size: 13px !important;
 
-        grid-template-columns: 1fr;
+                line-height: 1.3 !important;
 
-        gap: 10px;
-    }
+                white-space: nowrap !important;
 
-    .stat-box {
-        padding: 25px 15px;
-    }
+                animation: offer-scroll 14s linear infinite !important;
+            }
 
-    .stat-box h3 {
-        font-size: 48px;
-    }
 
-    .stat-box p {
-        font-size: 17px;
-    }
+            /* HERO */
 
+            .hero {
+                width: 100% !important;
 
-    /* =========================
-       CONTACT
-    ========================= */
+                min-height: 680px !important;
 
-    .contact {
-        width: 100%;
+                height: auto !important;
 
-        padding: 60px 20px;
-    }
+                padding: 60px 20px !important;
 
-    .contact-grid {
-        width: 100%;
-    }
+                display: flex !important;
 
-    .contact h2 {
-        font-size: 38px;
+                align-items: center !important;
 
-        margin-bottom: 25px;
-    }
+                background-position: center center !important;
+            }
 
-    .contact p {
-        font-size: 16px;
 
-        line-height: 1.6;
+            .hero-content {
+                width: 100% !important;
 
-        word-break: break-word;
-    }
+                max-width: 100% !important;
+            }
 
 
-    /* =========================
-       FOOTER
-    ========================= */
+            .hero-tag {
+                font-size: 19px !important;
 
-    footer {
-        width: 100%;
+                letter-spacing: 1.5px !important;
 
-        padding: 30px 20px;
-    }
+                margin-bottom: 15px !important;
+            }
 
-    footer p {
-        font-size: 13px;
 
-        line-height: 1.5;
-    }
+            .hero h1 {
+                width: 100% !important;
 
+                font-size: clamp(
+                    34px,
+                    10vw,
+                    48px
+                ) !important;
 
-    /* =========================
-       FLOATING CART
-    ========================= */
+                line-height: 1.05 !important;
 
-    .floating-cart {
-        width: 52px;
+                margin-bottom: 20px !important;
+            }
 
-        height: 52px;
 
-        bottom: 18px;
+            .hero p {
+                width: 100% !important;
 
-        right: 18px;
+                max-width: 100% !important;
 
-        display: flex;
+                font-size: 16px !important;
 
-        align-items: center;
+                line-height: 1.55 !important;
 
-        justify-content: center;
+                margin-bottom: 28px !important;
+            }
 
-        font-size: 21px;
 
-        padding: 0;
-    }
+            .btn {
+                width: 100% !important;
 
-}
+                max-width: 290px !important;
 
+                min-height: 50px !important;
 
-/* =========================================================
-   SMALL PHONES — 480px AND BELOW
-========================================================= */
+                padding: 15px 18px !important;
 
-@media screen and (max-width: 600px) {
+                font-size: 14px !important;
 
-   
-    header {
-        padding: 10px;
-    }
+                text-align: center !important;
+            }
 
-    .logo img {
-        height: 55px;
-    }
 
-    .navbar ul {
-        gap: 6px 11px;
-    }
+            /* COLLECTIONS */
 
-    .navbar a {
-        font-size: 11px;
-    }
+            .collections {
+                width: 100% !important;
 
-    .headline-text {
-        font-size: 13px;
-    }
+                padding: 65px 14px !important;
+            }
 
-    .hero {
-        min-height: 75vh;
 
-        padding: 50px 18px;
-    }
+            .collections > small {
+                font-size: 13px !important;
 
-    .hero h1 {
-        font-size: 36px;
-    }
+                letter-spacing: 1.5px !important;
+            }
 
-    .hero p {
-        font-size: 16px;
-    }
 
-    .hero-tag {
-        font-size: 18px;
-    }
+            .collections > h2 {
+                width: 100% !important;
 
-    .collections {
-        padding: 60px 14px;
-    }
+                font-size: 31px !important;
 
-    .collections h2 {
-        font-size: 31px;
-    }
+                line-height: 1.15 !important;
 
-    .card img {
-        height: 340px;
-    }
+                margin: 12px 0 32px !important;
+            }
 
-    .card-content h3 {
-        font-size: 25px;
-    }
 
-    .card-content p {
-        font-size: 13px;
-    }
+            .categories-grid {
+                width: 100% !important;
 
-    .get-touch h2,
-    .partner-header h2,
-    .why-choose h2,
-    .stats-section h2 {
-        font-size: 34px;
-    }
+                display: grid !important;
 
-    .partner-card {
-        padding: 25px 16px;
-    }
+                grid-template-columns: 1fr !important;
 
-    .stat-box h3 {
-        font-size: 44px;
-    }
+                gap: 18px !important;
+            }
 
-}
 
+            .categories-grid > a {
+                width: 100% !important;
 
-/* =========================================================
-   VERY SMALL PHONES — 360px AND BELOW
-========================================================= */
+                min-width: 0 !important;
+            }
 
-@media screen and (max-width: 380px) {
-   
-    .navbar ul {
-        gap: 5px 8px;
-    }
 
-    .navbar a {
-        font-size: 10px;
-    }
+            .card {
+                width: 100% !important;
 
-    .hero h1 {
-        font-size: 32px;
-    }
+                min-width: 0 !important;
+            }
 
-    .hero p {
-        font-size: 15px;
-    }
 
-    .card img {
-        height: 300px;
-    }
+            .card img {
+                width: 100% !important;
 
-}
+                height: 350px !important;
 
-</style>
+                object-fit: cover !important;
+            }
+
+
+            .card-content {
+                left: 18px !important;
+
+                right: 15px !important;
+
+                bottom: 18px !important;
+            }
+
+
+            .card-content h3 {
+                font-size: 25px !important;
+
+                line-height: 1.1 !important;
+            }
+
+
+            .card-content p {
+                font-size: 13px !important;
+
+                line-height: 1.4 !important;
+            }
+
+
+            /* GET IN TOUCH */
+
+            .get-touch {
+                width: 100% !important;
+
+                padding: 65px 14px !important;
+            }
+
+
+            .get-touch h2 {
+                font-size: 37px !important;
+
+                line-height: 1.1 !important;
+            }
+
+
+            .get-touch > p {
+                width: 100% !important;
+
+                font-size: 16px !important;
+
+                line-height: 1.55 !important;
+
+                margin-bottom: 30px !important;
+            }
+
+
+            .touch-form {
+                width: 100% !important;
+
+                max-width: 100% !important;
+
+                padding: 22px 15px !important;
+            }
+
+
+            .touch-form input,
+            .touch-form textarea {
+                width: 100% !important;
+
+                max-width: 100% !important;
+
+                font-size: 16px !important;
+
+                padding: 14px !important;
+            }
+
+
+            .touch-form textarea {
+                min-height: 150px !important;
+            }
+
+
+            .touch-form button {
+                width: 100% !important;
+
+                padding: 14px !important;
+            }
+
+
+            /* BUSINESS PARTNER */
+
+            .business-partner {
+                width: 100% !important;
+
+                padding: 65px 14px !important;
+            }
+
+
+            .partner-header {
+                margin-bottom: 35px !important;
+            }
+
+
+            .partner-header small {
+                font-size: 13px !important;
+            }
+
+
+            .partner-header h2 {
+                font-size: 36px !important;
+
+                line-height: 1.15 !important;
+            }
+
+
+            .partner-container {
+                width: 100% !important;
+
+                display: flex !important;
+
+                flex-direction: column !important;
+
+                align-items: center !important;
+
+                gap: 25px !important;
+            }
+
+
+            .partner-left,
+            .partner-center,
+            .partner-right {
+                width: 100% !important;
+
+                max-width: 100% !important;
+            }
+
+
+            .partner-img {
+                width: 100% !important;
+
+                max-width: 360px !important;
+
+                height: auto !important;
+
+                margin: 0 auto !important;
+            }
+
+
+            .partner-card {
+                width: 100% !important;
+
+                max-width: 400px !important;
+
+                padding: 28px 18px !important;
+
+                margin: 0 auto !important;
+            }
+
+
+            .partner-card img {
+                max-width: 160px !important;
+            }
+
+
+            .partner-card h3 {
+                font-size: 26px !important;
+            }
+
+
+            .partner-card p {
+                font-size: 15px !important;
+            }
+
+
+            .partner-btn {
+                width: 100% !important;
+
+                max-width: 300px !important;
+            }
+
+
+            /* WHY CHOOSE */
+
+            .why-choose {
+                width: 100% !important;
+
+                padding: 65px 14px !important;
+            }
+
+
+            .why-choose > h2 {
+                width: 100% !important;
+
+                font-size: 36px !important;
+
+                line-height: 1.15 !important;
+
+                margin-bottom: 35px !important;
+            }
+
+
+            .why-grid {
+                width: 100% !important;
+
+                display: grid !important;
+
+                grid-template-columns: 1fr !important;
+
+                gap: 16px !important;
+            }
+
+
+            .why-box {
+                width: 100% !important;
+
+                padding: 27px 20px !important;
+            }
+
+
+            .why-box h3 {
+                font-size: 20px !important;
+            }
+
+
+            .why-box p {
+                font-size: 15px !important;
+            }
+
+
+            /* STATISTICS */
+
+            .stats-section {
+                width: 100% !important;
+
+                padding: 65px 14px !important;
+            }
+
+
+            .stats-section > h2 {
+                width: 100% !important;
+
+                font-size: 36px !important;
+
+                line-height: 1.15 !important;
+
+                margin-bottom: 35px !important;
+            }
+
+
+            .stats-grid {
+                width: 100% !important;
+
+                display: grid !important;
+
+                grid-template-columns: 1fr !important;
+
+                gap: 5px !important;
+            }
+
+
+            .stat-box {
+                padding: 22px 10px !important;
+            }
+
+
+            .stat-box h3 {
+                font-size: 48px !important;
+            }
+
+
+            .stat-box p {
+                font-size: 17px !important;
+            }
+
+
+            /* CONTACT */
+
+            .contact {
+                width: 100% !important;
+
+                padding: 60px 18px !important;
+            }
+
+
+            .contact h2 {
+                font-size: 37px !important;
+
+                line-height: 1.15 !important;
+            }
+
+
+            .contact p {
+                width: 100% !important;
+
+                font-size: 15px !important;
+
+                line-height: 1.65 !important;
+
+                overflow-wrap: anywhere !important;
+
+                word-break: break-word !important;
+            }
+
+
+            .contact a {
+                overflow-wrap: anywhere !important;
+
+                word-break: break-word !important;
+            }
+
+
+            /* FOOTER */
+
+            footer {
+                width: 100% !important;
+
+                padding: 25px 15px !important;
+            }
+
+
+            footer p {
+                font-size: 13px !important;
+            }
+
+        }
+
+
+        /* =====================================================
+           SMALL PHONES
+           480px AND BELOW
+        ===================================================== */
+
+        @media screen and (max-width: 480px) {
+
+            .logo img {
+                height: 50px !important;
+
+                max-width: 135px !important;
+            }
+
+
+            .navbar ul {
+                gap: 4px 8px !important;
+            }
+
+
+            .navbar a {
+                font-size: 10px !important;
+            }
+
+
+            .headline-text {
+                font-size: 12px !important;
+            }
+
+
+            .hero {
+                min-height: 620px !important;
+
+                padding: 50px 17px !important;
+            }
+
+
+            .hero-tag {
+                font-size: 18px !important;
+            }
+
+
+            .hero h1 {
+                font-size: 34px !important;
+            }
+
+
+            .hero p {
+                font-size: 15px !important;
+            }
+
+
+            .collections {
+                padding-left: 12px !important;
+
+                padding-right: 12px !important;
+            }
+
+
+            .collections > h2 {
+                font-size: 29px !important;
+            }
+
+
+            .card img {
+                height: 310px !important;
+            }
+
+
+            .card-content {
+                left: 16px !important;
+
+                bottom: 16px !important;
+            }
+
+
+            .card-content h3 {
+                font-size: 23px !important;
+            }
+
+
+            .card-content p {
+                font-size: 12px !important;
+            }
+
+
+            .get-touch h2,
+            .partner-header h2,
+            .why-choose > h2,
+            .stats-section > h2 {
+                font-size: 33px !important;
+            }
+
+        }
+
+
+        /* =====================================================
+           VERY SMALL PHONES
+           360px AND BELOW
+        ===================================================== */
+
+        @media screen and (max-width: 360px) {
+
+            .navbar ul {
+                gap: 3px 6px !important;
+            }
+
+
+            .navbar a {
+                font-size: 9px !important;
+            }
+
+
+            .hero {
+                padding-left: 15px !important;
+
+                padding-right: 15px !important;
+            }
+
+
+            .hero h1 {
+                font-size: 30px !important;
+            }
+
+
+            .hero p {
+                font-size: 14px !important;
+            }
+
+
+            .card img {
+                height: 285px !important;
+            }
+
+
+            .card-content h3 {
+                font-size: 21px !important;
+            }
+
+
+            .card-content p {
+                font-size: 11px !important;
+            }
+
+        }
+
+
+    </style>
 
 </head>
 
@@ -1646,659 +1863,679 @@ footer p {
 <body>
 
 
-<!-- =========================================================
-     NAVIGATION HEADER
-========================================================= -->
+    <!-- =====================================================
+         HEADER
+    ===================================================== -->
 
-<header>
+    <header>
 
-    <div class="logo">
+        <div class="logo">
 
-        <img
-            src="logo.jpeg"
-            alt="50 Mirars"
-        >
+            <img
+                src="logo.jpeg"
+                alt="50 Mirars"
+            >
 
-    </div>
-
-
-    <nav class="navbar">
-
-        <ul>
-
-            <li>
-                <a href="index.html">
-                    Home
-                </a>
-            </li>
-
-            <li>
-                <a href="collections.html">
-                    Collections
-                </a>
-            </li>
-
-            <li>
-                <a href="about.html">
-                    About Us
-                </a>
-            </li>
-
-            <li>
-                <a href="faq.html">
-                    FAQ
-                </a>
-            </li>
-
-            <li>
-                <a href="terms.html">
-                    Terms & Conditions
-                </a>
-            </li>
-
-        </ul>
-
-    </nav>
-
-</header>
-
-
-<!-- =========================================================
-     MOVING OFFER BAR
-========================================================= -->
-
-<div class="headline-bar">
-
-    <div class="headline-text">
-
-        ✦ A Touch of Luxury Awaits — Enjoy
-        <strong>10% OFF</strong>
-        with Code
-        <strong>10OFF10</strong>
-        | Timeless Watches • Premium Sunglasses ✦
-
-    </div>
-
-</div>
-
-
-<!-- =========================================================
-     HERO
-========================================================= -->
-
-<section class="hero" id="home">
-
-    <div class="hero-content">
-
-        <div class="hero-tag">
-            50 MIRARS
         </div>
 
 
-        <h1>
+        <nav class="navbar">
 
-            TIMELESS ELEGANCE.<br>
+            <ul>
 
-            UNMATCHED
-            <span>STYLE.</span>
-
-        </h1>
-
-
-        <p>
-
-            Premium watches and sunglasses crafted
-            for those who value perfection.
-
-        </p>
+                <li>
+                    <a href="index.html">
+                        Home
+                    </a>
+                </li>
 
 
-        <a
-            class="btn"
-            href="https://wa.me/c/918209989013"
-            target="_blank"
-        >
+                <li>
+                    <a href="collections.html">
+                        Collections
+                    </a>
+                </li>
 
-            SHOP ON WHATSAPP
 
-        </a>
+                <li>
+                    <a href="about.html">
+                        About Us
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="faq.html">
+                        FAQ
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="terms.html">
+                        Terms &amp; Conditions
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MOVING OFFER BAR
+    ===================================================== -->
+
+    <div class="headline-bar">
+
+        <div class="headline-text">
+
+            ✦ A Touch of Luxury Awaits — Enjoy
+            <strong>10% OFF</strong>
+            with Code
+            <strong>10OFF10</strong>
+            | Timeless Watches • Premium Sunglasses ✦
+
+        </div>
 
     </div>
 
-</section>
 
 
-<!-- =========================================================
-     COLLECTIONS
-========================================================= -->
+    <!-- =====================================================
+         HERO
+    ===================================================== -->
 
-<section
-    class="collections"
-    id="collections"
->
+    <section class="hero" id="home">
 
-    <small>
+        <div class="hero-content">
 
-        OUR COLLECTIONS
-
-    </small>
-
-
-    <h2>
-
-        EXPLORE OUR COLLECTIONS
-
-    </h2>
-
-
-    <div class="categories-grid">
-
-
-        <!-- WATCHES -->
-
-        <a
-            href="watches.html"
-            style="text-decoration:none;color:inherit;"
-        >
-
-            <div class="card">
-
-                <img
-                    src="Rolex Yatch-Master 42.jpeg"
-                    alt="Watches"
-                    loading="lazy"
-                >
-
-
-                <div class="card-content">
-
-                    <h3>
-                        WATCHES
-                    </h3>
-
-                    <p>
-                        Luxury. Precision. Elegance.
-                    </p>
-
-                </div>
-
+            <div class="hero-tag">
+                50 MIRARS
             </div>
 
-        </a>
 
+            <h1>
 
-        <!-- SUNGLASSES -->
+                TIMELESS ELEGANCE.<br>
 
-        <a
-            href="sunglasses.html"
-            style="text-decoration:none;color:inherit;"
-        >
+                UNMATCHED
+                <span>STYLE.</span>
 
-            <div class="card">
+            </h1>
 
-                <img
-                    src="Cartier Aqua Green Karan Aujla Edition.jpeg"
-                    alt="Sunglasses"
-                    loading="lazy"
-                >
 
+            <p>
 
-                <div class="card-content">
+                Premium watches and sunglasses crafted
+                for those who value perfection.
 
-                    <h3>
-                        SUNGLASSES
-                    </h3>
+            </p>
 
-                    <p>
-                        Luxury. Style. Confidence.
-                    </p>
 
-                </div>
+            <a
+                class="btn"
+                href="https://wa.me/c/918209989013"
+                target="_blank"
+                rel="noopener"
+            >
 
-            </div>
+                SHOP ON WHATSAPP
 
-        </a>
+            </a>
 
+        </div>
 
-        <!-- MOST SELLING -->
+    </section>
 
-        <a
-            href="most-selling.html"
-            style="text-decoration:none;color:inherit;"
-        >
 
-            <div class="card">
 
-                <img
-                    src="most selling.jpeg"
-                    alt="Most Selling Articles"
-                    loading="lazy"
-                >
+    <!-- =====================================================
+         COLLECTIONS
+    ===================================================== -->
 
-
-                <div class="card-content">
-
-                    <h3>
-                        MOST SELLING ARTICLES
-                    </h3>
-
-                    <p>
-                        Our most popular watches loved by customers.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </a>
-
-
-        <!-- COUPLE WATCHES -->
-
-        <a
-            href="couple-watches.html"
-            style="text-decoration:none;color:inherit;"
-        >
-
-            <div class="card">
-
-                <img
-                    src="Tissot Gentel Couple Watch.jpeg"
-                    alt="Couple Watches"
-                    loading="lazy"
-                >
-
-
-                <div class="card-content">
-
-                    <h3>
-                        COUPLE WATCHES
-                    </h3>
-
-                    <p>
-                        Elegant timepieces designed for couples.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </a>
-
-
-        <!-- LIMITED EDITIONS -->
-
-        <a
-            href="limited-editions.html"
-            style="text-decoration:none;color:inherit;"
-        >
-
-            <div class="card">
-
-                <img
-                    src="Seiko Mod Date-Just.jpeg"
-                    alt="Limited Editions"
-                    loading="lazy"
-                >
-
-
-                <div class="card-content">
-
-                    <h3>
-                        LIMITED EDITIONS
-                    </h3>
-
-                    <p>
-                        Rare and exclusive collectible pieces.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </a>
-
-
-        <!-- LUXURY ARTICLES -->
-
-        <a
-            href="luxury-articles.html"
-            style="text-decoration:none;color:inherit;"
-        >
-
-            <div class="card">
-
-                <img
-                    src="tissot prx.png"
-                    alt="Luxury Articles"
-                    loading="lazy"
-                >
-
-
-                <div class="card-content">
-
-                    <h3>
-                        LUXURY ARTICLES
-                    </h3>
-
-                    <p>
-                        Exclusive luxury accessories and collectibles.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </a>
-
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     GET IN TOUCH
-========================================================= -->
-
-<section class="get-touch">
-
-    <h2>
-        Get In Touch
-    </h2>
-
-
-    <p>
-
-        Have a question, enquiry, feedback or complaint?
-        We are here to help.
-
-    </p>
-
-
-    <form
-        class="touch-form"
-        action="https://formspree.io/f/mlgqpono"
-        method="POST"
+    <section
+        class="collections"
+        id="collections"
     >
 
-        <input
-            type="text"
-            name="name"
-            placeholder="Your Name"
-            required
-        >
-
-
-        <input
-            type="email"
-            name="email"
-            placeholder="Your Email"
-            required
-        >
-
-
-        <input
-            type="tel"
-            name="phone"
-            placeholder="Your Phone Number"
-        >
-
-
-        <textarea
-            name="message"
-            placeholder="Write your enquiry or complaint here..."
-            required
-        ></textarea>
-
-
-        <button type="submit">
-
-            Send Message
-
-        </button>
-
-    </form>
-
-</section>
-
-
-<!-- =========================================================
-     BUSINESS PARTNER
-========================================================= -->
-
-<section class="business-partner">
-
-
-    <div class="partner-header">
-
         <small>
-            OUR PARTNER
+            OUR COLLECTIONS
         </small>
 
 
         <h2>
-            Business Partner
+            EXPLORE OUR COLLECTIONS
         </h2>
 
-    </div>
+
+        <div class="categories-grid">
 
 
-    <div class="partner-container">
+            <!-- WATCHES -->
 
-
-        <!-- LEFT IMAGE -->
-
-        <div class="partner-left">
-
-            <img
-                src="left-image.jpeg"
-                alt="50 Scents Perfume Bottle"
-                class="partner-img"
-                loading="lazy"
+            <a
+                href="watches.html"
+                style="text-decoration:none;color:inherit;"
             >
+
+                <div class="card">
+
+                    <img
+                        src="Rolex Yatch-Master 42.jpeg"
+                        alt="Watches"
+                        loading="lazy"
+                    >
+
+
+                    <div class="card-content">
+
+                        <h3>
+                            WATCHES
+                        </h3>
+
+
+                        <p>
+                            Luxury. Precision. Elegance.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </a>
+
+
+
+            <!-- SUNGLASSES -->
+
+            <a
+                href="sunglasses.html"
+                style="text-decoration:none;color:inherit;"
+            >
+
+                <div class="card">
+
+                    <img
+                        src="Cartier Aqua Green Karan Aujla Edition.jpeg"
+                        alt="Sunglasses"
+                        loading="lazy"
+                    >
+
+
+                    <div class="card-content">
+
+                        <h3>
+                            SUNGLASSES
+                        </h3>
+
+
+                        <p>
+                            Luxury. Style. Confidence.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </a>
+
+
+
+            <!-- MOST SELLING -->
+
+            <a
+                href="most-selling.html"
+                style="text-decoration:none;color:inherit;"
+            >
+
+                <div class="card">
+
+                    <img
+                        src="most selling.jpeg"
+                        alt="Most Selling Articles"
+                        loading="lazy"
+                    >
+
+
+                    <div class="card-content">
+
+                        <h3>
+                            MOST SELLING ARTICLES
+                        </h3>
+
+
+                        <p>
+                            Our most popular watches loved by customers.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </a>
+
+
+
+            <!-- COUPLE WATCHES -->
+
+            <a
+                href="couple-watches.html"
+                style="text-decoration:none;color:inherit;"
+            >
+
+                <div class="card">
+
+                    <img
+                        src="Tissot Gentel Couple Watch.jpeg"
+                        alt="Couple Watches"
+                        loading="lazy"
+                    >
+
+
+                    <div class="card-content">
+
+                        <h3>
+                            COUPLE WATCHES
+                        </h3>
+
+
+                        <p>
+                            Elegant timepieces designed for couples.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </a>
+
+
+
+            <!-- LIMITED EDITIONS -->
+
+            <a
+                href="limited-editions.html"
+                style="text-decoration:none;color:inherit;"
+            >
+
+                <div class="card">
+
+                    <img
+                        src="Seiko Mod Date-Just.jpeg"
+                        alt="Limited Editions"
+                        loading="lazy"
+                    >
+
+
+                    <div class="card-content">
+
+                        <h3>
+                            LIMITED EDITIONS
+                        </h3>
+
+
+                        <p>
+                            Rare and exclusive collectible pieces.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </a>
+
+
+
+            <!-- LUXURY ARTICLES -->
+
+            <a
+                href="luxury-articles.html"
+                style="text-decoration:none;color:inherit;"
+            >
+
+                <div class="card">
+
+                    <img
+                        src="tissot prx.png"
+                        alt="Luxury Articles"
+                        loading="lazy"
+                    >
+
+
+                    <div class="card-content">
+
+                        <h3>
+                            LUXURY ARTICLES
+                        </h3>
+
+
+                        <p>
+                            Exclusive luxury accessories and collectibles.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </a>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         GET IN TOUCH
+    ===================================================== -->
+
+    <section class="get-touch">
+
+        <h2>
+            Get In Touch
+        </h2>
+
+
+        <p>
+
+            Have a question, enquiry, feedback or complaint?
+            We are here to help.
+
+        </p>
+
+
+        <form
+            class="touch-form"
+            action="https://formspree.io/f/mlgqpono"
+            method="POST"
+        >
+
+            <input
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                required
+            >
+
+
+            <input
+                type="email"
+                name="email"
+                placeholder="Your Email"
+                required
+            >
+
+
+            <input
+                type="tel"
+                name="phone"
+                placeholder="Your Phone Number"
+            >
+
+
+            <textarea
+                name="message"
+                placeholder="Write your enquiry or complaint here..."
+                required
+            ></textarea>
+
+
+            <button type="submit">
+
+                Send Message
+
+            </button>
+
+        </form>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         BUSINESS PARTNER
+    ===================================================== -->
+
+    <section class="business-partner">
+
+        <div class="partner-header">
+
+            <small>
+                OUR PARTNER
+            </small>
+
+
+            <h2>
+                Business Partner
+            </h2>
 
         </div>
 
 
-        <!-- CENTER CARD -->
+        <div class="partner-container">
 
-        <div class="partner-center">
 
-            <div class="partner-card">
+            <!-- LEFT IMAGE -->
+
+            <div class="partner-left">
 
                 <img
-                    src="partner-logo.jpeg"
-                    alt="Business Partner Logo"
+                    src="left-image.jpeg"
+                    alt="50 Scents Perfume Bottle"
+                    class="partner-img"
                     loading="lazy"
                 >
 
-
-                <h3>
-                    50 Scents
-                </h3>
+            </div>
 
 
-                <p>
-                    Trusted business partner of 50 Mirars.
-                </p>
+
+            <!-- CENTER CARD -->
+
+            <div class="partner-center">
+
+                <div class="partner-card">
+
+                    <img
+                        src="partner-logo.jpeg"
+                        alt="Business Partner Logo"
+                        loading="lazy"
+                    >
 
 
-                <a
-                    href="https://wa.me/c/918233355877"
-                    target="_blank"
-                    class="partner-btn"
-                >
+                    <h3>
+                        50 Scents
+                    </h3>
 
-                    Click to View Business
 
-                </a>
+                    <p>
+                        Trusted business partner of 50 Mirars.
+                    </p>
+
+
+                    <a
+                        href="https://wa.me/c/918233355877"
+                        target="_blank"
+                        rel="noopener"
+                        class="partner-btn"
+                    >
+
+                        Click to View Business
+
+                    </a>
+
+                </div>
 
             </div>
 
-        </div>
 
 
-        <!-- RIGHT IMAGE -->
+            <!-- RIGHT IMAGE -->
 
-        <div class="partner-right">
+            <div class="partner-right">
 
-            <img
-                src="right-image.jpeg"
-                alt="50 Scents Branding Card"
-                class="partner-img"
-                loading="lazy"
-            >
+                <img
+                    src="right-image.jpeg"
+                    alt="50 Scents Branding Card"
+                    class="partner-img"
+                    loading="lazy"
+                >
 
-        </div>
+            </div>
 
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     WHY CHOOSE US
-========================================================= -->
-
-<section class="why-choose">
-
-    <h2>
-        Why Choose 50 Mirars?
-    </h2>
-
-
-    <div class="why-grid">
-
-
-        <div class="why-box">
-
-            <h3>
-                100% Authentic Products
-            </h3>
-
-            <p>
-                Premium watches, sunglasses and luxury accessories.
-            </p>
 
         </div>
 
+    </section>
 
-        <div class="why-box">
 
-            <h3>
-                Trusted Service
-            </h3>
 
-            <p>
-                Dedicated customer support for every enquiry.
-            </p>
+    <!-- =====================================================
+         WHY CHOOSE US
+    ===================================================== -->
+
+    <section class="why-choose">
+
+        <h2>
+            Why Choose 50 Mirars?
+        </h2>
+
+
+        <div class="why-grid">
+
+
+            <div class="why-box">
+
+                <h3>
+                    100% Authentic Products
+                </h3>
+
+                <p>
+                    Premium watches, sunglasses and luxury accessories.
+                </p>
+
+            </div>
+
+
+            <div class="why-box">
+
+                <h3>
+                    Trusted Service
+                </h3>
+
+                <p>
+                    Dedicated customer support for every enquiry.
+                </p>
+
+            </div>
+
+
+            <div class="why-box">
+
+                <h3>
+                    Fast Response
+                </h3>
+
+                <p>
+                    Quick assistance through WhatsApp and email.
+                </p>
+
+            </div>
+
+
+            <div class="why-box">
+
+                <h3>
+                    Customer Satisfaction
+                </h3>
+
+                <p>
+                    Your trust and satisfaction are our top priorities.
+                </p>
+
+            </div>
+
 
         </div>
 
+    </section>
 
-        <div class="why-box">
 
-            <h3>
-                Fast Response
-            </h3>
 
-            <p>
-                Quick assistance through WhatsApp and email.
-            </p>
+    <!-- =====================================================
+         STATISTICS
+    ===================================================== -->
+
+    <section class="stats-section">
+
+        <h2>
+            50 Mirars In Numbers
+        </h2>
+
+
+        <div class="stats-grid">
+
+
+            <div class="stat-box">
+
+                <h3>
+                    950+
+                </h3>
+
+                <p>
+                    Happy Customers
+                </p>
+
+            </div>
+
+
+            <div class="stat-box">
+
+                <h3>
+                    1000+
+                </h3>
+
+                <p>
+                    Products Sold
+                </p>
+
+            </div>
+
+
+            <div class="stat-box">
+
+                <h3>
+                    24/7
+                </h3>
+
+                <p>
+                    Support
+                </p>
+
+            </div>
+
 
         </div>
 
-
-        <div class="why-box">
-
-            <h3>
-                Customer Satisfaction
-            </h3>
-
-            <p>
-                Your trust and satisfaction are our top priorities.
-            </p>
-
-        </div>
+    </section>
 
 
-    </div>
 
-</section>
+    <!-- =====================================================
+         CONTACT
+    ===================================================== -->
 
+    <section
+        class="contact"
+        id="contact"
+    >
 
-<!-- =========================================================
-     STATISTICS
-========================================================= -->
-
-<section class="stats-section">
-
-    <h2>
-        50 Mirars In Numbers
-    </h2>
-
-
-    <div class="stats-grid">
-
-
-        <div class="stat-box">
-
-            <h3>
-                950+
-            </h3>
-
-            <p>
-                Happy Customers
-            </p>
-
-        </div>
-
-
-        <div class="stat-box">
-
-            <h3>
-                1000+
-            </h3>
-
-            <p>
-                Products Sold
-            </p>
-
-        </div>
-
-
-        <div class="stat-box">
-
-            <h3>
-                24/7
-            </h3>
-
-            <p>
-                Support
-            </p>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     CONTACT
-========================================================= -->
-
-<section
-    class="contact"
-    id="contact"
->
-
-    <div class="contact-grid">
-
-        <div>
+        <div class="contact-grid">
 
             <h2>
                 Contact Us
@@ -2307,15 +2544,14 @@ footer p {
 
             <p>
 
-                <strong style="color:white;">
+                <strong>
                     WhatsApp:
                 </strong>
-
 
                 <a
                     href="https://wa.me/918209989013"
                     target="_blank"
-                    style="color:white;text-decoration:none;"
+                    rel="noopener"
                 >
 
                     +91 8209989013
@@ -2327,14 +2563,12 @@ footer p {
 
             <p>
 
-                <strong style="color:white;">
+                <strong>
                     Email:
                 </strong>
 
-
                 <a
                     href="mailto:50mirars@gmail.com"
-                    style="color:white;text-decoration:none;"
                 >
 
                     50mirars@gmail.com
@@ -2346,15 +2580,14 @@ footer p {
 
             <p>
 
-                <strong style="color:white;">
+                <strong>
                     Instagram:
                 </strong>
-
 
                 <a
                     href="https://instagram.com/50mirars"
                     target="_blank"
-                    style="color:white;text-decoration:none;"
+                    rel="noopener"
                 >
 
                     @50mirars
@@ -2364,7 +2597,7 @@ footer p {
             </p>
 
 
-            <p style="color:white;">
+            <p>
 
                 <strong>
                     Address:
@@ -2375,7 +2608,7 @@ footer p {
             </p>
 
 
-            <p style="color:white;">
+            <p>
 
                 <strong>
                     Business Hours:
@@ -2387,25 +2620,23 @@ footer p {
 
             </p>
 
-
         </div>
 
-    </div>
-
-</section>
+    </section>
 
 
-<!-- =========================================================
-     FOOTER
-========================================================= -->
 
-<footer>
+    <!-- =====================================================
+         FOOTER
+    ===================================================== -->
 
-    <p>
-        © 2026 50 Mirars. All Rights Reserved.
-    </p>
+    <footer>
 
-</footer>
+        <p>
+            © 2026 50 Mirars. All Rights Reserved.
+        </p>
+
+    </footer>
 
 
 </body>
