@@ -3,1927 +3,1294 @@
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="theme-color"
-        content="#ffffff"
-    >
+<meta name="theme-color" content="#ffffff">
 
-    <meta
-        name="description"
-        content="50 Mirars - Premium Watches and Sunglasses"
-    >
+<meta name="description" content="50 Mirars - Premium Watches and Sunglasses">
 
-    <title>50 Mirars | Watches & Sunglasses</title>
+<title>50 Mirars | Watches & Sunglasses</title>
 
 
-    <style>
+<style>
 
-        /* =====================================================
-           GLOBAL RESET
-        ===================================================== */
+/* =====================================================
+   GLOBAL
+===================================================== */
 
-        *,
-        *::before,
-        *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
 
-        html {
-            width: 100%;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
+body {
+    width: 100%;
+    overflow-x: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;
+    color: #111111;
+}
 
+img {
+    display: block;
+    max-width: 100%;
+}
 
-        body {
-            width: 100%;
-            min-width: 0;
+a {
+    text-decoration: none;
+    color: inherit;
+}
 
-            font-family:
-                Arial,
-                Helvetica,
-                sans-serif;
 
-            background: #ffffff;
-            color: #111111;
+/* =====================================================
+   HEADER
+===================================================== */
 
-            overflow-x: hidden;
-        }
+.top-header {
+    width: 100%;
+    height: 92px;
 
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 
-        img {
-            display: block;
-            max-width: 100%;
-        }
+    align-items: center;
 
+    padding: 8px 55px;
 
-        a {
-            -webkit-tap-highlight-color: transparent;
-        }
+    background: #ffffff;
 
+    border-bottom: 1px solid #eeeeee;
 
-        button {
-            font-family: inherit;
-        }
+    position: relative;
+    z-index: 1000;
+}
 
+.header-left {
+    display: flex;
+    align-items: center;
+}
 
+.header-logo {
+    display: flex;
+    align-items: center;
+}
 
-        /* =====================================================
-           TOP HEADER
-        ===================================================== */
+.header-logo img {
+    height: 68px;
+    width: auto;
+    max-width: 170px;
+    object-fit: contain;
+}
 
-        .top-header {
+.header-brand {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
 
-            width: 100%;
-            height: 92px;
+.header-brand h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 31px;
+    letter-spacing: 5px;
+    line-height: 1;
+}
 
-            background: #ffffff;
+.header-brand span {
+    display: block;
+    margin-top: 6px;
 
-            display: grid;
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 4px;
 
-            grid-template-columns:
-                1fr
-                1fr
-                1fr;
+    color: #a7833c;
+}
 
-            align-items: center;
+.header-right {
+    display: flex;
+    justify-content: flex-end;
+}
 
-            padding:
-                8px
-                55px;
+.header-cart {
+    width: 52px;
+    height: 52px;
 
-            border-bottom:
-                1px solid
-                #eeeeee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-            position: relative;
-            z-index: 1000;
-        }
+    border-radius: 50%;
+}
 
+.cart-icon {
+    font-size: 26px;
+}
 
-        .header-left {
 
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
+/* =====================================================
+   OFFER BAR
+===================================================== */
 
-            min-width: 0;
-        }
+.headline-bar {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
 
+    background: #ffffff;
+    border-bottom: 1px solid #eeeeee;
+}
 
-        .header-logo {
+.headline-text {
+    display: inline-flex;
+    align-items: center;
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+    width: max-content;
 
-            text-decoration: none;
-        }
+    padding: 10px 0;
 
+    font-size: 16px;
+    font-weight: 600;
 
-        .header-logo img {
+    animation: offer-scroll 17s linear infinite;
+}
 
-            width: auto;
-            height: 68px;
+.headline-text strong {
+    color: #b38a38;
+    margin: 0 5px;
+}
 
-            max-width: 170px;
+.headline-text img {
+    width: 20px !important;
+    height: auto !important;
 
-            object-fit: contain;
-        }
+    margin: 0 5px;
+}
 
+@keyframes offer-scroll {
 
-        /* =====================================================
-           CENTER BRAND
-        ===================================================== */
+    0% {
+        transform: translateX(100%);
+    }
 
-        .header-brand {
+    100% {
+        transform: translateX(-100%);
+    }
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+}
 
-            text-align: center;
-            white-space: nowrap;
-        }
 
+/* =====================================================
+   NEW PRODUCT SWIPE SLIDER
+===================================================== */
 
-        .header-brand h1 {
+.product-showcase {
 
-            font-family:
-                Georgia,
-                "Times New Roman",
-                serif;
+    width: 100%;
 
-            font-size: 31px;
-            font-weight: 700;
+    padding: 80px 5% 90px;
 
-            letter-spacing: 5px;
+    background: #ffffff;
 
-            color: #111111;
+    text-align: center;
 
-            line-height: 1;
-        }
+}
 
+.product-showcase-header {
 
-        .header-brand span {
+    margin-bottom: 45px;
 
-            display: block;
+}
 
-            margin-top: 6px;
+.product-showcase-header small {
 
-            font-family:
-                Arial,
-                Helvetica,
-                sans-serif;
+    display: block;
 
-            font-size: 8px;
-            font-weight: 600;
+    color: #c9a24d;
 
-            letter-spacing: 4px;
+    font-size: 14px;
 
-            color: #a7833c;
-        }
+    font-weight: 700;
 
+    letter-spacing: 3px;
 
-        /* =====================================================
-           HEADER RIGHT / CART
-        ===================================================== */
+    margin-bottom: 12px;
 
-        .header-right {
+}
 
-            min-width: 0;
+.product-showcase-header h2 {
 
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-        }
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 
+    font-size: 48px;
 
-        .header-cart {
+    line-height: 1.15;
 
-            width: 52px;
-            height: 52px;
+    margin-bottom: 12px;
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+}
 
-            color: #111111;
-            background: transparent;
+.product-showcase-header p {
 
-            text-decoration: none;
+    color: #777777;
 
-            border:
-                1px solid
-                transparent;
+    font-size: 16px;
 
-            border-radius: 50%;
+}
 
-            transition:
-                all
-                0.3s
-                ease;
 
-            flex-shrink: 0;
-        }
+/* =====================================================
+   SLIDER WINDOW
+===================================================== */
 
+.product-slider {
 
-        .header-cart .cart-icon {
+    width: 100%;
 
-            font-size: 26px;
-            line-height: 1;
-        }
+    overflow: hidden;
 
+    position: relative;
 
-        .header-cart:hover {
+    touch-action: pan-y;
 
-            color: #c9a24d;
+    user-select: none;
 
-            border-color:
-                #c9a24d;
+    cursor: grab;
 
-            transform:
-                translateY(-1px);
-        }
+}
 
+.product-slider.dragging {
 
+    cursor: grabbing;
 
-        /* =====================================================
-           MOVING OFFER BAR
-        ===================================================== */
+}
 
-        .headline-bar {
 
-            width: 100%;
+/* =====================================================
+   SLIDER TRACK
+===================================================== */
 
-            overflow: hidden;
+.product-track {
 
-            white-space: nowrap;
+    display: flex;
 
-            background: #ffffff;
+    width: max-content;
 
-            border-bottom:
-                1px solid
-                #eeeeee;
-        }
+    gap: 22px;
 
+    transition:
+        transform
+        0.55s
+        cubic-bezier(
+            0.77,
+            0,
+            0.175,
+            1
+        );
 
-        .headline-text {
+}
 
-            display: inline-flex;
 
-            align-items: center;
+/* =====================================================
+   PRODUCT CARD
+===================================================== */
 
-            white-space: nowrap;
+.product-slide {
 
-            width: max-content;
+    flex: 0 0 calc(
+        (100vw - 10vw - 44px) / 3
+    );
 
-            padding: 10px 0;
+    max-width: 480px;
 
-            font-size: 16px;
-            font-weight: 600;
+    overflow: hidden;
 
-            color: #292929;
+    background: #f5f5f5;
 
-            letter-spacing: 0.4px;
+    position: relative;
 
-            animation:
-                offer-scroll
-                17s
-                linear
-                infinite;
-        }
+}
 
 
-        .headline-text strong {
+/* =====================================================
+   PRODUCT IMAGE
+===================================================== */
 
-            color: #b38a38;
-            font-weight: 700;
-        }
+.product-slide img {
 
+    width: 100%;
 
-        .headline-text img {
+    height: 520px;
 
-            width: 20px !important;
-            height: auto !important;
+    object-fit: cover;
 
-            margin:
-                0 5px;
+    object-position: center;
 
-            display: inline-block;
+    display: block;
 
-            flex-shrink: 0;
-        }
+    transition:
+        transform
+        0.6s
+        ease;
 
+    pointer-events: none;
 
-        @keyframes offer-scroll {
+}
 
-            0% {
-                transform:
-                    translateX(100%);
-            }
+.product-slide:hover img {
 
-            100% {
-                transform:
-                    translateX(-100%);
-            }
-        }
+    transform: scale(1.035);
 
+}
 
 
-        /* =====================================================
-           HERO SLIDER
-        ===================================================== */
+/* =====================================================
+   SLIDER ARROWS
+===================================================== */
 
-        .hero-slider {
+.product-arrow {
 
-            position: relative;
+    position: absolute;
 
-            width: 100%;
+    top: 50%;
 
-            height: 72vh;
+    transform: translateY(-50%);
 
-            min-height: 560px;
+    width: 48px;
 
-            max-height: 760px;
+    height: 48px;
 
-            overflow: hidden;
+    border: 1px solid #dddddd;
 
-            background: #111111;
+    border-radius: 50%;
 
-            touch-action: pan-y;
+    background: rgba(255,255,255,0.95);
 
-            user-select: none;
-        }
+    color: #111111;
 
+    display: flex;
 
-        .slides-track {
+    align-items: center;
 
-            width: 100%;
-            height: 100%;
+    justify-content: center;
 
-            display: flex;
+    font-size: 28px;
 
-            transition:
-                transform
-                0.65s
-                cubic-bezier(
-                    0.77,
-                    0,
-                    0.175,
-                    1
-                );
-        }
+    cursor: pointer;
 
+    z-index: 10;
 
-        .hero-slide {
+    box-shadow:
+        0 5px 20px
+        rgba(0,0,0,0.12);
 
-            position: relative;
+}
 
-            flex:
-                0 0 100%;
+.product-arrow:hover {
 
-            width: 100%;
-            height: 100%;
+    background: #111111;
 
-            overflow: hidden;
+    color: #ffffff;
 
-            cursor: pointer;
+}
 
-            color: inherit;
+.product-prev {
 
-            text-decoration: none;
-        }
+    left: 15px;
 
+}
 
-        .hero-slide img {
+.product-next {
 
-            width: 100%;
-            height: 100%;
+    right: 15px;
 
-            object-fit: cover;
+}
 
-            object-position: center;
 
-            transition:
-                transform
-                7s
-                ease;
-        }
+/* =====================================================
+   PRODUCT DOTS
+===================================================== */
 
+.product-dots {
 
-        .hero-slide.active img {
+    display: flex;
 
-            transform:
-                scale(1.035);
-        }
+    justify-content: center;
 
+    align-items: center;
 
-        /* =====================================================
-           HERO OVERLAY
-        ===================================================== */
+    gap: 8px;
 
-        .hero-slide::after {
+    margin-top: 28px;
 
-            content: "";
+}
 
-            position: absolute;
+.product-dot {
 
-            inset: 0;
+    width: 8px;
 
-            background:
-                linear-gradient(
-                    90deg,
-                    rgba(0,0,0,0.72) 0%,
-                    rgba(0,0,0,0.42) 38%,
-                    rgba(0,0,0,0.08) 75%,
-                    rgba(0,0,0,0.18) 100%
-                );
+    height: 8px;
 
-            pointer-events: none;
-        }
+    border: none;
 
+    border-radius: 50%;
 
-        /* =====================================================
-           HERO CONTENT
-        ===================================================== */
+    background: #cccccc;
 
-        .hero-content {
+    cursor: pointer;
 
-            position: absolute;
+}
 
-            left: 8%;
-            top: 50%;
+.product-dot.active {
 
-            transform:
-                translateY(-50%);
+    width: 28px;
 
-            width: 55%;
-            max-width: 720px;
+    border-radius: 20px;
 
-            color: #ffffff;
+    background: #c9a24d;
 
-            z-index: 5;
+}
 
-            pointer-events: none;
-        }
 
+/* =====================================================
+   WATCH BRANDS
+===================================================== */
 
-        .hero-small {
+.watch-brands {
 
-            color: #d3af61;
+    width: 100%;
 
-            font-size: 15px;
-            font-weight: 700;
+    padding:
+        80px
+        0
+        90px;
 
-            letter-spacing: 4px;
+    text-align: center;
 
-            text-transform: uppercase;
+}
 
-            margin-bottom: 17px;
-        }
+.watch-brands-header {
 
+    margin-bottom: 40px;
 
-        .hero-content h2 {
+    padding: 0 20px;
 
-            font-family:
-                Georgia,
-                "Times New Roman",
-                serif;
+}
 
-            font-size:
-                clamp(
-                    42px,
-                    5vw,
-                    76px
-                );
+.watch-brands-header small {
 
-            line-height: 1.02;
+    display: block;
 
-            font-weight: 700;
+    color: #c9a24d;
 
-            margin-bottom: 20px;
-        }
+    font-size: 15px;
 
+    font-weight: 700;
 
-        .hero-content h2 span {
+    letter-spacing: 2px;
 
-            color: #d3af61;
-        }
+    margin-bottom: 12px;
 
+}
 
-        .hero-content p {
+.watch-brands-header h2 {
 
-            max-width: 570px;
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 
-            font-size: 19px;
+    font-size: 50px;
 
-            line-height: 1.55;
+    margin-bottom: 15px;
 
-            color: #f4f4f4;
+}
 
-            margin-bottom: 28px;
-        }
+.watch-brands-header p {
 
+    color: #777777;
 
-        .hero-button {
+    font-size: 17px;
 
-            display: inline-flex;
+}
 
-            align-items: center;
-            justify-content: center;
+.watch-brands-image {
 
-            padding:
-                14px
-                28px;
+    width: 100% !important;
 
-            min-height: 48px;
+    max-width: 100% !important;
 
-            background: #ffffff;
+    height: auto;
 
-            color: #111111;
+    border-top: 1px solid #dddddd;
 
-            border:
-                1px solid
-                #ffffff;
+    border-bottom: 1px solid #dddddd;
 
-            font-size: 14px;
-            font-weight: 700;
+}
 
-            letter-spacing: 1px;
 
-            text-decoration: none;
+/* =====================================================
+   COLLECTIONS
+===================================================== */
 
-            pointer-events: auto;
+.collections {
 
-            transition:
-                all
-                0.3s
-                ease;
-        }
+    width: 100%;
 
+    padding: 100px 7%;
 
-        .hero-button:hover {
+    text-align: center;
 
-            background: #c9a24d;
+}
 
-            border-color:
-                #c9a24d;
+.collections > small {
 
-            color: #ffffff;
-        }
+    display: block;
 
+    color: #c9a24d;
 
+    font-size: 16px;
 
-        /* =====================================================
-           SLIDER ARROWS
-        ===================================================== */
+    font-weight: 700;
 
-        .slider-arrow {
+    letter-spacing: 2px;
 
-            position: absolute;
+    margin-bottom: 14px;
 
-            top: 50%;
+}
 
-            transform:
-                translateY(-50%);
+.collections > h2 {
 
-            width: 48px;
-            height: 48px;
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 
-            border:
-                1px solid
-                rgba(255,255,255,0.65);
+    font-size: 50px;
 
-            border-radius: 50%;
+    margin-bottom: 50px;
 
-            background:
-                rgba(0,0,0,0.22);
+}
 
-            color: #ffffff;
+.categories-grid {
 
-            display: flex;
+    display: grid;
 
-            align-items: center;
-            justify-content: center;
+    grid-template-columns:
+        repeat(2, minmax(0,1fr));
 
-            font-size: 25px;
+    gap: 25px;
 
-            cursor: pointer;
+}
 
-            z-index: 20;
+.categories-grid > a {
 
-            transition:
-                all
-                0.3s
-                ease;
+    display: block;
 
-            backdrop-filter:
-                blur(4px);
-        }
+}
 
+.card {
 
-        .slider-arrow:hover {
+    position: relative;
 
-            background: #ffffff;
+    overflow: hidden;
 
-            color: #111111;
+    background: #111111;
 
-            border-color:
-                #ffffff;
-        }
+}
 
+.card img {
 
-        .slider-prev {
-            left: 25px;
-        }
+    width: 100%;
 
+    height: 500px;
 
-        .slider-next {
-            right: 25px;
-        }
+    object-fit: cover;
 
+    transition: transform 0.5s ease;
 
+}
 
-        /* =====================================================
-           SLIDER DOTS
-        ===================================================== */
+.card:hover img {
 
-        .slider-dots {
+    transform: scale(1.04);
 
-            position: absolute;
+}
 
-            left: 50%;
-            bottom: 25px;
+.card-content {
 
-            transform:
-                translateX(-50%);
+    position: absolute;
 
-            display: flex;
+    left: 30px;
 
-            align-items: center;
+    right: 20px;
 
-            gap: 10px;
+    bottom: 30px;
 
-            z-index: 30;
-        }
+    color: #ffffff;
 
+    text-align: left;
 
-        .slider-dot {
+}
 
-            width: 8px;
-            height: 8px;
+.card-content h3 {
 
-            padding: 0;
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 
-            border: none;
+    font-size: 38px;
 
-            border-radius: 50%;
+    margin-bottom: 8px;
 
-            background:
-                rgba(255,255,255,0.55);
+}
 
-            cursor: pointer;
+.card-content p {
 
-            transition:
-                all
-                0.3s
-                ease;
-        }
+    font-size: 17px;
 
+}
 
-        .slider-dot.active {
 
-            width: 30px;
+/* =====================================================
+   LANGUAGE OF TIME
+===================================================== */
 
-            border-radius: 20px;
+.language-of-time-section {
 
-            background: #ffffff;
-        }
+    width: 100%;
 
+    overflow: hidden;
 
-        .swipe-hint {
+    background: #111111;
 
-            position: absolute;
+}
 
-            right: 30px;
-            bottom: 25px;
+.language-of-time-section img {
 
-            color:
-                rgba(255,255,255,0.75);
+    width: 100%;
 
-            font-size: 11px;
+    height: auto;
 
-            letter-spacing: 1.5px;
+}
 
-            text-transform: uppercase;
 
-            z-index: 30;
+/* =====================================================
+   GET IN TOUCH
+===================================================== */
 
-            pointer-events: none;
-        }
+.get-touch {
 
+    width: 100%;
 
+    padding: 90px 7%;
 
-        /* =====================================================
-           WATCH BRANDS
-        ===================================================== */
+    background: #f8f8f8;
 
-        .watch-brands {
+    text-align: center;
 
-            width: 100%;
+}
 
-            padding:
-                80px
-                0
-                90px;
+.get-touch h2 {
 
-            background: #ffffff;
+    color: #c9a24d;
 
-            text-align: center;
-        }
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 
+    font-size: 54px;
 
-        .watch-brands-header {
+    margin-bottom: 20px;
 
-            margin-bottom: 40px;
+}
 
-            padding:
-                0
-                20px;
-        }
+.get-touch > p {
 
+    max-width: 750px;
 
-        .watch-brands-header small {
+    margin:
+        0
+        auto
+        45px;
 
-            display: block;
+    color: #666666;
 
-            color: #c9a24d;
+    font-size: 20px;
 
-            font-size: 15px;
-            font-weight: 700;
+    line-height: 1.6;
 
-            letter-spacing: 2px;
+}
 
-            margin-bottom: 12px;
-        }
+.touch-form {
 
+    width: 100%;
 
-        .watch-brands-header h2 {
+    max-width: 900px;
 
-            font-family:
-                Georgia,
-                "Times New Roman",
-                serif;
+    margin: 0 auto;
 
-            font-size: 50px;
+    padding: 40px;
 
-            line-height: 1.15;
+    background: #ffffff;
 
-            margin-bottom: 15px;
-        }
+    border-radius: 12px;
 
+    box-shadow:
+        0 0 25px
+        rgba(0,0,0,0.08);
 
-        .watch-brands-header p {
+}
 
-            color: #777777;
+.touch-form input,
+.touch-form textarea {
 
-            font-size: 17px;
+    width: 100%;
 
-            line-height: 1.5;
-        }
+    display: block;
 
+    padding: 17px;
 
-        .watch-brands-image {
+    margin-bottom: 18px;
 
-            width: 100% !important;
+    border:
+        1px solid
+        #dddddd;
 
-            max-width: 100% !important;
+    border-radius: 7px;
 
-            height: auto;
+    font-size: 16px;
 
-            margin: 0 !important;
+    outline: none;
 
-            padding: 0;
+}
 
-            display: block;
+.touch-form textarea {
 
-            border-top:
-                1px solid
-                #dddddd;
+    min-height: 180px;
 
-            border-bottom:
-                1px solid
-                #dddddd;
-        }
+    resize: vertical;
 
+}
 
+.touch-form button {
 
-        /* =====================================================
-           COLLECTIONS
-        ===================================================== */
+    padding:
+        15px
+        35px;
 
-        .collections {
+    border: none;
 
-            width: 100%;
+    border-radius: 7px;
 
-            padding:
-                100px
-                7%;
+    background: #c9a24d;
 
-            background: #ffffff;
+    color: #ffffff;
 
-            text-align: center;
-        }
+    font-size: 16px;
 
+    font-weight: 700;
 
-        .collections > small {
+    cursor: pointer;
 
-            display: block;
+}
 
-            color: #c9a24d;
 
-            font-size: 16px;
-            font-weight: 700;
+/* =====================================================
+   BUSINESS PARTNER
+===================================================== */
 
-            letter-spacing: 2px;
+.business-partner {
 
-            margin-bottom: 14px;
-        }
+    width: 100%;
 
+    padding: 100px 7%;
 
-        .collections > h2 {
+    text-align: center;
 
-            font-family:
-                Georgia,
-                "Times New Roman",
-                serif;
+}
 
-            font-size: 50px;
+.partner-header {
 
-            line-height: 1.15;
+    margin-bottom: 50px;
 
-            margin-bottom: 50px;
-        }
+}
 
+.partner-header small {
 
-        .categories-grid {
+    display: block;
 
-            width: 100%;
+    color: #c9a24d;
 
-            display: grid;
+    font-size: 16px;
 
-            grid-template-columns:
-                repeat(
-                    2,
-                    minmax(0,1fr)
-                );
+    font-weight: 700;
 
-            gap: 25px;
-        }
+    letter-spacing: 2px;
 
+    margin-bottom: 12px;
 
-        .categories-grid > a {
+}
 
-            width: 100%;
+.partner-header h2 {
 
-            display: block;
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 
-            text-decoration: none;
+    font-size: 50px;
 
-            color: inherit;
-        }
+}
 
+.partner-container {
 
-        .card {
+    width: 100%;
 
-            width: 100%;
+    display: grid;
 
-            position: relative;
+    grid-template-columns:
+        minmax(0,1fr)
+        minmax(300px,400px)
+        minmax(0,1fr);
 
-            overflow: hidden;
+    align-items: center;
 
-            background: #111111;
-        }
+    gap: 35px;
 
+}
 
-        .card img {
+.partner-img {
 
-            width: 100%;
+    width: 100%;
 
-            height: 500px;
+    max-width: 350px;
 
-            object-fit: cover;
+    margin: auto;
 
-            display: block;
+    border-radius: 10px;
 
-            transition:
-                transform
-                0.5s
-                ease;
-        }
+}
 
+.partner-card {
 
-        .card:hover img {
+    max-width: 400px;
 
-            transform:
-                scale(1.04);
-        }
+    margin: auto;
 
+    padding: 40px 30px;
 
-        .card-content {
+    background: #ffffff;
 
-            position: absolute;
+    border-radius: 15px;
 
-            left: 30px;
-            right: 20px;
-            bottom: 30px;
+    box-shadow:
+        0 8px 25px
+        rgba(0,0,0,0.08);
 
-            color: #ffffff;
+}
 
-            text-align: left;
+.partner-card img {
 
-            z-index: 2;
-        }
+    width: 100%;
 
+    max-width: 180px;
 
-        .card-content::before {
+    margin:
+        0
+        auto
+        25px;
 
-            content: "";
+}
 
-            position: absolute;
+.partner-card h3 {
 
-            left: -30px;
-            right: -20px;
-            bottom: -30px;
+    font-size: 28px;
 
-            height: 150px;
+    margin-bottom: 10px;
 
-            background:
-                linear-gradient(
-                    transparent,
-                    rgba(0,0,0,0.7)
-                );
+}
 
-            z-index: -1;
-        }
+.partner-card p {
 
+    color: #666666;
 
-        .card-content h3 {
+    line-height: 1.6;
 
-            font-family:
-                Georgia,
-                "Times New Roman",
-                serif;
+    margin-bottom: 15px;
 
-            font-size: 38px;
+}
 
-            line-height: 1.1;
+.partner-btn {
 
-            margin-bottom: 8px;
-        }
+    display: inline-flex;
 
+    padding:
+        12px
+        24px;
 
-        .card-content p {
+    background: #c9a24d;
 
-            font-size: 17px;
+    color: #ffffff;
 
-            line-height: 1.4;
-        }
+    border-radius: 6px;
 
+    font-weight: 700;
 
+}
 
-        /* =====================================================
-           LANGUAGE OF TIME
-           FIXED - NO FORCED 600PX CROPPING
-        ===================================================== */
 
-        .language-of-time-section {
+/* =====================================================
+   WHY CHOOSE
+===================================================== */
 
-            width: 100%;
+.why-choose {
 
-            margin: 0;
-            padding: 0;
+    width: 100%;
 
-            display: block;
+    padding: 100px 7%;
 
-            overflow: hidden;
+    background: #f8f6f2;
 
-            background: #111111;
+    text-align: center;
 
-            line-height: 0;
-        }
+}
 
+.why-choose > h2 {
 
-        .language-of-time-section img {
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 
-            width: 100%;
+    font-size: 50px;
 
-            max-width: 100%;
+    margin-bottom: 55px;
 
-            height: auto;
+}
 
-            display: block;
+.why-grid {
 
-            margin: 0;
-            padding: 0;
+    max-width: 1200px;
 
-            border: 0;
+    margin: auto;
 
-            object-fit: contain;
+    display: grid;
 
-            object-position: center;
-        }
+    grid-template-columns:
+        repeat(4, minmax(0,1fr));
 
+    gap: 25px;
 
+}
 
-        /* =====================================================
-           GET IN TOUCH
-        ===================================================== */
+.why-box {
 
-        .get-touch {
+    padding: 35px 25px;
 
-            width: 100%;
+    background: #ffffff;
 
-            padding:
-                90px
-                7%;
+    border-radius: 12px;
 
-            background: #f8f8f8;
+    box-shadow:
+        0 5px 20px
+        rgba(0,0,0,0.08);
 
-            text-align: center;
-        }
+}
 
+.why-box h3 {
 
-        .get-touch h2 {
+    color: #c9a24d;
 
-            color: #c9a24d;
+    font-size: 21px;
 
-            font-family:
-                Georgia,
-                "Times New Roman",
-                serif;
+    margin-bottom: 15px;
 
-            font-size: 54px;
+}
 
-            line-height: 1.1;
+.why-box p {
 
-            margin-bottom: 20px;
-        }
+    color: #666666;
 
+    font-size: 15px;
 
-        .get-touch > p {
+    line-height: 1.7;
 
-            max-width: 750px;
+}
 
-            margin:
-                0
-                auto
-                45px;
 
-            color: #666666;
+/* =====================================================
+   STATS
+===================================================== */
 
-            font-size: 20px;
+.stats-section {
 
-            line-height: 1.6;
-        }
+    width: 100%;
 
+    padding: 90px 7%;
 
-        .touch-form {
+    background: #111111;
 
-            width: 100%;
+    color: #ffffff;
 
-            max-width: 900px;
+    text-align: center;
 
-            margin: 0 auto;
+}
 
-            padding: 40px;
+.stats-section > h2 {
 
-            background: #ffffff;
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 
-            border-radius: 12px;
+    font-size: 50px;
 
-            box-shadow:
-                0 0 25px
-                rgba(0,0,0,0.08);
-        }
+    margin-bottom: 55px;
 
+}
 
-        .touch-form input,
-        .touch-form textarea {
+.stats-grid {
 
-            width: 100%;
+    max-width: 1000px;
 
-            display: block;
+    margin: auto;
 
-            padding: 17px;
+    display: grid;
 
-            margin-bottom: 18px;
+    grid-template-columns:
+        repeat(3,1fr);
 
-            border:
-                1px solid
-                #dddddd;
+}
 
-            border-radius: 7px;
+.stat-box h3 {
 
-            background: #ffffff;
+    color: #c9a24d;
 
-            color: #111111;
+    font-size: 60px;
 
-            font-family:
-                Arial,
-                sans-serif;
+    margin-bottom: 12px;
 
-            font-size: 16px;
+}
 
-            outline: none;
-        }
+.stat-box p {
 
+    color: #dddddd;
 
-        .touch-form input:focus,
-        .touch-form textarea:focus {
+    font-size: 19px;
 
-            border-color:
-                #c9a24d;
-        }
+}
 
 
-        .touch-form textarea {
+/* =====================================================
+   FOOTER
+===================================================== */
 
-            min-height: 180px;
+.main-footer {
 
-            resize: vertical;
-        }
+    width: 100%;
 
+    background: #0b0b0b;
 
-        .touch-form button {
+    color: #ffffff;
 
-            display: inline-flex;
+    padding:
+        70px
+        7%
+        25px;
 
-            align-items: center;
-            justify-content: center;
+}
 
-            min-height: 50px;
+.footer-container {
 
-            padding:
-                15px
-                35px;
+    max-width: 1400px;
 
-            border: none;
+    margin: auto;
 
-            border-radius: 7px;
+}
 
-            background: #c9a24d;
+.footer-top {
 
-            color: #ffffff;
+    display: grid;
 
-            font-size: 16px;
-            font-weight: 700;
+    grid-template-columns:
+        repeat(3,1fr);
 
-            cursor: pointer;
+    gap: 40px;
 
-            transition:
-                all
-                0.3s
-                ease;
-        }
+}
 
+.footer-top > h2 {
 
-        .touch-form button:hover {
+    grid-column: 1 / -1;
 
-            background: #111111;
-        }
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 
+    font-size: 42px;
 
+    text-align: center;
 
-        /* =====================================================
-           BUSINESS PARTNER
-        ===================================================== */
+    margin-bottom: 10px;
 
-        .business-partner {
+}
 
-            width: 100%;
+.contact-column,
+.whatsapp-column {
 
-            padding:
-                100px
-                7%;
+    text-align: center;
 
-            background: #ffffff;
+}
 
-            text-align: center;
-        }
+.contact-column h3,
+.whatsapp-column h3 {
 
+    font-size: 20px;
 
-        .partner-header {
+    margin-bottom: 22px;
 
-            margin-bottom: 50px;
-        }
+}
 
+.contact-column p {
 
-        .partner-header small {
+    color: #bdbdbd;
 
-            display: block;
+    font-size: 15px;
 
-            color: #c9a24d;
+    margin-top: 12px;
 
-            font-size: 16px;
-            font-weight: 700;
+}
 
-            letter-spacing: 2px;
+.footer-link {
 
-            margin-bottom: 12px;
-        }
+    display: block;
 
+    width: fit-content;
 
-        .partner-header h2 {
+    margin:
+        0
+        auto
+        8px;
 
-            font-family:
-                Georgia,
-                "Times New Roman",
-                serif;
+    color: #ffffff;
 
-            color: #111111;
+    font-size: 16px;
 
-            font-size: 50px;
+}
 
-            line-height: 1.15;
-        }
+.whatsapp-title {
 
+    display: flex;
 
-        .partner-header h2::after {
+    align-items: center;
 
-            content: "";
+    justify-content: center;
 
-            display: block;
+    gap: 8px;
 
-            width: 110px;
-            height: 2px;
+}
 
-            background: #c9a24d;
+.whatsapp-icon {
 
-            margin:
-                20px
-                auto
-                0;
-        }
+    width: 24px !important;
 
+    height: 24px !important;
 
-        .partner-container {
+}
 
-            width: 100%;
+.whatsapp-button {
 
-            display: grid;
+    display: inline-flex;
 
-            grid-template-columns:
-                minmax(0,1fr)
-                minmax(300px,400px)
-                minmax(0,1fr);
+    align-items: center;
 
-            align-items: center;
+    justify-content: center;
 
-            gap: 35px;
-        }
+    min-height: 50px;
 
+    padding:
+        13px
+        30px;
 
-        .partner-left,
-        .partner-center,
-        .partner-right {
+    background: #ffffff;
 
-            width: 100%;
+    color: #111111;
 
-            text-align: center;
-        }
+    font-weight: 700;
 
+}
 
-        .partner-img {
+.footer-middle {
 
-            width: 100%;
+    display: grid;
 
-            max-width: 350px;
+    grid-template-columns:
+        repeat(3,1fr);
 
-            height: auto;
+    gap: 50px;
 
-            margin: 0 auto;
+    margin-top: 65px;
 
-            border-radius: 10px;
+    padding-top: 45px;
 
-            box-shadow:
-                0 4px 15px
-                rgba(0,0,0,0.1);
-        }
+    border-top:
+        1px solid
+        rgba(255,255,255,0.10);
 
+}
 
-        .partner-card {
+.footer-links-column,
+.footer-social {
 
-            width: 100%;
+    text-align: center;
 
-            max-width: 400px;
+}
 
-            margin: 0 auto;
+.footer-links-column h3,
+.footer-social h3 {
 
-            padding:
-                40px
-                30px;
+    margin-bottom: 20px;
 
-            background: #ffffff;
+}
 
-            border-radius: 15px;
+.footer-links-column a {
 
-            box-shadow:
-                0 8px 25px
-                rgba(0,0,0,0.08);
+    display: block;
 
-            text-align: center;
+    width: fit-content;
 
-            transition:
-                transform
-                0.3s
-                ease;
-        }
+    margin:
+        0
+        auto
+        14px;
 
+    color: #d7d7d7;
 
-        .partner-card:hover {
+}
 
-            transform:
-                translateY(-5px);
-        }
+.footer-social p {
 
+    color: #d7d7d7;
 
-        .partner-card img {
+    margin-bottom: 14px;
 
-            width: 100%;
+}
 
-            max-width: 180px;
-
-            height: auto;
-
-            margin:
-                0
-                auto
-                25px;
-        }
-
-
-        .partner-card h3 {
-
-            font-size: 28px;
-
-            margin-bottom: 10px;
-        }
-
-
-        .partner-card p {
-
-            color: #666666;
-
-            font-size: 16px;
-
-            line-height: 1.6;
-
-            margin-bottom: 10px;
-        }
-
-
-        .partner-btn {
-
-            display: inline-flex;
-
-            align-items: center;
-            justify-content: center;
-
-            min-height: 46px;
-
-            margin-top: 15px;
-
-            padding:
-                12px
-                24px;
-
-            background: #c9a24d;
-
-            color: #ffffff;
-
-            font-weight: 700;
-
-            text-decoration: none;
-
-            border-radius: 6px;
-
-            transition:
-                all
-                0.3s
-                ease;
-        }
-
-
-        .partner-btn:hover {
-
-            background: #111111;
-
-            transform:
-                translateY(-2px);
-        }
-
-
-
-        /* =====================================================
-           WHY CHOOSE US
-        ===================================================== */
-
-        .why-choose {
-
-            width: 100%;
-
-            padding:
-                100px
-                7%;
-
-            background: #f8f6f2;
-
-            text-align: center;
-        }
-
-
-        .why-choose > h2 {
-
-            font-family:
-                Georgia,
-                "Times New Roman",
-                serif;
-
-            font-size: 50px;
-
-            line-height: 1.15;
-
-            margin-bottom: 55px;
-        }
-
-
-        .why-grid {
-
-            width: 100%;
-
-            max-width: 1200px;
-
-            margin: 0 auto;
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(
-                    4,
-                    minmax(0,1fr)
-                );
-
-            gap: 25px;
-        }
-
-
-        .why-box {
-
-            width: 100%;
-
-            padding:
-                35px
-                25px;
-
-            background: #ffffff;
-
-            border-radius: 12px;
-
-            box-shadow:
-                0 5px 20px
-                rgba(0,0,0,0.08);
-
-            transition:
-                transform
-                0.3s
-                ease;
-        }
-
-
-        .why-box:hover {
-
-            transform:
-                translateY(-7px);
-        }
-
-
-        .why-box h3 {
-
-            color: #c9a24d;
-
-            font-size: 21px;
-
-            line-height: 1.3;
-
-            margin-bottom: 15px;
-        }
-
-
-        .why-box p {
-
-            color: #666666;
-
-            font-size: 15px;
-
-            line-height: 1.7;
-        }
-
-
-
-        /* =====================================================
-           50 MIRARS IN NUMBERS
-           KEPT - NOT REMOVED
-        ===================================================== */
-
-        .stats-section {
-
-            width: 100%;
-
-            padding:
-                90px
-                7%;
-
-            background: #111111;
-
-            color: #ffffff;
-
-            text-align: center;
-        }
-
-
-        .stats-section > h2 {
-
-            font-family:
-                Georgia,
-                "Times New Roman",
-                serif;
-
-            font-size: 50px;
-
-            line-height: 1.15;
-
-            margin-bottom: 55px;
-        }
-
-
-        .stats-grid {
-
-            width: 100%;
-
-            max-width: 1000px;
-
-            margin: 0 auto;
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(
-                    3,
-                    minmax(0,1fr)
-                );
-
-            gap: 30px;
-        }
-
-
-        .stat-box {
-
-            padding:
-                25px
-                15px;
-        }
-
-
-        .stat-box h3 {
-
-            color: #c9a24d;
-
-            font-size: 60px;
-
-            line-height: 1;
-
-            margin-bottom: 12px;
-        }
-
-
-        .stat-box p {
-
-            color: #dddddd;
-
-            font-size: 19px;
-
-            line-height: 1.5;
-        }
-
-
-
-        /* =====================================================
-           NEW PREMIUM FOOTER
-        ===================================================== */
-
-        .main-footer {
-
-            width: 100%;
-
-            background: #0b0b0b;
-
-            color: #ffffff;
-
-            padding:
-                70px
-                7%
-                25px;
-
-            border-top:
-                1px solid
-                rgba(255,255,255,0.08);
-        }
-
-
-        .footer-container {
-
-            width: 100%;
-
-            max-width: 1400px;
-
-            margin: 0 auto;
-        }
-
-
-        /* =====================================================
-           CONTACT TOP
-        ===================================================== */
-
-        .footer-top {
-
-            width: 100%;
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(
-                    3,
-                    minmax(0,1fr)
-                );
-
-            column-gap: 70px;
-
-            row-gap: 40px;
-
-            align-items: start;
-        }
-
-
-        .footer-top > h2 {
-
-            grid-column:
-                1 / -1;
-
-            font-family:
-                Georgia,
-                "Times New Roman",
-                serif;
-
-            font-size: 42px;
-
-            line-height: 1.2;
-
-            color: #ffffff;
-
-            text-align: center;
-
-            margin-bottom: 10px;
-        }
-
-
-        .contact-column,
-        .whatsapp-column {
-
-            min-width: 0;
-
-            text-align: center;
-        }
-
-
-        .contact-column h3,
-        .whatsapp-column h3 {
-
-            color: #ffffff;
-
-            font-size: 20px;
-
-            line-height: 1.35;
-
-            margin-bottom: 22px;
-        }
-
-
-        .contact-column p {
-
-            color: #bdbdbd;
-
-            font-size: 15px;
-
-            line-height: 1.6;
-
-            margin-top: 12px;
-        }
-
-
-        .footer-link {
-
-            display: block;
-
-            width: fit-content;
-
-            margin:
-                0
-                auto
-                8px;
-
-            color: #ffffff;
-
-            text-decoration: none;
-
-            font-size: 16px;
-
-            line-height: 1.6;
-
-            transition:
-                color
-                0.3s
-                ease;
-        }
-
-
-        .footer-link:hover {
-
-            color: #c9a24d;
-        }
-
-
-
-        /* =====================================================
-           WHATSAPP BUTTON
-        ===================================================== */
-
-        .whatsapp-button {
-
-            display: inline-flex;
-
-            align-items: center;
-            justify-content: center;
-
-            min-height: 50px;
-
-            padding:
-                13px
-                30px;
-
-            background: #ffffff;
-
-            color: #111111;
-
-            text-decoration: none;
-
-            font-size: 15px;
-
-            font-weight: 700;
-
-            letter-spacing: 0.5px;
-
-            border:
-                1px solid
-                #ffffff;
-
-            transition:
-                all
-                0.3s
-                ease;
-        }
-
-
-        .whatsapp-button:hover {
-
-            background: #c9a24d;
-
-            border-color:
-                #c9a24d;
-
-            color: #ffffff;
-        }
-
-
-
-        /* =====================================================
-           FOOTER MIDDLE
-        ===================================================== */
-
-        .footer-middle {
-
-            width: 100%;
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(
-                    3,
-                    minmax(0,1fr)
-                );
-
-            gap: 50px;
-
-            margin-top: 65px;
-
-            padding-top: 45px;
-
-            border-top:
-                1px solid
-                rgba(255,255,255,0.10);
-        }
-
-
-        .footer-links-column,
-        .footer-social {
-
-            min-width: 0;
-
-            text-align: center;
-        }
-
-
-        .footer-links-column h3,
-        .footer-social h3 {
-
-            color: #ffffff;
-
-            font-size: 18px;
-
-            line-height: 1.35;
-
-            margin-bottom: 20px;
-        }
-
-
-        .footer-links-column a {
-
-            display: block;
-
-            width: fit-content;
-
-            margin:
-                0
-                auto
-                14px;
-
-            color: #d7d7d7;
-
-            text-decoration: none;
-
-            font-size: 15px;
-
-            line-height: 1.5;
-
-            transition:
-                color
-                0.3s
-                ease;
-        }
-
-
-        .footer-links-column a:hover {
-
-            color: #c9a24d;
-        }
-
-
-        .footer-social p {
-
-            color: #d7d7d7;
-
-            font-size: 15px;
-
-            margin-bottom: 14px;
-        }
-
-
-        /* =====================================================
-           INSTAGRAM
-        ===================================================== */
-
-        .instagram-button {
+.instagram-button {
 
     width: 48px;
 
@@ -1935,989 +1302,480 @@
 
     justify-content: center;
 
-    color: #ffffff;
-
-    border: 1px solid rgba(255,255,255,0.7);
+    border:
+        1px solid
+        rgba(255,255,255,0.7);
 
     border-radius: 10px;
 
-    text-decoration: none;
-
-    font-size: 27px;
-
-    transition: all 0.3s ease;
 }
 
-
-.instagram-button:hover {
-
-    color: #c9a24d;
-
-    border-color: #c9a24d;
-
-    transform: translateY(-2px);
-}
-
-
-        /* =====================================================
-           COPYRIGHT
-        ===================================================== */
-
-        .footer-bottom {
-
-            width: 100%;
-
-            margin-top: 50px;
-
-            padding-top: 20px;
-
-            border-top:
-                1px solid
-                rgba(255,255,255,0.10);
-        }
-
-
-        .footer-bottom p {
-
-            color: #aaaaaa;
-
-            font-size: 13px;
-
-            line-height: 1.5;
-
-            text-align: center;
-        }
-
-
-
-        /* =====================================================
-           TABLET
-        ===================================================== */
-
-        @media screen and (max-width: 1024px) {
-
-            .top-header {
-
-                padding:
-                    8px
-                    30px;
-            }
-
-
-            .header-brand h1 {
-
-                font-size: 27px;
-
-                letter-spacing: 4px;
-            }
-
-
-            .hero-slider {
-
-                height: 65vh;
-
-                min-height: 500px;
-            }
-
-
-            .hero-content {
-
-                left: 7%;
-
-                width: 65%;
-            }
-
-
-            .card img {
-
-                height: 430px;
-            }
-
-
-            .why-grid {
-
-                grid-template-columns:
-                    repeat(
-                        2,
-                        minmax(0,1fr)
-                    );
-            }
-
-
-            .footer-top {
-
-                column-gap: 35px;
-            }
-
-        }
-
-
-
-        /* =====================================================
-           MOBILE
-        ===================================================== */
-
-        @media screen and (max-width: 768px) {
-
-            /* HEADER */
-
-            .top-header {
-
-                width: 100%;
-
-                height: 72px;
-
-                padding:
-                    6px
-                    14px;
-
-                grid-template-columns:
-                    1fr
-                    1fr
-                    1fr;
-            }
-
-
-            .header-logo img {
-
-                height: 52px;
-
-                max-width: 130px;
-            }
-
-
-            .header-brand h1 {
-
-                font-size: 21px;
-
-                letter-spacing: 3px;
-            }
-
-
-            .header-brand span {
-
-                font-size: 6px;
-
-                letter-spacing: 2px;
-
-                margin-top: 4px;
-            }
-
-
-            .header-cart {
-
-                width: 44px;
-                height: 44px;
-            }
-
-
-            .header-cart .cart-icon {
-
-                font-size: 23px;
-            }
-
-
-            /* OFFER BAR */
-
-            .headline-text {
-
-                padding:
-                    8px
-                    0;
-
-                font-size: 12px;
-
-                animation:
-                    offer-scroll
-                    14s
-                    linear
-                    infinite;
-            }
-
-
-            .headline-text img {
-
-                width: 17px !important;
-            }
-
-
-            /* HERO */
-
-            .hero-slider {
-
-                width: 100%;
-
-                height: 72vh;
-
-                min-height: 520px;
-
-                max-height: 650px;
-            }
-
-
-            .hero-slide img {
-
-                object-position:
-                    center
-                    center;
-            }
-
-
-            .hero-slide::after {
-
-                background:
-                    linear-gradient(
-                        90deg,
-                        rgba(0,0,0,0.72),
-                        rgba(0,0,0,0.20)
-                    );
-            }
-
-
-            .hero-content {
-
-                left: 22px;
-                right: 22px;
-
-                top: 50%;
-
-                width: auto;
-
-                max-width: none;
-            }
-
-
-            .hero-small {
-
-                font-size: 12px;
-
-                letter-spacing: 2.5px;
-
-                margin-bottom: 12px;
-            }
-
-
-            .hero-content h2 {
-
-                font-size:
-                    clamp(
-                        34px,
-                        10vw,
-                        48px
-                    );
-
-                line-height: 1.04;
-
-                margin-bottom: 15px;
-            }
-
-
-            .hero-content p {
-
-                font-size: 15px;
-
-                line-height: 1.5;
-
-                margin-bottom: 22px;
-
-                max-width: 360px;
-            }
-
-
-            .hero-button {
-
-                padding:
-                    12px
-                    20px;
-
-                font-size: 12px;
-
-                min-height: 44px;
-            }
-
-
-            /* ARROWS */
-
-            .slider-arrow {
-
-                width: 38px;
-                height: 38px;
-
-                font-size: 20px;
-            }
-
-
-            .slider-prev {
-                left: 12px;
-            }
-
-
-            .slider-next {
-                right: 12px;
-            }
-
-
-            /* DOTS */
-
-            .slider-dots {
-
-                bottom: 16px;
-
-                gap: 7px;
-            }
-
-
-            .slider-dot {
-
-                width: 7px;
-                height: 7px;
-            }
-
-
-            .slider-dot.active {
-
-                width: 23px;
-            }
-
-
-            .swipe-hint {
-
-                display: none;
-            }
-
-
-            /* WATCH BRANDS */
-
-            .watch-brands {
-
-                padding:
-                    60px
-                    0
-                    65px;
-            }
-
-
-            .watch-brands-header {
-
-                margin-bottom: 30px;
-            }
-
-
-            .watch-brands-header small {
-
-                font-size: 13px;
-            }
-
-
-            .watch-brands-header h2 {
-
-                font-size: 36px;
-            }
-
-
-            .watch-brands-header p {
-
-                font-size: 15px;
-            }
-
-
-            /* COLLECTIONS */
-
-            .collections {
-
-                padding:
-                    65px
-                    14px;
-            }
-
-
-            .collections > small {
-
-                font-size: 13px;
-
-                letter-spacing: 1.5px;
-            }
-
-
-            .collections > h2 {
-
-                font-size: 31px;
-
-                line-height: 1.15;
-
-                margin:
-                    12px
-                    0
-                    32px;
-            }
-
-
-            .categories-grid {
-
-                grid-template-columns: 1fr;
-
-                gap: 18px;
-            }
-
-
-            .card img {
-
-                height: 350px;
-            }
-
-
-            .card-content {
-
-                left: 18px;
-                right: 15px;
-                bottom: 18px;
-            }
-
-
-            .card-content h3 {
-
-                font-size: 25px;
-            }
-
-
-            .card-content p {
-
-                font-size: 13px;
-            }
-
-
-            /* LANGUAGE OF TIME */
-
-            .language-of-time-section img {
-
-                width: 100%;
-
-                height: auto;
-
-                object-fit: contain;
-            }
-
-
-            /* GET IN TOUCH */
-
-            .get-touch {
-
-                padding:
-                    65px
-                    14px;
-            }
-
-
-            .get-touch h2 {
-
-                font-size: 37px;
-            }
-
-
-            .get-touch > p {
-
-                font-size: 16px;
-
-                line-height: 1.55;
-
-                margin-bottom: 30px;
-            }
-
-
-            .touch-form {
-
-                padding:
-                    22px
-                    15px;
-            }
-
-
-            .touch-form input,
-            .touch-form textarea {
-
-                font-size: 16px;
-
-                padding: 14px;
-            }
-
-
-            .touch-form button {
-
-                width: 100%;
-
-                padding: 14px;
-            }
-
-
-            /* BUSINESS PARTNER */
-
-            .business-partner {
-
-                padding:
-                    65px
-                    14px;
-            }
-
-
-            .partner-header {
-
-                margin-bottom: 35px;
-            }
-
-
-            .partner-header small {
-
-                font-size: 13px;
-            }
-
-
-            .partner-header h2 {
-
-                font-size: 36px;
-            }
-
-
-            .partner-container {
-
-                display: flex;
-
-                flex-direction: column;
-
-                gap: 25px;
-            }
-
-
-            .partner-left,
-            .partner-center,
-            .partner-right {
-
-                width: 100%;
-            }
-
-
-            .partner-img {
-
-                max-width: 360px;
-            }
-
-
-            .partner-card {
-
-                max-width: 400px;
-
-                padding:
-                    28px
-                    18px;
-            }
-
-
-            .partner-card img {
-
-                max-width: 160px;
-            }
-
-
-            .partner-card h3 {
-
-                font-size: 26px;
-            }
-
-
-            .partner-card p {
-
-                font-size: 15px;
-            }
-
-
-            .partner-btn {
-
-                width: 100%;
-
-                max-width: 300px;
-            }
-
-
-            /* WHY CHOOSE */
-
-            .why-choose {
-
-                padding:
-                    65px
-                    14px;
-            }
-
-
-            .why-choose > h2 {
-
-                font-size: 36px;
-
-                margin-bottom: 35px;
-            }
-
-
-            .why-grid {
-
-                grid-template-columns: 1fr;
-
-                gap: 16px;
-            }
-
-
-            .why-box {
-
-                padding:
-                    27px
-                    20px;
-            }
-
-
-            /* 50 MIRARS IN NUMBERS */
-
-            .stats-section {
-
-                padding:
-                    65px
-                    14px;
-            }
-
-
-            .stats-section > h2 {
-
-                font-size: 36px;
-
-                margin-bottom: 35px;
-            }
-
-
-            .stats-grid {
-
-                grid-template-columns: 1fr;
-
-                gap: 5px;
-            }
-
-
-            .stat-box {
-
-                padding:
-                    22px
-                    10px;
-            }
-
-
-            .stat-box h3 {
-
-                font-size: 48px;
-            }
-
-
-            .stat-box p {
-
-                font-size: 17px;
-            }
-
-
-            /* FOOTER */
-
-            .main-footer {
-
-                padding:
-                    55px
-                    18px
-                    20px;
-            }
-
-
-            .footer-top {
-
-                grid-template-columns: 1fr;
-
-                text-align: center;
-
-                gap: 35px;
-            }
-
-
-            .footer-top > h2 {
-
-                font-size: 34px;
-
-                margin-bottom: 5px;
-            }
-
-
-            .contact-column,
-            .whatsapp-column {
-
-                text-align: center;
-            }
-
-
-            .footer-link {
-
-                width: fit-content;
-            }
-
-
-            .whatsapp-button {
-
-                width: 100%;
-
-                max-width: 280px;
-            }
-
-
-            .footer-middle {
-
-                grid-template-columns: 1fr;
-
-                gap: 35px;
-
-                margin-top: 55px;
-
-                padding-top: 35px;
-
-                text-align: center;
-            }
-
-
-            .footer-links-column,
-            .footer-social {
-
-                text-align: center;
-            }
-
-
-            .footer-links-column a {
-
-                width: fit-content;
-            }
-
-
-            .footer-bottom {
-
-                margin-top: 45px;
-            }
-
-
-            .footer-bottom p {
-
-                text-align: center;
-
-                font-size: 13px;
-            }
-
-        }
-
-        /* WhatsApp Logo */
-.whatsapp-title {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-}
-
-.whatsapp-icon {
-    width: 24px;
-    height: 24px;
-    object-fit: contain;
-    vertical-align: middle;
-}
-
-
-/* Instagram Logo */
 .instagram-button img {
+
     width: 27px;
+
     height: 27px;
+
     object-fit: contain;
-    display: block;
+
+}
+
+.footer-bottom {
+
+    margin-top: 50px;
+
+    padding-top: 20px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,0.10);
+
+    text-align: center;
+
+}
+
+.footer-bottom p {
+
+    color: #aaaaaa;
+
+    font-size: 13px;
+
 }
 
 
+/* =====================================================
+   TABLET
+===================================================== */
 
-        /* =====================================================
-           SMALL PHONES
-        ===================================================== */
+@media screen and (max-width: 1024px) {
 
-        @media screen and (max-width: 480px) {
+    .top-header {
 
-            .header-logo img {
+        padding:
+            8px
+            30px;
 
-                height: 47px;
+    }
 
-                max-width: 120px;
-            }
+    .product-slide {
 
+        flex-basis:
+            calc(
+                (100vw - 10vw - 22px) / 2
+            );
 
-            .header-brand h1 {
+    }
 
-                font-size: 18px;
+    .product-slide img {
 
-                letter-spacing: 2.5px;
-            }
+        height: 450px;
 
+    }
 
-            .header-brand span {
+    .why-grid {
 
-                display: none;
-            }
+        grid-template-columns:
+            repeat(2,1fr);
 
+    }
 
-            .hero-slider {
+}
 
-                height: 70vh;
 
-                min-height: 500px;
-            }
+/* =====================================================
+   MOBILE
+===================================================== */
 
+@media screen and (max-width: 768px) {
 
-            .hero-content {
+    .top-header {
 
-                left: 18px;
-                right: 18px;
-            }
+        height: 72px;
 
+        padding:
+            6px
+            14px;
 
-            .hero-content h2 {
+    }
 
-                font-size: 34px;
-            }
+    .header-logo img {
 
+        height: 52px;
 
-            .hero-content p {
+        max-width: 130px;
 
-                font-size: 14px;
-            }
+    }
 
+    .header-brand h1 {
 
-            .hero-button {
+        font-size: 21px;
 
-                font-size: 11px;
+        letter-spacing: 3px;
 
-                padding:
-                    11px
-                    18px;
-            }
+    }
 
+    .header-brand span {
 
-            .slider-arrow {
+        font-size: 6px;
 
-                width: 34px;
-                height: 34px;
+        letter-spacing: 2px;
 
-                font-size: 18px;
-            }
+    }
 
+    .headline-text {
 
-            .slider-prev {
-                left: 9px;
-            }
+        font-size: 12px;
 
+        padding:
+            8px
+            0;
 
-            .slider-next {
-                right: 9px;
-            }
+    }
 
 
-            .collections > h2 {
+    /* ================================================
+       PRODUCT SLIDER MOBILE
+    ================================================ */
 
-                font-size: 29px;
-            }
+    .product-showcase {
 
+        padding:
+            60px
+            0
+            65px;
 
-            .card img {
+    }
 
-                height: 310px;
-            }
+    .product-showcase-header {
 
+        padding:
+            0
+            18px;
 
-            .card-content h3 {
+        margin-bottom: 30px;
 
-                font-size: 23px;
-            }
+    }
 
+    .product-showcase-header small {
 
-            .card-content p {
+        font-size: 12px;
 
-                font-size: 12px;
-            }
+    }
 
+    .product-showcase-header h2 {
 
-            .get-touch h2,
-            .partner-header h2,
-            .why-choose > h2,
-            .stats-section > h2 {
+        font-size: 34px;
 
-                font-size: 33px;
-            }
+    }
 
-        }
+    .product-showcase-header p {
 
+        font-size: 14px;
 
+    }
 
-        /* =====================================================
-           VERY SMALL PHONES
-        ===================================================== */
+    .product-track {
 
-        @media screen and (max-width: 360px) {
+        gap: 14px;
 
-            .top-header {
+    }
 
-                padding-left: 8px;
-                padding-right: 8px;
-            }
+    .product-slide {
 
+        flex: 0 0 86vw;
 
-            .header-logo img {
+        max-width: none;
 
-                height: 43px;
+    }
 
-                max-width: 105px;
-            }
+    .product-slide img {
 
+        width: 100%;
 
-            .header-brand h1 {
+        height: 480px;
 
-                font-size: 16px;
+        object-fit: cover;
 
-                letter-spacing: 2px;
-            }
+    }
 
+    .product-arrow {
 
-            .hero-content h2 {
+        width: 40px;
 
-                font-size: 30px;
-            }
+        height: 40px;
 
+        font-size: 22px;
 
-            .hero-content p {
+    }
 
-                font-size: 13px;
-            }
+    .product-prev {
 
+        left: 10px;
 
-            .card img {
+    }
 
-                height: 285px;
-            }
+    .product-next {
 
+        right: 10px;
 
-            .card-content h3 {
+    }
 
-                font-size: 21px;
-            }
 
+    /* COLLECTIONS */
 
-            .card-content p {
+    .collections {
 
-                font-size: 11px;
-            }
+        padding:
+            65px
+            14px;
 
-        }
+    }
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    .collections > h2 {
 
-    </style>
+        font-size: 31px;
+
+    }
+
+    .categories-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+
+    }
+
+    .card img {
+
+        height: 350px;
+
+    }
+
+
+    /* WATCH BRANDS */
+
+    .watch-brands {
+
+        padding:
+            60px
+            0
+            65px;
+
+    }
+
+    .watch-brands-header h2 {
+
+        font-size: 36px;
+
+    }
+
+
+    /* GET IN TOUCH */
+
+    .get-touch {
+
+        padding:
+            65px
+            14px;
+
+    }
+
+    .get-touch h2 {
+
+        font-size: 37px;
+
+    }
+
+    .touch-form {
+
+        padding:
+            22px
+            15px;
+
+    }
+
+    .touch-form button {
+
+        width: 100%;
+
+    }
+
+
+    /* PARTNER */
+
+    .business-partner {
+
+        padding:
+            65px
+            14px;
+
+    }
+
+    .partner-container {
+
+        display: flex;
+
+        flex-direction: column;
+
+    }
+
+    .partner-header h2 {
+
+        font-size: 36px;
+
+    }
+
+
+    /* WHY */
+
+    .why-choose {
+
+        padding:
+            65px
+            14px;
+
+    }
+
+    .why-choose > h2 {
+
+        font-size: 36px;
+
+    }
+
+    .why-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    /* STATS */
+
+    .stats-section {
+
+        padding:
+            65px
+            14px;
+
+    }
+
+    .stats-section > h2 {
+
+        font-size: 36px;
+
+    }
+
+    .stats-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 10px;
+
+    }
+
+
+    /* FOOTER */
+
+    .main-footer {
+
+        padding:
+            55px
+            18px
+            20px;
+
+    }
+
+    .footer-top {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .footer-top > h2 {
+
+        font-size: 34px;
+
+    }
+
+    .footer-middle {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+
+/* =====================================================
+   SMALL PHONES
+===================================================== */
+
+@media screen and (max-width: 480px) {
+
+    .header-logo img {
+
+        height: 47px;
+
+        max-width: 120px;
+
+    }
+
+    .header-brand h1 {
+
+        font-size: 18px;
+
+        letter-spacing: 2.5px;
+
+    }
+
+    .header-brand span {
+
+        display: none;
+
+    }
+
+    .product-slide {
+
+        flex: 0 0 88vw;
+
+    }
+
+    .product-slide img {
+
+        height: 420px;
+
+    }
+
+}
+
+
+/* =====================================================
+   VERY SMALL PHONES
+===================================================== */
+
+@media screen and (max-width: 360px) {
+
+    .header-brand h1 {
+
+        font-size: 16px;
+
+    }
+
+    .product-slide {
+
+        flex: 0 0 90vw;
+
+    }
+
+    .product-slide img {
+
+        height: 390px;
+
+    }
+
+}
+
+</style>
 
 </head>
 
@@ -2925,1700 +1783,1496 @@
 <body>
 
 
-    <!-- =====================================================
-         TOP HEADER
-    ===================================================== -->
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
-    <header class="top-header">
+<header class="top-header">
 
+    <div class="header-left">
 
-        <!-- LEFT LOGO -->
-
-        <div class="header-left">
-
-            <a
-                href="index.html"
-                class="header-logo"
-                aria-label="50 Mirars Home"
-            >
-
-                <img
-                    src="logo.jpeg"
-                    alt="50 Mirars Logo"
-                >
-
-            </a>
-
-        </div>
-
-
-        <!-- CENTER BRAND -->
-
-        <div class="header-brand">
-
-            <div>
-
-                <h1>
-                    50 MIRARS
-                </h1>
-
-                <span>
-                    WATCHES • SUNGLASSES
-                </span>
-
-            </div>
-
-        </div>
-
-
-        <!-- RIGHT CART -->
-
-        <div class="header-right">
-
-            <a
-                href="cart.html"
-                class="header-cart"
-                aria-label="Shopping Cart"
-            >
-
-                <span class="cart-icon">
-                    🛒
-                </span>
-
-            </a>
-
-        </div>
-
-    </header>
-
-
-
-    <!-- =====================================================
-         MOVING OFFER BAR
-    ===================================================== -->
-
-    <div class="headline-bar">
-
-        <div class="headline-text">
-
-            ✦ Celebrate India’s
-            80<sup>th</sup>
-            Independence Day
+        <a
+            href="index.html"
+            class="header-logo"
+        >
 
             <img
-                src="https://flagcdn.com/w20/in.png"
-                alt="Indian Flag"
+                src="logo.jpeg"
+                alt="50 Mirars Logo"
             >
 
-            in Style with 50 Mirars —
+        </a>
 
-            Unlock
+    </div>
 
-            <strong>
-                10% OFF
-            </strong>
 
-            with Code
+    <div class="header-brand">
 
-            <strong>
-                10OFF10
-            </strong>
+        <div>
 
-            | Timeless Watches • Premium Sunglasses ✦
+            <h1>
+                50 MIRARS
+            </h1>
+
+            <span>
+                WATCHES • SUNGLASSES
+            </span>
 
         </div>
 
     </div>
 
 
+    <div class="header-right">
 
-    <!-- =====================================================
-         HERO SLIDER
-    ===================================================== -->
+        <a
+            href="cart.html"
+            class="header-cart"
+        >
 
-    <section
-        class="hero-slider"
-        id="heroSlider"
+            <span class="cart-icon">
+                🛒
+            </span>
+
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     OFFER BAR
+===================================================== -->
+
+<div class="headline-bar">
+
+    <div class="headline-text">
+
+        ✦ Celebrate India’s
+        80<sup>th</sup>
+        Independence Day
+
+        <img
+            src="https://flagcdn.com/w20/in.png"
+            alt="Indian Flag"
+        >
+
+        in Style with 50 Mirars —
+
+        Unlock
+
+        <strong>
+            10% OFF
+        </strong>
+
+        with Code
+
+        <strong>
+            10OFF10
+        </strong>
+
+        | Timeless Watches • Premium Sunglasses ✦
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     NEW 6 PRODUCT IMAGE SWIPE
+===================================================== -->
+
+<section class="product-showcase">
+
+
+    <div class="product-showcase-header">
+
+        <small>
+            FEATURED COLLECTION
+        </small>
+
+        <h2>
+            DISCOVER OUR COLLECTION
+        </h2>
+
+        <p>
+            Swipe to explore our latest pieces.
+        </p>
+
+    </div>
+
+
+    <div
+        class="product-slider"
+        id="productSlider"
     >
 
 
         <div
-            class="slides-track"
-            id="slidesTrack"
+            class="product-track"
+            id="productTrack"
         >
 
 
-            <!-- SLIDE 1 -->
+            <!-- PRODUCT 1 -->
 
             <a
                 href="watches.html"
-                class="hero-slide active"
+                class="product-slide"
             >
 
                 <img
-                    src="Rolex Yatch-Master 42.jpeg"
-                    alt="Luxury Watches"
+                    src="Guess Waygene.jpeg"
+                    alt="Featured Watch"
                 >
-
-                <div class="hero-content">
-
-                    <div class="hero-small">
-                        50 MIRARS
-                    </div>
-
-                    <h2>
-                        TIMELESS
-                        <span>ELEGANCE.</span>
-                    </h2>
-
-                    <p>
-                        Discover premium timepieces
-                        created for those who value
-                        precision, luxury and style.
-                    </p>
-
-                    <span class="hero-button">
-                        EXPLORE WATCHES →
-                    </span>
-
-                </div>
 
             </a>
 
 
-
-            <!-- SLIDE 2 -->
+            <!-- PRODUCT 2 -->
 
             <a
-                href="sunglasses.html"
-                class="hero-slide"
+                href="couple-watches.html"
+                class="product-slide"
+            >
+
+                <img
+                    src="Rolex Sky-Dewller Couple Watch.jpeg"
+                    alt="Featured Couple Watch"
+                >
+
+            </a>
+
+
+            <!-- PRODUCT 3 -->
+
+            <a
+                href="luxury-articles.html"
+                class="product-slide"
+            >
+
+                <img
+                    src="Rolex GMT-Master II Simple Dial.jpeg"
+                    alt="Featured Luxury Watch"
+                >
+
+            </a>
+
+
+            <!-- PRODUCT 4 -->
+
+            <a
+                href="most-selling.html"
+                class="product-slide"
             >
 
                 <img
                     src="Cartier Aqua Green Karan Aujla Edition.jpeg"
-                    alt="Premium Sunglasses"
+                    alt="Featured Product"
                 >
-
-                <div class="hero-content">
-
-                    <div class="hero-small">
-                        50 MIRARS
-                    </div>
-
-                    <h2>
-                        DEFINE YOUR
-                        <span>STYLE.</span>
-                    </h2>
-
-                    <p>
-                        Premium sunglasses designed
-                        to make every look sharper,
-                        bolder and unforgettable.
-                    </p>
-
-                    <span class="hero-button">
-                        EXPLORE SUNGLASSES →
-                    </span>
-
-                </div>
 
             </a>
 
 
-
-            <!-- SLIDE 3 -->
-
-            <a
-                href="most-selling.html"
-                class="hero-slide"
-            >
-
-                <img
-                    src="most selling.jpeg"
-                    alt="Most Selling Products"
-                >
-
-                <div class="hero-content">
-
-                    <div class="hero-small">
-                        50 MIRARS
-                    </div>
-
-                    <h2>
-                        CUSTOMER
-                        <span>FAVOURITES.</span>
-                    </h2>
-
-                    <p>
-                        Explore the watches and
-                        accessories loved by our
-                        customers.
-                    </p>
-
-                    <span class="hero-button">
-                        SHOP BEST SELLERS →
-                    </span>
-
-                </div>
-
-            </a>
-
-
-
-            <!-- SLIDE 4 -->
-
-            <a
-                href="couple-watches.html"
-                class="hero-slide"
-            >
-
-                <img
-                    src="Tissot Gentel Couple Watch.jpeg"
-                    alt="Couple Watches"
-                >
-
-                <div class="hero-content">
-
-                    <div class="hero-small">
-                        50 MIRARS
-                    </div>
-
-                    <h2>
-                        TIMELESS
-                        <span>TOGETHER.</span>
-                    </h2>
-
-                    <p>
-                        Elegant couple watches
-                        designed to celebrate
-                        every moment together.
-                    </p>
-
-                    <span class="hero-button">
-                        EXPLORE COUPLE WATCHES →
-                    </span>
-
-                </div>
-
-            </a>
-
-
-
-            <!-- SLIDE 5 -->
+            <!-- PRODUCT 5 -->
 
             <a
                 href="limited-editions.html"
-                class="hero-slide"
+                class="product-slide"
             >
 
                 <img
                     src="Seiko Mod Date-Just.jpeg"
-                    alt="Limited Edition Watches"
+                    alt="Limited Edition Watch"
                 >
-
-                <div class="hero-content">
-
-                    <div class="hero-small">
-                        50 MIRARS
-                    </div>
-
-                    <h2>
-                        RARE.
-                        <span>EXCLUSIVE.</span>
-                    </h2>
-
-                    <p>
-                        Discover exclusive pieces
-                        selected for collectors
-                        who appreciate individuality.
-                    </p>
-
-                    <span class="hero-button">
-                        VIEW LIMITED EDITIONS →
-                    </span>
-
-                </div>
 
             </a>
 
-        </div>
 
+            <!-- PRODUCT 6 -->
+
+            <a
+                href="sunglasses.html"
+                class="product-slide"
+            >
+
+                <img
+                    src="Cartier Sky Blue Jaguar Sunglasses.jpeg"
+                    alt="Premium Sunglasses"
+                >
+
+            </a>
+
+
+        </div>
 
 
         <!-- PREVIOUS -->
 
         <button
             type="button"
-            class="slider-arrow slider-prev"
-            id="sliderPrev"
-            aria-label="Previous Slide"
+            class="product-arrow product-prev"
+            id="productPrev"
         >
             ‹
         </button>
-
 
 
         <!-- NEXT -->
 
         <button
             type="button"
-            class="slider-arrow slider-next"
-            id="sliderNext"
-            aria-label="Next Slide"
+            class="product-arrow product-next"
+            id="productNext"
         >
             ›
         </button>
 
 
+    </div>
 
-        <!-- DOTS -->
 
-        <div
-            class="slider-dots"
-            id="sliderDots"
+    <!-- DOTS -->
+
+    <div
+        class="product-dots"
+        id="productDots"
+    >
+
+        <button
+            class="product-dot active"
+            type="button"
+        ></button>
+
+        <button
+            class="product-dot"
+            type="button"
+        ></button>
+
+        <button
+            class="product-dot"
+            type="button"
+        ></button>
+
+        <button
+            class="product-dot"
+            type="button"
+        ></button>
+
+        <button
+            class="product-dot"
+            type="button"
+        ></button>
+
+        <button
+            class="product-dot"
+            type="button"
+        ></button>
+
+    </div>
+
+
+</section>
+
+
+<!-- =====================================================
+     WATCH BRANDS
+===================================================== -->
+
+<section class="watch-brands">
+
+    <div class="watch-brands-header">
+
+        <small>
+            PREMIUM COLLECTION
+        </small>
+
+        <h2>
+            OUR BRANDS
+        </h2>
+
+        <p>
+            Discover renowned brands available at 50 Mirars.
+        </p>
+
+    </div>
+
+    <img
+        src="watchlogosbrand.png"
+        alt="Watch Brands"
+        class="watch-brands-image"
+        loading="lazy"
+    >
+
+</section>
+
+
+<!-- =====================================================
+     COLLECTIONS
+===================================================== -->
+
+<section
+    class="collections"
+    id="collections"
+>
+
+    <small>
+        OUR COLLECTIONS
+    </small>
+
+    <h2>
+        EXPLORE OUR COLLECTIONS
+    </h2>
+
+
+    <div class="categories-grid">
+
+
+        <a href="watches.html">
+
+            <div class="card">
+
+                <img
+                    src="Guess Waygene.jpeg"
+                    alt="Watches"
+                    loading="lazy"
+                >
+
+                <div class="card-content">
+
+                    <h3>
+                        WATCHES
+                    </h3>
+
+                    <p>
+                        Luxury. Precision. Elegance.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <a href="sunglasses.html">
+
+            <div class="card">
+
+                <img
+                    src="Cartier Sky Blue Jaguar Sunglasses.jpeg"
+                    alt="Sunglasses"
+                    loading="lazy"
+                >
+
+                <div class="card-content">
+
+                    <h3>
+                        SUNGLASSES
+                    </h3>
+
+                    <p>
+                        Luxury. Style. Confidence.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <a href="most-selling.html">
+
+            <div class="card">
+
+                <img
+                    src="Cartier Aqua Green Karan Aujla Edition.jpeg"
+                    alt="Most Selling Articles"
+                    loading="lazy"
+                >
+
+                <div class="card-content">
+
+                    <h3>
+                        MOST SELLING ARTICLES
+                    </h3>
+
+                    <p>
+                        Our most popular watches loved by customers.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <a href="couple-watches.html">
+
+            <div class="card">
+
+                <img
+                    src="Rolex Sky-Dewller Couple Watch.jpeg"
+                    alt="Couple Watches"
+                    loading="lazy"
+                >
+
+                <div class="card-content">
+
+                    <h3>
+                        COUPLE WATCHES
+                    </h3>
+
+                    <p>
+                        Elegant timepieces designed for couples.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <a href="limited-editions.html">
+
+            <div class="card">
+
+                <img
+                    src="Seiko Mod Date-Just.jpeg"
+                    alt="Limited Editions"
+                    loading="lazy"
+                >
+
+                <div class="card-content">
+
+                    <h3>
+                        LIMITED EDITIONS
+                    </h3>
+
+                    <p>
+                        Rare and exclusive collectible pieces.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <a href="luxury-articles.html">
+
+            <div class="card">
+
+                <img
+                    src="Rolex GMT-Master II Simple Dial.jpeg"
+                    alt="Luxury Articles"
+                    loading="lazy"
+                >
+
+                <div class="card-content">
+
+                    <h3>
+                        LUXURY ARTICLES
+                    </h3>
+
+                    <p>
+                        Exclusive luxury accessories and collectibles.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </a>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     LANGUAGE OF TIME
+===================================================== -->
+
+<section class="language-of-time-section">
+
+    <img
+        src="upper to get in touch.png"
+        alt="The Language Of Time"
+        loading="lazy"
+    >
+
+</section>
+
+
+<!-- =====================================================
+     GET IN TOUCH
+===================================================== -->
+
+<section class="get-touch">
+
+    <h2>
+        Get In Touch
+    </h2>
+
+    <p>
+        Have a question, enquiry, feedback or complaint?
+        We are here to help.
+    </p>
+
+
+    <form
+        class="touch-form"
+        action="https://formspree.io/f/mlgqpono"
+        method="POST"
+    >
+
+        <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            required
         >
 
-            <button
-                class="slider-dot active"
-                type="button"
-                aria-label="Go to slide 1"
-            ></button>
+        <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            required
+        >
 
-            <button
-                class="slider-dot"
-                type="button"
-                aria-label="Go to slide 2"
-            ></button>
+        <input
+            type="tel"
+            name="phone"
+            placeholder="Your Phone Number"
+        >
 
-            <button
-                class="slider-dot"
-                type="button"
-                aria-label="Go to slide 3"
-            ></button>
+        <textarea
+            name="message"
+            placeholder="Write your enquiry or complaint here..."
+            required
+        ></textarea>
 
-            <button
-                class="slider-dot"
-                type="button"
-                aria-label="Go to slide 4"
-            ></button>
+        <button type="submit">
+            Send Message
+        </button>
 
-            <button
-                class="slider-dot"
-                type="button"
-                aria-label="Go to slide 5"
-            ></button>
+    </form>
+
+</section>
+
+
+<!-- =====================================================
+     BUSINESS PARTNER
+===================================================== -->
+
+<section class="business-partner">
+
+    <div class="partner-header">
+
+        <small>
+            OUR PARTNER
+        </small>
+
+        <h2>
+            Business Partner
+        </h2>
+
+    </div>
+
+
+    <div class="partner-container">
+
+
+        <div>
+
+            <img
+                src="left-image.jpeg"
+                alt="50 Scents Perfume Bottle"
+                class="partner-img"
+                loading="lazy"
+            >
 
         </div>
 
 
-        <div class="swipe-hint">
-            SWIPE / DRAG
+        <div>
+
+            <div class="partner-card">
+
+                <img
+                    src="partner-logo.jpeg"
+                    alt="Business Partner Logo"
+                    loading="lazy"
+                >
+
+                <h3>
+                    50 Scents
+                </h3>
+
+                <p>
+                    Trusted business partner of 50 Mirars.
+                </p>
+
+                <a
+                    href="https://wa.me/c/918233355877"
+                    target="_blank"
+                    rel="noopener"
+                    class="partner-btn"
+                >
+                    Click to View Business
+                </a>
+
+            </div>
+
         </div>
 
-    </section>
+
+        <div>
+
+            <img
+                src="right-image.jpeg"
+                alt="50 Scents Branding Card"
+                class="partner-img"
+                loading="lazy"
+            >
+
+        </div>
 
 
+    </div>
 
-    <!-- =====================================================
-         WATCH BRANDS
-    ===================================================== -->
+</section>
 
-    <section class="watch-brands">
 
-        <div class="watch-brands-header">
+<!-- =====================================================
+     WHY CHOOSE
+===================================================== -->
 
-            <small>
-                PREMIUM COLLECTION
-            </small>
+<section class="why-choose">
 
-            <h2>
-                OUR BRANDS
-            </h2>
+    <h2>
+        Why Choose 50 Mirars?
+    </h2>
+
+
+    <div class="why-grid">
+
+
+        <div class="why-box">
+
+            <h3>
+                100% Authentic Products
+            </h3>
 
             <p>
-                Discover renowned brands available at 50 Mirars.
+                Premium watches, sunglasses and luxury accessories.
             </p>
 
         </div>
 
-        <img
-            src="watchlogosbrand.png"
-            alt="Watch Brands"
-            class="watch-brands-image"
-            loading="lazy"
-        >
 
-    </section>
+        <div class="why-box">
 
+            <h3>
+                Trusted Service
+            </h3>
 
-
-    <!-- =====================================================
-         COLLECTIONS
-    ===================================================== -->
-
-    <section
-        class="collections"
-        id="collections"
-    >
-
-        <small>
-            OUR COLLECTIONS
-        </small>
-
-        <h2>
-            EXPLORE OUR COLLECTIONS
-        </h2>
-
-
-        <div class="categories-grid">
-
-
-            <!-- WATCHES -->
-
-            <a href="watches.html">
-
-                <div class="card">
-
-                    <img
-                        src="Rolex Yatch-Master 42.jpeg"
-                        alt="Watches"
-                        loading="lazy"
-                    >
-
-                    <div class="card-content">
-
-                        <h3>
-                            WATCHES
-                        </h3>
-
-                        <p>
-                            Luxury. Precision. Elegance.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </a>
-
-
-
-            <!-- SUNGLASSES -->
-
-            <a href="sunglasses.html">
-
-                <div class="card">
-
-                    <img
-                        src="Cartier Aqua Green Karan Aujla Edition.jpeg"
-                        alt="Sunglasses"
-                        loading="lazy"
-                    >
-
-                    <div class="card-content">
-
-                        <h3>
-                            SUNGLASSES
-                        </h3>
-
-                        <p>
-                            Luxury. Style. Confidence.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </a>
-
-
-
-            <!-- MOST SELLING -->
-
-            <a href="most-selling.html">
-
-                <div class="card">
-
-                    <img
-                        src="most selling.jpeg"
-                        alt="Most Selling Articles"
-                        loading="lazy"
-                    >
-
-                    <div class="card-content">
-
-                        <h3>
-                            MOST SELLING ARTICLES
-                        </h3>
-
-                        <p>
-                            Our most popular watches loved by customers.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </a>
-
-
-
-            <!-- COUPLE WATCHES -->
-
-            <a href="couple-watches.html">
-
-                <div class="card">
-
-                    <img
-                        src="Tissot Gentel Couple Watch.jpeg"
-                        alt="Couple Watches"
-                        loading="lazy"
-                    >
-
-                    <div class="card-content">
-
-                        <h3>
-                            COUPLE WATCHES
-                        </h3>
-
-                        <p>
-                            Elegant timepieces designed for couples.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </a>
-
-
-
-            <!-- LIMITED EDITIONS -->
-
-            <a href="limited-editions.html">
-
-                <div class="card">
-
-                    <img
-                        src="Seiko Mod Date-Just.jpeg"
-                        alt="Limited Editions"
-                        loading="lazy"
-                    >
-
-                    <div class="card-content">
-
-                        <h3>
-                            LIMITED EDITIONS
-                        </h3>
-
-                        <p>
-                            Rare and exclusive collectible pieces.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </a>
-
-
-
-            <!-- LUXURY ARTICLES -->
-
-            <a href="luxury-articles.html">
-
-                <div class="card">
-
-                    <img
-                        src="tissot prx.png"
-                        alt="Luxury Articles"
-                        loading="lazy"
-                    >
-
-                    <div class="card-content">
-
-                        <h3>
-                            LUXURY ARTICLES
-                        </h3>
-
-                        <p>
-                            Exclusive luxury accessories and collectibles.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </a>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =====================================================
-         LANGUAGE OF TIME
-    ===================================================== -->
-
-    <section class="language-of-time-section">
-
-        <img
-            src="upper to get in touch.png"
-            alt="The Language Of Time - 50 Mirars"
-            loading="lazy"
-        >
-
-    </section>
-
-
-
-    <!-- =====================================================
-         GET IN TOUCH
-    ===================================================== -->
-
-    <section class="get-touch">
-
-        <h2>
-            Get In Touch
-        </h2>
-
-        <p>
-            Have a question, enquiry, feedback or complaint?
-            We are here to help.
-        </p>
-
-
-        <form
-            class="touch-form"
-            action="https://formspree.io/f/mlgqpono"
-            method="POST"
-        >
-
-            <input
-                type="text"
-                name="name"
-                placeholder="Your Name"
-                required
-            >
-
-
-            <input
-                type="email"
-                name="email"
-                placeholder="Your Email"
-                required
-            >
-
-
-            <input
-                type="tel"
-                name="phone"
-                placeholder="Your Phone Number"
-            >
-
-
-            <textarea
-                name="message"
-                placeholder="Write your enquiry or complaint here..."
-                required
-            ></textarea>
-
-
-            <button type="submit">
-                Send Message
-            </button>
-
-        </form>
-
-    </section>
-
-
-
-    <!-- =====================================================
-         BUSINESS PARTNER
-    ===================================================== -->
-
-    <section class="business-partner">
-
-        <div class="partner-header">
-
-            <small>
-                OUR PARTNER
-            </small>
-
-            <h2>
-                Business Partner
-            </h2>
+            <p>
+                Dedicated customer support for every enquiry.
+            </p>
 
         </div>
 
 
-        <div class="partner-container">
+        <div class="why-box">
 
+            <h3>
+                Fast Response
+            </h3>
 
-            <div class="partner-left">
-
-                <img
-                    src="left-image.jpeg"
-                    alt="50 Scents Perfume Bottle"
-                    class="partner-img"
-                    loading="lazy"
-                >
-
-            </div>
-
-
-
-            <div class="partner-center">
-
-                <div class="partner-card">
-
-                    <img
-                        src="partner-logo.jpeg"
-                        alt="Business Partner Logo"
-                        loading="lazy"
-                    >
-
-                    <h3>
-                        50 Scents
-                    </h3>
-
-                    <p>
-                        Trusted business partner of 50 Mirars.
-                    </p>
-
-                    <a
-                        href="https://wa.me/c/918233355877"
-                        target="_blank"
-                        rel="noopener"
-                        class="partner-btn"
-                    >
-                        Click to View Business
-                    </a>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="partner-right">
-
-                <img
-                    src="right-image.jpeg"
-                    alt="50 Scents Branding Card"
-                    class="partner-img"
-                    loading="lazy"
-                >
-
-            </div>
+            <p>
+                Quick assistance through WhatsApp and email.
+            </p>
 
         </div>
 
-    </section>
 
+        <div class="why-box">
 
+            <h3>
+                Customer Satisfaction
+            </h3>
 
-    <!-- =====================================================
-         WHY CHOOSE 50 MIRARS
-    ===================================================== -->
-
-    <section class="why-choose">
-
-        <h2>
-            Why Choose 50 Mirars?
-        </h2>
-
-
-        <div class="why-grid">
-
-
-            <div class="why-box">
-
-                <h3>
-                    100% Authentic Products
-                </h3>
-
-                <p>
-                    Premium watches, sunglasses and luxury accessories.
-                </p>
-
-            </div>
-
-
-            <div class="why-box">
-
-                <h3>
-                    Trusted Service
-                </h3>
-
-                <p>
-                    Dedicated customer support for every enquiry.
-                </p>
-
-            </div>
-
-
-            <div class="why-box">
-
-                <h3>
-                    Fast Response
-                </h3>
-
-                <p>
-                    Quick assistance through WhatsApp and email.
-                </p>
-
-            </div>
-
-
-            <div class="why-box">
-
-                <h3>
-                    Customer Satisfaction
-                </h3>
-
-                <p>
-                    Your trust and satisfaction are our top priorities.
-                </p>
-
-            </div>
+            <p>
+                Your trust and satisfaction are our top priorities.
+            </p>
 
         </div>
 
-    </section>
 
-
-
-    <!-- =====================================================
-         50 MIRARS IN NUMBERS
-         IMPORTANT: KEPT
-    ===================================================== -->
-
-    <section class="stats-section">
-
-        <h2>
-            50 Mirars In Numbers
-        </h2>
-
-
-        <div class="stats-grid">
-
-
-            <div class="stat-box">
-
-                <h3>
-                    950+
-                </h3>
-
-                <p>
-                    Happy Customers
-                </p>
-
-            </div>
-
-
-            <div class="stat-box">
-
-                <h3>
-                    1000+
-                </h3>
-
-                <p>
-                    Products Sold
-                </p>
-
-            </div>
-
-
-            <div class="stat-box">
-
-                <h3>
-                    24/7
-                </h3>
-
-                <p>
-                    Support
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =====================================================
-         PREMIUM CONTACT & FOOTER
-    ===================================================== -->
-
-    <footer class="main-footer">
-
-
-        <div class="footer-container">
-
-
-            <!-- =================================================
-                 CONTACT US
-            ================================================= -->
-
-            <div class="footer-top">
-
-
-                <h2>
-                    Contact Us
-                </h2>
-
-
-                <!-- CUSTOMERS -->
-
-                <div class="contact-column">
-
-                    <h3>
-                        For Customers:
-                    </h3>
-
-
-                    <a
-                        href="mailto:50mirars@gmail.com"
-                        class="footer-link"
-                    >
-                        50mirars@gmail.com
-                    </a>
-
-
-                    <a
-                        href="tel:+918209989013"
-                        class="footer-link"
-                    >
-                        82099 89013
-                    </a>
-
-
-                    <p>
-                        09:00 - 21:30 | Monday to Sunday
-                    </p>
-
-                </div>
-
-
-
-                <!-- SALES / WATCH SERVICE -->
-
-                <div class="contact-column">
-
-                    <h3>
-                        For Sales/Watch Service:
-                    </h3>
-
-
-                    <a
-                        href="mailto:50mirars@gmail.com"
-                        class="footer-link"
-                    >
-                        50mirars@gmail.com
-                    </a>
-
-
-                    <a
-                        href="tel:+918209989013"
-                        class="footer-link"
-                    >
-                        82099 89013
-                    </a>
-
-
-                    <p>
-                        09:00 - 21:30 | Monday to Sunday
-                    </p>
-
-                </div>
-
-
-
-                <!-- WHATSAPP -->
-
-                <div class="whatsapp-column">
-
-    <h3 class="whatsapp-title">
-    View Products on WhatsApp
-    <img src="whatsapplogo.png" alt="WhatsApp" class="whatsapp-icon">
-</h3>
-
-    <a
-        href="https://wa.me/c/918209989013"
-        target="_blank"
-        rel="noopener"
-        class="whatsapp-button"
-    >
-        View Products
-    </a>
-
-</div>
     </div>
 
+</section>
 
 
-            <!-- =================================================
-                 FOOTER LINKS
-            ================================================= -->
+<!-- =====================================================
+     STATS
+===================================================== -->
 
-            <div class="footer-middle">
+<section class="stats-section">
 
-
-                <!-- KNOW 50 MIRARS -->
-
-                <div class="footer-links-column">
-
-                    <h3>
-                        Know 50 Mirars
-                    </h3>
+    <h2>
+        50 Mirars In Numbers
+    </h2>
 
 
-                    <a href="about.html">
-                        About Us
-                    </a>
+    <div class="stats-grid">
 
 
-                    <a href="faq.html">
-                        FAQ
-                    </a>
+        <div class="stat-box">
 
-                </div>
+            <h3>
+                950+
+            </h3>
 
+            <p>
+                Happy Customers
+            </p>
 
-
-                <!-- TERMS -->
-
-                <div class="footer-links-column">
-
-                    <h3>
-                        Terms & Conditions
-                    </h3>
+        </div>
 
 
-                    <a href="terms.html">
-                        Terms & Conditions
-                    </a>
-                    
-                  <a href="privacypolicy.html">
-                       Privacy Policy
-                   </a>
-                    
-                </div>
+        <div class="stat-box">
+
+            <h3>
+                1000+
+            </h3>
+
+            <p>
+                Products Sold
+            </p>
+
+        </div>
 
 
+        <div class="stat-box">
 
-                <!-- FOLLOW US -->
+            <h3>
+                24/7
+            </h3>
 
-                <div class="footer-social">
+            <p>
+                Support
+            </p>
 
-                    <h3>
-                        50 Mirars
-                    </h3>
-
-
-                    <p>
-                        Follow Us On
-                    </p>
+        </div>
 
 
-                    <a
-    <a
-    href="https://instagram.com/50mirars"
-    target="_blank"
-    rel="noopener"
-    class="instagram-button"
-    aria-label="Follow 50 Mirars on Instagram"
->
-    <img src="instagramimage.webp" alt="Instagram">
-</a>
-                    
-                </div>
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="main-footer">
+
+    <div class="footer-container">
+
+
+        <div class="footer-top">
+
+
+            <h2>
+                Contact Us
+            </h2>
+
+
+            <div class="contact-column">
+
+                <h3>
+                    For Customers:
+                </h3>
+
+                <a
+                    href="mailto:50mirars@gmail.com"
+                    class="footer-link"
+                >
+                    50mirars@gmail.com
+                </a>
+
+                <a
+                    href="tel:+918209989013"
+                    class="footer-link"
+                >
+                    82099 89013
+                </a>
+
+                <p>
+                    09:00 - 21:30 | Monday to Sunday
+                </p>
 
             </div>
 
 
+            <div class="contact-column">
 
-            <!-- =================================================
-                 COPYRIGHT
-            ================================================= -->
+                <h3>
+                    For Sales/Watch Service:
+                </h3>
 
-            <div class="footer-bottom">
+                <a
+                    href="mailto:50mirars@gmail.com"
+                    class="footer-link"
+                >
+                    50mirars@gmail.com
+                </a>
+
+                <a
+                    href="tel:+918209989013"
+                    class="footer-link"
+                >
+                    82099 89013
+                </a>
 
                 <p>
-                    © 2026 50 Mirars - The Watch &amp; Sunglasses Store.
-                    All Rights Reserved.
+                    09:00 - 21:30 | Monday to Sunday
                 </p>
+
+            </div>
+
+
+            <div class="whatsapp-column">
+
+                <h3 class="whatsapp-title">
+
+                    View Products on WhatsApp
+
+                    <img
+                        src="whatsapplogo.png"
+                        alt="WhatsApp"
+                        class="whatsapp-icon"
+                    >
+
+                </h3>
+
+                <a
+                    href="https://wa.me/c/918209989013"
+                    target="_blank"
+                    rel="noopener"
+                    class="whatsapp-button"
+                >
+                    View Products
+                </a>
 
             </div>
 
 
         </div>
 
-    </footer>
+
+        <div class="footer-middle">
 
 
+            <div class="footer-links-column">
 
-    <!-- =====================================================
-         HERO SLIDER JAVASCRIPT
-    ===================================================== -->
+                <h3>
+                    Know 50 Mirars
+                </h3>
 
-    <script>
+                <a href="about.html">
+                    About Us
+                </a>
 
-        document.addEventListener(
-            "DOMContentLoaded",
+                <a href="faq.html">
+                    FAQ
+                </a>
+
+            </div>
+
+
+            <div class="footer-links-column">
+
+                <h3>
+                    Terms & Conditions
+                </h3>
+
+                <a href="terms.html">
+                    Terms & Conditions
+                </a>
+
+                <a href="privacypolicy.html">
+                    Privacy Policy
+                </a>
+
+            </div>
+
+
+            <div class="footer-social">
+
+                <h3>
+                    50 Mirars
+                </h3>
+
+                <p>
+                    Follow Us On
+                </p>
+
+                <a
+                    href="https://instagram.com/50mirars"
+                    target="_blank"
+                    rel="noopener"
+                    class="instagram-button"
+                    aria-label="Follow 50 Mirars on Instagram"
+                >
+
+                    <img
+                        src="instagramimage.webp"
+                        alt="Instagram"
+                    >
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 50 Mirars - The Watch &amp; Sunglasses Store.
+                All Rights Reserved.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</footer>
+
+
+<!-- =====================================================
+     PRODUCT SWIPE JAVASCRIPT
+===================================================== -->
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+
+        const slider =
+            document.getElementById(
+                "productSlider"
+            );
+
+
+        const track =
+            document.getElementById(
+                "productTrack"
+            );
+
+
+        const slides =
+            document.querySelectorAll(
+                ".product-slide"
+            );
+
+
+        const dots =
+            document.querySelectorAll(
+                ".product-dot"
+            );
+
+
+        const previousButton =
+            document.getElementById(
+                "productPrev"
+            );
+
+
+        const nextButton =
+            document.getElementById(
+                "productNext"
+            );
+
+
+        let currentSlide = 0;
+
+        let startX = 0;
+
+        let endX = 0;
+
+        let isDragging = false;
+
+        let dragged = false;
+
+
+        /* ==========================================
+           NUMBER OF VISIBLE PRODUCTS
+        ========================================== */
+
+        function getVisibleSlides() {
+
+            if (window.innerWidth <= 768) {
+
+                return 1;
+
+            }
+
+            if (window.innerWidth <= 1024) {
+
+                return 2;
+
+            }
+
+            return 3;
+
+        }
+
+
+        /* ==========================================
+           UPDATE SLIDER
+        ========================================== */
+
+        function updateSlider(index) {
+
+
+            const visible =
+                getVisibleSlides();
+
+
+            const maxIndex =
+                slides.length - visible;
+
+
+            if (index < 0) {
+
+                index = maxIndex;
+
+            }
+
+
+            if (index > maxIndex) {
+
+                index = 0;
+
+            }
+
+
+            currentSlide = index;
+
+
+            const slideWidth =
+                slides[0].getBoundingClientRect().width;
+
+
+            const gap =
+                parseFloat(
+                    getComputedStyle(track).gap
+                ) || 0;
+
+
+            const movement =
+                currentSlide *
+                (
+                    slideWidth + gap
+                );
+
+
+            track.style.transform =
+                "translateX(-" +
+                movement +
+                "px)";
+
+
+            dots.forEach(
+                function (
+                    dot,
+                    dotIndex
+                ) {
+
+                    dot.classList.toggle(
+                        "active",
+                        dotIndex === currentSlide
+                    );
+
+                }
+            );
+
+        }
+
+
+        /* ==========================================
+           NEXT
+        ========================================== */
+
+        function nextSlide() {
+
+            updateSlider(
+                currentSlide + 1
+            );
+
+        }
+
+
+        /* ==========================================
+           PREVIOUS
+        ========================================== */
+
+        function previousSlide() {
+
+            updateSlider(
+                currentSlide - 1
+            );
+
+        }
+
+
+        /* ==========================================
+           ARROWS
+        ========================================== */
+
+        nextButton.addEventListener(
+            "click",
             function () {
 
-
-                const slider =
-                    document.getElementById(
-                        "heroSlider"
-                    );
-
-
-                const track =
-                    document.getElementById(
-                        "slidesTrack"
-                    );
-
-
-                const slides =
-                    document.querySelectorAll(
-                        ".hero-slide"
-                    );
-
-
-                const dots =
-                    document.querySelectorAll(
-                        ".slider-dot"
-                    );
-
-
-                const previousButton =
-                    document.getElementById(
-                        "sliderPrev"
-                    );
-
-
-                const nextButton =
-                    document.getElementById(
-                        "sliderNext"
-                    );
-
-
-                let currentSlide = 0;
-
-                let autoSlide;
-
-                let touchStartX = 0;
-
-                let touchEndX = 0;
-
-                let mouseStartX = 0;
-
-                let isDragging = false;
-
-                let dragged = false;
-
-
-
-                /* =================================================
-                   UPDATE SLIDER
-                ================================================= */
-
-                function updateSlider(index) {
-
-
-                    if (index < 0) {
-
-                        index =
-                            slides.length - 1;
-
-                    }
-
-
-                    if (
-                        index >= slides.length
-                    ) {
-
-                        index = 0;
-
-                    }
-
-
-                    currentSlide = index;
-
-
-                    track.style.transform =
-                        "translateX(-" +
-                        (
-                            currentSlide * 100
-                        ) +
-                        "%)";
-
-
-                    slides.forEach(
-                        function (
-                            slide,
-                            slideIndex
-                        ) {
-
-                            slide.classList.toggle(
-                                "active",
-                                slideIndex ===
-                                currentSlide
-                            );
-
-                        }
-                    );
-
-
-                    dots.forEach(
-                        function (
-                            dot,
-                            dotIndex
-                        ) {
-
-                            dot.classList.toggle(
-                                "active",
-                                dotIndex ===
-                                currentSlide
-                            );
-
-                        }
-                    );
-
-                }
-
-
-
-                /* =================================================
-                   NEXT
-                ================================================= */
-
-                function nextSlide() {
-
-                    updateSlider(
-                        currentSlide + 1
-                    );
-
-                }
-
-
-
-                /* =================================================
-                   PREVIOUS
-                ================================================= */
-
-                function previousSlide() {
-
-                    updateSlider(
-                        currentSlide - 1
-                    );
-
-                }
-
-
-
-                /* =================================================
-                   AUTO SLIDER
-                ================================================= */
-
-                function startAutoSlide() {
-
-                    clearInterval(
-                        autoSlide
-                    );
-
-
-                    autoSlide =
-                        setInterval(
-                            function () {
-
-                                nextSlide();
-
-                            },
-                            5000
-                        );
-
-                }
-
-
-                function restartAutoSlide() {
-
-                    clearInterval(
-                        autoSlide
-                    );
-
-                    startAutoSlide();
-
-                }
-
-
-
-                /* =================================================
-                   ARROWS
-                ================================================= */
-
-                nextButton.addEventListener(
-                    "click",
-                    function (event) {
-
-                        event.preventDefault();
-
-                        event.stopPropagation();
-
-                        nextSlide();
-
-                        restartAutoSlide();
-
-                    }
-                );
-
-
-                previousButton.addEventListener(
-                    "click",
-                    function (event) {
-
-                        event.preventDefault();
-
-                        event.stopPropagation();
-
-                        previousSlide();
-
-                        restartAutoSlide();
-
-                    }
-                );
-
-
-
-                /* =================================================
-                   DOTS
-                ================================================= */
-
-                dots.forEach(
-                    function (
-                        dot,
-                        index
-                    ) {
-
-                        dot.addEventListener(
-                            "click",
-                            function (event) {
-
-                                event.preventDefault();
-
-                                event.stopPropagation();
-
-                                updateSlider(
-                                    index
-                                );
-
-                                restartAutoSlide();
-
-                            }
-                        );
-
-                    }
-                );
-
-
-
-                /* =================================================
-                   TOUCH SWIPE
-                ================================================= */
-
-                slider.addEventListener(
-                    "touchstart",
-                    function (event) {
-
-                        touchStartX =
-                            event.touches[0].clientX;
-
-                        touchEndX =
-                            touchStartX;
-
-                        isDragging = true;
-
-                        dragged = false;
-
-                        clearInterval(
-                            autoSlide
-                        );
-
-                    },
-                    {
-                        passive: true
-                    }
-                );
-
-
-                slider.addEventListener(
-                    "touchmove",
-                    function (event) {
-
-                        if (!isDragging) {
-                            return;
-                        }
-
-
-                        touchEndX =
-                            event.touches[0].clientX;
-
-
-                        if (
-                            Math.abs(
-                                touchStartX -
-                                touchEndX
-                            ) > 10
-                        ) {
-
-                            dragged = true;
-
-                        }
-
-                    },
-                    {
-                        passive: true
-                    }
-                );
-
-
-                slider.addEventListener(
-                    "touchend",
-                    function () {
-
-                        if (!isDragging) {
-                            return;
-                        }
-
-
-                        const difference =
-                            touchStartX -
-                            touchEndX;
-
-
-                        if (
-                            Math.abs(
-                                difference
-                            ) > 50
-                        ) {
-
-
-                            if (
-                                difference > 0
-                            ) {
-
-                                nextSlide();
-
-                            } else {
-
-                                previousSlide();
-
-                            }
-
-                        }
-
-
-                        isDragging = false;
-
-                        restartAutoSlide();
-
-                    }
-                );
-
-
-
-                /* =================================================
-                   MOUSE DRAGGING
-                ================================================= */
-
-                slider.addEventListener(
-                    "mousedown",
-                    function (event) {
-
-                        mouseStartX =
-                            event.clientX;
-
-                        isDragging = true;
-
-                        dragged = false;
-
-                        clearInterval(
-                            autoSlide
-                        );
-
-                    }
-                );
-
-
-                slider.addEventListener(
-                    "mousemove",
-                    function (event) {
-
-                        if (!isDragging) {
-                            return;
-                        }
-
-
-                        if (
-                            Math.abs(
-                                mouseStartX -
-                                event.clientX
-                            ) > 10
-                        ) {
-
-                            dragged = true;
-
-                        }
-
-                    }
-                );
-
-
-                slider.addEventListener(
-                    "mouseup",
-                    function (event) {
-
-                        if (!isDragging) {
-                            return;
-                        }
-
-
-                        const difference =
-                            mouseStartX -
-                            event.clientX;
-
-
-                        if (
-                            Math.abs(
-                                difference
-                            ) > 50
-                        ) {
-
-
-                            if (
-                                difference > 0
-                            ) {
-
-                                nextSlide();
-
-                            } else {
-
-                                previousSlide();
-
-                            }
-
-                        }
-
-
-                        isDragging = false;
-
-                        restartAutoSlide();
-
-                    }
-                );
-
-
-                slider.addEventListener(
-                    "mouseleave",
-                    function () {
-
-                        if (isDragging) {
-
-                            isDragging = false;
-
-                            restartAutoSlide();
-
-                        }
-
-                    }
-                );
-
-
-
-                /* =================================================
-                   PREVENT CLICK AFTER DRAG
-                ================================================= */
-
-                slides.forEach(
-                    function (slide) {
-
-                        slide.addEventListener(
-                            "click",
-                            function (event) {
-
-                                if (dragged) {
-
-                                    event.preventDefault();
-
-                                    event.stopPropagation();
-
-                                    dragged = false;
-
-                                }
-
-                            }
-                        );
-
-                    }
-                );
-
-
-
-                /* =================================================
-                   KEYBOARD
-                ================================================= */
-
-                document.addEventListener(
-                    "keydown",
-                    function (event) {
-
-
-                        if (
-                            event.key ===
-                            "ArrowRight"
-                        ) {
-
-                            nextSlide();
-
-                            restartAutoSlide();
-
-                        }
-
-
-                        if (
-                            event.key ===
-                            "ArrowLeft"
-                        ) {
-
-                            previousSlide();
-
-                            restartAutoSlide();
-
-                        }
-
-                    }
-                );
-
-
-
-                /* =================================================
-                   START
-                ================================================= */
-
-                updateSlider(0);
-
-                startAutoSlide();
+                nextSlide();
 
             }
         );
 
-    </script>
+
+        previousButton.addEventListener(
+            "click",
+            function () {
+
+                previousSlide();
+
+            }
+        );
+
+
+        /* ==========================================
+           DOTS
+        ========================================== */
+
+        dots.forEach(
+            function (
+                dot,
+                index
+            ) {
+
+                dot.addEventListener(
+                    "click",
+                    function () {
+
+                        updateSlider(index);
+
+                    }
+                );
+
+            }
+        );
+
+
+        /* ==========================================
+           TOUCH START
+        ========================================== */
+
+        slider.addEventListener(
+            "touchstart",
+            function (event) {
+
+                startX =
+                    event.touches[0].clientX;
+
+                endX = startX;
+
+                isDragging = true;
+
+                dragged = false;
+
+                slider.classList.add(
+                    "dragging"
+                );
+
+            },
+            {
+                passive: true
+            }
+        );
+
+
+        /* ==========================================
+           TOUCH MOVE
+        ========================================== */
+
+        slider.addEventListener(
+            "touchmove",
+            function (event) {
+
+                if (!isDragging) {
+
+                    return;
+
+                }
+
+                endX =
+                    event.touches[0].clientX;
+
+                if (
+                    Math.abs(
+                        startX - endX
+                    ) > 10
+                ) {
+
+                    dragged = true;
+
+                }
+
+            },
+            {
+                passive: true
+            }
+        );
+
+
+        /* ==========================================
+           TOUCH END
+        ========================================== */
+
+        slider.addEventListener(
+            "touchend",
+            function () {
+
+                if (!isDragging) {
+
+                    return;
+
+                }
+
+
+                const difference =
+                    startX - endX;
+
+
+                if (
+                    Math.abs(
+                        difference
+                    ) > 50
+                ) {
+
+
+                    if (
+                        difference > 0
+                    ) {
+
+                        nextSlide();
+
+                    } else {
+
+                        previousSlide();
+
+                    }
+
+                }
+
+
+                isDragging = false;
+
+                slider.classList.remove(
+                    "dragging"
+                );
+
+            }
+        );
+
+
+        /* ==========================================
+           MOUSE DRAG
+        ========================================== */
+
+        slider.addEventListener(
+            "mousedown",
+            function (event) {
+
+                startX =
+                    event.clientX;
+
+                isDragging = true;
+
+                dragged = false;
+
+                slider.classList.add(
+                    "dragging"
+                );
+
+            }
+        );
+
+
+        slider.addEventListener(
+            "mousemove",
+            function (event) {
+
+                if (!isDragging) {
+
+                    return;
+
+                }
+
+
+                endX =
+                    event.clientX;
+
+
+                if (
+                    Math.abs(
+                        startX - endX
+                    ) > 10
+                ) {
+
+                    dragged = true;
+
+                }
+
+            }
+        );
+
+
+        slider.addEventListener(
+            "mouseup",
+            function () {
+
+                if (!isDragging) {
+
+                    return;
+
+                }
+
+
+                const difference =
+                    startX - endX;
+
+
+                if (
+                    Math.abs(
+                        difference
+                    ) > 50
+                ) {
+
+
+                    if (
+                        difference > 0
+                    ) {
+
+                        nextSlide();
+
+                    } else {
+
+                        previousSlide();
+
+                    }
+
+                }
+
+
+                isDragging = false;
+
+                slider.classList.remove(
+                    "dragging"
+                );
+
+            }
+        );
+
+
+        slider.addEventListener(
+            "mouseleave",
+            function () {
+
+                if (isDragging) {
+
+                    isDragging = false;
+
+                    slider.classList.remove(
+                        "dragging"
+                    );
+
+                }
+
+            }
+        );
+
+
+        /* ==========================================
+           PREVENT LINK AFTER DRAG
+        ========================================== */
+
+        slides.forEach(
+            function (slide) {
+
+                slide.addEventListener(
+                    "click",
+                    function (event) {
+
+                        if (dragged) {
+
+                            event.preventDefault();
+
+                            dragged = false;
+
+                        }
+
+                    }
+                );
+
+            }
+        );
+
+
+        /* ==========================================
+           WINDOW RESIZE
+        ========================================== */
+
+        window.addEventListener(
+            "resize",
+            function () {
+
+                updateSlider(
+                    currentSlide
+                );
+
+            }
+        );
+
+
+        /* ==========================================
+           START
+        ========================================== */
+
+        updateSlider(0);
+
+
+    }
+
+);
+
+</script>
 
 
 </body>
