@@ -5,10 +5,15 @@
 
     <meta charset="UTF-8">
 
-    <!-- IMPORTANT: This makes the website use the actual phone/tablet width -->
-    <meta name="viewport" content="width=1200">
-    
-    <meta name="theme-color" content="#ffffff">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#ffffff"
+    >
 
     <title>50 Mirars | Watches & Sunglasses</title>
 
@@ -39,7 +44,10 @@
             width: 100%;
             min-width: 0;
 
-            font-family: Arial, Helvetica, sans-serif;
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
 
             background: #ffffff;
             color: #111111;
@@ -59,24 +67,40 @@
         }
 
 
-        /* =====================================================
-           HEADER
-        ===================================================== */
+        button {
+            font-family: inherit;
+        }
 
-        header {
+
+
+        /* =====================================================
+           TOP HEADER
+           ===================================================== */
+
+        .top-header {
+
             width: 100%;
+
+            height: 92px;
 
             background: #ffffff;
 
-            display: flex;
+            display: grid;
+
+            grid-template-columns:
+                1fr
+                1fr
+                1fr;
+
             align-items: center;
-            justify-content: space-between;
 
-            gap: 30px;
+            padding:
+                8px
+                55px;
 
-            padding: 12px 70px;
-
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            border-bottom:
+                1px solid
+                #eeeeee;
 
             position: relative;
 
@@ -84,84 +108,131 @@
         }
 
 
-        /* LOGO */
 
-        .logo {
-            flex-shrink: 0;
+        /* =====================================================
+           LEFT LOGO
+           ===================================================== */
+
+        .header-left {
 
             display: flex;
+
             align-items: center;
-            justify-content: center;
+
+            justify-content: flex-start;
+
+            min-width: 0;
         }
 
 
-        .logo img {
-            width: auto;
-            height: 75px;
+        .header-logo {
 
-            max-width: 160px;
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-decoration: none;
+        }
+
+
+        .header-logo img {
+
+            width: auto;
+
+            height: 68px;
+
+            max-width: 170px;
 
             object-fit: contain;
         }
 
 
-        /* NAVIGATION */
 
-        .navbar {
-            flex: 1;
+        /* =====================================================
+           CENTER BRAND NAME
+           ===================================================== */
 
-            display: flex;
-            justify-content: flex-end;
-        }
-
-
-        .navbar ul {
-            list-style: none;
+        .header-brand {
 
             display: flex;
+
             align-items: center;
-            justify-content: flex-end;
 
-            flex-wrap: wrap;
+            justify-content: center;
 
-            gap: 28px;
+            text-align: center;
+
+            white-space: nowrap;
         }
 
 
-        .navbar li {
-            list-style: none;
-        }
+        .header-brand h1 {
 
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
 
-        .navbar a {
-            display: block;
+            font-size: 31px;
+
+            font-weight: 700;
+
+            letter-spacing: 5px;
 
             color: #111111;
 
-            text-decoration: none;
+            line-height: 1;
+        }
 
-            font-size: 15px;
+
+        .header-brand span {
+
+            display: block;
+
+            margin-top: 6px;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            font-size: 8px;
 
             font-weight: 600;
 
-            letter-spacing: 0.5px;
+            letter-spacing: 4px;
 
-            white-space: nowrap;
-
-            transition: color 0.3s ease;
+            color: #a7833c;
         }
 
 
-        .navbar a:hover {
-            color: #c9a24d;
+
+        /* =====================================================
+           RIGHT SIDE
+           CLEAN / EMPTY
+           ===================================================== */
+
+        .header-right {
+
+            min-width: 0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: flex-end;
         }
+
 
 
         /* =====================================================
            MOVING OFFER BAR
-        ===================================================== */
+           ===================================================== */
 
         .headline-bar {
+
             width: 100%;
 
             overflow: hidden;
@@ -170,19 +241,25 @@
 
             background: #ffffff;
 
-            border-top: 1px solid #eeeeee;
-            border-bottom: 1px solid #eeeeee;
+            border-bottom:
+                1px solid
+                #eeeeee;
         }
 
 
         .headline-text {
-            display: inline-block;
+
+            display: inline-flex;
+
+            align-items: center;
 
             white-space: nowrap;
 
+            width: max-content;
+
             padding: 10px 0;
 
-            font-size: 17px;
+            font-size: 16px;
 
             font-weight: 600;
 
@@ -190,14 +267,34 @@
 
             letter-spacing: 0.4px;
 
-            animation: offer-scroll 16s linear infinite;
+            animation:
+                offer-scroll
+                17s
+                linear
+                infinite;
         }
 
 
         .headline-text strong {
+
             color: #b38a38;
 
             font-weight: 700;
+        }
+
+
+        .headline-text img {
+
+            width: 20px !important;
+
+            height: auto !important;
+
+            margin:
+                0 5px;
+
+            display: inline-block;
+
+            flex-shrink: 0;
         }
 
 
@@ -214,133 +311,519 @@
         }
 
 
-        /* =====================================================
-           HERO
-        ===================================================== */
 
-        .hero {
+        /* =====================================================
+           HERO SLIDER
+           ===================================================== */
+
+        .hero-slider {
+
+            position: relative;
+
             width: 100%;
 
-            min-height: 90vh;
+            height: 72vh;
+
+            min-height: 560px;
+
+            max-height: 760px;
+
+            overflow: hidden;
+
+            background: #111111;
+
+            touch-action: pan-y;
+
+            user-select: none;
+        }
+
+
+        .slides-track {
+
+            width: 100%;
+
+            height: 100%;
 
             display: flex;
-            align-items: center;
 
-            padding: 80px 8%;
+            transition:
+                transform
+                0.65s
+                cubic-bezier(
+                    0.77,
+                    0,
+                    0.175,
+                    1
+                );
+        }
+
+
+        .hero-slide {
+
+            position: relative;
+
+            flex: 0 0 100%;
+
+            width: 100%;
+
+            height: 100%;
+
+            overflow: hidden;
+
+            cursor: pointer;
+        }
+
+
+        .hero-slide img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            object-position: center;
+
+            transition:
+                transform
+                7s
+                ease;
+        }
+
+
+        .hero-slide.active img {
+
+            transform: scale(1.035);
+        }
+
+
+
+        /* =====================================================
+           HERO DARK OVERLAY
+           ===================================================== */
+
+        .hero-slide::after {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
 
             background:
                 linear-gradient(
                     90deg,
-                    rgba(0, 0, 0, 0.58),
-                    rgba(0, 0, 0, 0.18)
-                ),
-                url("https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=2000")
-                center center / cover no-repeat;
+                    rgba(0,0,0,0.72) 0%,
+                    rgba(0,0,0,0.42) 38%,
+                    rgba(0,0,0,0.08) 75%,
+                    rgba(0,0,0,0.18) 100%
+                );
+
+            pointer-events: none;
         }
 
+
+
+        /* =====================================================
+           HERO CONTENT
+           ===================================================== */
 
         .hero-content {
-            width: 100%;
 
-            max-width: 700px;
+            position: absolute;
 
-            color: #ffffff;
-        }
+            left: 8%;
 
+            top: 50%;
 
-        .hero-tag {
-            color: #d4ad5b;
+            transform:
+                translateY(-50%);
 
-            font-family: Georgia, "Times New Roman", serif;
+            width: 55%;
 
-            font-size: 27px;
-
-            letter-spacing: 2px;
-
-            margin-bottom: 18px;
-        }
-
-
-        .hero h1 {
-            font-family: Georgia, "Times New Roman", serif;
-
-            font-size: 72px;
-
-            line-height: 1.05;
-
-            font-weight: 700;
-
-            margin-bottom: 25px;
-        }
-
-
-        .hero h1 span {
-            color: #d4ad5b;
-        }
-
-
-        .hero p {
-            max-width: 620px;
-
-            color: #f8f6f2;
-
-            font-size: 22px;
-
-            line-height: 1.55;
-
-            font-weight: 500;
-
-            letter-spacing: 0.3px;
-
-            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
-
-            margin-bottom: 35px;
-        }
-
-
-        .btn {
-            display: inline-flex;
-
-            align-items: center;
-            justify-content: center;
-
-            min-height: 52px;
-
-            padding: 16px 32px;
-
-            background: #111111;
+            max-width: 720px;
 
             color: #ffffff;
 
-            text-decoration: none;
+            z-index: 5;
 
-            border-radius: 6px;
+            pointer-events: none;
+        }
+
+
+        .hero-small {
+
+            color: #d3af61;
 
             font-size: 15px;
 
             font-weight: 700;
 
-            letter-spacing: 0.8px;
+            letter-spacing: 4px;
 
-            transition: all 0.3s ease;
+            text-transform: uppercase;
+
+            margin-bottom: 17px;
         }
 
 
-        .btn:hover {
+        .hero-content h2 {
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: clamp(
+                42px,
+                5vw,
+                76px
+            );
+
+            line-height: 1.02;
+
+            font-weight: 700;
+
+            margin-bottom: 20px;
+        }
+
+
+        .hero-content h2 span {
+
+            color: #d3af61;
+        }
+
+
+        .hero-content p {
+
+            max-width: 570px;
+
+            font-size: 19px;
+
+            line-height: 1.55;
+
+            color: #f4f4f4;
+
+            margin-bottom: 28px;
+        }
+
+
+        .hero-button {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding:
+                14px
+                28px;
+
+            min-height: 48px;
+
+            background: #ffffff;
+
+            color: #111111;
+
+            border: 1px solid #ffffff;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            letter-spacing: 1px;
+
+            text-decoration: none;
+
+            pointer-events: auto;
+
+            transition:
+                all
+                0.3s
+                ease;
+        }
+
+
+        .hero-button:hover {
+
             background: #c9a24d;
 
-            transform: translateY(-2px);
+            border-color: #c9a24d;
+
+            color: #ffffff;
         }
+
+
+
+        /* =====================================================
+           SLIDER ARROWS
+           ===================================================== */
+
+        .slider-arrow {
+
+            position: absolute;
+
+            top: 50%;
+
+            transform:
+                translateY(-50%);
+
+            width: 48px;
+
+            height: 48px;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.65);
+
+            border-radius: 50%;
+
+            background:
+                rgba(0,0,0,0.22);
+
+            color: #ffffff;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 25px;
+
+            cursor: pointer;
+
+            z-index: 20;
+
+            transition:
+                all
+                0.3s
+                ease;
+
+            backdrop-filter:
+                blur(4px);
+        }
+
+
+        .slider-arrow:hover {
+
+            background: #ffffff;
+
+            color: #111111;
+
+            border-color: #ffffff;
+        }
+
+
+        .slider-prev {
+
+            left: 25px;
+        }
+
+
+        .slider-next {
+
+            right: 25px;
+        }
+
+
+
+        /* =====================================================
+           SLIDER DOTS
+           ===================================================== */
+
+        .slider-dots {
+
+            position: absolute;
+
+            left: 50%;
+
+            bottom: 25px;
+
+            transform:
+                translateX(-50%);
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            z-index: 30;
+        }
+
+
+        .slider-dot {
+
+            width: 8px;
+
+            height: 8px;
+
+            padding: 0;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255,255,255,0.55);
+
+            cursor: pointer;
+
+            transition:
+                all
+                0.3s
+                ease;
+        }
+
+
+        .slider-dot.active {
+
+            width: 30px;
+
+            border-radius: 20px;
+
+            background: #ffffff;
+        }
+
+
+
+        /* =====================================================
+           SWIPE HINT
+           ===================================================== */
+
+        .swipe-hint {
+
+            position: absolute;
+
+            right: 30px;
+
+            bottom: 25px;
+
+            color:
+                rgba(255,255,255,0.75);
+
+            font-size: 11px;
+
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
+
+            z-index: 30;
+
+            pointer-events: none;
+        }
+
+
+
+        /* =====================================================
+           WATCH BRANDS
+           ===================================================== */
+
+        .watch-brands {
+
+            width: 100%;
+
+            padding:
+                80px
+                0
+                90px;
+
+            background: #ffffff;
+
+            text-align: center;
+        }
+
+
+        .watch-brands-header {
+
+            margin-bottom: 40px;
+
+            padding:
+                0
+                20px;
+        }
+
+
+        .watch-brands-header small {
+
+            display: block;
+
+            color: #c9a24d;
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .watch-brands-header h2 {
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 50px;
+
+            line-height: 1.15;
+
+            margin-bottom: 15px;
+        }
+
+
+        .watch-brands-header p {
+
+            color: #777777;
+
+            font-size: 17px;
+
+            line-height: 1.5;
+        }
+
+
+        .watch-brands-image {
+
+            width: 100vw !important;
+
+            max-width: none !important;
+
+            height: auto;
+
+            margin:
+                0 !important;
+
+            padding: 0;
+
+            display: block;
+
+            border-top:
+                1px solid
+                #dddddd;
+
+            border-bottom:
+                1px solid
+                #dddddd;
+        }
+
 
 
         /* =====================================================
            COLLECTIONS
-        ===================================================== */
+           ===================================================== */
 
         .collections {
+
             width: 100%;
 
-            padding: 100px 7%;
+            padding:
+                100px
+                7%;
 
             background: #ffffff;
 
@@ -349,6 +832,7 @@
 
 
         .collections > small {
+
             display: block;
 
             color: #c9a24d;
@@ -364,7 +848,11 @@
 
 
         .collections > h2 {
-            font-family: Georgia, "Times New Roman", serif;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
 
             font-size: 50px;
 
@@ -375,17 +863,23 @@
 
 
         .categories-grid {
+
             width: 100%;
 
             display: grid;
 
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-template-columns:
+                repeat(
+                    2,
+                    minmax(0, 1fr)
+                );
 
             gap: 25px;
         }
 
 
         .categories-grid > a {
+
             width: 100%;
 
             display: block;
@@ -397,6 +891,7 @@
 
 
         .card {
+
             width: 100%;
 
             position: relative;
@@ -408,6 +903,7 @@
 
 
         .card img {
+
             width: 100%;
 
             height: 500px;
@@ -416,20 +912,27 @@
 
             display: block;
 
-            transition: transform 0.5s ease;
+            transition:
+                transform
+                0.5s
+                ease;
         }
 
 
         .card:hover img {
+
             transform: scale(1.04);
         }
 
 
         .card-content {
+
             position: absolute;
 
             left: 30px;
+
             right: 20px;
+
             bottom: 30px;
 
             color: #ffffff;
@@ -441,27 +944,35 @@
 
 
         .card-content::before {
+
             content: "";
 
             position: absolute;
 
             left: -30px;
+
             right: -20px;
+
             bottom: -30px;
 
             height: 150px;
 
-            background: linear-gradient(
-                transparent,
-                rgba(0, 0, 0, 0.65)
-            );
+            background:
+                linear-gradient(
+                    transparent,
+                    rgba(0,0,0,0.7)
+                );
 
             z-index: -1;
         }
 
 
         .card-content h3 {
-            font-family: Georgia, "Times New Roman", serif;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
 
             font-size: 38px;
 
@@ -472,149 +983,25 @@
 
 
         .card-content p {
+
             font-size: 17px;
 
             line-height: 1.4;
         }
 
-  /* =====================================================
-   WATCH BRANDS
-===================================================== */
-
-.watch-brands {
-    width: 100%;
-    padding: 80px 0 90px;
-    background: #ffffff;
-    text-align: center;
-}
-        
-.watch-brands-header {
-    margin-bottom: 40px;
-}
-
-.watch-brands-header small {
-    display: block;
-    color: #c9a24d;
-    font-size: 15px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    margin-bottom: 12px;
-}
-
-.watch-brands-header h2 {
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 50px;
-    line-height: 1.15;
-    margin-bottom: 15px;
-}
-
-.watch-brands-header p {
-    color: #777777;
-    font-size: 17px;
-    line-height: 1.5;
-}
-
-.watch-brands-image {
-    width: 100vw !important;
-    max-width: none !important;
-    height: auto;
-    margin: 0 !important;
-    padding: 0;
-    display: block;
-    border: 1px solid #dddddd;
-
-    position: relative;
-    left: 0;
-}        
-
-/* MOBILE */
-
-@media screen and (max-width: 768px) {
-
-    .watch-brands {
-        padding: 60px 0 65px !important;
-    }
-    
-    .watch-brands-header {
-        margin-bottom: 30px !important;
-    }
-
-    .watch-brands-header small {
-        font-size: 13px !important;
-    }
-
-    .watch-brands-header h2 {
-        font-size: 36px !important;
-    }
-
-    .watch-brands-header p {
-        font-size: 15px !important;
-    }
-
-}
-
-        /* =========================
-   FLOATING CART BUTTON
-========================= */
-
-.floating-cart {
-    position: fixed;
-    right: 25px;
-    bottom: 25px;
-
-    width: 58px;
-    height: 58px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: #c9a24d;
-    color: #ffffff;
-
-    border-radius: 50%;
-
-    text-decoration: none;
-
-    font-size: 25px;
-
-    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.25);
-
-    z-index: 9999;
-
-    transition: all 0.3s ease;
-}
-
-.floating-cart:hover {
-    background: #111111;
-    transform: translateY(-4px);
-}
 
 
-/* MOBILE */
-
-@media screen and (max-width: 768px) {
-
-    .floating-cart {
-        width: 52px;
-        height: 52px;
-
-        right: 18px;
-        bottom: 18px;
-
-        font-size: 22px;
-    }
-
-}
-    
         /* =====================================================
            GET IN TOUCH
-        ===================================================== */
+           ===================================================== */
 
         .get-touch {
+
             width: 100%;
 
-            padding: 100px 7%;
+            padding:
+                100px
+                7%;
 
             background: #f8f8f8;
 
@@ -623,9 +1010,13 @@
 
 
         .get-touch h2 {
+
             color: #c9a24d;
 
-            font-family: Georgia, "Times New Roman", serif;
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
 
             font-size: 54px;
 
@@ -636,9 +1027,13 @@
 
 
         .get-touch > p {
+
             max-width: 750px;
 
-            margin: 0 auto 45px;
+            margin:
+                0
+                auto
+                45px;
 
             color: #666666;
 
@@ -649,6 +1044,7 @@
 
 
         .touch-form {
+
             width: 100%;
 
             max-width: 900px;
@@ -661,12 +1057,15 @@
 
             border-radius: 12px;
 
-            box-shadow: 0 0 25px rgba(0, 0, 0, 0.08);
+            box-shadow:
+                0 0 25px
+                rgba(0,0,0,0.08);
         }
 
 
         .touch-form input,
         .touch-form textarea {
+
             width: 100%;
 
             display: block;
@@ -675,7 +1074,9 @@
 
             margin-bottom: 18px;
 
-            border: 1px solid #dddddd;
+            border:
+                1px solid
+                #dddddd;
 
             border-radius: 7px;
 
@@ -683,7 +1084,9 @@
 
             color: #111111;
 
-            font-family: Arial, sans-serif;
+            font-family:
+                Arial,
+                sans-serif;
 
             font-size: 16px;
 
@@ -693,11 +1096,13 @@
 
         .touch-form input:focus,
         .touch-form textarea:focus {
+
             border-color: #c9a24d;
         }
 
 
         .touch-form textarea {
+
             min-height: 180px;
 
             resize: vertical;
@@ -705,14 +1110,18 @@
 
 
         .touch-form button {
+
             display: inline-flex;
 
             align-items: center;
+
             justify-content: center;
 
             min-height: 50px;
 
-            padding: 15px 35px;
+            padding:
+                15px
+                35px;
 
             border: none;
 
@@ -728,23 +1137,31 @@
 
             cursor: pointer;
 
-            transition: all 0.3s ease;
+            transition:
+                all
+                0.3s
+                ease;
         }
 
 
         .touch-form button:hover {
+
             background: #111111;
         }
 
 
+
         /* =====================================================
            BUSINESS PARTNER
-        ===================================================== */
+           ===================================================== */
 
         .business-partner {
+
             width: 100%;
 
-            padding: 100px 7%;
+            padding:
+                100px
+                7%;
 
             background: #ffffff;
 
@@ -753,11 +1170,13 @@
 
 
         .partner-header {
+
             margin-bottom: 50px;
         }
 
 
         .partner-header small {
+
             display: block;
 
             color: #c9a24d;
@@ -773,7 +1192,11 @@
 
 
         .partner-header h2 {
-            font-family: Georgia, "Times New Roman", serif;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
 
             color: #111111;
 
@@ -784,6 +1207,7 @@
 
 
         .partner-header h2::after {
+
             content: "";
 
             display: block;
@@ -794,19 +1218,23 @@
 
             background: #c9a24d;
 
-            margin: 20px auto 0;
+            margin:
+                20px
+                auto
+                0;
         }
 
 
         .partner-container {
+
             width: 100%;
 
             display: grid;
 
             grid-template-columns:
-                minmax(0, 1fr)
-                minmax(300px, 400px)
-                minmax(0, 1fr);
+                minmax(0,1fr)
+                minmax(300px,400px)
+                minmax(0,1fr);
 
             align-items: center;
 
@@ -817,6 +1245,7 @@
         .partner-left,
         .partner-center,
         .partner-right {
+
             width: 100%;
 
             text-align: center;
@@ -824,6 +1253,7 @@
 
 
         .partner-img {
+
             width: 100%;
 
             max-width: 350px;
@@ -834,48 +1264,65 @@
 
             border-radius: 10px;
 
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            box-shadow:
+                0 4px 15px
+                rgba(0,0,0,0.1);
         }
 
 
         .partner-card {
+
             width: 100%;
 
             max-width: 400px;
 
             margin: 0 auto;
 
-            padding: 40px 30px;
+            padding:
+                40px
+                30px;
 
             background: #ffffff;
 
             border-radius: 15px;
 
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            box-shadow:
+                0 8px 25px
+                rgba(0,0,0,0.08);
 
             text-align: center;
 
-            transition: transform 0.3s ease;
+            transition:
+                transform
+                0.3s
+                ease;
         }
 
 
         .partner-card:hover {
-            transform: translateY(-5px);
+
+            transform:
+                translateY(-5px);
         }
 
 
         .partner-card img {
+
             width: 100%;
 
             max-width: 180px;
 
             height: auto;
 
-            margin: 0 auto 25px;
+            margin:
+                0
+                auto
+                25px;
         }
 
 
         .partner-card h3 {
+
             font-size: 28px;
 
             margin-bottom: 10px;
@@ -883,6 +1330,7 @@
 
 
         .partner-card p {
+
             color: #666666;
 
             font-size: 16px;
@@ -894,16 +1342,20 @@
 
 
         .partner-btn {
+
             display: inline-flex;
 
             align-items: center;
+
             justify-content: center;
 
             min-height: 46px;
 
             margin-top: 15px;
 
-            padding: 12px 24px;
+            padding:
+                12px
+                24px;
 
             background: #c9a24d;
 
@@ -915,25 +1367,34 @@
 
             border-radius: 6px;
 
-            transition: all 0.3s ease;
+            transition:
+                all
+                0.3s
+                ease;
         }
 
 
         .partner-btn:hover {
+
             background: #111111;
 
-            transform: translateY(-2px);
+            transform:
+                translateY(-2px);
         }
+
 
 
         /* =====================================================
            WHY CHOOSE US
-        ===================================================== */
+           ===================================================== */
 
         .why-choose {
+
             width: 100%;
 
-            padding: 100px 7%;
+            padding:
+                100px
+                7%;
 
             background: #f8f6f2;
 
@@ -942,7 +1403,11 @@
 
 
         .why-choose > h2 {
-            font-family: Georgia, "Times New Roman", serif;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
 
             font-size: 50px;
 
@@ -953,6 +1418,7 @@
 
 
         .why-grid {
+
             width: 100%;
 
             max-width: 1200px;
@@ -962,33 +1428,47 @@
             display: grid;
 
             grid-template-columns:
-                repeat(4, minmax(0, 1fr));
+                repeat(
+                    4,
+                    minmax(0,1fr)
+                );
 
             gap: 25px;
         }
 
 
         .why-box {
+
             width: 100%;
 
-            padding: 35px 25px;
+            padding:
+                35px
+                25px;
 
             background: #ffffff;
 
             border-radius: 12px;
 
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            box-shadow:
+                0 5px 20px
+                rgba(0,0,0,0.08);
 
-            transition: transform 0.3s ease;
+            transition:
+                transform
+                0.3s
+                ease;
         }
 
 
         .why-box:hover {
-            transform: translateY(-7px);
+
+            transform:
+                translateY(-7px);
         }
 
 
         .why-box h3 {
+
             color: #c9a24d;
 
             font-size: 21px;
@@ -1000,6 +1480,7 @@
 
 
         .why-box p {
+
             color: #666666;
 
             font-size: 15px;
@@ -1008,14 +1489,18 @@
         }
 
 
+
         /* =====================================================
            STATISTICS
-        ===================================================== */
+           ===================================================== */
 
         .stats-section {
+
             width: 100%;
 
-            padding: 100px 7%;
+            padding:
+                100px
+                7%;
 
             background: #111111;
 
@@ -1026,7 +1511,11 @@
 
 
         .stats-section > h2 {
-            font-family: Georgia, "Times New Roman", serif;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
 
             font-size: 50px;
 
@@ -1037,6 +1526,7 @@
 
 
         .stats-grid {
+
             width: 100%;
 
             max-width: 1000px;
@@ -1046,18 +1536,25 @@
             display: grid;
 
             grid-template-columns:
-                repeat(3, minmax(0, 1fr));
+                repeat(
+                    3,
+                    minmax(0,1fr)
+                );
 
             gap: 30px;
         }
 
 
         .stat-box {
-            padding: 25px 15px;
+
+            padding:
+                25px
+                15px;
         }
 
 
         .stat-box h3 {
+
             color: #c9a24d;
 
             font-size: 60px;
@@ -1069,6 +1566,7 @@
 
 
         .stat-box p {
+
             color: #dddddd;
 
             font-size: 19px;
@@ -1077,14 +1575,18 @@
         }
 
 
+
         /* =====================================================
            CONTACT
-        ===================================================== */
+           ===================================================== */
 
         .contact {
+
             width: 100%;
 
-            padding: 80px 7%;
+            padding:
+                80px
+                7%;
 
             background: #070707;
 
@@ -1093,6 +1595,7 @@
 
 
         .contact-grid {
+
             width: 100%;
 
             max-width: 1200px;
@@ -1102,9 +1605,13 @@
 
 
         .contact h2 {
+
             color: #c9a24d;
 
-            font-family: Georgia, "Times New Roman", serif;
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
 
             font-size: 48px;
 
@@ -1115,6 +1622,7 @@
 
 
         .contact p {
+
             margin-bottom: 14px;
 
             color: #ffffff;
@@ -1128,11 +1636,13 @@
 
 
         .contact strong {
+
             color: #ffffff;
         }
 
 
         .contact a {
+
             color: #ffffff;
 
             text-decoration: none;
@@ -1142,18 +1652,23 @@
 
 
         .contact a:hover {
+
             color: #c9a24d !important;
         }
 
 
+
         /* =====================================================
            FOOTER
-        ===================================================== */
+           ===================================================== */
 
         footer {
+
             width: 100%;
 
-            padding: 30px 20px;
+            padding:
+                30px
+                20px;
 
             background: #ffffff;
 
@@ -1161,765 +1676,855 @@
 
             text-align: center;
 
-            border-top: 2px solid #eeeeee;
+            border-top:
+                2px solid
+                #eeeeee;
         }
 
 
         footer p {
+
             font-size: 14px;
 
             line-height: 1.5;
         }
 
 
+
+        /* =====================================================
+           FLOATING CART
+           ===================================================== */
+
+        .floating-cart {
+
+            position: fixed;
+
+            right: 25px;
+
+            bottom: 25px;
+
+            width: 58px;
+
+            height: 58px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: #c9a24d;
+
+            color: #ffffff;
+
+            border-radius: 50%;
+
+            text-decoration: none;
+
+            font-size: 25px;
+
+            box-shadow:
+                0 5px 18px
+                rgba(0,0,0,0.25);
+
+            z-index: 9999;
+
+            transition:
+                all
+                0.3s
+                ease;
+        }
+
+
+        .floating-cart:hover {
+
+            background: #111111;
+
+            transform:
+                translateY(-4px);
+        }
+
+
+
         /* =====================================================
            TABLET
-           769px - 1024px
-        ===================================================== */
+           ===================================================== */
 
         @media screen and (max-width: 1024px) {
 
-            header {
-                padding: 12px 30px;
+            .top-header {
 
-                gap: 20px;
+                padding:
+                    8px
+                    30px;
             }
 
 
-            .navbar ul {
-                gap: 18px;
+            .header-brand h1 {
+
+                font-size: 27px;
+
+                letter-spacing: 4px;
             }
 
 
-            .navbar a {
-                font-size: 14px;
+            .hero-slider {
+
+                height: 65vh;
+
+                min-height: 500px;
             }
 
 
-            .hero {
-                min-height: 75vh;
+            .hero-content {
 
-                padding: 70px 6%;
-            }
+                left: 7%;
 
-
-            .hero h1 {
-                font-size: 60px;
-            }
-
-
-            .hero p {
-                font-size: 20px;
+                width: 65%;
             }
 
 
             .categories-grid {
+
                 grid-template-columns:
-                    repeat(2, minmax(0, 1fr));
+                    repeat(
+                        2,
+                        minmax(0,1fr)
+                    );
             }
 
 
             .card img {
+
                 height: 430px;
             }
 
 
             .why-grid {
+
                 grid-template-columns:
-                    repeat(2, minmax(0, 1fr));
-            }
-
-
-            .partner-container {
-                grid-template-columns:
-                    repeat(3, minmax(0, 1fr));
-
-                gap: 18px;
+                    repeat(
+                        2,
+                        minmax(0,1fr)
+                    );
             }
 
         }
 
 
+
         /* =====================================================
            MOBILE
-           768px AND BELOW
-        ===================================================== */
+           ===================================================== */
 
         @media screen and (max-width: 768px) {
 
-            html,
-            body {
-                width: 100% !important;
-
-                max-width: 100% !important;
-
-                min-width: 0 !important;
-
-                overflow-x: hidden !important;
-            }
-
-
             /* HEADER */
 
-            header {
-                width: 100% !important;
+            .top-header {
 
-                display: flex !important;
+                width: 100%;
 
-                flex-direction: column !important;
+                height: 72px;
 
-                align-items: center !important;
+                padding:
+                    6px
+                    14px;
 
-                justify-content: center !important;
-
-                gap: 8px !important;
-
-                padding: 10px 8px 12px !important;
-
-                position: relative !important;
+                grid-template-columns:
+                    1fr
+                    1fr
+                    1fr;
             }
 
 
-            .logo {
-                width: 100% !important;
+            .header-logo img {
 
-                display: flex !important;
+                height: 52px;
 
-                justify-content: center !important;
-
-                margin: 0 !important;
+                max-width: 130px;
             }
 
 
-            .logo img {
-                width: auto !important;
+            .header-brand h1 {
 
-                height: 55px !important;
+                font-size: 21px;
 
-                max-width: 145px !important;
+                letter-spacing: 3px;
             }
 
 
-            /* MOBILE NAV */
+            .header-brand span {
 
-            .navbar {
-                width: 100% !important;
+                font-size: 6px;
 
-                display: block !important;
-            }
+                letter-spacing: 2px;
 
-
-            .navbar ul {
-                width: 100% !important;
-
-                display: flex !important;
-
-                flex-direction: row !important;
-
-                flex-wrap: wrap !important;
-
-                align-items: center !important;
-
-                justify-content: center !important;
-
-                gap: 4px 10px !important;
-            }
-
-
-            .navbar li {
-                display: block !important;
-
-                flex: 0 0 auto !important;
-            }
-
-
-            .navbar a {
-                display: block !important;
-
-                padding: 4px 2px !important;
-
-                font-size: 11px !important;
-
-                line-height: 1.2 !important;
-
-                letter-spacing: 0.2px !important;
-
-                white-space: nowrap !important;
+                margin-top: 4px;
             }
 
 
             /* OFFER BAR */
 
-            .headline-bar {
-                width: 100% !important;
+            .headline-text {
 
-                overflow: hidden !important;
+                padding:
+                    8px
+                    0;
 
-                white-space: nowrap !important;
+                font-size: 12px;
+
+                animation:
+                    offer-scroll
+                    14s
+                    linear
+                    infinite;
             }
 
 
-            .headline-text {
-                display: inline-block !important;
+            .headline-text img {
 
-                width: max-content !important;
-
-                max-width: none !important;
-
-                padding: 9px 0 !important;
-
-                font-size: 13px !important;
-
-                line-height: 1.3 !important;
-
-                white-space: nowrap !important;
-
-                animation: offer-scroll 14s linear infinite !important;
+                width: 17px !important;
             }
 
 
             /* HERO */
 
-            .hero {
-                width: 100% !important;
+            .hero-slider {
 
-                min-height: 680px !important;
+                width: 100%;
 
-                height: auto !important;
+                height: 72vh;
 
-                padding: 60px 20px !important;
+                min-height: 520px;
 
-                display: flex !important;
+                max-height: 650px;
+            }
 
-                align-items: center !important;
 
-                background-position: center center !important;
+            .hero-slide img {
+
+                object-position: center center;
+            }
+
+
+            .hero-slide::after {
+
+                background:
+                    linear-gradient(
+                        90deg,
+                        rgba(0,0,0,0.72),
+                        rgba(0,0,0,0.20)
+                    );
             }
 
 
             .hero-content {
-                width: 100% !important;
 
-                max-width: 100% !important;
+                left: 22px;
+
+                right: 22px;
+
+                top: 50%;
+
+                width: auto;
+
+                max-width: none;
             }
 
 
-            .hero-tag {
-                font-size: 19px !important;
+            .hero-small {
 
-                letter-spacing: 1.5px !important;
+                font-size: 12px;
 
-                margin-bottom: 15px !important;
+                letter-spacing: 2.5px;
+
+                margin-bottom: 12px;
             }
 
 
-            .hero h1 {
-                width: 100% !important;
+            .hero-content h2 {
 
-                font-size: clamp(
-                    34px,
-                    10vw,
-                    48px
-                ) !important;
+                font-size:
+                    clamp(
+                        34px,
+                        10vw,
+                        48px
+                    );
 
-                line-height: 1.05 !important;
+                line-height: 1.04;
 
-                margin-bottom: 20px !important;
+                margin-bottom: 15px;
             }
 
 
-            .hero p {
-                width: 100% !important;
+            .hero-content p {
 
-                max-width: 100% !important;
+                font-size: 15px;
 
-                font-size: 16px !important;
+                line-height: 1.5;
 
-                line-height: 1.55 !important;
+                margin-bottom: 22px;
 
-                margin-bottom: 28px !important;
+                max-width: 360px;
             }
 
 
-            .btn {
-                width: 100% !important;
+            .hero-button {
 
-                max-width: 290px !important;
+                padding:
+                    12px
+                    20px;
 
-                min-height: 50px !important;
+                font-size: 12px;
 
-                padding: 15px 18px !important;
+                min-height: 44px;
+            }
 
-                font-size: 14px !important;
 
-                text-align: center !important;
+            /* ARROWS */
+
+            .slider-arrow {
+
+                width: 38px;
+
+                height: 38px;
+
+                font-size: 20px;
+            }
+
+
+            .slider-prev {
+
+                left: 12px;
+            }
+
+
+            .slider-next {
+
+                right: 12px;
+            }
+
+
+            /* DOTS */
+
+            .slider-dots {
+
+                bottom: 16px;
+
+                gap: 7px;
+            }
+
+
+            .slider-dot {
+
+                width: 7px;
+
+                height: 7px;
+            }
+
+
+            .slider-dot.active {
+
+                width: 23px;
+            }
+
+
+            .swipe-hint {
+
+                display: none;
+            }
+
+
+            /* WATCH BRANDS */
+
+            .watch-brands {
+
+                padding:
+                    60px
+                    0
+                    65px;
+            }
+
+
+            .watch-brands-header {
+
+                margin-bottom: 30px;
+            }
+
+
+            .watch-brands-header small {
+
+                font-size: 13px;
+            }
+
+
+            .watch-brands-header h2 {
+
+                font-size: 36px;
+            }
+
+
+            .watch-brands-header p {
+
+                font-size: 15px;
             }
 
 
             /* COLLECTIONS */
 
             .collections {
-                width: 100% !important;
 
-                padding: 65px 14px !important;
+                padding:
+                    65px
+                    14px;
             }
 
 
             .collections > small {
-                font-size: 13px !important;
 
-                letter-spacing: 1.5px !important;
+                font-size: 13px;
+
+                letter-spacing: 1.5px;
             }
 
 
             .collections > h2 {
-                width: 100% !important;
 
-                font-size: 31px !important;
+                font-size: 31px;
 
-                line-height: 1.15 !important;
+                line-height: 1.15;
 
-                margin: 12px 0 32px !important;
+                margin:
+                    12px
+                    0
+                    32px;
             }
 
 
             .categories-grid {
-                width: 100% !important;
 
-                display: grid !important;
+                grid-template-columns: 1fr;
 
-                grid-template-columns: 1fr !important;
-
-                gap: 18px !important;
-            }
-
-
-            .categories-grid > a {
-                width: 100% !important;
-
-                min-width: 0 !important;
-            }
-
-
-            .card {
-                width: 100% !important;
-
-                min-width: 0 !important;
+                gap: 18px;
             }
 
 
             .card img {
-                width: 100% !important;
 
-                height: 350px !important;
-
-                object-fit: cover !important;
+                height: 350px;
             }
 
 
             .card-content {
-                left: 18px !important;
 
-                right: 15px !important;
+                left: 18px;
 
-                bottom: 18px !important;
+                right: 15px;
+
+                bottom: 18px;
             }
 
 
             .card-content h3 {
-                font-size: 25px !important;
 
-                line-height: 1.1 !important;
+                font-size: 25px;
             }
 
 
             .card-content p {
-                font-size: 13px !important;
 
-                line-height: 1.4 !important;
+                font-size: 13px;
             }
 
 
             /* GET IN TOUCH */
 
             .get-touch {
-                width: 100% !important;
 
-                padding: 65px 14px !important;
+                padding:
+                    65px
+                    14px;
             }
 
 
             .get-touch h2 {
-                font-size: 37px !important;
 
-                line-height: 1.1 !important;
+                font-size: 37px;
             }
 
 
             .get-touch > p {
-                width: 100% !important;
 
-                font-size: 16px !important;
+                font-size: 16px;
 
-                line-height: 1.55 !important;
+                line-height: 1.55;
 
-                margin-bottom: 30px !important;
+                margin-bottom: 30px;
             }
 
 
             .touch-form {
-                width: 100% !important;
 
-                max-width: 100% !important;
-
-                padding: 22px 15px !important;
+                padding:
+                    22px
+                    15px;
             }
 
 
             .touch-form input,
             .touch-form textarea {
-                width: 100% !important;
 
-                max-width: 100% !important;
+                font-size: 16px;
 
-                font-size: 16px !important;
-
-                padding: 14px !important;
-            }
-
-
-            .touch-form textarea {
-                min-height: 150px !important;
+                padding: 14px;
             }
 
 
             .touch-form button {
-                width: 100% !important;
 
-                padding: 14px !important;
+                width: 100%;
+
+                padding: 14px;
             }
 
 
             /* BUSINESS PARTNER */
 
             .business-partner {
-                width: 100% !important;
 
-                padding: 65px 14px !important;
+                padding:
+                    65px
+                    14px;
             }
 
 
             .partner-header {
-                margin-bottom: 35px !important;
+
+                margin-bottom: 35px;
             }
 
 
             .partner-header small {
-                font-size: 13px !important;
+
+                font-size: 13px;
             }
 
 
             .partner-header h2 {
-                font-size: 36px !important;
 
-                line-height: 1.15 !important;
+                font-size: 36px;
             }
 
 
             .partner-container {
-                width: 100% !important;
 
-                display: flex !important;
+                display: flex;
 
-                flex-direction: column !important;
+                flex-direction: column;
 
-                align-items: center !important;
-
-                gap: 25px !important;
+                gap: 25px;
             }
 
 
             .partner-left,
             .partner-center,
             .partner-right {
-                width: 100% !important;
 
-                max-width: 100% !important;
+                width: 100%;
             }
 
 
             .partner-img {
-                width: 100% !important;
 
-                max-width: 360px !important;
-
-                height: auto !important;
-
-                margin: 0 auto !important;
+                max-width: 360px;
             }
 
 
             .partner-card {
-                width: 100% !important;
 
-                max-width: 400px !important;
+                max-width: 400px;
 
-                padding: 28px 18px !important;
-
-                margin: 0 auto !important;
+                padding:
+                    28px
+                    18px;
             }
 
 
             .partner-card img {
-                max-width: 160px !important;
+
+                max-width: 160px;
             }
 
 
             .partner-card h3 {
-                font-size: 26px !important;
+
+                font-size: 26px;
             }
 
 
             .partner-card p {
-                font-size: 15px !important;
+
+                font-size: 15px;
             }
 
 
             .partner-btn {
-                width: 100% !important;
 
-                max-width: 300px !important;
+                width: 100%;
+
+                max-width: 300px;
             }
 
 
             /* WHY CHOOSE */
 
             .why-choose {
-                width: 100% !important;
 
-                padding: 65px 14px !important;
+                padding:
+                    65px
+                    14px;
             }
 
 
             .why-choose > h2 {
-                width: 100% !important;
 
-                font-size: 36px !important;
+                font-size: 36px;
 
-                line-height: 1.15 !important;
-
-                margin-bottom: 35px !important;
+                margin-bottom: 35px;
             }
 
 
             .why-grid {
-                width: 100% !important;
 
-                display: grid !important;
+                grid-template-columns: 1fr;
 
-                grid-template-columns: 1fr !important;
-
-                gap: 16px !important;
+                gap: 16px;
             }
 
 
             .why-box {
-                width: 100% !important;
 
-                padding: 27px 20px !important;
+                padding:
+                    27px
+                    20px;
             }
 
 
-            .why-box h3 {
-                font-size: 20px !important;
-            }
-
-
-            .why-box p {
-                font-size: 15px !important;
-            }
-
-
-            /* STATISTICS */
+            /* STATS */
 
             .stats-section {
-                width: 100% !important;
 
-                padding: 65px 14px !important;
+                padding:
+                    65px
+                    14px;
             }
 
 
             .stats-section > h2 {
-                width: 100% !important;
 
-                font-size: 36px !important;
+                font-size: 36px;
 
-                line-height: 1.15 !important;
-
-                margin-bottom: 35px !important;
+                margin-bottom: 35px;
             }
 
 
             .stats-grid {
-                width: 100% !important;
 
-                display: grid !important;
+                grid-template-columns: 1fr;
 
-                grid-template-columns: 1fr !important;
-
-                gap: 5px !important;
+                gap: 5px;
             }
 
 
             .stat-box {
-                padding: 22px 10px !important;
+
+                padding:
+                    22px
+                    10px;
             }
 
 
             .stat-box h3 {
-                font-size: 48px !important;
+
+                font-size: 48px;
             }
 
 
             .stat-box p {
-                font-size: 17px !important;
+
+                font-size: 17px;
             }
 
 
             /* CONTACT */
 
             .contact {
-                width: 100% !important;
 
-                padding: 60px 18px !important;
+                padding:
+                    60px
+                    18px;
             }
 
 
             .contact h2 {
-                font-size: 37px !important;
 
-                line-height: 1.15 !important;
+                font-size: 37px;
             }
 
 
             .contact p {
-                width: 100% !important;
 
-                font-size: 15px !important;
+                font-size: 15px;
 
-                line-height: 1.65 !important;
-
-                overflow-wrap: anywhere !important;
-
-                word-break: break-word !important;
-            }
-
-
-            .contact a {
-                overflow-wrap: anywhere !important;
-
-                word-break: break-word !important;
+                line-height: 1.65;
             }
 
 
             /* FOOTER */
 
             footer {
-                width: 100% !important;
 
-                padding: 25px 15px !important;
+                padding:
+                    25px
+                    15px;
             }
 
 
             footer p {
-                font-size: 13px !important;
+
+                font-size: 13px;
+            }
+
+
+            /* FLOATING CART */
+
+            .floating-cart {
+
+                width: 52px;
+
+                height: 52px;
+
+                right: 18px;
+
+                bottom: 18px;
+
+                font-size: 22px;
             }
 
         }
 
 
+
         /* =====================================================
            SMALL PHONES
-           480px AND BELOW
-        ===================================================== */
+           ===================================================== */
 
         @media screen and (max-width: 480px) {
 
-            .logo img {
-                height: 50px !important;
+            .header-logo img {
 
-                max-width: 135px !important;
+                height: 47px;
+
+                max-width: 120px;
             }
 
 
-            .navbar ul {
-                gap: 4px 8px !important;
+            .header-brand h1 {
+
+                font-size: 18px;
+
+                letter-spacing: 2.5px;
             }
 
 
-            .navbar a {
-                font-size: 10px !important;
+            .header-brand span {
+
+                display: none;
             }
 
 
-            .headline-text {
-                font-size: 12px !important;
+            .hero-slider {
+
+                height: 70vh;
+
+                min-height: 500px;
             }
 
 
-            .hero {
-                min-height: 620px !important;
+            .hero-content {
 
-                padding: 50px 17px !important;
+                left: 18px;
+
+                right: 18px;
             }
 
 
-            .hero-tag {
-                font-size: 18px !important;
+            .hero-content h2 {
+
+                font-size: 34px;
             }
 
 
-            .hero h1 {
-                font-size: 34px !important;
+            .hero-content p {
+
+                font-size: 14px;
             }
 
 
-            .hero p {
-                font-size: 15px !important;
+            .hero-button {
+
+                font-size: 11px;
+
+                padding:
+                    11px
+                    18px;
             }
 
 
-            .collections {
-                padding-left: 12px !important;
+            .slider-arrow {
 
-                padding-right: 12px !important;
+                width: 34px;
+
+                height: 34px;
+
+                font-size: 18px;
+            }
+
+
+            .slider-prev {
+
+                left: 9px;
+            }
+
+
+            .slider-next {
+
+                right: 9px;
             }
 
 
             .collections > h2 {
-                font-size: 29px !important;
+
+                font-size: 29px;
             }
 
 
             .card img {
-                height: 310px !important;
-            }
 
-
-            .card-content {
-                left: 16px !important;
-
-                bottom: 16px !important;
+                height: 310px;
             }
 
 
             .card-content h3 {
-                font-size: 23px !important;
+
+                font-size: 23px;
             }
 
 
             .card-content p {
-                font-size: 12px !important;
+
+                font-size: 12px;
             }
 
 
@@ -1927,62 +2532,74 @@
             .partner-header h2,
             .why-choose > h2,
             .stats-section > h2 {
-                font-size: 33px !important;
+
+                font-size: 33px;
             }
 
         }
+
 
 
         /* =====================================================
            VERY SMALL PHONES
-           360px AND BELOW
-        ===================================================== */
+           ===================================================== */
 
         @media screen and (max-width: 360px) {
 
-            .navbar ul {
-                gap: 3px 6px !important;
+            .top-header {
+
+                padding-left: 8px;
+
+                padding-right: 8px;
             }
 
 
-            .navbar a {
-                font-size: 9px !important;
+            .header-logo img {
+
+                height: 43px;
+
+                max-width: 105px;
             }
 
 
-            .hero {
-                padding-left: 15px !important;
+            .header-brand h1 {
 
-                padding-right: 15px !important;
+                font-size: 16px;
+
+                letter-spacing: 2px;
             }
 
 
-            .hero h1 {
-                font-size: 30px !important;
+            .hero-content h2 {
+
+                font-size: 30px;
             }
 
 
-            .hero p {
-                font-size: 14px !important;
+            .hero-content p {
+
+                font-size: 13px;
             }
 
 
             .card img {
-                height: 285px !important;
+
+                height: 285px;
             }
 
 
             .card-content h3 {
-                font-size: 21px !important;
+
+                font-size: 21px;
             }
 
 
             .card-content p {
-                font-size: 11px !important;
+
+                font-size: 11px;
             }
 
         }
-
 
     </style>
 
@@ -1992,64 +2609,60 @@
 <body>
 
 
+
     <!-- =====================================================
-         HEADER
+         TOP HEADER
     ===================================================== -->
 
-    <header>
+    <header class="top-header">
 
-        <div class="logo">
 
-            <img
-                src="logo.jpeg"
-                alt="50 Mirars"
+        <!-- LEFT: 50 MIRARS LOGO -->
+
+        <div class="header-left">
+
+            <a
+                href="index.html"
+                class="header-logo"
+                aria-label="50 Mirars Home"
             >
+
+                <img
+                    src="logo.jpeg"
+                    alt="50 Mirars Logo"
+                >
+
+            </a>
 
         </div>
 
 
-        <nav class="navbar">
 
-            <ul>
+        <!-- CENTER: 50 MIRARS NAME -->
 
-                <li>
-                    <a href="index.html">
-                        Home
-                    </a>
-                </li>
+        <div class="header-brand">
 
+            <div>
 
-                <li>
-                    <a href="collections.html">
-                        Collections
-                    </a>
-                </li>
+                <h1>
+                    50 MIRARS
+                </h1>
 
+                <span>
+                    WATCHES • SUNGLASSES
+                </span>
 
-                <li>
-                    <a href="about.html">
-                        About Us
-                    </a>
-                </li>
+            </div>
+
+        </div>
 
 
-                <li>
-                    <a href="faq.html">
-                        FAQ
-                    </a>
-                </li>
 
+        <!-- RIGHT: INTENTIONALLY CLEAN -->
 
-                <li>
-                    <a href="terms.html">
-                        Terms &amp; Conditions
-                    </a>
-                </li>
-                
+        <div class="header-right">
+        </div>
 
-            </ul>
-
-        </nav>
 
     </header>
 
@@ -2063,17 +2676,29 @@
 
         <div class="headline-text">
 
-✦ Celebrate India’s 80<sup>th</sup> Independence Day
-    <img
-    src="https://flagcdn.com/w20/in.png"
-    alt="Indian Flag"
-    style="width:20px;height:auto;display:inline-block;vertical-align:middle;margin:0 4px;"
->
-in Style with 50 Mirars — Unlock
-<strong>10% OFF</strong>
-with Code
-<strong>10OFF10</strong>
-| Timeless Watches • Premium Sunglasses ✦
+            ✦ Celebrate India’s 80<sup>th</sup>
+            Independence Day
+
+            <img
+                src="https://flagcdn.com/w20/in.png"
+                alt="Indian Flag"
+            >
+
+            in Style with 50 Mirars —
+            Unlock
+
+            <strong>
+                10% OFF
+            </strong>
+
+            with Code
+
+            <strong>
+                10OFF10
+            </strong>
+
+            | Timeless Watches • Premium Sunglasses ✦
+
         </div>
 
     </div>
@@ -2081,50 +2706,361 @@ with Code
 
 
     <!-- =====================================================
-         HERO
+         LARGE HERO SLIDER
     ===================================================== -->
 
-    <section class="hero" id="home">
-
-        <div class="hero-content">
-
-            <div class="hero-tag">
-                50 MIRARS
-            </div>
+    <section
+        class="hero-slider"
+        id="heroSlider"
+    >
 
 
-            <h1>
-
-                TIMELESS ELEGANCE.<br>
-
-                UNMATCHED
-                <span>STYLE.</span>
-
-            </h1>
+        <div
+            class="slides-track"
+            id="slidesTrack"
+        >
 
 
-            <p>
-
-                Premium watches and sunglasses crafted
-                for those who value perfection.
-
-            </p>
-
+            <!-- =================================================
+                 SLIDE 1 - WATCHES
+                 CLICK -> WATCHES PAGE
+            ================================================= -->
 
             <a
-                class="btn"
-                href="https://wa.me/c/918209989013"
-                target="_blank"
-                rel="noopener"
+                href="watches.html"
+                class="hero-slide active"
             >
 
-                SHOP ON WHATSAPP
+                <img
+                    src="Rolex Yatch-Master 42.jpeg"
+                    alt="Luxury Watches"
+                >
+
+
+                <div class="hero-content">
+
+                    <div class="hero-small">
+                        50 MIRARS
+                    </div>
+
+
+                    <h2>
+
+                        TIMELESS
+                        <span>ELEGANCE.</span>
+
+                    </h2>
+
+
+                    <p>
+
+                        Discover premium timepieces
+                        created for those who value
+                        precision, luxury and style.
+
+                    </p>
+
+
+                    <span class="hero-button">
+                        EXPLORE WATCHES →
+                    </span>
+
+                </div>
 
             </a>
 
+
+
+            <!-- =================================================
+                 SLIDE 2 - SUNGLASSES
+                 CLICK -> SUNGLASSES PAGE
+            ================================================= -->
+
+            <a
+                href="sunglasses.html"
+                class="hero-slide"
+            >
+
+                <img
+                    src="Cartier Aqua Green Karan Aujla Edition.jpeg"
+                    alt="Premium Sunglasses"
+                >
+
+
+                <div class="hero-content">
+
+                    <div class="hero-small">
+                        50 MIRARS
+                    </div>
+
+
+                    <h2>
+
+                        DEFINE YOUR
+                        <span>STYLE.</span>
+
+                    </h2>
+
+
+                    <p>
+
+                        Premium sunglasses designed
+                        to make every look sharper,
+                        bolder and unforgettable.
+
+                    </p>
+
+
+                    <span class="hero-button">
+                        EXPLORE SUNGLASSES →
+                    </span>
+
+                </div>
+
+            </a>
+
+
+
+            <!-- =================================================
+                 SLIDE 3 - MOST SELLING
+                 CLICK -> MOST SELLING PAGE
+            ================================================= -->
+
+            <a
+                href="most-selling.html"
+                class="hero-slide"
+            >
+
+                <img
+                    src="most selling.jpeg"
+                    alt="Most Selling Products"
+                >
+
+
+                <div class="hero-content">
+
+                    <div class="hero-small">
+                        50 MIRARS
+                    </div>
+
+
+                    <h2>
+
+                        CUSTOMER
+                        <span>FAVOURITES.</span>
+
+                    </h2>
+
+
+                    <p>
+
+                        Explore the watches and
+                        accessories loved by our
+                        customers.
+
+                    </p>
+
+
+                    <span class="hero-button">
+                        SHOP BEST SELLERS →
+                    </span>
+
+                </div>
+
+            </a>
+
+
+
+            <!-- =================================================
+                 SLIDE 4 - COUPLE WATCHES
+                 CLICK -> COUPLE WATCHES PAGE
+            ================================================= -->
+
+            <a
+                href="couple-watches.html"
+                class="hero-slide"
+            >
+
+                <img
+                    src="Tissot Gentel Couple Watch.jpeg"
+                    alt="Couple Watches"
+                >
+
+
+                <div class="hero-content">
+
+                    <div class="hero-small">
+                        50 MIRARS
+                    </div>
+
+
+                    <h2>
+
+                        TIMELESS
+                        <span>TOGETHER.</span>
+
+                    </h2>
+
+
+                    <p>
+
+                        Elegant couple watches
+                        designed to celebrate
+                        every moment together.
+
+                    </p>
+
+
+                    <span class="hero-button">
+                        EXPLORE COUPLE WATCHES →
+                    </span>
+
+                </div>
+
+            </a>
+
+
+
+            <!-- =================================================
+                 SLIDE 5 - LIMITED EDITIONS
+                 CLICK -> LIMITED EDITIONS PAGE
+            ================================================= -->
+
+            <a
+                href="limited-editions.html"
+                class="hero-slide"
+            >
+
+                <img
+                    src="Seiko Mod Date-Just.jpeg"
+                    alt="Limited Edition Watches"
+                >
+
+
+                <div class="hero-content">
+
+                    <div class="hero-small">
+                        50 MIRARS
+                    </div>
+
+
+                    <h2>
+
+                        RARE.
+                        <span>EXCLUSIVE.</span>
+
+                    </h2>
+
+
+                    <p>
+
+                        Discover exclusive pieces
+                        selected for collectors
+                        who appreciate individuality.
+
+                    </p>
+
+
+                    <span class="hero-button">
+                        VIEW LIMITED EDITIONS →
+                    </span>
+
+                </div>
+
+            </a>
+
+
         </div>
 
+
+
+        <!-- =====================================================
+             PREVIOUS ARROW
+        ===================================================== -->
+
+        <button
+            type="button"
+            class="slider-arrow slider-prev"
+            id="sliderPrev"
+            aria-label="Previous Slide"
+        >
+            ‹
+        </button>
+
+
+
+        <!-- =====================================================
+             NEXT ARROW
+        ===================================================== -->
+
+        <button
+            type="button"
+            class="slider-arrow slider-next"
+            id="sliderNext"
+            aria-label="Next Slide"
+        >
+            ›
+        </button>
+
+
+
+        <!-- =====================================================
+             DOTS
+        ===================================================== -->
+
+        <div
+            class="slider-dots"
+            id="sliderDots"
+        >
+
+            <button
+                class="slider-dot active"
+                type="button"
+                aria-label="Go to slide 1"
+            ></button>
+
+            <button
+                class="slider-dot"
+                type="button"
+                aria-label="Go to slide 2"
+            ></button>
+
+            <button
+                class="slider-dot"
+                type="button"
+                aria-label="Go to slide 3"
+            ></button>
+
+            <button
+                class="slider-dot"
+                type="button"
+                aria-label="Go to slide 4"
+            ></button>
+
+            <button
+                class="slider-dot"
+                type="button"
+                aria-label="Go to slide 5"
+            ></button>
+
+        </div>
+
+
+
+        <!-- =====================================================
+             SWIPE TEXT
+        ===================================================== -->
+
+        <div class="swipe-hint">
+
+            SWIPE / DRAG
+
+        </div>
+
+
     </section>
+
+
 
     <!-- =====================================================
          WATCH BRANDS
@@ -2132,17 +3068,25 @@ with Code
 
     <section class="watch-brands">
 
+
         <div class="watch-brands-header">
+
+            <small>
+                PREMIUM COLLECTION
+            </small>
+
 
             <h2>
                 OUR BRANDS
             </h2>
+
 
             <p>
                 Discover renowned brands available at 50 Mirars.
             </p>
 
         </div>
+
 
         <img
             src="watchlogosbrand.png"
@@ -2151,7 +3095,10 @@ with Code
             loading="lazy"
         >
 
-    </section>    
+
+    </section>
+
+
 
     <!-- =====================================================
          COLLECTIONS
@@ -2161,6 +3108,7 @@ with Code
         class="collections"
         id="collections"
     >
+
 
         <small>
             OUR COLLECTIONS
@@ -2179,7 +3127,6 @@ with Code
 
             <a
                 href="watches.html"
-                style="text-decoration:none;color:inherit;"
             >
 
                 <div class="card">
@@ -2214,7 +3161,6 @@ with Code
 
             <a
                 href="sunglasses.html"
-                style="text-decoration:none;color:inherit;"
             >
 
                 <div class="card">
@@ -2249,7 +3195,6 @@ with Code
 
             <a
                 href="most-selling.html"
-                style="text-decoration:none;color:inherit;"
             >
 
                 <div class="card">
@@ -2284,7 +3229,6 @@ with Code
 
             <a
                 href="couple-watches.html"
-                style="text-decoration:none;color:inherit;"
             >
 
                 <div class="card">
@@ -2319,7 +3263,6 @@ with Code
 
             <a
                 href="limited-editions.html"
-                style="text-decoration:none;color:inherit;"
             >
 
                 <div class="card">
@@ -2354,7 +3297,6 @@ with Code
 
             <a
                 href="luxury-articles.html"
-                style="text-decoration:none;color:inherit;"
             >
 
                 <div class="card">
@@ -2389,11 +3331,13 @@ with Code
     </section>
 
 
+
     <!-- =====================================================
          GET IN TOUCH
     ===================================================== -->
 
     <section class="get-touch">
+
 
         <h2>
             Get In Touch
@@ -2413,6 +3357,7 @@ with Code
             action="https://formspree.io/f/mlgqpono"
             method="POST"
         >
+
 
             <input
                 type="text"
@@ -2450,7 +3395,9 @@ with Code
 
             </button>
 
+
         </form>
+
 
     </section>
 
@@ -2461,6 +3408,7 @@ with Code
     ===================================================== -->
 
     <section class="business-partner">
+
 
         <div class="partner-header">
 
@@ -2500,6 +3448,7 @@ with Code
 
                 <div class="partner-card">
 
+
                     <img
                         src="partner-logo.jpeg"
                         alt="Business Partner Logo"
@@ -2528,6 +3477,7 @@ with Code
 
                     </a>
 
+
                 </div>
 
             </div>
@@ -2550,6 +3500,7 @@ with Code
 
         </div>
 
+
     </section>
 
 
@@ -2559,6 +3510,7 @@ with Code
     ===================================================== -->
 
     <section class="why-choose">
+
 
         <h2>
             Why Choose 50 Mirars?
@@ -2622,6 +3574,7 @@ with Code
 
         </div>
 
+
     </section>
 
 
@@ -2631,6 +3584,7 @@ with Code
     ===================================================== -->
 
     <section class="stats-section">
+
 
         <h2>
             50 Mirars In Numbers
@@ -2681,6 +3635,7 @@ with Code
 
         </div>
 
+
     </section>
 
 
@@ -2694,7 +3649,9 @@ with Code
         id="contact"
     >
 
+
         <div class="contact-grid">
+
 
             <h2>
                 Contact Us
@@ -2779,7 +3736,9 @@ with Code
 
             </p>
 
+
         </div>
+
 
     </section>
 
@@ -2796,11 +3755,506 @@ with Code
         </p>
 
     </footer>
-    
-<!-- FLOATING CART BUTTON -->
-<a href="cart.html" class="floating-cart" aria-label="Shopping Cart">
-    🛒
-</a>
+
+
+
+    <!-- =====================================================
+         FLOATING CART
+         KEPT SEPARATE FROM HEADER
+    ===================================================== -->
+
+    <a
+        href="cart.html"
+        class="floating-cart"
+        aria-label="Shopping Cart"
+    >
+
+        🛒
+
+    </a>
+
+
+
+    <!-- =====================================================
+         HERO SLIDER JAVASCRIPT
+    ===================================================== -->
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+
+                const slider =
+                    document.getElementById(
+                        "heroSlider"
+                    );
+
+
+                const track =
+                    document.getElementById(
+                        "slidesTrack"
+                    );
+
+
+                const slides =
+                    document.querySelectorAll(
+                        ".hero-slide"
+                    );
+
+
+                const dots =
+                    document.querySelectorAll(
+                        ".slider-dot"
+                    );
+
+
+                const previousButton =
+                    document.getElementById(
+                        "sliderPrev"
+                    );
+
+
+                const nextButton =
+                    document.getElementById(
+                        "sliderNext"
+                    );
+
+
+                let currentSlide = 0;
+
+
+                let autoSlide;
+
+
+                let touchStartX = 0;
+
+                let touchEndX = 0;
+
+                let isDragging = false;
+
+
+
+                /* =================================================
+                   UPDATE SLIDE
+                ================================================= */
+
+                function updateSlider(
+                    index
+                ) {
+
+
+                    if (
+                        index < 0
+                    ) {
+
+                        index =
+                            slides.length - 1;
+
+                    }
+
+
+                    if (
+                        index >= slides.length
+                    ) {
+
+                        index = 0;
+
+                    }
+
+
+                    currentSlide =
+                        index;
+
+
+                    track.style.transform =
+                        "translateX(-" +
+                        (currentSlide * 100) +
+                        "%)";
+
+
+                    slides.forEach(
+                        function (
+                            slide,
+                            slideIndex
+                        ) {
+
+                            slide.classList.toggle(
+                                "active",
+                                slideIndex === currentSlide
+                            );
+
+                        }
+                    );
+
+
+                    dots.forEach(
+                        function (
+                            dot,
+                            dotIndex
+                        ) {
+
+                            dot.classList.toggle(
+                                "active",
+                                dotIndex === currentSlide
+                            );
+
+                        }
+                    );
+
+                }
+
+
+
+                /* =================================================
+                   NEXT
+                ================================================= */
+
+                function nextSlide() {
+
+                    updateSlider(
+                        currentSlide + 1
+                    );
+
+                }
+
+
+
+                /* =================================================
+                   PREVIOUS
+                ================================================= */
+
+                function previousSlide() {
+
+                    updateSlider(
+                        currentSlide - 1
+                    );
+
+                }
+
+
+
+                /* =================================================
+                   ARROWS
+                ================================================= */
+
+                nextButton.addEventListener(
+                    "click",
+                    function (event) {
+
+                        event.preventDefault();
+
+                        event.stopPropagation();
+
+                        nextSlide();
+
+                        restartAutoSlide();
+
+                    }
+                );
+
+
+                previousButton.addEventListener(
+                    "click",
+                    function (event) {
+
+                        event.preventDefault();
+
+                        event.stopPropagation();
+
+                        previousSlide();
+
+                        restartAutoSlide();
+
+                    }
+                );
+
+
+
+                /* =================================================
+                   DOTS
+                ================================================= */
+
+                dots.forEach(
+                    function (
+                        dot,
+                        index
+                    ) {
+
+                        dot.addEventListener(
+                            "click",
+                            function (event) {
+
+                                event.preventDefault();
+
+                                event.stopPropagation();
+
+                                updateSlider(
+                                    index
+                                );
+
+                                restartAutoSlide();
+
+                            }
+                        );
+
+                    }
+                );
+
+
+
+                /* =================================================
+                   AUTO SLIDER
+                ================================================= */
+
+                function startAutoSlide() {
+
+                    autoSlide =
+                        setInterval(
+                            function () {
+
+                                nextSlide();
+
+                            },
+                            5000
+                        );
+
+                }
+
+
+                function restartAutoSlide() {
+
+                    clearInterval(
+                        autoSlide
+                    );
+
+                    startAutoSlide();
+
+                }
+
+
+
+                /* =================================================
+                   TOUCH SWIPE
+                ================================================= */
+
+                slider.addEventListener(
+                    "touchstart",
+                    function (event) {
+
+                        touchStartX =
+                            event.touches[0].clientX;
+
+                        isDragging = true;
+
+                        clearInterval(
+                            autoSlide
+                        );
+
+                    },
+                    {
+                        passive: true
+                    }
+                );
+
+
+                slider.addEventListener(
+                    "touchmove",
+                    function (event) {
+
+                        if (!isDragging) {
+                            return;
+                        }
+
+                        touchEndX =
+                            event.touches[0].clientX;
+
+                    },
+                    {
+                        passive: true
+                    }
+                );
+
+
+                slider.addEventListener(
+                    "touchend",
+                    function () {
+
+                        if (!isDragging) {
+                            return;
+                        }
+
+
+                        const difference =
+                            touchStartX -
+                            touchEndX;
+
+
+                        if (
+                            Math.abs(
+                                difference
+                            ) > 50
+                        ) {
+
+
+                            if (
+                                difference > 0
+                            ) {
+
+                                nextSlide();
+
+                            } else {
+
+                                previousSlide();
+
+                            }
+
+                        }
+
+
+                        isDragging = false;
+
+                        restartAutoSlide();
+
+                    }
+                );
+
+
+
+                /* =================================================
+                   MOUSE DRAGGING
+                ================================================= */
+
+                let mouseStartX = 0;
+
+
+                slider.addEventListener(
+                    "mousedown",
+                    function (event) {
+
+                        mouseStartX =
+                            event.clientX;
+
+                        isDragging = true;
+
+                        clearInterval(
+                            autoSlide
+                        );
+
+                    }
+                );
+
+
+                slider.addEventListener(
+                    "mouseup",
+                    function (event) {
+
+                        if (!isDragging) {
+                            return;
+                        }
+
+
+                        const difference =
+                            mouseStartX -
+                            event.clientX;
+
+
+                        if (
+                            Math.abs(
+                                difference
+                            ) > 50
+                        ) {
+
+
+                            if (
+                                difference > 0
+                            ) {
+
+                                nextSlide();
+
+                            } else {
+
+                                previousSlide();
+
+                            }
+
+                        }
+
+
+                        isDragging = false;
+
+                        restartAutoSlide();
+
+                    }
+                );
+
+
+                slider.addEventListener(
+                    "mouseleave",
+                    function () {
+
+                        if (isDragging) {
+
+                            isDragging = false;
+
+                            restartAutoSlide();
+
+                        }
+
+                    }
+                );
+
+
+
+                /* =================================================
+                   KEYBOARD ARROWS
+                ================================================= */
+
+                document.addEventListener(
+                    "keydown",
+                    function (event) {
+
+                        if (
+                            event.key === "ArrowRight"
+                        ) {
+
+                            nextSlide();
+
+                            restartAutoSlide();
+
+                        }
+
+
+                        if (
+                            event.key === "ArrowLeft"
+                        ) {
+
+                            previousSlide();
+
+                            restartAutoSlide();
+
+                        }
+
+                    }
+                );
+
+
+
+                /* =================================================
+                   START
+                ================================================= */
+
+                updateSlider(0);
+
+                startAutoSlide();
+
+
+            }
+        );
+
+    </script>
+
 
 </body>
 
