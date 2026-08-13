@@ -1,257 +1,1565 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FAQs - 50 Mirars</title>
+
+<meta name="description" content="Frequently Asked Questions about 50 Mirars watches, sunglasses, orders, delivery, warranty, payments and customer support.">
+
+<title>FAQs | 50 Mirars</title>
+
 
 <style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
 body{
-  margin:0;
-  font-family:Arial, sans-serif;
-  background:#f8f6f2;
-  color:#222;
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#080808;
+    color:#ffffff;
+    line-height:1.7;
 }
 
-.header{
-  background:white;
-  padding:25px 8%;
-  border-bottom:1px solid #ddd;
+
+/* =========================================================
+   MAIN PAGE
+========================================================= */
+
+.faq-page{
+    width:100%;
+    min-height:100vh;
+
+    background:
+    radial-gradient(
+        circle at 50% 0%,
+        rgba(201,162,77,0.10),
+        transparent 38%
+    ),
+    #080808;
 }
 
-.container{
-  max-width:1000px;
-  margin:auto;
-  padding:60px 20px;
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.faq-header{
+    width:100%;
+    text-align:center;
+
+    padding:95px 20px 75px;
+
+    border-bottom:
+    1px solid
+    rgba(201,162,77,0.18);
 }
 
-h1{
-  text-align:center;
-  margin-bottom:50px;
-  font-size:42px;
+.brand-name{
+    color:#c9a24d;
+
+    font-size:14px;
+    font-weight:700;
+
+    letter-spacing:6px;
+    text-transform:uppercase;
+
+    margin-bottom:20px;
 }
+
+.faq-header h1{
+    margin:0;
+
+    font-family:Georgia, "Times New Roman", serif;
+
+    font-size:clamp(45px, 7vw, 78px);
+
+    font-weight:500;
+
+    line-height:1.05;
+
+    letter-spacing:-2px;
+
+    color:#ffffff;
+}
+
+.faq-header h1 span{
+    color:#c9a24d;
+}
+
+.faq-subtitle{
+    margin-top:22px;
+
+    color:#bdbdbd;
+
+    font-size:17px;
+
+    letter-spacing:0.5px;
+}
+
+.gold-line{
+    width:75px;
+    height:2px;
+
+    background:#c9a24d;
+
+    margin:30px auto 0;
+}
+
+
+/* =========================================================
+   FAQ CONTAINER
+========================================================= */
+
+.faq-container{
+    width:min(1050px,88%);
+
+    margin:0 auto;
+
+    padding:75px 0 90px;
+}
+
+
+/* =========================================================
+   INTRODUCTION
+========================================================= */
+
+.faq-introduction{
+    text-align:center;
+
+    max-width:800px;
+
+    margin:0 auto 55px;
+}
+
+.faq-introduction h2{
+    margin-bottom:15px;
+
+    color:#c9a24d;
+
+    font-family:Georgia, "Times New Roman", serif;
+
+    font-size:27px;
+
+    font-weight:500;
+}
+
+.faq-introduction p{
+    color:#bdbdbd;
+
+    font-size:16px;
+
+    line-height:1.9;
+}
+
+
+/* =========================================================
+   FAQ ITEM
+========================================================= */
 
 .faq-item{
-  background:white;
-  padding:25px;
-  margin-bottom:20px;
-  border-left:4px solid #c79a3b;
-  box-shadow:0 5px 15px rgba(0,0,0,0.05);
-  transition:all 0.3s ease;
+    margin-bottom:20px;
+
+    background:
+    rgba(255,255,255,0.025);
+
+    border:
+    1px solid
+    rgba(255,255,255,0.10);
+
+    border-left:
+    3px solid
+    #c9a24d;
+
+    transition:all 0.3s ease;
 }
+
+.faq-item:hover{
+    border-color:
+    rgba(201,162,77,0.45);
+
+    background:
+    rgba(201,162,77,0.035);
+}
+
+.faq-item.active{
+    border-color:
+    rgba(201,162,77,0.55);
+
+    background:
+    rgba(201,162,77,0.045);
+}
+
+
+/* =========================================================
+   FAQ QUESTION
+========================================================= */
 
 .faq-question{
-  width:100%;
-  background:none;
-  border:none;
-  text-align:left;
-  font-size:22px;
-  font-weight:bold;
-  cursor:pointer;
-  padding:10px 0;
-  color:#222;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+    width:100%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:25px;
+
+    padding:24px 25px;
+
+    border:none;
+
+    background:transparent;
+
+    color:#ffffff;
+
+    text-align:left;
+
+    font-family:Arial, Helvetica, sans-serif;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    line-height:1.5;
+
+    cursor:pointer;
+
+    transition:color 0.3s ease;
 }
+
+.faq-question:hover{
+    color:#c9a24d;
+}
+
+.faq-item.active .faq-question{
+    color:#c9a24d;
+}
+
+
+/* =========================================================
+   FAQ ICON
+========================================================= */
 
 .faq-icon{
-  font-size:24px;
-  color:#c79a3b;
-  transition:transform 0.3s ease;
+    flex-shrink:0;
+
+    width:34px;
+    height:34px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border:
+    1px solid
+    rgba(201,162,77,0.55);
+
+    border-radius:50%;
+
+    color:#c9a24d;
+
+    font-size:21px;
+
+    font-weight:400;
+
+    line-height:1;
+
+    transition:all 0.3s ease;
 }
 
+.faq-item.active .faq-icon{
+    background:#c9a24d;
+
+    color:#111111;
+
+    border-color:#c9a24d;
+}
+
+
+/* =========================================================
+   FAQ ANSWER
+========================================================= */
+
 .faq-answer{
-  display:none;
-  padding-top:10px;
-  line-height:1.8;
+    max-height:0;
+
+    overflow:hidden;
+
+    opacity:0;
+
+    padding:0 25px;
+
+    color:#c5c5c5;
+
+    font-size:15px;
+
+    line-height:1.9;
+
+    transition:
+    max-height 0.4s ease,
+    opacity 0.3s ease,
+    padding 0.3s ease;
+}
+
+.faq-answer p{
+    margin:0;
 }
 
 .faq-item.active .faq-answer{
-  display:block;
+    max-height:300px;
+
+    opacity:1;
+
+    padding:0 25px 25px;
+}
+
+
+/* =========================================================
+   BACK TO HOME
+========================================================= */
+
+.back-home-wrapper{
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    margin-top:45px;
 }
 
 .back-btn{
-  display:inline-block;
-  margin-top:30px;
-  padding:12px 25px;
-  background:#111;
-  color:white;
-  text-decoration:none;
-  font-weight:bold;
-  border-radius:5px;
-  transition:0.3s;
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    min-height:50px;
+
+    padding:13px 28px;
+
+    background:#111111;
+
+    color:#ffffff;
+
+    text-decoration:none;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    letter-spacing:0.3px;
+
+    border:
+    1px solid
+    rgba(201,162,77,0.55);
+
+    border-radius:5px;
+
+    transition:all 0.3s ease;
 }
 
 .back-btn:hover{
-  background:#c9a24d;
-  color:black;
+    background:#c9a24d;
+
+    border-color:#c9a24d;
+
+    color:#111111;
+
+    transform:translateY(-2px);
 }
 
-.footer{
-  text-align:center;
-  padding:30px;
-  background:#111;
-  color:white;
+
+/* =========================================================
+   CONTACT US FOOTER
+========================================================= */
+
+.main-footer{
+    width:100%;
+
+    background:#080808;
+
+    color:#ffffff;
+
+    padding:70px 7% 25px;
+
+    border-top:
+    1px solid
+    rgba(255,255,255,0.08);
 }
+
+.footer-container{
+    width:100%;
+
+    max-width:1400px;
+
+    margin:0 auto;
+}
+
+
+/* =========================================================
+   CONTACT TOP
+========================================================= */
+
+.footer-top{
+    width:100%;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,minmax(0,1fr));
+
+    column-gap:70px;
+
+    row-gap:40px;
+
+    align-items:start;
+}
+
+.footer-top > h2{
+    grid-column:1 / -1;
+
+    margin:0 0 10px;
+
+    font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+    font-size:42px;
+
+    font-weight:500;
+
+    line-height:1.2;
+
+    color:#ffffff;
+
+    text-align:center;
+}
+
+.contact-column,
+.whatsapp-column{
+    min-width:0;
+
+    text-align:center;
+}
+
+.contact-column h3,
+.whatsapp-column h3{
+    margin:0 0 22px;
+
+    color:#ffffff;
+
+    font-size:20px;
+
+    font-weight:700;
+
+    line-height:1.35;
+}
+
+.contact-column p{
+    margin:12px 0 0;
+
+    color:#bdbdbd;
+
+    font-size:15px;
+
+    line-height:1.6;
+}
+
+.footer-link{
+    display:block;
+
+    width:fit-content;
+
+    margin:0 auto 8px;
+
+    color:#ffffff;
+
+    text-decoration:none;
+
+    font-size:16px;
+
+    line-height:1.6;
+
+    transition:color 0.3s ease;
+}
+
+.footer-link:hover{
+    color:#c9a24d;
+}
+
+
+/* =========================================================
+   WHATSAPP
+========================================================= */
+
+.whatsapp-title{
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:8px;
+
+    flex-wrap:wrap;
+}
+
+.whatsapp-icon{
+    width:28px;
+
+    height:28px;
+
+    object-fit:contain;
+
+    display:inline-block;
+}
+
+.whatsapp-button{
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    min-width:205px;
+
+    min-height:60px;
+
+    padding:13px 30px;
+
+    background:#ffffff;
+
+    color:#111111;
+
+    text-decoration:none;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    letter-spacing:0.2px;
+
+    border:1px solid #ffffff;
+
+    transition:all 0.3s ease;
+}
+
+.whatsapp-button:hover{
+    background:#c9a24d;
+
+    border-color:#c9a24d;
+
+    color:#ffffff;
+
+    transform:translateY(-2px);
+}
+
+
+/* =========================================================
+   FOOTER MIDDLE
+========================================================= */
+
+.footer-middle{
+    width:100%;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,minmax(0,1fr));
+
+    gap:50px;
+
+    margin-top:65px;
+
+    padding-top:45px;
+
+    border-top:
+    1px solid
+    rgba(255,255,255,0.10);
+}
+
+.footer-links-column,
+.footer-social{
+    min-width:0;
+
+    text-align:center;
+}
+
+.footer-links-column h3,
+.footer-social h3{
+    margin:0 0 20px;
+
+    color:#ffffff;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    line-height:1.35;
+}
+
+.footer-links-column a{
+    display:block;
+
+    width:fit-content;
+
+    margin:0 auto 14px;
+
+    color:#d7d7d7;
+
+    text-decoration:none;
+
+    font-size:15px;
+
+    line-height:1.5;
+
+    transition:color 0.3s ease;
+}
+
+.footer-links-column a:hover{
+    color:#c9a24d;
+}
+
+.footer-social p{
+    margin:0 0 14px;
+
+    color:#d7d7d7;
+
+    font-size:15px;
+}
+
+
+/* =========================================================
+   INSTAGRAM
+========================================================= */
+
+.instagram-button{
+    width:58px;
+
+    height:58px;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border:
+    1px solid
+    rgba(255,255,255,0.65);
+
+    border-radius:9px;
+
+    text-decoration:none;
+
+    transition:all 0.3s ease;
+}
+
+.instagram-button:hover{
+    border-color:#c9a24d;
+
+    transform:translateY(-2px);
+}
+
+.instagram-button img{
+    width:32px;
+
+    height:32px;
+
+    object-fit:contain;
+
+    display:block;
+}
+
+
+/* =========================================================
+   COPYRIGHT
+========================================================= */
+
+.footer-bottom{
+    width:100%;
+
+    margin-top:50px;
+
+    padding-top:20px;
+
+    border-top:
+    1px solid
+    rgba(255,255,255,0.10);
+}
+
+.footer-bottom p{
+    margin:0;
+
+    color:#aaaaaa;
+
+    font-size:13px;
+
+    line-height:1.5;
+
+    text-align:center;
+}
+
+
+/* =========================================================
+   MOBILE RESPONSIVE
+========================================================= */
+
+@media screen and (max-width:768px){
+
+    .faq-header{
+        padding:65px 20px 55px;
+    }
+
+    .brand-name{
+        font-size:11px;
+
+        letter-spacing:4px;
+
+        margin-bottom:18px;
+    }
+
+    .faq-header h1{
+        font-size:47px;
+
+        letter-spacing:-1px;
+    }
+
+    .faq-subtitle{
+        font-size:15px;
+
+        line-height:1.6;
+    }
+
+    .faq-container{
+        width:88%;
+
+        padding:50px 0 70px;
+    }
+
+    .faq-introduction{
+        margin-bottom:40px;
+    }
+
+    .faq-introduction h2{
+        font-size:23px;
+
+        line-height:1.45;
+    }
+
+    .faq-introduction p{
+        font-size:15px;
+
+        line-height:1.85;
+    }
+
+    .faq-item{
+        margin-bottom:16px;
+    }
+
+    .faq-question{
+        padding:20px 17px;
+
+        gap:15px;
+
+        font-size:16px;
+
+        line-height:1.5;
+    }
+
+    .faq-icon{
+        width:31px;
+
+        height:31px;
+
+        font-size:19px;
+    }
+
+    .faq-answer{
+        padding:0 17px;
+
+        font-size:14px;
+
+        line-height:1.8;
+    }
+
+    .faq-item.active .faq-answer{
+        padding:0 17px 20px;
+    }
+
+    .back-home-wrapper{
+        margin-top:40px;
+    }
+
+    .back-btn{
+        width:100%;
+
+        max-width:250px;
+    }
+
+
+    /* FOOTER */
+
+    .main-footer{
+        padding:55px 18px 20px;
+    }
+
+    .footer-top{
+        grid-template-columns:1fr;
+
+        text-align:center;
+
+        gap:35px;
+    }
+
+    .footer-top > h2{
+        font-size:36px;
+
+        margin-bottom:5px;
+    }
+
+    .contact-column,
+    .whatsapp-column{
+        text-align:center;
+    }
+
+    .whatsapp-title{
+        max-width:320px;
+
+        margin-left:auto;
+
+        margin-right:auto;
+    }
+
+    .whatsapp-button{
+        width:100%;
+
+        max-width:280px;
+    }
+
+    .footer-middle{
+        grid-template-columns:1fr;
+
+        gap:35px;
+
+        margin-top:55px;
+
+        padding-top:35px;
+    }
+
+    .footer-links-column,
+    .footer-social{
+        text-align:center;
+    }
+
+    .footer-bottom{
+        margin-top:45px;
+    }
+
+    .footer-bottom p{
+        font-size:13px;
+
+        line-height:1.7;
+    }
+
+}
+
 </style>
+
 </head>
+
 
 <body>
 
-<div class="header">
-<div class="container">
 
-<h1>Frequently Asked Questions</h1>
+<div class="faq-page">
 
-<!-- FAQ items start -->
-<div class="faq-item">
-  <button class="faq-question">
-    1. How can I place an order?
-    <span class="faq-icon">+</span>
-  </button>
-  <div class="faq-answer">
-    <p>You can place an order directly through our WhatsApp contact.</p>
-  </div>
+
+<!-- =======================================================
+     FAQ HEADER
+======================================================= -->
+
+<header class="faq-header">
+
+    <div class="brand-name">
+        50 Mirars
+    </div>
+
+    <h1>
+        Frequently Asked <span>Questions</span>
+    </h1>
+
+    <p class="faq-subtitle">
+        Everything You Need to Know About 50 Mirars
+    </p>
+
+    <div class="gold-line"></div>
+
+</header>
+
+
+
+<!-- =======================================================
+     FAQ CONTENT
+======================================================= -->
+
+<div class="faq-container">
+
+
+<div class="faq-introduction">
+
+    <h2>
+        How Can We Help You?
+    </h2>
+
+    <p>
+        Find answers to some of the most common questions
+        about ordering, delivery, watches, sunglasses,
+        warranty, payments, returns, and customer support
+        at <strong>50 Mirars</strong>.
+    </p>
+
 </div>
 
-<div class="faq-item">
-  <button class="faq-question">
-    2. Do you deliver across India?
-    <span class="faq-icon">+</span>
-  </button>
-  <div class="faq-answer">
-    <p>Yes, we offer delivery services across India.</p>
-  </div>
-</div>
 
-<div class="faq-item">
-  <button class="faq-question">
-    3. What products does 50 Mirars offer?
-    <span class="faq-icon">+</span>
-  </button>
-  <div class="faq-answer">
-    <p>We specialize in premium watches and stylish sunglasses.</p>
-  </div>
-</div>
 
-<div class="faq-item">
-  <button class="faq-question">
-    4. How long does delivery take?
-    <span class="faq-icon">+</span>
-  </button>
-  <div class="faq-answer">
-    <p>Most orders are delivered within 3–7 business days.</p>
-  </div>
-</div>
-
-<div class="faq-item">
-  <button class="faq-question">
-    5. Do your watches come with a warranty?
-    <span class="faq-icon">+</span>
-  </button>
-  <div class="faq-answer">
-    <p>You can check the every warranty details in Terms & Conditions.</p>
-  </div>
-</div>
+<!-- FAQ 1 -->
 
 <div class="faq-item">
-  <button class="faq-question">
-    6. Can I return or exchange a product?
-    <span class="faq-icon">+</span>
-  </button>
-  <div class="faq-answer">
-    <p>Please contact us directly for return and exchange assistance.</p>
-  </div>
+
+    <button class="faq-question" type="button">
+
+        <span>
+            1. How can I place an order?
+        </span>
+
+        <span class="faq-icon">
+            +
+        </span>
+
+    </button>
+
+    <div class="faq-answer">
+
+        <p>
+            You can place an order directly through our WhatsApp contact.
+        </p>
+
+    </div>
+
 </div>
+
+
+
+<!-- FAQ 2 -->
 
 <div class="faq-item">
-  <button class="faq-question">
-    7. Are the sunglasses UV protected?
-    <span class="faq-icon">+</span>
-  </button>
-  <div class="faq-answer">
-    <p>Yes, our sunglasses are selected with quality and eye protection in mind.</p>
-  </div>
+
+    <button class="faq-question" type="button">
+
+        <span>
+            2. Do you deliver across India?
+        </span>
+
+        <span class="faq-icon">
+            +
+        </span>
+
+    </button>
+
+    <div class="faq-answer">
+
+        <p>
+            Yes, we offer delivery services across India.
+        </p>
+
+    </div>
+
 </div>
+
+
+
+<!-- FAQ 3 -->
 
 <div class="faq-item">
-  <button class="faq-question">
-    8. What payment methods do you accept?
-    <span class="faq-icon">+</span>
-  </button>
-  <div class="faq-answer">
-    <p>Payment options will be shared during order confirmation.</p>
-  </div>
+
+    <button class="faq-question" type="button">
+
+        <span>
+            3. What products does 50 Mirars offer?
+        </span>
+
+        <span class="faq-icon">
+            +
+        </span>
+
+    </button>
+
+    <div class="faq-answer">
+
+        <p>
+            We specialize in premium watches and stylish sunglasses.
+        </p>
+
+    </div>
+
 </div>
+
+
+
+<!-- FAQ 4 -->
 
 <div class="faq-item">
-  <button class="faq-question">
-    9. Can I track my order?
-    <span class="faq-icon">+</span>
-  </button>
-  <div class="faq-answer">
-    <p>Yes, tracking details will be provided once your order is shipped.</p>
-  </div>
+
+    <button class="faq-question" type="button">
+
+        <span>
+            4. How long does delivery take?
+        </span>
+
+        <span class="faq-icon">
+            +
+        </span>
+
+    </button>
+
+    <div class="faq-answer">
+
+        <p>
+            Most orders are delivered within 3–7 business days.
+        </p>
+
+    </div>
+
 </div>
+
+
+
+<!-- FAQ 5 -->
 
 <div class="faq-item">
-  <button class="faq-question">
-    10. Do you offer cash on delivery?
-    <span class="faq-icon">+</span>
-  </button>
-  <div class="faq-answer">
-    <p>COD availability depends on your location and order value.</p>
-  </div>
+
+    <button class="faq-question" type="button">
+
+        <span>
+            5. Do your watches come with a warranty?
+        </span>
+
+        <span class="faq-icon">
+            +
+        </span>
+
+    </button>
+
+    <div class="faq-answer">
+
+        <p>
+            You can check the every warranty details in Terms &amp; Conditions.
+        </p>
+
+    </div>
+
 </div>
+
+
+
+<!-- FAQ 6 -->
 
 <div class="faq-item">
-  <button class="faq-question">
-    11. How can I contact customer support?
-    <span class="faq-icon">+</span>
-  </button>
-  <div class="faq-answer">
-    <p>You can reach us via WhatsApp, Instagram, or email.</p>
-  </div>
+
+    <button class="faq-question" type="button">
+
+        <span>
+            6. Can I return or exchange a product?
+        </span>
+
+        <span class="faq-icon">
+            +
+        </span>
+
+    </button>
+
+    <div class="faq-answer">
+
+        <p>
+            Please contact us directly for return and exchange assistance.
+        </p>
+
+    </div>
+
 </div>
+
+
+
+<!-- FAQ 7 -->
 
 <div class="faq-item">
-  <button class="faq-question">
-    12. Are your products original and quality checked?
-    <span class="faq-icon">+</span>
-  </button>
-  <div class="faq-answer">
-    <p>Yes, every product is checked before dispatch to ensure quality.</p>
-  </div>
-</div>
-<!-- FAQ items end -->
 
-<a href="index.html" class="back-btn">← Back to Home</a>
+    <button class="faq-question" type="button">
+
+        <span>
+            7. Are the sunglasses UV protected?
+        </span>
+
+        <span class="faq-icon">
+            +
+        </span>
+
+    </button>
+
+    <div class="faq-answer">
+
+        <p>
+            Yes, our sunglasses are selected with quality and eye protection in mind.
+        </p>
+
+    </div>
 
 </div>
+
+
+
+<!-- FAQ 8 -->
+
+<div class="faq-item">
+
+    <button class="faq-question" type="button">
+
+        <span>
+            8. What payment methods do you accept?
+        </span>
+
+        <span class="faq-icon">
+            +
+        </span>
+
+    </button>
+
+    <div class="faq-answer">
+
+        <p>
+            Payment options will be shared during order confirmation.
+        </p>
+
+    </div>
+
 </div>
+
+
+
+<!-- FAQ 9 -->
+
+<div class="faq-item">
+
+    <button class="faq-question" type="button">
+
+        <span>
+            9. Can I track my order?
+        </span>
+
+        <span class="faq-icon">
+            +
+        </span>
+
+    </button>
+
+    <div class="faq-answer">
+
+        <p>
+            Yes, tracking details will be provided once your order is shipped.
+        </p>
+
+    </div>
+
+</div>
+
+
+
+<!-- FAQ 10 -->
+
+<div class="faq-item">
+
+    <button class="faq-question" type="button">
+
+        <span>
+            10. Do you offer cash on delivery?
+        </span>
+
+        <span class="faq-icon">
+            +
+        </span>
+
+    </button>
+
+    <div class="faq-answer">
+
+        <p>
+            COD availability depends on your location and order value.
+        </p>
+
+    </div>
+
+</div>
+
+
+
+<!-- FAQ 11 -->
+
+<div class="faq-item">
+
+    <button class="faq-question" type="button">
+
+        <span>
+            11. How can I contact customer support?
+        </span>
+
+        <span class="faq-icon">
+            +
+        </span>
+
+    </button>
+
+    <div class="faq-answer">
+
+        <p>
+            You can reach us via WhatsApp, Instagram, or email.
+        </p>
+
+    </div>
+
+</div>
+
+
+
+<!-- FAQ 12 -->
+
+<div class="faq-item">
+
+    <button class="faq-question" type="button">
+
+        <span>
+            12. Are your products original and quality checked?
+        </span>
+
+        <span class="faq-icon">
+            +
+        </span>
+
+    </button>
+
+    <div class="faq-answer">
+
+        <p>
+            Yes, every product is checked before dispatch to ensure quality.
+        </p>
+
+    </div>
+
+</div>
+
+
+
+<!-- =======================================================
+     BACK TO HOME BUTTON
+======================================================= -->
+
+<div class="back-home-wrapper">
+
+    <a href="index.html" class="back-btn">
+        ← Back to Home
+    </a>
+
+</div>
+
+
+</div>
+
+
+
+<!-- =======================================================
+     CONTACT US FOOTER
+======================================================= -->
+
+<footer class="main-footer">
+
+<div class="footer-container">
+
+
+<!-- CONTACT US -->
+
+<div class="footer-top">
+
+
+<h2>
+    Contact Us
+</h2>
+
+
+<!-- CUSTOMERS -->
+
+<div class="contact-column">
+
+    <h3>
+        For Customers:
+    </h3>
+
+    <a
+        href="mailto:50mirars@gmail.com"
+        class="footer-link"
+    >
+        50mirars@gmail.com
+    </a>
+
+    <a
+        href="tel:+918209989013"
+        class="footer-link"
+    >
+        82099 89013
+    </a>
+
+    <p>
+        09:00 - 21:30 | Monday to Sunday
+    </p>
+
+</div>
+
+
+<!-- SALES / WATCH SERVICE -->
+
+<div class="contact-column">
+
+    <h3>
+        For Sales/Watch Service:
+    </h3>
+
+    <a
+        href="mailto:50mirars@gmail.com"
+        class="footer-link"
+    >
+        50mirars@gmail.com
+    </a>
+
+    <a
+        href="tel:+918209989013"
+        class="footer-link"
+    >
+        82099 89013
+    </a>
+
+    <p>
+        09:00 - 21:30 | Monday to Sunday
+    </p>
+
+</div>
+
+
+<!-- WHATSAPP -->
+
+<div class="whatsapp-column">
+
+    <h3 class="whatsapp-title">
+
+        View Products on WhatsApp
+
+        <img
+            src="whatsapplogo.png"
+            alt="WhatsApp"
+            class="whatsapp-icon"
+        >
+
+    </h3>
+
+    <a
+        href="https://wa.me/918209989013"
+        target="_blank"
+        rel="noopener"
+        class="whatsapp-button"
+    >
+        View Products
+    </a>
+
+</div>
+
+
+</div>
+
+
+
+<!-- FOOTER LINKS -->
+
+<div class="footer-middle">
+
+
+<!-- KNOW 50 MIRARS -->
+
+<div class="footer-links-column">
+
+    <h3>
+        Know 50 Mirars
+    </h3>
+
+    <a href="about.html">
+        About Us
+    </a>
+
+    <a href="faq.html">
+        FAQ
+    </a>
+
+</div>
+
+
+<!-- TERMS -->
+
+<div class="footer-links-column">
+
+    <h3>
+        Terms &amp; Conditions
+    </h3>
+
+    <a href="terms.html">
+        Terms &amp; Conditions
+    </a>
+
+    <a href="privacypolicy.html">
+        Privacy Policy
+    </a>
+
+</div>
+
+
+<!-- INSTAGRAM -->
+
+<div class="footer-social">
+
+    <h3>
+        50 Mirars
+    </h3>
+
+    <p>
+        Follow Us On
+    </p>
+
+    <a
+        href="https://instagram.com/50mirars"
+        target="_blank"
+        rel="noopener"
+        class="instagram-button"
+        aria-label="Follow 50 Mirars on Instagram"
+    >
+
+        <img
+            src="instagramimage.webp"
+            alt="Instagram"
+        >
+
+    </a>
+
+</div>
+
+
+</div>
+
+
+
+<!-- COPYRIGHT -->
+
+<div class="footer-bottom">
+
+    <p>
+        © 2026 50 Mirars - The Watch &amp; Sunglasses Store.
+        All Rights Reserved.
+    </p>
+
+</div>
+
+
+</div>
+
+</footer>
+
+
+</div>
+
+
+
+<!-- =======================================================
+     FAQ JAVASCRIPT
+======================================================= -->
 
 <script>
-const faqItems = document.querySelectorAll('.faq-item');
 
-faqItems.forEach(item => {
-  const question = item.querySelector('.faq-question');
-  const icon = item.querySelector('.faq-icon');
+const faqItems =
+    document.querySelectorAll(".faq-item");
 
-  question.addEventListener('click', () => {
-    item.classList.toggle('active');
-    if (item.classList.contains('active')) {
-      icon.textContent = '–';
-    } else {
-      icon.textContent = '+';
-    }
-  });
+
+faqItems.forEach(function(item){
+
+    const question =
+        item.querySelector(".faq-question");
+
+    const icon =
+        item.querySelector(".faq-icon");
+
+
+    question.addEventListener("click",function(){
+
+        const isActive =
+            item.classList.contains("active");
+
+
+        /* Close all FAQ items */
+
+        faqItems.forEach(function(otherItem){
+
+            otherItem.classList.remove("active");
+
+            const otherIcon =
+                otherItem.querySelector(".faq-icon");
+
+            otherIcon.textContent = "+";
+
+        });
+
+
+        /* Open selected FAQ */
+
+        if(!isActive){
+
+            item.classList.add("active");
+
+            icon.textContent = "–";
+
+        }
+
+    });
+
 });
+
 </script>
 
-<div class="footer">
-© 2026 50 Mirars. All Rights Reserved.
-</div>
 
 </body>
+
 </html>
