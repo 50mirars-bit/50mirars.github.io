@@ -1689,62 +1689,41 @@
             line-height: 1.5;
         }
 
+/* =====================================================
+   TOP RIGHT CART
+===================================================== */
 
+.header-cart {
+    width: 44px;
+    height: 44px;
 
-        /* =====================================================
-           FLOATING CART
-           ===================================================== */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-        .floating-cart {
+    color: #111111;
+    background: transparent;
 
-            position: fixed;
+    text-decoration: none;
 
-            right: 25px;
+    border: 1px solid transparent;
+    border-radius: 50%;
 
-            bottom: 25px;
+    transition: all 0.3s ease;
 
-            width: 58px;
+    flex-shrink: 0;
+}
 
-            height: 58px;
+.header-cart .cart-icon {
+    font-size: 22px;
+    line-height: 1;
+}
 
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            background: #c9a24d;
-
-            color: #ffffff;
-
-            border-radius: 50%;
-
-            text-decoration: none;
-
-            font-size: 25px;
-
-            box-shadow:
-                0 5px 18px
-                rgba(0,0,0,0.25);
-
-            z-index: 9999;
-
-            transition:
-                all
-                0.3s
-                ease;
-        }
-
-
-        .floating-cart:hover {
-
-            background: #111111;
-
-            transform:
-                translateY(-4px);
-        }
-
-
+.header-cart:hover {
+    color: #c9a24d;
+    border-color: #c9a24d;
+    transform: translateY(-1px);
+}
 
         /* =====================================================
            TABLET
@@ -2658,13 +2637,11 @@
 
 
 
-        <!-- RIGHT: INTENTIONALLY CLEAN -->
+        <!-- RIGHT: Cart Buttom -->
 
-        <div class="header-right">
-        </div>
-
-
-    </header>
+       <a href="cart.html" class="header-cart" aria-label="Shopping Cart">
+    <span class="cart-icon">🛒</span>
+</a>
 
 
 
@@ -3755,24 +3732,6 @@
         </p>
 
     </footer>
-
-
-
-    <!-- =====================================================
-         FLOATING CART
-         KEPT SEPARATE FROM HEADER
-    ===================================================== -->
-
-    <a
-        href="cart.html"
-        class="floating-cart"
-        aria-label="Shopping Cart"
-    >
-
-        🛒
-
-    </a>
-
 
 
     <!-- =====================================================
