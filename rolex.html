@@ -15,12 +15,24 @@
 
 <style>
 
-/* =========================================
-   MAIN PAGE
-   ========================================= */
+/* =========================================================
+   GLOBAL RESET
+========================================================= */
+
+*{
+    box-sizing:border-box;
+}
+
+html,
+body{
+    width:100%;
+    max-width:100%;
+    margin:0;
+    padding:0;
+    overflow-x:hidden;
+}
 
 body{
-    margin:0;
     font-family:Arial,sans-serif;
 
     background:
@@ -40,18 +52,30 @@ body{
 }
 
 
-/* =========================================
+/* =========================================================
    BACK TO HOME
-   ========================================= */
+========================================================= */
+
+.home-wrapper{
+    width:100%;
+    padding:20px;
+}
 
 .home-btn{
     display:inline-block;
+
     background:#111;
     color:#fff;
+
     text-decoration:none;
+
     padding:12px 25px;
+
     border-radius:6px;
+
     font-weight:600;
+
+    transition:0.3s ease;
 }
 
 .home-btn:hover{
@@ -60,161 +84,253 @@ body{
 }
 
 
-/* =========================================
+/* =========================================================
    PAGE TITLE
-   ========================================= */
+========================================================= */
 
 .page-title{
+    width:100%;
+    max-width:100%;
+
     text-align:center;
+
     padding:30px 20px 40px;
 }
 
 .page-title h1{
     font-size:64px;
+
     margin:0 0 20px;
+
     color:#111;
+
+    line-height:1.1;
+
+    word-break:break-word;
 }
 
 .title-line{
     width:160px;
+    max-width:80%;
+
     height:2px;
+
     background:#c9a24d;
+
     margin:0 auto;
+
     position:relative;
 }
 
 .title-line::after{
     content:"";
+
     width:12px;
     height:12px;
+
     background:#c9a24d;
+
     position:absolute;
+
     left:50%;
     top:50%;
-    transform:translate(-50%,-50%) rotate(45deg);
+
+    transform:
+        translate(-50%,-50%)
+        rotate(45deg);
 }
 
 
-/* =========================================
+/* =========================================================
    PRODUCTS GRID
-   ========================================= */
+========================================================= */
 
 .products-grid{
     width:90%;
     max-width:1400px;
+
     margin:0 auto 70px;
 
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+
+    grid-template-columns:
+        repeat(3,minmax(0,1fr));
+
     gap:35px;
 }
 
 
-/* =========================================
+/* =========================================================
    PRODUCT CARD
-   ========================================= */
+========================================================= */
 
 .product-card{
+    width:100%;
+    min-width:0;
+
     background:#fff;
+
     border-radius:15px;
+
     overflow:hidden;
+
     text-align:center;
-    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+
+    box-shadow:
+        0 8px 25px
+        rgba(0,0,0,0.08);
 }
 
 .product-card img{
     width:100%;
+    max-width:100%;
+
     height:350px;
+
     object-fit:cover;
+
+    display:block;
 }
 
 .product-card video{
     width:100%;
+    max-width:100%;
+
     height:350px;
+
     object-fit:cover;
+
     display:block;
 }
 
 .product-card h3{
     margin:20px 10px 10px;
+
+    line-height:1.4;
+
+    word-break:break-word;
 }
 
 
-/* =========================================
+/* =========================================================
    PRICE
-   ========================================= */
+========================================================= */
 
 .price{
     color:#c9a24d;
+
     font-size:22px;
+
     font-weight:bold;
+
+    margin:10px 0;
 }
 
 
-/* =========================================
+/* =========================================================
    PRODUCT BUTTONS
-   ========================================= */
+========================================================= */
 
 .product-buttons{
+    width:100%;
+
     display:flex;
+
     justify-content:center;
+
+    align-items:center;
+
     gap:10px;
+
     margin-top:10px;
+
     margin-bottom:20px;
+
+    padding:0 10px;
+
+    flex-wrap:wrap;
 }
 
 .enquire-btn,
 .add-to-cart-btn{
     padding:10px 20px;
+
     border:1px solid #111;
+
     cursor:pointer;
+
     text-decoration:none;
+
     font-weight:600;
+
     border-radius:6px;
+
     font-size:16px;
+
     transition:0.3s;
+
+    font-family:Arial,sans-serif;
 }
 
 
-/* Enquire */
+/* =========================================================
+   ENQUIRE
+========================================================= */
 
 .enquire-btn{
     background:#111;
+
     color:#fff;
 }
 
 .enquire-btn:hover{
     background:#c9a24d;
+
     color:#111;
 }
 
 
-/* Add To Cart */
+/* =========================================================
+   ADD TO CART
+========================================================= */
 
 .add-to-cart-btn{
     background:#fff;
+
     color:#111;
 }
 
 .add-to-cart-btn:hover{
     background:#c9a24d;
+
     color:#fff;
+
     border-color:#c9a24d;
 }
 
 
-/* =========================================
+/* =========================================================
    IMAGE SLIDER
-   ========================================= */
+========================================================= */
 
 .slider{
     position:relative;
+
+    width:100%;
+
+    max-width:100%;
+
+    overflow:hidden;
 }
 
 .slide{
     width:100%;
+    max-width:100%;
+
     height:350px;
+
     object-fit:cover;
+
     display:none;
 }
 
@@ -223,24 +339,33 @@ body{
 }
 
 
-/* Slider Buttons */
+/* =========================================================
+   SLIDER BUTTONS
+========================================================= */
 
 .prev,
 .next{
     position:absolute;
+
     top:50%;
+
     transform:translateY(-50%);
 
     background:rgba(0,0,0,0.6);
+
     color:#fff;
 
     border:none;
+
     cursor:pointer;
 
     padding:12px 16px;
+
     font-size:22px;
 
     border-radius:50%;
+
+    z-index:5;
 }
 
 .prev{
@@ -252,9 +377,9 @@ body{
 }
 
 
-/* =========================================
-   INFORMATION SECTION
-   ========================================= */
+/* =========================================================
+   ROLEX INFORMATION SECTION
+========================================================= */
 
 .rolex-info-section{
 
@@ -269,35 +394,40 @@ body{
 
     color:#111;
 
-    box-sizing:border-box;
+    overflow:hidden;
 }
 
 
-/* =========================================
+/* =========================================================
    THREE COLUMNS
-   ========================================= */
+========================================================= */
 
 .rolex-info-grid{
+
+    width:100%;
 
     display:grid;
 
     grid-template-columns:
-        repeat(3,1fr);
+        repeat(3,minmax(0,1fr));
 
     gap:55px;
 
     align-items:start;
 }
 
-
 .rolex-info-column{
     min-width:0;
+
+    width:100%;
+
+    overflow-wrap:break-word;
 }
 
 
-/* =========================================
+/* =========================================================
    HEADINGS
-   ========================================= */
+========================================================= */
 
 .rolex-info-section h2{
 
@@ -308,8 +438,9 @@ body{
     line-height:1.45;
 
     font-weight:600;
-}
 
+    overflow-wrap:break-word;
+}
 
 .rolex-info-section h3{
 
@@ -320,12 +451,14 @@ body{
     line-height:1.45;
 
     font-weight:600;
+
+    overflow-wrap:break-word;
 }
 
 
-/* =========================================
+/* =========================================================
    TEXT
-   ========================================= */
+========================================================= */
 
 .rolex-info-section p{
 
@@ -336,22 +469,28 @@ body{
     line-height:1.6;
 
     font-weight:400;
+
+    overflow-wrap:break-word;
+
+    word-wrap:break-word;
 }
 
 
-/* =========================================
+/* =========================================================
    FAQ
-   ========================================= */
+========================================================= */
 
 .rolex-faq{
     margin-top:0;
-}
 
+    width:100%;
+}
 
 .rolex-faq-item{
     margin-bottom:20px;
-}
 
+    width:100%;
+}
 
 .rolex-faq-question{
 
@@ -363,7 +502,6 @@ body{
 
     font-weight:600 !important;
 }
-
 
 .rolex-faq-answer{
 
@@ -377,17 +515,20 @@ body{
 }
 
 
-/* =========================================
+/* =========================================================
    CONCLUSION
-   ========================================= */
+========================================================= */
 
 .rolex-conclusion{
+
+    width:100%;
 
     margin-top:40px;
 
     padding-top:5px;
-}
 
+    overflow-wrap:break-word;
+}
 
 .rolex-conclusion h2{
 
@@ -400,35 +541,494 @@ body{
     font-weight:600;
 }
 
-
 .rolex-conclusion p{
 
     font-size:13px;
 
     line-height:1.6;
+
+    margin:0;
 }
 
 
-/* =========================================
+/* =========================================================
+   CONTACT US FOOTER
+========================================================= */
+
+.main-footer{
+
+    width:100%;
+    max-width:100%;
+
+    background:#080808;
+
+    color:#ffffff;
+
+    padding:70px 7% 25px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,0.08);
+
+    overflow:hidden;
+}
+
+.footer-container{
+
+    width:100%;
+    max-width:1400px;
+
+    margin:0 auto;
+}
+
+
+/* =========================================================
+   FOOTER TOP
+========================================================= */
+
+.footer-top{
+
+    width:100%;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,minmax(0,1fr));
+
+    column-gap:70px;
+
+    row-gap:40px;
+
+    align-items:start;
+}
+
+.footer-top > h2{
+
+    grid-column:1 / -1;
+
+    margin:0 0 10px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:42px;
+
+    font-weight:500;
+
+    line-height:1.2;
+
+    color:#ffffff;
+
+    text-align:center;
+}
+
+.contact-column,
+.whatsapp-column{
+
+    min-width:0;
+
+    width:100%;
+
+    text-align:center;
+}
+
+.contact-column h3,
+.whatsapp-column h3{
+
+    margin:0 0 22px;
+
+    color:#ffffff;
+
+    font-size:20px;
+
+    font-weight:700;
+
+    line-height:1.35;
+}
+
+.contact-column p{
+
+    margin:12px 0 0;
+
+    color:#bdbdbd;
+
+    font-size:15px;
+
+    line-height:1.6;
+}
+
+.footer-link{
+
+    display:block;
+
+    width:fit-content;
+
+    max-width:100%;
+
+    margin:0 auto 8px;
+
+    color:#ffffff;
+
+    text-decoration:none;
+
+    font-size:16px;
+
+    line-height:1.6;
+
+    overflow-wrap:break-word;
+
+    transition:color 0.3s ease;
+}
+
+.footer-link:hover{
+    color:#c9a24d;
+}
+
+
+/* =========================================================
+   WHATSAPP
+========================================================= */
+
+.whatsapp-title{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:8px;
+
+    flex-wrap:wrap;
+}
+
+.whatsapp-icon{
+
+    width:28px;
+
+    height:28px;
+
+    object-fit:contain;
+
+    display:inline-block;
+
+    flex-shrink:0;
+}
+
+.whatsapp-button{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    min-width:205px;
+
+    min-height:60px;
+
+    max-width:100%;
+
+    padding:13px 30px;
+
+    background:#ffffff;
+
+    color:#111111;
+
+    text-decoration:none;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    letter-spacing:0.2px;
+
+    border:1px solid #ffffff;
+
+    transition:all 0.3s ease;
+}
+
+.whatsapp-button:hover{
+
+    background:#c9a24d;
+
+    border-color:#c9a24d;
+
+    color:#ffffff;
+
+    transform:translateY(-2px);
+}
+
+
+/* =========================================================
+   FOOTER MIDDLE
+========================================================= */
+
+.footer-middle{
+
+    width:100%;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,minmax(0,1fr));
+
+    gap:50px;
+
+    margin-top:65px;
+
+    padding-top:45px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,0.10);
+}
+
+.footer-links-column,
+.footer-social{
+
+    min-width:0;
+
+    width:100%;
+
+    text-align:center;
+}
+
+.footer-links-column h3,
+.footer-social h3{
+
+    margin:0 0 20px;
+
+    color:#ffffff;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    line-height:1.35;
+}
+
+.footer-links-column a{
+
+    display:block;
+
+    width:fit-content;
+
+    max-width:100%;
+
+    margin:0 auto 14px;
+
+    color:#d7d7d7;
+
+    text-decoration:none;
+
+    font-size:15px;
+
+    line-height:1.5;
+
+    transition:color 0.3s ease;
+}
+
+.footer-links-column a:hover{
+    color:#c9a24d;
+}
+
+.footer-social p{
+
+    margin:0 0 14px;
+
+    color:#d7d7d7;
+
+    font-size:15px;
+}
+
+
+/* =========================================================
+   INSTAGRAM
+========================================================= */
+
+.instagram-button{
+
+    width:58px;
+
+    height:58px;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.65);
+
+    border-radius:9px;
+
+    text-decoration:none;
+
+    transition:all 0.3s ease;
+}
+
+.instagram-button:hover{
+
+    border-color:#c9a24d;
+
+    transform:translateY(-2px);
+}
+
+.instagram-button img{
+
+    width:32px;
+
+    height:32px;
+
+    object-fit:contain;
+
+    display:block;
+}
+
+
+/* =========================================================
+   COPYRIGHT
+========================================================= */
+
+.footer-bottom{
+
+    width:100%;
+
+    margin-top:50px;
+
+    padding-top:20px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,0.10);
+}
+
+.footer-bottom p{
+
+    margin:0;
+
+    color:#aaaaaa;
+
+    font-size:13px;
+
+    line-height:1.5;
+
+    text-align:center;
+
+    overflow-wrap:break-word;
+}
+
+
+/* =========================================================
    TABLET
-   ========================================= */
+========================================================= */
 
 @media(max-width:1000px){
 
     .products-grid{
-        grid-template-columns:repeat(2,1fr);
+
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+
+        gap:25px;
+    }
+
+    .rolex-info-grid{
+
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+
+        gap:35px;
+    }
+
+    .footer-top{
+
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+
+        column-gap:35px;
+    }
+
+    .footer-top > h2{
+
+        grid-column:1 / -1;
+    }
+
+    .footer-middle{
+
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+
+        gap:35px;
     }
 
 }
 
 
-/* =========================================
+/* =========================================================
    MOBILE
-   ========================================= */
+========================================================= */
 
-@media(max-width:900px){
+@media(max-width:700px){
+
+    .home-wrapper{
+
+        padding:15px;
+    }
+
+    .page-title{
+
+        padding:
+            25px
+            15px
+            35px;
+    }
+
+    .page-title h1{
+
+        font-size:48px;
+    }
+
+    .products-grid{
+
+        width:calc(100% - 30px);
+
+        margin-left:15px;
+        margin-right:15px;
+
+        grid-template-columns:1fr;
+
+        gap:25px;
+    }
+
+    .slide,
+    .product-card img,
+    .product-card video{
+
+        height:300px;
+    }
+
+    .product-buttons{
+
+        padding:0 15px;
+    }
+
+    .enquire-btn,
+    .add-to-cart-btn{
+
+        padding:10px 15px;
+
+        font-size:15px;
+    }
 
     .rolex-info-section{
+
+        width:100%;
 
         margin-top:30px;
 
@@ -438,7 +1038,6 @@ body{
             45px;
     }
 
-
     .rolex-info-grid{
 
         grid-template-columns:1fr;
@@ -446,13 +1045,11 @@ body{
         gap:5px;
     }
 
-
     .rolex-info-section h2,
     .rolex-info-section h3{
 
         font-size:16px;
     }
-
 
     .rolex-info-section p,
     .rolex-faq-question,
@@ -462,35 +1059,103 @@ body{
         font-size:13px !important;
     }
 
+
+    /* FOOTER MOBILE */
+
+    .main-footer{
+
+        padding:
+            55px
+            20px
+            25px;
+    }
+
+    .footer-top{
+
+        grid-template-columns:1fr;
+
+        gap:40px;
+    }
+
+    .footer-top > h2{
+
+        grid-column:auto;
+
+        font-size:34px;
+
+        margin-bottom:5px;
+    }
+
+    .contact-column,
+    .whatsapp-column{
+
+        width:100%;
+    }
+
+    .footer-middle{
+
+        grid-template-columns:1fr;
+
+        gap:35px;
+
+        margin-top:50px;
+
+        padding-top:35px;
+    }
+
+    .footer-bottom{
+
+        margin-top:40px;
+    }
+
 }
 
 
-@media(max-width:700px){
+/* =========================================================
+   EXTRA SMALL MOBILE
+========================================================= */
 
-    .products-grid{
+@media(max-width:400px){
 
-        grid-template-columns:1fr;
+    .page-title h1{
+
+        font-size:42px;
     }
 
+    .home-btn{
 
-    .slide,
-    .product-card img,
-    .product-card video{
+        padding:
+            10px
+            18px;
 
-        height:300px;
+        font-size:14px;
     }
 
+    .product-buttons{
+
+        flex-direction:column;
+
+        align-items:stretch;
+    }
 
     .enquire-btn,
     .add-to-cart-btn{
 
-        padding:10px 15px;
+        width:100%;
+
+        text-align:center;
     }
 
+    .whatsapp-button{
 
-    .page-title h1{
+        width:100%;
 
-        font-size:48px;
+        min-width:0;
+    }
+
+    .footer-top > h2{
+
+        font-size:30px;
     }
 
 }
@@ -503,11 +1168,11 @@ body{
 <body>
 
 
-<!-- =========================================
+<!-- =========================================================
      BACK TO HOME
-     ========================================= -->
+========================================================= -->
 
-<div style="padding:20px;">
+<div class="home-wrapper">
 
     <a
         href="index.html"
@@ -519,30 +1184,32 @@ body{
 </div>
 
 
-<!-- =========================================
+<!-- =========================================================
      PAGE TITLE
-     ========================================= -->
+========================================================= -->
 
 <div class="page-title">
 
-    <h1>Rolex</h1>
+    <h1>
+        Rolex
+    </h1>
 
     <div class="title-line"></div>
 
 </div>
 
 
-<!-- =========================================
+<!-- =========================================================
      ROLEX PRODUCTS
-     ========================================= -->
+========================================================= -->
 
 <div class="products-grid">
 
 
     <!--
-    ============================================
+    =========================================================
     ADD YOUR ROLEX PRODUCTS HERE
-    ============================================
+    =========================================================
 
     Example:
 
@@ -553,7 +1220,9 @@ body{
             alt="Rolex Watch"
         >
 
-        <h3>Rolex Watch</h3>
+        <h3>
+            Rolex Watch
+        </h3>
 
         <div class="price">
             ₹4,000
@@ -562,8 +1231,10 @@ body{
         <div class="product-buttons">
 
             <a
-                href="https://wa.me/91XXXXXXXXXX"
+                href="https://wa.me/918209989013"
                 class="enquire-btn"
+                target="_blank"
+                rel="noopener"
             >
                 Enquire Now
             </a>
@@ -583,12 +1254,13 @@ body{
 
     -->
 
+
 </div>
 
 
-<!-- =========================================
+<!-- =========================================================
      ROLEX INFORMATION SECTION
-     ========================================= -->
+========================================================= -->
 
 <section class="rolex-info-section">
 
@@ -596,9 +1268,9 @@ body{
     <div class="rolex-info-grid">
 
 
-        <!-- =================================
+        <!-- =================================================
              COLUMN 1
-             ================================= -->
+        ================================================== -->
 
         <div class="rolex-info-column">
 
@@ -649,9 +1321,9 @@ body{
         </div>
 
 
-        <!-- =================================
+        <!-- =================================================
              COLUMN 2
-             ================================= -->
+        ================================================== -->
 
         <div class="rolex-info-column">
 
@@ -716,9 +1388,9 @@ body{
         </div>
 
 
-        <!-- =================================
+        <!-- =================================================
              COLUMN 3
-             ================================= -->
+        ================================================== -->
 
         <div class="rolex-info-column">
 
@@ -857,9 +1529,9 @@ body{
     </div>
 
 
-    <!-- =================================
+    <!-- =================================================
          CONCLUSION
-         ================================= -->
+    ================================================== -->
 
     <div class="rolex-conclusion">
 
@@ -886,25 +1558,256 @@ body{
 </section>
 
 
-<!-- =========================================
+<!-- =========================================================
+     CONTACT US FOOTER
+========================================================= -->
+
+<footer class="main-footer">
+
+
+    <div class="footer-container">
+
+
+        <!-- =================================================
+             CONTACT TOP
+        ================================================== -->
+
+        <div class="footer-top">
+
+
+            <h2>
+                Contact Us
+            </h2>
+
+
+            <!-- CUSTOMERS -->
+
+            <div class="contact-column">
+
+                <h3>
+                    For Customers:
+                </h3>
+
+
+                <a
+                    href="mailto:50mirars@gmail.com"
+                    class="footer-link"
+                >
+                    50mirars@gmail.com
+                </a>
+
+
+                <a
+                    href="tel:+918209989013"
+                    class="footer-link"
+                >
+                    82099 89013
+                </a>
+
+
+                <p>
+                    09:00 - 21:30 | Monday to Sunday
+                </p>
+
+            </div>
+
+
+            <!-- SALES / WATCH SERVICE -->
+
+            <div class="contact-column">
+
+                <h3>
+                    For Sales/Watch Service:
+                </h3>
+
+
+                <a
+                    href="mailto:50mirars@gmail.com"
+                    class="footer-link"
+                >
+                    50mirars@gmail.com
+                </a>
+
+
+                <a
+                    href="tel:+918209989013"
+                    class="footer-link"
+                >
+                    82099 89013
+                </a>
+
+
+                <p>
+                    09:00 - 21:30 | Monday to Sunday
+                </p>
+
+            </div>
+
+
+            <!-- WHATSAPP -->
+
+            <div class="whatsapp-column">
+
+                <h3 class="whatsapp-title">
+
+                    View Products on WhatsApp
+
+
+                    <img
+                        src="whatsapplogo.png"
+                        alt="WhatsApp"
+                        class="whatsapp-icon"
+                    >
+
+                </h3>
+
+
+                <a
+                    href="https://wa.me/918209989013"
+                    target="_blank"
+                    rel="noopener"
+                    class="whatsapp-button"
+                >
+                    View Products
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- =================================================
+             FOOTER MIDDLE
+        ================================================== -->
+
+        <div class="footer-middle">
+
+
+            <!-- KNOW 50 MIRARS -->
+
+            <div class="footer-links-column">
+
+                <h3>
+                    Know 50 Mirars
+                </h3>
+
+
+                <a href="about.html">
+                    About Us
+                </a>
+
+
+                <a href="faq.html">
+                    FAQ
+                </a>
+
+            </div>
+
+
+            <!-- TERMS -->
+
+            <div class="footer-links-column">
+
+                <h3>
+                    Terms &amp; Conditions
+                </h3>
+
+
+                <a href="terms.html">
+                    Terms &amp; Conditions
+                </a>
+
+
+                <a href="privacypolicy.html">
+                    Privacy Policy
+                </a>
+
+            </div>
+
+
+            <!-- INSTAGRAM -->
+
+            <div class="footer-social">
+
+                <h3>
+                    50 Mirars
+                </h3>
+
+
+                <p>
+                    Follow Us On
+                </p>
+
+
+                <a
+                    href="https://instagram.com/50mirars"
+                    target="_blank"
+                    rel="noopener"
+                    class="instagram-button"
+                    aria-label="Follow 50 Mirars on Instagram"
+                >
+
+
+                    <img
+                        src="instagramimage.webp"
+                        alt="Instagram"
+                    >
+
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- =================================================
+             COPYRIGHT
+        ================================================== -->
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 50 Mirars - The Watch &amp; Sunglasses Store.
+                All Rights Reserved.
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+</footer>
+
+
+<!-- =========================================================
      JAVASCRIPT
-     ========================================= -->
+========================================================= -->
 
 <script>
 
 
-/* =========================================
+/* =========================================================
    IMAGE SLIDER
-   ========================================= */
+========================================================= */
 
-document.querySelectorAll('.slider').forEach(slider => {
+document
+.querySelectorAll('.slider')
+.forEach(slider => {
 
 
     const slides =
         slider.querySelectorAll('.slide');
 
 
-    if(slides.length === 0) return;
+    if(slides.length === 0){
+
+        return;
+
+    }
 
 
     let current = 0;
@@ -924,6 +1827,7 @@ document.querySelectorAll('.slider').forEach(slider => {
             'click',
             () => {
 
+
                 slides[current]
                     .classList
                     .remove('active');
@@ -938,6 +1842,7 @@ document.querySelectorAll('.slider').forEach(slider => {
                     .classList
                     .add('active');
 
+
             }
         );
 
@@ -949,6 +1854,7 @@ document.querySelectorAll('.slider').forEach(slider => {
         prevButton.addEventListener(
             'click',
             () => {
+
 
                 slides[current]
                     .classList
@@ -964,6 +1870,7 @@ document.querySelectorAll('.slider').forEach(slider => {
                     .classList
                     .add('active');
 
+
             }
         );
 
@@ -973,9 +1880,9 @@ document.querySelectorAll('.slider').forEach(slider => {
 });
 
 
-/* =========================================
+/* =========================================================
    ADD TO CART
-   ========================================= */
+========================================================= */
 
 document
 .querySelectorAll(".add-to-cart-btn")
@@ -987,15 +1894,15 @@ document
         () => {
 
 
-            let name =
+            const name =
                 button.dataset.name;
 
 
-            let price =
+            const price =
                 button.dataset.price;
 
 
-            let image =
+            const image =
                 button.dataset.image || "";
 
 
@@ -1017,8 +1924,11 @@ document
 
 
             localStorage.setItem(
+
                 "cart",
+
                 JSON.stringify(cart)
+
             );
 
 
