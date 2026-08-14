@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=1200"
+>
+
+<title>Delivery Details | 50 Mirars</title>
+
+
+<style>
+
+/* =========================
+   BASIC
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+
+    margin: 0;
+
+    font-family: Arial, sans-serif;
+
+    background: #f9f9f9;
+
+    color: #222;
+
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+
+    background: #fff;
+
+    padding: 20px 40px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    border-bottom: 1px solid #ddd;
+
+}
+
+header h1 {
+
+    margin: 0;
+
+    font-size: 28px;
+
+    text-align: center;
+
+    flex: 1;
+
+}
+
+.back-btn {
+
+    background: #111;
+
+    color: #fff;
+
+    padding: 10px 20px;
+
+    text-decoration: none;
+
+    border-radius: 6px;
+
+    font-size: 15px;
+
+}
+
+.back-btn:hover {
+
+    background: #333;
+
+}
+
+.logo {
+
+    width: 120px;
+
+    height: auto;
+
+}
+
+
+/* =========================
+   MAIN PAGE
+========================= */
+
+.delivery-page {
+
+    max-width: 1200px;
+
+    margin: 40px auto;
+
+    padding: 0 20px;
+
+    display: flex;
+
+    gap: 30px;
+
+    align-items: flex-start;
+
+}
+
+
+/* =========================
+   DELIVERY FORM
+========================= */
+
+.delivery-form {
+
+    flex: 2;
+
+    background: #fff;
+
+    padding: 30px;
+
+    border-radius: 10px;
+
+    border: 1px solid #ddd;
+
+    box-shadow:
+        0 2px 8px rgba(0,0,0,0.08);
+
+}
+
+.delivery-form h2 {
+
+    margin-top: 0;
+
+    margin-bottom: 25px;
+
+    font-size: 22px;
+
+}
+
+.form-row {
+
+    display: flex;
+
+    gap: 20px;
+
+}
+
+.form-group {
+
+    flex: 1;
+
+    margin-bottom: 20px;
+
+}
+
+.form-group label {
+
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-weight: 600;
+
+    font-size: 14px;
+
+}
+
+.form-group input,
+
+.form-group textarea,
+
+.form-group select {
+
+    width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 5px;
+
+    font-size: 14px;
+
+    font-family: Arial, sans-serif;
+
+    outline: none;
+
+}
+
+.form-group input:focus,
+
+.form-group textarea:focus,
+
+.form-group select:focus {
+
+    border-color: #009688;
+
+}
+
+.form-group textarea {
+
+    min-height: 100px;
+
+    resize: vertical;
+
+}
+
+
+/* =========================
+   REQUIRED STAR
+========================= */
+
+.required {
+
+    color: #e53935;
+
+}
+
+
+/* =========================
+   CONTINUE BUTTON
+========================= */
+
+.continue-btn {
+
+    width: 100%;
+
+    padding: 14px;
+
+    margin-top: 10px;
+
+    background: #009688;
+
+    color: #fff;
+
+    border: none;
+
+    border-radius: 6px;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+}
+
+.continue-btn:hover {
+
+    background: #00796b;
+
+}
+
+
+/* =========================
+   ORDER SUMMARY
+========================= */
+
+.order-summary {
+
+    flex: 0 0 350px;
+
+    background: #fff;
+
+    padding: 25px;
+
+    border-radius: 10px;
+
+    border: 1px solid #ddd;
+
+    box-shadow:
+        0 2px 8px rgba(0,0,0,0.08);
+
+}
+
+.order-summary h2 {
+
+    margin-top: 0;
+
+    font-size: 21px;
+
+    margin-bottom: 20px;
+
+}
+
+.product-list {
+
+    margin-bottom: 20px;
+
+}
+
+.product-item {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 12px 0;
+
+    border-bottom: 1px solid #eee;
+
+    font-size: 14px;
+
+}
+
+.product-item-name {
+
+    flex: 1;
+
+    line-height: 1.4;
+
+}
+
+.product-item-price {
+
+    font-weight: 600;
+
+    white-space: nowrap;
+
+}
+
+.summary-line {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    margin: 12px 0;
+
+    font-size: 15px;
+
+}
+
+.discount {
+
+    color: #008577;
+
+}
+
+.total-line {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    border-top: 1px solid #ddd;
+
+    padding-top: 16px;
+
+    margin-top: 18px;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+}
+
+
+/* =========================
+   BACK TO CART
+========================= */
+
+.back-cart {
+
+    display: block;
+
+    text-align: center;
+
+    margin-top: 15px;
+
+    color: #333;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+}
+
+.back-cart:hover {
+
+    text-decoration: underline;
+
+}
+
+
+/* =========================
+   ERROR MESSAGE
+========================= */
+
+.error-message {
+
+    display: none;
+
+    background: #ffebee;
+
+    color: #c62828;
+
+    border: 1px solid #ef9a9a;
+
+    padding: 12px;
+
+    border-radius: 5px;
+
+    margin-bottom: 20px;
+
+    font-size: 14px;
+
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+
+    background: #111;
+
+    color: #fff;
+
+    padding: 40px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    flex-wrap: wrap;
+
+    margin-top: 50px;
+
+}
+
+footer div {
+
+    flex: 1;
+
+    margin: 10px;
+
+}
+
+footer h4 {
+
+    margin-bottom: 10px;
+
+}
+
+footer a {
+
+    color: #c9a24d;
+
+    text-decoration: none;
+
+    display: block;
+
+    margin: 5px 0;
+
+}
+
+footer a:hover {
+
+    color: #fff;
+
+}
+
+.footer-bottom {
+
+    text-align: center;
+
+    flex-basis: 100%;
+
+    margin-top: 20px;
+
+}
+
+
+/* =========================
+   MOBILE SAFETY
+========================= */
+
+@media (max-width: 900px) {
+
+    .delivery-page {
+
+        flex-direction: column;
+
+    }
+
+    .order-summary {
+
+        width: 100%;
+
+        flex: none;
+
+    }
+
+    .form-row {
+
+        flex-direction: column;
+
+        gap: 0;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <a
+        href="cart.html"
+        class="back-btn"
+    >
+        ← Back to Cart
+    </a>
+
+
+    <h1>
+        Delivery Details
+    </h1>
+
+
+    <img
+        src="logo.jpeg"
+        alt="50 Mirars Logo"
+        class="logo"
+    >
+
+</header>
+
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<section class="delivery-page">
+
+
+    <!-- =========================
+         CUSTOMER FORM
+    ========================= -->
+
+    <div class="delivery-form">
+
+        <h2>
+            Enter Delivery Details
+        </h2>
+
+
+        <div
+            id="error-message"
+            class="error-message"
+        ></div>
+
+
+        <form
+            id="delivery-form"
+            onsubmit="continueToPayment(event)"
+        >
+
+
+            <!-- NAME -->
+
+            <div class="form-group">
+
+                <label for="customerName">
+
+                    Full Name
+                    <span class="required">*</span>
+
+                </label>
+
+                <input
+                    type="text"
+                    id="customerName"
+                    placeholder="Enter your full name"
+                    required
+                >
+
+            </div>
+
+
+
+            <!-- PHONE + EMAIL -->
+
+            <div class="form-row">
+
+
+                <div class="form-group">
+
+                    <label for="phone">
+
+                        Phone Number
+                        <span class="required">*</span>
+
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        placeholder="Enter your phone number"
+                        maxlength="10"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="email">
+
+                        Email Address
+                        <span class="required">*</span>
+
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ADDRESS -->
+
+            <div class="form-group">
+
+                <label for="address">
+
+                    Complete Address
+                    <span class="required">*</span>
+
+                </label>
+
+                <textarea
+                    id="address"
+                    placeholder="House/Flat No., Street, Area, Landmark"
+                    required
+                ></textarea>
+
+            </div>
+
+
+
+            <!-- CITY + STATE -->
+
+            <div class="form-row">
+
+
+                <div class="form-group">
+
+                    <label for="city">
+
+                        City
+                        <span class="required">*</span>
+
+                    </label>
+
+                    <input
+                        type="text"
+                        id="city"
+                        placeholder="Enter your city"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="state">
+
+                        State
+                        <span class="required">*</span>
+
+                    </label>
+
+                    <input
+                        type="text"
+                        id="state"
+                        placeholder="Enter your state"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PIN -->
+
+            <div class="form-group">
+
+                <label for="pin">
+
+                    PIN Code
+                    <span class="required">*</span>
+
+                </label>
+
+                <input
+                    type="text"
+                    id="pin"
+                    placeholder="Enter 6-digit PIN code"
+                    maxlength="6"
+                    required
+                >
+
+            </div>
+
+
+
+            <!-- CONTINUE -->
+
+            <button
+                type="submit"
+                class="continue-btn"
+            >
+
+                Continue to Payment →
+
+            </button>
+
+
+        </form>
+
+    </div>
+
+
+
+    <!-- =========================
+         ORDER SUMMARY
+    ========================= -->
+
+    <div class="order-summary">
+
+        <h2>
+            Your Order
+        </h2>
+
+
+        <div
+            id="product-list"
+            class="product-list"
+        ></div>
+
+
+        <div class="summary-line">
+
+            <span>
+                Subtotal
+            </span>
+
+            <span id="subtotal">
+                ₹0
+            </span>
+
+        </div>
+
+
+        <div class="summary-line discount">
+
+            <span>
+                Discount
+            </span>
+
+            <span id="discount">
+                ₹0
+            </span>
+
+        </div>
+
+
+        <div class="summary-line">
+
+            <span>
+                Shipping
+            </span>
+
+            <span>
+                Free
+            </span>
+
+        </div>
+
+
+        <div class="total-line">
+
+            <span>
+                Total
+            </span>
+
+            <span id="total">
+                ₹0
+            </span>
+
+        </div>
+
+
+        <a
+            href="cart.html"
+            class="back-cart"
+        >
+            ← Edit Cart
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+
+    <div>
+
+        <h4>
+            About
+        </h4>
+
+        <p>
+            50 Mirars premium watches and accessories.
+        </p>
+
+    </div>
+
+
+
+    <div>
+
+        <h4>
+            Categories
+        </h4>
+
+        <a href="#">
+            Watches
+        </a>
+
+        <a href="#">
+            Sunglasses
+        </a>
+
+        <a href="#">
+            Limited Editions
+        </a>
+
+    </div>
+
+
+
+    <div>
+
+        <h4>
+            Support
+        </h4>
+
+        <a href="mailto:50mirars@gmail.com">
+            Email
+        </a>
+
+        <a
+            href="https://wa.me/918209989013"
+            target="_blank"
+        >
+            WhatsApp
+        </a>
+
+        <a
+            href="https://www.instagram.com/50mirars"
+            target="_blank"
+        >
+            Instagram
+        </a>
+
+    </div>
+
+
+
+    <div class="footer-bottom">
+
+        © 2026 50 Mirars. All Rights Reserved.
+
+    </div>
+
+
+</footer>
+
+
+
+<script>
+
+/* =====================================================
+   GET CART
+===================================================== */
+
+function getCart() {
+
+    return JSON.parse(
+        localStorage.getItem("cart")
+    ) || [];
+
+}
+
+
+
+/* =====================================================
+   GET PRICE
+===================================================== */
+
+function getPrice(item) {
+
+    return parseFloat(
+
+        String(item.price)
+            .replace(/[^0-9.]/g, "")
+
+    ) || 0;
+
+}
+
+
+
+/* =====================================================
+   LOAD ORDER
+===================================================== */
+
+function loadOrder() {
+
+    const cart =
+        getCart();
+
+
+    const productList =
+        document.getElementById(
+            "product-list"
+        );
+
+
+    productList.innerHTML = "";
+
+
+    if (cart.length === 0) {
+
+        productList.innerHTML = `
+
+            <p>
+                Your cart is empty.
+            </p>
+
+        `;
+
+        return;
+
+    }
+
+
+    /*
+       Group identical products
+    */
+
+    const products = {};
+
+
+    cart.forEach(function(item) {
+
+        const key =
+            item.name + "|" + item.price;
+
+
+        if (!products[key]) {
+
+            products[key] = {
+
+                name: item.name,
+
+                price: getPrice(item),
+
+                quantity: 0
+
+            };
+
+        }
+
+
+        products[key].quantity++;
+
+    });
+
+
+
+    /*
+       Show products
+    */
+
+    Object.values(products).forEach(
+        function(item) {
+
+            const itemTotal =
+                item.price *
+                item.quantity;
+
+
+            productList.innerHTML += `
+
+                <div class="product-item">
+
+                    <div class="product-item-name">
+
+                        ${item.name}
+
+                        <br>
+
+                        <small>
+                            Quantity: ${item.quantity}
+                        </small>
+
+                    </div>
+
+
+                    <div class="product-item-price">
+
+                        ₹${itemTotal.toLocaleString("en-IN")}
+
+                    </div>
+
+                </div>
+
+            `;
+
+        }
+    );
+
+
+
+    /*
+       Get saved values
+    */
+
+    const subtotal =
+        parseFloat(
+
+            localStorage.getItem(
+                "orderSubtotal"
+            )
+
+        ) || calculateSubtotal();
+
+
+
+    const discount =
+        parseFloat(
+
+            localStorage.getItem(
+                "orderDiscount"
+            )
+
+        ) || 0;
+
+
+
+    const total =
+        subtotal - discount;
+
+
+
+    document.getElementById(
+        "subtotal"
+    ).innerText =
+
+        "₹" +
+        subtotal.toLocaleString(
+            "en-IN"
+        );
+
+
+
+    document.getElementById(
+        "discount"
+    ).innerText =
+
+        "₹" +
+        discount.toLocaleString(
+            "en-IN"
+        );
+
+
+
+    document.getElementById(
+        "total"
+    ).innerText =
+
+        "₹" +
+        total.toLocaleString(
+            "en-IN"
+        );
+
+}
+
+
+
+/* =====================================================
+   CALCULATE SUBTOTAL
+===================================================== */
+
+function calculateSubtotal() {
+
+    const cart =
+        getCart();
+
+
+    let subtotal = 0;
+
+
+    cart.forEach(function(item) {
+
+        subtotal += getPrice(item);
+
+    });
+
+
+    return subtotal;
+
+}
+
+
+
+/* =====================================================
+   VALIDATE PHONE
+===================================================== */
+
+function validPhone(phone) {
+
+    return /^[6-9][0-9]{9}$/.test(
+        phone
+    );
+
+}
+
+
+
+/* =====================================================
+   VALIDATE PIN
+===================================================== */
+
+function validPin(pin) {
+
+    return /^[1-9][0-9]{5}$/.test(
+        pin
+    );
+
+}
+
+
+
+/* =====================================================
+   CONTINUE TO PAYMENT
+===================================================== */
+
+function continueToPayment(event) {
+
+    event.preventDefault();
+
+
+    const errorBox =
+        document.getElementById(
+            "error-message"
+        );
+
+
+    errorBox.style.display =
+        "none";
+
+
+    errorBox.innerText = "";
+
+
+
+    /* =========================
+       GET FORM VALUES
+    ========================= */
+
+    const customerName =
+        document.getElementById(
+            "customerName"
+        ).value.trim();
+
+
+    const phone =
+        document.getElementById(
+            "phone"
+        ).value.trim();
+
+
+    const email =
+        document.getElementById(
+            "email"
+        ).value.trim();
+
+
+    const address =
+        document.getElementById(
+            "address"
+        ).value.trim();
+
+
+    const city =
+        document.getElementById(
+            "city"
+        ).value.trim();
+
+
+    const state =
+        document.getElementById(
+            "state"
+        ).value.trim();
+
+
+    const pin =
+        document.getElementById(
+            "pin"
+        ).value.trim();
+
+
+
+    /* =========================
+       CHECK PHONE
+    ========================= */
+
+    if (!validPhone(phone)) {
+
+        errorBox.innerText =
+            "Please enter a valid 10-digit Indian mobile number.";
+
+        errorBox.style.display =
+            "block";
+
+        return;
+
+    }
+
+
+
+    /* =========================
+       CHECK PIN
+    ========================= */
+
+    if (!validPin(pin)) {
+
+        errorBox.innerText =
+            "Please enter a valid 6-digit PIN code.";
+
+        errorBox.style.display =
+            "block";
+
+        return;
+
+    }
+
+
+
+    /* =========================
+       GET CART
+    ========================= */
+
+    const cart =
+        getCart();
+
+
+    if (cart.length === 0) {
+
+        errorBox.innerText =
+            "Your cart is empty.";
+
+        errorBox.style.display =
+            "block";
+
+        return;
+
+    }
+
+
+
+    /* =========================
+       SAVE CUSTOMER DETAILS
+    ========================= */
+
+    const deliveryDetails = {
+
+        customerName:
+            customerName,
+
+        phone:
+            phone,
+
+        email:
+            email,
+
+        address:
+            address,
+
+        city:
+            city,
+
+        state:
+            state,
+
+        pin:
+            pin
+
+    };
+
+
+    localStorage.setItem(
+
+        "deliveryDetails",
+
+        JSON.stringify(
+            deliveryDetails
+        )
+
+    );
+
+
+
+    /* =========================
+       SAVE ORDER VALUES
+    ========================= */
+
+    localStorage.setItem(
+
+        "orderSubtotal",
+
+        calculateSubtotal()
+
+    );
+
+
+    localStorage.setItem(
+
+        "orderDiscount",
+
+        parseFloat(
+
+            localStorage.getItem(
+                "cartDiscount"
+            )
+
+        ) || 0
+
+    );
+
+
+    localStorage.setItem(
+
+        "orderTotal",
+
+        calculateSubtotal()
+        -
+        (
+            parseFloat(
+                localStorage.getItem(
+                    "cartDiscount"
+                )
+            ) || 0
+        )
+
+    );
+
+
+
+    /* =========================
+       GO TO PAYMENT
+    ========================= */
+
+    window.location.href =
+        "payment.html";
+
+}
+
+
+
+/* =====================================================
+   START
+===================================================== */
+
+loadOrder();
+
+</script>
+
+
+</body>
+
+</html>
