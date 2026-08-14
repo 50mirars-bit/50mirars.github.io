@@ -746,87 +746,68 @@ footer a:hover {
 
 <script>
 
-/* =====================================================
-   GOOGLE APPS SCRIPT URL
-===================================================== */
+// =====================================================
+// GOOGLE APPS SCRIPT URL
+// =====================================================
 
 const GOOGLE_SCRIPT_URL =
 "https://script.google.com/macros/s/AKfycby3ax0fb-oYkP0by51Z0LGDsYfmy6jlEUA_pG4NCTBFjbvgQLWAP8knGe30xHnQaWiiKA/exec";
 
 
-/* =====================================================
-   SAFE JSON READER
-===================================================== */
+// =====================================================
+// SAFE LOCAL STORAGE READER
+// =====================================================
 
-function getLocalStorageJSON(key) {
+function getStorage(name) {
 
     try {
 
-        const value =
-            localStorage.getItem(key);
-
-        if (!value) {
-            return null;
-        }
-
-        return JSON.parse(value);
+        return JSON.parse(
+            localStorage.getItem(name)
+        ) || null;
 
     } catch (error) {
 
         console.error(
-            "LocalStorage error for:",
-            key,
+            "Storage error:",
+            name,
             error
         );
 
         return null;
-
     }
 
 }
 
 
-/* =====================================================
-   GET ORDER DATA
-===================================================== */
+// =====================================================
+// GET DATA
+// =====================================================
 
 function getOrderData() {
 
-    return getLocalStorageJSON("orderData") || {};
+    return getStorage("orderData") || {};
 
 }
 
-
-/* =====================================================
-   GET DELIVERY DETAILS
-===================================================== */
 
 function getDeliveryDetails() {
 
-    return getLocalStorageJSON("deliveryDetails") || {};
+    return getStorage("deliveryDetails") || {};
 
 }
 
-
-/* =====================================================
-   GET CART
-===================================================== */
 
 function getCart() {
 
-    const cart =
-        getLocalStorageJSON("cart");
-
-    return Array.isArray(cart)
-        ? cart
-        : [];
+    return getStorage("cart") || [];
 
 }
 
 
-/* =====================================================
-   GET PRICE
-===================================================== */
+// =====================================================
+// PRICE
+// =====================================================
 
 function getPrice(item) {
 
@@ -844,20 +825,9 @@ function getPrice(item) {
 }
 
 
-/* =====================================================
-   CREATE NEW ORDER ID
-===================================================== */
-
-function createOrderId() {
-
-    return "50M-" + Date.now();
-
-}
-
-
-/* =====================================================
-   GET / CREATE ORDER ID
-===================================================== */
+// =====================================================
+// ORDER ID
+// =====================================================
 
 function getOrderId() {
 
@@ -868,7 +838,7 @@ function getOrderId() {
     if (!orderId) {
 
         orderId =
-            createOrderId();
+            "50M-" + Date.now();
 
         localStorage.setItem(
             "orderId",
@@ -883,9 +853,9 @@ function getOrderId() {
 }
 
 
-/* =====================================================
-   CREATE PRODUCT LIST
-===================================================== */
+// =====================================================
+// PRODUCTS
+// =====================================================
 
 function getProducts(cart) {
 
@@ -899,26 +869,19 @@ function getProducts(cart) {
         }
 
 
-        const price =
-            getPrice(item);
-
-
         const key =
-            item.name + "|" + price;
+            item.name + "|" + item.price;
 
 
         if (!products[key]) {
 
             products[key] = {
 
-                name:
-                    item.name,
+                name: item.name,
 
-                price:
-                    price,
+                price: getPrice(item),
 
-                quantity:
-                    0
+                quantity: 0
 
             };
 
@@ -935,9 +898,9 @@ function getProducts(cart) {
 }
 
 
-/* =====================================================
-   CALCULATE SUBTOTAL
-===================================================== */
+// =====================================================
+// SUBTOTAL
+// =====================================================
 
 function calculateSubtotal(cart) {
 
@@ -946,8 +909,7 @@ function calculateSubtotal(cart) {
 
     cart.forEach(function(item) {
 
-        subtotal +=
-            getPrice(item);
+        subtotal += getPrice(item);
 
     });
 
@@ -957,9 +919,9 @@ function calculateSubtotal(cart) {
 }
 
 
-/* =====================================================
-   LOAD ORDER
-===================================================== */
+// =====================================================
+// LOAD ORDER
+// =====================================================
 
 function loadOrder() {
 
@@ -979,75 +941,135 @@ function loadOrder() {
         getOrderId();
 
 
-    /* =========================
-       ORDER ID
-    ========================= */
+    // =================================================
+    // ORDER ID
+    // =================================================
 
     document.getElementById(
         "order-id"
-    ).innerText =
-        orderId;
+    ).innerText = orderId;
 
 
-    /* =========================
-       CUSTOMER DETAILS
-    ========================= */
+    // =================================================
+    // CUSTOMER DETAILS
+    // =================================================
+
+    // We check deliveryDetails first.
+    // If something is missing, we also check orderData.
+
+    const customerName =
+        deliveryDetails.customerName ||
+        deliveryDetails.name ||
+        orderData.customerName ||
+        orderData.name ||
+        "";
+
+
+    const phone =
+        deliveryDetails.phone ||
+        deliveryDetails.mobile ||
+        orderData.phone ||
+        orderData.mobile ||
+        "";
+
+
+    const email =
+        deliveryDetails.email ||
+        orderData.email ||
+        "";
+
+
+    const address =
+        deliveryDetails.address ||
+        orderData.address ||
+        "";
+
+
+    const city =
+        deliveryDetails.city ||
+        orderData.city ||
+        "";
+
+
+    const state =
+        deliveryDetails.state ||
+        orderData.state ||
+        "";
+
+
+    const pin =
+        deliveryDetails.pin ||
+        deliveryDetails.pincode ||
+        deliveryDetails.zip ||
+        orderData.pin ||
+        orderData.pincode ||
+        "";
+
 
     document.getElementById(
         "customer-name"
-    ).innerText =
-        deliveryDetails.customerName || "";
+    ).innerText = customerName;
 
 
     document.getElementById(
         "customer-phone"
-    ).innerText =
-        deliveryDetails.phone || "";
+    ).innerText = phone;
 
 
     document.getElementById(
         "customer-email"
-    ).innerText =
-        deliveryDetails.email || "";
+    ).innerText = email;
 
 
     document.getElementById(
         "customer-address"
-    ).innerText =
-        deliveryDetails.address || "";
+    ).innerText = address;
 
 
     document.getElementById(
         "customer-city"
-    ).innerText =
-        deliveryDetails.city || "";
+    ).innerText = city;
 
 
     document.getElementById(
         "customer-state"
-    ).innerText =
-        deliveryDetails.state || "";
+    ).innerText = state;
 
 
     document.getElementById(
         "customer-pin"
-    ).innerText =
-        deliveryDetails.pin || "";
+    ).innerText = pin;
 
 
-    /* =========================
-       TRANSACTION ID
-    ========================= */
+    // =================================================
+    // TRANSACTION ID
+    // =================================================
+
+    const transactionId =
+
+        orderData.transactionId ||
+
+        orderData.utr ||
+
+        orderData.upiTransactionId ||
+
+        deliveryDetails.transactionId ||
+
+        "";
+
 
     document.getElementById(
         "transaction-id"
-    ).innerText =
-        orderData.transactionId || "";
+    ).innerText = transactionId;
 
 
-    /* =========================
-       PRODUCTS
-    ========================= */
+    // =================================================
+    // PRODUCTS
+    // =================================================
+
+    const products =
+        getProducts(cart);
+
 
     const productList =
         document.getElementById(
@@ -1058,10 +1080,6 @@ function loadOrder() {
     productList.innerHTML = "";
 
 
-    const products =
-        getProducts(cart);
-
-
     if (products.length === 0) {
 
         productList.innerHTML = `
@@ -1069,9 +1087,7 @@ function loadOrder() {
             <div class="product-item">
 
                 <div class="product-name">
-
-                    No product information found.
-
+                    Order details unavailable
                 </div>
 
             </div>
@@ -1081,11 +1097,11 @@ function loadOrder() {
     }
 
 
-    products.forEach(function(item) {
+    products.forEach(function(product) {
 
         const itemTotal =
-            item.price *
-            item.quantity;
+            product.price *
+            product.quantity;
 
 
         productList.innerHTML += `
@@ -1094,12 +1110,12 @@ function loadOrder() {
 
                 <div class="product-name">
 
-                    ${escapeHTML(item.name)}
+                    ${product.name}
 
                     <div class="product-quantity">
 
                         Quantity:
-                        ${item.quantity}
+                        ${product.quantity}
 
                     </div>
 
@@ -1119,21 +1135,26 @@ function loadOrder() {
     });
 
 
-    /* =========================
-       TOTALS
-    ========================= */
+    // =================================================
+    // TOTALS
+    // =================================================
 
     const subtotal =
+
         Number(orderData.subtotal) ||
+
         calculateSubtotal(cart);
 
 
     const discount =
+
         Number(orderData.discount) || 0;
 
 
     const total =
+
         Number(orderData.total) ||
+
         (subtotal - discount);
 
 
@@ -1161,101 +1182,64 @@ function loadOrder() {
         total.toLocaleString("en-IN");
 
 
-    /* =========================
-       SEND ORDER
-    ========================= */
+    // =================================================
+    // SEND TO GOOGLE SHEET
+    // =================================================
 
     sendOrderToGoogleSheet({
 
-        orderId:
-            orderId,
+        orderId: orderId,
 
-        customerName:
-            deliveryDetails.customerName || "",
+        customerName: customerName,
 
-        phone:
-            deliveryDetails.phone || "",
+        phone: phone,
 
-        email:
-            deliveryDetails.email || "",
+        email: email,
 
-        address:
-            deliveryDetails.address || "",
+        address: address,
 
-        city:
-            deliveryDetails.city || "",
+        city: city,
 
-        state:
-            deliveryDetails.state || "",
+        state: state,
 
-        pin:
-            deliveryDetails.pin || "",
+        pin: pin,
 
-        products:
-            products,
+        products: products,
 
-        totalQuantity:
-            products.reduce(
-                function(total, product) {
+        subtotal: subtotal,
 
-                    return total +
-                        Number(product.quantity);
+        discount: discount,
 
-                },
-                0
-            ),
+        total: total,
 
-        subtotal:
-            subtotal,
-
-        discount:
-            discount,
-
-        total:
-            total,
-
-        transactionId:
-            orderData.transactionId || ""
+        transactionId: transactionId
 
     });
 
 }
 
 
-/* =====================================================
-   SEND ORDER TO GOOGLE SHEET
-===================================================== */
+// =====================================================
+// SEND ORDER TO GOOGLE SHEET
+// =====================================================
 
 function sendOrderToGoogleSheet(order) {
 
-    /*
-       IMPORTANT:
 
-       We create a unique browser key for this
-       specific order.
+    // =================================================
+    // PREVENT DUPLICATE ORDERS
+    // =================================================
 
-       A NEW order gets a NEW Order ID, so it
-       will always be sent.
-
-       Refreshing the same confirmation page
-       will NOT create another row.
-    */
+    const sentOrder =
+        localStorage.getItem(
+            "orderSentToGoogleSheet"
+        );
 
 
-    const sentKey =
-        "googleSheetOrderSent_" +
-        order.orderId;
-
-
-    const alreadySent =
-        localStorage.getItem(sentKey);
-
-
-    if (alreadySent === "yes") {
+    if (sentOrder === order.orderId) {
 
         console.log(
-            "This order has already been sent:",
-            order.orderId
+            "This order has already been sent."
         );
 
         return;
@@ -1263,9 +1247,36 @@ function sendOrderToGoogleSheet(order) {
     }
 
 
-    console.log(
-        "Sending order to Google Sheet:",
-        order
+    // =================================================
+    // TOTAL QUANTITY
+    // =================================================
+
+    let totalQuantity = 0;
+
+
+    order.products.forEach(function(product) {
+
+        totalQuantity +=
+            Number(product.quantity) || 0;
+
+    });
+
+
+    order.totalQuantity =
+        totalQuantity;
+
+
+    // =================================================
+    // SEND DATA
+    // =================================================
+
+    const formData =
+        new URLSearchParams();
+
+
+    formData.append(
+        "data",
+        JSON.stringify(order)
     );
 
 
@@ -1275,58 +1286,40 @@ function sendOrderToGoogleSheet(order) {
 
         {
 
-            method:
-                "POST",
+            method: "POST",
 
-            mode:
-                "no-cors",
-
-            headers: {
-
-                "Content-Type":
-                    "text/plain;charset=utf-8"
-
-            },
-
-            body:
-                JSON.stringify(order)
+            body: formData
 
         }
 
     )
 
-    .then(function() {
+    .then(function(response) {
 
-        /*
-           Mark ONLY this order as sent.
-        */
-
-        localStorage.setItem(
-            sentKey,
-            "yes"
+        console.log(
+            "Order sent to Google Sheet."
         );
 
 
-        console.log(
-            "Order sent successfully:",
+        /*
+           Save only after the request
+           completes successfully.
+        */
+
+        localStorage.setItem(
+
+            "orderSentToGoogleSheet",
+
             order.orderId
+
         );
 
     })
 
     .catch(function(error) {
 
-        /*
-           IMPORTANT:
-
-           We do NOT mark the order as sent
-           if there is an error.
-
-           This allows another attempt.
-        */
-
         console.error(
-            "Google Sheet submission failed:",
+            "Google Sheet Error:",
             error
         );
 
@@ -1335,31 +1328,13 @@ function sendOrderToGoogleSheet(order) {
 }
 
 
-/* =====================================================
-   ESCAPE HTML
-===================================================== */
-
-function escapeHTML(text) {
-
-    const div =
-        document.createElement("div");
-
-    div.innerText =
-        text;
-
-    return div.innerHTML;
-
-}
-
-
-/* =====================================================
-   START
-===================================================== */
+// =====================================================
+// START
+// =====================================================
 
 loadOrder();
 
 </script>
-
 
 </body>
 
