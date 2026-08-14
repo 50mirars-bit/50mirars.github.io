@@ -3,483 +3,359 @@
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
-    <meta
-        name="theme-color"
-        content="#ffffff"
-    >
+<title>Omega Collection | 50 Mirars</title>
 
-    <meta
-        name="description"
-        content="50 Mirars - Omega Watches"
-    >
+<style>
 
-    <title>
-        Omega Watches | 50 Mirars
-    </title>
+/* =========================================================
+   GLOBAL RESET
+========================================================= */
 
-
-    <style>
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            overflow-x: hidden;
-        }
-
-        body {
-            width: 100%;
-            overflow-x: hidden;
-
-            font-family:
-                Arial,
-                Helvetica,
-                sans-serif;
-
-            background: #ffffff;
-            color: #111111;
-        }
-
-        img {
-            display: block;
-            max-width: 100%;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-
-        /* ================================
-           HEADER
-        ================================ */
-
-        .top-header {
-
-            width: 100%;
-            height: 92px;
-
-            display: grid;
-
-            grid-template-columns:
-                1fr
-                1fr
-                1fr;
-
-            align-items: center;
-
-            padding:
-                8px
-                55px;
-
-            background: #ffffff;
-
-            border-bottom:
-                1px solid
-                #eeeeee;
-        }
-
-        .header-left {
-            display: flex;
-            align-items: center;
-        }
-
-        .header-logo img {
-
-            height: 68px;
-            width: auto;
-
-            max-width: 170px;
-
-            object-fit: contain;
-        }
-
-        .header-brand {
-
-            display: flex;
-
-            justify-content: center;
-
-            text-align: center;
-        }
-
-        .header-brand h1 {
-
-            font-family:
-                Georgia,
-                "Times New Roman",
-                serif;
-
-            font-size: 31px;
-
-            letter-spacing: 5px;
-
-            line-height: 1;
-        }
-
-        .header-brand span {
-
-            display: block;
-
-            margin-top: 6px;
-
-            font-size: 8px;
-
-            font-weight: 600;
-
-            letter-spacing: 4px;
-
-            color: #a7833c;
-        }
-
-        .header-right {
-
-            display: flex;
-
-            justify-content: flex-end;
-        }
-
-        .header-cart {
-
-            width: 52px;
-            height: 52px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            border-radius: 50%;
-        }
-
-        .cart-icon {
-            font-size: 26px;
-        }
-
-
-        /* ================================
-           OMEGA HERO
-        ================================ */
-
-        .omega-hero {
-
-            width: 100%;
-
-            min-height: 420px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            text-align: center;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #050505,
-                    #1b1b1b,
-                    #050505
-                );
-
-            color: #ffffff;
-
-            padding: 80px 20px;
-        }
-
-        .omega-hero-content {
-            max-width: 900px;
-        }
-
-        .omega-hero small {
-
-            display: block;
-
-            color: #c9a24d;
-
-            font-size: 15px;
-
-            font-weight: 700;
-
-            letter-spacing: 4px;
-
-            margin-bottom: 18px;
-        }
-
-        .omega-hero h2 {
-
-            font-family:
-                Georgia,
-                "Times New Roman",
-                serif;
-
-            font-size: 72px;
-
-            letter-spacing: 6px;
-
-            margin-bottom: 18px;
-        }
-
-        .omega-hero p {
-
-            color: #dddddd;
-
-            font-size: 18px;
-
-            line-height: 1.7;
-        }
-
-
-        /* ================================
-           OMEGA PRODUCTS
-        ================================ */
-
-        .omega-products {
-
-            width: 100%;
-
-            padding:
-                80px
-                7%
-                100px;
-
-            text-align: center;
-        }
-
-        .omega-products-header {
-
-            margin-bottom: 50px;
-        }
-
-        .omega-products-header small {
-
-            display: block;
-
-            color: #c9a24d;
-
-            font-size: 14px;
-
-            font-weight: 700;
-
-            letter-spacing: 3px;
-
-            margin-bottom: 12px;
-        }
-
-        .omega-products-header h2 {
-
-            font-family:
-                Georgia,
-                "Times New Roman",
-                serif;
-
-            font-size: 48px;
-
-            margin-bottom: 12px;
-        }
-
-        .omega-products-header p {
-
-            color: #777777;
-
-            font-size: 16px;
-        }
-
-
-        /* ================================
-           PRODUCT GRID
-        ================================ */
-
-        .omega-grid {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(
-                    3,
-                    minmax(0, 1fr)
-                );
-
-            gap: 25px;
-
-            max-width: 1500px;
-
-            margin: auto;
-        }
-
-        .omega-card {
-
-            background: #ffffff;
-
-            border:
-                1px solid
-                #eeeeee;
-
-            overflow: hidden;
-
-            text-align: left;
-
-            transition:
-                transform
-                0.3s ease,
-                box-shadow
-                0.3s ease;
-        }
-
-        .omega-card:hover {
-
-            transform:
-                translateY(-5px);
-
-            box-shadow:
-                0 12px 30px
-                rgba(0,0,0,0.10);
-        }
-
-        .omega-card-image {
-
-            width: 100%;
-
-            height: 380px;
-
-            background: #f5f5f5;
-
-            overflow: hidden;
-        }
-
-        .omega-card-image img {
-
-            width: 100%;
-
-            height: 100%;
-
-            object-fit: cover;
-        }
-
-        .omega-card-content {
-
-            padding: 25px;
-        }
-
-        .omega-card-content h3 {
-
-            font-family:
-                Georgia,
-                "Times New Roman",
-                serif;
-
-            font-size: 24px;
-
-            margin-bottom: 10px;
-        }
-
-        .omega-card-content p {
-
-            color: #777777;
-
-            font-size: 14px;
-
-            margin-bottom: 15px;
-        }
-
-        .omega-price {
-
-            font-size: 20px;
-
-            font-weight: 700;
-
-            color: #b38a38;
-
-            margin-bottom: 18px;
-        }
-
-        .omega-button {
-
-            display: inline-flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            padding:
-                12px
-                22px;
-
-            background: #111111;
-
-            color: #ffffff;
-
-            font-size: 14px;
-
-            font-weight: 700;
-
-            transition:
-                background
-                0.25s ease;
-        }
-
-        .omega-button:hover {
-            background: #c9a24d;
-        }
-
-
-        /* =====================================================
-   HOMEPAGE CONTACT FOOTER
-===================================================== */
-
-.main-footer {
-
-    width: 100%;
-
-    background: #0b0b0b;
-
-    color: #ffffff;
-
-    padding:
-        70px
-        7%
-        25px;
-
-    margin-top: 50px;
-
+* {
+    box-sizing: border-box;
 }
 
-.footer-container {
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
 
+body {
+    font-family: Arial, sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 50% 15%,
+            rgba(201, 162, 77, 0.10),
+            transparent 28%
+        ),
+        linear-gradient(
+            135deg,
+            #f7f3e9 0%,
+            #eee8d9 50%,
+            #f8f5ed 100%
+        );
+
+    color: #222;
+}
+
+
+/* =========================================================
+   BACK TO HOME
+========================================================= */
+
+.home-wrapper {
+    width: 100%;
+    padding: 20px;
+}
+
+.home-btn {
+    display: inline-block;
+
+    background: #111;
+    color: #fff;
+
+    text-decoration: none;
+
+    padding: 12px 25px;
+
+    border-radius: 6px;
+
+    font-weight: 600;
+
+    transition: 0.3s ease;
+}
+
+.home-btn:hover {
+    background: #c9a24d;
+    color: #111;
+}
+
+
+/* =========================================================
+   PAGE TITLE
+========================================================= */
+
+.page-title {
+    width: 100%;
+    max-width: 100%;
+
+    text-align: center;
+
+    padding: 30px 20px 40px;
+}
+
+.page-title h1 {
+    font-size: 64px;
+
+    margin: 0 0 20px;
+
+    color: #111;
+
+    line-height: 1.1;
+
+    word-break: break-word;
+}
+
+.title-line {
+    width: 160px;
+    max-width: 80%;
+
+    height: 2px;
+
+    background: #c9a24d;
+
+    margin: 0 auto;
+
+    position: relative;
+}
+
+.title-line::after {
+    content: "";
+
+    width: 12px;
+    height: 12px;
+
+    background: #c9a24d;
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        rotate(45deg);
+}
+
+
+/* =========================================================
+   OMEGA INFORMATION SECTION
+========================================================= */
+
+.omega-info-section {
+    width: 100%;
     max-width: 1400px;
 
-    margin: auto;
+    margin: 45px auto 0;
 
+    padding: 35px 60px 55px;
+
+    background: #fff;
+
+    color: #111;
+
+    overflow: hidden;
 }
 
-.footer-top {
+
+/* =========================================================
+   THREE COLUMNS
+========================================================= */
+
+.omega-info-grid {
+    width: 100%;
 
     display: grid;
 
     grid-template-columns:
-        repeat(3,1fr);
+        repeat(3, minmax(0, 1fr));
 
-    gap: 40px;
+    gap: 55px;
 
+    align-items: start;
+}
+
+.omega-info-column {
+    min-width: 0;
+
+    width: 100%;
+
+    overflow-wrap: break-word;
+}
+
+
+/* =========================================================
+   HEADINGS
+========================================================= */
+
+.omega-info-section h2 {
+    margin: 0 0 18px;
+
+    font-size: 16px;
+
+    line-height: 1.45;
+
+    font-weight: 600;
+
+    overflow-wrap: break-word;
+}
+
+.omega-info-section h3 {
+    margin: 28px 0 17px;
+
+    font-size: 16px;
+
+    line-height: 1.45;
+
+    font-weight: 600;
+
+    overflow-wrap: break-word;
+}
+
+
+/* =========================================================
+   TEXT
+========================================================= */
+
+.omega-info-section p {
+    margin: 0 0 24px;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    font-weight: 400;
+
+    overflow-wrap: break-word;
+
+    word-wrap: break-word;
+}
+
+
+/* =========================================================
+   FAQ
+========================================================= */
+
+.omega-faq {
+    margin-top: 0;
+
+    width: 100%;
+}
+
+.omega-faq-item {
+    margin-bottom: 20px;
+
+    width: 100%;
+}
+
+.omega-faq-question {
+    margin: 0 0 3px !important;
+
+    font-size: 13px !important;
+
+    line-height: 1.5 !important;
+
+    font-weight: 600 !important;
+}
+
+.omega-faq-answer {
+    margin: 0 !important;
+
+    font-size: 13px !important;
+
+    line-height: 1.6 !important;
+
+    font-weight: 400 !important;
+}
+
+
+/* =========================================================
+   CONCLUSION
+========================================================= */
+
+.omega-conclusion {
+    width: 100%;
+
+    margin-top: 40px;
+
+    padding-top: 5px;
+
+    overflow-wrap: break-word;
+}
+
+.omega-conclusion h2 {
+    margin: 0 0 18px;
+
+    font-size: 16px;
+
+    line-height: 1.45;
+
+    font-weight: 600;
+}
+
+.omega-conclusion p {
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    margin: 0;
+}
+
+
+/* =========================================================
+   CONTACT US FOOTER
+========================================================= */
+
+.main-footer {
+    width: 100%;
+    max-width: 100%;
+
+    background: #080808;
+
+    color: #ffffff;
+
+    padding: 70px 7% 25px;
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+    overflow: hidden;
+}
+
+.footer-container {
+    width: 100%;
+    max-width: 1400px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   FOOTER TOP
+========================================================= */
+
+.footer-top {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    column-gap: 70px;
+
+    row-gap: 40px;
+
+    align-items: start;
 }
 
 .footer-top > h2 {
-
     grid-column: 1 / -1;
+
+    margin: 0 0 10px;
 
     font-family:
         Georgia,
@@ -488,63 +364,79 @@
 
     font-size: 42px;
 
+    font-weight: 500;
+
+    line-height: 1.2;
+
+    color: #ffffff;
+
     text-align: center;
-
-    margin-bottom: 10px;
-
 }
 
 .contact-column,
 .whatsapp-column {
+    min-width: 0;
+
+    width: 100%;
 
     text-align: center;
-
 }
 
 .contact-column h3,
 .whatsapp-column h3 {
+    margin: 0 0 22px;
+
+    color: #ffffff;
 
     font-size: 20px;
 
-    margin-bottom: 22px;
+    font-weight: 700;
 
+    line-height: 1.35;
 }
 
 .contact-column p {
+    margin: 12px 0 0;
 
     color: #bdbdbd;
 
     font-size: 15px;
 
-    margin-top: 12px;
-
+    line-height: 1.6;
 }
 
 .footer-link {
-
     display: block;
 
     width: fit-content;
 
-    margin:
-        0
-        auto
-        8px;
+    max-width: 100%;
+
+    margin: 0 auto 8px;
 
     color: #ffffff;
 
+    text-decoration: none;
+
     font-size: 16px;
 
+    line-height: 1.6;
+
+    overflow-wrap: break-word;
+
+    transition: color 0.3s ease;
 }
 
 .footer-link:hover {
-
     color: #c9a24d;
-
 }
 
-.whatsapp-title {
 
+/* =========================================================
+   WHATSAPP
+========================================================= */
+
+.whatsapp-title {
     display: flex;
 
     align-items: center;
@@ -553,56 +445,75 @@
 
     gap: 8px;
 
+    flex-wrap: wrap;
 }
 
 .whatsapp-icon {
+    width: 28px;
 
-    width: 24px !important;
-
-    height: 24px !important;
+    height: 28px;
 
     object-fit: contain;
 
+    display: inline-block;
+
+    flex-shrink: 0;
 }
 
 .whatsapp-button {
-
     display: inline-flex;
 
     align-items: center;
 
     justify-content: center;
 
-    min-height: 50px;
+    min-width: 205px;
 
-    padding:
-        13px
-        30px;
+    min-height: 60px;
+
+    max-width: 100%;
+
+    padding: 13px 30px;
 
     background: #ffffff;
 
     color: #111111;
 
-    font-weight: 700;
-
     text-decoration: none;
 
+    font-size: 16px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.2px;
+
+    border: 1px solid #ffffff;
+
+    transition: all 0.3s ease;
 }
 
 .whatsapp-button:hover {
-
     background: #c9a24d;
+
+    border-color: #c9a24d;
 
     color: #ffffff;
 
+    transform: translateY(-2px);
 }
 
+
+/* =========================================================
+   FOOTER MIDDLE
+========================================================= */
+
 .footer-middle {
+    width: 100%;
 
     display: grid;
 
     grid-template-columns:
-        repeat(3,1fr);
+        repeat(3, minmax(0, 1fr));
 
     gap: 50px;
 
@@ -612,60 +523,72 @@
 
     border-top:
         1px solid
-        rgba(255,255,255,0.10);
-
+        rgba(255, 255, 255, 0.10);
 }
 
 .footer-links-column,
 .footer-social {
+    min-width: 0;
+
+    width: 100%;
 
     text-align: center;
-
 }
 
 .footer-links-column h3,
 .footer-social h3 {
+    margin: 0 0 20px;
 
-    margin-bottom: 20px;
+    color: #ffffff;
 
+    font-size: 18px;
+
+    font-weight: 700;
+
+    line-height: 1.35;
 }
 
 .footer-links-column a {
-
     display: block;
 
     width: fit-content;
 
-    margin:
-        0
-        auto
-        14px;
+    max-width: 100%;
+
+    margin: 0 auto 14px;
 
     color: #d7d7d7;
 
     text-decoration: none;
 
+    font-size: 15px;
+
+    line-height: 1.5;
+
+    transition: color 0.3s ease;
 }
 
 .footer-links-column a:hover {
-
     color: #c9a24d;
-
 }
 
 .footer-social p {
+    margin: 0 0 14px;
 
     color: #d7d7d7;
 
-    margin-bottom: 14px;
-
+    font-size: 15px;
 }
 
+
+/* =========================================================
+   INSTAGRAM
+========================================================= */
+
 .instagram-button {
+    width: 58px;
 
-    width: 48px;
-
-    height: 48px;
+    height: 58px;
 
     display: inline-flex;
 
@@ -675,29 +598,38 @@
 
     border:
         1px solid
-        rgba(255,255,255,0.7);
+        rgba(255, 255, 255, 0.65);
 
-    border-radius: 10px;
+    border-radius: 9px;
 
+    text-decoration: none;
+
+    transition: all 0.3s ease;
 }
 
 .instagram-button:hover {
-
     border-color: #c9a24d;
 
+    transform: translateY(-2px);
 }
 
 .instagram-button img {
+    width: 32px;
 
-    width: 27px;
-
-    height: 27px;
+    height: 32px;
 
     object-fit: contain;
 
+    display: block;
 }
 
+
+/* =========================================================
+   COPYRIGHT
+========================================================= */
+
 .footer-bottom {
+    width: 100%;
 
     margin-top: 50px;
 
@@ -705,151 +637,182 @@
 
     border-top:
         1px solid
-        rgba(255,255,255,0.10);
-
-    text-align: center;
-
+        rgba(255, 255, 255, 0.10);
 }
 
 .footer-bottom p {
+    margin: 0;
 
     color: #aaaaaa;
 
     font-size: 13px;
 
+    line-height: 1.5;
+
+    text-align: center;
+
+    overflow-wrap: break-word;
 }
 
 
-        /* ================================
-           MOBILE
-        ================================ */
+/* =========================================================
+   TABLET
+========================================================= */
 
-        @media screen and (max-width: 768px) {
+@media (max-width: 1000px) {
 
-            .top-header {
+    .omega-info-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
 
-                height: 72px;
+        gap: 35px;
+    }
 
-                padding:
-                    6px
-                    14px;
-            }
+    .footer-top {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
 
-            .header-logo img {
+        column-gap: 35px;
+    }
 
-                height: 52px;
+    .footer-top > h2 {
+        grid-column: 1 / -1;
+    }
 
-                max-width: 130px;
-            }
+    .footer-middle {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
 
-            .header-brand h1 {
-
-                font-size: 21px;
-
-                letter-spacing: 3px;
-            }
-
-            .header-brand span {
-
-                font-size: 6px;
-
-                letter-spacing: 2px;
-            }
-
-            .omega-hero {
-
-                min-height: 330px;
-
-                padding:
-                    60px
-                    20px;
-            }
-
-            .omega-hero h2 {
-
-                font-size: 48px;
-
-                letter-spacing: 4px;
-            }
-
-            .omega-hero p {
-
-                font-size: 15px;
-            }
-
-            .omega-products {
-
-                padding:
-                    60px
-                    14px
-                    70px;
-            }
-
-            .omega-products-header h2 {
-
-                font-size: 34px;
-            }
-
-            .omega-grid {
-
-                grid-template-columns: 1fr;
-
-                gap: 20px;
-            }
-
-            .omega-card-image {
-
-                height: 380px;
-            }
-
-            .main-footer {
-
-                padding:
-                    55px
-                    18px
-                    20px;
-            }
-
-        }
+        gap: 35px;
+    }
+}
 
 
-        /* ================================
-           SMALL PHONES
-        ================================ */
+/* =========================================================
+   MOBILE
+========================================================= */
 
-        @media screen and (max-width: 480px) {
+@media (max-width: 700px) {
 
-            .header-logo img {
+    .home-wrapper {
+        padding: 15px;
+    }
 
-                height: 47px;
+    .page-title {
+        padding:
+            25px
+            15px
+            35px;
+    }
 
-                max-width: 120px;
-            }
+    .page-title h1 {
+        font-size: 48px;
+    }
 
-            .header-brand h1 {
+    .omega-info-section {
+        width: 100%;
 
-                font-size: 18px;
+        margin-top: 30px;
 
-                letter-spacing: 2.5px;
-            }
+        padding:
+            30px
+            20px
+            45px;
+    }
 
-            .header-brand span {
-                display: none;
-            }
+    .omega-info-grid {
+        grid-template-columns: 1fr;
 
-            .omega-hero h2 {
+        gap: 5px;
+    }
 
-                font-size: 40px;
-            }
+    .omega-info-section h2,
+    .omega-info-section h3 {
+        font-size: 16px;
+    }
 
-            .omega-card-image {
+    .omega-info-section p,
+    .omega-faq-question,
+    .omega-faq-answer,
+    .omega-conclusion p {
+        font-size: 13px !important;
+    }
 
-                height: 350px;
-            }
 
-        }
+    /* FOOTER MOBILE */
 
-    </style>
+    .main-footer {
+        padding:
+            55px
+            20px
+            25px;
+    }
+
+    .footer-top {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+    }
+
+    .footer-top > h2 {
+        grid-column: auto;
+
+        font-size: 34px;
+
+        margin-bottom: 5px;
+    }
+
+    .contact-column,
+    .whatsapp-column {
+        width: 100%;
+    }
+
+    .footer-middle {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+
+        margin-top: 50px;
+
+        padding-top: 35px;
+    }
+
+    .footer-bottom {
+        margin-top: 40px;
+    }
+}
+
+
+/* =========================================================
+   EXTRA SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .page-title h1 {
+        font-size: 42px;
+    }
+
+    .home-btn {
+        padding:
+            10px
+            18px;
+
+        font-size: 14px;
+    }
+
+    .whatsapp-button {
+        width: 100%;
+
+        min-width: 0;
+    }
+
+    .footer-top > h2 {
+        font-size: 30px;
+    }
+}
+
+</style>
 
 </head>
 
@@ -857,262 +820,361 @@
 <body>
 
 
-    <!-- ================================
-         HEADER
-    ================================ -->
+<!-- =========================================================
+     BACK TO HOME
+========================================================= -->
 
-    <header class="top-header">
+<div class="home-wrapper">
 
-        <div class="header-left">
+    <a
+        href="index.html"
+        class="home-btn"
+    >
+        ← Back to Home
+    </a>
 
-            <a
-                href="index.html"
-                class="header-logo"
-            >
-
-                <img
-                    src="logo.jpeg"
-                    alt="50 Mirars Logo"
-                >
-
-            </a>
-
-        </div>
+</div>
 
 
-        <div class="header-brand">
+<!-- =========================================================
+     PAGE TITLE
+========================================================= -->
 
-            <div>
+<div class="page-title">
 
-                <h1>
-                    50 MIRARS
-                </h1>
+    <h1>Omega</h1>
 
-                <span>
-                    WATCHES • SUNGLASSES
-                </span>
+    <div class="title-line"></div>
 
-            </div>
-
-        </div>
+</div>
 
 
-        <div class="header-right">
+<!-- =========================================================
+     OMEGA INFORMATION SECTION
+========================================================= -->
 
-            <a
-                href="cart.html"
-                class="header-cart"
-                aria-label="Shopping Cart"
-            >
+<section class="omega-info-section">
 
-                <span class="cart-icon">
-                    🛒
-                </span>
-
-            </a>
-
-        </div>
-
-    </header>
+    <div class="omega-info-grid">
 
 
+        <!-- =================================================
+             COLUMN 1
+        ================================================== -->
 
-    <!-- ================================
-         OMEGA HERO
-    ================================ -->
-
-    <section class="omega-hero">
-
-        <div class="omega-hero-content">
-
-            <small>
-                PREMIUM WATCH COLLECTION
-            </small>
+        <div class="omega-info-column">
 
             <h2>
-                OMEGA
+                A LEGACY OF EXCELLENCE WITH OMEGA WATCHES
             </h2>
 
             <p>
-                Discover the timeless elegance,
-                precision and sophistication of
-                the Omega collection at 50 Mirars.
+                Omega watches represent timeless design,
+                refined craftsmanship, and a distinctive
+                sense of luxury. Known for their elegant
+                appearance and strong watchmaking heritage,
+                Omega-inspired timepieces remain popular
+                among watch enthusiasts who appreciate
+                sophisticated and iconic designs.
             </p>
 
-        </div>
 
-    </section>
-
-
-
-    <!-- ================================
-         OMEGA PRODUCTS
-    ================================ -->
-
-    <section class="omega-products">
-
-
-        <div class="omega-products-header">
-
-            <small>
-                OMEGA COLLECTION
-            </small>
-
-            <h2>
-                Explore Omega Watches
-            </h2>
+            <h3>
+                INTRODUCTION: THE WORLD OF OMEGA
+            </h3>
 
             <p>
-                Discover our selected Omega timepieces.
+                An Omega-inspired watch combines classic
+                watchmaking aesthetics with a modern and
+                confident appearance. From refined everyday
+                styles to bold statement pieces, different
+                designs can complement a wide range of
+                personalities and occasions.
+            </p>
+
+
+            <h3>
+                OMEGA HISTORY AND HERITAGE
+            </h3>
+
+            <p>
+                Omega has established a strong presence in
+                the world of watchmaking through distinctive
+                designs, precision-focused craftsmanship,
+                and a long-standing association with
+                exceptional timepieces. Its recognizable
+                styling continues to influence modern
+                watch enthusiasts around the world.
             </p>
 
         </div>
 
 
-        <div class="omega-grid">
+        <!-- =================================================
+             COLUMN 2
+        ================================================== -->
+
+        <div class="omega-info-column">
+
+            <h3>
+                OMEGA WATCHES FOR MEN: POWER AND STYLE
+            </h3>
+
+            <p>
+                Omega-inspired watches for men offer a
+                sophisticated combination of style,
+                confidence, and presence. Popular designs
+                include chronograph, diver-inspired,
+                classic dress-watch, and sporty styles.
+                These timepieces can be suitable for
+                everyday wear as well as special occasions.
+            </p>
 
 
-            <!-- PRODUCT 1 -->
+            <h3>
+                OMEGA WATCHES FOR WOMEN: ELEGANCE AND SOPHISTICATION
+            </h3>
 
-            <div class="omega-card">
-
-                <div class="omega-card-image">
-
-                    <img
-                        src="omega-product-1.jpeg"
-                        alt="Omega Watch"
-                    >
-
-                </div>
-
-                <div class="omega-card-content">
-
-                    <h3>
-                        Omega Watch
-                    </h3>
-
-                    <p>
-                        Premium Omega timepiece.
-                    </p>
-
-                    <div class="omega-price">
-                        ₹0
-                    </div>
-
-                    <a
-                        href="#"
-                        class="omega-button"
-                    >
-                        View Product
-                    </a>
-
-                </div>
-
-            </div>
+            <p>
+                Omega-inspired watches for women feature
+                elegant proportions, refined finishes, and
+                sophisticated detailing. Their versatile
+                appearance makes them suitable for everyday
+                outfits, formal occasions, celebrations,
+                and special events.
+            </p>
 
 
-            <!-- PRODUCT 2 -->
+            <h3>
+                OMEGA CRAFTSMANSHIP AND PRECISION
+            </h3>
 
-            <div class="omega-card">
-
-                <div class="omega-card-image">
-
-                    <img
-                        src="omega-product-2.jpeg"
-                        alt="Omega Watch"
-                    >
-
-                </div>
-
-                <div class="omega-card-content">
-
-                    <h3>
-                        Omega Watch
-                    </h3>
-
-                    <p>
-                        Premium Omega timepiece.
-                    </p>
-
-                    <div class="omega-price">
-                        ₹0
-                    </div>
-
-                    <a
-                        href="#"
-                        class="omega-button"
-                    >
-                        View Product
-                    </a>
-
-                </div>
-
-            </div>
+            <p>
+                Every timepiece in our collection is selected
+                for its design, detailing, and overall finish.
+                From the dial and case to the bracelet,
+                markers, and bezel, each element contributes
+                to a refined and distinctive appearance.
+            </p>
 
 
-            <!-- PRODUCT 3 -->
+            <h3>
+                FROM CLASSIC TO SPORTY: OMEGA HAS YOU COVERED
+            </h3>
 
-            <div class="omega-card">
-
-                <div class="omega-card-image">
-
-                    <img
-                        src="omega-product-3.jpeg"
-                        alt="Omega Watch"
-                    >
-
-                </div>
-
-                <div class="omega-card-content">
-
-                    <h3>
-                        Omega Watch
-                    </h3>
-
-                    <p>
-                        Premium Omega timepiece.
-                    </p>
-
-                    <div class="omega-price">
-                        ₹0
-                    </div>
-
-                    <a
-                        href="#"
-                        class="omega-button"
-                    >
-                        View Product
-                    </a>
-
-                </div>
-
-            </div>
-
+            <p>
+                Choose from elegant classic designs, bold
+                chronograph styles, sporty diver-inspired
+                looks, and statement timepieces. The Omega
+                collection offers a variety of styles designed
+                to complement different personalities and
+                occasions.
+            </p>
 
         </div>
 
-    </section>
+
+        <!-- =================================================
+             COLUMN 3
+        ================================================== -->
+
+        <div class="omega-info-column">
+
+            <h3>
+                CARING FOR YOUR OMEGA-INSPIRED WATCH
+            </h3>
+
+            <p>
+                Keep your watch clean and handle it carefully
+                to maintain its appearance. Avoid unnecessary
+                impacts, moisture exposure, and extreme
+                conditions. Proper care can help keep your
+                timepiece looking its best for longer.
+            </p>
 
 
+            <h3>
+                SHOP OMEGA-INSPIRED WATCHES AT 50 MIRARS
+            </h3>
 
-   <!-- =====================================================
+            <p>
+                Explore the Omega collection at
+                <strong>50 Mirars</strong> and discover
+                distinctive designs created for customers who
+                appreciate luxury-inspired style. Choose from
+                different designs, finishes, and price options
+                to find a timepiece that matches your
+                personality and style.
+            </p>
+
+
+            <h3>
+                FAQs
+            </h3>
+
+
+            <div class="omega-faq">
+
+
+                <!-- FAQ 1 -->
+
+                <div class="omega-faq-item">
+
+                    <p class="omega-faq-question">
+                        1. Why are Omega watches so popular?
+                    </p>
+
+                    <p class="omega-faq-answer">
+                        Their distinctive designs, refined
+                        appearance, strong watchmaking heritage,
+                        and luxury appeal make them highly
+                        recognizable among watch enthusiasts.
+                    </p>
+
+                </div>
+
+
+                <!-- FAQ 2 -->
+
+                <div class="omega-faq-item">
+
+                    <p class="omega-faq-question">
+                        2. What Omega-inspired styles are available?
+                    </p>
+
+                    <p class="omega-faq-answer">
+                        Omega-inspired collections can include
+                        classic watches, chronograph styles,
+                        sporty designs, diver-inspired watches,
+                        and other distinctive timepieces.
+                    </p>
+
+                </div>
+
+
+                <!-- FAQ 3 -->
+
+                <div class="omega-faq-item">
+
+                    <p class="omega-faq-question">
+                        3. Are Omega-inspired watches available for women?
+                    </p>
+
+                    <p class="omega-faq-answer">
+                        Yes. Selected designs feature elegant
+                        proportions and refined finishes that
+                        can complement women's styles.
+                    </p>
+
+                </div>
+
+
+                <!-- FAQ 4 -->
+
+                <div class="omega-faq-item">
+
+                    <p class="omega-faq-question">
+                        4. Are these watches suitable for everyday wear?
+                    </p>
+
+                    <p class="omega-faq-answer">
+                        Yes. Many designs can be suitable for
+                        everyday use as well as formal events
+                        and special occasions.
+                    </p>
+
+                </div>
+
+
+                <!-- FAQ 5 -->
+
+                <div class="omega-faq-item">
+
+                    <p class="omega-faq-question">
+                        5. How should I care for my watch?
+                    </p>
+
+                    <p class="omega-faq-answer">
+                        Keep it clean, handle it carefully,
+                        and avoid unnecessary impacts, moisture,
+                        and harsh conditions.
+                    </p>
+
+                </div>
+
+
+                <!-- FAQ 6 -->
+
+                <div class="omega-faq-item">
+
+                    <p class="omega-faq-question">
+                        6. Where can I shop Omega-inspired watches?
+                    </p>
+
+                    <p class="omega-faq-answer">
+                        Explore the Omega collection available
+                        at 50 Mirars to find a distinctive style
+                        that suits you.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         CONCLUSION
+    ====================================================== -->
+
+    <div class="omega-conclusion">
+
+        <h2>
+            CONCLUSION: TIMELESS DESIGN, REFINED PRESENCE
+        </h2>
+
+        <p>
+            Omega-inspired watches bring together timeless
+            design, refined detailing, and a distinctive
+            sense of style. Whether you prefer a classic
+            timepiece, bold chronograph, sporty design, or
+            statement watch, the Omega collection at
+            50 Mirars offers options for different tastes
+            and occasions. Choose a timepiece that adds
+            confidence, elegance, and sophistication to
+            every moment.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
      CONTACT US FOOTER
-===================================================== -->
+========================================================= -->
 
 <footer class="main-footer">
 
     <div class="footer-container">
 
 
-        <div class="footer-top">
+        <!-- =================================================
+             FOOTER TOP
+        ================================================== -->
 
+        <div class="footer-top">
 
             <h2>
                 Contact Us
             </h2>
 
 
-            <!-- CUSTOMER -->
+            <!-- CUSTOMERS -->
 
             <div class="contact-column">
 
@@ -1187,7 +1249,7 @@
                 </h3>
 
                 <a
-                    href="https://wa.me/c/918209989013"
+                    href="https://wa.me/918209989013"
                     target="_blank"
                     rel="noopener"
                     class="whatsapp-button"
@@ -1197,14 +1259,12 @@
 
             </div>
 
-
         </div>
-
 
 
         <!-- =================================================
              FOOTER MIDDLE
-        ================================================= -->
+        ================================================== -->
 
         <div class="footer-middle">
 
@@ -1233,11 +1293,11 @@
             <div class="footer-links-column">
 
                 <h3>
-                    Terms & Conditions
+                    Terms &amp; Conditions
                 </h3>
 
                 <a href="terms.html">
-                    Terms & Conditions
+                    Terms &amp; Conditions
                 </a>
 
                 <a href="privacypolicy.html">
@@ -1276,14 +1336,12 @@
 
             </div>
 
-
         </div>
 
 
-
         <!-- =================================================
-             FOOTER BOTTOM
-        ================================================= -->
+             COPYRIGHT
+        ================================================== -->
 
         <div class="footer-bottom">
 
@@ -1294,11 +1352,9 @@
 
         </div>
 
-
     </div>
 
 </footer>
-
 
 
 </body>
