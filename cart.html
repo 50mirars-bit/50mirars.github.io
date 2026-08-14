@@ -14,12 +14,16 @@
 
 <style>
 
-/* =========================
+/* =====================================================
    BASIC
-========================= */
+===================================================== */
 
 * {
     box-sizing: border-box;
+}
+
+html {
+    overflow-x: hidden;
 }
 
 body {
@@ -32,12 +36,14 @@ body {
 
     color: #222;
 
+    overflow-x: hidden;
+
 }
 
 
-/* =========================
+/* =====================================================
    HEADER
-========================= */
+===================================================== */
 
 header {
 
@@ -98,9 +104,9 @@ header h1 {
 }
 
 
-/* =========================
+/* =====================================================
    CART PAGE
-========================= */
+===================================================== */
 
 .cart-page {
 
@@ -119,9 +125,9 @@ header h1 {
 }
 
 
-/* =========================
+/* =====================================================
    LEFT CART
-========================= */
+===================================================== */
 
 .cart-items {
 
@@ -185,9 +191,9 @@ td {
 }
 
 
-/* =========================
+/* =====================================================
    QUANTITY
-========================= */
+===================================================== */
 
 .quantity-box {
 
@@ -242,9 +248,9 @@ td {
 }
 
 
-/* =========================
+/* =====================================================
    REMOVE PRODUCT
-========================= */
+===================================================== */
 
 .remove-btn {
 
@@ -269,9 +275,9 @@ td {
 }
 
 
-/* =========================
+/* =====================================================
    COUPON SECTION
-========================= */
+===================================================== */
 
 .coupon-section {
 
@@ -390,9 +396,9 @@ td {
 }
 
 
-/* =========================
+/* =====================================================
    RIGHT SUMMARY
-========================= */
+===================================================== */
 
 .cart-summary {
 
@@ -460,9 +466,9 @@ td {
 }
 
 
-/* =========================
+/* =====================================================
    CHECKOUT BUTTON
-========================= */
+===================================================== */
 
 .checkout-btn {
 
@@ -495,9 +501,9 @@ td {
 }
 
 
-/* =========================
+/* =====================================================
    EMPTY CART
-========================= */
+===================================================== */
 
 .empty-cart {
 
@@ -512,80 +518,304 @@ td {
 }
 
 
-/* =========================
-   FOOTER
-========================= */
+/* =====================================================
+   HOMEPAGE CONTACT FOOTER
+===================================================== */
 
-footer {
+.main-footer {
 
-    background: #111;
+    width: 100%;
 
-    color: #fff;
+    background: #0b0b0b;
 
-    padding: 40px;
+    color: #ffffff;
 
-    display: flex;
-
-    justify-content: space-between;
-
-    flex-wrap: wrap;
+    padding:
+        70px
+        7%
+        25px;
 
     margin-top: 50px;
 
 }
 
-footer div {
+.footer-container {
 
-    flex: 1;
+    max-width: 1400px;
 
-    margin: 10px;
+    margin: auto;
 
 }
 
-footer h4 {
+.footer-top {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 40px;
+
+}
+
+.footer-top > h2 {
+
+    grid-column: 1 / -1;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 42px;
+
+    text-align: center;
 
     margin-bottom: 10px;
 
 }
 
-footer a {
+.contact-column,
+.whatsapp-column {
 
-    color: #c9a24d;
-
-    text-decoration: none;
-
-    display: block;
-
-    margin: 5px 0;
+    text-align: center;
 
 }
 
-footer a:hover {
+.contact-column h3,
+.whatsapp-column h3 {
 
-    color: #fff;
+    font-size: 20px;
+
+    margin-bottom: 22px;
+
+}
+
+.contact-column p {
+
+    color: #bdbdbd;
+
+    font-size: 15px;
+
+    margin-top: 12px;
+
+}
+
+.footer-link {
+
+    display: block;
+
+    width: fit-content;
+
+    margin:
+        0
+        auto
+        8px;
+
+    color: #ffffff;
+
+    font-size: 16px;
+
+}
+
+.footer-link:hover {
+
+    color: #c9a24d;
+
+}
+
+.whatsapp-title {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+}
+
+.whatsapp-icon {
+
+    width: 24px !important;
+
+    height: 24px !important;
+
+    object-fit: contain;
+
+}
+
+.whatsapp-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 50px;
+
+    padding:
+        13px
+        30px;
+
+    background: #ffffff;
+
+    color: #111111;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+}
+
+.whatsapp-button:hover {
+
+    background: #c9a24d;
+
+    color: #ffffff;
+
+}
+
+.footer-middle {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 50px;
+
+    margin-top: 65px;
+
+    padding-top: 45px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,0.10);
+
+}
+
+.footer-links-column,
+.footer-social {
+
+    text-align: center;
+
+}
+
+.footer-links-column h3,
+.footer-social h3 {
+
+    margin-bottom: 20px;
+
+}
+
+.footer-links-column a {
+
+    display: block;
+
+    width: fit-content;
+
+    margin:
+        0
+        auto
+        14px;
+
+    color: #d7d7d7;
+
+    text-decoration: none;
+
+}
+
+.footer-links-column a:hover {
+
+    color: #c9a24d;
+
+}
+
+.footer-social p {
+
+    color: #d7d7d7;
+
+    margin-bottom: 14px;
+
+}
+
+.instagram-button {
+
+    width: 48px;
+
+    height: 48px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.7);
+
+    border-radius: 10px;
+
+}
+
+.instagram-button:hover {
+
+    border-color: #c9a24d;
+
+}
+
+.instagram-button img {
+
+    width: 27px;
+
+    height: 27px;
+
+    object-fit: contain;
 
 }
 
 .footer-bottom {
 
+    margin-top: 50px;
+
+    padding-top: 20px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,0.10);
+
     text-align: center;
 
-    flex-basis: 100%;
+}
 
-    margin-top: 20px;
+.footer-bottom p {
+
+    color: #aaaaaa;
+
+    font-size: 13px;
 
 }
 
 
-/* =========================
-   COUPON MOBILE SAFETY
-========================= */
+/* =====================================================
+   TABLET
+===================================================== */
 
-@media (max-width: 900px) {
+@media screen and (max-width: 1024px) {
 
     .cart-page {
 
         flex-direction: column;
+
+    }
+
+    .cart-items {
+
+        width: 100%;
 
     }
 
@@ -599,6 +829,205 @@ footer a:hover {
 
 }
 
+
+/* =====================================================
+   FOOTER MOBILE
+===================================================== */
+
+@media screen and (max-width: 768px) {
+
+    .main-footer {
+
+        padding:
+            55px
+            18px
+            20px;
+
+    }
+
+    .footer-top {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .footer-top > h2 {
+
+        font-size: 34px;
+
+    }
+
+    .footer-middle {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE CART
+===================================================== */
+
+@media screen and (max-width: 768px) {
+
+    header {
+
+        padding:
+            15px
+            20px;
+
+    }
+
+    header h1 {
+
+        font-size: 23px;
+
+    }
+
+    .back-btn {
+
+        padding:
+            9px
+            13px;
+
+        font-size: 13px;
+
+    }
+
+    .logo {
+
+        width: 90px;
+
+    }
+
+    .cart-page {
+
+        margin:
+            25px
+            auto;
+
+        padding:
+            0
+            12px;
+
+    }
+
+    .cart-items {
+
+        padding: 10px;
+
+        overflow-x: auto;
+
+    }
+
+    table {
+
+        min-width: 700px;
+
+    }
+
+    .cart-summary {
+
+        padding: 20px;
+
+    }
+
+    .coupon-box {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+    }
+
+    .coupon-input,
+    .apply-coupon-btn,
+    .remove-coupon-btn {
+
+        width: 100%;
+
+    }
+
+}
+
+
+/* =====================================================
+   SMALL PHONES
+===================================================== */
+
+@media screen and (max-width: 480px) {
+
+    header {
+
+        padding:
+            12px
+            12px;
+
+    }
+
+    header h1 {
+
+        font-size: 20px;
+
+    }
+
+    .back-btn {
+
+        padding:
+            8px
+            10px;
+
+        font-size: 12px;
+
+    }
+
+    .logo {
+
+        width: 75px;
+
+    }
+
+    .footer-top > h2 {
+
+        font-size: 32px;
+
+    }
+
+}
+
+
+/* =====================================================
+   VERY SMALL PHONES
+===================================================== */
+
+@media screen and (max-width: 360px) {
+
+    header h1 {
+
+        font-size: 18px;
+
+    }
+
+    .back-btn {
+
+        font-size: 11px;
+
+        padding:
+            7px
+            8px;
+
+    }
+
+    .logo {
+
+        width: 65px;
+
+    }
+
+}
+
 </style>
 
 </head>
@@ -607,9 +1036,9 @@ footer a:hover {
 <body>
 
 
-<!-- =========================
+<!-- =====================================================
      HEADER
-========================= -->
+===================================================== -->
 
 <header>
 
@@ -636,9 +1065,9 @@ footer a:hover {
 
 
 
-<!-- =========================
+<!-- =====================================================
      CART PAGE
-========================= -->
+===================================================== -->
 
 <section class="cart-page">
 
@@ -687,9 +1116,9 @@ footer a:hover {
 
 
 
-        <!-- =========================
+        <!-- =================================================
              COUPON
-        ========================= -->
+        ================================================= -->
 
         <div class="coupon-section">
 
@@ -737,9 +1166,9 @@ footer a:hover {
 
 
 
-    <!-- =========================
+    <!-- =================================================
          ORDER SUMMARY
-    ========================= -->
+    ================================================= -->
 
     <div class="cart-summary">
 
@@ -816,83 +1245,207 @@ footer a:hover {
 
 
 
-<!-- =========================
-     FOOTER
-========================= -->
+<!-- =====================================================
+     CONTACT US FOOTER
+===================================================== -->
 
-<footer>
+<footer class="main-footer">
+
+    <div class="footer-container">
 
 
-    <div>
+        <div class="footer-top">
 
-        <h4>
-            About
-        </h4>
 
-        <p>
-            50 Mirars premium watches and accessories.
-        </p>
+            <h2>
+                Contact Us
+            </h2>
+
+
+            <!-- CUSTOMER -->
+
+            <div class="contact-column">
+
+                <h3>
+                    For Customers:
+                </h3>
+
+                <a
+                    href="mailto:50mirars@gmail.com"
+                    class="footer-link"
+                >
+                    50mirars@gmail.com
+                </a>
+
+                <a
+                    href="tel:+918209989013"
+                    class="footer-link"
+                >
+                    82099 89013
+                </a>
+
+                <p>
+                    09:00 - 21:30 | Monday to Sunday
+                </p>
+
+            </div>
+
+
+            <!-- SALES / WATCH SERVICE -->
+
+            <div class="contact-column">
+
+                <h3>
+                    For Sales/Watch Service:
+                </h3>
+
+                <a
+                    href="mailto:50mirars@gmail.com"
+                    class="footer-link"
+                >
+                    50mirars@gmail.com
+                </a>
+
+                <a
+                    href="tel:+918209989013"
+                    class="footer-link"
+                >
+                    82099 89013
+                </a>
+
+                <p>
+                    09:00 - 21:30 | Monday to Sunday
+                </p>
+
+            </div>
+
+
+            <!-- WHATSAPP -->
+
+            <div class="whatsapp-column">
+
+                <h3 class="whatsapp-title">
+
+                    View Products on WhatsApp
+
+                    <img
+                        src="whatsapplogo.png"
+                        alt="WhatsApp"
+                        class="whatsapp-icon"
+                    >
+
+                </h3>
+
+                <a
+                    href="https://wa.me/c/918209989013"
+                    target="_blank"
+                    rel="noopener"
+                    class="whatsapp-button"
+                >
+                    View Products
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             FOOTER MIDDLE
+        ================================================= -->
+
+        <div class="footer-middle">
+
+
+            <!-- KNOW 50 MIRARS -->
+
+            <div class="footer-links-column">
+
+                <h3>
+                    Know 50 Mirars
+                </h3>
+
+                <a href="about.html">
+                    About Us
+                </a>
+
+                <a href="faq.html">
+                    FAQ
+                </a>
+
+            </div>
+
+
+            <!-- TERMS -->
+
+            <div class="footer-links-column">
+
+                <h3>
+                    Terms & Conditions
+                </h3>
+
+                <a href="terms.html">
+                    Terms & Conditions
+                </a>
+
+                <a href="privacypolicy.html">
+                    Privacy Policy
+                </a>
+
+            </div>
+
+
+            <!-- INSTAGRAM -->
+
+            <div class="footer-social">
+
+                <h3>
+                    50 Mirars
+                </h3>
+
+                <p>
+                    Follow Us On
+                </p>
+
+                <a
+                    href="https://instagram.com/50mirars"
+                    target="_blank"
+                    rel="noopener"
+                    class="instagram-button"
+                    aria-label="Follow 50 Mirars on Instagram"
+                >
+
+                    <img
+                        src="instagramimage.webp"
+                        alt="Instagram"
+                    >
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             FOOTER BOTTOM
+        ================================================= -->
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 50 Mirars - The Watch &amp; Sunglasses Store.
+                All Rights Reserved.
+            </p>
+
+        </div>
+
 
     </div>
-
-
-
-    <div>
-
-        <h4>
-            Categories
-        </h4>
-
-        <a href="#">
-            Watches
-        </a>
-
-        <a href="#">
-            Sunglasses
-        </a>
-
-        <a href="#">
-            Limited Editions
-        </a>
-
-    </div>
-
-
-
-    <div>
-
-        <h4>
-            Support
-        </h4>
-
-        <a href="mailto:50mirars@gmail.com">
-            Email
-        </a>
-
-        <a
-            href="https://wa.me/918209989013"
-            target="_blank"
-        >
-            WhatsApp
-        </a>
-
-        <a
-            href="https://www.instagram.com/50mirars"
-            target="_blank"
-        >
-            Instagram
-        </a>
-
-    </div>
-
-
-
-    <div class="footer-bottom">
-
-        © 2026 50 Mirars. All Rights Reserved.
-
-    </div>
-
 
 </footer>
 
@@ -963,7 +1516,7 @@ function renderCart() {
     cartItems.innerHTML = "";
 
 
-    /* Empty cart */
+    /* EMPTY CART */
 
     if (cart.length === 0) {
 
@@ -994,9 +1547,7 @@ function renderCart() {
 
 
 
-    /*
-       Group identical products
-    */
+    /* GROUP IDENTICAL PRODUCTS */
 
     const products = {};
 
@@ -1028,9 +1579,7 @@ function renderCart() {
 
 
 
-    /*
-       Display products
-    */
+    /* DISPLAY PRODUCTS */
 
     Object.values(products).forEach(
         function(item) {
@@ -1174,9 +1723,7 @@ function changeQuantity(
     let cart = getCart();
 
 
-    /*
-       ADD ONE
-    */
+    /* ADD ONE */
 
     if (amount === 1) {
 
@@ -1206,9 +1753,7 @@ function changeQuantity(
 
 
 
-    /*
-       REMOVE ONE
-    */
+    /* REMOVE ONE */
 
     if (amount === -1) {
 
@@ -1313,10 +1858,7 @@ function updateSummary() {
         ) || 0;
 
 
-    /*
-       Don't allow discount
-       to become bigger than subtotal
-    */
+    /* DON'T ALLOW DISCOUNT ABOVE SUBTOTAL */
 
     const safeDiscount =
         Math.min(
@@ -1363,10 +1905,7 @@ function updateSummary() {
 
 
 
-    /*
-       Save values for
-       delivery/payment pages
-    */
+    /* SAVE VALUES FOR DELIVERY / PAYMENT */
 
     localStorage.setItem(
         "orderSubtotal",
@@ -1433,10 +1972,7 @@ function applyCoupon() {
     let discount = 0;
 
 
-    /*
-       BIRTH1
-       20% OFF
-    */
+    /* BIRTH1 - 20% OFF */
 
     if (code === "BIRTH1") {
 
@@ -1446,10 +1982,7 @@ function applyCoupon() {
     }
 
 
-    /*
-       10OFF10
-       10% OFF
-    */
+    /* 10OFF10 - 10% OFF */
 
     else if (code === "10OFF10") {
 
@@ -1459,9 +1992,7 @@ function applyCoupon() {
     }
 
 
-    /*
-       Invalid coupon
-    */
+    /* INVALID COUPON */
 
     else {
 
@@ -1489,9 +2020,7 @@ function applyCoupon() {
 
 
 
-    /*
-       Save coupon
-    */
+    /* SAVE COUPON */
 
     localStorage.setItem(
         "cartDiscount",
@@ -1505,9 +2034,7 @@ function applyCoupon() {
     );
 
 
-    /*
-       Update screen
-    */
+    /* UPDATE SCREEN */
 
     updateSummary();
 
@@ -1589,17 +2116,12 @@ function goToDelivery() {
     }
 
 
-    /*
-       Make sure the
-       latest total is saved
-    */
+    /* SAVE LATEST TOTAL */
 
     updateSummary();
 
 
-    /*
-       Go to delivery page
-    */
+    /* GO TO DELIVERY PAGE */
 
     window.location.href =
         "delivery.html";
