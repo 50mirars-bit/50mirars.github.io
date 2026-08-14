@@ -2682,176 +2682,47 @@ body {
 
 <script>
 
-/* =========================================================
-   IMAGE SLIDER
-========================================================= */
+document.querySelectorAll('.slider').forEach(slider => {
 
-document.querySelectorAll(".slider").forEach(function(slider) {
-
-    const slides =
-        slider.querySelectorAll(".slide");
-
-    if (slides.length === 0) {
-        return;
-    }
-
+    const slides = slider.querySelectorAll('.slide');
     let current = 0;
 
-    const nextButton =
-        slider.querySelector(".next");
-
-    const prevButton =
-        slider.querySelector(".prev");
-
-
-    function showSlide(index) {
-
-        slides.forEach(function(slide) {
-
-            slide.classList.remove("active");
-
-        });
-
-        slides[index].classList.add("active");
-
-    }
-
-
-    if (nextButton) {
-
-        nextButton.addEventListener(
-            "click",
-            function() {
-
-                current =
-                    (current + 1) % slides.length;
-
-                showSlide(current);
-
-            }
-        );
-
-    }
-
-
-    if (prevButton) {
-
-        prevButton.addEventListener(
-            "click",
-            function() {
-
-                current =
-                    (current - 1 + slides.length)
-                    % slides.length;
-
-                showSlide(current);
-
-            }
-        );
-
-    }
-
-
-    showSlide(current);
-
-});
-
-
-/* =========================================================
-   ADD TO CART
-========================================================= */
-
-document.querySelectorAll(".add-to-cart-btn").forEach(function(button) {
-
-    button.addEventListener("click", function() {
-
-        const name =
-            button.getAttribute("data-name");
-
-        const price =
-            Number(button.getAttribute("data-price"));
-
-        const image =
-            button.getAttribute("data-image") || "";
-
-
-        let cart = [];
-
-        try {
-
-            cart =
-                JSON.parse(
-                    localStorage.getItem("cart")
-                ) || [];
-
-            if (!Array.isArray(cart)) {
-
-                cart = [];
-
-            }
-
-        } catch (error) {
-
-            cart = [];
-
-        }
-
-
-        /* =============================================
-           CHECK IF PRODUCT ALREADY EXISTS
-        ============================================= */
-
-        const existingProduct =
-            cart.find(function(item) {
-
-                return item.name === name;
-
-            });
-
-
-        if (existingProduct) {
-
-            existingProduct.quantity =
-                Number(existingProduct.quantity || 1) + 1;
-
-        } else {
-
-            cart.push({
-
-                name: name,
-
-                price: price,
-
-                image: image,
-
-                quantity: 1
-
-            });
-
-        }
-
-
-        /* =============================================
-           SAVE CART
-        ============================================= */
-
-        localStorage.setItem(
-            "cart",
-            JSON.stringify(cart)
-        );
-
-
-        /* =============================================
-           GO TO CART
-        ============================================= */
-
-        window.location.href = "cart.html";
-
+    slider.querySelector('.next').addEventListener('click', () => {
+        slides[current].classList.remove('active');
+        current = (current + 1) % slides.length;
+        slides[current].classList.add('active');
+    });
+
+    slider.querySelector('.prev').addEventListener('click', () => {
+        slides[current].classList.remove('active');
+        current = (current - 1 + slides.length) % slides.length;
+        slides[current].classList.add('active');
     });
 
 });
 
+</script>
 
+<script>
+document.querySelectorAll(".add-to-cart-btn, .add-to-cart").forEach(button => {
+  button.addEventListener("click", () => {
+    let name = button.dataset.name;
+    let price = button.dataset.price;
+    let image = button.dataset.image || "images/default.jpg"; // optional image path
+
+    // Get existing cart or create new
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Add product
+    cart.push({ name, price, image });
+
+    // Save back to localStorage
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    // Redirect to cart page
+    window.location.href = "cart.html";
+  });
+});
 </script>
 
 
