@@ -752,29 +752,171 @@ footer a:hover {
 <script>
 
 /* =====================================================
+   GOOGLE APPS SCRIPT URL
+===================================================== */
+
+const GOOGLE_SCRIPT_URL =
+"https://script.google.com/macros/s/AKfycby3ax0fb-oYkP0by51Z0LGDsYfmy6jlEUA_pG4NCTBFjbvgQLWAP8knGe30xHnQaWiiKA/exec";
+
+
+/* =====================================================
    GET SAVED ORDER
+===================================================== */
+
+function getOrderData() {
+
+    return JSON.parse(
+        localStorage.getItem("orderData")
+    ) || null;
+
+}
+
+
+/* =====================================================
+   GET DELIVERY DETAILS
+===================================================== */
+
+function getDeliveryDetails() {
+
+    return JSON.parse(
+        localStorage.getItem("deliveryDetails")
+    ) || null;
+
+}
+
+
+/* =====================================================
+   GET CART
+===================================================== */
+
+function getCart() {
+
+    return JSON.parse(
+        localStorage.getItem("cart")
+    ) || [];
+
+}
+
+
+/* =====================================================
+   GET PRICE
+===================================================== */
+
+function getPrice(item) {
+
+    return parseFloat(
+
+        String(item.price)
+            .replace(/[^0-9.]/g, "")
+
+    ) || 0;
+
+}
+
+
+/* =====================================================
+   CREATE ORDER ID
+===================================================== */
+
+function getOrderId() {
+
+    let orderId =
+        localStorage.getItem("orderId");
+
+
+    if (!orderId) {
+
+        orderId =
+            "50M-" + Date.now();
+
+        localStorage.setItem(
+            "orderId",
+            orderId
+        );
+
+    }
+
+
+    return orderId;
+
+}
+
+
+/* =====================================================
+   CREATE PRODUCT LIST
+===================================================== */
+
+function getProducts(cart) {
+
+    const products = {};
+
+
+    cart.forEach(function(item) {
+
+        const key =
+            item.name + "|" + item.price;
+
+
+        if (!products[key]) {
+
+            products[key] = {
+
+                name: item.name,
+
+                price: getPrice(item),
+
+                quantity: 0
+
+            };
+
+        }
+
+
+        products[key].quantity++;
+
+    });
+
+
+    return Object.values(products);
+
+}
+
+
+/* =====================================================
+   CALCULATE SUBTOTAL
+===================================================== */
+
+function calculateSubtotal(cart) {
+
+    let subtotal = 0;
+
+
+    cart.forEach(function(item) {
+
+        subtotal += getPrice(item);
+
+    });
+
+
+    return subtotal;
+
+}
+
+
+/* =====================================================
+   LOAD ORDER ON PAGE
 ===================================================== */
 
 function loadOrder() {
 
     const orderData =
-        JSON.parse(
-
-            localStorage.getItem(
-                "orderData"
-            )
-
-        );
-
+        getOrderData();
 
     const deliveryDetails =
-        JSON.parse(
+        getDeliveryDetails();
 
-            localStorage.getItem(
-                "deliveryDetails"
-            )
-
-        );
+    const cart =
+        getCart();
 
 
     if (!orderData || !deliveryDetails) {
@@ -790,34 +932,17 @@ function loadOrder() {
 
 
     /* =========================
-       CREATE ORDER ID
+       ORDER ID
     ========================= */
 
-    let orderId =
-        localStorage.getItem(
-            "orderId"
-        );
-
-
-    if (!orderId) {
-
-        orderId =
-            "50M-" +
-            Date.now();
-
-        localStorage.setItem(
-            "orderId",
-            orderId
-        );
-
-    }
+    const orderId =
+        getOrderId();
 
 
     document.getElementById(
         "order-id"
     ).innerText =
         orderId;
-
 
 
     /* =========================
@@ -866,7 +991,6 @@ function loadOrder() {
         deliveryDetails.pin || "";
 
 
-
     /* =========================
        TRANSACTION ID
     ========================= */
@@ -875,7 +999,6 @@ function loadOrder() {
         "transaction-id"
     ).innerText =
         orderData.transactionId || "";
-
 
 
     /* =========================
@@ -891,77 +1014,46 @@ function loadOrder() {
     productList.innerHTML = "";
 
 
-    const products = {};
+    const products =
+        getProducts(cart);
 
 
-    (orderData.cart || []).forEach(
-        function(item) {
+    products.forEach(function(item) {
 
-            const key =
-                item.name + "|" + item.price;
-
-
-            if (!products[key]) {
-
-                products[key] = {
-
-                    name: item.name,
-
-                    price:
-                        getPrice(item),
-
-                    quantity: 0
-
-                };
-
-            }
+        const itemTotal =
+            item.price *
+            item.quantity;
 
 
-            products[key].quantity++;
+        productList.innerHTML += `
 
-        }
-    );
+            <div class="product-item">
 
+                <div class="product-name">
 
-    Object.values(products).forEach(
-        function(item) {
+                    ${item.name}
 
-            const itemTotal =
-                item.price *
-                item.quantity;
+                    <div class="product-quantity">
 
-
-            productList.innerHTML += `
-
-                <div class="product-item">
-
-                    <div class="product-name">
-
-                        ${item.name}
-
-                        <div class="product-quantity">
-
-                            Quantity:
-                            ${item.quantity}
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="product-price">
-
-                        ₹${itemTotal.toLocaleString("en-IN")}
+                        Quantity:
+                        ${item.quantity}
 
                     </div>
 
                 </div>
 
-            `;
 
-        }
-    );
+                <div class="product-price">
 
+                    ₹${itemTotal.toLocaleString("en-IN")}
+
+                </div>
+
+            </div>
+
+        `;
+
+    });
 
 
     /* =========================
@@ -969,21 +1061,16 @@ function loadOrder() {
     ========================= */
 
     const subtotal =
-        Number(
-            orderData.subtotal
-        ) || 0;
+        Number(orderData.subtotal) ||
+        calculateSubtotal(cart);
 
 
     const discount =
-        Number(
-            orderData.discount
-        ) || 0;
+        Number(orderData.discount) || 0;
 
 
     const total =
-        Number(
-            orderData.total
-        ) ||
+        Number(orderData.total) ||
         (subtotal - discount);
 
 
@@ -992,9 +1079,7 @@ function loadOrder() {
     ).innerText =
 
         "₹" +
-        subtotal.toLocaleString(
-            "en-IN"
-        );
+        subtotal.toLocaleString("en-IN");
 
 
     document.getElementById(
@@ -1002,9 +1087,7 @@ function loadOrder() {
     ).innerText =
 
         "₹" +
-        discount.toLocaleString(
-            "en-IN"
-        );
+        discount.toLocaleString("en-IN");
 
 
     document.getElementById(
@@ -1012,25 +1095,217 @@ function loadOrder() {
     ).innerText =
 
         "₹" +
-        total.toLocaleString(
-            "en-IN"
-        );
+        total.toLocaleString("en-IN");
+
+
+    /* =========================
+       SEND TO GOOGLE SHEET
+    ========================= */
+
+    sendOrderToGoogleSheet(
+
+        orderId,
+
+        deliveryDetails,
+
+        products,
+
+        subtotal,
+
+        discount,
+
+        total,
+
+        orderData.transactionId || ""
+
+    );
 
 }
 
 
 /* =====================================================
-   GET PRICE
+   SEND ORDER TO GOOGLE SHEET
 ===================================================== */
 
-function getPrice(item) {
+function sendOrderToGoogleSheet(
 
-    return parseFloat(
+    orderId,
+    deliveryDetails,
+    products,
+    subtotal,
+    discount,
+    total,
+    transactionId
 
-        String(item.price)
-            .replace(/[^0-9.]/g, "")
+) {
 
-    ) || 0;
+
+    /*
+       Prevent the same order from being
+       submitted repeatedly if the customer
+       refreshes the confirmation page.
+    */
+
+    const alreadySent =
+        localStorage.getItem(
+            "orderSentToGoogleSheet"
+        );
+
+
+    if (
+        alreadySent === orderId
+    ) {
+
+        return;
+
+    }
+
+
+    /* =========================
+       TOTAL QUANTITY
+    ========================= */
+
+    let totalQuantity = 0;
+
+
+    products.forEach(function(product) {
+
+        totalQuantity +=
+            Number(product.quantity);
+
+    });
+
+
+    /* =========================
+       DATA TO SEND
+    ========================= */
+
+    const order = {
+
+        orderId: orderId,
+
+        customerName:
+            deliveryDetails.customerName || "",
+
+        phone:
+            deliveryDetails.phone || "",
+
+        email:
+            deliveryDetails.email || "",
+
+        address:
+            deliveryDetails.address || "",
+
+        city:
+            deliveryDetails.city || "",
+
+        state:
+            deliveryDetails.state || "",
+
+        pin:
+            deliveryDetails.pin || "",
+
+
+        products: products.map(
+            function(product) {
+
+                return {
+
+                    name:
+                        product.name,
+
+                    quantity:
+                        product.quantity,
+
+                    price:
+                        product.price
+
+                };
+
+            }
+        ),
+
+
+        totalQuantity:
+            totalQuantity,
+
+
+        subtotal:
+            subtotal,
+
+
+        discount:
+            discount,
+
+
+        total:
+            total,
+
+
+        transactionId:
+            transactionId
+
+    };
+
+
+    /* =========================
+       SEND REQUEST
+    ========================= */
+
+    fetch(
+
+        GOOGLE_SCRIPT_URL,
+
+        {
+
+            method: "POST",
+
+            mode: "no-cors",
+
+            headers: {
+
+                "Content-Type":
+                    "text/plain;charset=utf-8"
+
+            },
+
+            body:
+                JSON.stringify(order)
+
+        }
+
+    )
+
+    .then(function() {
+
+        /*
+           Save the order ID so that
+           refreshing the confirmation
+           page doesn't create another row.
+        */
+
+        localStorage.setItem(
+
+            "orderSentToGoogleSheet",
+
+            orderId
+
+        );
+
+        console.log(
+            "Order sent to Google Sheet."
+        );
+
+    })
+
+    .catch(function(error) {
+
+        console.error(
+            "Google Sheet Error:",
+            error
+        );
+
+    });
 
 }
 
