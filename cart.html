@@ -5,228 +5,904 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=1200">
+<meta
+    name="viewport"
+    content="width=1200"
+>
 
 <title>Your Cart | 50 Mirars</title>
 
 <style>
 
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f9f9f9;
-    color: #222;
+/* =========================
+   BASIC
+========================= */
+
+* {
+    box-sizing: border-box;
 }
 
+body {
+
+    margin: 0;
+
+    font-family: Arial, sans-serif;
+
+    background: #f9f9f9;
+
+    color: #222;
+
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
 header {
-    background: white;
+
+    background: #fff;
+
     padding: 20px 40px;
+
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
+
     border-bottom: 1px solid #ddd;
+
 }
 
 header h1 {
+
     margin: 0;
+
     font-size: 28px;
+
+    text-align: center;
+
+    flex: 1;
+
 }
 
 .back-btn {
+
     background: #111;
-    color: white;
+
+    color: #fff;
+
     padding: 10px 20px;
+
     text-decoration: none;
+
     border-radius: 6px;
+
+    font-size: 15px;
+
+}
+
+.back-btn:hover {
+
+    background: #333;
+
 }
 
 .logo {
+
     width: 120px;
+
+    height: auto;
+
 }
+
+
+/* =========================
+   CART PAGE
+========================= */
 
 .cart-page {
-    max-width: 1200px;
+
+    max-width: 1250px;
+
     margin: 40px auto;
+
     padding: 0 20px;
+
+    display: flex;
+
+    gap: 30px;
+
+    align-items: flex-start;
+
 }
 
-.cart-box {
-    background: white;
-    padding: 25px;
+
+/* =========================
+   LEFT CART
+========================= */
+
+.cart-items {
+
+    flex: 2;
+
+    background: #fff;
+
+    padding: 20px;
+
     border-radius: 10px;
+
     border: 1px solid #ddd;
+
+    box-shadow:
+        0 2px 8px rgba(0,0,0,0.08);
+
 }
 
 table {
-    width: 100%;
-    border-collapse: collapse;
-}
 
-th,
-td {
-    padding: 15px;
-    border-bottom: 1px solid #ddd;
-    text-align: center;
+    width: 100%;
+
+    border-collapse: collapse;
+
 }
 
 th {
+
+    padding: 15px;
+
     background: #f5f5f5;
+
+    border-bottom: 2px solid #ddd;
+
+    text-align: center;
+
+    font-size: 15px;
+
+}
+
+td {
+
+    padding: 15px;
+
+    border-bottom: 1px solid #eee;
+
+    text-align: center;
+
+    vertical-align: middle;
+
 }
 
 .product-name {
-    font-weight: bold;
+
+    text-align: left;
+
+    font-weight: 600;
+
+    line-height: 1.4;
+
+}
+
+
+/* =========================
+   QUANTITY
+========================= */
+
+.quantity-box {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
 }
 
 .quantity-btn {
+
+    width: 32px;
+
+    height: 32px;
+
     background: #009688;
-    color: white;
+
+    color: #fff;
+
     border: none;
-    padding: 6px 12px;
+
     border-radius: 4px;
+
     cursor: pointer;
+
+    font-size: 18px;
+
+    line-height: 32px;
+
+    padding: 0;
+
 }
+
+.quantity-btn:hover {
+
+    background: #00796b;
+
+}
+
+.quantity-number {
+
+    min-width: 25px;
+
+    display: inline-block;
+
+    font-weight: bold;
+
+}
+
+
+/* =========================
+   REMOVE PRODUCT
+========================= */
 
 .remove-btn {
+
     background: #e53935;
-    color: white;
+
+    color: #fff;
+
     border: none;
-    padding: 7px 12px;
+
+    padding: 7px 13px;
+
     border-radius: 4px;
+
     cursor: pointer;
+
 }
 
-.summary {
-    margin-top: 30px;
-    max-width: 400px;
-    margin-left: auto;
-    background: white;
-    padding: 25px;
-    border-radius: 10px;
+.remove-btn:hover {
+
+    background: #c62828;
+
+}
+
+
+/* =========================
+   COUPON SECTION
+========================= */
+
+.coupon-section {
+
+    margin-top: 25px;
+
+    background: #f0f0f0;
+
+    padding: 18px;
+
+    border-radius: 8px;
+
     border: 1px solid #ddd;
+
 }
 
-.summary p {
+.coupon-title {
+
+    margin: 0 0 12px 0;
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+}
+
+.coupon-box {
+
     display: flex;
-    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 10px;
+
 }
 
-.total {
-    font-size: 20px;
-    font-weight: bold;
-    border-top: 1px solid #ddd;
-    padding-top: 15px;
+.coupon-input {
+
+    flex: 1;
+
+    padding: 11px 12px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 5px;
+
+    background: #fff;
+
+    font-size: 14px;
+
+    outline: none;
+
 }
+
+.coupon-input:focus {
+
+    border-color: #009688;
+
+}
+
+.apply-coupon-btn {
+
+    background: #009688;
+
+    color: #fff;
+
+    border: none;
+
+    padding: 11px 20px;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+}
+
+.apply-coupon-btn:hover {
+
+    background: #00796b;
+
+}
+
+.remove-coupon-btn {
+
+    background: #e53935;
+
+    color: #fff;
+
+    border: none;
+
+    padding: 11px 18px;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+}
+
+.remove-coupon-btn:hover {
+
+    background: #c62828;
+
+}
+
+.coupon-message {
+
+    margin-top: 10px;
+
+    font-size: 14px;
+
+    min-height: 18px;
+
+}
+
+
+/* =========================
+   RIGHT SUMMARY
+========================= */
+
+.cart-summary {
+
+    flex: 0 0 340px;
+
+    background: #fff;
+
+    padding: 25px;
+
+    border-radius: 10px;
+
+    border: 1px solid #ddd;
+
+    box-shadow:
+        0 2px 8px rgba(0,0,0,0.08);
+
+}
+
+.cart-summary h2 {
+
+    margin-top: 0;
+
+    margin-bottom: 20px;
+
+    font-size: 21px;
+
+}
+
+.summary-line {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin: 14px 0;
+
+    font-size: 15px;
+
+}
+
+.discount-line {
+
+    color: #008577;
+
+}
+
+.total-line {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    border-top: 1px solid #ddd;
+
+    padding-top: 16px;
+
+    margin-top: 18px;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+}
+
+
+/* =========================
+   CHECKOUT BUTTON
+========================= */
 
 .checkout-btn {
+
     width: 100%;
+
+    margin-top: 18px;
+
     padding: 14px;
+
     background: #009688;
-    color: white;
+
+    color: #fff;
+
     border: none;
+
     border-radius: 6px;
+
     font-size: 16px;
+
+    font-weight: 600;
+
     cursor: pointer;
+
 }
 
-.empty {
+.checkout-btn:hover {
+
+    background: #00796b;
+
+}
+
+
+/* =========================
+   EMPTY CART
+========================= */
+
+.empty-cart {
+
     text-align: center;
-    padding: 40px;
+
+    padding: 60px 20px;
+
     font-size: 20px;
+
+    color: #555;
+
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+
+    background: #111;
+
+    color: #fff;
+
+    padding: 40px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    flex-wrap: wrap;
+
+    margin-top: 50px;
+
+}
+
+footer div {
+
+    flex: 1;
+
+    margin: 10px;
+
+}
+
+footer h4 {
+
+    margin-bottom: 10px;
+
+}
+
+footer a {
+
+    color: #c9a24d;
+
+    text-decoration: none;
+
+    display: block;
+
+    margin: 5px 0;
+
+}
+
+footer a:hover {
+
+    color: #fff;
+
+}
+
+.footer-bottom {
+
+    text-align: center;
+
+    flex-basis: 100%;
+
+    margin-top: 20px;
+
+}
+
+
+/* =========================
+   COUPON MOBILE SAFETY
+========================= */
+
+@media (max-width: 900px) {
+
+    .cart-page {
+
+        flex-direction: column;
+
+    }
+
+    .cart-summary {
+
+        width: 100%;
+
+        flex: none;
+
+    }
+
 }
 
 </style>
 
 </head>
 
+
 <body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
 
 <header>
 
-<a href="index.html" class="back-btn">
-← Back to Home
-</a>
+    <a
+        href="index.html"
+        class="back-btn"
+    >
+        ← Back to Home
+    </a>
 
-<h1>Your Cart</h1>
 
-<img
-    src="logo.jpeg"
-    class="logo"
-    alt="50 Mirars Logo"
->
+    <h1>
+        Your Cart
+    </h1>
+
+
+    <img
+        src="logo.jpeg"
+        alt="50 Mirars Logo"
+        class="logo"
+    >
 
 </header>
 
 
+
+<!-- =========================
+     CART PAGE
+========================= -->
+
 <section class="cart-page">
 
-<div class="cart-box">
 
-<table>
+    <!-- LEFT SIDE -->
 
-<thead>
-
-<tr>
-
-<th>Product</th>
-
-<th>Price</th>
-
-<th>Quantity</th>
-
-<th>Subtotal</th>
-
-<th>Remove</th>
-
-</tr>
-
-</thead>
-
-<tbody id="cart-items">
-
-</tbody>
-
-</table>
-
-</div>
+    <div class="cart-items">
 
 
-<div class="summary">
+        <table>
 
-<h2>Order Summary</h2>
+            <thead>
 
-<p>
-<span>Subtotal</span>
-<span id="subtotal">₹0</span>
-</p>
+                <tr>
 
-<p>
-<span>Discount</span>
-<span id="discount">₹0</span>
-</p>
+                    <th>
+                        Product
+                    </th>
 
-<p>
-<span>Shipping</span>
-<span>Free</span>
-</p>
+                    <th>
+                        Price
+                    </th>
 
-<p class="total">
-<span>Total</span>
-<span id="total">₹0</span>
-</p>
+                    <th>
+                        Quantity
+                    </th>
 
-<button
-    class="checkout-btn"
-    onclick="goToDelivery()"
->
-Proceed to Delivery
-</button>
+                    <th>
+                        Subtotal
+                    </th>
 
-</div>
+                    <th>
+                        Remove
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody id="cart-items">
+
+            </tbody>
+
+        </table>
+
+
+
+        <!-- =========================
+             COUPON
+        ========================= -->
+
+        <div class="coupon-section">
+
+            <p class="coupon-title">
+                Have a Coupon?
+            </p>
+
+
+            <div class="coupon-box">
+
+                <input
+                    type="text"
+                    id="coupon-code"
+                    class="coupon-input"
+                    placeholder="Enter coupon code"
+                >
+
+
+                <button
+                    class="apply-coupon-btn"
+                    onclick="applyCoupon()"
+                >
+                    Apply Coupon
+                </button>
+
+
+                <button
+                    class="remove-coupon-btn"
+                    onclick="removeCoupon()"
+                >
+                    Remove Coupon
+                </button>
+
+            </div>
+
+
+            <div
+                id="coupon-message"
+                class="coupon-message"
+            ></div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         ORDER SUMMARY
+    ========================= -->
+
+    <div class="cart-summary">
+
+
+        <h2>
+            Order Summary
+        </h2>
+
+
+        <div class="summary-line">
+
+            <span>
+                Subtotal
+            </span>
+
+            <span id="subtotal">
+                ₹0
+            </span>
+
+        </div>
+
+
+        <div
+            class="summary-line discount-line"
+        >
+
+            <span>
+                Discount
+            </span>
+
+            <span id="discount">
+                ₹0
+            </span>
+
+        </div>
+
+
+        <div class="summary-line">
+
+            <span>
+                Shipping
+            </span>
+
+            <span>
+                Free
+            </span>
+
+        </div>
+
+
+        <div class="total-line">
+
+            <span>
+                Total
+            </span>
+
+            <span id="total">
+                ₹0
+            </span>
+
+        </div>
+
+
+        <button
+            class="checkout-btn"
+            onclick="goToDelivery()"
+        >
+            Proceed to Delivery →
+        </button>
+
+    </div>
 
 </section>
 
 
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+
+    <div>
+
+        <h4>
+            About
+        </h4>
+
+        <p>
+            50 Mirars premium watches and accessories.
+        </p>
+
+    </div>
+
+
+
+    <div>
+
+        <h4>
+            Categories
+        </h4>
+
+        <a href="#">
+            Watches
+        </a>
+
+        <a href="#">
+            Sunglasses
+        </a>
+
+        <a href="#">
+            Limited Editions
+        </a>
+
+    </div>
+
+
+
+    <div>
+
+        <h4>
+            Support
+        </h4>
+
+        <a href="mailto:50mirars@gmail.com">
+            Email
+        </a>
+
+        <a
+            href="https://wa.me/918209989013"
+            target="_blank"
+        >
+            WhatsApp
+        </a>
+
+        <a
+            href="https://www.instagram.com/50mirars"
+            target="_blank"
+        >
+            Instagram
+        </a>
+
+    </div>
+
+
+
+    <div class="footer-bottom">
+
+        © 2026 50 Mirars. All Rights Reserved.
+
+    </div>
+
+
+</footer>
+
+
+
 <script>
+
+/* =====================================================
+   GET CART
+===================================================== */
 
 function getCart() {
 
@@ -236,6 +912,11 @@ function getCart() {
 
 }
 
+
+
+/* =====================================================
+   SAVE CART
+===================================================== */
 
 function saveCart(cart) {
 
@@ -247,36 +928,63 @@ function saveCart(cart) {
 }
 
 
+
+/* =====================================================
+   GET PRODUCT PRICE
+===================================================== */
+
 function getPrice(item) {
 
     return parseFloat(
+
         String(item.price)
-        .replace(/[^0-9.]/g, "")
+            .replace(/[^0-9.]/g, "")
+
     ) || 0;
 
 }
 
+
+
+/* =====================================================
+   RENDER CART
+===================================================== */
 
 function renderCart() {
 
     const cart = getCart();
 
     const cartItems =
-        document.getElementById("cart-items");
+        document.getElementById(
+            "cart-items"
+        );
+
 
     cartItems.innerHTML = "";
+
+
+    /* Empty cart */
 
     if (cart.length === 0) {
 
         cartItems.innerHTML = `
+
             <tr>
+
                 <td colspan="5">
-                    <div class="empty">
+
+                    <div class="empty-cart">
+
                         Your cart is empty.
+
                     </div>
+
                 </td>
+
             </tr>
+
         `;
+
 
         updateSummary();
 
@@ -285,12 +993,19 @@ function renderCart() {
     }
 
 
+
+    /*
+       Group identical products
+    */
+
     const products = {};
+
 
     cart.forEach(function(item) {
 
         const key =
             item.name + "|" + item.price;
+
 
         if (!products[key]) {
 
@@ -306,69 +1021,125 @@ function renderCart() {
 
         }
 
+
         products[key].quantity++;
 
     });
 
 
-    Object.values(products).forEach(function(item) {
 
-        const subtotal =
-            item.price * item.quantity;
+    /*
+       Display products
+    */
+
+    Object.values(products).forEach(
+        function(item) {
+
+            const subtotal =
+                item.price *
+                item.quantity;
 
 
-        cartItems.innerHTML += `
+            cartItems.innerHTML += `
 
-        <tr>
+                <tr>
 
-            <td class="product-name">
-                ${item.name}
-            </td>
+                    <td class="product-name">
 
-            <td>
-                ₹${item.price.toLocaleString("en-IN")}
-            </td>
+                        ${item.name}
 
-            <td>
+                    </td>
 
-                <button
-                    class="quantity-btn"
-                    onclick="changeQuantity('${item.name}', -1)"
-                >
-                    −
-                </button>
 
-                ${item.quantity}
+                    <td>
 
-                <button
-                    class="quantity-btn"
-                    onclick="changeQuantity('${item.name}', 1)"
-                >
-                    +
-                </button>
+                        ₹${item.price.toLocaleString("en-IN")}
 
-            </td>
+                    </td>
 
-            <td>
-                ₹${subtotal.toLocaleString("en-IN")}
-            </td>
 
-            <td>
+                    <td>
 
-                <button
-                    class="remove-btn"
-                    onclick="removeProduct('${item.name}')"
-                >
-                    Remove
-                </button>
+                        <div class="quantity-box">
 
-            </td>
 
-        </tr>
+                            <button
 
-        `;
+                                class="quantity-btn"
 
-    });
+                                onclick="changeQuantity(
+                                    '${escapeQuotes(item.name)}',
+                                    -1
+                                )"
+
+                            >
+
+                                −
+
+                            </button>
+
+
+                            <span
+                                class="quantity-number"
+                            >
+
+                                ${item.quantity}
+
+                            </span>
+
+
+                            <button
+
+                                class="quantity-btn"
+
+                                onclick="changeQuantity(
+                                    '${escapeQuotes(item.name)}',
+                                    1
+                                )"
+
+                            >
+
+                                +
+
+                            </button>
+
+
+                        </div>
+
+                    </td>
+
+
+                    <td>
+
+                        ₹${subtotal.toLocaleString("en-IN")}
+
+                    </td>
+
+
+                    <td>
+
+                        <button
+
+                            class="remove-btn"
+
+                            onclick="removeProduct(
+                                '${escapeQuotes(item.name)}'
+                            )"
+
+                        >
+
+                            Remove
+
+                        </button>
+
+                    </td>
+
+                </tr>
+
+            `;
+
+        }
+    );
 
 
     updateSummary();
@@ -376,22 +1147,57 @@ function renderCart() {
 }
 
 
-function changeQuantity(name, amount) {
+
+/* =====================================================
+   ESCAPE PRODUCT NAME
+===================================================== */
+
+function escapeQuotes(text) {
+
+    return text
+        .replace(/\\/g, "\\\\")
+        .replace(/'/g, "\\'");
+
+}
+
+
+
+/* =====================================================
+   CHANGE QUANTITY
+===================================================== */
+
+function changeQuantity(
+    name,
+    amount
+) {
 
     let cart = getCart();
+
+
+    /*
+       ADD ONE
+    */
 
     if (amount === 1) {
 
         const item =
             cart.find(
-                item => item.name === name
+                function(product) {
+
+                    return product.name === name;
+
+                }
             );
+
 
         if (item) {
 
             cart.push({
+
                 name: item.name,
+
                 price: item.price
+
             });
 
         }
@@ -399,12 +1205,22 @@ function changeQuantity(name, amount) {
     }
 
 
+
+    /*
+       REMOVE ONE
+    */
+
     if (amount === -1) {
 
         const index =
             cart.findIndex(
-                item => item.name === name
+                function(product) {
+
+                    return product.name === name;
+
+                }
             );
+
 
         if (index !== -1) {
 
@@ -417,73 +1233,152 @@ function changeQuantity(name, amount) {
 
     saveCart(cart);
 
+
     renderCart();
 
 }
 
+
+
+/* =====================================================
+   REMOVE ENTIRE PRODUCT
+===================================================== */
 
 function removeProduct(name) {
 
     let cart = getCart();
 
+
     cart = cart.filter(
-        item => item.name !== name
+        function(item) {
+
+            return item.name !== name;
+
+        }
     );
 
+
     saveCart(cart);
+
 
     renderCart();
 
 }
 
 
-function updateSummary() {
+
+/* =====================================================
+   CALCULATE SUBTOTAL
+===================================================== */
+
+function calculateSubtotal() {
 
     const cart = getCart();
 
     let subtotal = 0;
 
-    cart.forEach(function(item) {
 
-        subtotal += getPrice(item);
+    cart.forEach(
+        function(item) {
 
-    });
+            subtotal += getPrice(item);
+
+        }
+    );
+
+
+    return subtotal;
+
+}
+
+
+
+/* =====================================================
+   UPDATE SUMMARY
+===================================================== */
+
+function updateSummary() {
+
+    const subtotal =
+        calculateSubtotal();
 
 
     const discount =
         parseFloat(
-            localStorage.getItem("cartDiscount")
+
+            localStorage.getItem(
+                "cartDiscount"
+            )
+
         ) || 0;
 
 
+    /*
+       Don't allow discount
+       to become bigger than subtotal
+    */
+
+    const safeDiscount =
+        Math.min(
+            discount,
+            subtotal
+        );
+
+
     const total =
-        subtotal - discount;
+        subtotal - safeDiscount;
 
 
-    document.getElementById("subtotal")
-        .innerText =
-        "₹" + subtotal.toLocaleString("en-IN");
+
+    document.getElementById(
+        "subtotal"
+    ).innerText =
+
+        "₹" +
+        subtotal.toLocaleString(
+            "en-IN"
+        );
 
 
-    document.getElementById("discount")
-        .innerText =
-        "₹" + discount.toLocaleString("en-IN");
+
+    document.getElementById(
+        "discount"
+    ).innerText =
+
+        "₹" +
+        safeDiscount.toLocaleString(
+            "en-IN"
+        );
 
 
-    document.getElementById("total")
-        .innerText =
-        "₹" + total.toLocaleString("en-IN");
 
+    document.getElementById(
+        "total"
+    ).innerText =
+
+        "₹" +
+        total.toLocaleString(
+            "en-IN"
+        );
+
+
+
+    /*
+       Save values for
+       delivery/payment pages
+    */
 
     localStorage.setItem(
         "orderSubtotal",
         subtotal
     );
 
+
     localStorage.setItem(
         "orderDiscount",
-        discount
+        safeDiscount
     );
+
 
     localStorage.setItem(
         "orderTotal",
@@ -493,18 +1388,218 @@ function updateSummary() {
 }
 
 
-function goToDelivery() {
 
-    const cart = getCart();
+/* =====================================================
+   APPLY COUPON
+===================================================== */
 
-    if (cart.length === 0) {
+function applyCoupon() {
 
-        alert("Your cart is empty.");
+    const input =
+        document.getElementById(
+            "coupon-code"
+        );
+
+
+    const message =
+        document.getElementById(
+            "coupon-message"
+        );
+
+
+    const code =
+        input.value
+            .trim()
+            .toUpperCase();
+
+
+    const subtotal =
+        calculateSubtotal();
+
+
+    if (subtotal <= 0) {
+
+        message.innerText =
+            "Your cart is empty.";
+
+        message.style.color =
+            "#e53935";
 
         return;
 
     }
 
+
+    let discount = 0;
+
+
+    /*
+       BIRTH1
+       20% OFF
+    */
+
+    if (code === "BIRTH1") {
+
+        discount =
+            subtotal * 0.20;
+
+    }
+
+
+    /*
+       10OFF10
+       10% OFF
+    */
+
+    else if (code === "10OFF10") {
+
+        discount =
+            subtotal * 0.10;
+
+    }
+
+
+    /*
+       Invalid coupon
+    */
+
+    else {
+
+        localStorage.removeItem(
+            "cartDiscount"
+        );
+
+        localStorage.removeItem(
+            "cartCoupon"
+        );
+
+
+        message.innerText =
+            "Invalid coupon code.";
+
+        message.style.color =
+            "#e53935";
+
+
+        updateSummary();
+
+        return;
+
+    }
+
+
+
+    /*
+       Save coupon
+    */
+
+    localStorage.setItem(
+        "cartDiscount",
+        discount
+    );
+
+
+    localStorage.setItem(
+        "cartCoupon",
+        code
+    );
+
+
+    /*
+       Update screen
+    */
+
+    updateSummary();
+
+
+    message.innerText =
+        code +
+        " applied successfully! You saved ₹" +
+        discount.toLocaleString(
+            "en-IN"
+        );
+
+
+    message.style.color =
+        "#008577";
+
+}
+
+
+
+/* =====================================================
+   REMOVE COUPON
+===================================================== */
+
+function removeCoupon() {
+
+    localStorage.removeItem(
+        "cartDiscount"
+    );
+
+
+    localStorage.removeItem(
+        "cartCoupon"
+    );
+
+
+    document.getElementById(
+        "coupon-code"
+    ).value = "";
+
+
+    const message =
+        document.getElementById(
+            "coupon-message"
+        );
+
+
+    message.innerText =
+        "Coupon removed.";
+
+
+    message.style.color =
+        "#555";
+
+
+    updateSummary();
+
+}
+
+
+
+/* =====================================================
+   PROCEED TO DELIVERY
+===================================================== */
+
+function goToDelivery() {
+
+    const cart =
+        getCart();
+
+
+    if (cart.length === 0) {
+
+        alert(
+            "Your cart is empty."
+        );
+
+        return;
+
+    }
+
+
+    /*
+       Make sure the
+       latest total is saved
+    */
+
+    updateSummary();
+
+
+    /*
+       Go to delivery page
+    */
 
     window.location.href =
         "delivery.html";
@@ -512,9 +1607,15 @@ function goToDelivery() {
 }
 
 
+
+/* =====================================================
+   START CART
+===================================================== */
+
 renderCart();
 
 </script>
+
 
 </body>
 
