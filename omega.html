@@ -11,13 +11,8 @@
 >
 
 <meta
-    name="theme-color"
-    content="#080808"
->
-
-<meta
     name="description"
-    content="Explore the Omega Collection at 50 Mirars. Discover luxury-inspired Omega watches with timeless designs and refined style."
+    content="Explore the Omega Collection at 50 Mirars featuring luxury-inspired watches."
 >
 
 <title>Omega Collection | 50 Mirars</title>
@@ -33,26 +28,27 @@
     box-sizing: border-box;
 }
 
-html {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    scroll-behavior: smooth;
-}
-
+html,
 body {
     width: 100%;
     max-width: 100%;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
+}
 
-    font-family: Arial, sans-serif;
+body {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
 
     color: #222;
 
     background:
         radial-gradient(
-            circle at 50% 10%,
+            circle at 50% 12%,
             rgba(201, 162, 77, 0.10),
             transparent 30%
         ),
@@ -62,44 +58,50 @@ body {
             #eee8d9 50%,
             #f8f5ed 100%
         );
-
-    overflow-x: hidden;
-}
-
-img,
-video {
-    max-width: 100%;
-}
-
-button,
-a {
-    -webkit-tap-highlight-color: transparent;
 }
 
 
 /* =========================================================
-   BACK TO HOME + CART AREA
+   REMOVE TOP-RIGHT CART
 ========================================================= */
 
-.top-bar {
+/*
+   This Omega page does not use a shopping-cart icon
+   or cart button in the top-right corner.
+*/
+
+.cart,
+.cart-icon,
+.cart-button,
+.shopping-cart,
+.header-cart,
+.top-cart,
+#cart,
+#cart-icon,
+#cart-button,
+#shopping-cart {
+
+    display: none !important;
+}
+
+
+/* =========================================================
+   BACK TO HOME
+========================================================= */
+
+.home-wrapper {
+
     width: 100%;
 
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 20px;
-
-    padding: 20px 30px;
+    padding:
+        20px;
 }
 
 .home-btn {
+
     display: inline-flex;
 
     align-items: center;
-
     justify-content: center;
 
     background: #111;
@@ -108,94 +110,29 @@ a {
 
     text-decoration: none;
 
-    padding: 12px 25px;
+    padding:
+        12px 25px;
 
     border-radius: 6px;
-
-    font-weight: 600;
-
-    transition: all 0.3s ease;
-}
-
-.home-btn:hover {
-    background: #c9a24d;
-
-    color: #111;
-
-    transform: translateY(-2px);
-}
-
-
-/* =========================================================
-   CART BUTTON
-========================================================= */
-
-.cart-button {
-    position: relative;
-
-    display: inline-flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 8px;
-
-    min-width: 145px;
-
-    padding: 12px 20px;
-
-    background: #111;
-
-    color: #fff;
-
-    border: 1px solid #111;
-
-    border-radius: 6px;
-
-    text-decoration: none;
 
     font-size: 15px;
 
-    font-weight: 700;
+    font-weight: 600;
 
-    cursor: pointer;
-
-    transition: all 0.3s ease;
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
 }
 
-.cart-button:hover {
-    background: #c9a24d;
-
-    border-color: #c9a24d;
-
-    color: #111;
-
-    transform: translateY(-2px);
-}
-
-.cart-count {
-    display: inline-flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    min-width: 22px;
-
-    height: 22px;
-
-    padding: 0 6px;
-
-    border-radius: 50%;
+.home-btn:hover {
 
     background: #c9a24d;
 
     color: #111;
 
-    font-size: 12px;
-
-    font-weight: 800;
+    transform:
+        translateY(-2px);
 }
 
 
@@ -204,17 +141,21 @@ a {
 ========================================================= */
 
 .page-title {
+
     width: 100%;
 
     text-align: center;
 
-    padding: 30px 20px 45px;
+    padding:
+        25px
+        20px
+        40px;
 }
 
 .page-title h1 {
-    margin: 0 0 20px;
 
-    color: #111;
+    margin:
+        0 0 20px;
 
     font-family:
         Georgia,
@@ -227,11 +168,10 @@ a {
 
     line-height: 1.1;
 
-    letter-spacing: 1px;
+    color: #111;
 }
 
 .title-line {
-    position: relative;
 
     width: 160px;
 
@@ -239,25 +179,28 @@ a {
 
     height: 2px;
 
+    background: #c9a24d;
+
     margin: 0 auto;
 
-    background: #c9a24d;
+    position: relative;
 }
 
 .title-line::after {
-    content: "";
 
-    position: absolute;
+    content: "";
 
     width: 12px;
 
     height: 12px;
 
+    background: #c9a24d;
+
+    position: absolute;
+
     left: 50%;
 
     top: 50%;
-
-    background: #c9a24d;
 
     transform:
         translate(-50%, -50%)
@@ -266,20 +209,30 @@ a {
 
 
 /* =========================================================
-   PRODUCTS SECTION
+   PRODUCT SECTION
 ========================================================= */
 
 .products-section {
+
     width: 100%;
 
-    max-width: 1450px;
+    max-width: 1400px;
 
-    margin: 0 auto;
+    margin:
+        0 auto;
 
-    padding: 0 35px 70px;
+    padding:
+        0 40px
+        60px;
 }
 
-.products-grid {
+
+/* =========================================================
+   PRODUCT GRID
+========================================================= */
+
+.product-grid {
+
     width: 100%;
 
     display: grid;
@@ -287,9 +240,7 @@ a {
     grid-template-columns:
         repeat(3, minmax(0, 1fr));
 
-    gap: 30px;
-
-    align-items: stretch;
+    gap: 35px;
 }
 
 
@@ -298,37 +249,40 @@ a {
 ========================================================= */
 
 .product-card {
+
     width: 100%;
 
     min-width: 0;
 
-    display: flex;
-
-    flex-direction: column;
-
     background: #ffffff;
 
-    border: 1px solid rgba(0, 0, 0, 0.07);
-
-    border-radius: 4px;
+    border:
+        1px solid
+        rgba(0, 0, 0, 0.08);
 
     padding: 15px;
 
+    text-align: center;
+
     box-shadow:
         0 8px 25px
-        rgba(0, 0, 0, 0.06);
+        rgba(0, 0, 0, 0.07);
 
     transition:
         transform 0.3s ease,
         box-shadow 0.3s ease;
+
+    overflow: hidden;
 }
 
 .product-card:hover {
-    transform: translateY(-5px);
+
+    transform:
+        translateY(-5px);
 
     box-shadow:
-        0 15px 35px
-        rgba(0, 0, 0, 0.11);
+        0 14px 35px
+        rgba(0, 0, 0, 0.12);
 }
 
 
@@ -337,17 +291,16 @@ a {
 ========================================================= */
 
 .product-card > img {
+
+    display: block;
+
     width: 100%;
 
     height: 350px;
 
-    display: block;
+    object-fit: cover;
 
-    object-fit: contain;
-
-    background: #f7f7f7;
-
-    border-radius: 3px;
+    background: #f4f4f4;
 }
 
 
@@ -356,17 +309,16 @@ a {
 ========================================================= */
 
 .product-video {
+
+    display: block;
+
     width: 100%;
 
     height: 350px;
 
-    display: block;
-
     object-fit: cover;
 
     background: #000;
-
-    border-radius: 3px;
 }
 
 
@@ -375,6 +327,7 @@ a {
 ========================================================= */
 
 .slider {
+
     position: relative;
 
     width: 100%;
@@ -383,14 +336,11 @@ a {
 
     overflow: hidden;
 
-    background: #f7f7f7;
-
-    border-radius: 3px;
-
-    touch-action: pan-y;
+    background: #f4f4f4;
 }
 
 .slide {
+
     position: absolute;
 
     inset: 0;
@@ -399,22 +349,14 @@ a {
 
     height: 100%;
 
-    object-fit: contain;
+    object-fit: cover;
 
-    background: #f7f7f7;
-
-    opacity: 0;
-
-    visibility: hidden;
-
-    transition:
-        opacity 0.35s ease;
+    display: none;
 }
 
 .slide.active {
-    opacity: 1;
 
-    visibility: visible;
+    display: block;
 }
 
 
@@ -424,51 +366,51 @@ a {
 
 .prev,
 .next {
+
     position: absolute;
 
     top: 50%;
 
-    z-index: 5;
+    transform:
+        translateY(-50%);
 
     width: 42px;
 
     height: 42px;
 
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
     border: none;
 
     border-radius: 50%;
 
-    background: rgba(0, 0, 0, 0.65);
+    background:
+        rgba(0, 0, 0, 0.65);
 
-    color: #fff;
+    color: #ffffff;
 
     font-size: 20px;
 
-    line-height: 1;
-
     cursor: pointer;
 
-    transform: translateY(-50%);
+    z-index: 5;
 
-    transition: all 0.25s ease;
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
 }
 
 .prev {
+
     left: 12px;
 }
 
 .next {
+
     right: 12px;
 }
 
 .prev:hover,
 .next:hover {
+
     background: #c9a24d;
 
     color: #111;
@@ -476,86 +418,43 @@ a {
 
 
 /* =========================================================
-   SLIDER DOTS
-========================================================= */
-
-.slider-dots {
-    position: absolute;
-
-    left: 50%;
-
-    bottom: 12px;
-
-    z-index: 6;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 6px;
-
-    transform: translateX(-50%);
-}
-
-.slider-dot {
-    width: 7px;
-
-    height: 7px;
-
-    padding: 0;
-
-    border: none;
-
-    border-radius: 50%;
-
-    background: rgba(0, 0, 0, 0.28);
-
-    cursor: pointer;
-
-    transition: all 0.25s ease;
-}
-
-.slider-dot.active {
-    width: 20px;
-
-    border-radius: 10px;
-
-    background: #c9a24d;
-}
-
-
-/* =========================================================
-   PRODUCT INFORMATION
+   PRODUCT TITLE
 ========================================================= */
 
 .product-card h3 {
-    margin: 18px 5px 8px;
 
-    min-height: 44px;
+    margin:
+        20px 5px 10px;
 
-    color: #111;
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 
-    font-size: 18px;
+    font-size: 20px;
 
-    font-weight: 700;
+    font-weight: 600;
 
     line-height: 1.35;
 
-    text-align: center;
+    color: #111;
 }
 
+
+/* =========================================================
+   PRODUCT PRICE
+========================================================= */
+
 .price {
-    margin: 0 0 18px;
 
-    color: #111;
+    margin:
+        0 0 18px;
 
-    font-size: 19px;
+    font-size: 20px;
 
     font-weight: 700;
 
-    text-align: center;
+    color: #111;
 }
 
 
@@ -564,88 +463,103 @@ a {
 ========================================================= */
 
 .product-buttons {
-    width: 100%;
 
-    display: grid;
+    display: flex;
 
-    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+
+    justify-content: center;
 
     gap: 10px;
 
-    margin-top: auto;
+    width: 100%;
 }
 
 .enquire-btn,
 .add-to-cart-btn {
+
+    flex: 1;
+
+    min-width: 0;
+
     min-height: 48px;
 
-    display: flex;
+    padding:
+        12px 10px;
 
-    align-items: center;
-
-    justify-content: center;
-
-    padding: 10px 12px;
-
-    border-radius: 4px;
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
 
     font-size: 14px;
 
     font-weight: 700;
 
-    text-align: center;
-
     cursor: pointer;
 
-    transition: all 0.3s ease;
+    text-decoration: none;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    transition:
+        all 0.3s ease;
 }
 
 
-/* Enquire */
+/* =========================================================
+   ENQUIRE BUTTON
+========================================================= */
 
 .enquire-btn {
+
     background: #111;
 
-    color: #fff;
+    color: #ffffff;
 
-    border: 1px solid #111;
-
-    text-decoration: none;
+    border:
+        1px solid #111;
 }
 
 .enquire-btn:hover {
+
     background: #c9a24d;
 
     border-color: #c9a24d;
 
     color: #111;
+
+    transform:
+        translateY(-2px);
 }
 
 
-/* Add to Cart */
+/* =========================================================
+   ADD TO CART BUTTON
+========================================================= */
 
 .add-to-cart-btn {
-    background: #fff;
+
+    background: #ffffff;
 
     color: #111;
 
-    border: 1px solid #111;
+    border:
+        1px solid #111;
 }
 
 .add-to-cart-btn:hover {
-    background: #c9a24d;
 
-    border-color: #c9a24d;
-
-    color: #111;
-}
-
-.add-to-cart-btn.added {
     background: #111;
 
-    color: #fff;
+    color: #ffffff;
 
-    border-color: #111;
+    transform:
+        translateY(-2px);
 }
 
 
@@ -654,15 +568,18 @@ a {
 ========================================================= */
 
 .omega-info-section {
+
     width: 100%;
 
     max-width: 1400px;
 
-    margin: 20px auto 0;
+    margin:
+        20px auto 60px;
 
-    padding: 55px 60px 60px;
+    padding:
+        45px 60px 55px;
 
-    background: #fff;
+    background: #ffffff;
 
     color: #111;
 
@@ -671,10 +588,11 @@ a {
 
 
 /* =========================================================
-   THREE COLUMNS
+   INFORMATION GRID
 ========================================================= */
 
 .omega-info-grid {
+
     width: 100%;
 
     display: grid;
@@ -688,9 +606,10 @@ a {
 }
 
 .omega-info-column {
-    width: 100%;
 
     min-width: 0;
+
+    width: 100%;
 
     overflow-wrap: break-word;
 }
@@ -701,23 +620,27 @@ a {
 ========================================================= */
 
 .omega-info-section h2 {
-    margin: 0 0 18px;
+
+    margin:
+        0 0 18px;
 
     font-size: 16px;
 
     line-height: 1.45;
 
-    font-weight: 700;
+    font-weight: 600;
 }
 
 .omega-info-section h3 {
-    margin: 28px 0 17px;
+
+    margin:
+        28px 0 17px;
 
     font-size: 16px;
 
     line-height: 1.45;
 
-    font-weight: 700;
+    font-weight: 600;
 }
 
 
@@ -726,15 +649,19 @@ a {
 ========================================================= */
 
 .omega-info-section p {
-    margin: 0 0 24px;
+
+    margin:
+        0 0 24px;
 
     font-size: 13px;
 
-    line-height: 1.65;
+    line-height: 1.6;
 
     font-weight: 400;
 
     overflow-wrap: break-word;
+
+    word-wrap: break-word;
 }
 
 
@@ -743,28 +670,33 @@ a {
 ========================================================= */
 
 .omega-faq {
-    width: 100%;
 
     margin-top: 0;
+
+    width: 100%;
 }
 
 .omega-faq-item {
-    width: 100%;
 
     margin-bottom: 20px;
+
+    width: 100%;
 }
 
 .omega-faq-question {
-    margin: 0 0 3px !important;
+
+    margin:
+        0 0 3px !important;
 
     font-size: 13px !important;
 
     line-height: 1.5 !important;
 
-    font-weight: 700 !important;
+    font-weight: 600 !important;
 }
 
 .omega-faq-answer {
+
     margin: 0 !important;
 
     font-size: 13px !important;
@@ -780,35 +712,35 @@ a {
 ========================================================= */
 
 .omega-conclusion {
+
     width: 100%;
 
-    margin-top: 45px;
+    margin-top: 40px;
 
-    padding-top: 30px;
-
-    border-top:
-        1px solid
-        rgba(0, 0, 0, 0.08);
+    padding-top: 5px;
 
     overflow-wrap: break-word;
 }
 
 .omega-conclusion h2 {
-    margin: 0 0 18px;
+
+    margin:
+        0 0 18px;
 
     font-size: 16px;
 
     line-height: 1.45;
 
-    font-weight: 700;
+    font-weight: 600;
 }
 
 .omega-conclusion p {
-    margin: 0;
 
     font-size: 13px;
 
     line-height: 1.6;
+
+    margin: 0;
 }
 
 
@@ -817,13 +749,15 @@ a {
 ========================================================= */
 
 .main-footer {
+
     width: 100%;
 
     background: #080808;
 
-    color: #fff;
+    color: #ffffff;
 
-    padding: 70px 7% 25px;
+    padding:
+        70px 7% 25px;
 
     border-top:
         1px solid
@@ -833,6 +767,7 @@ a {
 }
 
 .footer-container {
+
     width: 100%;
 
     max-width: 1400px;
@@ -846,6 +781,7 @@ a {
 ========================================================= */
 
 .footer-top {
+
     width: 100%;
 
     display: grid;
@@ -861,9 +797,11 @@ a {
 }
 
 .footer-top > h2 {
+
     grid-column: 1 / -1;
 
-    margin: 0 0 10px;
+    margin:
+        0 0 10px;
 
     font-family:
         Georgia,
@@ -876,25 +814,28 @@ a {
 
     line-height: 1.2;
 
-    color: #fff;
+    color: #ffffff;
 
     text-align: center;
 }
 
 .contact-column,
 .whatsapp-column {
-    width: 100%;
 
     min-width: 0;
+
+    width: 100%;
 
     text-align: center;
 }
 
 .contact-column h3,
 .whatsapp-column h3 {
-    margin: 0 0 22px;
 
-    color: #fff;
+    margin:
+        0 0 22px;
+
+    color: #ffffff;
 
     font-size: 20px;
 
@@ -904,7 +845,9 @@ a {
 }
 
 .contact-column p {
-    margin: 12px 0 0;
+
+    margin:
+        12px 0 0;
 
     color: #bdbdbd;
 
@@ -914,15 +857,17 @@ a {
 }
 
 .footer-link {
+
     display: block;
 
     width: fit-content;
 
     max-width: 100%;
 
-    margin: 0 auto 8px;
+    margin:
+        0 auto 8px;
 
-    color: #fff;
+    color: #ffffff;
 
     text-decoration: none;
 
@@ -932,10 +877,12 @@ a {
 
     overflow-wrap: break-word;
 
-    transition: color 0.3s ease;
+    transition:
+        color 0.3s ease;
 }
 
 .footer-link:hover {
+
     color: #c9a24d;
 }
 
@@ -945,6 +892,7 @@ a {
 ========================================================= */
 
 .whatsapp-title {
+
     display: flex;
 
     align-items: center;
@@ -957,6 +905,7 @@ a {
 }
 
 .whatsapp-icon {
+
     width: 28px;
 
     height: 28px;
@@ -969,6 +918,7 @@ a {
 }
 
 .whatsapp-button {
+
     display: inline-flex;
 
     align-items: center;
@@ -981,11 +931,12 @@ a {
 
     max-width: 100%;
 
-    padding: 13px 30px;
+    padding:
+        13px 30px;
 
-    background: #fff;
+    background: #ffffff;
 
-    color: #111;
+    color: #111111;
 
     text-decoration: none;
 
@@ -995,19 +946,23 @@ a {
 
     letter-spacing: 0.2px;
 
-    border: 1px solid #fff;
+    border:
+        1px solid #ffffff;
 
-    transition: all 0.3s ease;
+    transition:
+        all 0.3s ease;
 }
 
 .whatsapp-button:hover {
+
     background: #c9a24d;
 
     border-color: #c9a24d;
 
-    color: #fff;
+    color: #ffffff;
 
-    transform: translateY(-2px);
+    transform:
+        translateY(-2px);
 }
 
 
@@ -1016,6 +971,7 @@ a {
 ========================================================= */
 
 .footer-middle {
+
     width: 100%;
 
     display: grid;
@@ -1036,18 +992,21 @@ a {
 
 .footer-links-column,
 .footer-social {
-    width: 100%;
 
     min-width: 0;
+
+    width: 100%;
 
     text-align: center;
 }
 
 .footer-links-column h3,
 .footer-social h3 {
-    margin: 0 0 20px;
 
-    color: #fff;
+    margin:
+        0 0 20px;
+
+    color: #ffffff;
 
     font-size: 18px;
 
@@ -1057,13 +1016,15 @@ a {
 }
 
 .footer-links-column a {
+
     display: block;
 
     width: fit-content;
 
     max-width: 100%;
 
-    margin: 0 auto 14px;
+    margin:
+        0 auto 14px;
 
     color: #d7d7d7;
 
@@ -1073,15 +1034,19 @@ a {
 
     line-height: 1.5;
 
-    transition: color 0.3s ease;
+    transition:
+        color 0.3s ease;
 }
 
 .footer-links-column a:hover {
+
     color: #c9a24d;
 }
 
 .footer-social p {
-    margin: 0 0 14px;
+
+    margin:
+        0 0 14px;
 
     color: #d7d7d7;
 
@@ -1094,6 +1059,7 @@ a {
 ========================================================= */
 
 .instagram-button {
+
     width: 58px;
 
     height: 58px;
@@ -1112,16 +1078,20 @@ a {
 
     text-decoration: none;
 
-    transition: all 0.3s ease;
+    transition:
+        all 0.3s ease;
 }
 
 .instagram-button:hover {
+
     border-color: #c9a24d;
 
-    transform: translateY(-2px);
+    transform:
+        translateY(-2px);
 }
 
 .instagram-button img {
+
     width: 32px;
 
     height: 32px;
@@ -1137,6 +1107,7 @@ a {
 ========================================================= */
 
 .footer-bottom {
+
     width: 100%;
 
     margin-top: 50px;
@@ -1149,9 +1120,10 @@ a {
 }
 
 .footer-bottom p {
+
     margin: 0;
 
-    color: #aaa;
+    color: #aaaaaa;
 
     font-size: 13px;
 
@@ -1169,12 +1141,16 @@ a {
 
 @media (max-width: 1100px) {
 
-    .products-grid {
+    .product-grid {
+
         grid-template-columns:
             repeat(2, minmax(0, 1fr));
+
+        gap: 30px;
     }
 
     .omega-info-grid {
+
         grid-template-columns:
             repeat(2, minmax(0, 1fr));
 
@@ -1182,6 +1158,7 @@ a {
     }
 
     .footer-top {
+
         grid-template-columns:
             repeat(2, minmax(0, 1fr));
 
@@ -1189,10 +1166,12 @@ a {
     }
 
     .footer-top > h2 {
+
         grid-column: 1 / -1;
     }
 
     .footer-middle {
+
         grid-template-columns:
             repeat(2, minmax(0, 1fr));
 
@@ -1207,26 +1186,22 @@ a {
 
 @media (max-width: 700px) {
 
-    .top-bar {
-        padding: 15px;
+    .home-wrapper {
 
-        gap: 10px;
+        padding:
+            15px;
     }
 
-    .home-btn,
-    .cart-button {
-        min-width: 0;
+    .home-btn {
 
-        padding: 11px 14px;
+        padding:
+            11px 20px;
 
-        font-size: 13px;
-    }
-
-    .cart-button {
-        min-width: 105px;
+        font-size: 14px;
     }
 
     .page-title {
+
         padding:
             25px
             15px
@@ -1234,66 +1209,70 @@ a {
     }
 
     .page-title h1 {
+
         font-size: 48px;
     }
 
-
-    /* PRODUCTS */
-
     .products-section {
+
         padding:
-            0
-            15px
-            50px;
+            0 15px
+            45px;
     }
 
-    .products-grid {
+    .product-grid {
+
         grid-template-columns: 1fr;
 
-        gap: 22px;
+        gap: 25px;
     }
 
     .product-card {
+
         padding: 12px;
     }
 
     .product-card > img,
     .product-video,
     .slider {
-        height: 330px;
+
+        height: 350px;
     }
 
     .product-card h3 {
-        font-size: 17px;
 
-        min-height: auto;
-
-        margin-top: 15px;
-    }
-
-    .price {
-        font-size: 18px;
+        font-size: 19px;
     }
 
     .product-buttons {
-        grid-template-columns: 1fr 1fr;
+
+        flex-direction: column;
+
+        gap: 9px;
     }
 
+    .enquire-btn,
+    .add-to-cart-btn {
 
-    /* INFORMATION */
-
-    .omega-info-section {
         width: 100%;
 
-        margin-top: 10px;
+        flex: none;
+    }
+
+    .omega-info-section {
+
+        width: 100%;
+
+        margin-top: 15px;
 
         padding:
-            35px
+            30px
             20px
             45px;
     }
 
     .omega-info-grid {
+
         grid-template-columns: 1fr;
 
         gap: 5px;
@@ -1301,6 +1280,7 @@ a {
 
     .omega-info-section h2,
     .omega-info-section h3 {
+
         font-size: 16px;
     }
 
@@ -1308,13 +1288,15 @@ a {
     .omega-faq-question,
     .omega-faq-answer,
     .omega-conclusion p {
+
         font-size: 13px !important;
     }
 
 
-    /* FOOTER */
+    /* FOOTER MOBILE */
 
     .main-footer {
+
         padding:
             55px
             20px
@@ -1322,12 +1304,14 @@ a {
     }
 
     .footer-top {
+
         grid-template-columns: 1fr;
 
         gap: 40px;
     }
 
     .footer-top > h2 {
+
         grid-column: auto;
 
         font-size: 34px;
@@ -1335,7 +1319,14 @@ a {
         margin-bottom: 5px;
     }
 
+    .contact-column,
+    .whatsapp-column {
+
+        width: 100%;
+    }
+
     .footer-middle {
+
         grid-template-columns: 1fr;
 
         gap: 35px;
@@ -1346,6 +1337,7 @@ a {
     }
 
     .footer-bottom {
+
         margin-top: 40px;
     }
 }
@@ -1357,38 +1349,35 @@ a {
 
 @media (max-width: 400px) {
 
-    .top-bar {
-        flex-direction: column;
-
-        align-items: stretch;
-    }
-
-    .home-btn,
-    .cart-button {
-        width: 100%;
-    }
-
     .page-title h1 {
+
         font-size: 42px;
     }
 
     .product-card > img,
     .product-video,
     .slider {
-        height: 290px;
+
+        height: 300px;
     }
 
-    .product-buttons {
-        grid-template-columns: 1fr;
+    .home-btn {
+
+        padding:
+            10px 18px;
+
+        font-size: 14px;
     }
 
     .whatsapp-button {
+
         width: 100%;
 
         min-width: 0;
     }
 
     .footer-top > h2 {
+
         font-size: 30px;
     }
 }
@@ -1402,10 +1391,10 @@ a {
 
 
 <!-- =========================================================
-     TOP BAR
+     BACK TO HOME
 ========================================================= -->
 
-<div class="top-bar">
+<div class="home-wrapper">
 
     <a
         href="index.html"
@@ -1413,23 +1402,6 @@ a {
     >
         ← Back to Home
     </a>
-
-
-    <button
-        type="button"
-        class="cart-button"
-        onclick="goToCart()"
-    >
-        🛒 Cart
-
-        <span
-            class="cart-count"
-            id="cartCount"
-        >
-            0
-        </span>
-
-    </button>
 
 </div>
 
@@ -1453,7 +1425,7 @@ a {
 
 <section class="products-section">
 
-    <div class="products-grid">
+    <div class="product-grid">
 
 
         <!-- =================================================
@@ -1473,7 +1445,7 @@ a {
                     type="video/mp4"
                 >
 
-                Your browser does not support video playback.
+                Your browser does not support video.
             </video>
 
             <h3>
@@ -1496,10 +1468,10 @@ a {
                 </a>
 
                 <button
-                    type="button"
                     class="add-to-cart-btn"
                     data-name="Omega Speedmaster Snoopy"
                     data-price="5000"
+                    type="button"
                 >
                     Add to Cart
                 </button>
@@ -1526,7 +1498,7 @@ a {
                     type="video/mp4"
                 >
 
-                Your browser does not support video playback.
+                Your browser does not support video.
             </video>
 
             <h3>
@@ -1549,10 +1521,10 @@ a {
                 </a>
 
                 <button
-                    type="button"
                     class="add-to-cart-btn"
                     data-name="Omega Speedmaster James Bond"
                     data-price="4000"
+                    type="button"
                 >
                     Add to Cart
                 </button>
@@ -1563,7 +1535,7 @@ a {
 
 
         <!-- =================================================
-             OMEGA SEAMASTER DIVER 300M
+             OMEGA SEAMASTER DIVER
         ================================================== -->
 
         <div class="product-card">
@@ -1579,7 +1551,7 @@ a {
                     type="video/mp4"
                 >
 
-                Your browser does not support video playback.
+                Your browser does not support video.
             </video>
 
             <h3>
@@ -1602,10 +1574,10 @@ a {
                 </a>
 
                 <button
-                    type="button"
                     class="add-to-cart-btn"
                     data-name="Omega Seamaster Diver 300M Co-Axial Master"
                     data-price="3500"
+                    type="button"
                 >
                     Add to Cart
                 </button>
@@ -1635,82 +1607,79 @@ a {
                 <img
                     src="Omega X Swatch Moon's Watch 2.jpeg"
                     class="slide"
-                    alt="Omega X Swatch Moon's Watch image 2"
+                    alt="Omega X Swatch Moon's Watch view 2"
                 >
 
                 <img
                     src="Omega X Swatch Moon's Watch 3.jpeg"
                     class="slide"
-                    alt="Omega X Swatch Moon's Watch image 3"
+                    alt="Omega X Swatch Moon's Watch view 3"
                 >
 
                 <img
                     src="Omega X Swatch Moon's Watch 4.jpeg"
                     class="slide"
-                    alt="Omega X Swatch Moon's Watch image 4"
+                    alt="Omega X Swatch Moon's Watch view 4"
                 >
 
                 <img
                     src="Omega X Swatch Moon's Watch 5.jpeg"
                     class="slide"
-                    alt="Omega X Swatch Moon's Watch image 5"
+                    alt="Omega X Swatch Moon's Watch view 5"
                 >
 
                 <img
                     src="Omega X Swatch Moon's Watch 6.jpeg"
                     class="slide"
-                    alt="Omega X Swatch Moon's Watch image 6"
+                    alt="Omega X Swatch Moon's Watch view 6"
                 >
 
                 <img
                     src="Omega X Swatch Moon's Watch 7.jpeg"
                     class="slide"
-                    alt="Omega X Swatch Moon's Watch image 7"
+                    alt="Omega X Swatch Moon's Watch view 7"
                 >
 
                 <img
                     src="Omega X Swatch Moon's Watch 8.jpeg"
                     class="slide"
-                    alt="Omega X Swatch Moon's Watch image 8"
+                    alt="Omega X Swatch Moon's Watch view 8"
                 >
 
                 <img
                     src="Omega X Swatch Moon's Watch 9.jpeg"
                     class="slide"
-                    alt="Omega X Swatch Moon's Watch image 9"
+                    alt="Omega X Swatch Moon's Watch view 9"
                 >
 
                 <img
                     src="Omega X Swatch Moon's Watch 10.jpeg"
                     class="slide"
-                    alt="Omega X Swatch Moon's Watch image 10"
+                    alt="Omega X Swatch Moon's Watch view 10"
                 >
 
                 <img
                     src="Omega X Swatch Moon's Watch 11.jpeg"
                     class="slide"
-                    alt="Omega X Swatch Moon's Watch image 11"
+                    alt="Omega X Swatch Moon's Watch view 11"
                 >
 
 
                 <button
-                    type="button"
                     class="prev"
+                    type="button"
                     aria-label="Previous image"
                 >
                     ❮
                 </button>
 
                 <button
-                    type="button"
                     class="next"
+                    type="button"
                     aria-label="Next image"
                 >
                     ❯
                 </button>
-
-
-                <div class="slider-dots"></div>
 
             </div>
 
@@ -1722,7 +1691,6 @@ a {
             <div class="price">
                 ₹4,000
             </div>
-
 
             <div class="product-buttons">
 
@@ -1736,10 +1704,10 @@ a {
                 </a>
 
                 <button
-                    type="button"
                     class="add-to-cart-btn"
                     data-name="Omega X Swatch Moon's Watch"
                     data-price="4000"
+                    type="button"
                 >
                     Add to Cart
                 </button>
@@ -1758,7 +1726,6 @@ a {
             <img
                 src="Omega Constellation Couple Watch.jpeg"
                 alt="Omega Constellation Couple Watch"
-                loading="lazy"
             >
 
             <h3>
@@ -1768,7 +1735,6 @@ a {
             <div class="price">
                 ₹4,500
             </div>
-
 
             <div class="product-buttons">
 
@@ -1782,10 +1748,10 @@ a {
                 </a>
 
                 <button
-                    type="button"
                     class="add-to-cart-btn"
                     data-name="Omega Constellation Couple Watch"
                     data-price="4500"
+                    type="button"
                 >
                     Add to Cart
                 </button>
@@ -2208,6 +2174,8 @@ a {
         <div class="footer-middle">
 
 
+            <!-- KNOW 50 MIRARS -->
+
             <div class="footer-links-column">
 
                 <h3>
@@ -2225,6 +2193,8 @@ a {
             </div>
 
 
+            <!-- TERMS -->
+
             <div class="footer-links-column">
 
                 <h3>
@@ -2241,6 +2211,8 @@ a {
 
             </div>
 
+
+            <!-- INSTAGRAM -->
 
             <div class="footer-social">
 
@@ -2297,364 +2269,126 @@ a {
 <script>
 
 /* =========================================================
-   CART SYSTEM
+   OMEGA PRODUCT IMAGE SLIDER
 ========================================================= */
 
-let cart = JSON.parse(
-    localStorage.getItem("50MirarsCart")
-) || [];
+document.querySelectorAll("[data-slider]").forEach(function (slider) {
+
+    const slides =
+        slider.querySelectorAll(".slide");
+
+    const prevButton =
+        slider.querySelector(".prev");
+
+    const nextButton =
+        slider.querySelector(".next");
+
+    let currentSlide = 0;
 
 
-/* =========================================================
-   UPDATE CART COUNT
-========================================================= */
+    function showSlide(index) {
 
-function updateCartCount() {
+        if (!slides.length) {
+            return;
+        }
 
-    const cartCount =
-        document.getElementById("cartCount");
+        slides.forEach(function (slide) {
 
-    if (!cartCount) {
-        return;
+            slide.classList.remove("active");
+
+        });
+
+        currentSlide =
+            (index + slides.length) %
+            slides.length;
+
+        slides[currentSlide]
+            .classList.add("active");
     }
 
-    cartCount.textContent = cart.length;
-}
+
+    if (prevButton) {
+
+        prevButton.addEventListener(
+            "click",
+            function () {
+
+                showSlide(currentSlide - 1);
+
+            }
+        );
+
+    }
 
 
-/* =========================================================
-   SAVE CART
-========================================================= */
+    if (nextButton) {
 
-function saveCart() {
+        nextButton.addEventListener(
+            "click",
+            function () {
 
-    localStorage.setItem(
-        "50MirarsCart",
-        JSON.stringify(cart)
-    );
+                showSlide(currentSlide + 1);
 
-    updateCartCount();
-}
+            }
+        );
+
+    }
+
+});
 
 
 /* =========================================================
    ADD TO CART
 ========================================================= */
 
+/*
+   The product Add to Cart buttons remain available.
+
+   This event is intentionally kept simple so it does not
+   create or display a top-right cart on this Omega page.
+
+   If your main website already has a global cart system,
+   its existing cart script can still handle these buttons.
+*/
+
 document
     .querySelectorAll(".add-to-cart-btn")
-    .forEach(button => {
+    .forEach(function (button) {
 
         button.addEventListener(
             "click",
             function () {
 
-                const name =
-                    this.dataset.name;
+                const productName =
+                    button.dataset.name;
 
-                const price =
-                    Number(this.dataset.price);
+                const productPrice =
+                    button.dataset.price;
 
+                /*
+                   If your existing website has a global
+                   cart function, use it here.
 
-                const alreadyInCart =
-                    cart.some(
-                        item =>
-                            item.name === name
-                    );
+                   Example:
 
+                   addToCart(
+                       productName,
+                       productPrice
+                   );
+                */
 
-                if (alreadyInCart) {
-
-                    this.textContent =
-                        "Already Added";
-
-                    this.classList.add("added");
-
-                    setTimeout(() => {
-
-                        this.textContent =
-                            "Add to Cart";
-
-                        this.classList.remove(
-                            "added"
-                        );
-
-                    }, 1500);
-
-                    return;
-                }
-
-
-                cart.push({
-                    name: name,
-                    price: price,
-                    quantity: 1
-                });
-
-
-                saveCart();
-
-
-                this.textContent =
+                button.textContent =
                     "Added ✓";
 
-                this.classList.add("added");
+                setTimeout(function () {
 
-
-                setTimeout(() => {
-
-                    this.textContent =
+                    button.textContent =
                         "Add to Cart";
-
-                    this.classList.remove(
-                        "added"
-                    );
 
                 }, 1500);
 
             }
         );
-
-    });
-
-
-/* =========================================================
-   GO TO CART
-========================================================= */
-
-function goToCart() {
-
-    /*
-       Change this filename only if your cart page
-       has a different filename.
-    */
-
-    window.location.href =
-        "cart.html";
-}
-
-
-/* =========================================================
-   INITIAL CART COUNT
-========================================================= */
-
-updateCartCount();
-
-
-/* =========================================================
-   PRODUCT IMAGE SLIDERS
-========================================================= */
-
-document
-    .querySelectorAll("[data-slider]")
-    .forEach(slider => {
-
-
-        const slides =
-            slider.querySelectorAll(".slide");
-
-        const previousButton =
-            slider.querySelector(".prev");
-
-        const nextButton =
-            slider.querySelector(".next");
-
-        const dotsContainer =
-            slider.querySelector(".slider-dots");
-
-
-        if (!slides.length) {
-            return;
-        }
-
-
-        let currentIndex = 0;
-
-
-        /* =================================================
-           CREATE DOTS
-        ================================================== */
-
-        slides.forEach(
-            (slide, index) => {
-
-                const dot =
-                    document.createElement(
-                        "button"
-                    );
-
-                dot.type = "button";
-
-                dot.className =
-                    "slider-dot";
-
-                dot.setAttribute(
-                    "aria-label",
-                    "Go to image " +
-                    (index + 1)
-                );
-
-
-                if (index === 0) {
-
-                    dot.classList.add(
-                        "active"
-                    );
-
-                }
-
-
-                dot.addEventListener(
-                    "click",
-                    () => {
-
-                        showSlide(index);
-
-                    }
-                );
-
-
-                dotsContainer.appendChild(dot);
-
-            }
-        );
-
-
-        const dots =
-            dotsContainer.querySelectorAll(
-                ".slider-dot"
-            );
-
-
-        /* =================================================
-           SHOW SLIDE
-        ================================================== */
-
-        function showSlide(index) {
-
-            currentIndex =
-                (index + slides.length)
-                % slides.length;
-
-
-            slides.forEach(
-                (slide, i) => {
-
-                    slide.classList.toggle(
-                        "active",
-                        i === currentIndex
-                    );
-
-                }
-            );
-
-
-            dots.forEach(
-                (dot, i) => {
-
-                    dot.classList.toggle(
-                        "active",
-                        i === currentIndex
-                    );
-
-                }
-            );
-
-        }
-
-
-        /* =================================================
-           NEXT
-        ================================================== */
-
-        nextButton.addEventListener(
-            "click",
-            () => {
-
-                showSlide(
-                    currentIndex + 1
-                );
-
-            }
-        );
-
-
-        /* =================================================
-           PREVIOUS
-        ================================================== */
-
-        previousButton.addEventListener(
-            "click",
-            () => {
-
-                showSlide(
-                    currentIndex - 1
-                );
-
-            }
-        );
-
-
-        /* =================================================
-           MOBILE TOUCH SWIPE
-        ================================================== */
-
-        let touchStartX = 0;
-
-        let touchEndX = 0;
-
-
-        slider.addEventListener(
-            "touchstart",
-            event => {
-
-                touchStartX =
-                    event.changedTouches[0].screenX;
-
-            },
-            {
-                passive: true
-            }
-        );
-
-
-        slider.addEventListener(
-            "touchend",
-            event => {
-
-                touchEndX =
-                    event.changedTouches[0].screenX;
-
-                const difference =
-                    touchStartX -
-                    touchEndX;
-
-
-                if (Math.abs(difference) < 40) {
-                    return;
-                }
-
-
-                if (difference > 0) {
-
-                    showSlide(
-                        currentIndex + 1
-                    );
-
-                } else {
-
-                    showSlide(
-                        currentIndex - 1
-                    );
-
-                }
-
-            },
-            {
-                passive: true
-            }
-        );
-
 
     });
 
