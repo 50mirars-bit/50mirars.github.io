@@ -27,7 +27,6 @@
 
 html{
     width:100%;
-    max-width:100%;
     margin:0;
     padding:0;
     overflow-x:hidden;
@@ -35,7 +34,6 @@ html{
 
 body{
     width:100%;
-    max-width:100%;
     margin:0;
     padding:0;
 
@@ -61,14 +59,19 @@ body{
 
 
 /* =========================================================
-   BACK TO HOME BUTTON
+   BACK TO HOME
 ========================================================= */
+
+.home-area{
+    width:100%;
+    padding:20px;
+}
 
 .home-btn{
     display:inline-block;
 
     background:#111;
-    color:white;
+    color:#fff;
 
     text-decoration:none;
 
@@ -96,7 +99,7 @@ body{
 
     text-align:center;
 
-    padding:30px 20px 35px;
+    padding:25px 20px 40px;
 }
 
 .page-title h1{
@@ -138,68 +141,6 @@ body{
 
 
 /* =========================================================
-   TISSOT INTRODUCTION
-========================================================= */
-
-.tissot-intro{
-    width:90%;
-    max-width:1400px;
-
-    margin:0 auto;
-
-    text-align:center;
-
-    padding:10px 0 55px;
-}
-
-.tissot-intro h2{
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size:38px;
-
-    font-weight:600;
-
-    color:#171717;
-
-    margin:0 auto 30px;
-
-    letter-spacing:-0.5px;
-}
-
-.tissot-description{
-    width:100%;
-    max-width:1350px;
-
-    margin:0 auto;
-
-    text-align:left;
-}
-
-.tissot-description p{
-    margin:0 0 24px;
-
-    font-size:18px;
-
-    line-height:1.75;
-
-    color:#4a4a4a;
-
-    font-weight:400;
-
-    overflow-wrap:break-word;
-}
-
-.tissot-description strong{
-    color:#9b762c;
-
-    font-weight:600;
-}
-
-
-/* =========================================================
    PRODUCTS GRID
 ========================================================= */
 
@@ -226,7 +167,7 @@ body{
     width:100%;
     min-width:0;
 
-    background:white;
+    background:#fff;
 
     border-radius:15px;
 
@@ -239,7 +180,12 @@ body{
         rgba(0,0,0,0.08);
 }
 
-.product-card img{
+
+/* =========================================================
+   NORMAL PRODUCT IMAGE
+========================================================= */
+
+.product-image{
     width:100%;
 
     height:350px;
@@ -247,28 +193,171 @@ body{
     object-fit:cover;
 
     display:block;
-}
-
-.product-card video{
-    width:100%;
-
-    height:350px;
-
-    object-fit:cover;
-
-    display:block;
-}
-
-.product-card h3{
-    margin-top:20px;
-
-    overflow-wrap:break-word;
 }
 
 
 /* =========================================================
-   PRICE
+   SLIDER
 ========================================================= */
+
+.slider{
+    width:100%;
+    height:350px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:#f5f5f5;
+
+    touch-action:pan-y;
+}
+
+.slide{
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:
+        opacity 0.45s ease;
+
+    user-select:none;
+
+    -webkit-user-drag:none;
+}
+
+.slide.active{
+    opacity:1;
+    visibility:visible;
+
+    z-index:1;
+}
+
+
+/* =========================================================
+   SLIDER BUTTONS
+========================================================= */
+
+.slider-btn{
+    position:absolute;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:42px;
+    height:42px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:rgba(0,0,0,0.65);
+
+    color:#fff;
+
+    font-size:24px;
+
+    cursor:pointer;
+
+    z-index:5;
+
+    transition:0.3s;
+}
+
+.slider-btn:hover{
+    background:#c9a24d;
+    color:#111;
+}
+
+.slider-prev{
+    left:12px;
+}
+
+.slider-next{
+    right:12px;
+}
+
+
+/* =========================================================
+   SLIDER DOTS
+========================================================= */
+
+.slider-dots{
+    position:absolute;
+
+    left:0;
+    right:0;
+
+    bottom:12px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:7px;
+
+    z-index:6;
+}
+
+.slider-dot{
+    width:8px;
+    height:8px;
+
+    padding:0;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,0.65);
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.slider-dot.active{
+    width:10px;
+    height:10px;
+
+    background:#c9a24d;
+}
+
+
+/* =========================================================
+   PRODUCT INFORMATION
+========================================================= */
+
+.product-card h3{
+    margin:20px 15px 8px;
+
+    font-size:19px;
+
+    line-height:1.4;
+
+    color:#222;
+
+    overflow-wrap:break-word;
+}
 
 .price{
     color:#c9a24d;
@@ -276,6 +365,8 @@ body{
     font-size:22px;
 
     font-weight:bold;
+
+    margin-bottom:3px;
 }
 
 
@@ -297,6 +388,8 @@ body{
     margin-top:10px;
 
     margin-bottom:20px;
+
+    padding:0 10px;
 }
 
 .enquire-btn,
@@ -322,35 +415,31 @@ body{
 
 
 /* =========================================================
-   ENQUIRE BUTTON
+   ENQUIRE
 ========================================================= */
 
 .enquire-btn{
     background:#111;
-
     color:#fff;
 }
 
 .enquire-btn:hover{
     background:#c9a24d;
-
     color:#111;
 }
 
 
 /* =========================================================
-   ADD TO CART BUTTON
+   ADD TO CART
 ========================================================= */
 
 .add-to-cart-btn{
     background:#fff;
-
     color:#111;
 }
 
 .add-to-cart-btn:hover{
     background:#c9a24d;
-
     color:#fff;
 
     border-color:#c9a24d;
@@ -358,80 +447,7 @@ body{
 
 
 /* =========================================================
-   IMAGE SLIDER
-========================================================= */
-
-/* =========================================================
-   IMAGE SLIDER — FIXED
-========================================================= */
-
-.slider{
-    width:100%;
-    height:350px;
-    position:relative;
-    overflow:hidden;
-    background:#f5f5f5;
-}
-
-.slide{
-    width:100%;
-    height:350px;
-
-    object-fit:cover;
-
-    display:none;
-
-    position:absolute;
-    top:0;
-    left:0;
-}
-
-.slide.active{
-    display:block;
-}
-    
-
-/* =========================================================
-   SLIDER BUTTONS
-========================================================= */
-
-.prev,
-.next{
-    position:absolute;
-
-    top:50%;
-
-    transform:translateY(-50%);
-
-    background:
-        rgba(0,0,0,0.6);
-
-    color:white;
-
-    border:none;
-
-    cursor:pointer;
-
-    padding:12px 16px;
-
-    font-size:22px;
-
-    border-radius:50%;
-
-    z-index:2;
-}
-
-.prev{
-    left:10px;
-}
-
-.next{
-    right:10px;
-}
-
-
-/* =========================================================
-   TISSOT INFORMATION SECTION
+   TISSOT INFORMATION
 ========================================================= */
 
 .tissot-info-section{
@@ -448,11 +464,6 @@ body{
 
     overflow:hidden;
 }
-
-
-/* =========================================================
-   THREE COLUMN LAYOUT
-========================================================= */
 
 .tissot-info-grid{
     width:100%;
@@ -477,11 +488,6 @@ body{
     word-wrap:break-word;
 }
 
-
-/* =========================================================
-   INFORMATION HEADINGS
-========================================================= */
-
 .tissot-info-section h2{
     margin:0 0 18px;
 
@@ -490,8 +496,6 @@ body{
     line-height:1.45;
 
     font-weight:400;
-
-    overflow-wrap:break-word;
 }
 
 .tissot-info-section h3{
@@ -502,14 +506,7 @@ body{
     line-height:1.45;
 
     font-weight:400;
-
-    overflow-wrap:break-word;
 }
-
-
-/* =========================================================
-   INFORMATION TEXT
-========================================================= */
 
 .tissot-info-section p{
     margin:0 0 24px;
@@ -523,23 +520,6 @@ body{
     overflow-wrap:break-word;
 
     word-wrap:break-word;
-}
-
-
-/* =========================================================
-   LINKS
-========================================================= */
-
-.tissot-info-section a{
-    color:#00b6c7;
-
-    text-decoration:none;
-
-    overflow-wrap:break-word;
-}
-
-.tissot-info-section a:hover{
-    text-decoration:underline;
 }
 
 
@@ -567,8 +547,6 @@ body{
     line-height:1.5 !important;
 
     font-weight:600 !important;
-
-    overflow-wrap:break-word;
 }
 
 .tissot-faq-answer{
@@ -579,8 +557,6 @@ body{
     line-height:1.6 !important;
 
     font-weight:400 !important;
-
-    overflow-wrap:break-word;
 }
 
 
@@ -592,8 +568,6 @@ body{
     width:100%;
 
     margin-top:40px;
-
-    overflow-wrap:break-word;
 }
 
 .tissot-conclusion h2{
@@ -610,22 +584,19 @@ body{
     font-size:13px;
 
     line-height:1.6;
-
-    overflow-wrap:break-word;
 }
 
 
 /* =========================================================
-   CONTACT US FOOTER
+   FOOTER
 ========================================================= */
 
 .main-footer{
     width:100%;
-    max-width:100%;
 
     background:#080808;
 
-    color:#ffffff;
+    color:#fff;
 
     padding:70px 7% 25px;
 
@@ -679,7 +650,7 @@ body{
 
     line-height:1.2;
 
-    color:#ffffff;
+    color:#fff;
 
     text-align:center;
 }
@@ -699,7 +670,7 @@ body{
 .whatsapp-column h3{
     margin:0 0 22px;
 
-    color:#ffffff;
+    color:#fff;
 
     font-size:20px;
 
@@ -726,7 +697,7 @@ body{
 
     margin:0 auto 8px;
 
-    color:#ffffff;
+    color:#fff;
 
     text-decoration:none;
 
@@ -735,8 +706,6 @@ body{
     line-height:1.6;
 
     transition:color 0.3s ease;
-
-    overflow-wrap:break-word;
 }
 
 .footer-link:hover{
@@ -762,7 +731,6 @@ body{
 
 .whatsapp-icon{
     width:28px;
-
     height:28px;
 
     object-fit:contain;
@@ -785,9 +753,9 @@ body{
 
     padding:13px 30px;
 
-    background:#ffffff;
+    background:#fff;
 
-    color:#111111;
+    color:#111;
 
     text-decoration:none;
 
@@ -797,7 +765,7 @@ body{
 
     letter-spacing:0.2px;
 
-    border:1px solid #ffffff;
+    border:1px solid #fff;
 
     transition:all 0.3s ease;
 }
@@ -807,7 +775,7 @@ body{
 
     border-color:#c9a24d;
 
-    color:#ffffff;
+    color:#fff;
 
     transform:translateY(-2px);
 }
@@ -849,13 +817,11 @@ body{
 .footer-social h3{
     margin:0 0 20px;
 
-    color:#ffffff;
+    color:#fff;
 
     font-size:18px;
 
     font-weight:700;
-
-    line-height:1.35;
 }
 
 .footer-links-column a{
@@ -896,13 +862,11 @@ body{
 
 .instagram-button{
     width:58px;
-
     height:58px;
 
     display:inline-flex;
 
     align-items:center;
-
     justify-content:center;
 
     border:
@@ -924,7 +888,6 @@ body{
 
 .instagram-button img{
     width:32px;
-
     height:32px;
 
     object-fit:contain;
@@ -952,15 +915,13 @@ body{
 .footer-bottom p{
     margin:0;
 
-    color:#aaaaaa;
+    color:#aaa;
 
     font-size:13px;
 
     line-height:1.5;
 
     text-align:center;
-
-    overflow-wrap:break-word;
 }
 
 
@@ -1001,26 +962,6 @@ body{
 
 @media(max-width:768px){
 
-    html,
-    body{
-        width:100%;
-        max-width:100%;
-
-        overflow-x:hidden;
-    }
-
-
-    /* BACK BUTTON */
-
-    .home-btn{
-        padding:11px 18px;
-
-        font-size:14px;
-    }
-
-
-    /* TITLE */
-
     .page-title{
         padding:25px 15px 30px;
     }
@@ -1028,9 +969,6 @@ body{
     .page-title h1{
         font-size:48px;
     }
-
-
-    /* PRODUCTS */
 
     .products-grid{
         width:92%;
@@ -1042,14 +980,20 @@ body{
         margin-bottom:60px;
     }
 
-    .slide,
-    .product-card img,
-    .product-card video{
+    .slider{
         height:300px;
     }
 
+    .product-image{
+        height:300px;
+    }
 
-    /* PRODUCT BUTTONS */
+    .slider-btn{
+        width:38px;
+        height:38px;
+
+        font-size:20px;
+    }
 
     .product-buttons{
         gap:8px;
@@ -1064,9 +1008,6 @@ body{
         font-size:14px;
     }
 
-
-    /* TISSOT INFORMATION */
-
     .tissot-info-section{
         width:100%;
 
@@ -1076,36 +1017,13 @@ body{
     }
 
     .tissot-info-grid{
-        width:100%;
-
         grid-template-columns:1fr;
 
         gap:5px;
     }
 
-    .tissot-info-column{
-        width:100%;
-    }
-
-    .tissot-info-section h2,
-    .tissot-info-section h3,
-    .tissot-conclusion h2{
-        font-size:16px;
-    }
-
-    .tissot-info-section p,
-    .tissot-faq-question,
-    .tissot-faq-answer,
-    .tissot-conclusion p{
-        font-size:13px !important;
-    }
-
-
-    /* FOOTER */
-
     .main-footer{
-        padding:
-            55px 20px 25px;
+        padding:55px 20px 25px;
     }
 
     .footer-top{
@@ -1128,25 +1046,6 @@ body{
         margin-top:50px;
 
         padding-top:35px;
-    }
-
-    .contact-column h3,
-    .whatsapp-column h3{
-        font-size:18px;
-    }
-
-    .footer-link{
-        font-size:15px;
-    }
-
-    .whatsapp-button{
-        min-width:190px;
-
-        padding:13px 22px;
-    }
-
-    .footer-bottom{
-        margin-top:40px;
     }
 
 }
@@ -1187,7 +1086,7 @@ body{
 
 
 /* =========================================================
-   FINAL HORIZONTAL OVERFLOW PROTECTION
+   OVERFLOW PROTECTION
 ========================================================= */
 
 img,
@@ -1213,849 +1112,4 @@ select{
 <body>
 
 
-<!-- =========================================================
-     BACK TO HOME
-========================================================= -->
-
-<div style="padding:20px;">
-
-    <a
-        href="index.html"
-        class="home-btn"
-    >
-        ← Back to Home
-    </a>
-
-</div>
-
-
-<!-- =========================================================
-     TISSOT TITLE
-========================================================= -->
-
-<section class="tissot-intro">
-
-    <div class="page-title">
-
-        <h1>Tissot</h1>
-
-        <div class="title-line"></div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     TISSOT PRODUCTS
-========================================================= -->
-
-<div class="products-grid">
-
-<!-- Tissot T-Race Chronograph Watch -->
-<div class="product-card">
-  <img src="Tissot T-Race Chronograph Watch.jpeg" alt="Tissot T-Race Chronograph Watch">
-  <h3>Tissot T-Race Chronograph Watch</h3>
-  <div class="price">₹3,500</div>
-
-  <div class="product-buttons">
-    <a class="enquire-btn"
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Tissot%20T-Race%20Chronograph%20Watch.%20Please%20share%20availability%20and%20details.">
-       Enquire Now
-    </a>
-
-    <button class="add-to-cart-btn"
-            data-name="Tissot T-Race Chronograph Watch"
-            data-price="3500">
-      Add to Cart
-    </button>
-  </div>
-</div>
-
-
-<!-- Tissot Carson -->
-<div class="product-card">
-  <img src="Tissot Carson.jpeg" alt="Tissot Carson">
-  <h3>Tissot Carson</h3>
-  <div class="price">₹4,500</div>
-
-  <div class="product-buttons">
-    <a class="enquire-btn"
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Tissot%20Carson.%20Please%20share%20availability%20and%20details.">
-       Enquire Now
-    </a>
-
-    <button class="add-to-cart-btn"
-            data-name="Tissot Carson"
-            data-price="4500">
-      Add to Cart
-    </button>
-  </div>
-</div>
-
-
-<!-- Tissot Gentleman Powermatic 80 -->
-<div class="product-card">
-  <div class="slider">
-    <img src="Tissot Gentelman Powermatic 80.jpeg" class="slide active" alt="Tissot Gentleman Powermatic 80">
-    <img src="Tissot Gentelman Powermatic 80 2.jpeg" class="slide" alt="Tissot Gentleman Powermatic 80">
-    <button class="prev">❮</button>
-    <button class="next">❯</button>
-  </div>
-  <h3>Tissot Gentleman Powermatic 80</h3>
-  <div class="price">₹6,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn"
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Tissot%20Gentleman%20Powermatic%2080.%20Please%20share%20availability%20and%20details.">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="Tissot Gentleman Powermatic 80" data-price="6000">Add to Cart</button>
-  </div>
-</div>
-    
-
-<!-- Tissot PRX -->
-<div class="product-card">
-  <div class="slider">
-    <img src="Tissot PRX 1.jpeg" class="slide active">
-    <img src="Tissot PRX 2.jpeg" class="slide">
-    <img src="Tissot PRX 3.jpeg" class="slide">
-    <img src="Tissot PRX 4.jpeg" class="slide">
-    <img src="Tissot PRX 5.jpeg" class="slide">
-    <img src="Tissot PRX 6.jpeg" class="slide">
-    <img src="Tissot PRX 7.jpeg" class="slide">
-    <img src="Tissot PRX 8.jpeg" class="slide">
-    <img src="Tissot PRX 9.jpeg" class="slide">
-    <button class="prev">❮</button>
-    <button class="next">❯</button>
-  </div>
-  <h3>Tissot PRX</h3>
-  <div class="price">₹4,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn"
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Tissot%20PRX.">Enquire Now</a>
-    <!-- ✅ Use ₹ in data-price -->
-    <button class="add-to-cart-btn" data-name="Tissot PRX" data-price="₹4000">Add to Cart</button>
-  </div>
-</div>
-
-
-<!-- Tissot PRX Band -->
-<div class="product-card">
-  <div class="slider">
-    <img src="Tissot PRX Band 1.jpeg" class="slide active" alt="Tissot PRX Band">
-    <img src="Tissot PRX Band 2.jpeg" class="slide" alt="Tissot PRX Band">
-    <img src="Tissot PRX Band 3.jpeg" class="slide" alt="Tissot PRX Band">
-    <img src="Tissot PRX Band 4.jpeg" class="slide" alt="Tissot PRX Band">
-    <button class="prev">❮</button>
-    <button class="next">❯</button>
-  </div>
-  <h3>Tissot PRX Band</h3>
-  <div class="price">₹4,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" 
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Tissot%20PRX%20Band.%20Please%20share%20availability%20and%20details.">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="Tissot PRX Band" data-price="4500">Add to Cart</button>
-  </div>
-</div>
-
-
-<!-- Tissot Gentel Couple Watch -->
-<div class="product-card">
-  <img src="Tissot Gentel Couple Watch.jpeg" alt="Tissot Gentel Couple Watch">
-  <h3>Tissot Gentel Couple Watch</h3>
-  <div class="price">₹5,000</div>
-
-  <div class="product-buttons">
-    <a class="enquire-btn"
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Tissot%20Gentel%20Couple%20Watch.%20Please%20share%20availability%20and%20details.">
-       Enquire Now
-    </a>
-
-    <button class="add-to-cart-btn"
-            data-name="Tissot Gentel Couple Watch"
-            data-price="5000">
-      Add to Cart
-    </button>
-  </div>
-</div>
-   
-</div>
-
-
-<!-- =========================================================
-     TISSOT INFORMATION SECTION
-========================================================= -->
-
-<section class="tissot-info-section">
-
-
-    <div class="tissot-info-grid">
-
-
-        <!-- =================================================
-             COLUMN 1
-        ================================================== -->
-
-        <div class="tissot-info-column">
-
-
-            <h2>
-                PRECISION MEETS PRESTIGE WITH TISSOT WATCHES
-            </h2>
-
-
-            <p>
-                For over 170 years, Tissot has stood as a symbol of Swiss
-                innovation and horological excellence. Known for its commitment
-                to precision and elegance, Tissot watches combine modern
-                technology with timeless style. From sporty chronographs to
-                refined dress watches, the brand continues to represent
-                craftsmanship, quality, and Swiss heritage.
-            </p>
-
-
-            <h3>
-                INTRODUCTION: THE ART OF SWISS TIMEKEEPING
-            </h3>
-
-
-            <p>
-                Tissot watches combine precision with elegant design. The brand
-                offers a wide range of styles, from classic timepieces to modern
-                watches featuring advanced technology. With refined details and
-                versatile designs, Tissot watches are suitable for both everyday
-                wear and special occasions.
-            </p>
-
-
-            <h3>
-                TISSOT'S HISTORY AND HERITAGE
-            </h3>
-
-
-            <p>
-                Founded in 1853 in Switzerland, Tissot has built a long history
-                of watchmaking innovation. The brand has introduced important
-                developments throughout its journey while maintaining its focus
-                on quality and design. Today, Tissot continues to combine Swiss
-                watchmaking tradition with modern ideas.
-            </p>
-
-
-        </div>
-
-
-        <!-- =================================================
-             COLUMN 2
-        ================================================== -->
-
-        <div class="tissot-info-column">
-
-
-            <h3>
-                TISSOT WATCHES FOR MEN: BUILT FOR PERFORMANCE AND PRESENCE
-            </h3>
-
-
-            <p>
-                Tissot watches for men combine function with refined style.
-                From chronographs and automatic watches to classic designs,
-                the collection offers options for different lifestyles.
-                Stainless steel bracelets, leather straps, and sporty designs
-                provide versatility for everyday and formal occasions.
-            </p>
-
-
-            <h3>
-                TISSOT WATCHES FOR WOMEN: ELEGANCE WITH SWISS PRECISION
-            </h3>
-
-
-            <p>
-                Tissot watches for women combine elegant proportions with
-                precise Swiss watchmaking. From simple everyday designs to
-                sophisticated styles, the collection offers different dials,
-                finishes, and bracelet options to complement individual style.
-            </p>
-
-
-            <h3>
-                SWISS ENGINEERING, MODERN VERSATILITY
-            </h3>
-
-
-            <p>
-                Tissot watches are designed with attention to precision,
-                durability, and detail. The collection includes both quartz
-                and automatic models, offering dependable performance with
-                timeless designs. Clean dials and refined finishes make these
-                watches suitable for many occasions.
-            </p>
-
-
-            <h3>
-                FROM SPORT TO STATEMENT: TISSOT HAS YOU COVERED
-            </h3>
-
-
-            <p>
-                Tissot offers watches for different lifestyles and occasions.
-                Sporty chronographs, modern designs, and elegant formal watches
-                provide plenty of choices. Whether you prefer a bold statement
-                or a classic look, there is a Tissot style to complement it.
-            </p>
-
-
-        </div>
-
-
-        <!-- =================================================
-             COLUMN 3
-        ================================================== -->
-
-        <div class="tissot-info-column">
-
-
-            <h3>
-                CARING FOR YOUR TISSOT: MAINTENANCE AND REPAIR
-            </h3>
-
-
-            <p>
-                Proper care can help maintain the appearance and performance
-                of your Tissot watch. Keep the watch clean, handle it carefully,
-                and avoid unnecessary exposure to extreme conditions. For
-                servicing or repairs, professional assistance is recommended
-                to maintain the quality and performance of the timepiece.
-            </p>
-
-
-            <h3>
-                SHOP TISSOT WATCHES AT 50 MIRARS
-            </h3>
-
-
-            <p>
-                Explore the Tissot collection at 50 Mirars and discover
-                distinctive designs selected for customers who appreciate
-                refined style and premium aesthetics. Browse different designs,
-                styles, and price options to find a timepiece that complements
-                your personal style.
-            </p>
-
-
-            <h3>
-                FAQs
-            </h3>
-
-
-            <div class="tissot-faq">
-
-
-                <div class="tissot-faq-item">
-
-                    <p class="tissot-faq-question">
-                        1. Are Tissot watches Swiss-made?
-                    </p>
-
-                    <p class="tissot-faq-answer">
-                        Tissot is a Swiss watch brand with its watchmaking
-                        operations based in Switzerland.
-                    </p>
-
-                </div>
-
-
-                <div class="tissot-faq-item">
-
-                    <p class="tissot-faq-question">
-                        2. What types of Tissot watches are available for men?
-                    </p>
-
-                    <p class="tissot-faq-answer">
-                        Tissot offers chronographs, automatic watches,
-                        classic designs, and sporty styles for men.
-                    </p>
-
-                </div>
-
-
-                <div class="tissot-faq-item">
-
-                    <p class="tissot-faq-question">
-                        3. Are Tissot watches available for women?
-                    </p>
-
-                    <p class="tissot-faq-answer">
-                        Yes. Tissot offers a variety of elegant and modern
-                        designs suitable for women.
-                    </p>
-
-                </div>
-
-
-                <div class="tissot-faq-item">
-
-                    <p class="tissot-faq-question">
-                        4. Are Tissot watches suitable for everyday wear?
-                    </p>
-
-                    <p class="tissot-faq-answer">
-                        Many Tissot designs are suitable for everyday wear,
-                        depending on the model and intended use.
-                    </p>
-
-                </div>
-
-
-                <div class="tissot-faq-item">
-
-                    <p class="tissot-faq-question">
-                        5. What types of movements do Tissot watches use?
-                    </p>
-
-                    <p class="tissot-faq-answer">
-                        Tissot offers watches with both quartz and automatic
-                        movements.
-                    </p>
-
-                </div>
-
-
-                <div class="tissot-faq-item">
-
-                    <p class="tissot-faq-question">
-                        6. Where can I find Tissot watches at 50 Mirars?
-                    </p>
-
-                    <p class="tissot-faq-answer">
-                        You can explore the available Tissot collection
-                        directly on the 50 Mirars website.
-                    </p>
-
-                </div>
-
-
-            </div>
-
-
-        </div>
-
-
-    </div>
-
-
-    <!-- =====================================================
-         CONCLUSION
-    ====================================================== -->
-
-    <div class="tissot-conclusion">
-
-
-        <h2>
-            CONCLUSION: TIMELESS PRECISION, ENDURING PRESTIGE
-        </h2>
-
-
-        <p>
-            Tissot watches represent a balance of precision, style, and
-            Swiss watchmaking heritage. With a wide range of designs and
-            reliable movements, Tissot offers timepieces for different
-            personalities and occasions. From classic everyday watches to
-            sporty chronographs and refined formal styles, Tissot continues
-            to create watches with a distinctive and timeless character.
-        </p>
-
-
-    </div>
-
-
-</section>
-
-
-<!-- =========================================================
-     CONTACT US FOOTER
-========================================================= -->
-
-<footer class="main-footer">
-
-<div class="footer-container">
-
-
-    <!-- =====================================================
-         CONTACT US
-    ====================================================== -->
-
-    <div class="footer-top">
-
-
-        <h2>
-            Contact Us
-        </h2>
-
-
-        <!-- CUSTOMERS -->
-
-        <div class="contact-column">
-
-            <h3>
-                For Customers:
-            </h3>
-
-            <a
-                href="mailto:50mirars@gmail.com"
-                class="footer-link"
-            >
-                50mirars@gmail.com
-            </a>
-
-            <a
-                href="tel:+918209989013"
-                class="footer-link"
-            >
-                82099 89013
-            </a>
-
-            <p>
-                09:00 - 21:30 | Monday to Sunday
-            </p>
-
-        </div>
-
-
-        <!-- SALES / WATCH SERVICE -->
-
-        <div class="contact-column">
-
-            <h3>
-                For Sales/Watch Service:
-            </h3>
-
-            <a
-                href="mailto:50mirars@gmail.com"
-                class="footer-link"
-            >
-                50mirars@gmail.com
-            </a>
-
-            <a
-                href="tel:+918209989013"
-                class="footer-link"
-            >
-                82099 89013
-            </a>
-
-            <p>
-                09:00 - 21:30 | Monday to Sunday
-            </p>
-
-        </div>
-
-
-        <!-- WHATSAPP -->
-
-        <div class="whatsapp-column">
-
-            <h3 class="whatsapp-title">
-
-                View Products on WhatsApp
-
-                <img
-                    src="whatsapplogo.png"
-                    alt="WhatsApp"
-                    class="whatsapp-icon"
-                >
-
-            </h3>
-
-
-            <a
-                href="https://wa.me/918209989013"
-                target="_blank"
-                rel="noopener"
-                class="whatsapp-button"
-            >
-                View Products
-            </a>
-
-        </div>
-
-
-    </div>
-
-
-    <!-- =====================================================
-         FOOTER LINKS
-    ====================================================== -->
-
-    <div class="footer-middle">
-
-
-        <!-- KNOW 50 MIRARS -->
-
-        <div class="footer-links-column">
-
-            <h3>
-                Know 50 Mirars
-            </h3>
-
-            <a href="about.html">
-                About Us
-            </a>
-
-            <a href="faq.html">
-                FAQ
-            </a>
-
-        </div>
-
-
-        <!-- TERMS -->
-
-        <div class="footer-links-column">
-
-            <h3>
-                Terms &amp; Conditions
-            </h3>
-
-            <a href="terms.html">
-                Terms &amp; Conditions
-            </a>
-
-            <a href="privacypolicy.html">
-                Privacy Policy
-            </a>
-
-        </div>
-
-
-        <!-- INSTAGRAM -->
-
-        <div class="footer-social">
-
-            <h3>
-                50 Mirars
-            </h3>
-
-            <p>
-                Follow Us On
-            </p>
-
-            <a
-                href="https://instagram.com/50mirars"
-                target="_blank"
-                rel="noopener"
-                class="instagram-button"
-                aria-label="Follow 50 Mirars on Instagram"
-            >
-
-                <img
-                    src="instagramimage.webp"
-                    alt="Instagram"
-                >
-
-            </a>
-
-        </div>
-
-
-    </div>
-
-
-    <!-- =====================================================
-         COPYRIGHT
-    ====================================================== -->
-
-    <div class="footer-bottom">
-
-        <p>
-            © 2026 50 Mirars - The Watch &amp; Sunglasses Store.
-            All Rights Reserved.
-        </p>
-
-    </div>
-
-
-</div>
-
-</footer>
-
-
-<!-- =========================================================
-     JAVASCRIPT
-========================================================= -->
-
-<script>
-
-document.querySelectorAll(".slider").forEach(slider => {
-
-    const slides = slider.querySelectorAll(".slide");
-    const nextButton = slider.querySelector(".next");
-    const prevButton = slider.querySelector(".prev");
-
-    if (slides.length === 0) {
-        return;
-    }
-
-    let current = 0;
-
-    function showSlide(index) {
-
-        slides.forEach(slide => {
-            slide.classList.remove("active");
-        });
-
-        slides[index].classList.add("active");
-    }
-
-    if (nextButton) {
-
-        nextButton.addEventListener("click", function () {
-
-            current++;
-
-            if (current >= slides.length) {
-                current = 0;
-            }
-
-            showSlide(current);
-
-        });
-
-    }
-
-    if (prevButton) {
-
-        prevButton.addEventListener("click", function () {
-
-            current--;
-
-            if (current < 0) {
-                current = slides.length - 1;
-            }
-
-            showSlide(current);
-
-        });
-
-    }
-
-    /* Mobile swipe */
-
-    let startX = 0;
-    let endX = 0;
-
-    slider.addEventListener("touchstart", function(event) {
-
-        startX = event.touches[0].clientX;
-
-    }, { passive:true });
-
-
-    slider.addEventListener("touchend", function(event) {
-
-        endX = event.changedTouches[0].clientX;
-
-        const difference = startX - endX;
-
-        if (Math.abs(difference) < 40) {
-            return;
-        }
-
-        if (difference > 0) {
-
-            current++;
-
-            if (current >= slides.length) {
-                current = 0;
-            }
-
-        } else {
-
-            current--;
-
-            if (current < 0) {
-                current = slides.length - 1;
-            }
-
-        }
-
-        showSlide(current);
-
-    });
-
-});
-
-
-/* =========================================================
-   ADD TO CART
-========================================================= */
-
-document
-    .querySelectorAll(".add-to-cart-btn")
-    .forEach(button => {
-
-
-        button.addEventListener(
-            "click",
-            () => {
-
-
-                const name =
-                    button.dataset.name;
-
-
-                const price =
-                    button.dataset.price;
-
-
-                const image =
-                    button.dataset.image || "";
-
-
-                let cart =
-                    JSON.parse(
-                        localStorage.getItem("cart")
-                    ) || [];
-
-
-                cart.push({
-
-                    name:name,
-
-                    price:price,
-
-                    image:image
-
-                });
-
-
-                localStorage.setItem(
-
-                    "cart",
-
-                    JSON.stringify(cart)
-
-                );
-
-
-                window.location.href =
-                    "cart.html";
-
-
-            }
-        );
-
-
-    });
-
-
-</script>
-
-
-</body>
-
-</html>
+<!--
