@@ -10,7 +10,8 @@
     content="width=1200"
 >
 
-<title>Payment | 50 Mirars</title>
+<title>Order Confirmed | 50 Mirars</title>
+
 
 <style>
 
@@ -46,272 +47,160 @@ header h1 {
     flex: 1;
 }
 
-.back-btn {
-    background: #111;
-    color: #fff;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 6px;
-    font-size: 15px;
-}
-
-.back-btn:hover {
-    background: #333;
-}
-
 .logo {
     width: 120px;
+    height: auto;
 }
 
 
 /* =========================
-   MAIN PAGE
+   MAIN
 ========================= */
 
-.payment-page {
-    max-width: 1200px;
-    margin: 40px auto;
+.confirmation-page {
+    max-width: 900px;
+    margin: 50px auto;
     padding: 0 20px;
-    display: flex;
-    gap: 30px;
-    align-items: flex-start;
 }
 
 
 /* =========================
-   PAYMENT BOX
+   SUCCESS BOX
 ========================= */
 
-.payment-box {
-    flex: 2;
+.success-box {
     background: #fff;
-    padding: 30px;
-    border-radius: 10px;
     border: 1px solid #ddd;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    padding: 40px;
+    text-align: center;
 }
 
-.payment-box h2 {
-    margin-top: 0;
-    font-size: 22px;
+.success-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: #009688;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 38px;
+    font-weight: bold;
 }
 
-.amount-box {
+.success-box h2 {
+    margin: 0 0 10px;
+    font-size: 30px;
+}
+
+.success-message {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+
+/* =========================
+   ORDER ID
+========================= */
+
+.order-id-box {
+    margin: 25px auto;
+    padding: 15px 20px;
     background: #f5f5f5;
     border: 1px solid #ddd;
-    padding: 18px;
-    border-radius: 8px;
-    margin: 20px 0;
-    text-align: center;
-}
-
-.amount-label {
-    font-size: 14px;
-    color: #666;
-}
-
-.amount {
-    display: block;
-    font-size: 28px;
-    font-weight: bold;
-    margin-top: 6px;
-}
-
-
-/* =========================
-   QR PAYMENT
-========================= */
-
-.qr-section {
-    text-align: center;
-    margin: 25px 0;
-}
-
-.qr-section h3 {
-    margin-bottom: 15px;
-}
-
-.qr-image {
-    width: 250px;
-    height: 250px;
-    object-fit: contain;
-    border: 1px solid #ddd;
-    padding: 10px;
-    background: #fff;
-    border-radius: 8px;
-}
-
-.payment-note {
-    margin-top: 12px;
-    color: #555;
-    font-size: 14px;
-}
-
-
-/* =========================
-   UPI DETAILS
-========================= */
-
-.upi-box {
-    background: #f0f0f0;
-    padding: 15px;
     border-radius: 7px;
-    margin-top: 20px;
-    text-align: center;
+    max-width: 450px;
 }
 
-.upi-label {
+.order-id-label {
     font-size: 13px;
-    color: #666;
-    margin-bottom: 5px;
+    color: #777;
 }
 
-.upi-id {
-    font-size: 18px;
+.order-id {
+    margin-top: 6px;
+    font-size: 21px;
     font-weight: bold;
-    word-break: break-all;
 }
 
 
 /* =========================
-   BANK DETAILS
+   DETAILS
 ========================= */
 
-.bank-box {
-    margin-top: 25px;
-    padding: 20px;
-    background: #fafafa;
+.details-section {
+    margin-top: 30px;
+    text-align: left;
+    background: #fff;
     border: 1px solid #ddd;
-    border-radius: 8px;
+    border-radius: 10px;
+    padding: 25px;
 }
 
-.bank-box h3 {
+.details-section h3 {
     margin-top: 0;
-    margin-bottom: 15px;
-}
-
-.bank-row {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    padding: 8px 0;
+    font-size: 20px;
     border-bottom: 1px solid #eee;
+    padding-bottom: 12px;
 }
 
-.bank-row:last-child {
+
+/* =========================
+   CUSTOMER DETAILS
+========================= */
+
+.customer-detail {
+    display: flex;
+    gap: 20px;
+    padding: 9px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.customer-detail:last-child {
     border-bottom: none;
 }
 
-.bank-label {
+.detail-label {
+    width: 180px;
     font-weight: 600;
 }
 
-
-/* =========================
-   TRANSACTION ID
-========================= */
-
-.transaction-section {
-    margin-top: 30px;
-}
-
-.transaction-section label {
-    display: block;
-    font-weight: 600;
-    margin-bottom: 8px;
-}
-
-.transaction-section input {
-    width: 100%;
-    padding: 13px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 15px;
-    outline: none;
-}
-
-.transaction-section input:focus {
-    border-color: #009688;
-}
-
-.transaction-help {
-    font-size: 13px;
-    color: #666;
-    margin-top: 7px;
+.detail-value {
+    flex: 1;
+    color: #555;
+    word-break: break-word;
 }
 
 
 /* =========================
-   SUBMIT
+   PRODUCTS
 ========================= */
-
-.submit-btn {
-    width: 100%;
-    padding: 14px;
-    margin-top: 20px;
-    background: #009688;
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-.submit-btn:hover {
-    background: #00796b;
-}
-
-
-/* =========================
-   ERROR
-========================= */
-
-.error-message {
-    display: none;
-    background: #ffebee;
-    color: #c62828;
-    border: 1px solid #ef9a9a;
-    padding: 12px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-}
-
-
-/* =========================
-   ORDER SUMMARY
-========================= */
-
-.order-summary {
-    flex: 0 0 350px;
-    background: #fff;
-    padding: 25px;
-    border-radius: 10px;
-    border: 1px solid #ddd;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}
-
-.order-summary h2 {
-    margin-top: 0;
-    font-size: 21px;
-}
-
-.product-list {
-    margin-bottom: 20px;
-}
 
 .product-item {
     display: flex;
     justify-content: space-between;
-    gap: 15px;
-    padding: 12px 0;
+    gap: 20px;
+    padding: 14px 0;
     border-bottom: 1px solid #eee;
-    font-size: 14px;
+}
+
+.product-item:last-child {
+    border-bottom: none;
 }
 
 .product-name {
     flex: 1;
-    line-height: 1.4;
+    font-weight: 600;
+}
+
+.product-quantity {
+    color: #666;
+    font-size: 14px;
+    margin-top: 5px;
 }
 
 .product-price {
@@ -319,10 +208,15 @@ header h1 {
     white-space: nowrap;
 }
 
+
+/* =========================
+   TOTALS
+========================= */
+
 .summary-line {
     display: flex;
     justify-content: space-between;
-    margin: 12px 0;
+    padding: 9px 0;
     font-size: 15px;
 }
 
@@ -335,22 +229,80 @@ header h1 {
     justify-content: space-between;
     border-top: 1px solid #ddd;
     padding-top: 16px;
-    margin-top: 18px;
-    font-size: 20px;
+    margin-top: 10px;
+    font-size: 21px;
     font-weight: bold;
 }
 
-.back-delivery {
-    display: block;
+
+/* =========================
+   PAYMENT STATUS
+========================= */
+
+.payment-status {
+    margin-top: 25px;
+    padding: 15px;
+    background: #fff8e1;
+    border: 1px solid #ffe082;
+    border-radius: 7px;
     text-align: center;
-    margin-top: 15px;
-    color: #333;
-    text-decoration: none;
-    font-size: 14px;
 }
 
-.back-delivery:hover {
-    text-decoration: underline;
+.payment-status strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+
+/* =========================
+   SHEET STATUS
+========================= */
+
+.sheet-status {
+    margin-top: 20px;
+    padding: 14px;
+    border-radius: 7px;
+    text-align: center;
+    font-size: 14px;
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+}
+
+.sheet-status.success {
+    background: #e8f5e9;
+    border-color: #a5d6a7;
+    color: #2e7d32;
+}
+
+.sheet-status.error {
+    background: #ffebee;
+    border-color: #ef9a9a;
+    color: #c62828;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.button-area {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.home-btn {
+    display: inline-block;
+    background: #009688;
+    color: #fff;
+    text-decoration: none;
+    padding: 13px 28px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.home-btn:hover {
+    background: #00796b;
 }
 
 
@@ -396,18 +348,31 @@ footer a:hover {
 
 
 /* =========================
-   MOBILE SAFETY
+   MOBILE
 ========================= */
 
-@media (max-width: 900px) {
+@media (max-width: 700px) {
 
-    .payment-page {
-        flex-direction: column;
+    .confirmation-page {
+        margin: 25px auto;
     }
 
-    .order-summary {
-        width: 100%;
-        flex: none;
+    .success-box {
+        padding: 25px;
+    }
+
+    .customer-detail {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .detail-label {
+        width: auto;
+    }
+
+    .product-item {
+        flex-direction: column;
+        gap: 6px;
     }
 
 }
@@ -426,15 +391,8 @@ footer a:hover {
 
 <header>
 
-    <a
-        href="delivery.html"
-        class="back-btn"
-    >
-        ← Back to Delivery
-    </a>
-
     <h1>
-        Payment
+        50 Mirars
     </h1>
 
     <img
@@ -451,169 +409,246 @@ footer a:hover {
      MAIN
 ========================= -->
 
-<section class="payment-page">
+<section class="confirmation-page">
 
 
-    <!-- =========================
-         PAYMENT INFORMATION
-    ========================= -->
+    <div class="success-box">
 
-    <div class="payment-box">
+
+        <!-- SUCCESS ICON -->
+
+        <div class="success-icon">
+            ✓
+        </div>
+
 
         <h2>
-            Complete Your Payment
+            Order Received!
         </h2>
 
 
-        <div
-            id="error-message"
-            class="error-message"
-        ></div>
+        <p class="success-message">
+
+            Thank you for shopping with
+            <strong>50 Mirars</strong>.
+
+            <br>
+
+            We have received your order
+            and payment details.
+
+        </p>
 
 
-        <!-- TOTAL AMOUNT -->
 
-        <div class="amount-box">
+        <!-- =========================
+             ORDER ID
+        ========================= -->
 
-            <span class="amount-label">
-                Amount to Pay
-            </span>
+        <div class="order-id-box">
 
-            <span
-                class="amount"
-                id="payment-amount"
+            <div class="order-id-label">
+                Your Order ID
+            </div>
+
+            <div
+                class="order-id"
+                id="order-id"
             >
-                ₹0
-            </span>
+                Loading...
+            </div>
 
         </div>
 
 
 
         <!-- =========================
-             QR CODE
+             DELIVERY DETAILS
         ========================= -->
 
-        <div class="qr-section">
+        <div class="details-section">
 
             <h3>
-                Scan & Pay
+                Delivery Details
             </h3>
 
 
-            <!--
-                IMPORTANT:
-                Change "payment-qr.png"
-                to the actual filename
-                of your QR image.
-            -->
+            <div class="customer-detail">
 
-            <img
-    src="OR CODE 1.jpeg"
-    alt="50 Mirars Payment QR Code"
-    class="qr-image"
->
+                <div class="detail-label">
+                    Name
+                </div>
+
+                <div
+                    class="detail-value"
+                    id="customer-name"
+                >
+                    Loading...
+                </div>
+
+            </div>
 
 
-            <p class="payment-note">
+            <div class="customer-detail">
 
-                Scan this QR code using
-                any supported UPI app and
-                complete the payment.
+                <div class="detail-label">
+                    Phone
+                </div>
 
-            </p>
+                <div
+                    class="detail-value"
+                    id="customer-phone"
+                >
+                    Loading...
+                </div>
+
+            </div>
+
+
+            <div class="customer-detail">
+
+                <div class="detail-label">
+                    Email
+                </div>
+
+                <div
+                    class="detail-value"
+                    id="customer-email"
+                >
+                    Loading...
+                </div>
+
+            </div>
+
+
+            <div class="customer-detail">
+
+                <div class="detail-label">
+                    Address
+                </div>
+
+                <div
+                    class="detail-value"
+                    id="customer-address"
+                >
+                    Loading...
+                </div>
+
+            </div>
+
+
+            <div class="customer-detail">
+
+                <div class="detail-label">
+                    City
+                </div>
+
+                <div
+                    class="detail-value"
+                    id="customer-city"
+                >
+                    Loading...
+                </div>
+
+            </div>
+
+
+            <div class="customer-detail">
+
+                <div class="detail-label">
+                    State
+                </div>
+
+                <div
+                    class="detail-value"
+                    id="customer-state"
+                >
+                    Loading...
+                </div>
+
+            </div>
+
+
+            <div class="customer-detail">
+
+                <div class="detail-label">
+                    PIN Code
+                </div>
+
+                <div
+                    class="detail-value"
+                    id="customer-pin"
+                >
+                    Loading...
+                </div>
+
+            </div>
 
         </div>
 
 
 
         <!-- =========================
-             UPI ID
+             ORDER DETAILS
         ========================= -->
 
-        <div class="upi-box">
-
-            <div class="upi-label">
-                UPI ID
-            </div>
-
-
-            <!--
-                CHANGE THIS TO
-                YOUR REAL UPI ID
-            -->
-
-            <div class="upi-id">
-                gy70353@ybl
-            </div>
-
-        </div>
-
-
-
-        <!-- =========================
-             BANK DETAILS
-        ========================= -->
-
-        <div class="bank-box">
+        <div class="details-section">
 
             <h3>
-                Bank Transfer Details
+                Order Details
             </h3>
 
 
-            <!--
-                CHANGE THESE DETAILS
-                TO YOUR REAL BANK DETAILS
-            -->
+            <div id="product-list"></div>
 
-            <div class="bank-row">
 
-                <span class="bank-label">
-                    Account Holder's Name
-                </span>
+            <div class="summary-line">
 
                 <span>
-                    Gaurav Yadav
+                    Subtotal
+                </span>
+
+                <span id="subtotal">
+                    ₹0
                 </span>
 
             </div>
 
 
-            <div class="bank-row">
-
-                <span class="bank-label">
-                    Bank Name
-                </span>
+            <div class="summary-line discount">
 
                 <span>
-                    Bank Of Baroda
+                    Discount
+                </span>
+
+                <span id="discount">
+                    ₹0
                 </span>
 
             </div>
 
 
-            <div class="bank-row">
+            <div class="summary-line">
 
-                <span class="bank-label">
-                    Account Number
+                <span>
+                    Shipping
                 </span>
 
                 <span>
-                    9219 8100 0005 72
+                    Free
                 </span>
 
             </div>
 
 
-            <div class="bank-row">
-
-                <span class="bank-label">
-                    IFSC Code
-                </span>
+            <div class="total-line">
 
                 <span>
-                    BARB0DBKOOT (Fifth Character or letter is Zero)
+                    Total Paid
+                </span>
+
+                <span id="total">
+                    ₹0
                 </span>
 
             </div>
@@ -623,133 +658,73 @@ footer a:hover {
 
 
         <!-- =========================
-             TRANSACTION ID
+             PAYMENT DETAILS
         ========================= -->
 
-        <div class="transaction-section">
+        <div class="details-section">
 
-            <label for="transactionId">
-
-                Transaction ID / UTR Number
-                <span style="color:#e53935;">
-                    *
-                </span>
-
-            </label>
+            <h3>
+                Payment Details
+            </h3>
 
 
-            <input
-                type="text"
-                id="transactionId"
-                placeholder="Enter your UPI Transaction ID / UTR"
-                required
+            <div class="customer-detail">
+
+                <div class="detail-label">
+                    Transaction ID / UTR
+                </div>
+
+                <div
+                    class="detail-value"
+                    id="transaction-id"
+                >
+                    Loading...
+                </div>
+
+            </div>
+
+
+            <div class="payment-status">
+
+                <strong>
+                    Payment Verification Pending
+                </strong>
+
+                Your payment will be verified
+                by 50 Mirars before the order
+                is dispatched.
+
+            </div>
+
+
+            <!-- GOOGLE SHEET STATUS -->
+
+            <div
+                id="sheet-status"
+                class="sheet-status"
             >
-
-
-            <p class="transaction-help">
-
-                After completing the payment,
-                enter the Transaction ID / UTR
-                shown by your UPI or banking app.
-
-            </p>
+                Saving order details...
+            </div>
 
         </div>
 
 
 
         <!-- =========================
-             SUBMIT ORDER
+             BUTTON
         ========================= -->
 
-        <button
-            class="submit-btn"
-            onclick="submitPayment()"
-        >
+        <div class="button-area">
 
-            Confirm Payment & Place Order
-
-        </button>
-
-    </div>
-
-
-
-    <!-- =========================
-         ORDER SUMMARY
-    ========================= -->
-
-    <div class="order-summary">
-
-        <h2>
-            Your Order
-        </h2>
-
-
-        <div
-            id="product-list"
-            class="product-list"
-        ></div>
-
-
-        <div class="summary-line">
-
-            <span>
-                Subtotal
-            </span>
-
-            <span id="subtotal">
-                ₹0
-            </span>
+            <a
+                href="index.html"
+                class="home-btn"
+            >
+                Continue Shopping
+            </a>
 
         </div>
 
-
-        <div class="summary-line discount">
-
-            <span>
-                Discount
-            </span>
-
-            <span id="discount">
-                ₹0
-            </span>
-
-        </div>
-
-
-        <div class="summary-line">
-
-            <span>
-                Shipping
-            </span>
-
-            <span>
-                Free
-            </span>
-
-        </div>
-
-
-        <div class="total-line">
-
-            <span>
-                Total
-            </span>
-
-            <span id="total">
-                ₹0
-            </span>
-
-        </div>
-
-
-        <a
-            href="delivery.html"
-            class="back-delivery"
-        >
-            ← Edit Delivery Details
-        </a>
 
     </div>
 
@@ -762,6 +737,7 @@ footer a:hover {
 ========================= -->
 
 <footer>
+
 
     <div>
 
@@ -830,11 +806,57 @@ footer a:hover {
 
     </div>
 
+
 </footer>
 
 
 
 <script>
+
+
+/* =====================================================
+   GOOGLE APPS SCRIPT URL
+===================================================== */
+
+const GOOGLE_SCRIPT_URL =
+"https://script.google.com/macros/s/AKfycby3ax0fb-oYkP0by51Z0LGDsYfmy6jlEUA_pG4NCTBFjbvgQLWAP8knGe30xHnQaWiiKA/exec";
+
+
+
+/* =====================================================
+   SAFE LOCAL STORAGE GET
+===================================================== */
+
+function getStorage(key) {
+
+    try {
+
+        const value =
+            localStorage.getItem(key);
+
+        if (!value) {
+            return null;
+        }
+
+        return JSON.parse(value);
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Storage error:",
+            key,
+            error
+        );
+
+        return null;
+
+    }
+
+}
+
+
 
 /* =====================================================
    GET CART
@@ -842,11 +864,10 @@ footer a:hover {
 
 function getCart() {
 
-    return JSON.parse(
-        localStorage.getItem("cart")
-    ) || [];
+    return getStorage("cart") || [];
 
 }
+
 
 
 /* =====================================================
@@ -857,23 +878,27 @@ function getPrice(item) {
 
     return parseFloat(
 
-        String(item.price)
-            .replace(/[^0-9.]/g, "")
+        String(
+            item.price || 0
+        ).replace(
+            /[^0-9.]/g,
+            ""
+        )
 
     ) || 0;
 
 }
 
 
+
 /* =====================================================
    CALCULATE SUBTOTAL
 ===================================================== */
 
-function calculateSubtotal() {
-
-    const cart = getCart();
+function calculateSubtotal(cart) {
 
     let subtotal = 0;
+
 
     cart.forEach(function(item) {
 
@@ -881,41 +906,120 @@ function calculateSubtotal() {
 
     });
 
+
     return subtotal;
 
 }
 
 
+
 /* =====================================================
-   LOAD ORDER
+   CREATE / GET ORDER ID
 ===================================================== */
 
-function loadOrder() {
+function getOrderId() {
 
-    const cart = getCart();
-
-    const productList =
-        document.getElementById(
-            "product-list"
+    let orderId =
+        localStorage.getItem(
+            "orderId"
         );
 
-    productList.innerHTML = "";
+
+    if (!orderId) {
+
+        orderId =
+            "50M-" +
+            Date.now();
 
 
-    if (cart.length === 0) {
-
-        productList.innerHTML = `
-            <p>
-                Your cart is empty.
-            </p>
-        `;
-
-        return;
+        localStorage.setItem(
+            "orderId",
+            orderId
+        );
 
     }
 
 
-    /* Group products */
+    return orderId;
+
+}
+
+
+
+/* =====================================================
+   GET DELIVERY DETAILS
+===================================================== */
+
+function getDeliveryDetails(orderData) {
+
+    /*
+       First try the deliveryDetails
+       stored inside orderData.
+    */
+
+    if (
+        orderData &&
+        orderData.deliveryDetails
+    ) {
+
+        return orderData.deliveryDetails;
+
+    }
+
+
+    /*
+       Backup:
+       Try the separate localStorage item.
+    */
+
+    return getStorage(
+        "deliveryDetails"
+    ) || {};
+
+}
+
+
+
+/* =====================================================
+   GET TRANSACTION ID
+===================================================== */
+
+function getTransactionId(orderData) {
+
+    /*
+       First try orderData.transactionId
+    */
+
+    if (
+        orderData &&
+        orderData.transactionId
+    ) {
+
+        return orderData.transactionId;
+
+    }
+
+
+    /*
+       Backup:
+       Try separate localStorage item.
+    */
+
+    return (
+        localStorage.getItem(
+            "transactionId"
+        ) || ""
+    );
+
+}
+
+
+
+/* =====================================================
+   GET PRODUCTS
+===================================================== */
+
+function getProducts(cart) {
 
     const products = {};
 
@@ -923,18 +1027,23 @@ function loadOrder() {
     cart.forEach(function(item) {
 
         const key =
-            item.name + "|" + item.price;
+            String(item.name || "") +
+            "|" +
+            String(item.price || "");
 
 
         if (!products[key]) {
 
             products[key] = {
 
-                name: item.name,
+                name:
+                    item.name || "Product",
 
-                price: getPrice(item),
+                price:
+                    getPrice(item),
 
-                quantity: 0
+                quantity:
+                    0
 
             };
 
@@ -946,71 +1055,772 @@ function loadOrder() {
     });
 
 
-    /* Display products */
+    return Object.values(
+        products
+    );
 
-    Object.values(products).forEach(
-        function(item) {
-
-            const itemTotal =
-                item.price *
-                item.quantity;
+}
 
 
-            productList.innerHTML += `
 
-                <div class="product-item">
+/* =====================================================
+   DISPLAY CUSTOMER DETAILS
+===================================================== */
 
-                    <div class="product-name">
+function displayCustomerDetails(
+    deliveryDetails
+) {
 
-                        ${item.name}
+    document.getElementById(
+        "customer-name"
+    ).innerText =
+        deliveryDetails.customerName ||
+        "Not available";
 
-                        <br>
 
-                        <small>
-                            Quantity: ${item.quantity}
-                        </small>
+    document.getElementById(
+        "customer-phone"
+    ).innerText =
+        deliveryDetails.phone ||
+        "Not available";
 
-                    </div>
 
-                    <div class="product-price">
+    document.getElementById(
+        "customer-email"
+    ).innerText =
+        deliveryDetails.email ||
+        "Not available";
 
-                        ₹${itemTotal.toLocaleString("en-IN")}
 
-                    </div>
+    document.getElementById(
+        "customer-address"
+    ).innerText =
+        deliveryDetails.address ||
+        "Not available";
+
+
+    document.getElementById(
+        "customer-city"
+    ).innerText =
+        deliveryDetails.city ||
+        "Not available";
+
+
+    document.getElementById(
+        "customer-state"
+    ).innerText =
+        deliveryDetails.state ||
+        "Not available";
+
+
+    document.getElementById(
+        "customer-pin"
+    ).innerText =
+        deliveryDetails.pin ||
+        "Not available";
+
+}
+
+
+
+/* =====================================================
+   DISPLAY PRODUCTS
+===================================================== */
+
+function displayProducts(products) {
+
+    const productList =
+        document.getElementById(
+            "product-list"
+        );
+
+
+    productList.innerHTML = "";
+
+
+    if (
+        !products ||
+        products.length === 0
+    ) {
+
+        productList.innerHTML = `
+
+            <p>
+                No products found.
+            </p>
+
+        `;
+
+        return;
+
+    }
+
+
+    products.forEach(function(item) {
+
+        const itemTotal =
+            item.price *
+            item.quantity;
+
+
+        const productDiv =
+            document.createElement(
+                "div"
+            );
+
+
+        productDiv.className =
+            "product-item";
+
+
+        productDiv.innerHTML = `
+
+            <div class="product-name">
+
+                ${escapeHtml(item.name)}
+
+                <div class="product-quantity">
+
+                    Quantity:
+                    ${item.quantity}
 
                 </div>
 
-            `;
+            </div>
+
+
+            <div class="product-price">
+
+                ₹${itemTotal.toLocaleString("en-IN")}
+
+            </div>
+
+        `;
+
+
+        productList.appendChild(
+            productDiv
+        );
+
+    });
+
+}
+
+
+
+/* =====================================================
+   SECURITY / TEXT ESCAPE
+===================================================== */
+
+function escapeHtml(text) {
+
+    const div =
+        document.createElement(
+            "div"
+        );
+
+
+    div.innerText =
+        String(text);
+
+
+    return div.innerHTML;
+
+}
+
+
+
+/* =====================================================
+   SEND ORDER TO GOOGLE SHEET
+===================================================== */
+
+function sendOrderToGoogleSheet(
+
+    orderId,
+    deliveryDetails,
+    products,
+    subtotal,
+    discount,
+    total,
+    transactionId
+
+) {
+
+
+    const statusBox =
+        document.getElementById(
+            "sheet-status"
+        );
+
+
+    /*
+       IMPORTANT FIX:
+
+       The old code used only:
+
+       orderSentToGoogleSheet
+
+       This could block your new test.
+
+       Now we create a unique key
+       using Order ID + Transaction ID.
+    */
+
+    const sendKey =
+        "orderSheetSent_" +
+        orderId +
+        "_" +
+        transactionId;
+
+
+    const alreadySent =
+        localStorage.getItem(
+            sendKey
+        );
+
+
+    if (
+        alreadySent === "yes"
+    ) {
+
+        statusBox.innerText =
+            "✓ Order details already submitted.";
+
+        statusBox.className =
+            "sheet-status success";
+
+        return;
+
+    }
+
+
+
+    /* =========================
+       TOTAL QUANTITY
+    ========================= */
+
+    let totalQuantity = 0;
+
+
+    products.forEach(
+        function(product) {
+
+            totalQuantity +=
+                Number(
+                    product.quantity
+                );
 
         }
     );
 
 
-    /* Get saved totals */
 
-    const subtotal =
-        parseFloat(
+    /* =========================
+       ORDER OBJECT
+    ========================= */
 
-            localStorage.getItem(
-                "orderSubtotal"
+    const order = {
+
+        orderId:
+            orderId,
+
+
+        customerName:
+            deliveryDetails.customerName ||
+            "",
+
+
+        phone:
+            deliveryDetails.phone ||
+            "",
+
+
+        email:
+            deliveryDetails.email ||
+            "",
+
+
+        address:
+            deliveryDetails.address ||
+            "",
+
+
+        city:
+            deliveryDetails.city ||
+            "",
+
+
+        state:
+            deliveryDetails.state ||
+            "",
+
+
+        pin:
+            deliveryDetails.pin ||
+            "",
+
+
+        products:
+            products.map(
+                function(product) {
+
+                    return {
+
+                        name:
+                            product.name,
+
+                        quantity:
+                            Number(
+                                product.quantity
+                            ),
+
+                        price:
+                            Number(
+                                product.price
+                            )
+
+                    };
+
+                }
+            ),
+
+
+        totalQuantity:
+            totalQuantity,
+
+
+        subtotal:
+            Number(subtotal),
+
+
+        discount:
+            Number(discount),
+
+
+        total:
+            Number(total),
+
+
+        transactionId:
+            transactionId,
+
+
+        orderDate:
+            new Date().toLocaleString(
+                "en-IN"
             )
 
-        ) || calculateSubtotal();
+    };
 
 
-    const discount =
-        parseFloat(
 
-            localStorage.getItem(
-                "orderDiscount"
-            )
-
-        ) || 0;
+    console.log(
+        "ORDER BEING SENT:",
+        order
+    );
 
 
-    const total =
-        subtotal - discount;
 
+    statusBox.innerText =
+        "Saving order details...";
+
+    statusBox.className =
+        "sheet-status";
+
+
+
+    /* =========================
+       SEND TO GOOGLE APPS SCRIPT
+    ========================= */
+
+    fetch(
+
+        GOOGLE_SCRIPT_URL,
+
+        {
+
+            method:
+                "POST",
+
+            mode:
+                "no-cors",
+
+            headers: {
+
+                "Content-Type":
+                    "text/plain;charset=utf-8"
+
+            },
+
+            body:
+                JSON.stringify(
+                    order
+                )
+
+        }
+
+    )
+
+    .then(
+        function() {
+
+            /*
+               Mark this exact order
+               as submitted.
+            */
+
+            localStorage.setItem(
+
+                sendKey,
+
+                "yes"
+
+            );
+
+
+            statusBox.innerText =
+                "✓ Order details submitted successfully.";
+
+            statusBox.className =
+                "sheet-status success";
+
+
+            console.log(
+                "Order sent to Google Sheet."
+            );
+
+        }
+
+    )
+
+    .catch(
+        function(error) {
+
+            statusBox.innerText =
+                "⚠ Unable to submit order automatically. Please contact 50 Mirars.";
+
+            statusBox.className =
+                "sheet-status error";
+
+
+            console.error(
+                "Google Sheet Error:",
+                error
+            );
+
+        }
+
+    );
+
+}
+
+
+
+/* =====================================================
+   LOAD ORDER
+===================================================== */
+
+function loadOrder() {
+
+
+    console.log(
+        "===== 50 MIRARS ORDER CONFIRMATION ====="
+    );
+
+
+    /* =========================
+       GET ORDER DATA
+    ========================= */
+
+    const orderData =
+        getStorage(
+            "orderData"
+        );
+
+
+    console.log(
+        "orderData:",
+        orderData
+    );
+
+
+    /* =========================
+       GET CART
+    ========================= */
+
+    const cart =
+        getCart();
+
+
+    console.log(
+        "cart:",
+        cart
+    );
+
+
+    /* =========================
+       CHECK ORDER DATA
+    ========================= */
+
+    if (!orderData) {
+
+        document.getElementById(
+            "order-id"
+        ).innerText =
+            "Order information unavailable";
+
+
+        document.getElementById(
+            "sheet-status"
+        ).innerText =
+            "⚠ Order data was not found in this browser.";
+
+
+        document.getElementById(
+            "sheet-status"
+        ).className =
+            "sheet-status error";
+
+
+        console.error(
+            "orderData is missing from localStorage."
+        );
+
+
+        return;
+
+    }
+
+
+
+    /* =========================
+       ORDER ID
+    ========================= */
+
+    const orderId =
+        getOrderId();
+
+
+    document.getElementById(
+        "order-id"
+    ).innerText =
+        orderId;
+
+
+
+    /* =========================
+       DELIVERY DETAILS
+    ========================= */
+
+    const deliveryDetails =
+        getDeliveryDetails(
+            orderData
+        );
+
+
+    console.log(
+        "deliveryDetails:",
+        deliveryDetails
+    );
+
+
+    displayCustomerDetails(
+        deliveryDetails
+    );
+
+
+
+    /* =========================
+       TRANSACTION ID
+    ========================= */
+
+    const transactionId =
+        getTransactionId(
+            orderData
+        );
+
+
+    console.log(
+        "transactionId:",
+        transactionId
+    );
+
+
+    document.getElementById(
+        "transaction-id"
+    ).innerText =
+        transactionId ||
+        "Not available";
+
+
+
+    /* =========================
+       PRODUCTS
+    ========================= */
+
+    let products;
+
+
+    if (
+        orderData.cart &&
+        Array.isArray(
+            orderData.cart
+        )
+    ) {
+
+        products =
+            getProducts(
+                orderData.cart
+            );
+
+    }
+
+    else {
+
+        products =
+            getProducts(
+                cart
+            );
+
+    }
+
+
+    console.log(
+        "products:",
+        products
+    );
+
+
+    displayProducts(
+        products
+    );
+
+
+
+    /* =========================
+       SUBTOTAL
+    ========================= */
+
+    let subtotal;
+
+
+    if (
+        orderData.subtotal !==
+        undefined &&
+        orderData.subtotal !==
+        null
+    ) {
+
+        subtotal =
+            Number(
+                orderData.subtotal
+            );
+
+    }
+
+    else {
+
+        subtotal =
+            Number(
+                localStorage.getItem(
+                    "orderSubtotal"
+                )
+            ) ||
+            calculateSubtotal(
+                cart
+            );
+
+    }
+
+
+
+    /* =========================
+       DISCOUNT
+    ========================= */
+
+    let discount;
+
+
+    if (
+        orderData.discount !==
+        undefined &&
+        orderData.discount !==
+        null
+    ) {
+
+        discount =
+            Number(
+                orderData.discount
+            );
+
+    }
+
+    else {
+
+        discount =
+            Number(
+                localStorage.getItem(
+                    "orderDiscount"
+                )
+            ) || 0;
+
+    }
+
+
+
+    /* =========================
+       TOTAL
+    ========================= */
+
+    let total;
+
+
+    if (
+        orderData.total !==
+        undefined &&
+        orderData.total !==
+        null
+    ) {
+
+        total =
+            Number(
+                orderData.total
+            );
+
+    }
+
+    else {
+
+        total =
+            subtotal -
+            discount;
+
+    }
+
+
+
+    console.log(
+        "subtotal:",
+        subtotal
+    );
+
+
+    console.log(
+        "discount:",
+        discount
+    );
+
+
+    console.log(
+        "total:",
+        total
+    );
+
+
+
+    /* =========================
+       DISPLAY TOTALS
+    ========================= */
 
     document.getElementById(
         "subtotal"
@@ -1042,188 +1852,46 @@ function loadOrder() {
         );
 
 
-    document.getElementById(
-        "payment-amount"
-    ).innerText =
 
-        "₹" +
-        total.toLocaleString(
-            "en-IN"
-        );
+    /* =========================
+       SEND TO GOOGLE SHEET
+    ========================= */
 
-}
+    sendOrderToGoogleSheet(
 
+        orderId,
 
-/* =====================================================
-   SUBMIT PAYMENT
-===================================================== */
+        deliveryDetails,
 
-function submitPayment() {
+        products,
 
-    const errorBox =
-        document.getElementById(
-            "error-message"
-        );
+        subtotal,
 
+        discount,
 
-    errorBox.style.display =
-        "none";
-
-
-    errorBox.innerText = "";
-
-
-    /* Get transaction ID */
-
-    const transactionId =
-        document.getElementById(
-            "transactionId"
-        ).value.trim();
-
-
-    /* Check transaction ID */
-
-    if (!transactionId) {
-
-        errorBox.innerText =
-            "Please enter your Transaction ID / UTR Number.";
-
-        errorBox.style.display =
-            "block";
-
-        return;
-
-    }
-
-
-    if (transactionId.length < 5) {
-
-        errorBox.innerText =
-            "Please enter a valid Transaction ID / UTR Number.";
-
-        errorBox.style.display =
-            "block";
-
-        return;
-
-    }
-
-
-    /* Check cart */
-
-    const cart =
-        getCart();
-
-
-    if (cart.length === 0) {
-
-        errorBox.innerText =
-            "Your cart is empty.";
-
-        errorBox.style.display =
-            "block";
-
-        return;
-
-    }
-
-
-    /* Check delivery details */
-
-    const deliveryDetails =
-        JSON.parse(
-
-            localStorage.getItem(
-                "deliveryDetails"
-            )
-
-        );
-
-
-    if (!deliveryDetails) {
-
-        errorBox.innerText =
-            "Delivery details are missing. Please go back and enter your delivery details.";
-
-        errorBox.style.display =
-            "block";
-
-        return;
-
-    }
-
-
-    /* Save transaction ID */
-
-    localStorage.setItem(
-
-        "transactionId",
+        total,
 
         transactionId
 
     );
 
-
-    /* Save order information */
-
-    const orderData = {
-
-        cart: cart,
-
-        deliveryDetails:
-            deliveryDetails,
-
-        subtotal:
-            parseFloat(
-                localStorage.getItem(
-                    "orderSubtotal"
-                )
-            ) || calculateSubtotal(),
-
-        discount:
-            parseFloat(
-                localStorage.getItem(
-                    "orderDiscount"
-                )
-            ) || 0,
-
-        total:
-            parseFloat(
-                localStorage.getItem(
-                    "orderTotal"
-                )
-            ) || 0,
-
-        transactionId:
-            transactionId
-
-    };
-
-
-    localStorage.setItem(
-
-        "orderData",
-
-        JSON.stringify(orderData)
-
-    );
-
-
-    /*
-       Go to confirmation page
-    */
-
-    window.location.href =
-        "order-confirmation.html";
-
 }
+
 
 
 /* =====================================================
    START
 ===================================================== */
 
-loadOrder();
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        loadOrder();
+
+    }
+);
+
 
 </script>
 
