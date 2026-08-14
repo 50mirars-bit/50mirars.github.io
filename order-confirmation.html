@@ -383,20 +383,15 @@ footer a:hover {
 
 <section class="confirmation-page">
 
-
-    <!-- SUCCESS -->
-
     <div class="success-box">
 
         <div class="success-icon">
             ✓
         </div>
 
-
         <h2>
             Order Received!
         </h2>
-
 
         <p class="success-message">
 
@@ -760,14 +755,44 @@ const GOOGLE_SCRIPT_URL =
 
 
 /* =====================================================
-   GET SAVED ORDER
+   SAFE JSON READER
+===================================================== */
+
+function getLocalStorageJSON(key) {
+
+    try {
+
+        const value =
+            localStorage.getItem(key);
+
+        if (!value) {
+            return null;
+        }
+
+        return JSON.parse(value);
+
+    } catch (error) {
+
+        console.error(
+            "LocalStorage error for:",
+            key,
+            error
+        );
+
+        return null;
+
+    }
+
+}
+
+
+/* =====================================================
+   GET ORDER DATA
 ===================================================== */
 
 function getOrderData() {
 
-    return JSON.parse(
-        localStorage.getItem("orderData")
-    ) || null;
+    return getLocalStorageJSON("orderData") || {};
 
 }
 
@@ -778,9 +803,7 @@ function getOrderData() {
 
 function getDeliveryDetails() {
 
-    return JSON.parse(
-        localStorage.getItem("deliveryDetails")
-    ) || null;
+    return getLocalStorageJSON("deliveryDetails") || {};
 
 }
 
@@ -791,9 +814,12 @@ function getDeliveryDetails() {
 
 function getCart() {
 
-    return JSON.parse(
-        localStorage.getItem("cart")
-    ) || [];
+    const cart =
+        getLocalStorageJSON("cart");
+
+    return Array.isArray(cart)
+        ? cart
+        : [];
 
 }
 
@@ -804,9 +830,13 @@ function getCart() {
 
 function getPrice(item) {
 
+    if (!item) {
+        return 0;
+    }
+
     return parseFloat(
 
-        String(item.price)
+        String(item.price || "")
             .replace(/[^0-9.]/g, "")
 
     ) || 0;
@@ -815,7 +845,18 @@ function getPrice(item) {
 
 
 /* =====================================================
-   CREATE ORDER ID
+   CREATE NEW ORDER ID
+===================================================== */
+
+function createOrderId() {
+
+    return "50M-" + Date.now();
+
+}
+
+
+/* =====================================================
+   GET / CREATE ORDER ID
 ===================================================== */
 
 function getOrderId() {
@@ -827,7 +868,7 @@ function getOrderId() {
     if (!orderId) {
 
         orderId =
-            "50M-" + Date.now();
+            createOrderId();
 
         localStorage.setItem(
             "orderId",
@@ -853,19 +894,31 @@ function getProducts(cart) {
 
     cart.forEach(function(item) {
 
+        if (!item || !item.name) {
+            return;
+        }
+
+
+        const price =
+            getPrice(item);
+
+
         const key =
-            item.name + "|" + item.price;
+            item.name + "|" + price;
 
 
         if (!products[key]) {
 
             products[key] = {
 
-                name: item.name,
+                name:
+                    item.name,
 
-                price: getPrice(item),
+                price:
+                    price,
 
-                quantity: 0
+                quantity:
+                    0
 
             };
 
@@ -893,7 +946,8 @@ function calculateSubtotal(cart) {
 
     cart.forEach(function(item) {
 
-        subtotal += getPrice(item);
+        subtotal +=
+            getPrice(item);
 
     });
 
@@ -904,7 +958,7 @@ function calculateSubtotal(cart) {
 
 
 /* =====================================================
-   LOAD ORDER ON PAGE
+   LOAD ORDER
 ===================================================== */
 
 function loadOrder() {
@@ -912,32 +966,22 @@ function loadOrder() {
     const orderData =
         getOrderData();
 
+
     const deliveryDetails =
         getDeliveryDetails();
+
 
     const cart =
         getCart();
 
 
-    if (!orderData || !deliveryDetails) {
-
-        document.getElementById(
-            "order-id"
-        ).innerText =
-            "Order information unavailable";
-
-        return;
-
-    }
+    const orderId =
+        getOrderId();
 
 
     /* =========================
        ORDER ID
     ========================= */
-
-    const orderId =
-        getOrderId();
-
 
     document.getElementById(
         "order-id"
@@ -1018,6 +1062,25 @@ function loadOrder() {
         getProducts(cart);
 
 
+    if (products.length === 0) {
+
+        productList.innerHTML = `
+
+            <div class="product-item">
+
+                <div class="product-name">
+
+                    No product information found.
+
+                </div>
+
+            </div>
+
+        `;
+
+    }
+
+
     products.forEach(function(item) {
 
         const itemTotal =
@@ -1031,7 +1094,7 @@ function loadOrder() {
 
                 <div class="product-name">
 
-                    ${item.name}
+                    ${escapeHTML(item.name)}
 
                     <div class="product-quantity">
 
@@ -1099,90 +1162,13 @@ function loadOrder() {
 
 
     /* =========================
-       SEND TO GOOGLE SHEET
+       SEND ORDER
     ========================= */
 
-    sendOrderToGoogleSheet(
+    sendOrderToGoogleSheet({
 
-        orderId,
-
-        deliveryDetails,
-
-        products,
-
-        subtotal,
-
-        discount,
-
-        total,
-
-        orderData.transactionId || ""
-
-    );
-
-}
-
-
-/* =====================================================
-   SEND ORDER TO GOOGLE SHEET
-===================================================== */
-
-function sendOrderToGoogleSheet(
-
-    orderId,
-    deliveryDetails,
-    products,
-    subtotal,
-    discount,
-    total,
-    transactionId
-
-) {
-
-
-    /*
-       Prevent the same order from being
-       submitted repeatedly if the customer
-       refreshes the confirmation page.
-    */
-
-    const alreadySent =
-        localStorage.getItem(
-            "orderSentToGoogleSheet"
-        );
-
-
-    if (
-        alreadySent === orderId
-    ) {
-
-        return;
-
-    }
-
-
-    /* =========================
-       TOTAL QUANTITY
-    ========================= */
-
-    let totalQuantity = 0;
-
-
-    products.forEach(function(product) {
-
-        totalQuantity +=
-            Number(product.quantity);
-
-    });
-
-
-    /* =========================
-       DATA TO SEND
-    ========================= */
-
-    const order = {
-
-        orderId: orderId,
+        orderId:
+            orderId,
 
         customerName:
             deliveryDetails.customerName || "",
@@ -1205,52 +1191,83 @@ function sendOrderToGoogleSheet(
         pin:
             deliveryDetails.pin || "",
 
-
-        products: products.map(
-            function(product) {
-
-                return {
-
-                    name:
-                        product.name,
-
-                    quantity:
-                        product.quantity,
-
-                    price:
-                        product.price
-
-                };
-
-            }
-        ),
-
+        products:
+            products,
 
         totalQuantity:
-            totalQuantity,
+            products.reduce(
+                function(total, product) {
 
+                    return total +
+                        Number(product.quantity);
+
+                },
+                0
+            ),
 
         subtotal:
             subtotal,
 
-
         discount:
             discount,
-
 
         total:
             total,
 
-
         transactionId:
-            transactionId
+            orderData.transactionId || ""
 
-    };
+    });
+
+}
 
 
-    /* =========================
-       SEND REQUEST
-    ========================= */
+/* =====================================================
+   SEND ORDER TO GOOGLE SHEET
+===================================================== */
+
+function sendOrderToGoogleSheet(order) {
+
+    /*
+       IMPORTANT:
+
+       We create a unique browser key for this
+       specific order.
+
+       A NEW order gets a NEW Order ID, so it
+       will always be sent.
+
+       Refreshing the same confirmation page
+       will NOT create another row.
+    */
+
+
+    const sentKey =
+        "googleSheetOrderSent_" +
+        order.orderId;
+
+
+    const alreadySent =
+        localStorage.getItem(sentKey);
+
+
+    if (alreadySent === "yes") {
+
+        console.log(
+            "This order has already been sent:",
+            order.orderId
+        );
+
+        return;
+
+    }
+
+
+    console.log(
+        "Sending order to Google Sheet:",
+        order
+    );
+
 
     fetch(
 
@@ -1258,9 +1275,11 @@ function sendOrderToGoogleSheet(
 
         {
 
-            method: "POST",
+            method:
+                "POST",
 
-            mode: "no-cors",
+            mode:
+                "no-cors",
 
             headers: {
 
@@ -1279,33 +1298,56 @@ function sendOrderToGoogleSheet(
     .then(function() {
 
         /*
-           Save the order ID so that
-           refreshing the confirmation
-           page doesn't create another row.
+           Mark ONLY this order as sent.
         */
 
         localStorage.setItem(
-
-            "orderSentToGoogleSheet",
-
-            orderId
-
+            sentKey,
+            "yes"
         );
 
+
         console.log(
-            "Order sent to Google Sheet."
+            "Order sent successfully:",
+            order.orderId
         );
 
     })
 
     .catch(function(error) {
 
+        /*
+           IMPORTANT:
+
+           We do NOT mark the order as sent
+           if there is an error.
+
+           This allows another attempt.
+        */
+
         console.error(
-            "Google Sheet Error:",
+            "Google Sheet submission failed:",
             error
         );
 
     });
+
+}
+
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+function escapeHTML(text) {
+
+    const div =
+        document.createElement("div");
+
+    div.innerText =
+        text;
+
+    return div.innerHTML;
 
 }
 
