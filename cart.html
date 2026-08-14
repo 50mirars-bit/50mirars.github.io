@@ -1,439 +1,521 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=1200">
+
 <title>Your Cart | 50 Mirars</title>
+
 <style>
+
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  background: #f9f9f9;
-  color: #333;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f9f9f9;
+    color: #222;
 }
 
-/* Header */
 header {
-  background: #fff;
-  padding: 20px 40px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid #ddd;
+    background: white;
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
 }
 
 header h1 {
-  font-size: 28px;
-  text-align: center;
-  flex: 1;
+    margin: 0;
+    font-size: 28px;
 }
 
 .back-btn {
-  background: #111;
-  color: #fff;
-  padding: 10px 20px;
-  text-decoration: none;
-  border-radius: 6px;
+    background: #111;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 6px;
 }
 
 .logo {
-  width: 120px;
-  height: auto;
+    width: 120px;
 }
 
-/* Cart Layout */
 .cart-page {
-  max-width: 1200px;
-  margin: 40px auto;
-  display: flex;
-  gap: 30px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
 }
 
-/* Left side wider */
-.cart-items th, .cart-items td {
-  padding: 15px 25px; /* ⬆️ wider horizontal padding */
-  border-bottom: 1px solid #ddd;
-  text-align: center;
+.cart-box {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
 }
 
-.cart-items th {
-  font-size: 16px;
-  font-weight: 600;
+table {
+    width: 100%;
+    border-collapse: collapse;
 }
 
-.cart-items td {
-  vertical-align: middle;
+th,
+td {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
 }
 
-.quantity-btn, .remove-btn {
-  min-width: 40px;
+th {
+    background: #f5f5f5;
 }
 
-/* Right side compact box */
-.cart-summary {
-  flex: 1;
-  background: #fff;
-  padding: 20px 25px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  height: fit-content;
-  align-self: flex-start;
-  border: 1px solid #ddd;
-}
-
-.cart-summary h3 {
-  margin-top: 0;
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 15px;
-}
-
-.cart-summary p {
-  margin: 8px 0;
-  font-size: 15px;
-  color: #333;
-}
-
-.cart-summary button {
-  background-color: #00796b; /* same teal tone */
-  color: #fff;
-  padding: 8px 0; /* smaller height */
-  font-size: 14px; /* slightly smaller text */
-  font-weight: 500; /* subtle emphasis */
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  width: 50%;
-  transition: background-color 0.3s ease;
-}
-
-.cart-summary button:hover {
-  background-color: #00695c; /* darker hover shade */
-}
-
-.cart-summary button:hover {
-  background-color: #00695c; /* subtle hover shade */
-}
-
-.cart-items img {
-  width: 80px;
-  border-radius: 6px;
+.product-name {
+    font-weight: bold;
 }
 
 .quantity-btn {
-  background: #009688;
-  color: #fff;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 4px;
-  cursor: pointer;
+    background: #009688;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 .remove-btn {
-  background: #e53935;
-  color: #fff;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 4px;
-  cursor: pointer;
+    background: #e53935;
+    color: white;
+    border: none;
+    padding: 7px 12px;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
-/* Coupon */
-.coupon {
-  margin-top: 30px; /* space below table */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #f0f0f0; /* ✅ dark grey background */
-  padding: 15px; /* adds breathing room inside */
-  border-radius: 6px; /* smooth rounded corners */
+.summary {
+    margin-top: 30px;
+    max-width: 400px;
+    margin-left: auto;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
 }
 
-.coupon input {
-  flex: 1;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background: #fff; /* white input field */
+.summary p {
+    display: flex;
+    justify-content: space-between;
 }
 
-.coupon button {
-  background: #009688;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  margin-left: 10px;
-  border-radius: 4px;
-  cursor: pointer;
+.total {
+    font-size: 20px;
+    font-weight: bold;
+    border-top: 1px solid #ddd;
+    padding-top: 15px;
 }
 
-/* Remove Coupon button — same red as Remove */
-.remove-coupon-btn {
-  background-color: #f44336; /* red tone */
-  color: #fff;
-  padding: 8px 16px;
-  font-size: 14px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+.checkout-btn {
+    width: 100%;
+    padding: 14px;
+    background: #009688;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
 }
 
-.remove-coupon-btn:hover {
-  background-color: #d32f2f; /* darker red hover */
-}
-  
-/* Right side: summary */
-.cart-summary {
-  flex: 1; /* ⬇️ make right side narrower */
-  background: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  height: fit-content;
-  align-self: flex-start;
-}
-  
-.cart-summary p {
-  margin: 10px 0;
+.empty {
+    text-align: center;
+    padding: 40px;
+    font-size: 20px;
 }
 
-/* Proceed to Checkout button — same teal as Apply Coupon */
-.cart-summary button {
-  background-color: #009688; /* teal tone */
-  color: #fff;
-  padding: 8px 16px;
-  font-size: 14px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  width: 50%;
-  transition: background-color 0.3s ease;
-}
-
-.cart-summary button:hover {
-  background-color: #00796b; /* darker teal hover */
-}
-  
-/* Footer */
-footer {
-  background: #111;
-  color: #fff;
-  padding: 40px;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-footer div {
-  flex: 1;
-  margin: 10px;
-}
-
-footer h4 {
-  margin-bottom: 10px;
-}
-
-footer a {
-  color: #c9a24d;
-  text-decoration: none;
-  display: block;
-  margin: 5px 0;
-}
-
-footer a:hover {
-  color: #fff;
-}
-
-.footer-bottom {
-  text-align: center;
-  margin-top: 20px;
-  flex-basis: 100%;
-}
 </style>
+
 </head>
+
 <body>
 
 <header>
-  <a href="index.html" class="back-btn">← Back to Home</a>
-  <h1>Your Cart</h1>
-  <img src="logo.jpeg" alt="50 Mirars Logo" class="logo">
+
+<a href="index.html" class="back-btn">
+← Back to Home
+</a>
+
+<h1>Your Cart</h1>
+
+<img
+    src="logo.jpeg"
+    class="logo"
+    alt="50 Mirars Logo"
+>
+
 </header>
 
+
 <section class="cart-page">
-  <!-- Left side: items -->
-  <div class="cart-items">
-    <table>
-      <thead>
-        <tr>
-          <th>Product</th>
-          <th>Price</th>
-          <th>Repeat</th>
-          <th>Subtotal</th>
-          <th>Remove</th>
-        </tr>
-      </thead>
-      <tbody id="cart-items"></tbody>
-    </table>
 
-    <!-- Coupon section -->
-    <div class="coupon">
-      <input type="text" id="coupon-code" placeholder="Coupon Code">
-      <button onclick="applyCoupon()">Apply Coupon</button>
-      <button class="remove-coupon-btn" onclick="removeCoupon()">Remove Coupon</button>
-    </div>
-  </div>
+<div class="cart-box">
 
-  <!-- ✅ Right side: Order Summary -->
-  <div class="cart-summary">
-    <h3>Order Summary</h3>
-    <p id="subtotal"></p>
-    <p id="discount"></p>
-    <p id="shipping">Shipping: Free</p>
-    <p id="total"></p>
-  <button onclick="proceedToCheckout()">Proceed to Checkout</button>
-  </div>
-  
+<table>
+
+<thead>
+
+<tr>
+
+<th>Product</th>
+
+<th>Price</th>
+
+<th>Quantity</th>
+
+<th>Subtotal</th>
+
+<th>Remove</th>
+
+</tr>
+
+</thead>
+
+<tbody id="cart-items">
+
+</tbody>
+
+</table>
+
+</div>
+
+
+<div class="summary">
+
+<h2>Order Summary</h2>
+
+<p>
+<span>Subtotal</span>
+<span id="subtotal">₹0</span>
+</p>
+
+<p>
+<span>Discount</span>
+<span id="discount">₹0</span>
+</p>
+
+<p>
+<span>Shipping</span>
+<span>Free</span>
+</p>
+
+<p class="total">
+<span>Total</span>
+<span id="total">₹0</span>
+</p>
+
+<button
+    class="checkout-btn"
+    onclick="goToDelivery()"
+>
+Proceed to Delivery
+</button>
+
+</div>
+
 </section>
-  
-<footer>
-  <div>
-    <h4>About</h4>
-    <p>50 Mirars premium watches and accessories.</p>
-  </div>
-  <div>
-    <h4>Categories</h4>
-    <a href="#">Watches</a>
-    <a href="#">Sunglasses</a>
-    <a href="#">Limited Editions</a>
-  </div>
-  <div>
-    <h4>Support</h4>
-    <a href="mailto:50mirars@gmail.com">Email</a>
-    <a href="https://wa.me/918209989013" target="_blank">WhatsApp</a>
-    <a href="https://www.instagram.com/50mirars" target="_blank">Instagram</a>
-  </div>
-  <div class="footer-bottom">
-    © 2026 50 Mirars. All Rights Reserved.
-  </div>
-</footer>
+
 
 <script>
+
+function getCart() {
+
+    return JSON.parse(
+        localStorage.getItem("cart")
+    ) || [];
+
+}
+
+
+function saveCart(cart) {
+
+    localStorage.setItem(
+        "cart",
+        JSON.stringify(cart)
+    );
+
+}
+
+
+function getPrice(item) {
+
+    return parseFloat(
+        String(item.price)
+        .replace(/[^0-9.]/g, "")
+    ) || 0;
+
+}
+
+
 function renderCart() {
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  let cartTable = document.getElementById("cart-items");
-  let subtotalBox = document.getElementById("subtotal");
-  let totalBox = document.getElementById("total");
 
-  cartTable.innerHTML = "";
-  subtotalBox.innerHTML = "";
-  totalBox.innerHTML = "";
+    const cart = getCart();
 
-  if (cart.length === 0) {
-    cartTable.innerHTML = "<tr><td colspan='6'>Your cart is empty.</td></tr>";
-    subtotalBox.innerHTML = "Subtotal: ₹0";
-    totalBox.innerHTML = "Total: ₹0";
-    return;
-  }
+    const cartItems =
+        document.getElementById("cart-items");
 
-  let subtotal = 0;
-  cart.forEach((item, index) => {
-    let price = parseFloat(item.price.replace(/[^0-9.]/g, ""));
-    subtotal += price;
+    cartItems.innerHTML = "";
 
-    cartTable.innerHTML += `
-  <tr>
-    <td>${item.name}</td>
-    <td>₹${price.toLocaleString("en-IN")}</td>
-    <td><button class="quantity-btn" onclick="addAgain(${index})">+</button></td>
-    <td>₹${price.toLocaleString("en-IN")}</td>
-    <td><button class="remove-btn" onclick="removeItem(${index})">Remove</button></td>
-  </tr>
-`;
+    if (cart.length === 0) {
 
-  });
+        cartItems.innerHTML = `
+            <tr>
+                <td colspan="5">
+                    <div class="empty">
+                        Your cart is empty.
+                    </div>
+                </td>
+            </tr>
+        `;
 
-  subtotalBox.innerHTML = `Subtotal: ₹${subtotal.toLocaleString("en-IN")}`;
-  totalBox.innerHTML = `Total: ₹${subtotal.toLocaleString("en-IN")}`;
+        updateSummary();
+
+        return;
+
+    }
+
+
+    const products = {};
+
+    cart.forEach(function(item) {
+
+        const key =
+            item.name + "|" + item.price;
+
+        if (!products[key]) {
+
+            products[key] = {
+
+                name: item.name,
+
+                price: getPrice(item),
+
+                quantity: 0
+
+            };
+
+        }
+
+        products[key].quantity++;
+
+    });
+
+
+    Object.values(products).forEach(function(item) {
+
+        const subtotal =
+            item.price * item.quantity;
+
+
+        cartItems.innerHTML += `
+
+        <tr>
+
+            <td class="product-name">
+                ${item.name}
+            </td>
+
+            <td>
+                ₹${item.price.toLocaleString("en-IN")}
+            </td>
+
+            <td>
+
+                <button
+                    class="quantity-btn"
+                    onclick="changeQuantity('${item.name}', -1)"
+                >
+                    −
+                </button>
+
+                ${item.quantity}
+
+                <button
+                    class="quantity-btn"
+                    onclick="changeQuantity('${item.name}', 1)"
+                >
+                    +
+                </button>
+
+            </td>
+
+            <td>
+                ₹${subtotal.toLocaleString("en-IN")}
+            </td>
+
+            <td>
+
+                <button
+                    class="remove-btn"
+                    onclick="removeProduct('${item.name}')"
+                >
+                    Remove
+                </button>
+
+            </td>
+
+        </tr>
+
+        `;
+
+    });
+
+
+    updateSummary();
+
 }
 
-function removeItem(index) {
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  cart.splice(index, 1);
-  localStorage.setItem("cart", JSON.stringify(cart));
-  renderCart();
+
+function changeQuantity(name, amount) {
+
+    let cart = getCart();
+
+    if (amount === 1) {
+
+        const item =
+            cart.find(
+                item => item.name === name
+            );
+
+        if (item) {
+
+            cart.push({
+                name: item.name,
+                price: item.price
+            });
+
+        }
+
+    }
+
+
+    if (amount === -1) {
+
+        const index =
+            cart.findIndex(
+                item => item.name === name
+            );
+
+        if (index !== -1) {
+
+            cart.splice(index, 1);
+
+        }
+
+    }
+
+
+    saveCart(cart);
+
+    renderCart();
+
 }
 
-function addAgain(index) {
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  let item = cart[index];
-  cart.push({ name: item.name, price: item.price });
-  localStorage.setItem("cart", JSON.stringify(cart));
-  renderCart();
+
+function removeProduct(name) {
+
+    let cart = getCart();
+
+    cart = cart.filter(
+        item => item.name !== name
+    );
+
+    saveCart(cart);
+
+    renderCart();
+
 }
 
-let discount = 0;
-let appliedCoupon = null;
 
-function applyCoupon() {
-  const code = document.getElementById("coupon-code").value.trim().toUpperCase();
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  let subtotal = 0;
+function updateSummary() {
 
-  cart.forEach(item => {
-    subtotal += parseFloat(item.price.replace(/[^0-9.]/g, ""));
-  });
+    const cart = getCart();
 
-  discount = 0;
-  appliedCoupon = null;
+    let subtotal = 0;
 
-  // 🎟️ Define your coupon codes
-  if (code === "BIRTH1") {
-    discount = subtotal * 0.20; // 20% off
-    appliedCoupon = "BIRTH1";
-  } else if (code === "10OFF10") {
-    discount = subtotal * 0.10; // 10% off
-    appliedCoupon = "10OFF10";
-  } else {
-    alert("Invalid coupon code");
-  }
+    cart.forEach(function(item) {
 
-  updateSummary(subtotal);
+        subtotal += getPrice(item);
+
+    });
+
+
+    const discount =
+        parseFloat(
+            localStorage.getItem("cartDiscount")
+        ) || 0;
+
+
+    const total =
+        subtotal - discount;
+
+
+    document.getElementById("subtotal")
+        .innerText =
+        "₹" + subtotal.toLocaleString("en-IN");
+
+
+    document.getElementById("discount")
+        .innerText =
+        "₹" + discount.toLocaleString("en-IN");
+
+
+    document.getElementById("total")
+        .innerText =
+        "₹" + total.toLocaleString("en-IN");
+
+
+    localStorage.setItem(
+        "orderSubtotal",
+        subtotal
+    );
+
+    localStorage.setItem(
+        "orderDiscount",
+        discount
+    );
+
+    localStorage.setItem(
+        "orderTotal",
+        total
+    );
+
 }
 
-function removeCoupon() {
-  discount = 0;
-  appliedCoupon = null;
-  document.getElementById("coupon-code").value = "";
 
-  // Recalculate subtotal without discount
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  let subtotal = 0;
-  cart.forEach(item => {
-    subtotal += parseFloat(item.price.replace(/[^0-9.]/g, ""));
-  });
+function goToDelivery() {
 
-  updateSummary(subtotal);
+    const cart = getCart();
+
+    if (cart.length === 0) {
+
+        alert("Your cart is empty.");
+
+        return;
+
+    }
+
+
+    window.location.href =
+        "delivery.html";
+
 }
 
-function updateSummary(subtotal) {
-  const total = subtotal - discount;
-  document.getElementById("subtotal").innerText = `Subtotal: ₹${subtotal.toLocaleString("en-IN")}`;
-  document.getElementById("discount").innerText = `Discount: ₹${discount.toLocaleString("en-IN")}`;
-  document.getElementById("total").innerText = `Total: ₹${total.toLocaleString("en-IN")}`;
-}
 
 renderCart();
 
-function proceedToCheckout() {
-  // Save current cart state if needed
-  localStorage.setItem("cart", JSON.stringify(JSON.parse(localStorage.getItem("cart")) || []));
-  
-  // Redirect to checkout page
-  window.location.href = "checkout.html";
-}
-  
 </script>
 
 </body>
+
 </html>
