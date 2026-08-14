@@ -275,9 +275,10 @@
         /* =====================================================
            TOP HERO POSTER SLIDER
            
-           IMPORTANT:
-           Posters are 1728 x 864
-           Ratio = 2 : 1
+           5 POSTERS
+           
+           Posters should ideally be 2:1
+           Example: 1728 x 864
         ===================================================== */
 
         .hero-slider-section {
@@ -382,8 +383,6 @@
 
         /* =====================================================
            HERO IMAGE
-
-           Keeps the exact 2:1 poster proportion.
         ===================================================== */
 
         .hero-slide img {
@@ -2343,7 +2342,7 @@
 
 
     <!-- =====================================================
-         TOP 3-POSTER HERO SLIDER
+         TOP 5-POSTER HERO SLIDER
     ===================================================== -->
 
     <section
@@ -2416,10 +2415,48 @@
                 </a>
 
 
+                <!-- =================================================
+                     POSTER 4
+                     SEIKO
+                ================================================== -->
+
+                <a
+                    href="seiko.html"
+                    class="hero-slide"
+                >
+
+                    <img
+                        src="link and poster of seiko.png"
+                        alt="Seiko Watch Collection"
+                    >
+
+                </a>
+
+
+                <!-- =================================================
+                     POSTER 5
+                     OMEGA
+                ================================================== -->
+
+                <a
+                    href="omega.html"
+                    class="hero-slide"
+                >
+
+                    <img
+                        src="link and poster of omega.png"
+                        alt="Omega Watch Collection"
+                    >
+
+                </a>
+
+
             </div>
 
 
-            <!-- PREVIOUS BUTTON -->
+            <!-- =================================================
+                 HERO PREVIOUS BUTTON
+            ================================================== -->
 
             <button
                 type="button"
@@ -2431,7 +2468,9 @@
             </button>
 
 
-            <!-- NEXT BUTTON -->
+            <!-- =================================================
+                 HERO NEXT BUTTON
+            ================================================== -->
 
             <button
                 type="button"
@@ -2443,7 +2482,9 @@
             </button>
 
 
-            <!-- HERO DOTS -->
+            <!-- =================================================
+                 HERO DOTS - 5 POSTERS
+            ================================================== -->
 
             <div
                 class="hero-dots"
@@ -2469,6 +2510,20 @@
                     class="hero-dot"
                     data-slide="2"
                     aria-label="Show Poster 3"
+                ></button>
+
+                <button
+                    type="button"
+                    class="hero-dot"
+                    data-slide="3"
+                    aria-label="Show Poster 4"
+                ></button>
+
+                <button
+                    type="button"
+                    class="hero-dot"
+                    data-slide="4"
+                    aria-label="Show Poster 5"
                 ></button>
 
             </div>
@@ -3409,6 +3464,8 @@
 
         /* =====================================================
            TOP HERO POSTER SLIDER
+           5 POSTERS
+           AUTO CHANGE = 15 SECONDS
         ===================================================== */
 
         document.addEventListener(
@@ -3542,8 +3599,7 @@
 
                 /* =================================================
                    AUTO SLIDE
-                   
-                   5000 = 5 seconds
+                   15000 = 15 SECONDS
                 ================================================= */
 
                 function resetHeroTimer() {
@@ -4107,6 +4163,25 @@
                                 "active",
                                 dotIndex === currentSlide
                             );
+
+                            /*
+                             Hide dots that cannot represent
+                             a valid position on desktop/tablet.
+                            */
+
+                            if (
+                                dotIndex <= maxIndex
+                            ) {
+
+                                dot.style.display =
+                                    "";
+
+                            } else {
+
+                                dot.style.display =
+                                    "none";
+
+                            }
 
                         }
                     );
