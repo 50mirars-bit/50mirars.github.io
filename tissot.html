@@ -12,14 +12,33 @@
 
 <title>Tissot Collection | 50 Mirars</title>
 
+
 <style>
 
-/* =========================================
-   MAIN PAGE
-   ========================================= */
+/* =========================================================
+   GLOBAL RESET
+========================================================= */
+
+*,
+*::before,
+*::after{
+    box-sizing:border-box;
+}
+
+html{
+    width:100%;
+    max-width:100%;
+    margin:0;
+    padding:0;
+    overflow-x:hidden;
+}
 
 body{
+    width:100%;
+    max-width:100%;
     margin:0;
+    padding:0;
+
     font-family:Arial,sans-serif;
 
     background:
@@ -36,21 +55,30 @@ body{
         );
 
     color:#222;
+
+    overflow-x:hidden;
 }
 
 
-/* =========================================
+/* =========================================================
    BACK TO HOME BUTTON
-   ========================================= */
+========================================================= */
 
 .home-btn{
     display:inline-block;
+
     background:#111;
     color:white;
+
     text-decoration:none;
+
     padding:12px 25px;
+
     border-radius:6px;
+
     font-weight:600;
+
+    transition:0.3s;
 }
 
 .home-btn:hover{
@@ -59,202 +87,295 @@ body{
 }
 
 
-/* =========================================
+/* =========================================================
    PAGE TITLE
-   ========================================= */
+========================================================= */
 
 .page-title{
+    width:100%;
+
     text-align:center;
+
     padding:30px 20px 35px;
 }
 
 .page-title h1{
-    font-size:64px;
     margin:0 0 20px;
+
+    font-size:64px;
+
     color:#111;
 }
 
 .title-line{
     width:160px;
     height:2px;
+
     background:#c9a24d;
+
     margin:0 auto;
+
     position:relative;
 }
 
 .title-line::after{
     content:"";
+
     width:12px;
     height:12px;
+
     background:#c9a24d;
+
     position:absolute;
+
     left:50%;
     top:50%;
-    transform:translate(-50%,-50%) rotate(45deg);
+
+    transform:
+        translate(-50%,-50%)
+        rotate(45deg);
 }
 
 
-/* =========================================
+/* =========================================================
    TISSOT INTRODUCTION
-   ========================================= */
+========================================================= */
 
 .tissot-intro{
     width:90%;
     max-width:1400px;
+
     margin:0 auto;
+
     text-align:center;
+
     padding:10px 0 55px;
 }
 
 .tissot-intro h2{
-    font-family:Georgia,"Times New Roman",serif;
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
     font-size:38px;
+
     font-weight:600;
+
     color:#171717;
+
     margin:0 auto 30px;
+
     letter-spacing:-0.5px;
 }
 
 .tissot-description{
+    width:100%;
     max-width:1350px;
+
     margin:0 auto;
+
     text-align:left;
 }
 
 .tissot-description p{
     margin:0 0 24px;
+
     font-size:18px;
+
     line-height:1.75;
+
     color:#4a4a4a;
+
     font-weight:400;
+
+    overflow-wrap:break-word;
 }
 
 .tissot-description strong{
     color:#9b762c;
+
     font-weight:600;
 }
 
 
-/* =========================================
+/* =========================================================
    PRODUCTS GRID
-   ========================================= */
+========================================================= */
 
 .products-grid{
     width:90%;
     max-width:1400px;
+
     margin:0 auto 100px;
 
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+
+    grid-template-columns:
+        repeat(3,minmax(0,1fr));
+
     gap:35px;
 }
 
 
-/* =========================================
+/* =========================================================
    PRODUCT CARD
-   ========================================= */
+========================================================= */
 
 .product-card{
+    width:100%;
+    min-width:0;
+
     background:white;
+
     border-radius:15px;
+
     overflow:hidden;
+
     text-align:center;
-    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+
+    box-shadow:
+        0 8px 25px
+        rgba(0,0,0,0.08);
 }
 
 .product-card img{
     width:100%;
+
     height:350px;
+
     object-fit:cover;
+
+    display:block;
 }
 
 .product-card video{
     width:100%;
+
     height:350px;
+
     object-fit:cover;
+
     display:block;
 }
 
 .product-card h3{
     margin-top:20px;
+
+    overflow-wrap:break-word;
 }
 
 
-/* =========================================
+/* =========================================================
    PRICE
-   ========================================= */
+========================================================= */
 
 .price{
     color:#c9a24d;
+
     font-size:22px;
+
     font-weight:bold;
 }
 
 
-/* =========================================
+/* =========================================================
    PRODUCT BUTTONS
-   ========================================= */
+========================================================= */
 
 .product-buttons{
     display:flex;
+
     justify-content:center;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
     gap:10px;
+
     margin-top:10px;
+
     margin-bottom:20px;
 }
 
 .enquire-btn,
 .add-to-cart-btn{
     padding:10px 20px;
+
     border:1px solid #111;
+
     cursor:pointer;
+
     text-decoration:none;
+
     font-weight:600;
+
     border-radius:6px;
+
     font-size:16px;
+
     transition:0.3s;
+
+    max-width:100%;
 }
 
 
-/* Enquire */
+/* =========================================================
+   ENQUIRE BUTTON
+========================================================= */
 
 .enquire-btn{
     background:#111;
+
     color:#fff;
 }
 
 .enquire-btn:hover{
     background:#c9a24d;
+
     color:#111;
 }
 
 
-/* Add To Cart */
+/* =========================================================
+   ADD TO CART BUTTON
+========================================================= */
 
 .add-to-cart-btn{
     background:#fff;
+
     color:#111;
 }
 
 .add-to-cart-btn:hover{
     background:#c9a24d;
+
     color:#fff;
+
     border-color:#c9a24d;
 }
 
 
-/* =========================================
+/* =========================================================
    IMAGE SLIDER
-   ========================================= */
+========================================================= */
 
 .slider{
+    width:100%;
+
     position:relative;
+
+    overflow:hidden;
 }
 
 .slide{
     width:100%;
+
     height:350px;
+
     object-fit:cover;
+
     display:none;
 }
 
@@ -263,24 +384,34 @@ body{
 }
 
 
-/* Slider buttons */
+/* =========================================================
+   SLIDER BUTTONS
+========================================================= */
 
 .prev,
 .next{
     position:absolute;
+
     top:50%;
+
     transform:translateY(-50%);
 
-    background:rgba(0,0,0,0.6);
+    background:
+        rgba(0,0,0,0.6);
+
     color:white;
 
     border:none;
+
     cursor:pointer;
 
     padding:12px 16px;
+
     font-size:22px;
 
     border-radius:50%;
+
+    z-index:2;
 }
 
 .prev{
@@ -292,119 +423,177 @@ body{
 }
 
 
-/* =========================================
+/* =========================================================
    TISSOT INFORMATION SECTION
-   ========================================= */
+========================================================= */
 
 .tissot-info-section{
     width:100%;
     max-width:1400px;
+
     margin:45px auto 0;
+
     padding:35px 60px 55px;
 
     background:#fff;
+
     color:#111;
 
-    box-sizing:border-box;
+    overflow:hidden;
 }
 
 
-/* =========================================
+/* =========================================================
    THREE COLUMN LAYOUT
-   ========================================= */
+========================================================= */
 
 .tissot-info-grid{
+    width:100%;
+
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+
+    grid-template-columns:
+        repeat(3,minmax(0,1fr));
+
     gap:55px;
+
     align-items:start;
 }
 
 .tissot-info-column{
     min-width:0;
+
+    max-width:100%;
+
+    overflow-wrap:break-word;
+
+    word-wrap:break-word;
 }
 
 
-/* =========================================
+/* =========================================================
    INFORMATION HEADINGS
-   ========================================= */
+========================================================= */
 
 .tissot-info-section h2{
     margin:0 0 18px;
 
     font-size:16px;
+
     line-height:1.45;
 
     font-weight:400;
+
+    overflow-wrap:break-word;
 }
 
 .tissot-info-section h3{
     margin:28px 0 17px;
 
     font-size:16px;
+
     line-height:1.45;
 
     font-weight:400;
+
+    overflow-wrap:break-word;
 }
 
 
-/* =========================================
+/* =========================================================
    INFORMATION TEXT
-   ========================================= */
+========================================================= */
 
 .tissot-info-section p{
     margin:0 0 24px;
 
     font-size:13px;
+
     line-height:1.6;
 
     font-weight:400;
+
+    overflow-wrap:break-word;
+
+    word-wrap:break-word;
 }
 
 
-/* =========================================
+/* =========================================================
+   LINKS
+========================================================= */
+
+.tissot-info-section a{
+    color:#00b6c7;
+
+    text-decoration:none;
+
+    overflow-wrap:break-word;
+}
+
+.tissot-info-section a:hover{
+    text-decoration:underline;
+}
+
+
+/* =========================================================
    FAQ
-   ========================================= */
+========================================================= */
 
 .tissot-faq{
     margin-top:0;
+
+    width:100%;
 }
 
 .tissot-faq-item{
     margin-bottom:20px;
+
+    max-width:100%;
 }
 
 .tissot-faq-question{
     margin:0 0 3px !important;
 
     font-size:13px !important;
+
     line-height:1.5 !important;
 
     font-weight:600 !important;
+
+    overflow-wrap:break-word;
 }
 
 .tissot-faq-answer{
     margin:0 !important;
 
     font-size:13px !important;
+
     line-height:1.6 !important;
 
     font-weight:400 !important;
+
+    overflow-wrap:break-word;
 }
 
 
-/* =========================================
+/* =========================================================
    CONCLUSION
-   ========================================= */
+========================================================= */
 
 .tissot-conclusion{
+    width:100%;
+
     margin-top:40px;
+
+    overflow-wrap:break-word;
 }
 
 .tissot-conclusion h2{
     margin:0 0 18px;
 
     font-size:16px;
+
     line-height:1.45;
 
     font-weight:400;
@@ -412,84 +601,12 @@ body{
 
 .tissot-conclusion p{
     font-size:13px;
+
     line-height:1.6;
+
+    overflow-wrap:break-word;
 }
 
-
-/* =========================================
-   TABLET
-   ========================================= */
-
-@media(max-width:1000px){
-
-    .products-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .tissot-info-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-}
-
-
-/* =========================================
-   MOBILE
-   ========================================= */
-
-@media(max-width:700px){
-
-    .products-grid{
-        grid-template-columns:1fr;
-    }
-
-    .slide,
-    .product-card img,
-    .product-card video{
-        height:300px;
-    }
-
-    .enquire-btn,
-    .add-to-cart-btn{
-        padding:10px 15px;
-    }
-
-    .page-title h1{
-        font-size:48px;
-    }
-
-    .tissot-intro h2{
-        font-size:30px;
-    }
-
-    .tissot-description p{
-        font-size:16px;
-    }
-
-    .tissot-info-section{
-        margin-top:30px;
-        padding:30px 20px 45px;
-    }
-
-    .tissot-info-grid{
-        grid-template-columns:1fr;
-        gap:5px;
-    }
-
-    .tissot-info-section h2,
-    .tissot-info-section h3,
-    .tissot-conclusion h2{
-        font-size:16px;
-    }
-
-    .tissot-info-section p,
-    .tissot-faq-question,
-    .tissot-faq-answer,
-    .tissot-conclusion p{
-        font-size:13px !important;
-    }
-
-}
 
 /* =========================================================
    CONTACT US FOOTER
@@ -497,6 +614,7 @@ body{
 
 .main-footer{
     width:100%;
+    max-width:100%;
 
     background:#080808;
 
@@ -505,13 +623,14 @@ body{
     padding:70px 7% 25px;
 
     border-top:
-    1px solid
-    rgba(255,255,255,0.08);
+        1px solid
+        rgba(255,255,255,0.08);
+
+    overflow:hidden;
 }
 
 .footer-container{
     width:100%;
-
     max-width:1400px;
 
     margin:0 auto;
@@ -519,7 +638,7 @@ body{
 
 
 /* =========================================================
-   CONTACT TOP
+   FOOTER TOP
 ========================================================= */
 
 .footer-top{
@@ -528,7 +647,7 @@ body{
     display:grid;
 
     grid-template-columns:
-    repeat(3,minmax(0,1fr));
+        repeat(3,minmax(0,1fr));
 
     column-gap:70px;
 
@@ -543,9 +662,9 @@ body{
     margin:0 0 10px;
 
     font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
+        Georgia,
+        "Times New Roman",
+        serif;
 
     font-size:42px;
 
@@ -562,7 +681,11 @@ body{
 .whatsapp-column{
     min-width:0;
 
+    max-width:100%;
+
     text-align:center;
+
+    overflow-wrap:break-word;
 }
 
 .contact-column h3,
@@ -592,6 +715,7 @@ body{
     display:block;
 
     width:fit-content;
+    max-width:100%;
 
     margin:0 auto 8px;
 
@@ -604,6 +728,8 @@ body{
     line-height:1.6;
 
     transition:color 0.3s ease;
+
+    overflow-wrap:break-word;
 }
 
 .footer-link:hover{
@@ -648,6 +774,8 @@ body{
 
     min-height:60px;
 
+    max-width:100%;
+
     padding:13px 30px;
 
     background:#ffffff;
@@ -688,7 +816,7 @@ body{
     display:grid;
 
     grid-template-columns:
-    repeat(3,minmax(0,1fr));
+        repeat(3,minmax(0,1fr));
 
     gap:50px;
 
@@ -697,13 +825,15 @@ body{
     padding-top:45px;
 
     border-top:
-    1px solid
-    rgba(255,255,255,0.10);
+        1px solid
+        rgba(255,255,255,0.10);
 }
 
 .footer-links-column,
 .footer-social{
     min-width:0;
+
+    max-width:100%;
 
     text-align:center;
 }
@@ -725,6 +855,7 @@ body{
     display:block;
 
     width:fit-content;
+    max-width:100%;
 
     margin:0 auto 14px;
 
@@ -768,8 +899,8 @@ body{
     justify-content:center;
 
     border:
-    1px solid
-    rgba(255,255,255,0.65);
+        1px solid
+        rgba(255,255,255,0.65);
 
     border-radius:9px;
 
@@ -807,8 +938,8 @@ body{
     padding-top:20px;
 
     border-top:
-    1px solid
-    rgba(255,255,255,0.10);
+        1px solid
+        rgba(255,255,255,0.10);
 }
 
 .footer-bottom p{
@@ -821,16 +952,252 @@ body{
     line-height:1.5;
 
     text-align:center;
+
+    overflow-wrap:break-word;
 }
 
 
 /* =========================================================
-   MOBILE RESPONSIVE
+   TABLET
 ========================================================= */
 
-@media screen and (max-width:768px){
+@media(max-width:1000px){
 
-    
+    .products-grid{
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+    }
+
+    .tissot-info-grid{
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+
+        gap:35px;
+    }
+
+    .footer-top{
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+    }
+
+    .footer-middle{
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:768px){
+
+    html,
+    body{
+        width:100%;
+        max-width:100%;
+
+        overflow-x:hidden;
+    }
+
+
+    /* BACK BUTTON */
+
+    .home-btn{
+        padding:11px 18px;
+
+        font-size:14px;
+    }
+
+
+    /* TITLE */
+
+    .page-title{
+        padding:25px 15px 30px;
+    }
+
+    .page-title h1{
+        font-size:48px;
+    }
+
+
+    /* PRODUCTS */
+
+    .products-grid{
+        width:92%;
+
+        grid-template-columns:1fr;
+
+        gap:25px;
+
+        margin-bottom:60px;
+    }
+
+    .slide,
+    .product-card img,
+    .product-card video{
+        height:300px;
+    }
+
+
+    /* PRODUCT BUTTONS */
+
+    .product-buttons{
+        gap:8px;
+
+        padding:0 10px;
+    }
+
+    .enquire-btn,
+    .add-to-cart-btn{
+        padding:10px 15px;
+
+        font-size:14px;
+    }
+
+
+    /* TISSOT INFORMATION */
+
+    .tissot-info-section{
+        width:100%;
+
+        margin-top:30px;
+
+        padding:30px 20px 45px;
+    }
+
+    .tissot-info-grid{
+        width:100%;
+
+        grid-template-columns:1fr;
+
+        gap:5px;
+    }
+
+    .tissot-info-column{
+        width:100%;
+    }
+
+    .tissot-info-section h2,
+    .tissot-info-section h3,
+    .tissot-conclusion h2{
+        font-size:16px;
+    }
+
+    .tissot-info-section p,
+    .tissot-faq-question,
+    .tissot-faq-answer,
+    .tissot-conclusion p{
+        font-size:13px !important;
+    }
+
+
+    /* FOOTER */
+
+    .main-footer{
+        padding:
+            55px 20px 25px;
+    }
+
+    .footer-top{
+        grid-template-columns:1fr;
+
+        column-gap:0;
+
+        row-gap:40px;
+    }
+
+    .footer-top > h2{
+        font-size:36px;
+    }
+
+    .footer-middle{
+        grid-template-columns:1fr;
+
+        gap:40px;
+
+        margin-top:50px;
+
+        padding-top:35px;
+    }
+
+    .contact-column h3,
+    .whatsapp-column h3{
+        font-size:18px;
+    }
+
+    .footer-link{
+        font-size:15px;
+    }
+
+    .whatsapp-button{
+        min-width:190px;
+
+        padding:13px 22px;
+    }
+
+    .footer-bottom{
+        margin-top:40px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media(max-width:400px){
+
+    .page-title h1{
+        font-size:42px;
+    }
+
+    .products-grid{
+        width:94%;
+    }
+
+    .product-buttons{
+        flex-direction:column;
+
+        width:100%;
+    }
+
+    .enquire-btn,
+    .add-to-cart-btn{
+        width:100%;
+
+        max-width:260px;
+    }
+
+    .footer-top > h2{
+        font-size:32px;
+    }
+
+}
+
+
+/* =========================================================
+   FINAL HORIZONTAL OVERFLOW PROTECTION
+========================================================= */
+
+img,
+video,
+iframe,
+table{
+    max-width:100%;
+}
+
+a,
+button,
+input,
+textarea,
+select{
+    max-width:100%;
+}
+
 </style>
 
 </head>
@@ -839,9 +1206,9 @@ body{
 <body>
 
 
-<!-- =========================================
+<!-- =========================================================
      BACK TO HOME
-     ========================================= -->
+========================================================= -->
 
 <div style="padding:20px;">
 
@@ -855,12 +1222,11 @@ body{
 </div>
 
 
-<!-- =========================================
-     TISSOT INTRODUCTION
-     ========================================= -->
+<!-- =========================================================
+     TISSOT TITLE
+========================================================= -->
 
 <section class="tissot-intro">
-
 
     <div class="page-title">
 
@@ -873,9 +1239,9 @@ body{
 </section>
 
 
-<!-- =========================================
+<!-- =========================================================
      TISSOT PRODUCTS
-   ========================================= -->
+========================================================= -->
 
 <div class="products-grid">
 
@@ -892,7 +1258,9 @@ body{
                 alt="Tissot Watch"
             >
 
-            <h3>Tissot Watch</h3>
+            <h3>
+                Tissot Watch
+            </h3>
 
             <p class="price">
                 ₹3,500
@@ -904,6 +1272,7 @@ body{
                     href="https://wa.me/YOURNUMBER"
                     class="enquire-btn"
                     target="_blank"
+                    rel="noopener"
                 >
                     Enquire Now
                 </a>
@@ -922,13 +1291,12 @@ body{
         </div>
     -->
 
-
 </div>
 
 
-<!-- =========================================
+<!-- =========================================================
      TISSOT INFORMATION SECTION
-     ========================================= -->
+========================================================= -->
 
 <section class="tissot-info-section">
 
@@ -936,9 +1304,9 @@ body{
     <div class="tissot-info-grid">
 
 
-        <!-- =====================================
+        <!-- =================================================
              COLUMN 1
-        ====================================== -->
+        ================================================== -->
 
         <div class="tissot-info-column">
 
@@ -989,9 +1357,9 @@ body{
         </div>
 
 
-        <!-- =====================================
+        <!-- =================================================
              COLUMN 2
-        ====================================== -->
+        ================================================== -->
 
         <div class="tissot-info-column">
 
@@ -1053,9 +1421,9 @@ body{
         </div>
 
 
-        <!-- =====================================
+        <!-- =================================================
              COLUMN 3
-        ====================================== -->
+        ================================================== -->
 
         <div class="tissot-info-column">
 
@@ -1189,9 +1557,9 @@ body{
     </div>
 
 
-    <!-- =====================================
+    <!-- =====================================================
          CONCLUSION
-    ====================================== -->
+    ====================================================== -->
 
     <div class="tissot-conclusion">
 
@@ -1216,202 +1584,208 @@ body{
 
 </section>
 
-<!-- =======================================================
+
+<!-- =========================================================
      CONTACT US FOOTER
-======================================================= -->
+========================================================= -->
 
 <footer class="main-footer">
 
 <div class="footer-container">
 
 
-<!-- CONTACT US -->
+    <!-- =====================================================
+         CONTACT US
+    ====================================================== -->
 
-<div class="footer-top">
+    <div class="footer-top">
 
 
-<h2>
-    Contact Us
-</h2>
+        <h2>
+            Contact Us
+        </h2>
 
 
-<!-- CUSTOMERS -->
+        <!-- CUSTOMERS -->
 
-<div class="contact-column">
+        <div class="contact-column">
 
-    <h3>
-        For Customers:
-    </h3>
+            <h3>
+                For Customers:
+            </h3>
 
-    <a
-        href="mailto:50mirars@gmail.com"
-        class="footer-link"
-    >
-        50mirars@gmail.com
-    </a>
+            <a
+                href="mailto:50mirars@gmail.com"
+                class="footer-link"
+            >
+                50mirars@gmail.com
+            </a>
 
-    <a
-        href="tel:+918209989013"
-        class="footer-link"
-    >
-        82099 89013
-    </a>
+            <a
+                href="tel:+918209989013"
+                class="footer-link"
+            >
+                82099 89013
+            </a>
 
-    <p>
-        09:00 - 21:30 | Monday to Sunday
-    </p>
+            <p>
+                09:00 - 21:30 | Monday to Sunday
+            </p>
 
-</div>
+        </div>
 
 
-<!-- SALES / WATCH SERVICE -->
+        <!-- SALES / WATCH SERVICE -->
 
-<div class="contact-column">
+        <div class="contact-column">
 
-    <h3>
-        For Sales/Watch Service:
-    </h3>
+            <h3>
+                For Sales/Watch Service:
+            </h3>
 
-    <a
-        href="mailto:50mirars@gmail.com"
-        class="footer-link"
-    >
-        50mirars@gmail.com
-    </a>
+            <a
+                href="mailto:50mirars@gmail.com"
+                class="footer-link"
+            >
+                50mirars@gmail.com
+            </a>
 
-    <a
-        href="tel:+918209989013"
-        class="footer-link"
-    >
-        82099 89013
-    </a>
+            <a
+                href="tel:+918209989013"
+                class="footer-link"
+            >
+                82099 89013
+            </a>
 
-    <p>
-        09:00 - 21:30 | Monday to Sunday
-    </p>
+            <p>
+                09:00 - 21:30 | Monday to Sunday
+            </p>
 
-</div>
+        </div>
 
 
-<!-- WHATSAPP -->
+        <!-- WHATSAPP -->
 
-<div class="whatsapp-column">
+        <div class="whatsapp-column">
 
-    <h3 class="whatsapp-title">
+            <h3 class="whatsapp-title">
 
-        View Products on WhatsApp
+                View Products on WhatsApp
 
-        <img
-            src="whatsapplogo.png"
-            alt="WhatsApp"
-            class="whatsapp-icon"
-        >
+                <img
+                    src="whatsapplogo.png"
+                    alt="WhatsApp"
+                    class="whatsapp-icon"
+                >
 
-    </h3>
+            </h3>
 
-    <a
-        href="https://wa.me/918209989013"
-        target="_blank"
-        rel="noopener"
-        class="whatsapp-button"
-    >
-        View Products
-    </a>
 
-</div>
+            <a
+                href="https://wa.me/918209989013"
+                target="_blank"
+                rel="noopener"
+                class="whatsapp-button"
+            >
+                View Products
+            </a>
 
+        </div>
 
-</div>
 
+    </div>
 
 
-<!-- FOOTER LINKS -->
+    <!-- =====================================================
+         FOOTER LINKS
+    ====================================================== -->
 
-<div class="footer-middle">
+    <div class="footer-middle">
 
 
-<!-- KNOW 50 MIRARS -->
+        <!-- KNOW 50 MIRARS -->
 
-<div class="footer-links-column">
+        <div class="footer-links-column">
 
-    <h3>
-        Know 50 Mirars
-    </h3>
+            <h3>
+                Know 50 Mirars
+            </h3>
 
-    <a href="about.html">
-        About Us
-    </a>
+            <a href="about.html">
+                About Us
+            </a>
 
-    <a href="faq.html">
-        FAQ
-    </a>
+            <a href="faq.html">
+                FAQ
+            </a>
 
-</div>
+        </div>
 
 
-<!-- TERMS -->
+        <!-- TERMS -->
 
-<div class="footer-links-column">
+        <div class="footer-links-column">
 
-    <h3>
-        Terms &amp; Conditions
-    </h3>
+            <h3>
+                Terms &amp; Conditions
+            </h3>
 
-    <a href="terms.html">
-        Terms &amp; Conditions
-    </a>
+            <a href="terms.html">
+                Terms &amp; Conditions
+            </a>
 
-    <a href="privacypolicy.html">
-        Privacy Policy
-    </a>
+            <a href="privacypolicy.html">
+                Privacy Policy
+            </a>
 
-</div>
+        </div>
 
 
-<!-- INSTAGRAM -->
+        <!-- INSTAGRAM -->
 
-<div class="footer-social">
+        <div class="footer-social">
 
-    <h3>
-        50 Mirars
-    </h3>
+            <h3>
+                50 Mirars
+            </h3>
 
-    <p>
-        Follow Us On
-    </p>
+            <p>
+                Follow Us On
+            </p>
 
-    <a
-        href="https://instagram.com/50mirars"
-        target="_blank"
-        rel="noopener"
-        class="instagram-button"
-        aria-label="Follow 50 Mirars on Instagram"
-    >
+            <a
+                href="https://instagram.com/50mirars"
+                target="_blank"
+                rel="noopener"
+                class="instagram-button"
+                aria-label="Follow 50 Mirars on Instagram"
+            >
 
-        <img
-            src="instagramimage.webp"
-            alt="Instagram"
-        >
+                <img
+                    src="instagramimage.webp"
+                    alt="Instagram"
+                >
 
-    </a>
+            </a>
 
-</div>
+        </div>
 
 
-</div>
+    </div>
 
 
+    <!-- =====================================================
+         COPYRIGHT
+    ====================================================== -->
 
-<!-- COPYRIGHT -->
+    <div class="footer-bottom">
 
-<div class="footer-bottom">
+        <p>
+            © 2026 50 Mirars - The Watch &amp; Sunglasses Store.
+            All Rights Reserved.
+        </p>
 
-    <p>
-        © 2026 50 Mirars - The Watch &amp; Sunglasses Store.
-        All Rights Reserved.
-    </p>
-
-</div>
+    </div>
 
 
 </div>
@@ -1419,24 +1793,21 @@ body{
 </footer>
 
 
-</div>
-
-
-
-<!-- =========================================
+<!-- =========================================================
      JAVASCRIPT
-     ========================================= -->
+========================================================= -->
 
 <script>
 
 
-/* =========================================
+/* =========================================================
    IMAGE SLIDER
-   ========================================= */
+========================================================= */
 
 document.querySelectorAll('.slider').forEach(slider => {
 
-    const slides = slider.querySelectorAll('.slide');
+    const slides =
+        slider.querySelectorAll('.slide');
 
     if(slides.length === 0){
         return;
@@ -1445,101 +1816,128 @@ document.querySelectorAll('.slider').forEach(slider => {
     let current = 0;
 
 
-    const nextButton = slider.querySelector('.next');
-    const prevButton = slider.querySelector('.prev');
+    const nextButton =
+        slider.querySelector('.next');
+
+    const prevButton =
+        slider.querySelector('.prev');
 
 
     if(nextButton){
 
-        nextButton.addEventListener('click', () => {
+        nextButton.addEventListener(
+            'click',
+            () => {
 
-            slides[current].classList.remove('active');
+                slides[current]
+                    .classList
+                    .remove('active');
 
-            current =
-                (current + 1) % slides.length;
 
-            slides[current].classList.add('active');
+                current =
+                    (current + 1) %
+                    slides.length;
 
-        });
+
+                slides[current]
+                    .classList
+                    .add('active');
+
+            }
+        );
 
     }
 
 
     if(prevButton){
 
-        prevButton.addEventListener('click', () => {
+        prevButton.addEventListener(
+            'click',
+            () => {
 
-            slides[current].classList.remove('active');
+                slides[current]
+                    .classList
+                    .remove('active');
 
-            current =
-                (current - 1 + slides.length) %
-                slides.length;
 
-            slides[current].classList.add('active');
+                current =
+                    (current - 1 + slides.length) %
+                    slides.length;
 
-        });
+
+                slides[current]
+                    .classList
+                    .add('active');
+
+            }
+        );
 
     }
 
 });
 
 
-/* =========================================
+/* =========================================================
    ADD TO CART
-   ========================================= */
+========================================================= */
 
-document.querySelectorAll(".add-to-cart-btn").forEach(button => {
-
-
-    button.addEventListener("click", () => {
-
-
-        const name =
-            button.dataset.name;
+document
+    .querySelectorAll(".add-to-cart-btn")
+    .forEach(button => {
 
 
-        const price =
-            button.dataset.price;
+        button.addEventListener(
+            "click",
+            () => {
 
 
-        const image =
-            button.dataset.image || "";
+                const name =
+                    button.dataset.name;
 
 
-        let cart =
-            JSON.parse(
-                localStorage.getItem("cart")
-            ) || [];
+                const price =
+                    button.dataset.price;
 
 
-        cart.push({
-
-            name:name,
-
-            price:price,
-
-            image:image
-
-        });
+                const image =
+                    button.dataset.image || "";
 
 
-        localStorage.setItem(
+                let cart =
+                    JSON.parse(
+                        localStorage.getItem("cart")
+                    ) || [];
 
-            "cart",
 
-            JSON.stringify(cart)
+                cart.push({
 
+                    name:name,
+
+                    price:price,
+
+                    image:image
+
+                });
+
+
+                localStorage.setItem(
+
+                    "cart",
+
+                    JSON.stringify(cart)
+
+                );
+
+
+                window.location.href =
+                    "cart.html";
+
+
+            }
         );
 
 
-        window.location.href =
-            "cart.html";
-
-
     });
-
-
-});
 
 
 </script>
