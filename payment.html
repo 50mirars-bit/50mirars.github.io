@@ -12,7 +12,12 @@
 
 <title>Payment | 50 Mirars</title>
 
+
 <style>
+
+/* =====================================================
+   BASIC
+===================================================== */
 
 * {
     box-sizing: border-box;
@@ -26,9 +31,9 @@ body {
 }
 
 
-/* =========================
+/* =====================================================
    HEADER
-========================= */
+===================================================== */
 
 header {
     background: #fff;
@@ -61,12 +66,13 @@ header h1 {
 
 .logo {
     width: 120px;
+    height: auto;
 }
 
 
-/* =========================
+/* =====================================================
    MAIN PAGE
-========================= */
+===================================================== */
 
 .payment-page {
     max-width: 1200px;
@@ -78,9 +84,9 @@ header h1 {
 }
 
 
-/* =========================
+/* =====================================================
    PAYMENT BOX
-========================= */
+===================================================== */
 
 .payment-box {
     flex: 2;
@@ -118,9 +124,9 @@ header h1 {
 }
 
 
-/* =========================
+/* =====================================================
    QR PAYMENT
-========================= */
+===================================================== */
 
 .qr-section {
     text-align: center;
@@ -148,9 +154,9 @@ header h1 {
 }
 
 
-/* =========================
+/* =====================================================
    UPI DETAILS
-========================= */
+===================================================== */
 
 .upi-box {
     background: #f0f0f0;
@@ -173,9 +179,9 @@ header h1 {
 }
 
 
-/* =========================
+/* =====================================================
    BANK DETAILS
-========================= */
+===================================================== */
 
 .bank-box {
     margin-top: 25px;
@@ -207,9 +213,9 @@ header h1 {
 }
 
 
-/* =========================
+/* =====================================================
    TRANSACTION ID
-========================= */
+===================================================== */
 
 .transaction-section {
     margin-top: 30px;
@@ -241,9 +247,9 @@ header h1 {
 }
 
 
-/* =========================
+/* =====================================================
    SUBMIT
-========================= */
+===================================================== */
 
 .submit-btn {
     width: 100%;
@@ -263,9 +269,9 @@ header h1 {
 }
 
 
-/* =========================
+/* =====================================================
    ERROR
-========================= */
+===================================================== */
 
 .error-message {
     display: none;
@@ -278,9 +284,9 @@ header h1 {
 }
 
 
-/* =========================
+/* =====================================================
    ORDER SUMMARY
-========================= */
+===================================================== */
 
 .order-summary {
     flex: 0 0 350px;
@@ -354,50 +360,203 @@ header h1 {
 }
 
 
-/* =========================
-   FOOTER
-========================= */
+/* =====================================================
+   PREMIUM FOOTER
+===================================================== */
 
-footer {
-    background: #111;
-    color: #fff;
-    padding: 40px;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+.main-footer {
+    width: 100%;
+    background: #0b0b0b;
+    color: #ffffff;
+    padding: 70px 7% 25px;
     margin-top: 50px;
 }
 
-footer div {
-    flex: 1;
-    margin: 10px;
-}
-
-footer h4 {
-    margin-bottom: 10px;
-}
-
-footer a {
-    color: #c9a24d;
-    text-decoration: none;
-    display: block;
-    margin: 5px 0;
-}
-
-footer a:hover {
-    color: #fff;
-}
-
-.footer-bottom {
-    text-align: center;
-    flex-basis: 100%;
-    margin-top: 20px;
+.footer-container {
+    max-width: 1400px;
+    margin: auto;
 }
 
 
 /* =========================
-   MOBILE SAFETY
+   FOOTER TOP
 ========================= */
+
+.footer-top {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.footer-top > h2 {
+    grid-column: 1 / -1;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 42px;
+    text-align: center;
+    margin: 0 0 10px;
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact-column,
+.whatsapp-column {
+    text-align: center;
+}
+
+.contact-column h3,
+.whatsapp-column h3 {
+    font-size: 20px;
+    margin-bottom: 22px;
+}
+
+.contact-column p {
+    color: #bdbdbd;
+    font-size: 15px;
+    margin-top: 12px;
+}
+
+.footer-link {
+    display: block;
+    width: fit-content;
+    margin: 0 auto 8px;
+    color: #ffffff;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.footer-link:hover {
+    color: #c9a24d;
+}
+
+
+/* =========================
+   WHATSAPP
+========================= */
+
+.whatsapp-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.whatsapp-icon {
+    width: 24px !important;
+    height: 24px !important;
+    object-fit: contain;
+}
+
+.whatsapp-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50px;
+    padding: 13px 30px;
+    background: #ffffff;
+    color: #111111;
+    font-weight: 700;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.whatsapp-button:hover {
+    background: #c9a24d;
+    color: #ffffff;
+}
+
+
+/* =========================
+   FOOTER MIDDLE
+========================= */
+
+.footer-middle {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+    margin-top: 65px;
+    padding-top: 45px;
+    border-top: 1px solid rgba(255,255,255,0.10);
+}
+
+.footer-links-column,
+.footer-social {
+    text-align: center;
+}
+
+.footer-links-column h3,
+.footer-social h3 {
+    margin-bottom: 20px;
+}
+
+.footer-links-column a {
+    display: block;
+    width: fit-content;
+    margin: 0 auto 14px;
+    color: #d7d7d7;
+    text-decoration: none;
+}
+
+.footer-links-column a:hover {
+    color: #c9a24d;
+}
+
+.footer-social p {
+    color: #d7d7d7;
+    margin-bottom: 14px;
+}
+
+
+/* =========================
+   INSTAGRAM
+========================= */
+
+.instagram-button {
+    width: 48px;
+    height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255,255,255,0.7);
+    border-radius: 10px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.instagram-button img {
+    width: 27px;
+    height: 27px;
+    object-fit: contain;
+}
+
+.instagram-button:hover {
+    background: #ffffff;
+}
+
+
+/* =========================
+   FOOTER BOTTOM
+========================= */
+
+.footer-bottom {
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.10);
+    text-align: center;
+}
+
+.footer-bottom p {
+    color: #aaaaaa;
+    font-size: 13px;
+    margin: 0;
+}
+
+
+/* =====================================================
+   MOBILE SAFETY
+===================================================== */
 
 @media (max-width: 900px) {
 
@@ -412,6 +571,31 @@ footer a:hover {
 
 }
 
+
+/* =====================================================
+   FOOTER MOBILE
+===================================================== */
+
+@media screen and (max-width: 768px) {
+
+    .main-footer {
+        padding: 55px 18px 20px;
+    }
+
+    .footer-top {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-top > h2 {
+        font-size: 34px;
+    }
+
+    .footer-middle {
+        grid-template-columns: 1fr;
+    }
+
+}
+
 </style>
 
 </head>
@@ -420,9 +604,9 @@ footer a:hover {
 <body>
 
 
-<!-- =========================
+<!-- =====================================================
      HEADER
-========================= -->
+===================================================== -->
 
 <header>
 
@@ -433,9 +617,11 @@ footer a:hover {
         ← Back to Delivery
     </a>
 
+
     <h1>
         Payment
     </h1>
+
 
     <img
         src="logo.jpeg"
@@ -447,16 +633,16 @@ footer a:hover {
 
 
 
-<!-- =========================
+<!-- =====================================================
      MAIN
-========================= -->
+===================================================== -->
 
 <section class="payment-page">
 
 
-    <!-- =========================
+    <!-- =================================================
          PAYMENT INFORMATION
-    ========================= -->
+    ================================================== -->
 
     <div class="payment-box">
 
@@ -490,9 +676,9 @@ footer a:hover {
 
 
 
-        <!-- =========================
+        <!-- =================================================
              QR CODE
-        ========================= -->
+        ================================================== -->
 
         <div class="qr-section">
 
@@ -501,18 +687,11 @@ footer a:hover {
             </h3>
 
 
-            <!--
-                IMPORTANT:
-                Change "payment-qr.png"
-                to the actual filename
-                of your QR image.
-            -->
-
             <img
-    src="OR CODE 1.jpeg"
-    alt="50 Mirars Payment QR Code"
-    class="qr-image"
->
+                src="OR CODE 1.jpeg"
+                alt="50 Mirars Payment QR Code"
+                class="qr-image"
+            >
 
 
             <p class="payment-note">
@@ -527,9 +706,9 @@ footer a:hover {
 
 
 
-        <!-- =========================
+        <!-- =================================================
              UPI ID
-        ========================= -->
+        ================================================== -->
 
         <div class="upi-box">
 
@@ -537,11 +716,6 @@ footer a:hover {
                 UPI ID
             </div>
 
-
-            <!--
-                CHANGE THIS TO
-                YOUR REAL UPI ID
-            -->
 
             <div class="upi-id">
                 gy70353@ybl
@@ -551,9 +725,9 @@ footer a:hover {
 
 
 
-        <!-- =========================
+        <!-- =================================================
              BANK DETAILS
-        ========================= -->
+        ================================================== -->
 
         <div class="bank-box">
 
@@ -561,11 +735,6 @@ footer a:hover {
                 Bank Transfer Details
             </h3>
 
-
-            <!--
-                CHANGE THESE DETAILS
-                TO YOUR REAL BANK DETAILS
-            -->
 
             <div class="bank-row">
 
@@ -622,15 +791,16 @@ footer a:hover {
 
 
 
-        <!-- =========================
+        <!-- =================================================
              TRANSACTION ID
-        ========================= -->
+        ================================================== -->
 
         <div class="transaction-section">
 
             <label for="transactionId">
 
                 Transaction ID / UTR Number
+
                 <span style="color:#e53935;">
                     *
                 </span>
@@ -658,9 +828,9 @@ footer a:hover {
 
 
 
-        <!-- =========================
+        <!-- =================================================
              SUBMIT ORDER
-        ========================= -->
+        ================================================== -->
 
         <button
             class="submit-btn"
@@ -675,9 +845,9 @@ footer a:hover {
 
 
 
-    <!-- =========================
+    <!-- =================================================
          ORDER SUMMARY
-    ========================= -->
+    ================================================== -->
 
     <div class="order-summary">
 
@@ -757,76 +927,217 @@ footer a:hover {
 
 
 
-<!-- =========================
-     FOOTER
-========================= -->
+<!-- =====================================================
+     PREMIUM FOOTER
+===================================================== -->
 
-<footer>
-
-    <div>
-
-        <h4>
-            About
-        </h4>
-
-        <p>
-            50 Mirars premium watches and accessories.
-        </p>
-
-    </div>
+<footer class="main-footer">
 
 
-    <div>
-
-        <h4>
-            Categories
-        </h4>
-
-        <a href="#">
-            Watches
-        </a>
-
-        <a href="#">
-            Sunglasses
-        </a>
-
-        <a href="#">
-            Limited Editions
-        </a>
-
-    </div>
+    <div class="footer-container">
 
 
-    <div>
+        <!-- =================================================
+             FOOTER TOP
+        ================================================== -->
 
-        <h4>
-            Support
-        </h4>
-
-        <a href="mailto:50mirars@gmail.com">
-            Email
-        </a>
-
-        <a
-            href="https://wa.me/918209989013"
-            target="_blank"
-        >
-            WhatsApp
-        </a>
-
-        <a
-            href="https://www.instagram.com/50mirars"
-            target="_blank"
-        >
-            Instagram
-        </a>
-
-    </div>
+        <div class="footer-top">
 
 
-    <div class="footer-bottom">
+            <h2>
+                50 Mirars
+            </h2>
 
-        © 2026 50 Mirars. All Rights Reserved.
+
+            <!-- CONTACT -->
+
+            <div class="contact-column">
+
+                <h3>
+                    Contact Us
+                </h3>
+
+
+                <a
+                    href="mailto:50mirars@gmail.com"
+                    class="footer-link"
+                >
+                    50mirars@gmail.com
+                </a>
+
+
+                <p>
+                    For orders, support & enquiries
+                </p>
+
+            </div>
+
+
+
+            <!-- WHATSAPP -->
+
+            <div class="whatsapp-column">
+
+                <h3 class="whatsapp-title">
+
+                    <img
+                        src="whatsapp.png"
+                        alt="WhatsApp"
+                        class="whatsapp-icon"
+                    >
+
+                    WhatsApp
+
+                </h3>
+
+
+                <a
+                    href="https://wa.me/918209989013"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="whatsapp-button"
+                >
+
+                    Chat With Us
+
+                </a>
+
+            </div>
+
+
+
+            <!-- SUPPORT -->
+
+            <div class="contact-column">
+
+                <h3>
+                    Customer Support
+                </h3>
+
+
+                <p>
+                    We're here to help you with
+                    your orders and enquiries.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             FOOTER MIDDLE
+        ================================================== -->
+
+        <div class="footer-middle">
+
+
+            <!-- QUICK LINKS -->
+
+            <div class="footer-links-column">
+
+                <h3>
+                    Quick Links
+                </h3>
+
+
+                <a href="index.html">
+                    Home
+                </a>
+
+
+                <a href="index.html#collections">
+                    Collections
+                </a>
+
+
+                <a href="cart.html">
+                    Cart
+                </a>
+
+
+                <a href="delivery.html">
+                    Delivery
+                </a>
+
+            </div>
+
+
+
+            <!-- CATEGORIES -->
+
+            <div class="footer-links-column">
+
+                <h3>
+                    Categories
+                </h3>
+
+
+                <a href="#">
+                    Watches
+                </a>
+
+
+                <a href="#">
+                    Sunglasses
+                </a>
+
+
+                <a href="#">
+                    Limited Editions
+                </a>
+
+            </div>
+
+
+
+            <!-- INSTAGRAM -->
+
+            <div class="footer-social">
+
+                <h3>
+                    Follow Us
+                </h3>
+
+
+                <p>
+                    Follow 50 Mirars on Instagram
+                </p>
+
+
+                <a
+                    href="https://www.instagram.com/50mirars"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="instagram-button"
+                >
+
+                    <img
+                        src="instagram.png"
+                        alt="Instagram"
+                    >
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             FOOTER BOTTOM
+        ================================================== -->
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 50 Mirars. All Rights Reserved.
+            </p>
+
+        </div>
+
 
     </div>
 
@@ -905,9 +1216,11 @@ function loadOrder() {
     if (cart.length === 0) {
 
         productList.innerHTML = `
+
             <p>
                 Your cart is empty.
             </p>
+
         `;
 
         return;
@@ -915,7 +1228,9 @@ function loadOrder() {
     }
 
 
-    /* Group products */
+    /* =========================
+       GROUP PRODUCTS
+    ========================= */
 
     const products = {};
 
@@ -946,7 +1261,9 @@ function loadOrder() {
     });
 
 
-    /* Display products */
+    /* =========================
+       DISPLAY PRODUCTS
+    ========================= */
 
     Object.values(products).forEach(
         function(item) {
@@ -972,6 +1289,7 @@ function loadOrder() {
 
                     </div>
 
+
                     <div class="product-price">
 
                         ₹${itemTotal.toLocaleString("en-IN")}
@@ -986,7 +1304,9 @@ function loadOrder() {
     );
 
 
-    /* Get saved totals */
+    /* =========================
+       GET SAVED TOTALS
+    ========================= */
 
     const subtotal =
         parseFloat(
@@ -1011,6 +1331,10 @@ function loadOrder() {
     const total =
         subtotal - discount;
 
+
+    /* =========================
+       DISPLAY TOTALS
+    ========================= */
 
     document.getElementById(
         "subtotal"
@@ -1073,7 +1397,9 @@ function submitPayment() {
     errorBox.innerText = "";
 
 
-    /* Get transaction ID */
+    /* =========================
+       GET TRANSACTION ID
+    ========================= */
 
     const transactionId =
         document.getElementById(
@@ -1081,7 +1407,9 @@ function submitPayment() {
         ).value.trim();
 
 
-    /* Check transaction ID */
+    /* =========================
+       CHECK TRANSACTION ID
+    ========================= */
 
     if (!transactionId) {
 
@@ -1109,7 +1437,9 @@ function submitPayment() {
     }
 
 
-    /* Check cart */
+    /* =========================
+       CHECK CART
+    ========================= */
 
     const cart =
         getCart();
@@ -1128,7 +1458,9 @@ function submitPayment() {
     }
 
 
-    /* Check delivery details */
+    /* =========================
+       CHECK DELIVERY DETAILS
+    ========================= */
 
     const deliveryDetails =
         JSON.parse(
@@ -1153,7 +1485,9 @@ function submitPayment() {
     }
 
 
-    /* Save transaction ID */
+    /* =========================
+       SAVE TRANSACTION ID
+    ========================= */
 
     localStorage.setItem(
 
@@ -1164,11 +1498,14 @@ function submitPayment() {
     );
 
 
-    /* Save order information */
+    /* =========================
+       SAVE ORDER INFORMATION
+    ========================= */
 
     const orderData = {
 
-        cart: cart,
+        cart:
+            cart,
 
         deliveryDetails:
             deliveryDetails,
@@ -1204,14 +1541,16 @@ function submitPayment() {
 
         "orderData",
 
-        JSON.stringify(orderData)
+        JSON.stringify(
+            orderData
+        )
 
     );
 
 
-    /*
-       Go to confirmation page
-    */
+    /* =========================
+       GO TO CONFIRMATION
+    ========================= */
 
     window.location.href =
         "order-confirmation.html";
