@@ -1,227 +1,1233 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Payment Page</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: #f5f5f5;
-      min-height: 100vh;
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=1200"
+>
+
+<title>Payment | 50 Mirars</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f9f9f9;
+    color: #222;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    background: #fff;
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 28px;
+    text-align: center;
+    flex: 1;
+}
+
+.back-btn {
+    background: #111;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+.back-btn:hover {
+    background: #333;
+}
+
+.logo {
+    width: 120px;
+}
+
+
+/* =========================
+   MAIN PAGE
+========================= */
+
+.payment-page {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+
+/* =========================
+   PAYMENT BOX
+========================= */
+
+.payment-box {
+    flex: 2;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.payment-box h2 {
+    margin-top: 0;
+    font-size: 22px;
+}
+
+.amount-box {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    padding: 18px;
+    border-radius: 8px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.amount-label {
+    font-size: 14px;
+    color: #666;
+}
+
+.amount {
+    display: block;
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: 6px;
+}
+
+
+/* =========================
+   QR PAYMENT
+========================= */
+
+.qr-section {
+    text-align: center;
+    margin: 25px 0;
+}
+
+.qr-section h3 {
+    margin-bottom: 15px;
+}
+
+.qr-image {
+    width: 250px;
+    height: 250px;
+    object-fit: contain;
+    border: 1px solid #ddd;
+    padding: 10px;
+    background: #fff;
+    border-radius: 8px;
+}
+
+.payment-note {
+    margin-top: 12px;
+    color: #555;
+    font-size: 14px;
+}
+
+
+/* =========================
+   UPI DETAILS
+========================= */
+
+.upi-box {
+    background: #f0f0f0;
+    padding: 15px;
+    border-radius: 7px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.upi-label {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.upi-id {
+    font-size: 18px;
+    font-weight: bold;
+    word-break: break-all;
+}
+
+
+/* =========================
+   BANK DETAILS
+========================= */
+
+.bank-box {
+    margin-top: 25px;
+    padding: 20px;
+    background: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.bank-box h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.bank-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.bank-row:last-child {
+    border-bottom: none;
+}
+
+.bank-label {
+    font-weight: 600;
+}
+
+
+/* =========================
+   TRANSACTION ID
+========================= */
+
+.transaction-section {
+    margin-top: 30px;
+}
+
+.transaction-section label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.transaction-section input {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+    outline: none;
+}
+
+.transaction-section input:focus {
+    border-color: #009688;
+}
+
+.transaction-help {
+    font-size: 13px;
+    color: #666;
+    margin-top: 7px;
+}
+
+
+/* =========================
+   SUBMIT
+========================= */
+
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    margin-top: 20px;
+    background: #009688;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background: #00796b;
+}
+
+
+/* =========================
+   ERROR
+========================= */
+
+.error-message {
+    display: none;
+    background: #ffebee;
+    color: #c62828;
+    border: 1px solid #ef9a9a;
+    padding: 12px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+   ORDER SUMMARY
+========================= */
+
+.order-summary {
+    flex: 0 0 350px;
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.order-summary h2 {
+    margin-top: 0;
+    font-size: 21px;
+}
+
+.product-list {
+    margin-bottom: 20px;
+}
+
+.product-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+}
+
+.product-name {
+    flex: 1;
+    line-height: 1.4;
+}
+
+.product-price {
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    margin: 12px 0;
+    font-size: 15px;
+}
+
+.discount {
+    color: #008577;
+}
+
+.total-line {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #ddd;
+    padding-top: 16px;
+    margin-top: 18px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.back-delivery {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.back-delivery:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #111;
+    color: #fff;
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+footer div {
+    flex: 1;
+    margin: 10px;
+}
+
+footer h4 {
+    margin-bottom: 10px;
+}
+
+footer a {
+    color: #c9a24d;
+    text-decoration: none;
+    display: block;
+    margin: 5px 0;
+}
+
+footer a:hover {
+    color: #fff;
+}
+
+.footer-bottom {
+    text-align: center;
+    flex-basis: 100%;
+    margin-top: 20px;
+}
+
+
+/* =========================
+   MOBILE SAFETY
+========================= */
+
+@media (max-width: 900px) {
+
+    .payment-page {
+        flex-direction: column;
     }
 
-    .checkout-container {
-      width: 95%;
-      max-width: 1200px;
-      margin: 40px auto;
+    .order-summary {
+        width: 100%;
+        flex: none;
     }
 
-    /* Progress Bar */
-    .progress-bar {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 40px;
-    }
+}
 
-    .step {
-      flex: none;
-      text-align: center;
-      font-weight: 600;
-      color: #999;
-      position: relative;
-      margin: 0 20px;
-    }
+</style>
 
-    .step span {
-      display: inline-block;
-      padding: 10px 25px;
-      border-radius: 25px;
-      background: #ddd;
-      color: #fff;
-      z-index: 1;
-      position: relative;
-    }
-
-    .step.active span {
-      background: #28a745; /* green */
-    }
-
-    .step.completed span {
-      background: #ff6f00; /* orange */
-    }
-
-    .step:not(:last-child)::after {
-      content: "";
-      position: absolute;
-      top: 50%;
-      right: -40px;
-      width: 40px;
-      height: 4px;
-      background: #ddd;
-      transform: translateY(-50%);
-      z-index: 0;
-    }
-
-    /* Layout */
-    .container {
-      display: flex;
-      gap: 40px;
-      width: 100%;
-    }
-
-    /* Payment Options (Left side) */
-    .payment-options {
-      flex: 2;
-      background: #fff8f0;
-      padding: 30px;
-      border-radius: 16px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    }
-
-    .payment-options h2 {
-      color: #ff6f00;
-      margin-bottom: 20px;
-    }
-
-    .option {
-      margin-bottom: 25px;
-      padding: 20px;
-      border: 1px solid #ddd;
-      border-radius: 12px;
-      background: #fff;
-    }
-
-    .option h3 {
-      margin-bottom: 10px;
-      color: #333;
-    }
-
-    /* Transaction ID (Right side sticky) */
-    .transaction-section {
-      flex: 1;
-      background: #fff;
-      padding: 30px;
-      border-radius: 16px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 40px;
-      height: fit-content;
-    }
-
-    .transaction-section h2 {
-      color: #ff6f00;
-      margin-bottom: 20px;
-    }
-
-    label {
-      font-weight: 600;
-      margin-bottom: 10px;
-      display: block;
-    }
-
-    input {
-      width: 100%;
-      padding: 14px;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      font-size: 15px;
-      margin-bottom: 20px;
-    }
-
-    .submit-btn {
-      width: 100%;
-      padding: 16px;
-      background: #ff6f00;
-      color: #fff;
-      font-size: 17px;
-      font-weight: 600;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .submit-btn:hover {
-      background: #e65100;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-    }
-  </style>
 </head>
+
+
 <body>
 
-<div class="checkout-container">
-  <!-- Progress Bar -->
-  <div class="progress-bar">
-    <div class="step completed"><span>Delivery Details</span></div>
-    <div class="step active"><span>Payment</span></div>
-    <div class="step"><span>Order Confirmed</span></div>
-  </div>
 
-  <div class="container">
-    <!-- Payment Options (Left side) -->
-    <div class="payment-options">
-      <h2>Choose Payment Method</h2>
+<!-- =========================
+     HEADER
+========================= -->
 
-      <div class="option">
-        <div style="display:flex; align-items:center; justify-content:space-between;">
-          <div>
-            <h3>UPI QR Code</h3>
-            <p>Scan the QR code to pay instantly.</p>
-          </div>
-          <img src="OR CODE 1.jpeg" alt="UPI QR Code" style="width:180px; border-radius:10px;">
+<header>
+
+    <a
+        href="delivery.html"
+        class="back-btn"
+    >
+        ← Back to Delivery
+    </a>
+
+    <h1>
+        Payment
+    </h1>
+
+    <img
+        src="logo.jpeg"
+        alt="50 Mirars Logo"
+        class="logo"
+    >
+
+</header>
+
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<section class="payment-page">
+
+
+    <!-- =========================
+         PAYMENT INFORMATION
+    ========================= -->
+
+    <div class="payment-box">
+
+        <h2>
+            Complete Your Payment
+        </h2>
+
+
+        <div
+            id="error-message"
+            class="error-message"
+        ></div>
+
+
+        <!-- TOTAL AMOUNT -->
+
+        <div class="amount-box">
+
+            <span class="amount-label">
+                Amount to Pay
+            </span>
+
+            <span
+                class="amount"
+                id="payment-amount"
+            >
+                ₹0
+            </span>
+
         </div>
-      </div>
 
-      <div class="option">
-        <h3>UPI ID</h3>
-        <p>Use this UPI ID to make payment:</p>
-        <strong>gy70353@ybl</strong>
-      </div>
 
-      <div class="option">
-        <h3>Bank Transfer</h3>
-        <p>Transfer to the following bank details:</p>
-        <strong>Account Holder's Name:</strong> Gaurav Yadav <br>
-        <strong>Account Number:</strong> 92198100000572 <br>
-        <strong>IFSC:</strong> BARB0DBKOOT (Fifth Letter is ZERO) <br>
-        <strong>Bank:</strong> Bank Of Baroda
-      </div>
+
+        <!-- =========================
+             QR CODE
+        ========================= -->
+
+        <div class="qr-section">
+
+            <h3>
+                Scan & Pay
+            </h3>
+
+
+            <!--
+                IMPORTANT:
+                Change "payment-qr.png"
+                to the actual filename
+                of your QR image.
+            -->
+
+            <img
+                src="payment-qr.png"
+                alt="50 Mirars Payment QR Code"
+                class="OR Code 1.jpeg "
+            >
+
+
+            <p class="payment-note">
+
+                Scan this QR code using
+                any supported UPI app and
+                complete the payment.
+
+            </p>
+
+        </div>
+
+
+
+        <!-- =========================
+             UPI ID
+        ========================= -->
+
+        <div class="upi-box">
+
+            <div class="upi-label">
+                UPI ID
+            </div>
+
+
+            <!--
+                CHANGE THIS TO
+                YOUR REAL UPI ID
+            -->
+
+            <div class="upi-id">
+                YOUR-UPI-gy70353@ybl
+            </div>
+
+        </div>
+
+
+
+        <!-- =========================
+             BANK DETAILS
+        ========================= -->
+
+        <div class="bank-box">
+
+            <h3>
+                Bank Transfer Details
+            </h3>
+
+
+            <!--
+                CHANGE THESE DETAILS
+                TO YOUR REAL BANK DETAILS
+            -->
+
+            <div class="bank-row">
+
+                <span class="bank-label">
+                    Account Holder's Name
+                </span>
+
+                <span>
+                    Gaurav Yadav
+                </span>
+
+            </div>
+
+
+            <div class="bank-row">
+
+                <span class="bank-label">
+                    Bank Name
+                </span>
+
+                <span>
+                    Bank Of Baroda
+                </span>
+
+            </div>
+
+
+            <div class="bank-row">
+
+                <span class="bank-label">
+                    Account Number
+                </span>
+
+                <span>
+                    9219 8100 0005 72
+                </span>
+
+            </div>
+
+
+            <div class="bank-row">
+
+                <span class="bank-label">
+                    IFSC Code
+                </span>
+
+                <span>
+                    BARB0DBKOOT (Fifth Character or letter is Zero)
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =========================
+             TRANSACTION ID
+        ========================= -->
+
+        <div class="transaction-section">
+
+            <label for="transactionId">
+
+                Transaction ID / UTR Number
+                <span style="color:#e53935;">
+                    *
+                </span>
+
+            </label>
+
+
+            <input
+                type="text"
+                id="transactionId"
+                placeholder="Enter your UPI Transaction ID / UTR"
+                required
+            >
+
+
+            <p class="transaction-help">
+
+                After completing the payment,
+                enter the Transaction ID / UTR
+                shown by your UPI or banking app.
+
+            </p>
+
+        </div>
+
+
+
+        <!-- =========================
+             SUBMIT ORDER
+        ========================= -->
+
+        <button
+            class="submit-btn"
+            onclick="submitPayment()"
+        >
+
+            Confirm Payment & Place Order
+
+        </button>
+
     </div>
 
-    <!-- Transaction ID (Right side sticky) -->
-    <div class="transaction-section">
-      <h2>Enter Transaction ID</h2>
-      <form id="transactionForm" action="https://formspree.io/f/xjgnnebl" method="POST">
-        <label for="transactionId">Transaction ID</label>
-        <input type="text" id="transactionId" name="transactionId" required>
-        <button type="submit" class="submit-btn">Submit Transaction</button>
-      </form>
+
+
+    <!-- =========================
+         ORDER SUMMARY
+    ========================= -->
+
+    <div class="order-summary">
+
+        <h2>
+            Your Order
+        </h2>
+
+
+        <div
+            id="product-list"
+            class="product-list"
+        ></div>
+
+
+        <div class="summary-line">
+
+            <span>
+                Subtotal
+            </span>
+
+            <span id="subtotal">
+                ₹0
+            </span>
+
+        </div>
+
+
+        <div class="summary-line discount">
+
+            <span>
+                Discount
+            </span>
+
+            <span id="discount">
+                ₹0
+            </span>
+
+        </div>
+
+
+        <div class="summary-line">
+
+            <span>
+                Shipping
+            </span>
+
+            <span>
+                Free
+            </span>
+
+        </div>
+
+
+        <div class="total-line">
+
+            <span>
+                Total
+            </span>
+
+            <span id="total">
+                ₹0
+            </span>
+
+        </div>
+
+
+        <a
+            href="delivery.html"
+            class="back-delivery"
+        >
+            ← Edit Delivery Details
+        </a>
+
     </div>
-  </div>
-</div>
+
+</section>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div>
+
+        <h4>
+            About
+        </h4>
+
+        <p>
+            50 Mirars premium watches and accessories.
+        </p>
+
+    </div>
+
+
+    <div>
+
+        <h4>
+            Categories
+        </h4>
+
+        <a href="#">
+            Watches
+        </a>
+
+        <a href="#">
+            Sunglasses
+        </a>
+
+        <a href="#">
+            Limited Editions
+        </a>
+
+    </div>
+
+
+    <div>
+
+        <h4>
+            Support
+        </h4>
+
+        <a href="mailto:50mirars@gmail.com">
+            Email
+        </a>
+
+        <a
+            href="https://wa.me/918209989013"
+            target="_blank"
+        >
+            WhatsApp
+        </a>
+
+        <a
+            href="https://www.instagram.com/50mirars"
+            target="_blank"
+        >
+            Instagram
+        </a>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        © 2026 50 Mirars. All Rights Reserved.
+
+    </div>
+
+</footer>
+
+
 
 <script>
-  // Handle form submission with Formspree and redirect
-  const form = document.getElementById("transactionForm");
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const data = new FormData(form);
-    const response = await fetch(form.action, {
-      method: form.method,
-      body: data,
-      headers: { 'Accept': 'application/json' }
+
+/* =====================================================
+   GET CART
+===================================================== */
+
+function getCart() {
+
+    return JSON.parse(
+        localStorage.getItem("cart")
+    ) || [];
+
+}
+
+
+/* =====================================================
+   GET PRICE
+===================================================== */
+
+function getPrice(item) {
+
+    return parseFloat(
+
+        String(item.price)
+            .replace(/[^0-9.]/g, "")
+
+    ) || 0;
+
+}
+
+
+/* =====================================================
+   CALCULATE SUBTOTAL
+===================================================== */
+
+function calculateSubtotal() {
+
+    const cart = getCart();
+
+    let subtotal = 0;
+
+    cart.forEach(function(item) {
+
+        subtotal += getPrice(item);
+
     });
-    if (response.ok) {
-      window.location.href = "confirmation.html";
-    } else {
-      alert("Error submitting transaction. Please try again.");
+
+    return subtotal;
+
+}
+
+
+/* =====================================================
+   LOAD ORDER
+===================================================== */
+
+function loadOrder() {
+
+    const cart = getCart();
+
+    const productList =
+        document.getElementById(
+            "product-list"
+        );
+
+    productList.innerHTML = "";
+
+
+    if (cart.length === 0) {
+
+        productList.innerHTML = `
+            <p>
+                Your cart is empty.
+            </p>
+        `;
+
+        return;
+
     }
-  });
+
+
+    /* Group products */
+
+    const products = {};
+
+
+    cart.forEach(function(item) {
+
+        const key =
+            item.name + "|" + item.price;
+
+
+        if (!products[key]) {
+
+            products[key] = {
+
+                name: item.name,
+
+                price: getPrice(item),
+
+                quantity: 0
+
+            };
+
+        }
+
+
+        products[key].quantity++;
+
+    });
+
+
+    /* Display products */
+
+    Object.values(products).forEach(
+        function(item) {
+
+            const itemTotal =
+                item.price *
+                item.quantity;
+
+
+            productList.innerHTML += `
+
+                <div class="product-item">
+
+                    <div class="product-name">
+
+                        ${item.name}
+
+                        <br>
+
+                        <small>
+                            Quantity: ${item.quantity}
+                        </small>
+
+                    </div>
+
+                    <div class="product-price">
+
+                        ₹${itemTotal.toLocaleString("en-IN")}
+
+                    </div>
+
+                </div>
+
+            `;
+
+        }
+    );
+
+
+    /* Get saved totals */
+
+    const subtotal =
+        parseFloat(
+
+            localStorage.getItem(
+                "orderSubtotal"
+            )
+
+        ) || calculateSubtotal();
+
+
+    const discount =
+        parseFloat(
+
+            localStorage.getItem(
+                "orderDiscount"
+            )
+
+        ) || 0;
+
+
+    const total =
+        subtotal - discount;
+
+
+    document.getElementById(
+        "subtotal"
+    ).innerText =
+
+        "₹" +
+        subtotal.toLocaleString(
+            "en-IN"
+        );
+
+
+    document.getElementById(
+        "discount"
+    ).innerText =
+
+        "₹" +
+        discount.toLocaleString(
+            "en-IN"
+        );
+
+
+    document.getElementById(
+        "total"
+    ).innerText =
+
+        "₹" +
+        total.toLocaleString(
+            "en-IN"
+        );
+
+
+    document.getElementById(
+        "payment-amount"
+    ).innerText =
+
+        "₹" +
+        total.toLocaleString(
+            "en-IN"
+        );
+
+}
+
+
+/* =====================================================
+   SUBMIT PAYMENT
+===================================================== */
+
+function submitPayment() {
+
+    const errorBox =
+        document.getElementById(
+            "error-message"
+        );
+
+
+    errorBox.style.display =
+        "none";
+
+
+    errorBox.innerText = "";
+
+
+    /* Get transaction ID */
+
+    const transactionId =
+        document.getElementById(
+            "transactionId"
+        ).value.trim();
+
+
+    /* Check transaction ID */
+
+    if (!transactionId) {
+
+        errorBox.innerText =
+            "Please enter your Transaction ID / UTR Number.";
+
+        errorBox.style.display =
+            "block";
+
+        return;
+
+    }
+
+
+    if (transactionId.length < 5) {
+
+        errorBox.innerText =
+            "Please enter a valid Transaction ID / UTR Number.";
+
+        errorBox.style.display =
+            "block";
+
+        return;
+
+    }
+
+
+    /* Check cart */
+
+    const cart =
+        getCart();
+
+
+    if (cart.length === 0) {
+
+        errorBox.innerText =
+            "Your cart is empty.";
+
+        errorBox.style.display =
+            "block";
+
+        return;
+
+    }
+
+
+    /* Check delivery details */
+
+    const deliveryDetails =
+        JSON.parse(
+
+            localStorage.getItem(
+                "deliveryDetails"
+            )
+
+        );
+
+
+    if (!deliveryDetails) {
+
+        errorBox.innerText =
+            "Delivery details are missing. Please go back and enter your delivery details.";
+
+        errorBox.style.display =
+            "block";
+
+        return;
+
+    }
+
+
+    /* Save transaction ID */
+
+    localStorage.setItem(
+
+        "transactionId",
+
+        transactionId
+
+    );
+
+
+    /* Save order information */
+
+    const orderData = {
+
+        cart: cart,
+
+        deliveryDetails:
+            deliveryDetails,
+
+        subtotal:
+            parseFloat(
+                localStorage.getItem(
+                    "orderSubtotal"
+                )
+            ) || calculateSubtotal(),
+
+        discount:
+            parseFloat(
+                localStorage.getItem(
+                    "orderDiscount"
+                )
+            ) || 0,
+
+        total:
+            parseFloat(
+                localStorage.getItem(
+                    "orderTotal"
+                )
+            ) || 0,
+
+        transactionId:
+            transactionId
+
+    };
+
+
+    localStorage.setItem(
+
+        "orderData",
+
+        JSON.stringify(orderData)
+
+    );
+
+
+    /*
+       Go to confirmation page
+    */
+
+    window.location.href =
+        "order-confirmation.html";
+
+}
+
+
+/* =====================================================
+   START
+===================================================== */
+
+loadOrder();
+
 </script>
 
+
 </body>
+
 </html>
