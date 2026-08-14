@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#ffffff"
+    >
+
+    <meta
+        name="description"
+        content="50 Mirars - Omega Watches"
+    >
+
+    <title>
+        Omega Watches | 50 Mirars
+    </title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        body {
+            width: 100%;
+            overflow-x: hidden;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background: #ffffff;
+            color: #111111;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        /* ================================
+           HEADER
+        ================================ */
+
+        .top-header {
+
+            width: 100%;
+            height: 92px;
+
+            display: grid;
+
+            grid-template-columns:
+                1fr
+                1fr
+                1fr;
+
+            align-items: center;
+
+            padding:
+                8px
+                55px;
+
+            background: #ffffff;
+
+            border-bottom:
+                1px solid
+                #eeeeee;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-logo img {
+
+            height: 68px;
+            width: auto;
+
+            max-width: 170px;
+
+            object-fit: contain;
+        }
+
+        .header-brand {
+
+            display: flex;
+
+            justify-content: center;
+
+            text-align: center;
+        }
+
+        .header-brand h1 {
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 31px;
+
+            letter-spacing: 5px;
+
+            line-height: 1;
+        }
+
+        .header-brand span {
+
+            display: block;
+
+            margin-top: 6px;
+
+            font-size: 8px;
+
+            font-weight: 600;
+
+            letter-spacing: 4px;
+
+            color: #a7833c;
+        }
+
+        .header-right {
+
+            display: flex;
+
+            justify-content: flex-end;
+        }
+
+        .header-cart {
+
+            width: 52px;
+            height: 52px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 50%;
+        }
+
+        .cart-icon {
+            font-size: 26px;
+        }
+
+
+        /* ================================
+           OMEGA HERO
+        ================================ */
+
+        .omega-hero {
+
+            width: 100%;
+
+            min-height: 420px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #050505,
+                    #1b1b1b,
+                    #050505
+                );
+
+            color: #ffffff;
+
+            padding: 80px 20px;
+        }
+
+        .omega-hero-content {
+            max-width: 900px;
+        }
+
+        .omega-hero small {
+
+            display: block;
+
+            color: #c9a24d;
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            letter-spacing: 4px;
+
+            margin-bottom: 18px;
+        }
+
+        .omega-hero h2 {
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 72px;
+
+            letter-spacing: 6px;
+
+            margin-bottom: 18px;
+        }
+
+        .omega-hero p {
+
+            color: #dddddd;
+
+            font-size: 18px;
+
+            line-height: 1.7;
+        }
+
+
+        /* ================================
+           OMEGA PRODUCTS
+        ================================ */
+
+        .omega-products {
+
+            width: 100%;
+
+            padding:
+                80px
+                7%
+                100px;
+
+            text-align: center;
+        }
+
+        .omega-products-header {
+
+            margin-bottom: 50px;
+        }
+
+        .omega-products-header small {
+
+            display: block;
+
+            color: #c9a24d;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            letter-spacing: 3px;
+
+            margin-bottom: 12px;
+        }
+
+        .omega-products-header h2 {
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 48px;
+
+            margin-bottom: 12px;
+        }
+
+        .omega-products-header p {
+
+            color: #777777;
+
+            font-size: 16px;
+        }
+
+
+        /* ================================
+           PRODUCT GRID
+        ================================ */
+
+        .omega-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    3,
+                    minmax(0, 1fr)
+                );
+
+            gap: 25px;
+
+            max-width: 1500px;
+
+            margin: auto;
+        }
+
+        .omega-card {
+
+            background: #ffffff;
+
+            border:
+                1px solid
+                #eeeeee;
+
+            overflow: hidden;
+
+            text-align: left;
+
+            transition:
+                transform
+                0.3s ease,
+                box-shadow
+                0.3s ease;
+        }
+
+        .omega-card:hover {
+
+            transform:
+                translateY(-5px);
+
+            box-shadow:
+                0 12px 30px
+                rgba(0,0,0,0.10);
+        }
+
+        .omega-card-image {
+
+            width: 100%;
+
+            height: 380px;
+
+            background: #f5f5f5;
+
+            overflow: hidden;
+        }
+
+        .omega-card-image img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+        }
+
+        .omega-card-content {
+
+            padding: 25px;
+        }
+
+        .omega-card-content h3 {
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 24px;
+
+            margin-bottom: 10px;
+        }
+
+        .omega-card-content p {
+
+            color: #777777;
+
+            font-size: 14px;
+
+            margin-bottom: 15px;
+        }
+
+        .omega-price {
+
+            font-size: 20px;
+
+            font-weight: 700;
+
+            color: #b38a38;
+
+            margin-bottom: 18px;
+        }
+
+        .omega-button {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding:
+                12px
+                22px;
+
+            background: #111111;
+
+            color: #ffffff;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            transition:
+                background
+                0.25s ease;
+        }
+
+        .omega-button:hover {
+            background: #c9a24d;
+        }
+
+
+        /* ================================
+           FOOTER
+        ================================ */
+
+        .main-footer {
+
+            width: 100%;
+
+            background: #0b0b0b;
+
+            color: #ffffff;
+
+            padding:
+                70px
+                7%
+                25px;
+
+            text-align: center;
+        }
+
+        .footer-bottom {
+
+            padding-top: 25px;
+
+            border-top:
+                1px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.1
+                );
+        }
+
+        .footer-bottom p {
+
+            color: #aaaaaa;
+
+            font-size: 13px;
+        }
+
+
+        /* ================================
+           MOBILE
+        ================================ */
+
+        @media screen and (max-width: 768px) {
+
+            .top-header {
+
+                height: 72px;
+
+                padding:
+                    6px
+                    14px;
+            }
+
+            .header-logo img {
+
+                height: 52px;
+
+                max-width: 130px;
+            }
+
+            .header-brand h1 {
+
+                font-size: 21px;
+
+                letter-spacing: 3px;
+            }
+
+            .header-brand span {
+
+                font-size: 6px;
+
+                letter-spacing: 2px;
+            }
+
+            .omega-hero {
+
+                min-height: 330px;
+
+                padding:
+                    60px
+                    20px;
+            }
+
+            .omega-hero h2 {
+
+                font-size: 48px;
+
+                letter-spacing: 4px;
+            }
+
+            .omega-hero p {
+
+                font-size: 15px;
+            }
+
+            .omega-products {
+
+                padding:
+                    60px
+                    14px
+                    70px;
+            }
+
+            .omega-products-header h2 {
+
+                font-size: 34px;
+            }
+
+            .omega-grid {
+
+                grid-template-columns: 1fr;
+
+                gap: 20px;
+            }
+
+            .omega-card-image {
+
+                height: 380px;
+            }
+
+            .main-footer {
+
+                padding:
+                    55px
+                    18px
+                    20px;
+            }
+
+        }
+
+
+        /* ================================
+           SMALL PHONES
+        ================================ */
+
+        @media screen and (max-width: 480px) {
+
+            .header-logo img {
+
+                height: 47px;
+
+                max-width: 120px;
+            }
+
+            .header-brand h1 {
+
+                font-size: 18px;
+
+                letter-spacing: 2.5px;
+            }
+
+            .header-brand span {
+                display: none;
+            }
+
+            .omega-hero h2 {
+
+                font-size: 40px;
+            }
+
+            .omega-card-image {
+
+                height: 350px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ================================
+         HEADER
+    ================================ -->
+
+    <header class="top-header">
+
+        <div class="header-left">
+
+            <a
+                href="index.html"
+                class="header-logo"
+            >
+
+                <img
+                    src="logo.jpeg"
+                    alt="50 Mirars Logo"
+                >
+
+            </a>
+
+        </div>
+
+
+        <div class="header-brand">
+
+            <div>
+
+                <h1>
+                    50 MIRARS
+                </h1>
+
+                <span>
+                    WATCHES • SUNGLASSES
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="header-right">
+
+            <a
+                href="cart.html"
+                class="header-cart"
+                aria-label="Shopping Cart"
+            >
+
+                <span class="cart-icon">
+                    🛒
+                </span>
+
+            </a>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ================================
+         OMEGA HERO
+    ================================ -->
+
+    <section class="omega-hero">
+
+        <div class="omega-hero-content">
+
+            <small>
+                PREMIUM WATCH COLLECTION
+            </small>
+
+            <h2>
+                OMEGA
+            </h2>
+
+            <p>
+                Discover the timeless elegance,
+                precision and sophistication of
+                the Omega collection at 50 Mirars.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================================
+         OMEGA PRODUCTS
+    ================================ -->
+
+    <section class="omega-products">
+
+
+        <div class="omega-products-header">
+
+            <small>
+                OMEGA COLLECTION
+            </small>
+
+            <h2>
+                Explore Omega Watches
+            </h2>
+
+            <p>
+                Discover our selected Omega timepieces.
+            </p>
+
+        </div>
+
+
+        <div class="omega-grid">
+
+
+            <!-- PRODUCT 1 -->
+
+            <div class="omega-card">
+
+                <div class="omega-card-image">
+
+                    <img
+                        src="omega-product-1.jpeg"
+                        alt="Omega Watch"
+                    >
+
+                </div>
+
+                <div class="omega-card-content">
+
+                    <h3>
+                        Omega Watch
+                    </h3>
+
+                    <p>
+                        Premium Omega timepiece.
+                    </p>
+
+                    <div class="omega-price">
+                        ₹0
+                    </div>
+
+                    <a
+                        href="#"
+                        class="omega-button"
+                    >
+                        View Product
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 2 -->
+
+            <div class="omega-card">
+
+                <div class="omega-card-image">
+
+                    <img
+                        src="omega-product-2.jpeg"
+                        alt="Omega Watch"
+                    >
+
+                </div>
+
+                <div class="omega-card-content">
+
+                    <h3>
+                        Omega Watch
+                    </h3>
+
+                    <p>
+                        Premium Omega timepiece.
+                    </p>
+
+                    <div class="omega-price">
+                        ₹0
+                    </div>
+
+                    <a
+                        href="#"
+                        class="omega-button"
+                    >
+                        View Product
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 3 -->
+
+            <div class="omega-card">
+
+                <div class="omega-card-image">
+
+                    <img
+                        src="omega-product-3.jpeg"
+                        alt="Omega Watch"
+                    >
+
+                </div>
+
+                <div class="omega-card-content">
+
+                    <h3>
+                        Omega Watch
+                    </h3>
+
+                    <p>
+                        Premium Omega timepiece.
+                    </p>
+
+                    <div class="omega-price">
+                        ₹0
+                    </div>
+
+                    <a
+                        href="#"
+                        class="omega-button"
+                    >
+                        View Product
+                    </a>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================================
+         FOOTER
+    ================================ -->
+
+    <footer class="main-footer">
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 50 Mirars -
+                The Watch &amp; Sunglasses Store.
+                All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+</body>
+
+</html>
