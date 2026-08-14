@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=1200"
+>
+
+<title>Order Confirmed | 50 Mirars</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f9f9f9;
+    color: #222;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    background: #fff;
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 28px;
+    text-align: center;
+    flex: 1;
+}
+
+.logo {
+    width: 120px;
+    height: auto;
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+.confirmation-page {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+
+/* =========================
+   SUCCESS BOX
+========================= */
+
+.success-box {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    padding: 40px;
+    text-align: center;
+}
+
+.success-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: #009688;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 38px;
+    font-weight: bold;
+}
+
+.success-box h2 {
+    margin: 0 0 10px;
+    font-size: 30px;
+}
+
+.success-message {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+
+/* =========================
+   ORDER ID
+========================= */
+
+.order-id-box {
+    margin: 25px auto;
+    padding: 15px 20px;
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 7px;
+    max-width: 450px;
+}
+
+.order-id-label {
+    font-size: 13px;
+    color: #777;
+}
+
+.order-id {
+    margin-top: 6px;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+
+/* =========================
+   DETAILS
+========================= */
+
+.details-section {
+    margin-top: 30px;
+    text-align: left;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.details-section h3 {
+    margin-top: 0;
+    font-size: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 12px;
+}
+
+
+/* =========================
+   CUSTOMER DETAILS
+========================= */
+
+.customer-detail {
+    display: flex;
+    gap: 20px;
+    padding: 9px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.customer-detail:last-child {
+    border-bottom: none;
+}
+
+.detail-label {
+    width: 170px;
+    font-weight: 600;
+}
+
+.detail-value {
+    flex: 1;
+    color: #555;
+    word-break: break-word;
+}
+
+
+/* =========================
+   PRODUCTS
+========================= */
+
+.product-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 14px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.product-item:last-child {
+    border-bottom: none;
+}
+
+.product-name {
+    flex: 1;
+    font-weight: 600;
+}
+
+.product-quantity {
+    color: #666;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.product-price {
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+
+/* =========================
+   TOTALS
+========================= */
+
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    padding: 9px 0;
+    font-size: 15px;
+}
+
+.discount {
+    color: #008577;
+}
+
+.total-line {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #ddd;
+    padding-top: 16px;
+    margin-top: 10px;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+
+/* =========================
+   PAYMENT STATUS
+========================= */
+
+.payment-status {
+    margin-top: 25px;
+    padding: 15px;
+    background: #fff8e1;
+    border: 1px solid #ffe082;
+    border-radius: 7px;
+    text-align: center;
+}
+
+.payment-status strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.button-area {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.home-btn {
+    display: inline-block;
+    background: #009688;
+    color: #fff;
+    text-decoration: none;
+    padding: 13px 28px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.home-btn:hover {
+    background: #00796b;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #111;
+    color: #fff;
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+footer div {
+    flex: 1;
+    margin: 10px;
+}
+
+footer h4 {
+    margin-bottom: 10px;
+}
+
+footer a {
+    color: #c9a24d;
+    text-decoration: none;
+    display: block;
+    margin: 5px 0;
+}
+
+footer a:hover {
+    color: #fff;
+}
+
+.footer-bottom {
+    text-align: center;
+    flex-basis: 100%;
+    margin-top: 20px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    .confirmation-page {
+        margin: 25px auto;
+    }
+
+    .success-box {
+        padding: 25px;
+    }
+
+    .customer-detail {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .detail-label {
+        width: auto;
+    }
+
+    .product-item {
+        flex-direction: column;
+        gap: 6px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <h1>
+        50 Mirars
+    </h1>
+
+    <img
+        src="logo.jpeg"
+        alt="50 Mirars Logo"
+        class="logo"
+    >
+
+</header>
+
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<section class="confirmation-page">
+
+
+    <!-- SUCCESS -->
+
+    <div class="success-box">
+
+        <div class="success-icon">
+            ✓
+        </div>
+
+
+        <h2>
+            Order Received!
+        </h2>
+
+
+        <p class="success-message">
+
+            Thank you for shopping with
+            <strong>50 Mirars</strong>.
+
+            <br>
+
+            We have received your order
+            and payment details.
+
+        </p>
+
+
+        <!-- ORDER ID -->
+
+        <div class="order-id-box">
+
+            <div class="order-id-label">
+                Your Order ID
+            </div>
+
+            <div
+                class="order-id"
+                id="order-id"
+            >
+                Generating...
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             CUSTOMER DETAILS
+        ========================= -->
+
+        <div class="details-section">
+
+            <h3>
+                Delivery Details
+            </h3>
+
+
+            <div class="customer-detail">
+
+                <div class="detail-label">
+                    Name
+                </div>
+
+                <div
+                    class="detail-value"
+                    id="customer-name"
+                ></div>
+
+            </div>
+
+
+            <div class="customer-detail">
+
+                <div class="detail-label">
+                    Phone
+                </div>
+
+                <div
+                    class="detail-value"
+                    id="customer-phone"
+                ></div>
+
+            </div>
+
+
+            <div class="customer-detail">
+
+                <div class="detail-label">
+                    Email
+                </div>
+
+                <div
+                    class="detail-value"
+                    id="customer-email"
+                ></div>
+
+            </div>
+
+
+            <div class="customer-detail">
+
+                <div class="detail-label">
+                    Address
+                </div>
+
+                <div
+                    class="detail-value"
+                    id="customer-address"
+                ></div>
+
+            </div>
+
+
+            <div class="customer-detail">
+
+                <div class="detail-label">
+                    City
+                </div>
+
+                <div
+                    class="detail-value"
+                    id="customer-city"
+                ></div>
+
+            </div>
+
+
+            <div class="customer-detail">
+
+                <div class="detail-label">
+                    State
+                </div>
+
+                <div
+                    class="detail-value"
+                    id="customer-state"
+                ></div>
+
+            </div>
+
+
+            <div class="customer-detail">
+
+                <div class="detail-label">
+                    PIN Code
+                </div>
+
+                <div
+                    class="detail-value"
+                    id="customer-pin"
+                ></div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =========================
+             ORDER DETAILS
+        ========================= -->
+
+        <div class="details-section">
+
+            <h3>
+                Order Details
+            </h3>
+
+
+            <div id="product-list"></div>
+
+
+            <div class="summary-line">
+
+                <span>
+                    Subtotal
+                </span>
+
+                <span id="subtotal">
+                    ₹0
+                </span>
+
+            </div>
+
+
+            <div class="summary-line discount">
+
+                <span>
+                    Discount
+                </span>
+
+                <span id="discount">
+                    ₹0
+                </span>
+
+            </div>
+
+
+            <div class="summary-line">
+
+                <span>
+                    Shipping
+                </span>
+
+                <span>
+                    Free
+                </span>
+
+            </div>
+
+
+            <div class="total-line">
+
+                <span>
+                    Total Paid
+                </span>
+
+                <span id="total">
+                    ₹0
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =========================
+             PAYMENT DETAILS
+        ========================= -->
+
+        <div class="details-section">
+
+            <h3>
+                Payment Details
+            </h3>
+
+
+            <div class="customer-detail">
+
+                <div class="detail-label">
+                    Transaction ID / UTR
+                </div>
+
+                <div
+                    class="detail-value"
+                    id="transaction-id"
+                ></div>
+
+            </div>
+
+
+            <div class="payment-status">
+
+                <strong>
+                    Payment Verification Pending
+                </strong>
+
+                Your payment will be verified
+                by 50 Mirars before the order
+                is dispatched.
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =========================
+             BUTTON
+        ========================= -->
+
+        <div class="button-area">
+
+            <a
+                href="index.html"
+                class="home-btn"
+            >
+                Continue Shopping
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div>
+
+        <h4>
+            About
+        </h4>
+
+        <p>
+            50 Mirars premium watches and accessories.
+        </p>
+
+    </div>
+
+
+    <div>
+
+        <h4>
+            Categories
+        </h4>
+
+        <a href="#">
+            Watches
+        </a>
+
+        <a href="#">
+            Sunglasses
+        </a>
+
+        <a href="#">
+            Limited Editions
+        </a>
+
+    </div>
+
+
+    <div>
+
+        <h4>
+            Support
+        </h4>
+
+        <a href="mailto:50mirars@gmail.com">
+            Email
+        </a>
+
+        <a
+            href="https://wa.me/918209989013"
+            target="_blank"
+        >
+            WhatsApp
+        </a>
+
+        <a
+            href="https://www.instagram.com/50mirars"
+            target="_blank"
+        >
+            Instagram
+        </a>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        © 2026 50 Mirars. All Rights Reserved.
+
+    </div>
+
+</footer>
+
+
+
+<script>
+
+/* =====================================================
+   GET SAVED ORDER
+===================================================== */
+
+function loadOrder() {
+
+    const orderData =
+        JSON.parse(
+
+            localStorage.getItem(
+                "orderData"
+            )
+
+        );
+
+
+    const deliveryDetails =
+        JSON.parse(
+
+            localStorage.getItem(
+                "deliveryDetails"
+            )
+
+        );
+
+
+    if (!orderData || !deliveryDetails) {
+
+        document.getElementById(
+            "order-id"
+        ).innerText =
+            "Order information unavailable";
+
+        return;
+
+    }
+
+
+    /* =========================
+       CREATE ORDER ID
+    ========================= */
+
+    let orderId =
+        localStorage.getItem(
+            "orderId"
+        );
+
+
+    if (!orderId) {
+
+        orderId =
+            "50M-" +
+            Date.now();
+
+        localStorage.setItem(
+            "orderId",
+            orderId
+        );
+
+    }
+
+
+    document.getElementById(
+        "order-id"
+    ).innerText =
+        orderId;
+
+
+
+    /* =========================
+       CUSTOMER DETAILS
+    ========================= */
+
+    document.getElementById(
+        "customer-name"
+    ).innerText =
+        deliveryDetails.customerName || "";
+
+
+    document.getElementById(
+        "customer-phone"
+    ).innerText =
+        deliveryDetails.phone || "";
+
+
+    document.getElementById(
+        "customer-email"
+    ).innerText =
+        deliveryDetails.email || "";
+
+
+    document.getElementById(
+        "customer-address"
+    ).innerText =
+        deliveryDetails.address || "";
+
+
+    document.getElementById(
+        "customer-city"
+    ).innerText =
+        deliveryDetails.city || "";
+
+
+    document.getElementById(
+        "customer-state"
+    ).innerText =
+        deliveryDetails.state || "";
+
+
+    document.getElementById(
+        "customer-pin"
+    ).innerText =
+        deliveryDetails.pin || "";
+
+
+
+    /* =========================
+       TRANSACTION ID
+    ========================= */
+
+    document.getElementById(
+        "transaction-id"
+    ).innerText =
+        orderData.transactionId || "";
+
+
+
+    /* =========================
+       PRODUCTS
+    ========================= */
+
+    const productList =
+        document.getElementById(
+            "product-list"
+        );
+
+
+    productList.innerHTML = "";
+
+
+    const products = {};
+
+
+    (orderData.cart || []).forEach(
+        function(item) {
+
+            const key =
+                item.name + "|" + item.price;
+
+
+            if (!products[key]) {
+
+                products[key] = {
+
+                    name: item.name,
+
+                    price:
+                        getPrice(item),
+
+                    quantity: 0
+
+                };
+
+            }
+
+
+            products[key].quantity++;
+
+        }
+    );
+
+
+    Object.values(products).forEach(
+        function(item) {
+
+            const itemTotal =
+                item.price *
+                item.quantity;
+
+
+            productList.innerHTML += `
+
+                <div class="product-item">
+
+                    <div class="product-name">
+
+                        ${item.name}
+
+                        <div class="product-quantity">
+
+                            Quantity:
+                            ${item.quantity}
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="product-price">
+
+                        ₹${itemTotal.toLocaleString("en-IN")}
+
+                    </div>
+
+                </div>
+
+            `;
+
+        }
+    );
+
+
+
+    /* =========================
+       TOTALS
+    ========================= */
+
+    const subtotal =
+        Number(
+            orderData.subtotal
+        ) || 0;
+
+
+    const discount =
+        Number(
+            orderData.discount
+        ) || 0;
+
+
+    const total =
+        Number(
+            orderData.total
+        ) ||
+        (subtotal - discount);
+
+
+    document.getElementById(
+        "subtotal"
+    ).innerText =
+
+        "₹" +
+        subtotal.toLocaleString(
+            "en-IN"
+        );
+
+
+    document.getElementById(
+        "discount"
+    ).innerText =
+
+        "₹" +
+        discount.toLocaleString(
+            "en-IN"
+        );
+
+
+    document.getElementById(
+        "total"
+    ).innerText =
+
+        "₹" +
+        total.toLocaleString(
+            "en-IN"
+        );
+
+}
+
+
+/* =====================================================
+   GET PRICE
+===================================================== */
+
+function getPrice(item) {
+
+    return parseFloat(
+
+        String(item.price)
+            .replace(/[^0-9.]/g, "")
+
+    ) || 0;
+
+}
+
+
+/* =====================================================
+   START
+===================================================== */
+
+loadOrder();
+
+</script>
+
+
+</body>
+
+</html>
