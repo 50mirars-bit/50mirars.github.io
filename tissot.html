@@ -361,28 +361,35 @@ body{
    IMAGE SLIDER
 ========================================================= */
 
+/* =========================================================
+   IMAGE SLIDER — FIXED
+========================================================= */
+
 .slider{
     width:100%;
-
+    height:350px;
     position:relative;
-
     overflow:hidden;
+    background:#f5f5f5;
 }
 
 .slide{
     width:100%;
-
     height:350px;
 
     object-fit:cover;
 
     display:none;
+
+    position:absolute;
+    top:0;
+    left:0;
 }
 
 .slide.active{
     display:block;
 }
-
+    
 
 /* =========================================================
    SLIDER BUTTONS
@@ -1883,80 +1890,102 @@ select{
 
 <script>
 
+document.querySelectorAll(".slider").forEach(slider => {
 
-/* =========================================================
-   IMAGE SLIDER
-========================================================= */
+    const slides = slider.querySelectorAll(".slide");
+    const nextButton = slider.querySelector(".next");
+    const prevButton = slider.querySelector(".prev");
 
-document.querySelectorAll('.slider').forEach(slider => {
-
-    const slides =
-        slider.querySelectorAll('.slide');
-
-    if(slides.length === 0){
+    if (slides.length === 0) {
         return;
     }
 
     let current = 0;
 
+    function showSlide(index) {
 
-    const nextButton =
-        slider.querySelector('.next');
+        slides.forEach(slide => {
+            slide.classList.remove("active");
+        });
 
-    const prevButton =
-        slider.querySelector('.prev');
+        slides[index].classList.add("active");
+    }
 
+    if (nextButton) {
 
-    if(nextButton){
+        nextButton.addEventListener("click", function () {
 
-        nextButton.addEventListener(
-            'click',
-            () => {
+            current++;
 
-                slides[current]
-                    .classList
-                    .remove('active');
-
-
-                current =
-                    (current + 1) %
-                    slides.length;
-
-
-                slides[current]
-                    .classList
-                    .add('active');
-
+            if (current >= slides.length) {
+                current = 0;
             }
-        );
+
+            showSlide(current);
+
+        });
 
     }
 
+    if (prevButton) {
 
-    if(prevButton){
+        prevButton.addEventListener("click", function () {
 
-        prevButton.addEventListener(
-            'click',
-            () => {
+            current--;
 
-                slides[current]
-                    .classList
-                    .remove('active');
-
-
-                current =
-                    (current - 1 + slides.length) %
-                    slides.length;
-
-
-                slides[current]
-                    .classList
-                    .add('active');
-
+            if (current < 0) {
+                current = slides.length - 1;
             }
-        );
+
+            showSlide(current);
+
+        });
 
     }
+
+    /* Mobile swipe */
+
+    let startX = 0;
+    let endX = 0;
+
+    slider.addEventListener("touchstart", function(event) {
+
+        startX = event.touches[0].clientX;
+
+    }, { passive:true });
+
+
+    slider.addEventListener("touchend", function(event) {
+
+        endX = event.changedTouches[0].clientX;
+
+        const difference = startX - endX;
+
+        if (Math.abs(difference) < 40) {
+            return;
+        }
+
+        if (difference > 0) {
+
+            current++;
+
+            if (current >= slides.length) {
+                current = 0;
+            }
+
+        } else {
+
+            current--;
+
+            if (current < 0) {
+                current = slides.length - 1;
+            }
+
+        }
+
+        showSlide(current);
+
+    });
 
 });
 
