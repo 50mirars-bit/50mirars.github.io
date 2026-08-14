@@ -12,7 +12,6 @@
 
 <title>Rolex Collection | 50 Mirars</title>
 
-
 <style>
 
 /* =========================================================
@@ -181,8 +180,8 @@ body {
         rgba(0, 0, 0, 0.08);
 }
 
-.product-card img,
-.product-card video {
+.product-card > img,
+.product-card > video {
     width: 100%;
     max-width: 100%;
 
@@ -194,6 +193,11 @@ body {
 
     background: #f5f5f5;
 }
+
+
+/* =========================================================
+   PRODUCT TITLE
+========================================================= */
 
 .product-card h3 {
     margin: 20px 10px 10px;
@@ -268,7 +272,7 @@ body {
 
 
 /* =========================================================
-   ENQUIRE
+   ENQUIRE BUTTON
 ========================================================= */
 
 .enquire-btn {
@@ -285,7 +289,7 @@ body {
 
 
 /* =========================================================
-   ADD TO CART
+   ADD TO CART BUTTON
 ========================================================= */
 
 .add-to-cart-btn {
@@ -304,50 +308,63 @@ body {
 
 
 /* =========================================================
-   IMAGE SLIDER - FIXED
+   SLIDER
 ========================================================= */
 
 .slider {
     position: relative;
+
     width: 100%;
     height: 350px;
-    max-width: 100%;
+
     overflow: hidden;
+
     background: #f5f5f5;
 }
 
-.slide {
+.slider .slide {
     position: absolute;
+
     top: 0;
     left: 0;
 
     width: 100%;
     height: 350px;
 
-    max-width: 100%;
-
     object-fit: cover;
 
     display: none;
+
+    margin: 0;
+    padding: 0;
 }
 
-.slide.active {
+.slider .slide.active {
     display: block;
 }
+
 
 /* =========================================================
    SLIDER BUTTONS
 ========================================================= */
 
-.prev,
-.next {
+.slider .prev,
+.slider .next {
     position: absolute;
 
     top: 50%;
 
     transform: translateY(-50%);
 
-    background: rgba(0, 0, 0, 0.6);
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(0, 0, 0, 0.60);
 
     color: #fff;
 
@@ -355,21 +372,34 @@ body {
 
     cursor: pointer;
 
-    padding: 12px 16px;
-
     font-size: 22px;
 
     border-radius: 50%;
 
-    z-index: 5;
+    z-index: 10;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
 }
 
-.prev {
-    left: 10px;
+.slider .prev {
+    left: 12px;
 }
 
-.next {
-    right: 10px;
+.slider .next {
+    right: 12px;
+}
+
+.slider .prev:hover,
+.slider .next:hover {
+    background: #c9a24d;
+
+    color: #111;
+
+    transform:
+        translateY(-50%)
+        scale(1.05);
 }
 
 
@@ -960,8 +990,8 @@ body {
         gap: 25px;
     }
 
-.product-card img,
-    .product-card video {
+    .product-card > img,
+    .product-card > video {
         height: 300px;
     }
 
@@ -969,10 +999,10 @@ body {
         height: 300px;
     }
 
-    .slide {
+    .slider .slide {
         height: 300px;
     }
-    
+
     .product-buttons {
         padding: 0 15px;
     }
@@ -982,6 +1012,14 @@ body {
         padding: 10px 15px;
 
         font-size: 15px;
+    }
+
+    .slider .prev,
+    .slider .next {
+        width: 40px;
+        height: 40px;
+
+        font-size: 18px;
     }
 
     .rolex-info-section {
@@ -1139,1088 +1177,1203 @@ body {
 
 <!-- =========================================================
      ROLEX PRODUCTS
-     
-     IMPORTANT:
-     THERE IS ONLY ONE products-grid HERE.
 ========================================================= -->
 
 <div class="products-grid">
 
 
-    <!-- =====================================================
-         1. ROLEX PHEONIX WATCH
-    ====================================================== -->
+<!-- =====================================================
+     1. ROLEX PHEONIX WATCH
+====================================================== -->
 
-    <div class="product-card">
-
-        <video
-            controls
-            playsinline
-            preload="metadata"
-        >
-            <source
-                src="Rolex Pheonix Watch.mp4"
-                type="video/mp4"
-            >
-
-            Your browser does not support video playback.
-
-        </video>
-
-        <h3>Rolex Pheonix Watch</h3>
-
-        <div class="price">
-            ₹4,000
-        </div>
-
-        <div class="product-buttons">
-
-            <a
-                class="enquire-btn"
-                href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Pheonix%20Watch.%20Please%20share%20availability%20and%20details."
-                target="_blank"
-                rel="noopener"
-            >
-                Enquire Now
-            </a>
-
-            <button
-                type="button"
-                class="add-to-cart-btn"
-                data-name="Rolex Pheonix Watch"
-                data-price="4000"
-                data-image="Rolex Pheonix Watch.mp4"
-            >
-                Add to Cart
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- =====================================================
-         2. ROLEX DAYTONA 116578SACO
-    ====================================================== -->
-
-    <div class="product-card">
-
-        <video
-            controls
-            playsinline
-            preload="metadata"
-        >
-
-            <source
-                src="Rolex Daytona 116578SACO.mp4"
-                type="video/mp4"
-            >
-
-        </video>
-
-        <h3>Rolex Daytona 116578SACO</h3>
-
-        <div class="price">
-            ₹3,500
-        </div>
-
-        <div class="product-buttons">
-
-            <a
-                class="enquire-btn"
-                href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Rolex%20Daytona%20116578SACO"
-                target="_blank"
-                rel="noopener"
-            >
-                Enquire Now
-            </a>
-
-            <button
-                type="button"
-                class="add-to-cart-btn"
-                data-name="Rolex Daytona 116578SACO"
-                data-price="3500"
-                data-image="Rolex Daytona 116578SACO.mp4"
-            >
-                Add to Cart
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- =====================================================
-         3. ROLEX DATEJUST 41 WIMBLEDON DIAL
-    ====================================================== -->
-
-    <div class="product-card">
-
-        <video
-            controls
-            playsinline
-            preload="metadata"
-        >
-
-            <source
-                src="Rolex Datejust 41 Wimbledon Dial.mp4"
-                type="video/mp4"
-            >
-
-        </video>
-
-        <h3>Rolex Datejust 41 Wimbledon Dial</h3>
-
-        <div class="price">
-            ₹3,500
-        </div>
-
-        <div class="product-buttons">
-
-            <a
-                class="enquire-btn"
-                href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Rolex%20Datejust%2041%20Wimbledon%20Dial"
-                target="_blank"
-                rel="noopener"
-            >
-                Enquire Now
-            </a>
-
-            <button
-                type="button"
-                class="add-to-cart-btn"
-                data-name="Rolex Datejust 41 Wimbledon Dial"
-                data-price="3500"
-                data-image="Rolex Datejust 41 Wimbledon Dial.mp4"
-            >
-                Add to Cart
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- =====================================================
-         4. ROLEX COSMOGRAPH DAYTONA JOHN MAYER
-    ====================================================== -->
-
-    <div class="product-card">
-
-        <video
-            controls
-            playsinline
-            preload="metadata"
-        >
-
-            <source
-                src="Rolex Cosmograph Daytona John Mayer 116508.mp4"
-                type="video/mp4"
-            >
-
-        </video>
-
-        <h3>
-            Rolex Cosmograph Daytona John Mayer 116508
-        </h3>
-
-        <div class="price">
-            ₹3,500
-        </div>
-
-        <div class="product-buttons">
-
-            <a
-                class="enquire-btn"
-                href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Rolex%20Cosmograph%20Daytona%20John%20Mayer%20116508"
-                target="_blank"
-                rel="noopener"
-            >
-                Enquire Now
-            </a>
-
-            <button
-                type="button"
-                class="add-to-cart-btn"
-                data-name="Rolex Cosmograph Daytona John Mayer 116508"
-                data-price="3500"
-                data-image="Rolex Cosmograph Daytona John Mayer 116508.mp4"
-            >
-                Add to Cart
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- =====================================================
-         5. ROLEX YATCH-MASTER 42
-    ====================================================== -->
-
-    <div class="product-card">
-
-        <img
-            src="Rolex Yatch-Master 42.jpeg"
-            alt="Rolex Yatch-Master 42"
-            loading="lazy"
-        >
-
-        <h3>Rolex Yatch-Master 42</h3>
-
-        <div class="price">
-            ₹5,000
-        </div>
-
-        <div class="product-buttons">
-
-            <a
-                class="enquire-btn"
-                href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Yatch-Master%2042."
-                target="_blank"
-                rel="noopener"
-            >
-                Enquire Now
-            </a>
-
-            <button
-                type="button"
-                class="add-to-cart-btn"
-                data-name="Rolex Yatch-Master 42"
-                data-price="5000"
-                data-image="Rolex Yatch-Master 42.jpeg"
-            >
-                Add to Cart
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- =====================================================
-         6. ROLEX GMT-MASTER II ROOT BEER
-    ====================================================== -->
-
-    <div class="product-card">
-
-        <video
-            controls
-            playsinline
-            preload="metadata"
-        >
-
-            <source
-                src="Rolex GMT-Master II Root Beer .mp4"
-                type="video/mp4"
-            >
-
-        </video>
-
-        <h3>Rolex GMT-Master II Root Beer</h3>
-
-        <div class="price">
-            ₹3,500
-        </div>
-
-        <div class="product-buttons">
-
-            <a
-                class="enquire-btn"
-                href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Rolex%20GMT-Master%20II%20Root%20Beer"
-                target="_blank"
-                rel="noopener"
-            >
-                Enquire Now
-            </a>
-
-            <button
-                type="button"
-                class="add-to-cart-btn"
-                data-name="Rolex GMT-Master II Root Beer"
-                data-price="3500"
-                data-image="Rolex GMT-Master II Root Beer .mp4"
-            >
-                Add to Cart
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- =====================================================
-         7. ROLEX COSMOGRAPH
-    ====================================================== -->
-
-    <div class="product-card">
-
-        <img
-            src="Rolex Cosmograph .jpeg"
-            alt="Rolex Cosmograph"
-            loading="lazy"
-        >
-
-        <h3>Rolex Cosmograph</h3>
-
-        <div class="price">
-            ₹5,000
-        </div>
-
-        <div class="product-buttons">
-
-            <a
-                class="enquire-btn"
-                href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Cosmograph."
-                target="_blank"
-                rel="noopener"
-            >
-                Enquire Now
-            </a>
-
-            <button
-                type="button"
-                class="add-to-cart-btn"
-                data-name="Rolex Cosmograph"
-                data-price="5000"
-                data-image="Rolex Cosmograph .jpeg"
-            >
-                Add to Cart
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- =====================================================
-         8. ROLEX COSMOGRAPH DAYTONA GREEN
-    ====================================================== -->
-
-    <div class="product-card">
-
-        <img
-            src="Rolex Cosmograph Dayona Green.jpeg"
-            alt="Rolex Cosmograph Daytona Green"
-            loading="lazy"
-        >
-
-        <h3>Rolex Cosmograph Daytona Green</h3>
-
-        <div class="price">
-            ₹5,000
-        </div>
-
-        <div class="product-buttons">
-
-            <a
-                class="enquire-btn"
-                href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Cosmograph%20Daytona%20Green."
-                target="_blank"
-                rel="noopener"
-            >
-                Enquire Now
-            </a>
-
-            <button
-                type="button"
-                class="add-to-cart-btn"
-                data-name="Rolex Cosmograph Daytona Green"
-                data-price="5000"
-                data-image="Rolex Cosmograph Dayona Green.jpeg"
-            >
-                Add to Cart
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- =====================================================
-         9. ROLEX COSMOGRAPH DAYTONA JOHN WALKER
-    ====================================================== -->
-
-    <div class="product-card">
-
-        <img
-            src="Rolex Cosmograph Daytona John Walker.jpeg"
-            alt="Rolex Cosmograph Daytona John Walker"
-            loading="lazy"
-        >
-
-        <h3>Rolex Cosmograph Daytona John Walker</h3>
-
-        <div class="price">
-            ₹5,000
-        </div>
-
-        <div class="product-buttons">
-
-            <a
-                class="enquire-btn"
-                href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Cosmograph%20Daytona%20John%20Walker."
-                target="_blank"
-                rel="noopener"
-            >
-                Enquire Now
-            </a>
-
-            <button
-                type="button"
-                class="add-to-cart-btn"
-                data-name="Rolex Cosmograph Daytona John Walker"
-                data-price="5000"
-                data-image="Rolex Cosmograph Daytona John Walker.jpeg"
-            >
-                Add to Cart
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- =====================================================
-         10. ROLEX DAYTONA RAINBOW
-    ====================================================== -->
-
-    <div class="product-card">
-
-        <img
-            src="Rolex Daytona Rainbow.jpeg"
-            alt="Rolex Daytona Rainbow"
-            loading="lazy"
-        >
-
-        <h3>Rolex Daytona Rainbow</h3>
-
-        <div class="price">
-            ₹5,000
-        </div>
-
-        <div class="product-buttons">
-
-            <a
-                class="enquire-btn"
-                href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Daytona%20Rainbow."
-                target="_blank"
-                rel="noopener"
-            >
-                Enquire Now
-            </a>
-
-            <button
-                type="button"
-                class="add-to-cart-btn"
-                data-name="Rolex Daytona Rainbow"
-                data-price="5000"
-                data-image="Rolex Daytona Rainbow.jpeg"
-            >
-                Add to Cart
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- =====================================================
-         11. ROLEX SUBMARINE DATE JUST SILVER-GOLD
-    ====================================================== -->
-
-    <div class="product-card">
-
-        <img
-            src="Rolex Submarine Date Just Silver-Gold.jpeg"
-            alt="Rolex Submarine Date Just Silver-Gold"
-            loading="lazy"
-        >
-
-        <h3>Rolex Submarine Date Just Silver-Gold</h3>
-
-        <div class="price">
-            ₹5,000
-        </div>
-
-        <div class="product-buttons">
-
-            <a
-                class="enquire-btn"
-                href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Submarine%20Date%20Just%20Silver-Gold.%20Please%20share%20availability%20and%20details."
-                target="_blank"
-                rel="noopener"
-            >
-                Enquire Now
-            </a>
-
-            <button
-                type="button"
-                class="add-to-cart-btn"
-                data-name="Rolex Submarine Date Just Silver-Gold"
-                data-price="5000"
-                data-image="Rolex Submarine Date Just Silver-Gold.jpeg"
-            >
-                Add to Cart
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- =====================================================
-         12. ROLEX SUBMARINE DATE JUST SILVER
-    ====================================================== -->
-
-    <div class="product-card">
-
-        <img
-            src="Rolex Submarine Date Just Silver.jpeg"
-            alt="Rolex Submarine Date Just Silver"
-            loading="lazy"
-        >
-
-        <h3>Rolex Submarine Date Just Silver</h3>
-
-        <div class="price">
-            ₹5,000
-        </div>
-
-        <div class="product-buttons">
-
-            <a
-                class="enquire-btn"
-                href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Submarine%20Date%20Just%20Silver.%20Please%20share%20availability%20and%20details."
-                target="_blank"
-                rel="noopener"
-            >
-                Enquire Now
-            </a>
-
-            <button
-                type="button"
-                class="add-to-cart-btn"
-                data-name="Rolex Submarine Date Just Silver"
-                data-price="5000"
-                data-image="Rolex Submarine Date Just Silver.jpeg"
-            >
-                Add to Cart
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- =====================================================
-         13. ROLEX SUBMARINE DATE JUST GOLD
-    ====================================================== -->
-
-    <div class="product-card">
-
-        <img
-            src="Rolex Submarine Date Just Gold.jpeg"
-            alt="Rolex Submarine Date Just Gold"
-            loading="lazy"
-        >
-
-        <h3>Rolex Submarine Date Just Gold</h3>
-
-        <div class="price">
-            ₹5,000
-        </div>
-
-        <div class="product-buttons">
-
-            <a
-                class="enquire-btn"
-                href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Submarine%20Date%20Just%20Gold.%20Please%20share%20availability%20and%20details."
-                target="_blank"
-                rel="noopener"
-            >
-                Enquire Now
-            </a>
-
-            <button
-                type="button"
-                class="add-to-cart-btn"
-                data-name="Rolex Submarine Date Just Gold"
-                data-price="5000"
-                data-image="Rolex Submarine Date Just Gold.jpeg"
-            >
-                Add to Cart
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- =====================================================
-         14. ROLEX EYE OF THE TIGER
-    ====================================================== -->
-
-    <div class="product-card">
-
-        <img
-            src="Rolex Eye of The Tiger.jpeg"
-            alt="Rolex Eye of The Tiger"
-            loading="lazy"
-        >
-
-        <h3>Rolex Eye of The Tiger</h3>
-
-        <div class="price">
-            ₹4,000
-        </div>
-
-        <div class="product-buttons">
-
-            <a
-                class="enquire-btn"
-                href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Eye%20of%20The%20Tiger.%20Please%20share%20availability%20and%20details."
-                target="_blank"
-                rel="noopener"
-            >
-                Enquire Now
-            </a>
-
-            <button
-                type="button"
-                class="add-to-cart-btn"
-                data-name="Rolex Eye of The Tiger"
-                data-price="4000"
-                data-image="Rolex Eye of The Tiger.jpeg"
-            >
-                Add to Cart
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- =====================================================
-         15. ROLEX SKY-DWELLER
-    ====================================================== -->
-
-    <div class="product-card">
-
-        <img
-            src="Rolex Sky-Dweller.jpeg"
-            alt="Rolex Sky-Dweller"
-            loading="lazy"
-        >
-
-        <h3>Rolex Sky-Dweller</h3>
-
-        <div class="price">
-            ₹5,000
-        </div>
-
-        <div class="product-buttons">
-
-            <a
-                class="enquire-btn"
-                href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Sky-Dweller.%20Please%20share%20availability%20and%20details."
-                target="_blank"
-                rel="noopener"
-            >
-                Enquire Now
-            </a>
-
-            <button
-                type="button"
-                class="add-to-cart-btn"
-                data-name="Rolex Sky-Dweller"
-                data-price="5000"
-                data-image="Rolex Sky-Dweller.jpeg"
-            >
-                Add to Cart
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- =====================================================
-         16. ROLEX SUBMARINE BLUE
-    ====================================================== -->
-
-    <div class="product-card">
-
-        <img
-            src="Rolex Sumbarine Blue.jpeg"
-            alt="Rolex Submarine Blue"
-            loading="lazy"
-        >
-
-        <h3>Rolex Submarine Blue</h3>
-
-        <div class="price">
-            ₹5,000
-        </div>
-
-        <div class="product-buttons">
-
-            <a
-                class="enquire-btn"
-                href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Submarine%20Blue.%20Please%20share%20availability%20and%20details."
-                target="_blank"
-                rel="noopener"
-            >
-                Enquire Now
-            </a>
-
-            <button
-                type="button"
-                class="add-to-cart-btn"
-                data-name="Rolex Submarine Blue"
-                data-price="5000"
-                data-image="Rolex Sumbarine Blue.jpeg"
-            >
-                Add to Cart
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- =====================================================
-         17. ROLEX GMT-MASTER II SIMPLE DIAL
-    ====================================================== -->
-
-    <div class="product-card">
-
-        <img
-            src="Rolex GMT-Master II Simple Dial.jpeg"
-            alt="Rolex GMT-Master II Simple Dial"
-            loading="lazy"
-        >
-
-        <h3>Rolex GMT-Master II Simple Dial</h3>
-
-        <div class="price">
-            ₹6,000
-        </div>
-
-        <div class="product-buttons">
-
-            <a
-                class="enquire-btn"
-                href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20GMT-Master%20II%20Simple%20Dial.%20Please%20share%20availability%20and%20details."
-                target="_blank"
-                rel="noopener"
-            >
-                Enquire Now
-            </a>
-
-            <button
-                type="button"
-                class="add-to-cart-btn"
-                data-name="Rolex GMT-Master II Simple Dial"
-                data-price="6000"
-                data-image="Rolex GMT-Master II Simple Dial.jpeg"
-            >
-                Add to Cart
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- =====================================================
-         18. ROLEX GMT-MASTER II
-    ====================================================== -->
-
-    <div class="product-card">
-
-        <img
-            src="Rolex GMT-Master II.jpeg"
-            alt="Rolex GMT-Master II"
-            loading="lazy"
-        >
-
-        <h3>Rolex GMT-Master II</h3>
-
-        <div class="price">
-            ₹6,000
-        </div>
-
-        <div class="product-buttons">
-
-            <a
-                class="enquire-btn"
-                href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20GMT-Master%20II.%20Please%20share%20availability%20and%20details."
-                target="_blank"
-                rel="noopener"
-            >
-                Enquire Now
-            </a>
-
-            <button
-                type="button"
-                class="add-to-cart-btn"
-                data-name="Rolex GMT-Master II"
-                data-price="6000"
-                data-image="Rolex GMT-Master II.jpeg"
-            >
-                Add to Cart
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- =====================================================
-         19. ROLEX GENERC ICED-OUT
-    ====================================================== -->
-
-    <div class="product-card">
-
-        <img
-            src="Rolex Generc Iced-Out.jpeg"
-            alt="Rolex Generc Iced-Out"
-            loading="lazy"
-        >
-
-        <h3>Rolex Generc Iced-Out</h3>
-
-        <div class="price">
-            ₹5,000
-        </div>
-
-        <div class="product-buttons">
-
-            <a
-                class="enquire-btn"
-                href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Generc%20Iced-Out.%20Please%20share%20availability%20and%20details."
-                target="_blank"
-                rel="noopener"
-            >
-                Enquire Now
-            </a>
-
-            <button
-                type="button"
-                class="add-to-cart-btn"
-                data-name="Rolex Generc Iced-Out"
-                data-price="5000"
-                data-image="Rolex Generc Iced-Out.jpeg"
-            >
-                Add to Cart
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- =====================================================
-         20. ROLEX OYSTER PERPETUAL DAY-DATE
-    ====================================================== -->
-
-    <div class="product-card">
-
-        <img
-            src="Rolex Oyster Perpetual Day-Date.jpeg"
-            alt="Rolex Oyster Perpetual Day-Date"
-            loading="lazy"
-        >
-
-        <h3>Rolex Oyster Perpetual Day-Date</h3>
-
-        <div class="price">
-            ₹5,500
-        </div>
-
-        <div class="product-buttons">
-
-            <a
-                class="enquire-btn"
-                href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Oyster%20Perpetual%20Day-Date.%20Please%20share%20availability%20and%20details."
-                target="_blank"
-                rel="noopener"
-            >
-                Enquire Now
-            </a>
-
-            <button
-                type="button"
-                class="add-to-cart-btn"
-                data-name="Rolex Oyster Perpetual Day-Date"
-                data-price="5500"
-                data-image="Rolex Oyster Perpetual Day-Date.jpeg"
-            >
-                Add to Cart
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- =====================================================
-         21. ROLEX SUBMARINE BLACK
-    ====================================================== -->
-
-    <div class="product-card">
-
-        <img
-            src="Rolex Submarine Black.jpeg"
-            alt="Rolex Submarine Black"
-            loading="lazy"
-        >
-
-        <h3>Rolex Submarine Black</h3>
-
-        <div class="price">
-            ₹5,000
-        </div>
-
-        <div class="product-buttons">
-
-            <a
-                class="enquire-btn"
-                href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Submarine%20Black.%20Please%20share%20availability%20and%20details."
-                target="_blank"
-                rel="noopener"
-            >
-                Enquire Now
-            </a>
-
-            <button
-                type="button"
-                class="add-to-cart-btn"
-                data-name="Rolex Submarine Black"
-                data-price="5000"
-                data-image="Rolex Submarine Black.jpeg"
-            >
-                Add to Cart
-            </button>
-
-        </div>
-
-    </div>
-
-<!-- Rolex All Black Couple Watch -->
 <div class="product-card">
-  <video width="100%" height="350" controls>
-    <source src="Rolex All Black Couple Watch.mp4" type="video/mp4">
-  </video>
-  <h3>Rolex All Black Couple Watch</h3>
-  <div class="price">₹4,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Rolex%20All%20Black%20Couple%20Watch">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Rolex All Black Couple Watch" data-price="4000">Add to Cart</button>
-  </div>
+
+    <video controls playsinline preload="metadata">
+        <source
+            src="Rolex Pheonix Watch.mp4"
+            type="video/mp4"
+        >
+        Your browser does not support video playback.
+    </video>
+
+    <h3>Rolex Pheonix Watch</h3>
+
+    <div class="price">₹4,000</div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Pheonix%20Watch.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            type="button"
+            class="add-to-cart-btn"
+            data-name="Rolex Pheonix Watch"
+            data-price="4000"
+            data-image="Rolex Pheonix Watch.mp4"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
 </div>
 
 
-<!-- Rolex Automatic Couple Watch -->
+<!-- =====================================================
+     2. ROLEX DAYTONA 116578SACO
+====================================================== -->
+
 <div class="product-card">
-  <img src="Rolex Automatic Couple Watch.jpeg" alt="Rolex Automatic Couple Watch">
-  <h3>Rolex Automatic Couple Watch</h3>
-  <div class="price">₹5,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn"
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Automatic%20Couple%20Watch.">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="Rolex Automatic Couple Watch" data-price="5000">Add to Cart</button>
-  </div>
-</div>
 
-<!-- Rolex Sky-Dweller Couple Watch -->
-<div class="product-card">
-  <img src="Rolex Sky-Dewller Couple Watch.jpeg" alt="Rolex Sky-Dweller Couple Watch">
-  <h3>Rolex Sky-Dweller Couple Watch</h3>
-  <div class="price">₹5,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn"
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Sky-Dewller%20Couple%20Watch.">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="Rolex Sky-Dweller Couple Watch" data-price="5000">Add to Cart</button>
-  </div>
-</div>
+    <video controls playsinline preload="metadata">
 
-
-    <!-- =====================================================
-         22. ROLEX SUBMARINE GREEN
-    ====================================================== -->
-
-    <div class="product-card">
-
-        <img
-            src="Rolex Submarine Green.jpeg"
-            alt="Rolex Submarine Green"
-            loading="lazy"
+        <source
+            src="Rolex Daytona 116578SACO.mp4"
+            type="video/mp4"
         >
 
-        <h3>Rolex Submarine Green</h3>
+    </video>
 
-        <div class="price">
-            ₹5,000
-        </div>
+    <h3>Rolex Daytona 116578SACO</h3>
 
-        <div class="product-buttons">
+    <div class="price">₹3,500</div>
 
-            <a
-                class="enquire-btn"
-                href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Submarine%20Green.%20Please%20share%20availability%20and%20details."
-                target="_blank"
-                rel="noopener"
-            >
-                Enquire Now
-            </a>
+    <div class="product-buttons">
 
-            <button
-                type="button"
-                class="add-to-cart-btn"
-                data-name="Rolex Submarine Green"
-                data-price="5000"
-                data-image="Rolex Submarine Green.jpeg"
-            >
-                Add to Cart
-            </button>
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Rolex%20Daytona%20116578SACO"
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
 
-        </div>
+        <button
+            type="button"
+            class="add-to-cart-btn"
+            data-name="Rolex Daytona 116578SACO"
+            data-price="3500"
+            data-image="Rolex Daytona 116578SACO.mp4"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     3. ROLEX DATEJUST 41 WIMBLEDON DIAL
+====================================================== -->
+
+<div class="product-card">
+
+    <video controls playsinline preload="metadata">
+
+        <source
+            src="Rolex Datejust 41 Wimbledon Dial.mp4"
+            type="video/mp4"
+        >
+
+    </video>
+
+    <h3>Rolex Datejust 41 Wimbledon Dial</h3>
+
+    <div class="price">₹3,500</div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Rolex%20Datejust%2041%20Wimbledon%20Dial"
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            type="button"
+            class="add-to-cart-btn"
+            data-name="Rolex Datejust 41 Wimbledon Dial"
+            data-price="3500"
+            data-image="Rolex Datejust 41 Wimbledon Dial.mp4"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     4. ROLEX COSMOGRAPH DAYTONA JOHN MAYER
+====================================================== -->
+
+<div class="product-card">
+
+    <video controls playsinline preload="metadata">
+
+        <source
+            src="Rolex Cosmograph Daytona John Mayer 116508.mp4"
+            type="video/mp4"
+        >
+
+    </video>
+
+    <h3>Rolex Cosmograph Daytona John Mayer 116508</h3>
+
+    <div class="price">₹3,500</div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Rolex%20Cosmograph%20Daytona%20John%20Mayer%20116508"
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            type="button"
+            class="add-to-cart-btn"
+            data-name="Rolex Cosmograph Daytona John Mayer 116508"
+            data-price="3500"
+            data-image="Rolex Cosmograph Daytona John Mayer 116508.mp4"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     5. ROLEX YATCH-MASTER 42
+====================================================== -->
+
+<div class="product-card">
+
+    <img
+        src="Rolex Yatch-Master 42.jpeg"
+        alt="Rolex Yatch-Master 42"
+        loading="lazy"
+    >
+
+    <h3>Rolex Yatch-Master 42</h3>
+
+    <div class="price">₹5,000</div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Yatch-Master%2042."
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            type="button"
+            class="add-to-cart-btn"
+            data-name="Rolex Yatch-Master 42"
+            data-price="5000"
+            data-image="Rolex Yatch-Master 42.jpeg"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     6. ROLEX GMT-MASTER II ROOT BEER
+====================================================== -->
+
+<div class="product-card">
+
+    <video controls playsinline preload="metadata">
+
+        <source
+            src="Rolex GMT-Master II Root Beer .mp4"
+            type="video/mp4"
+        >
+
+    </video>
+
+    <h3>Rolex GMT-Master II Root Beer</h3>
+
+    <div class="price">₹3,500</div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Rolex%20GMT-Master%20II%20Root%20Beer"
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            type="button"
+            class="add-to-cart-btn"
+            data-name="Rolex GMT-Master II Root Beer"
+            data-price="3500"
+            data-image="Rolex GMT-Master II Root Beer .mp4"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     7. ROLEX COSMOGRAPH
+====================================================== -->
+
+<div class="product-card">
+
+    <img
+        src="Rolex Cosmograph .jpeg"
+        alt="Rolex Cosmograph"
+        loading="lazy"
+    >
+
+    <h3>Rolex Cosmograph</h3>
+
+    <div class="price">₹5,000</div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Cosmograph."
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            type="button"
+            class="add-to-cart-btn"
+            data-name="Rolex Cosmograph"
+            data-price="5000"
+            data-image="Rolex Cosmograph .jpeg"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     8. ROLEX COSMOGRAPH DAYTONA GREEN
+====================================================== -->
+
+<div class="product-card">
+
+    <img
+        src="Rolex Cosmograph Dayona Green.jpeg"
+        alt="Rolex Cosmograph Daytona Green"
+        loading="lazy"
+    >
+
+    <h3>Rolex Cosmograph Daytona Green</h3>
+
+    <div class="price">₹5,000</div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Cosmograph%20Daytona%20Green."
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            type="button"
+            class="add-to-cart-btn"
+            data-name="Rolex Cosmograph Daytona Green"
+            data-price="5000"
+            data-image="Rolex Cosmograph Dayona Green.jpeg"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     9. ROLEX COSMOGRAPH DAYTONA JOHN WALKER
+====================================================== -->
+
+<div class="product-card">
+
+    <img
+        src="Rolex Cosmograph Daytona John Walker.jpeg"
+        alt="Rolex Cosmograph Daytona John Walker"
+        loading="lazy"
+    >
+
+    <h3>Rolex Cosmograph Daytona John Walker</h3>
+
+    <div class="price">₹5,000</div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Cosmograph%20Daytona%20John%20Walker."
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            type="button"
+            class="add-to-cart-btn"
+            data-name="Rolex Cosmograph Daytona John Walker"
+            data-price="5000"
+            data-image="Rolex Cosmograph Daytona John Walker.jpeg"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     10. ROLEX DAYTONA RAINBOW
+====================================================== -->
+
+<div class="product-card">
+
+    <img
+        src="Rolex Daytona Rainbow.jpeg"
+        alt="Rolex Daytona Rainbow"
+        loading="lazy"
+    >
+
+    <h3>Rolex Daytona Rainbow</h3>
+
+    <div class="price">₹5,000</div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Daytona%20Rainbow."
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            type="button"
+            class="add-to-cart-btn"
+            data-name="Rolex Daytona Rainbow"
+            data-price="5000"
+            data-image="Rolex Daytona Rainbow.jpeg"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     11. ROLEX SUBMARINE DATE JUST SILVER-GOLD
+====================================================== -->
+
+<div class="product-card">
+
+    <img
+        src="Rolex Submarine Date Just Silver-Gold.jpeg"
+        alt="Rolex Submarine Date Just Silver-Gold"
+        loading="lazy"
+    >
+
+    <h3>Rolex Submarine Date Just Silver-Gold</h3>
+
+    <div class="price">₹5,000</div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Submarine%20Date%20Just%20Silver-Gold.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            type="button"
+            class="add-to-cart-btn"
+            data-name="Rolex Submarine Date Just Silver-Gold"
+            data-price="5000"
+            data-image="Rolex Submarine Date Just Silver-Gold.jpeg"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     12. ROLEX SUBMARINE DATE JUST SILVER
+====================================================== -->
+
+<div class="product-card">
+
+    <img
+        src="Rolex Submarine Date Just Silver.jpeg"
+        alt="Rolex Submarine Date Just Silver"
+        loading="lazy"
+    >
+
+    <h3>Rolex Submarine Date Just Silver</h3>
+
+    <div class="price">₹5,000</div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Submarine%20Date%20Just%20Silver.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            type="button"
+            class="add-to-cart-btn"
+            data-name="Rolex Submarine Date Just Silver"
+            data-price="5000"
+            data-image="Rolex Submarine Date Just Silver.jpeg"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     13. ROLEX SUBMARINE DATE JUST GOLD
+====================================================== -->
+
+<div class="product-card">
+
+    <img
+        src="Rolex Submarine Date Just Gold.jpeg"
+        alt="Rolex Submarine Date Just Gold"
+        loading="lazy"
+    >
+
+    <h3>Rolex Submarine Date Just Gold</h3>
+
+    <div class="price">₹5,000</div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Submarine%20Date%20Just%20Gold.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            type="button"
+            class="add-to-cart-btn"
+            data-name="Rolex Submarine Date Just Gold"
+            data-price="5000"
+            data-image="Rolex Submarine Date Just Gold.jpeg"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     14. ROLEX EYE OF THE TIGER
+====================================================== -->
+
+<div class="product-card">
+
+    <img
+        src="Rolex Eye of The Tiger.jpeg"
+        alt="Rolex Eye of The Tiger"
+        loading="lazy"
+    >
+
+    <h3>Rolex Eye of The Tiger</h3>
+
+    <div class="price">₹4,000</div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Eye%20of%20The%20Tiger.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            type="button"
+            class="add-to-cart-btn"
+            data-name="Rolex Eye of The Tiger"
+            data-price="4000"
+            data-image="Rolex Eye of The Tiger.jpeg"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     15. ROLEX SKY-DWELLER
+====================================================== -->
+
+<div class="product-card">
+
+    <img
+        src="Rolex Sky-Dweller.jpeg"
+        alt="Rolex Sky-Dweller"
+        loading="lazy"
+    >
+
+    <h3>Rolex Sky-Dweller</h3>
+
+    <div class="price">₹5,000</div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Sky-Dweller.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            type="button"
+            class="add-to-cart-btn"
+            data-name="Rolex Sky-Dweller"
+            data-price="5000"
+            data-image="Rolex Sky-Dweller.jpeg"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     16. ROLEX SUBMARINE BLUE
+====================================================== -->
+
+<div class="product-card">
+
+    <img
+        src="Rolex Sumbarine Blue.jpeg"
+        alt="Rolex Submarine Blue"
+        loading="lazy"
+    >
+
+    <h3>Rolex Submarine Blue</h3>
+
+    <div class="price">₹5,000</div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Submarine%20Blue.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            type="button"
+            class="add-to-cart-btn"
+            data-name="Rolex Submarine Blue"
+            data-price="5000"
+            data-image="Rolex Sumbarine Blue.jpeg"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     17. ROLEX GMT-MASTER II SIMPLE DIAL
+====================================================== -->
+
+<div class="product-card">
+
+    <img
+        src="Rolex GMT-Master II Simple Dial.jpeg"
+        alt="Rolex GMT-Master II Simple Dial"
+        loading="lazy"
+    >
+
+    <h3>Rolex GMT-Master II Simple Dial</h3>
+
+    <div class="price">₹6,000</div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20GMT-Master%20II%20Simple%20Dial.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            type="button"
+            class="add-to-cart-btn"
+            data-name="Rolex GMT-Master II Simple Dial"
+            data-price="6000"
+            data-image="Rolex GMT-Master II Simple Dial.jpeg"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     18. ROLEX GMT-MASTER II
+====================================================== -->
+
+<div class="product-card">
+
+    <img
+        src="Rolex GMT-Master II.jpeg"
+        alt="Rolex GMT-Master II"
+        loading="lazy"
+    >
+
+    <h3>Rolex GMT-Master II</h3>
+
+    <div class="price">₹6,000</div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20GMT-Master%20II.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            type="button"
+            class="add-to-cart-btn"
+            data-name="Rolex GMT-Master II"
+            data-price="6000"
+            data-image="Rolex GMT-Master II.jpeg"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     19. ROLEX GENERIC ICED-OUT
+====================================================== -->
+
+<div class="product-card">
+
+    <img
+        src="Rolex Generc Iced-Out.jpeg"
+        alt="Rolex Generc Iced-Out"
+        loading="lazy"
+    >
+
+    <h3>Rolex Generc Iced-Out</h3>
+
+    <div class="price">₹5,000</div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Generc%20Iced-Out.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            type="button"
+            class="add-to-cart-btn"
+            data-name="Rolex Generc Iced-Out"
+            data-price="5000"
+            data-image="Rolex Generc Iced-Out.jpeg"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     20. ROLEX OYSTER PERPETUAL DAY-DATE
+====================================================== -->
+
+<div class="product-card">
+
+    <img
+        src="Rolex Oyster Perpetual Day-Date.jpeg"
+        alt="Rolex Oyster Perpetual Day-Date"
+        loading="lazy"
+    >
+
+    <h3>Rolex Oyster Perpetual Day-Date</h3>
+
+    <div class="price">₹5,500</div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Oyster%20Perpetual%20Day-Date.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            type="button"
+            class="add-to-cart-btn"
+            data-name="Rolex Oyster Perpetual Day-Date"
+            data-price="5500"
+            data-image="Rolex Oyster Perpetual Day-Date.jpeg"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     21. ROLEX SUBMARINE BLACK
+====================================================== -->
+
+<div class="product-card">
+
+    <img
+        src="Rolex Submarine Black.jpeg"
+        alt="Rolex Submarine Black"
+        loading="lazy"
+    >
+
+    <h3>Rolex Submarine Black</h3>
+
+    <div class="price">₹5,000</div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Submarine%20Black.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            type="button"
+            class="add-to-cart-btn"
+            data-name="Rolex Submarine Black"
+            data-price="5000"
+            data-image="Rolex Submarine Black.jpeg"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     22. ROLEX ALL BLACK COUPLE WATCH
+====================================================== -->
+
+<div class="product-card">
+
+    <video controls playsinline preload="metadata">
+
+        <source
+            src="Rolex All Black Couple Watch.mp4"
+            type="video/mp4"
+        >
+
+    </video>
+
+    <h3>Rolex All Black Couple Watch</h3>
+
+    <div class="price">₹4,000</div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Rolex%20All%20Black%20Couple%20Watch"
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            type="button"
+            class="add-to-cart-btn"
+            data-name="Rolex All Black Couple Watch"
+            data-price="4000"
+            data-image="Rolex All Black Couple Watch.mp4"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     23. ROLEX AUTOMATIC COUPLE WATCH
+====================================================== -->
+
+<div class="product-card">
+
+    <img
+        src="Rolex Automatic Couple Watch.jpeg"
+        alt="Rolex Automatic Couple Watch"
+        loading="lazy"
+    >
+
+    <h3>Rolex Automatic Couple Watch</h3>
+
+    <div class="price">₹5,000</div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Automatic%20Couple%20Watch."
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            type="button"
+            class="add-to-cart-btn"
+            data-name="Rolex Automatic Couple Watch"
+            data-price="5000"
+            data-image="Rolex Automatic Couple Watch.jpeg"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     24. ROLEX SKY-DWELLER COUPLE WATCH
+====================================================== -->
+
+<div class="product-card">
+
+    <img
+        src="Rolex Sky-Dewller Couple Watch.jpeg"
+        alt="Rolex Sky-Dweller Couple Watch"
+        loading="lazy"
+    >
+
+    <h3>Rolex Sky-Dweller Couple Watch</h3>
+
+    <div class="price">₹5,000</div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Sky-Dewller%20Couple%20Watch."
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            type="button"
+            class="add-to-cart-btn"
+            data-name="Rolex Sky-Dweller Couple Watch"
+            data-price="5000"
+            data-image="Rolex Sky-Dewller Couple Watch.jpeg"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     25. ROLEX SUBMARINE GREEN
+====================================================== -->
+
+<div class="product-card">
+
+    <img
+        src="Rolex Submarine Green.jpeg"
+        alt="Rolex Submarine Green"
+        loading="lazy"
+    >
+
+    <h3>Rolex Submarine Green</h3>
+
+    <div class="price">₹5,000</div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Submarine%20Green.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            type="button"
+            class="add-to-cart-btn"
+            data-name="Rolex Submarine Green"
+            data-price="5000"
+            data-image="Rolex Submarine Green.jpeg"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     26. ROLEX DAY-DATE COUPLE WATCH
+     FIXED SLIDER
+====================================================== -->
+
+<div class="product-card">
+
+    <div class="slider">
+
+        <img
+            src="Rolex Day-Date Couple Watch.jpeg"
+            class="slide active"
+            alt="Rolex Day-Date Couple Watch"
+        >
+
+        <img
+            src="Rolex Day-Date Couple Watch 2.jpeg"
+            class="slide"
+            alt="Rolex Day-Date Couple Watch"
+        >
+
+        <img
+            src="Rolex Day-Date Couple Watch 3.jpeg"
+            class="slide"
+            alt="Rolex Day-Date Couple Watch"
+        >
+
+        <img
+            src="Rolex Day-Date Couple Watch 4.jpeg"
+            class="slide"
+            alt="Rolex Day-Date Couple Watch"
+        >
+
+        <img
+            src="Rolex Day-Date Couple Watch 5.jpeg"
+            class="slide"
+            alt="Rolex Day-Date Couple Watch"
+        >
+
+        <img
+            src="Rolex Day-Date Couple Watch 6.jpeg"
+            class="slide"
+            alt="Rolex Day-Date Couple Watch"
+        >
+
+        <img
+            src="Rolex Day-Date Couple Watch 7.jpeg"
+            class="slide"
+            alt="Rolex Day-Date Couple Watch"
+        >
+
+        <img
+            src="Rolex Day-Date Couple Watch 8.jpeg"
+            class="slide"
+            alt="Rolex Day-Date Couple Watch"
+        >
+
+        <img
+            src="Rolex Day-Date Couple Watch 9.jpeg"
+            class="slide"
+            alt="Rolex Day-Date Couple Watch"
+        >
+
+        <img
+            src="Rolex Day-Date Couple Watch 10.jpeg"
+            class="slide"
+            alt="Rolex Day-Date Couple Watch"
+        >
+
+        <img
+            src="Rolex Day-Date Couple Watch 11.jpeg"
+            class="slide"
+            alt="Rolex Day-Date Couple Watch"
+        >
+
+        <button
+            type="button"
+            class="prev"
+            aria-label="Previous image"
+        >
+            ❮
+        </button>
+
+        <button
+            type="button"
+            class="next"
+            aria-label="Next image"
+        >
+            ❯
+        </button>
 
     </div>
 
 
-<!-- Rolex Day-Date Couple Watch -->
-<div class="product-card">
-  <div class="slider">
-    <img src="Rolex Day-Date Couple Watch.jpeg" class="slide active" alt="Rolex Day-Date Couple Watch">
-    <img src="Rolex Day-Date Couple Watch 2.jpeg" class="slide" alt="Rolex Day-Date Couple Watch">
-    <img src="Rolex Day-Date Couple Watch 3.jpeg" class="slide" alt="Rolex Day-Date Couple Watch">
-    <img src="Rolex Day-Date Couple Watch 4.jpeg" class="slide" alt="Rolex Day-Date Couple Watch">
-    <img src="Rolex Day-Date Couple Watch 5.jpeg" class="slide" alt="Rolex Day-Date Couple Watch">
-    <img src="Rolex Day-Date Couple Watch 6.jpeg" class="slide" alt="Rolex Day-Date Couple Watch">
-    <img src="Rolex Day-Date Couple Watch 7.jpeg" class="slide" alt="Rolex Day-Date Couple Watch">
-    <img src="Rolex Day-Date Couple Watch 8.jpeg" class="slide" alt="Rolex Day-Date Couple Watch">
-    <img src="Rolex Day-Date Couple Watch 9.jpeg" class="slide" alt="Rolex Day-Date Couple Watch">
-    <img src="Rolex Day-Date Couple Watch 10.jpeg" class="slide" alt="Rolex Day-Date Couple Watch">
-    <img src="Rolex Day-Date Couple Watch 11.jpeg" class="slide" alt="Rolex Day-Date Couple Watch">
-    <button class="prev">❮</button>
-    <button class="next">❯</button>
-  </div>
-  <h3>Rolex Day-Date Couple Watch</h3>
-  <div class="price">₹5,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn"
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Day-Date%20Couple%20Watch.">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="Rolex Day-Date Couple Watch" data-price="5500">Add to Cart</button>
-  </div>
+    <h3>
+        Rolex Day-Date Couple Watch
+    </h3>
+
+    <div class="price">
+        ₹5,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Day-Date%20Couple%20Watch."
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            type="button"
+            class="add-to-cart-btn"
+            data-name="Rolex Day-Date Couple Watch"
+            data-price="5500"
+            data-image="Rolex Day-Date Couple Watch.jpeg"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
 </div>
 
 
@@ -2371,6 +2524,7 @@ body {
 
             <div class="rolex-faq">
 
+
                 <div class="rolex-faq-item">
 
                     <p class="rolex-faq-question">
@@ -2457,6 +2611,7 @@ body {
                     </p>
 
                 </div>
+
 
             </div>
 
@@ -2686,51 +2841,207 @@ body {
 
 
 <!-- =========================================================
-     JAVASCRIPT
+     SLIDER JAVASCRIPT
 ========================================================= -->
 
 <script>
 
-document.querySelectorAll('.slider').forEach(slider => {
+document.querySelectorAll(".slider").forEach(function(slider) {
 
-    const slides = slider.querySelectorAll('.slide');
-    let current = 0;
+    const slides = slider.querySelectorAll(".slide");
 
-    slider.querySelector('.next').addEventListener('click', () => {
-        slides[current].classList.remove('active');
-        current = (current + 1) % slides.length;
-        slides[current].classList.add('active');
+    const nextButton = slider.querySelector(".next");
+
+    const prevButton = slider.querySelector(".prev");
+
+    let currentSlide = 0;
+
+    let autoSlideTimer;
+
+
+    /* ---------------------------------------------------------
+       SHOW SLIDE
+    --------------------------------------------------------- */
+
+    function showSlide(index) {
+
+        slides.forEach(function(slide) {
+
+            slide.classList.remove("active");
+
+        });
+
+        slides[index].classList.add("active");
+
+    }
+
+
+    /* ---------------------------------------------------------
+       NEXT SLIDE
+    --------------------------------------------------------- */
+
+    function nextSlide() {
+
+        currentSlide++;
+
+        if (currentSlide >= slides.length) {
+
+            currentSlide = 0;
+
+        }
+
+        showSlide(currentSlide);
+
+    }
+
+
+    /* ---------------------------------------------------------
+       PREVIOUS SLIDE
+    --------------------------------------------------------- */
+
+    function previousSlide() {
+
+        currentSlide--;
+
+        if (currentSlide < 0) {
+
+            currentSlide = slides.length - 1;
+
+        }
+
+        showSlide(currentSlide);
+
+    }
+
+
+    /* ---------------------------------------------------------
+       RESET 15 SECOND TIMER
+    --------------------------------------------------------- */
+
+    function startAutoSlide() {
+
+        clearInterval(autoSlideTimer);
+
+        autoSlideTimer = setInterval(function() {
+
+            nextSlide();
+
+        }, 15000);
+
+    }
+
+
+    /* ---------------------------------------------------------
+       NEXT BUTTON
+    --------------------------------------------------------- */
+
+    nextButton.addEventListener("click", function(event) {
+
+        event.preventDefault();
+
+        nextSlide();
+
+        startAutoSlide();
+
     });
 
-    slider.querySelector('.prev').addEventListener('click', () => {
-        slides[current].classList.remove('active');
-        current = (current - 1 + slides.length) % slides.length;
-        slides[current].classList.add('active');
+
+    /* ---------------------------------------------------------
+       PREVIOUS BUTTON
+    --------------------------------------------------------- */
+
+    prevButton.addEventListener("click", function(event) {
+
+        event.preventDefault();
+
+        previousSlide();
+
+        startAutoSlide();
+
     });
+
+
+    /* ---------------------------------------------------------
+       START AUTOMATIC SLIDER
+    --------------------------------------------------------- */
+
+    showSlide(currentSlide);
+
+    startAutoSlide();
 
 });
+
 
 </script>
 
+
+<!-- =========================================================
+     ADD TO CART JAVASCRIPT
+========================================================= -->
+
 <script>
-document.querySelectorAll(".add-to-cart-btn, .add-to-cart").forEach(button => {
-  button.addEventListener("click", () => {
-    let name = button.dataset.name;
-    let price = button.dataset.price;
 
-    // Get existing cart or create new
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+document
+    .querySelectorAll(".add-to-cart-btn, .add-to-cart")
+    .forEach(function(button) {
 
-    // Add product
-    cart.push({ name, price });
+        button.addEventListener("click", function() {
 
-    // Save back to localStorage
-    localStorage.setItem("cart", JSON.stringify(cart));
+            const name =
+                button.dataset.name || "";
 
-    // Redirect to cart page
-    window.location.href = "cart.html";
-  });
-});
+            const price =
+                button.dataset.price || "0";
+
+            const image =
+                button.dataset.image || "";
+
+
+            /* -------------------------------------------------
+               GET EXISTING CART
+            ------------------------------------------------- */
+
+            let cart =
+                JSON.parse(
+                    localStorage.getItem("cart")
+                ) || [];
+
+
+            /* -------------------------------------------------
+               ADD PRODUCT
+            ------------------------------------------------- */
+
+            cart.push({
+
+                name: name,
+
+                price: price,
+
+                image: image
+
+            });
+
+
+            /* -------------------------------------------------
+               SAVE CART
+            ------------------------------------------------- */
+
+            localStorage.setItem(
+                "cart",
+                JSON.stringify(cart)
+            );
+
+
+            /* -------------------------------------------------
+               REDIRECT TO CART
+            ------------------------------------------------- */
+
+            window.location.href = "cart.html";
+
+        });
+
+    });
+
 </script>
 
 
