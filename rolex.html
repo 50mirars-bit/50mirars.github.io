@@ -2141,35 +2141,6 @@ body {
   </div>
 </div>
 
-<!-- Rolex Day-Date Couple Watch -->
-<div class="product-card">
-  <div class="slider">
-    <img src="Rolex Day-Date Couple Watch.jpeg" class="slide active" alt="Rolex Day-Date Couple Watch">
-    <img src="Rolex Day-Date Couple Watch 2.jpeg" class="slide" alt="Rolex Day-Date Couple Watch">
-    <img src="Rolex Day-Date Couple Watch 3.jpeg" class="slide" alt="Rolex Day-Date Couple Watch">
-    <img src="Rolex Day-Date Couple Watch 4.jpeg" class="slide" alt="Rolex Day-Date Couple Watch">
-    <img src="Rolex Day-Date Couple Watch 5.jpeg" class="slide" alt="Rolex Day-Date Couple Watch">
-    <img src="Rolex Day-Date Couple Watch 6.jpeg" class="slide" alt="Rolex Day-Date Couple Watch">
-    <img src="Rolex Day-Date Couple Watch 7.jpeg" class="slide" alt="Rolex Day-Date Couple Watch">
-    <img src="Rolex Day-Date Couple Watch 8.jpeg" class="slide" alt="Rolex Day-Date Couple Watch">
-    <img src="Rolex Day-Date Couple Watch 9.jpeg" class="slide" alt="Rolex Day-Date Couple Watch">
-    <img src="Rolex Day-Date Couple Watch 10.jpeg" class="slide" alt="Rolex Day-Date Couple Watch">
-    <img src="Rolex Day-Date Couple Watch 11.jpeg" class="slide" alt="Rolex Day-Date Couple Watch">
-    <button class="prev">❮</button>
-    <button class="next">❯</button>
-  </div>
-  <h3>Rolex Day-Date Couple Watch</h3>
-  <div class="price">₹5,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn"
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Day-Date%20Couple%20Watch.">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="Rolex Day-Date Couple Watch" data-price="5500">Add to Cart</button>
-  </div>
-</div>
-
-
 
     <!-- =====================================================
          22. ROLEX SUBMARINE GREEN
@@ -2213,6 +2184,35 @@ body {
         </div>
 
     </div>
+
+
+<!-- Rolex Day-Date Couple Watch -->
+<div class="product-card">
+  <div class="slider">
+    <img src="Rolex Day-Date Couple Watch.jpeg" class="slide active" alt="Rolex Day-Date Couple Watch">
+    <img src="Rolex Day-Date Couple Watch 2.jpeg" class="slide" alt="Rolex Day-Date Couple Watch">
+    <img src="Rolex Day-Date Couple Watch 3.jpeg" class="slide" alt="Rolex Day-Date Couple Watch">
+    <img src="Rolex Day-Date Couple Watch 4.jpeg" class="slide" alt="Rolex Day-Date Couple Watch">
+    <img src="Rolex Day-Date Couple Watch 5.jpeg" class="slide" alt="Rolex Day-Date Couple Watch">
+    <img src="Rolex Day-Date Couple Watch 6.jpeg" class="slide" alt="Rolex Day-Date Couple Watch">
+    <img src="Rolex Day-Date Couple Watch 7.jpeg" class="slide" alt="Rolex Day-Date Couple Watch">
+    <img src="Rolex Day-Date Couple Watch 8.jpeg" class="slide" alt="Rolex Day-Date Couple Watch">
+    <img src="Rolex Day-Date Couple Watch 9.jpeg" class="slide" alt="Rolex Day-Date Couple Watch">
+    <img src="Rolex Day-Date Couple Watch 10.jpeg" class="slide" alt="Rolex Day-Date Couple Watch">
+    <img src="Rolex Day-Date Couple Watch 11.jpeg" class="slide" alt="Rolex Day-Date Couple Watch">
+    <button class="prev">❮</button>
+    <button class="next">❯</button>
+  </div>
+  <h3>Rolex Day-Date Couple Watch</h3>
+  <div class="price">₹5,500</div>
+  <div class="product-buttons">
+    <a class="enquire-btn"
+       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Day-Date%20Couple%20Watch.">
+       Enquire Now
+    </a>
+    <button class="add-to-cart-btn" data-name="Rolex Day-Date Couple Watch" data-price="5500">Add to Cart</button>
+  </div>
+</div>
 
 
 </div>
@@ -2708,13 +2708,12 @@ document.querySelectorAll(".add-to-cart-btn, .add-to-cart").forEach(button => {
   button.addEventListener("click", () => {
     let name = button.dataset.name;
     let price = button.dataset.price;
-    let image = button.dataset.image || "images/default.jpg"; // optional image path
 
     // Get existing cart or create new
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
     // Add product
-    cart.push({ name, price, image });
+    cart.push({ name, price });
 
     // Save back to localStorage
     localStorage.setItem("cart", JSON.stringify(cart));
