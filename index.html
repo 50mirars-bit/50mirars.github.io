@@ -1774,404 +1774,1322 @@
         }
 
 
-        /* =====================================================
-           MOBILE
-        ===================================================== */
+       /* =====================================================
+   MOBILE — COMPLETE PHONE VERSION
+===================================================== */
 
-        @media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
 
-            .top-header {
+    /* =================================================
+       GLOBAL MOBILE
+    ================================================= */
 
-                height: 72px;
+    html,
+    body {
 
-                padding:
-                    6px
-                    14px;
-            }
+        width: 100%;
 
-            .header-logo img {
+        max-width: 100%;
 
-                height: 52px;
+        overflow-x: hidden;
+    }
 
-                max-width: 130px;
-            }
+    body {
 
-            .header-brand h1 {
+        font-size: 15px;
+    }
 
-                font-size: 21px;
 
-                letter-spacing: 3px;
-            }
+    /* =================================================
+       HEADER
+    ================================================= */
 
-            .header-brand span {
+    .top-header {
 
-                font-size: 6px;
+        width: 100%;
 
-                letter-spacing: 2px;
-            }
+        height: 68px;
 
-            .headline-text {
+        padding: 5px 10px;
 
-                font-size: 12px;
+        grid-template-columns:
+            1fr
+            auto
+            1fr;
 
-                padding:
-                    8px
-                    0;
-            }
+        position: relative;
+    }
 
 
-            /* ================================================
-               HERO MOBILE
-            ================================================ */
+    .header-left {
 
-            .hero-slider-section {
+        justify-content: flex-start;
 
-                width: 100%;
+        min-width: 0;
+    }
 
-                margin: 0;
 
-                padding: 0;
+    .header-logo img {
 
-                background: #000000;
-            }
+        width: auto;
 
-            .hero-slider {
+        height: 48px;
 
-                width: 100%;
+        max-width: 115px;
 
-                margin: 0;
+        object-fit: contain;
+    }
 
-                padding: 0;
-            }
 
-            .hero-slide {
+    .header-brand {
 
-                width: 100%;
+        min-width: 0;
 
-                flex-basis: 100%;
+        padding: 0 5px;
+    }
 
-                margin: 0;
 
-                padding: 0;
-            }
+    .header-brand h1 {
 
-            .hero-slide img {
+        font-size: 19px;
 
-                width: 100%;
+        letter-spacing: 2.5px;
 
-                height: auto;
+        white-space: nowrap;
+    }
 
-                aspect-ratio: 2 / 1;
 
-                object-fit: cover;
+    .header-brand span {
 
-                display: block;
-            }
+        display: block;
 
-            .hero-arrow {
+        margin-top: 4px;
 
-                width: 38px;
+        font-size: 5.5px;
 
-                height: 38px;
+        letter-spacing: 1.8px;
 
-                font-size: 25px;
+        white-space: nowrap;
+    }
 
-                background:
-                    rgba(
-                        0,
-                        0,
-                        0,
-                        0.35
-                    );
-            }
 
-            .hero-prev {
+    .header-right {
 
-                left: 10px;
-            }
+        justify-content: flex-end;
 
-            .hero-next {
+        min-width: 0;
+    }
 
-                right: 10px;
-            }
 
-            .hero-dots {
+    .header-cart {
 
-                bottom: 10px;
+        width: 44px;
 
-                gap: 7px;
+        height: 44px;
+    }
 
-                padding:
-                    6px
-                    10px;
-            }
 
-            .hero-dot {
+    .cart-icon {
 
-                width: 7px;
+        font-size: 23px;
+    }
 
-                height: 7px;
-            }
 
-            .hero-dot.active {
+    /* =================================================
+       OFFER BAR
+    ================================================= */
 
-                width: 22px;
-            }
+    .headline-bar {
 
+        width: 100%;
 
-            /* ================================================
-               PRODUCT SLIDER MOBILE
-            ================================================ */
+        overflow: hidden;
+    }
 
-            .product-showcase {
 
-                padding:
-                    60px
-                    0
-                    65px;
-            }
+    .headline-text {
 
-            .product-showcase-header {
+        font-size: 11px;
 
-                padding:
-                    0
-                    18px;
+        padding: 8px 0;
 
-                margin-bottom: 30px;
-            }
+        animation-duration: 15s;
+    }
 
-            .product-showcase-header small {
 
-                font-size: 12px;
-            }
+    .headline-text img {
 
-            .product-showcase-header h2 {
+        width: 17px !important;
 
-                font-size: 34px;
-            }
+        height: auto !important;
 
-            .product-showcase-header p {
+        margin: 0 4px;
+    }
 
-                font-size: 14px;
-            }
 
-            .product-track {
+    /* =================================================
+       HERO SLIDER
+    ================================================= */
 
-                gap: 14px;
-            }
+    .hero-slider-section {
 
-            .product-slide {
+        width: 100%;
 
-                flex:
-                    0 0 86vw;
+        height: auto;
 
-                max-width: none;
-            }
+        overflow: hidden;
+    }
 
-            .product-slide img {
 
-                width: 100%;
+    .hero-slider {
 
-                height: 480px;
+        width: 100%;
 
-                object-fit: cover;
-            }
+        overflow: hidden;
+    }
 
-            .product-arrow {
 
-                width: 40px;
+    .hero-track {
 
-                height: 40px;
+        width: 100%;
+    }
 
-                font-size: 22px;
-            }
 
-            .product-prev {
+    .hero-slide {
 
-                left: 10px;
-            }
+        flex: 0 0 100%;
 
-            .product-next {
+        width: 100%;
 
-                right: 10px;
-            }
+        min-width: 100%;
+    }
 
 
-            /* ================================================
-               COLLECTIONS
-            ================================================ */
+    .hero-slide img {
 
-            .collections {
+        width: 100%;
 
-                padding:
-                    65px
-                    14px;
-            }
+        height: auto;
 
-            .collections > h2 {
+        aspect-ratio: 2 / 1;
 
-                font-size: 31px;
-            }
+        object-fit: cover;
 
-            .categories-grid {
+        object-position: center;
+    }
 
-                grid-template-columns: 1fr;
 
-                gap: 18px;
-            }
+    /* =================================================
+       HERO ARROWS
+    ================================================= */
 
-            .card img {
+    .hero-arrow {
 
-                height: 350px;
-            }
+        width: 34px;
 
+        height: 34px;
 
-            /* ================================================
-               WATCH BRANDS
-            ================================================ */
+        font-size: 23px;
 
-            .watch-brands {
+        border-color:
+            rgba(
+                255,
+                255,
+                255,
+                0.65
+            );
+    }
 
-                padding:
-                    60px
-                    0
-                    65px;
-            }
 
-            .watch-brands-header h2 {
+    .hero-prev {
 
-                font-size: 36px;
-            }
+        left: 8px;
+    }
 
 
-            /* ================================================
-               GET IN TOUCH
-            ================================================ */
+    .hero-next {
 
-            .get-touch {
+        right: 8px;
+    }
 
-                padding:
-                    65px
-                    14px;
-            }
 
-            .get-touch h2 {
+    /* =================================================
+       HERO DOTS
+    ================================================= */
 
-                font-size: 37px;
-            }
+    .hero-dots {
 
-            .touch-form {
+        bottom: 8px;
 
-                padding:
-                    22px
-                    15px;
-            }
+        gap: 6px;
 
-            .touch-form button {
+        padding: 5px 9px;
+    }
 
-                width: 100%;
-            }
 
+    .hero-dot {
 
-            /* ================================================
-               PARTNER
-            ================================================ */
+        width: 7px;
 
-            .business-partner {
+        height: 7px;
+    }
 
-                padding:
-                    65px
-                    14px;
-            }
 
-            .partner-container {
+    .hero-dot.active {
 
-                display: flex;
+        width: 21px;
+    }
 
-                flex-direction: column;
-            }
 
-            .partner-header h2 {
+    /* =================================================
+       FEATURED COLLECTION
+    ================================================= */
 
-                font-size: 36px;
-            }
+    .product-showcase {
 
+        width: 100%;
 
-            /* ================================================
-               WHY
-            ================================================ */
+        padding:
+            55px
+            0
+            60px;
+    }
 
-            .why-choose {
 
-                padding:
-                    65px
-                    14px;
-            }
+    .product-showcase-header {
 
-            .why-choose > h2 {
+        padding:
+            0
+            16px;
 
-                font-size: 36px;
-            }
+        margin-bottom: 28px;
+    }
 
-            .why-grid {
 
-                grid-template-columns: 1fr;
-            }
+    .product-showcase-header small {
 
+        font-size: 11px;
 
-            /* ================================================
-               STATS
-            ================================================ */
+        letter-spacing: 2px;
 
-            .stats-section {
+        margin-bottom: 9px;
+    }
 
-                padding:
-                    65px
-                    14px;
-            }
 
-            .stats-section > h2 {
+    .product-showcase-header h2 {
 
-                font-size: 36px;
-            }
+        font-size: 30px;
 
-            .stats-grid {
+        line-height: 1.2;
 
-                grid-template-columns: 1fr;
+        margin-bottom: 10px;
+    }
 
-                gap: 10px;
-            }
 
+    .product-showcase-header p {
 
-            /* ================================================
-               FOOTER
-            ================================================ */
+        font-size: 13px;
 
-            .main-footer {
+        line-height: 1.5;
+    }
 
-                padding:
-                    55px
-                    18px
-                    20px;
-            }
 
-            .footer-top {
+    /* =================================================
+       PRODUCT SLIDER
+    ================================================= */
 
-                grid-template-columns: 1fr;
-            }
+    .product-slider {
 
-            .footer-top > h2 {
+        width: 100%;
 
-                font-size: 34px;
-            }
+        overflow: hidden;
+    }
 
-            .footer-middle {
 
-                grid-template-columns: 1fr;
-            }
+    .product-track {
 
-        }
+        gap: 12px;
 
+        width: max-content;
+    }
+
+
+    .product-slide {
+
+        flex:
+            0 0 calc(
+                100vw - 28px
+            );
+
+        width:
+            calc(
+                100vw - 28px
+            );
+
+        max-width: none;
+
+        background: #f5f5f5;
+    }
+
+
+    .product-slide img {
+
+        width: 100%;
+
+        height: auto;
+
+        aspect-ratio: 4 / 5;
+
+        object-fit: cover;
+    }
+
+
+    /* =================================================
+       PRODUCT ARROWS
+    ================================================= */
+
+    .product-arrow {
+
+        width: 38px;
+
+        height: 38px;
+
+        font-size: 22px;
+    }
+
+
+    .product-prev {
+
+        left: 8px;
+    }
+
+
+    .product-next {
+
+        right: 8px;
+    }
+
+
+    /* =================================================
+       PRODUCT DOTS
+    ================================================= */
+
+    .product-dots {
+
+        gap: 6px;
+
+        margin-top: 20px;
+    }
+
+
+    .product-dot {
+
+        width: 7px;
+
+        height: 7px;
+    }
+
+
+    .product-dot.active {
+
+        width: 23px;
+    }
+
+
+    /* =================================================
+       WATCH BRANDS
+    ================================================= */
+
+    .watch-brands {
+
+        width: 100%;
+
+        padding:
+            55px
+            0
+            60px;
+    }
+
+
+    .watch-brands-header {
+
+        padding:
+            0
+            16px;
+
+        margin-bottom: 28px;
+    }
+
+
+    .watch-brands-header small {
+
+        font-size: 11px;
+
+        letter-spacing: 2px;
+
+        margin-bottom: 9px;
+    }
+
+
+    .watch-brands-header h2 {
+
+        font-size: 32px;
+
+        line-height: 1.2;
+
+        margin-bottom: 10px;
+    }
+
+
+    .watch-brands-header p {
+
+        font-size: 13px;
+
+        line-height: 1.5;
+    }
+
+
+    .watch-brands-image {
+
+        width: 100% !important;
+
+        max-width: 100% !important;
+
+        height: auto;
+
+        object-fit: contain;
+    }
+
+
+    /* =================================================
+       COLLECTIONS
+    ================================================= */
+
+    .collections {
+
+        width: 100%;
+
+        padding:
+            60px
+            14px
+            65px;
+    }
+
+
+    .collections > small {
+
+        font-size: 11px;
+
+        letter-spacing: 2px;
+
+        margin-bottom: 10px;
+    }
+
+
+    .collections > h2 {
+
+        font-size: 30px;
+
+        line-height: 1.2;
+
+        margin-bottom: 30px;
+    }
+
+
+    .categories-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 16px;
+    }
+
+
+    .categories-grid > a {
+
+        width: 100%;
+    }
+
+
+    .card {
+
+        width: 100%;
+
+        border-radius: 0;
+
+        overflow: hidden;
+    }
+
+
+    .card img {
+
+        width: 100%;
+
+        height: auto;
+
+        aspect-ratio: 4 / 3;
+
+        object-fit: cover;
+    }
+
+
+    .card-content {
+
+        left: 18px;
+
+        right: 15px;
+
+        bottom: 18px;
+    }
+
+
+    .card-content h3 {
+
+        font-size: 25px;
+
+        line-height: 1.1;
+
+        margin-bottom: 6px;
+    }
+
+
+    .card-content p {
+
+        font-size: 13px;
+
+        line-height: 1.4;
+    }
+
+
+    /* =================================================
+       LANGUAGE OF TIME
+    ================================================= */
+
+    .language-of-time-section {
+
+        width: 100%;
+
+        overflow: hidden;
+    }
+
+
+    .language-of-time-section img {
+
+        width: 100%;
+
+        height: auto;
+
+        display: block;
+    }
+
+
+    /* =================================================
+       GET IN TOUCH
+    ================================================= */
+
+    .get-touch {
+
+        width: 100%;
+
+        padding:
+            60px
+            14px
+            65px;
+    }
+
+
+    .get-touch h2 {
+
+        font-size: 34px;
+
+        line-height: 1.2;
+
+        margin-bottom: 15px;
+    }
+
+
+    .get-touch > p {
+
+        width: 100%;
+
+        max-width: 600px;
+
+        margin:
+            0
+            auto
+            30px;
+
+        font-size: 15px;
+
+        line-height: 1.6;
+    }
+
+
+    .touch-form {
+
+        width: 100%;
+
+        padding:
+            22px
+            16px;
+
+        border-radius: 10px;
+    }
+
+
+    .touch-form input,
+    .touch-form textarea {
+
+        width: 100%;
+
+        padding: 14px;
+
+        margin-bottom: 14px;
+
+        font-size: 15px;
+
+        border-radius: 6px;
+    }
+
+
+    .touch-form textarea {
+
+        min-height: 150px;
+    }
+
+
+    .touch-form button {
+
+        width: 100%;
+
+        padding:
+            14px
+            20px;
+
+        font-size: 15px;
+    }
+
+
+    /* =================================================
+       BUSINESS PARTNER
+    ================================================= */
+
+    .business-partner {
+
+        width: 100%;
+
+        padding:
+            60px
+            14px
+            65px;
+    }
+
+
+    .partner-header {
+
+        margin-bottom: 30px;
+    }
+
+
+    .partner-header small {
+
+        font-size: 11px;
+
+        letter-spacing: 2px;
+
+        margin-bottom: 9px;
+    }
+
+
+    .partner-header h2 {
+
+        font-size: 34px;
+
+        line-height: 1.2;
+    }
+
+
+    .partner-container {
+
+        width: 100%;
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 20px;
+    }
+
+
+    .partner-img {
+
+        width: 100%;
+
+        max-width: 330px;
+
+        height: auto;
+
+        margin: auto;
+
+        border-radius: 8px;
+    }
+
+
+    .partner-card {
+
+        width: 100%;
+
+        max-width: 400px;
+
+        margin: auto;
+
+        padding:
+            30px
+            20px;
+
+        border-radius: 12px;
+    }
+
+
+    .partner-card img {
+
+        width: 100%;
+
+        max-width: 150px;
+
+        margin:
+            0
+            auto
+            20px;
+    }
+
+
+    .partner-card h3 {
+
+        font-size: 25px;
+
+        margin-bottom: 8px;
+    }
+
+
+    .partner-card p {
+
+        font-size: 14px;
+
+        line-height: 1.5;
+
+        margin-bottom: 18px;
+    }
+
+
+    .partner-btn {
+
+        width: 100%;
+
+        justify-content: center;
+
+        padding:
+            13px
+            18px;
+
+        font-size: 14px;
+    }
+
+
+    /* =================================================
+       WHY CHOOSE
+    ================================================= */
+
+    .why-choose {
+
+        width: 100%;
+
+        padding:
+            60px
+            14px
+            65px;
+    }
+
+
+    .why-choose > h2 {
+
+        font-size: 33px;
+
+        line-height: 1.2;
+
+        margin-bottom: 30px;
+    }
+
+
+    .why-grid {
+
+        width: 100%;
+
+        grid-template-columns: 1fr;
+
+        gap: 14px;
+    }
+
+
+    .why-box {
+
+        width: 100%;
+
+        padding:
+            25px
+            20px;
+
+        border-radius: 10px;
+    }
+
+
+    .why-box h3 {
+
+        font-size: 19px;
+
+        margin-bottom: 10px;
+    }
+
+
+    .why-box p {
+
+        font-size: 14px;
+
+        line-height: 1.6;
+    }
+
+
+    /* =================================================
+       STATS
+    ================================================= */
+
+    .stats-section {
+
+        width: 100%;
+
+        padding:
+            60px
+            14px
+            65px;
+    }
+
+
+    .stats-section > h2 {
+
+        font-size: 33px;
+
+        line-height: 1.2;
+
+        margin-bottom: 35px;
+    }
+
+
+    .stats-grid {
+
+        width: 100%;
+
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+    }
+
+
+    .stat-box h3 {
+
+        font-size: 48px;
+
+        margin-bottom: 7px;
+    }
+
+
+    .stat-box p {
+
+        font-size: 16px;
+    }
+
+
+    /* =================================================
+       FOOTER
+    ================================================= */
+
+    .main-footer {
+
+        width: 100%;
+
+        padding:
+            50px
+            16px
+            20px;
+    }
+
+
+    .footer-container {
+
+        width: 100%;
+    }
+
+
+    .footer-top {
+
+        width: 100%;
+
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+    }
+
+
+    .footer-top > h2 {
+
+        font-size: 32px;
+
+        line-height: 1.2;
+
+        margin-bottom: 5px;
+    }
+
+
+    .contact-column,
+    .whatsapp-column {
+
+        width: 100%;
+
+        text-align: center;
+    }
+
+
+    .contact-column h3,
+    .whatsapp-column h3 {
+
+        font-size: 18px;
+
+        margin-bottom: 16px;
+    }
+
+
+    .footer-link {
+
+        font-size: 15px;
+
+        margin-bottom: 9px;
+    }
+
+
+    .contact-column p {
+
+        font-size: 13px;
+
+        line-height: 1.5;
+
+        margin-top: 10px;
+    }
+
+
+    .whatsapp-title {
+
+        flex-wrap: wrap;
+
+        gap: 6px;
+    }
+
+
+    .whatsapp-icon {
+
+        width: 22px !important;
+
+        height: 22px !important;
+    }
+
+
+    .whatsapp-button {
+
+        width: 100%;
+
+        max-width: 280px;
+
+        min-height: 48px;
+
+        padding:
+            12px
+            20px;
+
+        font-size: 14px;
+    }
+
+
+    /* =================================================
+       FOOTER MIDDLE
+    ================================================= */
+
+    .footer-middle {
+
+        width: 100%;
+
+        grid-template-columns: 1fr;
+
+        gap: 32px;
+
+        margin-top: 45px;
+
+        padding-top: 35px;
+    }
+
+
+    .footer-links-column,
+    .footer-social {
+
+        width: 100%;
+
+        text-align: center;
+    }
+
+
+    .footer-links-column h3,
+    .footer-social h3 {
+
+        font-size: 17px;
+
+        margin-bottom: 15px;
+    }
+
+
+    .footer-links-column a {
+
+        font-size: 14px;
+
+        margin-bottom: 11px;
+    }
+
+
+    .footer-social p {
+
+        font-size: 14px;
+
+        margin-bottom: 12px;
+    }
+
+
+    .instagram-button {
+
+        width: 46px;
+
+        height: 46px;
+    }
+
+
+    .instagram-button img {
+
+        width: 25px;
+
+        height: 25px;
+    }
+
+
+    /* =================================================
+       FOOTER BOTTOM
+    ================================================= */
+
+    .footer-bottom {
+
+        margin-top: 40px;
+
+        padding-top: 18px;
+    }
+
+
+    .footer-bottom p {
+
+        font-size: 11px;
+
+        line-height: 1.6;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL PHONES
+===================================================== */
+
+@media screen and (max-width: 480px) {
+
+    .top-header {
+
+        height: 64px;
+
+        padding:
+            4px
+            8px;
+    }
+
+
+    .header-logo img {
+
+        height: 45px;
+
+        max-width: 105px;
+    }
+
+
+    .header-brand h1 {
+
+        font-size: 17px;
+
+        letter-spacing: 2px;
+    }
+
+
+    .header-brand span {
+
+        font-size: 5px;
+
+        letter-spacing: 1.5px;
+    }
+
+
+    .header-cart {
+
+        width: 40px;
+
+        height: 40px;
+    }
+
+
+    .cart-icon {
+
+        font-size: 21px;
+    }
+
+
+    .headline-text {
+
+        font-size: 10px;
+
+        padding: 7px 0;
+    }
+
+
+    .hero-arrow {
+
+        width: 32px;
+
+        height: 32px;
+
+        font-size: 21px;
+    }
+
+
+    .hero-prev {
+
+        left: 6px;
+    }
+
+
+    .hero-next {
+
+        right: 6px;
+    }
+
+
+    .product-slide {
+
+        flex-basis:
+            calc(
+                100vw - 24px
+            );
+
+        width:
+            calc(
+                100vw - 24px
+            );
+    }
+
+
+    .product-slide img {
+
+        aspect-ratio: 4 / 5;
+
+        height: auto;
+    }
+
+
+    .collections > h2,
+    .watch-brands-header h2,
+    .get-touch h2,
+    .partner-header h2,
+    .why-choose > h2,
+    .stats-section > h2 {
+
+        font-size: 29px;
+    }
+
+
+    .card-content h3 {
+
+        font-size: 22px;
+    }
+
+
+    .card-content p {
+
+        font-size: 12px;
+    }
+
+}
+
+
+/* =====================================================
+   VERY SMALL PHONES
+===================================================== */
+
+@media screen and (max-width: 360px) {
+
+    .header-brand h1 {
+
+        font-size: 15px;
+
+        letter-spacing: 1.7px;
+    }
+
+
+    .header-logo img {
+
+        height: 42px;
+
+        max-width: 95px;
+    }
+
+
+    .headline-text {
+
+        font-size: 9px;
+    }
+
+
+    .product-slide {
+
+        flex-basis:
+            calc(
+                100vw - 20px
+            );
+
+        width:
+            calc(
+                100vw - 20px
+            );
+    }
+
+
+    .collections > h2,
+    .watch-brands-header h2,
+    .get-touch h2,
+    .partner-header h2,
+    .why-choose > h2,
+    .stats-section > h2 {
+
+        font-size: 27px;
+    }
+
+}
 
         /* =====================================================
            SMALL PHONES
