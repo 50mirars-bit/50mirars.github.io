@@ -1,1969 +1,1814 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
-    <meta
-        name="theme-color"
-        content="#ffffff"
-    >
+<meta
+    name="theme-color"
+    content="#ffffff"
+>
 
-    <meta
-        name="description"
-        content="50 Mirars - Premium Watches and Sunglasses"
-    >
+<meta
+    name="description"
+    content="50 Mirars - Premium Watches and Sunglasses"
+>
 
-    <title>
-        50 Mirars | Watches & Sunglasses
-    </title>
+<title>50 Mirars | Watches & Sunglasses</title>
 
 
-    <style>
+<style>
 
-        /* =====================================================
-           GLOBAL
-        ===================================================== */
+/* =====================================================
+   GLOBAL
+===================================================== */
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        html {
-            scroll-behavior: smooth;
-            overflow-x: hidden;
-        }
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
 
-        body {
-            width: 100%;
-            overflow-x: hidden;
+body {
+    width: 100%;
+    min-width: 0;
 
-            font-family:
-                Arial,
-                Helvetica,
-                sans-serif;
+    overflow-x: hidden;
 
-            background: #ffffff;
-            color: #111111;
-        }
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
 
-        img {
-            display: block;
-            max-width: 100%;
-        }
+    background: #ffffff;
+    color: #111111;
+}
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+img {
+    display: block;
+    max-width: 100%;
+}
 
-        button {
-            font-family: inherit;
-        }
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input,
+textarea {
+    font-family: inherit;
+}
 
 
-        /* =====================================================
-           HEADER
-        ===================================================== */
+/* =====================================================
+   HEADER
+===================================================== */
 
-        .top-header {
+.top-header {
 
-            width: 100%;
-            height: 92px;
+    width: 100%;
+    height: 92px;
 
-            display: grid;
+    display: grid;
 
-            grid-template-columns:
+    grid-template-columns:
+        1fr
+        1fr
+        1fr;
+
+    align-items: center;
+
+    padding:
+        8px
+        55px;
+
+    background: #ffffff;
+
+    border-bottom:
+        1px solid
+        #eeeeee;
+
+    position: relative;
+
+    z-index: 1000;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+}
+
+.header-logo img {
+
+    height: 68px;
+    width: auto;
+
+    max-width: 170px;
+
+    object-fit: contain;
+}
+
+.header-brand {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.header-brand h1 {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 31px;
+
+    letter-spacing: 5px;
+
+    line-height: 1;
+}
+
+.header-brand span {
+
+    display: block;
+
+    margin-top: 6px;
+
+    font-size: 8px;
+
+    font-weight: 600;
+
+    letter-spacing: 4px;
+
+    color: #a7833c;
+}
+
+.header-right {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.header-cart {
+
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+}
+
+.cart-icon {
+    font-size: 26px;
+}
+
+
+/* =====================================================
+   OFFER BAR
+===================================================== */
+
+.headline-bar {
+
+    width: 100%;
+
+    overflow: hidden;
+
+    white-space: nowrap;
+
+    background: #ffffff;
+
+    border-bottom:
+        1px solid
+        #eeeeee;
+}
+
+.headline-text {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    width: max-content;
+
+    padding:
+        10px
+        0;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    animation:
+        offer-scroll
+        17s
+        linear
+        infinite;
+}
+
+.headline-text strong {
+
+    color: #b38a38;
+
+    margin:
+        0
+        5px;
+}
+
+.headline-text img {
+
+    width: 20px !important;
+    height: auto !important;
+
+    margin:
+        0
+        5px;
+}
+
+@keyframes offer-scroll {
+
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+
+/* =====================================================
+   HERO SLIDER
+===================================================== */
+
+.hero-slider-section {
+
+    width: 100%;
+
+    position: relative;
+
+    background: #000000;
+
+    overflow: hidden;
+
+    user-select: none;
+
+    touch-action: pan-y;
+
+    margin: 0;
+    padding: 0;
+}
+
+.hero-slider {
+
+    width: 100%;
+
+    position: relative;
+
+    overflow: hidden;
+
+    cursor: grab;
+
+    margin: 0;
+    padding: 0;
+
+    line-height: 0;
+}
+
+.hero-slider.dragging {
+    cursor: grabbing;
+}
+
+.hero-track {
+
+    display: flex;
+
+    width: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    transition:
+        transform
+        0.7s
+        cubic-bezier(
+            0.77,
+            0,
+            0.175,
+            1
+        );
+}
+
+.hero-slide {
+
+    flex:
+        0 0 100%;
+
+    width: 100%;
+
+    position: relative;
+
+    display: block;
+
+    background: #000000;
+
+    overflow: hidden;
+
+    margin: 0;
+    padding: 0;
+
+    line-height: 0;
+}
+
+.hero-slide img {
+
+    display: block;
+
+    width: 100%;
+
+    height: auto;
+
+    aspect-ratio: 2 / 1;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    max-width: none;
+
+    margin: 0;
+    padding: 0;
+
+    pointer-events: none;
+
+    user-select: none;
+
+    -webkit-user-drag: none;
+}
+
+
+/* =====================================================
+   HERO ARROWS
+===================================================== */
+
+.hero-arrow {
+
+    position: absolute;
+
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    width: 50px;
+    height: 50px;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.7
+        );
+
+    border-radius: 50%;
+
+    background:
+        rgba(
+            0,
+            0,
+            0,
+            0.35
+        );
+
+    color: #ffffff;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 34px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    z-index: 20;
+
+    transition:
+        background
+        0.25s
+        ease,
+        transform
+        0.25s
+        ease;
+}
+
+.hero-arrow:hover {
+
+    background:
+        rgba(
+            0,
+            0,
+            0,
+            0.75
+        );
+
+    transform:
+        translateY(-50%)
+        scale(1.05);
+}
+
+.hero-prev {
+    left: 22px;
+}
+
+.hero-next {
+    right: 22px;
+}
+
+
+/* =====================================================
+   HERO DOTS
+===================================================== */
+
+.hero-dots {
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 20px;
+
+    transform:
+        translateX(-50%);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    z-index: 30;
+
+    padding:
+        8px
+        13px;
+
+    border-radius: 30px;
+
+    background:
+        rgba(
+            0,
+            0,
+            0,
+            0.28
+        );
+
+    backdrop-filter:
+        blur(5px);
+}
+
+.hero-dot {
+
+    width: 9px;
+    height: 9px;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.55
+        );
+
+    cursor: pointer;
+
+    transition:
+        all
+        0.3s
+        ease;
+}
+
+.hero-dot.active {
+
+    width: 28px;
+
+    border-radius: 20px;
+
+    background: #ffffff;
+}
+
+
+/* =====================================================
+   PRODUCT SHOWCASE
+===================================================== */
+
+.product-showcase {
+
+    width: 100%;
+
+    padding:
+        80px
+        5%
+        90px;
+
+    background: #ffffff;
+
+    text-align: center;
+
+    overflow: hidden;
+}
+
+.product-showcase-header {
+    margin-bottom: 45px;
+}
+
+.product-showcase-header small {
+
+    display: block;
+
+    color: #c9a24d;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 12px;
+}
+
+.product-showcase-header h2 {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 48px;
+
+    line-height: 1.15;
+
+    margin-bottom: 12px;
+}
+
+.product-showcase-header p {
+
+    color: #777777;
+
+    font-size: 16px;
+}
+
+
+/* =====================================================
+   PRODUCT SLIDER
+===================================================== */
+
+.product-slider {
+
+    width: 100%;
+
+    overflow: hidden;
+
+    position: relative;
+
+    touch-action: pan-y;
+
+    user-select: none;
+
+    cursor: grab;
+}
+
+.product-slider.dragging {
+    cursor: grabbing;
+}
+
+.product-track {
+
+    display: flex;
+
+    width: max-content;
+
+    gap: 22px;
+
+    transition:
+        transform
+        0.55s
+        cubic-bezier(
+            0.77,
+            0,
+            0.175,
+            1
+        );
+}
+
+.product-slide {
+
+    flex:
+        0 0 calc(
+            (100vw - 10vw - 44px) / 3
+        );
+
+    max-width: 480px;
+
+    overflow: hidden;
+
+    background: #f5f5f5;
+
+    position: relative;
+}
+
+.product-slide img {
+
+    width: 100%;
+
+    height: 380px;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    display: block;
+
+    transition:
+        transform
+        0.6s
+        ease;
+
+    pointer-events: none;
+}
+
+.product-slide:hover img {
+    transform: scale(1.035);
+}
+
+
+/* =====================================================
+   PRODUCT ARROWS
+===================================================== */
+
+.product-arrow {
+
+    position: absolute;
+
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    width: 48px;
+    height: 48px;
+
+    border:
+        1px solid
+        #dddddd;
+
+    border-radius: 50%;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.95
+        );
+
+    color: #111111;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 28px;
+
+    cursor: pointer;
+
+    z-index: 10;
+
+    box-shadow:
+        0 5px 20px
+        rgba(
+            0,
+            0,
+            0,
+            0.12
+        );
+}
+
+.product-arrow:hover {
+
+    background: #111111;
+    color: #ffffff;
+}
+
+.product-prev {
+    left: 15px;
+}
+
+.product-next {
+    right: 15px;
+}
+
+
+/* =====================================================
+   PRODUCT DOTS
+===================================================== */
+
+.product-dots {
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 28px;
+}
+
+.product-dot {
+
+    width: 8px;
+    height: 8px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #cccccc;
+
+    cursor: pointer;
+}
+
+.product-dot.active {
+
+    width: 28px;
+
+    border-radius: 20px;
+
+    background: #c9a24d;
+}
+
+
+/* =====================================================
+   WATCH BRANDS
+===================================================== */
+
+.watch-brands {
+
+    width: 100%;
+
+    padding:
+        80px
+        0
+        90px;
+
+    text-align: center;
+
+    overflow: hidden;
+}
+
+.watch-brands-header {
+
+    margin-bottom: 40px;
+
+    padding:
+        0
+        20px;
+}
+
+.watch-brands-header small {
+
+    display: block;
+
+    color: #c9a24d;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 12px;
+}
+
+.watch-brands-header h2 {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 50px;
+
+    margin-bottom: 15px;
+}
+
+.watch-brands-header p {
+
+    color: #777777;
+
+    font-size: 17px;
+}
+
+.watch-brands-image {
+
+    width: 100% !important;
+
+    max-width: 100% !important;
+
+    height: auto;
+
+    border-top:
+        1px solid
+        #dddddd;
+
+    border-bottom:
+        1px solid
+        #dddddd;
+}
+
+
+/* =====================================================
+   COLLECTIONS
+===================================================== */
+
+.collections {
+
+    width: 100%;
+
+    padding:
+        100px
+        7%;
+
+    text-align: center;
+
+    overflow: hidden;
+}
+
+.collections > small {
+
+    display: block;
+
+    color: #c9a24d;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 14px;
+}
+
+.collections > h2 {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 50px;
+
+    margin-bottom: 50px;
+}
+
+.categories-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0, 1fr)
+        );
+
+    gap: 25px;
+}
+
+.categories-grid > a {
+    display: block;
+}
+
+.card {
+
+    position: relative;
+
+    overflow: hidden;
+
+    background: #111111;
+}
+
+.card img {
+
+    width: 100%;
+
+    height: 500px;
+
+    object-fit: cover;
+
+    transition:
+        transform
+        0.5s
+        ease;
+}
+
+.card:hover img {
+    transform: scale(1.04);
+}
+
+.card-content {
+
+    position: absolute;
+
+    left: 30px;
+    right: 20px;
+
+    bottom: 30px;
+
+    color: #ffffff;
+
+    text-align: left;
+}
+
+.card-content h3 {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 38px;
+
+    margin-bottom: 8px;
+}
+
+.card-content p {
+    font-size: 17px;
+}
+
+
+/* =====================================================
+   LANGUAGE OF TIME
+===================================================== */
+
+.language-of-time-section {
+
+    width: 100%;
+
+    overflow: hidden;
+
+    background: #111111;
+}
+
+.language-of-time-section img {
+
+    width: 100%;
+
+    height: auto;
+}
+
+
+/* =====================================================
+   GET IN TOUCH
+===================================================== */
+
+.get-touch {
+
+    width: 100%;
+
+    padding:
+        90px
+        7%;
+
+    background: #f8f8f8;
+
+    text-align: center;
+}
+
+.get-touch h2 {
+
+    color: #c9a24d;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 54px;
+
+    margin-bottom: 20px;
+}
+
+.get-touch > p {
+
+    max-width: 750px;
+
+    margin:
+        0
+        auto
+        45px;
+
+    color: #666666;
+
+    font-size: 20px;
+
+    line-height: 1.6;
+}
+
+.touch-form {
+
+    width: 100%;
+
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    padding: 40px;
+
+    background: #ffffff;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 0 25px
+        rgba(
+            0,
+            0,
+            0,
+            0.08
+        );
+}
+
+.touch-form input,
+.touch-form textarea {
+
+    width: 100%;
+
+    display: block;
+
+    padding: 17px;
+
+    margin-bottom: 18px;
+
+    border:
+        1px solid
+        #dddddd;
+
+    border-radius: 7px;
+
+    font-size: 16px;
+
+    outline: none;
+}
+
+.touch-form textarea {
+
+    min-height: 180px;
+
+    resize: vertical;
+}
+
+.touch-form button {
+
+    padding:
+        15px
+        35px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: #c9a24d;
+
+    color: #ffffff;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+/* =====================================================
+   BUSINESS PARTNER
+===================================================== */
+
+.business-partner {
+
+    width: 100%;
+
+    padding:
+        100px
+        7%;
+
+    text-align: center;
+}
+
+.partner-header {
+    margin-bottom: 50px;
+}
+
+.partner-header small {
+
+    display: block;
+
+    color: #c9a24d;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 12px;
+}
+
+.partner-header h2 {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 50px;
+}
+
+.partner-container {
+
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(300px, 400px)
+        minmax(0, 1fr);
+
+    align-items: center;
+
+    gap: 35px;
+}
+
+.partner-img {
+
+    width: 100%;
+
+    max-width: 350px;
+
+    margin: auto;
+
+    border-radius: 10px;
+}
+
+.partner-card {
+
+    max-width: 400px;
+
+    margin: auto;
+
+    padding:
+        40px
+        30px;
+
+    background: #ffffff;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 8px 25px
+        rgba(
+            0,
+            0,
+            0,
+            0.08
+        );
+}
+
+.partner-card img {
+
+    width: 100%;
+
+    max-width: 180px;
+
+    margin:
+        0
+        auto
+        25px;
+}
+
+.partner-card h3 {
+
+    font-size: 28px;
+
+    margin-bottom: 10px;
+}
+
+.partner-card p {
+
+    color: #666666;
+
+    line-height: 1.6;
+
+    margin-bottom: 15px;
+}
+
+.partner-btn {
+
+    display: inline-flex;
+
+    padding:
+        12px
+        24px;
+
+    background: #c9a24d;
+
+    color: #ffffff;
+
+    border-radius: 6px;
+
+    font-weight: 700;
+}
+
+
+/* =====================================================
+   WHY CHOOSE
+===================================================== */
+
+.why-choose {
+
+    width: 100%;
+
+    padding:
+        100px
+        7%;
+
+    background: #f8f6f2;
+
+    text-align: center;
+}
+
+.why-choose > h2 {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 50px;
+
+    margin-bottom: 55px;
+}
+
+.why-grid {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            4,
+            minmax(0, 1fr)
+        );
+
+    gap: 25px;
+}
+
+.why-box {
+
+    padding:
+        35px
+        25px;
+
+    background: #ffffff;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 5px 20px
+        rgba(
+            0,
+            0,
+            0,
+            0.08
+        );
+}
+
+.why-box h3 {
+
+    color: #c9a24d;
+
+    font-size: 21px;
+
+    margin-bottom: 15px;
+}
+
+.why-box p {
+
+    color: #666666;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   STATS
+===================================================== */
+
+.stats-section {
+
+    width: 100%;
+
+    padding:
+        90px
+        7%;
+
+    background: #111111;
+
+    color: #ffffff;
+
+    text-align: center;
+}
+
+.stats-section > h2 {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 50px;
+
+    margin-bottom: 55px;
+}
+
+.stats-grid {
+
+    max-width: 1000px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            1fr
+        );
+}
+
+.stat-box h3 {
+
+    color: #c9a24d;
+
+    font-size: 60px;
+
+    margin-bottom: 12px;
+}
+
+.stat-box p {
+
+    color: #dddddd;
+
+    font-size: 19px;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.main-footer {
+
+    width: 100%;
+
+    background: #0b0b0b;
+
+    color: #ffffff;
+
+    padding:
+        70px
+        7%
+        25px;
+}
+
+.footer-container {
+
+    max-width: 1400px;
+
+    margin: auto;
+}
+
+.footer-top {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            1fr
+        );
+
+    gap: 40px;
+}
+
+.footer-top > h2 {
+
+    grid-column:
+        1 / -1;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 42px;
+
+    text-align: center;
+
+    margin-bottom: 10px;
+}
+
+.contact-column,
+.whatsapp-column {
+    text-align: center;
+}
+
+.contact-column h3,
+.whatsapp-column h3 {
+
+    font-size: 20px;
+
+    margin-bottom: 22px;
+}
+
+.contact-column p {
+
+    color: #bdbdbd;
+
+    font-size: 15px;
+
+    margin-top: 12px;
+}
+
+.footer-link {
+
+    display: block;
+
+    width: fit-content;
+
+    margin:
+        0
+        auto
+        8px;
+
+    color: #ffffff;
+
+    font-size: 16px;
+}
+
+.whatsapp-title {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+}
+
+.whatsapp-icon {
+
+    width: 24px !important;
+    height: 24px !important;
+
+    object-fit: contain;
+}
+
+.whatsapp-button {
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 50px;
+
+    padding:
+        13px
+        30px;
+
+    background: #ffffff;
+
+    color: #111111;
+
+    font-weight: 700;
+}
+
+.footer-middle {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            1fr
+        );
+
+    gap: 50px;
+
+    margin-top: 65px;
+
+    padding-top: 45px;
+
+    border-top:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.10
+        );
+}
+
+.footer-links-column,
+.footer-social {
+    text-align: center;
+}
+
+.footer-links-column h3,
+.footer-social h3 {
+    margin-bottom: 20px;
+}
+
+.footer-links-column a {
+
+    display: block;
+
+    width: fit-content;
+
+    margin:
+        0
+        auto
+        14px;
+
+    color: #d7d7d7;
+}
+
+.footer-social p {
+
+    color: #d7d7d7;
+
+    margin-bottom: 14px;
+}
+
+.instagram-button {
+
+    width: 48px;
+    height: 48px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.7
+        );
+
+    border-radius: 10px;
+}
+
+.instagram-button img {
+
+    width: 27px;
+    height: 27px;
+
+    object-fit: contain;
+}
+
+.footer-bottom {
+
+    margin-top: 50px;
+
+    padding-top: 20px;
+
+    border-top:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.10
+        );
+
+    text-align: center;
+}
+
+.footer-bottom p {
+
+    color: #aaaaaa;
+
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media screen and (max-width: 1024px) {
+
+    .top-header {
+        padding:
+            8px
+            30px;
+    }
+
+    .product-slide {
+        flex-basis:
+            calc(
+                (100vw - 10vw - 22px) / 2
+            );
+    }
+
+    .product-slide img {
+        height: 330px;
+    }
+
+    .why-grid {
+        grid-template-columns:
+            repeat(
+                2,
                 1fr
-                1fr
-                1fr;
+            );
+    }
 
-            align-items: center;
+    .hero-arrow {
+        width: 44px;
+        height: 44px;
+        font-size: 29px;
+    }
 
-            padding:
-                8px
-                55px;
+}
 
-            background: #ffffff;
 
-            border-bottom:
-                1px solid
-                #eeeeee;
-
-            position: relative;
-
-            z-index: 1000;
-        }
-
-        .header-left {
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: flex-start;
-        }
-
-        .header-logo {
-
-            display: flex;
-
-            align-items: center;
-        }
-
-        .header-logo img {
-
-            height: 68px;
-
-            width: auto;
-
-            max-width: 170px;
-
-            object-fit: contain;
-        }
-
-        .header-brand {
-
-            display: flex;
-
-            justify-content: center;
-
-            text-align: center;
-        }
-
-        .header-brand h1 {
-
-            font-family:
-                Georgia,
-                "Times New Roman",
-                serif;
-
-            font-size: 31px;
-
-            letter-spacing: 5px;
-
-            line-height: 1;
-        }
-
-        .header-brand span {
-
-            display: block;
-
-            margin-top: 6px;
-
-            font-size: 8px;
-
-            font-weight: 600;
-
-            letter-spacing: 4px;
-
-            color: #a7833c;
-        }
-
-        .header-right {
-
-            display: flex;
-
-            justify-content: flex-end;
-        }
-
-        .header-cart {
-
-            width: 52px;
-            height: 52px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            border-radius: 50%;
-        }
-
-        .cart-icon {
-
-            font-size: 26px;
-        }
-
-
-        /* =====================================================
-           OFFER BAR
-        ===================================================== */
-
-        .headline-bar {
-
-            width: 100%;
-
-            overflow: hidden;
-
-            white-space: nowrap;
-
-            background: #ffffff;
-
-            border-bottom:
-                1px solid
-                #eeeeee;
-        }
-
-        .headline-text {
-
-            display: inline-flex;
-
-            align-items: center;
-
-            width: max-content;
-
-            padding:
-                10px
-                0;
-
-            font-size: 16px;
-
-            font-weight: 600;
-
-            animation:
-                offer-scroll
-                17s
-                linear
-                infinite;
-        }
-
-        .headline-text strong {
-
-            color: #b38a38;
-
-            margin:
-                0
-                5px;
-        }
-
-        .headline-text img {
-
-            width: 20px !important;
-
-            height: auto !important;
-
-            margin:
-                0
-                5px;
-        }
-
-        @keyframes offer-scroll {
-
-            0% {
-                transform:
-                    translateX(100%);
-            }
-
-            100% {
-                transform:
-                    translateX(-100%);
-            }
-
-        }
-
-
-        /* =====================================================
-           TOP HERO POSTER SLIDER
-           
-           5 POSTERS
-           
-           Posters should ideally be 2:1
-           Example: 1728 x 864
-        ===================================================== */
-
-        .hero-slider-section {
-
-            width: 100%;
-
-            position: relative;
-
-            background: #000000;
-
-            overflow: hidden;
-
-            user-select: none;
-
-            touch-action: pan-y;
-
-            margin: 0;
-
-            padding: 0;
-        }
-
-
-        /* =====================================================
-           HERO WINDOW
-        ===================================================== */
-
-        .hero-slider {
-
-            width: 100%;
-
-            position: relative;
-
-            overflow: hidden;
-
-            cursor: grab;
-
-            margin: 0;
-
-            padding: 0;
-
-            line-height: 0;
-        }
-
-        .hero-slider.dragging {
-
-            cursor: grabbing;
-        }
-
-
-        /* =====================================================
-           HERO TRACK
-        ===================================================== */
-
-        .hero-track {
-
-            display: flex;
-
-            width: 100%;
-
-            margin: 0;
-
-            padding: 0;
-
-            transition:
-                transform
-                0.7s
-                cubic-bezier(
-                    0.77,
-                    0,
-                    0.175,
-                    1
-                );
-        }
-
-
-        /* =====================================================
-           HERO SLIDE
-        ===================================================== */
-
-        .hero-slide {
-
-            flex:
-                0 0 100%;
-
-            width: 100%;
-
-            position: relative;
-
-            display: block;
-
-            background: #000000;
-
-            overflow: hidden;
-
-            margin: 0;
-
-            padding: 0;
-
-            line-height: 0;
-        }
-
-
-        /* =====================================================
-           HERO IMAGE
-        ===================================================== */
-
-        .hero-slide img {
-
-            display: block;
-
-            width: 100%;
-
-            height: auto;
-
-            aspect-ratio: 2 / 1;
-
-            object-fit: cover;
-
-            object-position: center;
-
-            max-width: none;
-
-            margin: 0;
-
-            padding: 0;
-
-            pointer-events: none;
-
-            user-select: none;
-
-            -webkit-user-drag: none;
-        }
-
-
-        /* =====================================================
-           HERO ARROWS
-        ===================================================== */
-
-        .hero-arrow {
-
-            position: absolute;
-
-            top: 50%;
-
-            transform:
-                translateY(-50%);
-
-            width: 50px;
-
-            height: 50px;
-
-            border:
-                1px solid
-                rgba(
-                    255,
-                    255,
-                    255,
-                    0.7
-                );
-
-            border-radius: 50%;
-
-            background:
-                rgba(
-                    0,
-                    0,
-                    0,
-                    0.35
-                );
-
-            color: #ffffff;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            font-size: 34px;
-
-            line-height: 1;
-
-            cursor: pointer;
-
-            z-index: 20;
-
-            transition:
-                background
-                0.25s
-                ease,
-                transform
-                0.25s
-                ease;
-        }
-
-        .hero-arrow:hover {
-
-            background:
-                rgba(
-                    0,
-                    0,
-                    0,
-                    0.75
-                );
-
-            transform:
-                translateY(-50%)
-                scale(1.05);
-        }
-
-        .hero-prev {
-
-            left: 22px;
-        }
-
-        .hero-next {
-
-            right: 22px;
-        }
-
-
-        /* =====================================================
-           HERO DOTS
-        ===================================================== */
-
-        .hero-dots {
-
-            position: absolute;
-
-            left: 50%;
-
-            bottom: 20px;
-
-            transform:
-                translateX(-50%);
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            gap: 9px;
-
-            z-index: 30;
-
-            padding:
-                8px
-                13px;
-
-            border-radius: 30px;
-
-            background:
-                rgba(
-                    0,
-                    0,
-                    0,
-                    0.28
-                );
-
-            backdrop-filter:
-                blur(5px);
-        }
-
-        .hero-dot {
-
-            width: 9px;
-
-            height: 9px;
-
-            padding: 0;
-
-            border: none;
-
-            border-radius: 50%;
-
-            background:
-                rgba(
-                    255,
-                    255,
-                    255,
-                    0.55
-                );
-
-            cursor: pointer;
-
-            transition:
-                all
-                0.3s
-                ease;
-        }
-
-        .hero-dot.active {
-
-            width: 28px;
-
-            border-radius: 20px;
-
-            background: #ffffff;
-        }
-
-
-        /* =====================================================
-           PRODUCT SHOWCASE
-        ===================================================== */
-
-        .product-showcase {
-
-            width: 100%;
-
-            padding:
-                80px
-                5%
-                90px;
-
-            background: #ffffff;
-
-            text-align: center;
-        }
-
-        .product-showcase-header {
-
-            margin-bottom: 45px;
-        }
-
-        .product-showcase-header small {
-
-            display: block;
-
-            color: #c9a24d;
-
-            font-size: 14px;
-
-            font-weight: 700;
-
-            letter-spacing: 3px;
-
-            margin-bottom: 12px;
-        }
-
-        .product-showcase-header h2 {
-
-            font-family:
-                Georgia,
-                "Times New Roman",
-                serif;
-
-            font-size: 48px;
-
-            line-height: 1.15;
-
-            margin-bottom: 12px;
-        }
-
-        .product-showcase-header p {
-
-            color: #777777;
-
-            font-size: 16px;
-        }
-
-
-        /* =====================================================
-           PRODUCT SLIDER
-        ===================================================== */
-
-        .product-slider {
-
-            width: 100%;
-
-            overflow: hidden;
-
-            position: relative;
-
-            touch-action: pan-y;
-
-            user-select: none;
-
-            cursor: grab;
-        }
-
-        .product-slider.dragging {
-
-            cursor: grabbing;
-        }
-
-        .product-track {
-
-            display: flex;
-
-            width: max-content;
-
-            gap: 22px;
-
-            transition:
-                transform
-                0.55s
-                cubic-bezier(
-                    0.77,
-                    0,
-                    0.175,
-                    1
-                );
-        }
-
-        .product-slide {
-
-            flex:
-                0 0 calc(
-                    (100vw - 10vw - 44px) / 3
-                );
-
-            max-width: 480px;
-
-            overflow: hidden;
-
-            background: #f5f5f5;
-
-            position: relative;
-        }
-
-        .product-slide img {
-
-            width: 100%;
-
-            height: 380px;
-
-            object-fit: cover;
-
-            object-position: center;
-
-            display: block;
-
-            transition:
-                transform
-                0.6s
-                ease;
-
-            pointer-events: none;
-        }
-
-        .product-slide:hover img {
-
-            transform:
-                scale(1.035);
-        }
-
-
-        /* =====================================================
-           PRODUCT ARROWS
-        ===================================================== */
-
-        .product-arrow {
-
-            position: absolute;
-
-            top: 50%;
-
-            transform:
-                translateY(-50%);
-
-            width: 48px;
-
-            height: 48px;
-
-            border:
-                1px solid
-                #dddddd;
-
-            border-radius: 50%;
-
-            background:
-                rgba(
-                    255,
-                    255,
-                    255,
-                    0.95
-                );
-
-            color: #111111;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            font-size: 28px;
-
-            cursor: pointer;
-
-            z-index: 10;
-
-            box-shadow:
-                0 5px 20px
-                rgba(
-                    0,
-                    0,
-                    0,
-                    0.12
-                );
-        }
-
-        .product-arrow:hover {
-
-            background: #111111;
-
-            color: #ffffff;
-        }
-
-        .product-prev {
-
-            left: 15px;
-        }
-
-        .product-next {
-
-            right: 15px;
-        }
-
-
-        /* =====================================================
-           PRODUCT DOTS
-        ===================================================== */
-
-        .product-dots {
-
-            display: flex;
-
-            justify-content: center;
-
-            align-items: center;
-
-            gap: 8px;
-
-            margin-top: 28px;
-        }
-
-        .product-dot {
-
-            width: 8px;
-
-            height: 8px;
-
-            border: none;
-
-            border-radius: 50%;
-
-            background: #cccccc;
-
-            cursor: pointer;
-        }
-
-        .product-dot.active {
-
-            width: 28px;
-
-            border-radius: 20px;
-
-            background: #c9a24d;
-        }
-
-
-        /* =====================================================
-           WATCH BRANDS
-        ===================================================== */
-
-        .watch-brands {
-
-            width: 100%;
-
-            padding:
-                80px
-                0
-                90px;
-
-            text-align: center;
-        }
-
-        .watch-brands-header {
-
-            margin-bottom: 40px;
-
-            padding:
-                0
-                20px;
-        }
-
-        .watch-brands-header small {
-
-            display: block;
-
-            color: #c9a24d;
-
-            font-size: 15px;
-
-            font-weight: 700;
-
-            letter-spacing: 2px;
-
-            margin-bottom: 12px;
-        }
-
-        .watch-brands-header h2 {
-
-            font-family:
-                Georgia,
-                "Times New Roman",
-                serif;
-
-            font-size: 50px;
-
-            margin-bottom: 15px;
-        }
-
-        .watch-brands-header p {
-
-            color: #777777;
-
-            font-size: 17px;
-        }
-
-        .watch-brands-image {
-
-            width: 100% !important;
-
-            max-width: 100% !important;
-
-            height: auto;
-
-            border-top:
-                1px solid
-                #dddddd;
-
-            border-bottom:
-                1px solid
-                #dddddd;
-        }
-
-
-        /* =====================================================
-           COLLECTIONS
-        ===================================================== */
-
-        .collections {
-
-            width: 100%;
-
-            padding:
-                100px
-                7%;
-
-            text-align: center;
-        }
-
-        .collections > small {
-
-            display: block;
-
-            color: #c9a24d;
-
-            font-size: 16px;
-
-            font-weight: 700;
-
-            letter-spacing: 2px;
-
-            margin-bottom: 14px;
-        }
-
-        .collections > h2 {
-
-            font-family:
-                Georgia,
-                "Times New Roman",
-                serif;
-
-            font-size: 50px;
-
-            margin-bottom: 50px;
-        }
-
-        .categories-grid {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(
-                    2,
-                    minmax(0, 1fr)
-                );
-
-            gap: 25px;
-        }
-
-        .categories-grid > a {
-
-            display: block;
-        }
-
-        .card {
-
-            position: relative;
-
-            overflow: hidden;
-
-            background: #111111;
-        }
-
-        .card img {
-
-            width: 100%;
-
-            height: 500px;
-
-            object-fit: cover;
-
-            transition:
-                transform
-                0.5s
-                ease;
-        }
-
-        .card:hover img {
-
-            transform:
-                scale(1.04);
-        }
-
-        .card-content {
-
-            position: absolute;
-
-            left: 30px;
-
-            right: 20px;
-
-            bottom: 30px;
-
-            color: #ffffff;
-
-            text-align: left;
-        }
-
-        .card-content h3 {
-
-            font-family:
-                Georgia,
-                "Times New Roman",
-                serif;
-
-            font-size: 38px;
-
-            margin-bottom: 8px;
-        }
-
-        .card-content p {
-
-            font-size: 17px;
-        }
-
-
-        /* =====================================================
-           LANGUAGE OF TIME
-        ===================================================== */
-
-        .language-of-time-section {
-
-            width: 100%;
-
-            overflow: hidden;
-
-            background: #111111;
-        }
-
-        .language-of-time-section img {
-
-            width: 100%;
-
-            height: auto;
-        }
-
-
-        /* =====================================================
-           GET IN TOUCH
-        ===================================================== */
-
-        .get-touch {
-
-            width: 100%;
-
-            padding:
-                90px
-                7%;
-
-            background: #f8f8f8;
-
-            text-align: center;
-        }
-
-        .get-touch h2 {
-
-            color: #c9a24d;
-
-            font-family:
-                Georgia,
-                "Times New Roman",
-                serif;
-
-            font-size: 54px;
-
-            margin-bottom: 20px;
-        }
-
-        .get-touch > p {
-
-            max-width: 750px;
-
-            margin:
-                0
-                auto
-                45px;
-
-            color: #666666;
-
-            font-size: 20px;
-
-            line-height: 1.6;
-        }
-
-        .touch-form {
-
-            width: 100%;
-
-            max-width: 900px;
-
-            margin: 0 auto;
-
-            padding: 40px;
-
-            background: #ffffff;
-
-            border-radius: 12px;
-
-            box-shadow:
-                0 0 25px
-                rgba(
-                    0,
-                    0,
-                    0,
-                    0.08
-                );
-        }
-
-        .touch-form input,
-        .touch-form textarea {
-
-            width: 100%;
-
-            display: block;
-
-            padding: 17px;
-
-            margin-bottom: 18px;
-
-            border:
-                1px solid
-                #dddddd;
-
-            border-radius: 7px;
-
-            font-size: 16px;
-
-            outline: none;
-        }
-
-        .touch-form textarea {
-
-            min-height: 180px;
-
-            resize: vertical;
-        }
-
-        .touch-form button {
-
-            padding:
-                15px
-                35px;
-
-            border: none;
-
-            border-radius: 7px;
-
-            background: #c9a24d;
-
-            color: #ffffff;
-
-            font-size: 16px;
-
-            font-weight: 700;
-
-            cursor: pointer;
-        }
-
-
-        /* =====================================================
-           BUSINESS PARTNER
-        ===================================================== */
-
-        .business-partner {
-
-            width: 100%;
-
-            padding:
-                100px
-                7%;
-
-            text-align: center;
-        }
-
-        .partner-header {
-
-            margin-bottom: 50px;
-        }
-
-        .partner-header small {
-
-            display: block;
-
-            color: #c9a24d;
-
-            font-size: 16px;
-
-            font-weight: 700;
-
-            letter-spacing: 2px;
-
-            margin-bottom: 12px;
-        }
-
-        .partner-header h2 {
-
-            font-family:
-                Georgia,
-                "Times New Roman",
-                serif;
-
-            font-size: 50px;
-        }
-
-        .partner-container {
-
-            width: 100%;
-
-            display: grid;
-
-            grid-template-columns:
-                minmax(0, 1fr)
-                minmax(300px, 400px)
-                minmax(0, 1fr);
-
-            align-items: center;
-
-            gap: 35px;
-        }
-
-        .partner-img {
-
-            width: 100%;
-
-            max-width: 350px;
-
-            margin: auto;
-
-            border-radius: 10px;
-        }
-
-        .partner-card {
-
-            max-width: 400px;
-
-            margin: auto;
-
-            padding:
-                40px
-                30px;
-
-            background: #ffffff;
-
-            border-radius: 15px;
-
-            box-shadow:
-                0 8px 25px
-                rgba(
-                    0,
-                    0,
-                    0,
-                    0.08
-                );
-        }
-
-        .partner-card img {
-
-            width: 100%;
-
-            max-width: 180px;
-
-            margin:
-                0
-                auto
-                25px;
-        }
-
-        .partner-card h3 {
-
-            font-size: 28px;
-
-            margin-bottom: 10px;
-        }
-
-        .partner-card p {
-
-            color: #666666;
-
-            line-height: 1.6;
-
-            margin-bottom: 15px;
-        }
-
-        .partner-btn {
-
-            display: inline-flex;
-
-            padding:
-                12px
-                24px;
-
-            background: #c9a24d;
-
-            color: #ffffff;
-
-            border-radius: 6px;
-
-            font-weight: 700;
-        }
-
-
-        /* =====================================================
-           WHY CHOOSE
-        ===================================================== */
-
-        .why-choose {
-
-            width: 100%;
-
-            padding:
-                100px
-                7%;
-
-            background: #f8f6f2;
-
-            text-align: center;
-        }
-
-        .why-choose > h2 {
-
-            font-family:
-                Georgia,
-                "Times New Roman",
-                serif;
-
-            font-size: 50px;
-
-            margin-bottom: 55px;
-        }
-
-        .why-grid {
-
-            max-width: 1200px;
-
-            margin: auto;
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(
-                    4,
-                    minmax(0, 1fr)
-                );
-
-            gap: 25px;
-        }
-
-        .why-box {
-
-            padding:
-                35px
-                25px;
-
-            background: #ffffff;
-
-            border-radius: 12px;
-
-            box-shadow:
-                0 5px 20px
-                rgba(
-                    0,
-                    0,
-                    0,
-                    0.08
-                );
-        }
-
-        .why-box h3 {
-
-            color: #c9a24d;
-
-            font-size: 21px;
-
-            margin-bottom: 15px;
-        }
-
-        .why-box p {
-
-            color: #666666;
-
-            font-size: 15px;
-
-            line-height: 1.7;
-        }
-
-
-        /* =====================================================
-           STATS
-        ===================================================== */
-
-        .stats-section {
-
-            width: 100%;
-
-            padding:
-                90px
-                7%;
-
-            background: #111111;
-
-            color: #ffffff;
-
-            text-align: center;
-        }
-
-        .stats-section > h2 {
-
-            font-family:
-                Georgia,
-                "Times New Roman",
-                serif;
-
-            font-size: 50px;
-
-            margin-bottom: 55px;
-        }
-
-        .stats-grid {
-
-            max-width: 1000px;
-
-            margin: auto;
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(
-                    3,
-                    1fr
-                );
-        }
-
-        .stat-box h3 {
-
-            color: #c9a24d;
-
-            font-size: 60px;
-
-            margin-bottom: 12px;
-        }
-
-        .stat-box p {
-
-            color: #dddddd;
-
-            font-size: 19px;
-        }
-
-
-        /* =====================================================
-           FOOTER
-        ===================================================== */
-
-        .main-footer {
-
-            width: 100%;
-
-            background: #0b0b0b;
-
-            color: #ffffff;
-
-            padding:
-                70px
-                7%
-                25px;
-        }
-
-        .footer-container {
-
-            max-width: 1400px;
-
-            margin: auto;
-        }
-
-        .footer-top {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(
-                    3,
-                    1fr
-                );
-
-            gap: 40px;
-        }
-
-        .footer-top > h2 {
-
-            grid-column:
-                1 / -1;
-
-            font-family:
-                Georgia,
-                "Times New Roman",
-                serif;
-
-            font-size: 42px;
-
-            text-align: center;
-
-            margin-bottom: 10px;
-        }
-
-        .contact-column,
-        .whatsapp-column {
-
-            text-align: center;
-        }
-
-        .contact-column h3,
-        .whatsapp-column h3 {
-
-            font-size: 20px;
-
-            margin-bottom: 22px;
-        }
-
-        .contact-column p {
-
-            color: #bdbdbd;
-
-            font-size: 15px;
-
-            margin-top: 12px;
-        }
-
-        .footer-link {
-
-            display: block;
-
-            width: fit-content;
-
-            margin:
-                0
-                auto
-                8px;
-
-            color: #ffffff;
-
-            font-size: 16px;
-        }
-
-        .whatsapp-title {
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            gap: 8px;
-        }
-
-        .whatsapp-icon {
-
-            width: 24px !important;
-
-            height: 24px !important;
-
-            object-fit: contain;
-        }
-
-        .whatsapp-button {
-
-            display: inline-flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            min-height: 50px;
-
-            padding:
-                13px
-                30px;
-
-            background: #ffffff;
-
-            color: #111111;
-
-            font-weight: 700;
-        }
-
-        .footer-middle {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(
-                    3,
-                    1fr
-                );
-
-            gap: 50px;
-
-            margin-top: 65px;
-
-            padding-top: 45px;
-
-            border-top:
-                1px solid
-                rgba(
-                    255,
-                    255,
-                    255,
-                    0.10
-                );
-        }
-
-        .footer-links-column,
-        .footer-social {
-
-            text-align: center;
-        }
-
-        .footer-links-column h3,
-        .footer-social h3 {
-
-            margin-bottom: 20px;
-        }
-
-        .footer-links-column a {
-
-            display: block;
-
-            width: fit-content;
-
-            margin:
-                0
-                auto
-                14px;
-
-            color: #d7d7d7;
-        }
-
-        .footer-social p {
-
-            color: #d7d7d7;
-
-            margin-bottom: 14px;
-        }
-
-        .instagram-button {
-
-            width: 48px;
-
-            height: 48px;
-
-            display: inline-flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            border:
-                1px solid
-                rgba(
-                    255,
-                    255,
-                    255,
-                    0.7
-                );
-
-            border-radius: 10px;
-        }
-
-        .instagram-button img {
-
-            width: 27px;
-
-            height: 27px;
-
-            object-fit: contain;
-        }
-
-        .footer-bottom {
-
-            margin-top: 50px;
-
-            padding-top: 20px;
-
-            border-top:
-                1px solid
-                rgba(
-                    255,
-                    255,
-                    255,
-                    0.10
-                );
-
-            text-align: center;
-        }
-
-        .footer-bottom p {
-
-            color: #aaaaaa;
-
-            font-size: 13px;
-        }
-
-
-        /* =====================================================
-           TABLET
-        ===================================================== */
-
-        @media screen and (max-width: 1024px) {
-
-            .top-header {
-
-                padding:
-                    8px
-                    30px;
-            }
-
-            .product-slide {
-
-                flex-basis:
-                    calc(
-                        (100vw - 10vw - 22px) / 2
-                    );
-            }
-
-            .product-slide img {
-
-                height: 330px;
-            }
-
-            .why-grid {
-
-                grid-template-columns:
-                    repeat(
-                        2,
-                        1fr
-                    );
-            }
-
-            .hero-arrow {
-
-                width: 44px;
-
-                height: 44px;
-
-                font-size: 29px;
-            }
-
-        }
-
-
-       /* =====================================================
-   MOBILE — COMPLETE PHONE VERSION
+/* =====================================================
+   MOBILE
+   DESKTOP-STYLE RESPONSIVE LAYOUT
 ===================================================== */
 
 @media screen and (max-width: 768px) {
 
-    /* =================================================
-       GLOBAL MOBILE
-    ================================================= */
-
     html,
     body {
-
         width: 100%;
-
         max-width: 100%;
-
         overflow-x: hidden;
     }
 
-    body {
 
-        font-size: 15px;
-    }
-
-
-    /* =================================================
-       HEADER
-    ================================================= */
+    /* HEADER */
 
     .top-header {
 
         width: 100%;
-
-        height: 68px;
-
-        padding: 5px 10px;
+        height: 70px;
 
         grid-template-columns:
             1fr
             auto
             1fr;
 
-        position: relative;
+        padding:
+            5px
+            10px;
     }
-
-
-    .header-left {
-
-        justify-content: flex-start;
-
-        min-width: 0;
-    }
-
 
     .header-logo img {
 
-        width: auto;
+        height: 50px;
 
-        height: 48px;
-
-        max-width: 115px;
-
-        object-fit: contain;
+        max-width: 120px;
     }
-
 
     .header-brand {
 
-        min-width: 0;
-
-        padding: 0 5px;
+        padding:
+            0
+            6px;
     }
-
 
     .header-brand h1 {
 
-        font-size: 19px;
+        font-size: 20px;
 
         letter-spacing: 2.5px;
 
         white-space: nowrap;
     }
 
-
     .header-brand span {
-
-        display: block;
-
-        margin-top: 4px;
 
         font-size: 5.5px;
 
-        letter-spacing: 1.8px;
+        letter-spacing: 1.7px;
 
         white-space: nowrap;
     }
 
-
-    .header-right {
-
-        justify-content: flex-end;
-
-        min-width: 0;
-    }
-
-
     .header-cart {
 
         width: 44px;
-
         height: 44px;
     }
 
-
     .cart-icon {
-
-        font-size: 23px;
+        font-size: 22px;
     }
 
 
-    /* =================================================
-       OFFER BAR
-    ================================================= */
-
-    .headline-bar {
-
-        width: 100%;
-
-        overflow: hidden;
-    }
-
+    /* OFFER */
 
     .headline-text {
 
         font-size: 11px;
 
-        padding: 8px 0;
+        padding:
+            8px
+            0;
 
         animation-duration: 15s;
     }
 
-
     .headline-text img {
 
         width: 17px !important;
-
-        height: auto !important;
-
-        margin: 0 4px;
     }
 
 
-    /* =================================================
-       HERO SLIDER
-    ================================================= */
+    /* HERO */
 
-    .hero-slider-section {
-
-        width: 100%;
-
-        height: auto;
-
-        overflow: hidden;
-    }
-
-
-    .hero-slider {
-
-        width: 100%;
-
-        overflow: hidden;
-    }
-
-
+    .hero-slider-section,
+    .hero-slider,
     .hero-track {
 
         width: 100%;
+        max-width: 100%;
     }
-
 
     .hero-slide {
 
-        flex: 0 0 100%;
+        flex:
+            0 0 100%;
 
         width: 100%;
-
         min-width: 100%;
     }
-
 
     .hero-slide img {
 
@@ -1974,48 +1819,23 @@
         aspect-ratio: 2 / 1;
 
         object-fit: cover;
-
-        object-position: center;
     }
-
-
-    /* =================================================
-       HERO ARROWS
-    ================================================= */
 
     .hero-arrow {
 
         width: 34px;
-
         height: 34px;
 
         font-size: 23px;
-
-        border-color:
-            rgba(
-                255,
-                255,
-                255,
-                0.65
-            );
     }
-
 
     .hero-prev {
-
-        left: 8px;
+        left: 7px;
     }
-
 
     .hero-next {
-
-        right: 8px;
+        right: 7px;
     }
-
-
-    /* =================================================
-       HERO DOTS
-    ================================================= */
 
     .hero-dots {
 
@@ -2023,38 +1843,33 @@
 
         gap: 6px;
 
-        padding: 5px 9px;
+        padding:
+            5px
+            9px;
     }
-
 
     .hero-dot {
 
         width: 7px;
-
         height: 7px;
     }
 
-
     .hero-dot.active {
-
-        width: 21px;
+        width: 22px;
     }
 
 
-    /* =================================================
-       FEATURED COLLECTION
-    ================================================= */
+    /* FEATURED */
 
     .product-showcase {
 
         width: 100%;
 
         padding:
-            55px
+            60px
             0
-            60px;
+            70px;
     }
-
 
     .product-showcase-header {
 
@@ -2062,41 +1877,32 @@
             0
             16px;
 
-        margin-bottom: 28px;
+        margin-bottom: 30px;
     }
-
 
     .product-showcase-header small {
 
         font-size: 11px;
 
         letter-spacing: 2px;
-
-        margin-bottom: 9px;
     }
-
 
     .product-showcase-header h2 {
 
-        font-size: 30px;
+        font-size: 32px;
 
         line-height: 1.2;
-
-        margin-bottom: 10px;
     }
-
 
     .product-showcase-header p {
 
-        font-size: 13px;
+        font-size: 14px;
 
         line-height: 1.5;
     }
 
 
-    /* =================================================
-       PRODUCT SLIDER
-    ================================================= */
+    /* PRODUCT SLIDER */
 
     .product-slider {
 
@@ -2105,32 +1911,21 @@
         overflow: hidden;
     }
 
-
     .product-track {
 
-        gap: 12px;
-
-        width: max-content;
+        gap: 14px;
     }
-
 
     .product-slide {
 
         flex:
-            0 0 calc(
-                100vw - 28px
-            );
+            0 0 calc(100vw - 28px);
 
         width:
-            calc(
-                100vw - 28px
-            );
+            calc(100vw - 28px);
 
         max-width: none;
-
-        background: #f5f5f5;
     }
-
 
     .product-slide img {
 
@@ -2143,73 +1938,49 @@
         object-fit: cover;
     }
 
-
-    /* =================================================
-       PRODUCT ARROWS
-    ================================================= */
-
     .product-arrow {
 
         width: 38px;
-
         height: 38px;
 
         font-size: 22px;
     }
 
-
     .product-prev {
-
-        left: 8px;
+        left: 7px;
     }
-
 
     .product-next {
-
-        right: 8px;
+        right: 7px;
     }
-
-
-    /* =================================================
-       PRODUCT DOTS
-    ================================================= */
 
     .product-dots {
 
+        margin-top: 22px;
+
         gap: 6px;
-
-        margin-top: 20px;
     }
-
 
     .product-dot {
 
         width: 7px;
-
         height: 7px;
     }
 
-
     .product-dot.active {
-
         width: 23px;
     }
 
 
-    /* =================================================
-       WATCH BRANDS
-    ================================================= */
+    /* BRANDS */
 
     .watch-brands {
 
-        width: 100%;
-
         padding:
-            55px
+            60px
             0
-            60px;
+            70px;
     }
-
 
     .watch-brands-header {
 
@@ -2217,37 +1988,24 @@
             0
             16px;
 
-        margin-bottom: 28px;
+        margin-bottom: 30px;
     }
-
 
     .watch-brands-header small {
-
         font-size: 11px;
-
-        letter-spacing: 2px;
-
-        margin-bottom: 9px;
     }
-
 
     .watch-brands-header h2 {
 
-        font-size: 32px;
+        font-size: 34px;
 
         line-height: 1.2;
-
-        margin-bottom: 10px;
     }
-
 
     .watch-brands-header p {
 
-        font-size: 13px;
-
-        line-height: 1.5;
+        font-size: 14px;
     }
-
 
     .watch-brands-image {
 
@@ -2256,69 +2014,44 @@
         max-width: 100% !important;
 
         height: auto;
-
-        object-fit: contain;
     }
 
 
-    /* =================================================
-       COLLECTIONS
-    ================================================= */
+    /* COLLECTIONS */
 
     .collections {
 
-        width: 100%;
-
         padding:
-            60px
+            70px
             14px
-            65px;
+            75px;
     }
-
 
     .collections > small {
 
         font-size: 11px;
-
-        letter-spacing: 2px;
-
-        margin-bottom: 10px;
     }
-
 
     .collections > h2 {
 
-        font-size: 30px;
+        font-size: 32px;
 
         line-height: 1.2;
 
-        margin-bottom: 30px;
+        margin-bottom: 35px;
     }
-
 
     .categories-grid {
 
         grid-template-columns: 1fr;
 
-        gap: 16px;
+        gap: 18px;
     }
-
-
-    .categories-grid > a {
-
-        width: 100%;
-    }
-
 
     .card {
 
         width: 100%;
-
-        border-radius: 0;
-
-        overflow: hidden;
     }
-
 
     .card img {
 
@@ -2331,7 +2064,6 @@
         object-fit: cover;
     }
 
-
     .card-content {
 
         left: 18px;
@@ -2341,16 +2073,12 @@
         bottom: 18px;
     }
 
-
     .card-content h3 {
 
         font-size: 25px;
 
         line-height: 1.1;
-
-        margin-bottom: 6px;
     }
-
 
     .card-content p {
 
@@ -2360,179 +2088,115 @@
     }
 
 
-    /* =================================================
-       LANGUAGE OF TIME
-    ================================================= */
-
-    .language-of-time-section {
-
-        width: 100%;
-
-        overflow: hidden;
-    }
-
+    /* LANGUAGE OF TIME */
 
     .language-of-time-section img {
 
         width: 100%;
 
         height: auto;
-
-        display: block;
     }
 
 
-    /* =================================================
-       GET IN TOUCH
-    ================================================= */
+    /* GET IN TOUCH */
 
     .get-touch {
 
-        width: 100%;
-
         padding:
-            60px
+            65px
             14px
-            65px;
+            70px;
     }
-
 
     .get-touch h2 {
 
-        font-size: 34px;
+        font-size: 36px;
 
         line-height: 1.2;
-
-        margin-bottom: 15px;
     }
 
-
     .get-touch > p {
-
-        width: 100%;
-
-        max-width: 600px;
-
-        margin:
-            0
-            auto
-            30px;
 
         font-size: 15px;
 
         line-height: 1.6;
-    }
 
+        margin-bottom: 32px;
+    }
 
     .touch-form {
 
         width: 100%;
 
         padding:
-            22px
-            16px;
-
-        border-radius: 10px;
+            25px
+            18px;
     }
-
 
     .touch-form input,
     .touch-form textarea {
 
-        width: 100%;
-
-        padding: 14px;
-
-        margin-bottom: 14px;
+        padding: 15px;
 
         font-size: 15px;
-
-        border-radius: 6px;
     }
-
 
     .touch-form textarea {
 
-        min-height: 150px;
+        min-height: 160px;
     }
-
 
     .touch-form button {
 
         width: 100%;
 
         padding:
-            14px
+            15px
             20px;
-
-        font-size: 15px;
     }
 
 
-    /* =================================================
-       BUSINESS PARTNER
-    ================================================= */
+    /* BUSINESS PARTNER */
 
     .business-partner {
 
-        width: 100%;
-
         padding:
-            60px
+            70px
             14px
-            65px;
+            75px;
     }
-
 
     .partner-header {
 
-        margin-bottom: 30px;
+        margin-bottom: 32px;
     }
-
-
-    .partner-header small {
-
-        font-size: 11px;
-
-        letter-spacing: 2px;
-
-        margin-bottom: 9px;
-    }
-
 
     .partner-header h2 {
 
-        font-size: 34px;
+        font-size: 36px;
 
         line-height: 1.2;
     }
 
-
     .partner-container {
-
-        width: 100%;
 
         display: flex;
 
         flex-direction: column;
 
-        gap: 20px;
+        gap: 22px;
     }
-
 
     .partner-img {
 
         width: 100%;
 
-        max-width: 330px;
+        max-width: 340px;
 
         height: auto;
 
         margin: auto;
-
-        border-radius: 8px;
     }
-
 
     .partner-card {
 
@@ -2540,166 +2204,91 @@
 
         max-width: 400px;
 
-        margin: auto;
-
         padding:
-            30px
-            20px;
-
-        border-radius: 12px;
-    }
-
-
-    .partner-card img {
-
-        width: 100%;
-
-        max-width: 150px;
-
-        margin:
-            0
-            auto
+            32px
             20px;
     }
-
 
     .partner-card h3 {
-
-        font-size: 25px;
-
-        margin-bottom: 8px;
+        font-size: 26px;
     }
-
 
     .partner-card p {
-
         font-size: 14px;
-
-        line-height: 1.5;
-
-        margin-bottom: 18px;
     }
-
 
     .partner-btn {
 
         width: 100%;
 
         justify-content: center;
-
-        padding:
-            13px
-            18px;
-
-        font-size: 14px;
     }
 
 
-    /* =================================================
-       WHY CHOOSE
-    ================================================= */
+    /* WHY CHOOSE */
 
     .why-choose {
 
-        width: 100%;
-
         padding:
-            60px
+            70px
             14px
-            65px;
+            75px;
     }
-
 
     .why-choose > h2 {
 
-        font-size: 33px;
-
-        line-height: 1.2;
-
-        margin-bottom: 30px;
-    }
-
-
-    .why-grid {
-
-        width: 100%;
-
-        grid-template-columns: 1fr;
-
-        gap: 14px;
-    }
-
-
-    .why-box {
-
-        width: 100%;
-
-        padding:
-            25px
-            20px;
-
-        border-radius: 10px;
-    }
-
-
-    .why-box h3 {
-
-        font-size: 19px;
-
-        margin-bottom: 10px;
-    }
-
-
-    .why-box p {
-
-        font-size: 14px;
-
-        line-height: 1.6;
-    }
-
-
-    /* =================================================
-       STATS
-    ================================================= */
-
-    .stats-section {
-
-        width: 100%;
-
-        padding:
-            60px
-            14px
-            65px;
-    }
-
-
-    .stats-section > h2 {
-
-        font-size: 33px;
+        font-size: 35px;
 
         line-height: 1.2;
 
         margin-bottom: 35px;
     }
 
-
-    .stats-grid {
-
-        width: 100%;
+    .why-grid {
 
         grid-template-columns: 1fr;
 
-        gap: 30px;
+        gap: 15px;
     }
 
+    .why-box {
+
+        padding:
+            28px
+            20px;
+    }
+
+
+    /* STATS */
+
+    .stats-section {
+
+        padding:
+            70px
+            14px
+            75px;
+    }
+
+    .stats-section > h2 {
+
+        font-size: 35px;
+
+        line-height: 1.2;
+
+        margin-bottom: 40px;
+    }
+
+    .stats-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 34px;
+    }
 
     .stat-box h3 {
 
-        font-size: 48px;
-
-        margin-bottom: 7px;
+        font-size: 50px;
     }
-
 
     .stat-box p {
 
@@ -2707,194 +2296,88 @@
     }
 
 
-    /* =================================================
-       FOOTER
-    ================================================= */
+    /* FOOTER */
 
     .main-footer {
 
-        width: 100%;
-
         padding:
-            50px
+            55px
             16px
-            20px;
+            22px;
     }
-
-
-    .footer-container {
-
-        width: 100%;
-    }
-
 
     .footer-top {
 
-        width: 100%;
-
         grid-template-columns: 1fr;
 
-        gap: 35px;
+        gap: 36px;
     }
-
 
     .footer-top > h2 {
 
-        font-size: 32px;
+        font-size: 34px;
 
         line-height: 1.2;
-
-        margin-bottom: 5px;
     }
-
-
-    .contact-column,
-    .whatsapp-column {
-
-        width: 100%;
-
-        text-align: center;
-    }
-
 
     .contact-column h3,
     .whatsapp-column h3 {
 
         font-size: 18px;
-
-        margin-bottom: 16px;
     }
-
 
     .footer-link {
 
         font-size: 15px;
-
-        margin-bottom: 9px;
     }
-
 
     .contact-column p {
 
         font-size: 13px;
 
         line-height: 1.5;
-
-        margin-top: 10px;
     }
-
-
-    .whatsapp-title {
-
-        flex-wrap: wrap;
-
-        gap: 6px;
-    }
-
-
-    .whatsapp-icon {
-
-        width: 22px !important;
-
-        height: 22px !important;
-    }
-
 
     .whatsapp-button {
 
         width: 100%;
 
         max-width: 280px;
-
-        min-height: 48px;
-
-        padding:
-            12px
-            20px;
-
-        font-size: 14px;
     }
-
-
-    /* =================================================
-       FOOTER MIDDLE
-    ================================================= */
 
     .footer-middle {
 
-        width: 100%;
-
         grid-template-columns: 1fr;
 
-        gap: 32px;
+        gap: 34px;
 
-        margin-top: 45px;
+        margin-top: 48px;
 
-        padding-top: 35px;
+        padding-top: 38px;
     }
-
-
-    .footer-links-column,
-    .footer-social {
-
-        width: 100%;
-
-        text-align: center;
-    }
-
 
     .footer-links-column h3,
     .footer-social h3 {
 
         font-size: 17px;
-
-        margin-bottom: 15px;
     }
-
 
     .footer-links-column a {
 
         font-size: 14px;
-
-        margin-bottom: 11px;
     }
-
 
     .footer-social p {
 
         font-size: 14px;
-
-        margin-bottom: 12px;
     }
-
-
-    .instagram-button {
-
-        width: 46px;
-
-        height: 46px;
-    }
-
-
-    .instagram-button img {
-
-        width: 25px;
-
-        height: 25px;
-    }
-
-
-    /* =================================================
-       FOOTER BOTTOM
-    ================================================= */
 
     .footer-bottom {
 
-        margin-top: 40px;
+        margin-top: 42px;
 
-        padding-top: 18px;
+        padding-top: 19px;
     }
-
 
     .footer-bottom p {
 
@@ -2914,95 +2397,74 @@
 
     .top-header {
 
-        height: 64px;
+        height: 66px;
 
         padding:
             4px
             8px;
     }
 
-
     .header-logo img {
 
-        height: 45px;
+        height: 47px;
 
-        max-width: 105px;
+        max-width: 112px;
     }
-
 
     .header-brand h1 {
 
-        font-size: 17px;
+        font-size: 18px;
 
         letter-spacing: 2px;
     }
 
-
     .header-brand span {
-
-        font-size: 5px;
-
-        letter-spacing: 1.5px;
+        display: none;
     }
-
 
     .header-cart {
 
         width: 40px;
-
         height: 40px;
     }
 
-
     .cart-icon {
-
         font-size: 21px;
     }
-
 
     .headline-text {
 
         font-size: 10px;
 
-        padding: 7px 0;
+        padding:
+            7px
+            0;
     }
-
 
     .hero-arrow {
 
-        width: 32px;
+        width: 31px;
+        height: 31px;
 
-        height: 32px;
-
-        font-size: 21px;
+        font-size: 20px;
     }
-
 
     .hero-prev {
-
-        left: 6px;
+        left: 5px;
     }
-
 
     .hero-next {
-
-        right: 6px;
+        right: 5px;
     }
-
 
     .product-slide {
 
-        flex-basis:
-            calc(
-                100vw - 24px
-            );
+        flex:
+            0 0 calc(100vw - 24px);
 
         width:
-            calc(
-                100vw - 24px
-            );
+            calc(100vw - 24px);
     }
-
 
     .product-slide img {
 
@@ -3010,7 +2472,6 @@
 
         height: auto;
     }
-
 
     .collections > h2,
     .watch-brands-header h2,
@@ -3022,15 +2483,11 @@
         font-size: 29px;
     }
 
-
     .card-content h3 {
-
         font-size: 22px;
     }
 
-
     .card-content p {
-
         font-size: 12px;
     }
 
@@ -3045,39 +2502,30 @@
 
     .header-brand h1 {
 
-        font-size: 15px;
+        font-size: 16px;
 
         letter-spacing: 1.7px;
     }
 
-
     .header-logo img {
 
-        height: 42px;
+        height: 43px;
 
-        max-width: 95px;
+        max-width: 98px;
     }
 
-
     .headline-text {
-
         font-size: 9px;
     }
 
-
     .product-slide {
 
-        flex-basis:
-            calc(
-                100vw - 20px
-            );
+        flex:
+            0 0 calc(100vw - 20px);
 
         width:
-            calc(
-                100vw - 20px
-            );
+            calc(100vw - 20px);
     }
-
 
     .collections > h2,
     .watch-brands-header h2,
@@ -3091,70 +2539,7 @@
 
 }
 
-        /* =====================================================
-           SMALL PHONES
-        ===================================================== */
-
-        @media screen and (max-width: 480px) {
-
-            .header-logo img {
-
-                height: 47px;
-
-                max-width: 120px;
-            }
-
-            .header-brand h1 {
-
-                font-size: 18px;
-
-                letter-spacing: 2.5px;
-            }
-
-            .header-brand span {
-
-                display: none;
-            }
-
-            .product-slide {
-
-                flex:
-                    0 0 88vw;
-            }
-
-            .product-slide img {
-
-                height: 420px;
-            }
-
-        }
-
-
-        /* =====================================================
-           VERY SMALL PHONES
-        ===================================================== */
-
-        @media screen and (max-width: 360px) {
-
-            .header-brand h1 {
-
-                font-size: 16px;
-            }
-
-            .product-slide {
-
-                flex:
-                    0 0 90vw;
-            }
-
-            .product-slide img {
-
-                height: 390px;
-            }
-
-        }
-
-    </style>
+</style>
 
 </head>
 
@@ -3162,2332 +2547,2039 @@
 <body>
 
 
-    <!-- =====================================================
-         HEADER
-    ===================================================== -->
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
-    <header class="top-header">
+<header class="top-header">
 
-        <div class="header-left">
+    <div class="header-left">
 
-            <a
-                href="index.html"
-                class="header-logo"
-            >
-
-                <img
-                    src="logo.jpeg"
-                    alt="50 Mirars Logo"
-                >
-
-            </a>
-
-        </div>
-
-
-        <div class="header-brand">
-
-            <div>
-
-                <h1>
-                    50 MIRARS
-                </h1>
-
-                <span>
-                    WATCHES • SUNGLASSES
-                </span>
-
-            </div>
-
-        </div>
-
-
-        <div class="header-right">
-
-            <a
-                href="cart.html"
-                class="header-cart"
-                aria-label="Shopping Cart"
-            >
-
-                <span class="cart-icon">
-                    🛒
-                </span>
-
-            </a>
-
-        </div>
-
-    </header>
-
-
-    <!-- =====================================================
-         OFFER BAR
-    ===================================================== -->
-
-    <div class="headline-bar">
-
-        <div class="headline-text">
-
-            ✦ Celebrate India’s
-            80<sup>th</sup>
-            Independence Day
+        <a
+            href="index.html"
+            class="header-logo"
+        >
 
             <img
-                src="https://flagcdn.com/w20/in.png"
-                alt="Indian Flag"
+                src="logo.jpeg"
+                alt="50 Mirars Logo"
             >
 
-            in Style with 50 Mirars —
+        </a>
 
-            Unlock
+    </div>
 
-            <strong>
-                10% OFF
-            </strong>
 
-            with Code
+    <div class="header-brand">
 
-            <strong>
-                10OFF10
-            </strong>
+        <div>
 
-            | Timeless Watches • Premium Sunglasses ✦
+            <h1>
+                50 MIRARS
+            </h1>
+
+            <span>
+                WATCHES • SUNGLASSES
+            </span>
 
         </div>
 
     </div>
 
 
-    <!-- =====================================================
-         TOP 5-POSTER HERO SLIDER
-    ===================================================== -->
+    <div class="header-right">
 
-    <section
-        class="hero-slider-section"
-        id="heroSliderSection"
-    >
-
-        <div
-            class="hero-slider"
-            id="heroSlider"
+        <a
+            href="cart.html"
+            class="header-cart"
+            aria-label="Shopping Cart"
         >
 
-            <div
-                class="hero-track"
-                id="heroTrack"
-            >
+            <span class="cart-icon">
+                🛒
+            </span>
 
+        </a>
 
-                <!-- =================================================
-                     POSTER 1
-                     RAY-BAN META
-                ================================================== -->
+    </div>
 
-                <a
-                    href="sunglasses.html"
-                    class="hero-slide"
-                >
+</header>
 
-                    <img
-                        src="Copilot_20260814_135109.png"
-                        alt="Ray-Ban Meta Gen 2 Smart Sunglasses"
-                    >
 
-                </a>
+<!-- =====================================================
+     OFFER BAR
+===================================================== -->
 
+<div class="headline-bar">
 
-                <!-- =================================================
-                     POSTER 2
-                     ROLEX
-                ================================================== -->
+    <div class="headline-text">
 
-                <a
-                    href="rolex.html"
-                    class="hero-slide"
-                >
-
-                    <img
-                        src="link and poster of rolex.png"
-                        alt="Rolex Collection"
-                    >
-
-                </a>
-
-
-                <!-- =================================================
-                     POSTER 3
-                     TISSOT
-                ================================================== -->
-
-                <a
-                    href="tissot.html"
-                    class="hero-slide"
-                >
-
-                    <img
-                        src="tissot watch poster and link.png"
-                        alt="Tissot Watch Collection"
-                    >
-
-                </a>
-
-
-                <!-- =================================================
-                     POSTER 4
-                     SEIKO
-                ================================================== -->
-
-                <a
-                    href="seiko.html"
-                    class="hero-slide"
-                >
-
-                    <img
-                        src="seiko seiko seiko.png"
-                        alt="Seiko Watch Collection"
-                    >
-
-                </a>
-
-
-                <!-- =================================================
-                     POSTER 5
-                     OMEGA
-                ================================================== -->
-
-                <a
-                    href="omega.html"
-                    class="hero-slide"
-                >
-
-                    <img
-                        src="omega omega oooooooo.png"
-                        alt="Omega Watch Collection"
-                    >
-
-                </a>
-
-
-            </div>
-
-
-            <!-- =================================================
-                 HERO PREVIOUS BUTTON
-            ================================================== -->
-
-            <button
-                type="button"
-                class="hero-arrow hero-prev"
-                id="heroPrev"
-                aria-label="Previous Poster"
-            >
-                ‹
-            </button>
-
-
-            <!-- =================================================
-                 HERO NEXT BUTTON
-            ================================================== -->
-
-            <button
-                type="button"
-                class="hero-arrow hero-next"
-                id="heroNext"
-                aria-label="Next Poster"
-            >
-                ›
-            </button>
-
-
-            <!-- =================================================
-                 HERO DOTS - 5 POSTERS
-            ================================================== -->
-
-            <div
-                class="hero-dots"
-                id="heroDots"
-            >
-
-                <button
-                    type="button"
-                    class="hero-dot active"
-                    data-slide="0"
-                    aria-label="Show Poster 1"
-                ></button>
-
-                <button
-                    type="button"
-                    class="hero-dot"
-                    data-slide="1"
-                    aria-label="Show Poster 2"
-                ></button>
-
-                <button
-                    type="button"
-                    class="hero-dot"
-                    data-slide="2"
-                    aria-label="Show Poster 3"
-                ></button>
-
-                <button
-                    type="button"
-                    class="hero-dot"
-                    data-slide="3"
-                    aria-label="Show Poster 4"
-                ></button>
-
-                <button
-                    type="button"
-                    class="hero-dot"
-                    data-slide="4"
-                    aria-label="Show Poster 5"
-                ></button>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         PRODUCT SHOWCASE
-    ===================================================== -->
-
-    <section class="product-showcase">
-
-        <div class="product-showcase-header">
-
-            <small>
-                FEATURED COLLECTION
-            </small>
-
-            <h2>
-                Discover Our Collection
-            </h2>
-
-            <p>
-                Explore timeless watches and premium accessories from 50 Mirars.
-            </p>
-
-        </div>
-
-
-        <div
-            class="product-slider"
-            id="productSlider"
-        >
-
-            <div
-                class="product-track"
-                id="productTrack"
-            >
-
-
-                <!-- PRODUCT 1 -->
-
-                <a
-                    href="watches.html"
-                    class="product-slide"
-                >
-
-                    <img
-                        src="Guess Waygene.jpeg"
-                        alt="Featured Watch"
-                    >
-
-                </a>
-
-
-                <!-- PRODUCT 2 -->
-
-                <a
-                    href="couple-watches.html"
-                    class="product-slide"
-                >
-
-                    <img
-                        src="Rolex Sky-Dewller Couple Watch.jpeg"
-                        alt="Featured Couple Watch"
-                    >
-
-                </a>
-
-
-                <!-- PRODUCT 3 -->
-
-                <a
-                    href="luxury-articles.html"
-                    class="product-slide"
-                >
-
-                    <img
-                        src="Rolex GMT-Master II Simple Dial.jpeg"
-                        alt="Featured Luxury Watch"
-                    >
-
-                </a>
-
-
-                <!-- PRODUCT 4 -->
-
-                <a
-                    href="most-selling.html"
-                    class="product-slide"
-                >
-
-                    <img
-                        src="Cartier Aqua Green Karan Aujla Edition.jpeg"
-                        alt="Featured Product"
-                    >
-
-                </a>
-
-
-                <!-- PRODUCT 5 -->
-
-                <a
-                    href="limited-editions.html"
-                    class="product-slide"
-                >
-
-                    <img
-                        src="Seiko Mod Date-Just.jpeg"
-                        alt="Limited Edition Watch"
-                    >
-
-                </a>
-
-
-                <!-- PRODUCT 6 -->
-
-                <a
-                    href="sunglasses.html"
-                    class="product-slide"
-                >
-
-                    <img
-                        src="Cartier Sky Blue Jaguar Sunglasses.jpeg"
-                        alt="Premium Sunglasses"
-                    >
-
-                </a>
-
-
-            </div>
-
-
-            <!-- PRODUCT PREVIOUS -->
-
-            <button
-                type="button"
-                class="product-arrow product-prev"
-                id="productPrev"
-                aria-label="Previous Products"
-            >
-                ‹
-            </button>
-
-
-            <!-- PRODUCT NEXT -->
-
-            <button
-                type="button"
-                class="product-arrow product-next"
-                id="productNext"
-                aria-label="Next Products"
-            >
-                ›
-            </button>
-
-        </div>
-
-
-        <!-- PRODUCT DOTS -->
-
-        <div
-            class="product-dots"
-            id="productDots"
-        >
-
-            <button
-                class="product-dot active"
-                type="button"
-                aria-label="Product Slide 1"
-            ></button>
-
-            <button
-                class="product-dot"
-                type="button"
-                aria-label="Product Slide 2"
-            ></button>
-
-            <button
-                class="product-dot"
-                type="button"
-                aria-label="Product Slide 3"
-            ></button>
-
-            <button
-                class="product-dot"
-                type="button"
-                aria-label="Product Slide 4"
-            ></button>
-
-            <button
-                class="product-dot"
-                type="button"
-                aria-label="Product Slide 5"
-            ></button>
-
-            <button
-                class="product-dot"
-                type="button"
-                aria-label="Product Slide 6"
-            ></button>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         WATCH BRANDS
-    ===================================================== -->
-
-    <section class="watch-brands">
-
-        <div class="watch-brands-header">
-
-            <small>
-                PREMIUM COLLECTION
-            </small>
-
-            <h2>
-                OUR BRANDS
-            </h2>
-
-            <p>
-                Discover renowned brands available at 50 Mirars.
-            </p>
-
-        </div>
+        ✦ Celebrate India’s
+        80<sup>th</sup>
+        Independence Day
 
         <img
-            src="watchlogosbrand.png"
-            alt="Watch Brands"
-            class="watch-brands-image"
-            loading="lazy"
+            src="https://flagcdn.com/w20/in.png"
+            alt="Indian Flag"
         >
 
-    </section>
+        in Style with 50 Mirars —
+
+        Unlock
+
+        <strong>
+            10% OFF
+        </strong>
+
+        with Code
+
+        <strong>
+            10OFF10
+        </strong>
+
+        | Timeless Watches • Premium Sunglasses ✦
+
+    </div>
+
+</div>
 
 
-    <!-- =====================================================
-         COLLECTIONS
-    ===================================================== -->
+<!-- =====================================================
+     HERO SLIDER
+===================================================== -->
 
-    <section
-        class="collections"
-        id="collections"
+<section
+    class="hero-slider-section"
+    id="heroSliderSection"
+>
+
+    <div
+        class="hero-slider"
+        id="heroSlider"
     >
 
+        <div
+            class="hero-track"
+            id="heroTrack"
+        >
+
+
+            <a
+                href="sunglasses.html"
+                class="hero-slide"
+            >
+
+                <img
+                    src="Copilot_20260814_135109.png"
+                    alt="Ray-Ban Meta Gen 2 Smart Sunglasses"
+                >
+
+            </a>
+
+
+            <a
+                href="rolex.html"
+                class="hero-slide"
+            >
+
+                <img
+                    src="link and poster of rolex.png"
+                    alt="Rolex Collection"
+                >
+
+            </a>
+
+
+            <a
+                href="tissot.html"
+                class="hero-slide"
+            >
+
+                <img
+                    src="tissot watch poster and link.png"
+                    alt="Tissot Watch Collection"
+                >
+
+            </a>
+
+
+            <a
+                href="seiko.html"
+                class="hero-slide"
+            >
+
+                <img
+                    src="seiko seiko seiko.png"
+                    alt="Seiko Watch Collection"
+                >
+
+            </a>
+
+
+            <a
+                href="omega.html"
+                class="hero-slide"
+            >
+
+                <img
+                    src="omega omega oooooooo.png"
+                    alt="Omega Watch Collection"
+                >
+
+            </a>
+
+
+        </div>
+
+
+        <button
+            type="button"
+            class="hero-arrow hero-prev"
+            id="heroPrev"
+            aria-label="Previous Poster"
+        >
+            ‹
+        </button>
+
+
+        <button
+            type="button"
+            class="hero-arrow hero-next"
+            id="heroNext"
+            aria-label="Next Poster"
+        >
+            ›
+        </button>
+
+
+        <div
+            class="hero-dots"
+            id="heroDots"
+        >
+
+            <button
+                type="button"
+                class="hero-dot active"
+                data-slide="0"
+                aria-label="Show Poster 1"
+            ></button>
+
+            <button
+                type="button"
+                class="hero-dot"
+                data-slide="1"
+                aria-label="Show Poster 2"
+            ></button>
+
+            <button
+                type="button"
+                class="hero-dot"
+                data-slide="2"
+                aria-label="Show Poster 3"
+            ></button>
+
+            <button
+                type="button"
+                class="hero-dot"
+                data-slide="3"
+                aria-label="Show Poster 4"
+            ></button>
+
+            <button
+                type="button"
+                class="hero-dot"
+                data-slide="4"
+                aria-label="Show Poster 5"
+            ></button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PRODUCT SHOWCASE
+===================================================== -->
+
+<section class="product-showcase">
+
+    <div class="product-showcase-header">
+
         <small>
-            OUR COLLECTIONS
+            FEATURED COLLECTION
         </small>
 
         <h2>
-            EXPLORE OUR COLLECTIONS
-        </h2>
-
-
-        <div class="categories-grid">
-
-
-            <!-- WATCHES -->
-
-            <a href="watches.html">
-
-                <div class="card">
-
-                    <img
-                        src="Seiko Blue Moon SSA347J1.jpeg"
-                        alt="Watches"
-                        loading="lazy"
-                    >
-
-                    <div class="card-content">
-
-                        <h3>
-                            WATCHES
-                        </h3>
-
-                        <p>
-                            Luxury. Precision. Elegance.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </a>
-
-
-            <!-- SUNGLASSES -->
-
-            <a href="sunglasses.html">
-
-                <div class="card">
-
-                    <img
-                        src="Voyage Unisex Sunglasses.jpeg"
-                        alt="Sunglasses"
-                        loading="lazy"
-                    >
-
-                    <div class="card-content">
-
-                        <h3>
-                            SUNGLASSES
-                        </h3>
-
-                        <p>
-                            Luxury. Style. Confidence.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </a>
-
-
-            <!-- MOST SELLING -->
-
-            <a href="most-selling.html">
-
-                <div class="card">
-
-                    <img
-                        src="MayBach Sunglasses 2735.jpeg"
-                        alt="Most Selling Articles"
-                        loading="lazy"
-                    >
-
-                    <div class="card-content">
-
-                        <h3>
-                            MOST SELLING ARTICLES
-                        </h3>
-
-                        <p>
-                            Our most popular watches loved by customers.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </a>
-
-
-            <!-- COUPLE WATCHES -->
-
-            <a href="couple-watches.html">
-
-                <div class="card">
-
-                    <img
-                        src="Citizen Classic Couple Watch.jpeg"
-                        alt="Couple Watches"
-                        loading="lazy"
-                    >
-
-                    <div class="card-content">
-
-                        <h3>
-                            COUPLE WATCHES
-                        </h3>
-
-                        <p>
-                            Elegant timepieces designed for couples.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </a>
-
-
-            <!-- LIMITED EDITIONS -->
-
-            <a href="limited-editions.html">
-
-                <div class="card">
-
-                    <img
-                        src="Casio Edifice ECB-2000DD.jpeg"
-                        alt="Limited Editions"
-                        loading="lazy"
-                    >
-
-                    <div class="card-content">
-
-                        <h3>
-                            LIMITED EDITIONS
-                        </h3>
-
-                        <p>
-                            Rare and exclusive collectible pieces.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </a>
-
-
-            <!-- LUXURY ARTICLES -->
-
-            <a href="luxury-articles.html">
-
-                <div class="card">
-
-                    <img
-                        src="Rolex Oyster Perpetual Day-Date.jpeg"
-                        alt="Luxury Articles"
-                        loading="lazy"
-                    >
-
-                    <div class="card-content">
-
-                        <h3>
-                            LUXURY ARTICLES
-                        </h3>
-
-                        <p>
-                            Exclusive luxury accessories and collectibles.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </a>
-
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         LANGUAGE OF TIME
-    ===================================================== -->
-
-    <section class="language-of-time-section">
-
-        <img
-            src="upper to get in touch.png"
-            alt="The Language Of Time"
-            loading="lazy"
-        >
-
-    </section>
-
-
-    <!-- =====================================================
-         GET IN TOUCH
-    ===================================================== -->
-
-    <section class="get-touch">
-
-        <h2>
-            Get In Touch
+            Discover Our Collection
         </h2>
 
         <p>
-            Have a question, enquiry, feedback or complaint?
-            We are here to help.
+            Explore timeless watches and premium accessories from 50 Mirars.
         </p>
 
+    </div>
 
-        <form
-            class="touch-form"
-            action="https://formspree.io/f/mlgqpono"
-            method="POST"
+
+    <div
+        class="product-slider"
+        id="productSlider"
+    >
+
+        <div
+            class="product-track"
+            id="productTrack"
         >
 
-            <input
-                type="text"
-                name="name"
-                placeholder="Your Name"
-                required
+
+            <a
+                href="watches.html"
+                class="product-slide"
             >
 
-            <input
-                type="email"
-                name="email"
-                placeholder="Your Email"
-                required
+                <img
+                    src="Guess Waygene.jpeg"
+                    alt="Featured Watch"
+                >
+
+            </a>
+
+
+            <a
+                href="couple-watches.html"
+                class="product-slide"
             >
 
-            <input
-                type="tel"
-                name="phone"
-                placeholder="Your Phone Number"
+                <img
+                    src="Rolex Sky-Dewller Couple Watch.jpeg"
+                    alt="Featured Couple Watch"
+                >
+
+            </a>
+
+
+            <a
+                href="luxury-articles.html"
+                class="product-slide"
             >
 
-            <textarea
-                name="message"
-                placeholder="Write your enquiry or complaint here..."
-                required
-            ></textarea>
+                <img
+                    src="Rolex GMT-Master II Simple Dial.jpeg"
+                    alt="Featured Luxury Watch"
+                >
 
-            <button
-                type="submit"
+            </a>
+
+
+            <a
+                href="most-selling.html"
+                class="product-slide"
             >
-                Send Message
-            </button>
 
-        </form>
+                <img
+                    src="Cartier Aqua Green Karan Aujla Edition.jpeg"
+                    alt="Featured Product"
+                >
 
-    </section>
+            </a>
 
 
-    <!-- =====================================================
-         BUSINESS PARTNER
-    ===================================================== -->
+            <a
+                href="limited-editions.html"
+                class="product-slide"
+            >
 
-    <section class="business-partner">
+                <img
+                    src="Seiko Mod Date-Just.jpeg"
+                    alt="Limited Edition Watch"
+                >
 
-        <div class="partner-header">
+            </a>
 
-            <small>
-                OUR PARTNER
-            </small>
+
+            <a
+                href="sunglasses.html"
+                class="product-slide"
+            >
+
+                <img
+                    src="Cartier Sky Blue Jaguar Sunglasses.jpeg"
+                    alt="Premium Sunglasses"
+                >
+
+            </a>
+
+
+        </div>
+
+
+        <button
+            type="button"
+            class="product-arrow product-prev"
+            id="productPrev"
+            aria-label="Previous Products"
+        >
+            ‹
+        </button>
+
+
+        <button
+            type="button"
+            class="product-arrow product-next"
+            id="productNext"
+            aria-label="Next Products"
+        >
+            ›
+        </button>
+
+    </div>
+
+
+    <div
+        class="product-dots"
+        id="productDots"
+    >
+
+        <button
+            class="product-dot active"
+            type="button"
+            aria-label="Product Slide 1"
+        ></button>
+
+        <button
+            class="product-dot"
+            type="button"
+            aria-label="Product Slide 2"
+        ></button>
+
+        <button
+            class="product-dot"
+            type="button"
+            aria-label="Product Slide 3"
+        ></button>
+
+        <button
+            class="product-dot"
+            type="button"
+            aria-label="Product Slide 4"
+        ></button>
+
+        <button
+            class="product-dot"
+            type="button"
+            aria-label="Product Slide 5"
+        ></button>
+
+        <button
+            class="product-dot"
+            type="button"
+            aria-label="Product Slide 6"
+        ></button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     WATCH BRANDS
+===================================================== -->
+
+<section class="watch-brands">
+
+    <div class="watch-brands-header">
+
+        <small>
+            PREMIUM COLLECTION
+        </small>
+
+        <h2>
+            OUR BRANDS
+        </h2>
+
+        <p>
+            Discover renowned brands available at 50 Mirars.
+        </p>
+
+    </div>
+
+    <img
+        src="watchlogosbrand.png"
+        alt="Watch Brands"
+        class="watch-brands-image"
+        loading="lazy"
+    >
+
+</section>
+
+
+<!-- =====================================================
+     COLLECTIONS
+===================================================== -->
+
+<section
+    class="collections"
+    id="collections"
+>
+
+    <small>
+        OUR COLLECTIONS
+    </small>
+
+    <h2>
+        EXPLORE OUR COLLECTIONS
+    </h2>
+
+
+    <div class="categories-grid">
+
+
+        <a href="watches.html">
+
+            <div class="card">
+
+                <img
+                    src="Seiko Blue Moon SSA347J1.jpeg"
+                    alt="Watches"
+                    loading="lazy"
+                >
+
+                <div class="card-content">
+
+                    <h3>
+                        WATCHES
+                    </h3>
+
+                    <p>
+                        Luxury. Precision. Elegance.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <a href="sunglasses.html">
+
+            <div class="card">
+
+                <img
+                    src="Voyage Unisex Sunglasses.jpeg"
+                    alt="Sunglasses"
+                    loading="lazy"
+                >
+
+                <div class="card-content">
+
+                    <h3>
+                        SUNGLASSES
+                    </h3>
+
+                    <p>
+                        Luxury. Style. Confidence.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <a href="most-selling.html">
+
+            <div class="card">
+
+                <img
+                    src="MayBach Sunglasses 2735.jpeg"
+                    alt="Most Selling Articles"
+                    loading="lazy"
+                >
+
+                <div class="card-content">
+
+                    <h3>
+                        MOST SELLING ARTICLES
+                    </h3>
+
+                    <p>
+                        Our most popular watches loved by customers.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <a href="couple-watches.html">
+
+            <div class="card">
+
+                <img
+                    src="Citizen Classic Couple Watch.jpeg"
+                    alt="Couple Watches"
+                    loading="lazy"
+                >
+
+                <div class="card-content">
+
+                    <h3>
+                        COUPLE WATCHES
+                    </h3>
+
+                    <p>
+                        Elegant timepieces designed for couples.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <a href="limited-editions.html">
+
+            <div class="card">
+
+                <img
+                    src="Casio Edifice ECB-2000DD.jpeg"
+                    alt="Limited Editions"
+                    loading="lazy"
+                >
+
+                <div class="card-content">
+
+                    <h3>
+                        LIMITED EDITIONS
+                    </h3>
+
+                    <p>
+                        Rare and exclusive collectible pieces.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <a href="luxury-articles.html">
+
+            <div class="card">
+
+                <img
+                    src="Rolex Oyster Perpetual Day-Date.jpeg"
+                    alt="Luxury Articles"
+                    loading="lazy"
+                >
+
+                <div class="card-content">
+
+                    <h3>
+                        LUXURY ARTICLES
+                    </h3>
+
+                    <p>
+                        Exclusive luxury accessories and collectibles.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </a>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     LANGUAGE OF TIME
+===================================================== -->
+
+<section class="language-of-time-section">
+
+    <img
+        src="upper to get in touch.png"
+        alt="The Language Of Time"
+        loading="lazy"
+    >
+
+</section>
+
+
+<!-- =====================================================
+     GET IN TOUCH
+===================================================== -->
+
+<section class="get-touch">
+
+    <h2>
+        Get In Touch
+    </h2>
+
+    <p>
+        Have a question, enquiry, feedback or complaint?
+        We are here to help.
+    </p>
+
+
+    <form
+        class="touch-form"
+        action="https://formspree.io/f/mlgqpono"
+        method="POST"
+    >
+
+        <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            required
+        >
+
+        <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            required
+        >
+
+        <input
+            type="tel"
+            name="phone"
+            placeholder="Your Phone Number"
+        >
+
+        <textarea
+            name="message"
+            placeholder="Write your enquiry or complaint here..."
+            required
+        ></textarea>
+
+        <button type="submit">
+            Send Message
+        </button>
+
+    </form>
+
+</section>
+
+
+<!-- =====================================================
+     BUSINESS PARTNER
+===================================================== -->
+
+<section class="business-partner">
+
+    <div class="partner-header">
+
+        <small>
+            OUR PARTNER
+        </small>
+
+        <h2>
+            Business Partner
+        </h2>
+
+    </div>
+
+
+    <div class="partner-container">
+
+
+        <div>
+
+            <img
+                src="left-image.jpeg"
+                alt="50 Scents Perfume Bottle"
+                class="partner-img"
+                loading="lazy"
+            >
+
+        </div>
+
+
+        <div>
+
+            <div class="partner-card">
+
+                <img
+                    src="partner-logo.jpeg"
+                    alt="Business Partner Logo"
+                    loading="lazy"
+                >
+
+                <h3>
+                    50 Scents
+                </h3>
+
+                <p>
+                    Trusted business partner of 50 Mirars.
+                </p>
+
+                <a
+                    href="https://wa.me/c/918233355877"
+                    target="_blank"
+                    rel="noopener"
+                    class="partner-btn"
+                >
+                    Click to View Business
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div>
+
+            <img
+                src="right-image.jpeg"
+                alt="50 Scents Branding Card"
+                class="partner-img"
+                loading="lazy"
+            >
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     WHY CHOOSE
+===================================================== -->
+
+<section class="why-choose">
+
+    <h2>
+        Why Choose 50 Mirars?
+    </h2>
+
+
+    <div class="why-grid">
+
+
+        <div class="why-box">
+
+            <h3>
+                100% Authentic Products
+            </h3>
+
+            <p>
+                Premium watches, sunglasses and luxury accessories.
+            </p>
+
+        </div>
+
+
+        <div class="why-box">
+
+            <h3>
+                Trusted Service
+            </h3>
+
+            <p>
+                Dedicated customer support for every enquiry.
+            </p>
+
+        </div>
+
+
+        <div class="why-box">
+
+            <h3>
+                Fast Response
+            </h3>
+
+            <p>
+                Quick assistance through WhatsApp and email.
+            </p>
+
+        </div>
+
+
+        <div class="why-box">
+
+            <h3>
+                Customer Satisfaction
+            </h3>
+
+            <p>
+                Your trust and satisfaction are our top priorities.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     STATS
+===================================================== -->
+
+<section class="stats-section">
+
+    <h2>
+        50 Mirars In Numbers
+    </h2>
+
+
+    <div class="stats-grid">
+
+
+        <div class="stat-box">
+
+            <h3>
+                950+
+            </h3>
+
+            <p>
+                Happy Customers
+            </p>
+
+        </div>
+
+
+        <div class="stat-box">
+
+            <h3>
+                1000+
+            </h3>
+
+            <p>
+                Products Sold
+            </p>
+
+        </div>
+
+
+        <div class="stat-box">
+
+            <h3>
+                24/7
+            </h3>
+
+            <p>
+                Support
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="main-footer">
+
+    <div class="footer-container">
+
+
+        <div class="footer-top">
 
             <h2>
-                Business Partner
+                Contact Us
             </h2>
 
-        </div>
 
+            <div class="contact-column">
 
-        <div class="partner-container">
+                <h3>
+                    For Customers:
+                </h3>
 
-
-            <!-- LEFT IMAGE -->
-
-            <div>
-
-                <img
-                    src="left-image.jpeg"
-                    alt="50 Scents Perfume Bottle"
-                    class="partner-img"
-                    loading="lazy"
+                <a
+                    href="mailto:50mirars@gmail.com"
+                    class="footer-link"
                 >
+                    50mirars@gmail.com
+                </a>
+
+                <a
+                    href="tel:+918209989013"
+                    class="footer-link"
+                >
+                    82099 89013
+                </a>
+
+                <p>
+                    09:00 - 21:30 | Monday to Sunday
+                </p>
 
             </div>
 
 
-            <!-- PARTNER CARD -->
+            <div class="contact-column">
 
-            <div>
+                <h3>
+                    For Sales/Watch Service:
+                </h3>
 
-                <div class="partner-card">
+                <a
+                    href="mailto:50mirars@gmail.com"
+                    class="footer-link"
+                >
+                    50mirars@gmail.com
+                </a>
+
+                <a
+                    href="tel:+918209989013"
+                    class="footer-link"
+                >
+                    82099 89013
+                </a>
+
+                <p>
+                    09:00 - 21:30 | Monday to Sunday
+                </p>
+
+            </div>
+
+
+            <div class="whatsapp-column">
+
+                <h3 class="whatsapp-title">
+
+                    View Products on WhatsApp
 
                     <img
-                        src="partner-logo.jpeg"
-                        alt="Business Partner Logo"
-                        loading="lazy"
+                        src="whatsapplogo.png"
+                        alt="WhatsApp"
+                        class="whatsapp-icon"
                     >
 
-                    <h3>
-                        50 Scents
-                    </h3>
+                </h3>
 
-                    <p>
-                        Trusted business partner of 50 Mirars.
-                    </p>
-
-                    <a
-                        href="https://wa.me/c/918233355877"
-                        target="_blank"
-                        rel="noopener"
-                        class="partner-btn"
-                    >
-                        Click to View Business
-                    </a>
-
-                </div>
+                <a
+                    href="https://wa.me/c/918209989013"
+                    target="_blank"
+                    rel="noopener"
+                    class="whatsapp-button"
+                >
+                    View Products
+                </a>
 
             </div>
 
 
-            <!-- RIGHT IMAGE -->
+        </div>
 
-            <div>
 
-                <img
-                    src="right-image.jpeg"
-                    alt="50 Scents Branding Card"
-                    class="partner-img"
-                    loading="lazy"
+        <div class="footer-middle">
+
+
+            <div class="footer-links-column">
+
+                <h3>
+                    Know 50 Mirars
+                </h3>
+
+                <a href="about.html">
+                    About Us
+                </a>
+
+                <a href="faq.html">
+                    FAQ
+                </a>
+
+            </div>
+
+
+            <div class="footer-links-column">
+
+                <h3>
+                    Terms & Conditions
+                </h3>
+
+                <a href="terms.html">
+                    Terms & Conditions
+                </a>
+
+                <a href="privacypolicy.html">
+                    Privacy Policy
+                </a>
+
+            </div>
+
+
+            <div class="footer-social">
+
+                <h3>
+                    50 Mirars
+                </h3>
+
+                <p>
+                    Follow Us On
+                </p>
+
+                <a
+                    href="https://instagram.com/50mirars"
+                    target="_blank"
+                    rel="noopener"
+                    class="instagram-button"
+                    aria-label="Follow 50 Mirars on Instagram"
                 >
 
-            </div>
+                    <img
+                        src="instagramimage.webp"
+                        alt="Instagram"
+                    >
 
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         WHY CHOOSE
-    ===================================================== -->
-
-    <section class="why-choose">
-
-        <h2>
-            Why Choose 50 Mirars?
-        </h2>
-
-
-        <div class="why-grid">
-
-
-            <div class="why-box">
-
-                <h3>
-                    100% Authentic Products
-                </h3>
-
-                <p>
-                    Premium watches, sunglasses and luxury accessories.
-                </p>
-
-            </div>
-
-
-            <div class="why-box">
-
-                <h3>
-                    Trusted Service
-                </h3>
-
-                <p>
-                    Dedicated customer support for every enquiry.
-                </p>
-
-            </div>
-
-
-            <div class="why-box">
-
-                <h3>
-                    Fast Response
-                </h3>
-
-                <p>
-                    Quick assistance through WhatsApp and email.
-                </p>
-
-            </div>
-
-
-            <div class="why-box">
-
-                <h3>
-                    Customer Satisfaction
-                </h3>
-
-                <p>
-                    Your trust and satisfaction are our top priorities.
-                </p>
+                </a>
 
             </div>
 
 
         </div>
 
-    </section>
 
+        <div class="footer-bottom">
 
-    <!-- =====================================================
-         STATS
-    ===================================================== -->
-
-    <section class="stats-section">
-
-        <h2>
-            50 Mirars In Numbers
-        </h2>
-
-
-        <div class="stats-grid">
-
-
-            <div class="stat-box">
-
-                <h3>
-                    950+
-                </h3>
-
-                <p>
-                    Happy Customers
-                </p>
-
-            </div>
-
-
-            <div class="stat-box">
-
-                <h3>
-                    1000+
-                </h3>
-
-                <p>
-                    Products Sold
-                </p>
-
-            </div>
-
-
-            <div class="stat-box">
-
-                <h3>
-                    24/7
-                </h3>
-
-                <p>
-                    Support
-                </p>
-
-            </div>
-
+            <p>
+                © 2026 50 Mirars - The Watch &amp; Sunglasses Store.
+                All Rights Reserved.
+            </p>
 
         </div>
 
-    </section>
 
+    </div>
 
-    <!-- =====================================================
-         FOOTER
-    ===================================================== -->
+</footer>
 
-    <footer class="main-footer">
 
-        <div class="footer-container">
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
 
+<script>
 
-            <div class="footer-top">
+/* =====================================================
+   HERO SLIDER
+   AUTO CHANGE EVERY 15 SECONDS
+===================================================== */
 
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
 
-                <h2>
-                    Contact Us
-                </h2>
+        const heroSlider =
+            document.getElementById(
+                "heroSlider"
+            );
 
+        const heroTrack =
+            document.getElementById(
+                "heroTrack"
+            );
 
-                <!-- CUSTOMER CONTACT -->
+        const heroSlides =
+            document.querySelectorAll(
+                ".hero-slide"
+            );
 
-                <div class="contact-column">
+        const heroDots =
+            document.querySelectorAll(
+                ".hero-dot"
+            );
 
-                    <h3>
-                        For Customers:
-                    </h3>
+        const heroPrev =
+            document.getElementById(
+                "heroPrev"
+            );
 
-                    <a
-                        href="mailto:50mirars@gmail.com"
-                        class="footer-link"
-                    >
-                        50mirars@gmail.com
-                    </a>
+        const heroNext =
+            document.getElementById(
+                "heroNext"
+            );
 
-                    <a
-                        href="tel:+918209989013"
-                        class="footer-link"
-                    >
-                        82099 89013
-                    </a>
 
-                    <p>
-                        09:00 - 21:30 | Monday to Sunday
-                    </p>
+        let heroCurrent = 0;
 
-                </div>
+        let heroStartX = 0;
+        let heroEndX = 0;
 
+        let heroDragging = false;
+        let heroDragged = false;
 
-                <!-- SALES CONTACT -->
+        let heroTimer;
 
-                <div class="contact-column">
 
-                    <h3>
-                        For Sales/Watch Service:
-                    </h3>
+        function updateHero(index) {
 
-                    <a
-                        href="mailto:50mirars@gmail.com"
-                        class="footer-link"
-                    >
-                        50mirars@gmail.com
-                    </a>
+            if (index < 0) {
+                index =
+                    heroSlides.length - 1;
+            }
 
-                    <a
-                        href="tel:+918209989013"
-                        class="footer-link"
-                    >
-                        82099 89013
-                    </a>
+            if (
+                index >=
+                heroSlides.length
+            ) {
+                index = 0;
+            }
 
-                    <p>
-                        09:00 - 21:30 | Monday to Sunday
-                    </p>
+            heroCurrent = index;
 
-                </div>
 
+            heroTrack.style.transform =
+                "translateX(-" +
+                (
+                    heroCurrent * 100
+                ) +
+                "%)";
 
-                <!-- WHATSAPP -->
 
-                <div class="whatsapp-column">
+            heroDots.forEach(
+                function (
+                    dot,
+                    dotIndex
+                ) {
 
-                    <h3 class="whatsapp-title">
-
-                        View Products on WhatsApp
-
-                        <img
-                            src="whatsapplogo.png"
-                            alt="WhatsApp"
-                            class="whatsapp-icon"
-                        >
-
-                    </h3>
-
-                    <a
-                        href="https://wa.me/c/918209989013"
-                        target="_blank"
-                        rel="noopener"
-                        class="whatsapp-button"
-                    >
-                        View Products
-                    </a>
-
-                </div>
-
-
-            </div>
-
-
-            <!-- =================================================
-                 FOOTER MIDDLE
-            ================================================= -->
-
-            <div class="footer-middle">
-
-
-                <div class="footer-links-column">
-
-                    <h3>
-                        Know 50 Mirars
-                    </h3>
-
-                    <a href="about.html">
-                        About Us
-                    </a>
-
-                    <a href="faq.html">
-                        FAQ
-                    </a>
-
-                </div>
-
-
-                <div class="footer-links-column">
-
-                    <h3>
-                        Terms & Conditions
-                    </h3>
-
-                    <a href="terms.html">
-                        Terms & Conditions
-                    </a>
-
-                    <a href="privacypolicy.html">
-                        Privacy Policy
-                    </a>
-
-                </div>
-
-
-                <div class="footer-social">
-
-                    <h3>
-                        50 Mirars
-                    </h3>
-
-                    <p>
-                        Follow Us On
-                    </p>
-
-                    <a
-                        href="https://instagram.com/50mirars"
-                        target="_blank"
-                        rel="noopener"
-                        class="instagram-button"
-                        aria-label="Follow 50 Mirars on Instagram"
-                    >
-
-                        <img
-                            src="instagramimage.webp"
-                            alt="Instagram"
-                        >
-
-                    </a>
-
-                </div>
-
-
-            </div>
-
-
-            <!-- =================================================
-                 FOOTER BOTTOM
-            ================================================= -->
-
-            <div class="footer-bottom">
-
-                <p>
-                    © 2026 50 Mirars - The Watch &amp; Sunglasses Store.
-                    All Rights Reserved.
-                </p>
-
-            </div>
-
-
-        </div>
-
-    </footer>
-
-
-    <!-- =====================================================
-         JAVASCRIPT
-    ===================================================== -->
-
-    <script>
-
-
-        /* =====================================================
-           TOP HERO POSTER SLIDER
-           5 POSTERS
-           AUTO CHANGE = 15 SECONDS
-        ===================================================== */
-
-        document.addEventListener(
-            "DOMContentLoaded",
-            function () {
-
-
-                const heroSlider =
-                    document.getElementById(
-                        "heroSlider"
-                    );
-
-                const heroTrack =
-                    document.getElementById(
-                        "heroTrack"
-                    );
-
-                const heroSlides =
-                    document.querySelectorAll(
-                        ".hero-slide"
-                    );
-
-                const heroDots =
-                    document.querySelectorAll(
-                        ".hero-dot"
-                    );
-
-                const heroPrev =
-                    document.getElementById(
-                        "heroPrev"
-                    );
-
-                const heroNext =
-                    document.getElementById(
-                        "heroNext"
-                    );
-
-
-                let heroCurrent = 0;
-
-                let heroStartX = 0;
-
-                let heroEndX = 0;
-
-                let heroDragging = false;
-
-                let heroDragged = false;
-
-                let heroTimer;
-
-
-                /* =================================================
-                   UPDATE HERO
-                ================================================= */
-
-                function updateHero(index) {
-
-
-                    if (
-                        index < 0
-                    ) {
-
-                        index =
-                            heroSlides.length - 1;
-
-                    }
-
-
-                    if (
-                        index >= heroSlides.length
-                    ) {
-
-                        index = 0;
-
-                    }
-
-
-                    heroCurrent = index;
-
-
-                    heroTrack.style.transform =
-                        "translateX(-" +
-                        (
-                            heroCurrent * 100
-                        ) +
-                        "%)";
-
-
-                    heroDots.forEach(
-                        function (
-                            dot,
-                            dotIndex
-                        ) {
-
-                            dot.classList.toggle(
-                                "active",
-                                dotIndex === heroCurrent
-                            );
-
-                        }
+                    dot.classList.toggle(
+                        "active",
+                        dotIndex ===
+                        heroCurrent
                     );
 
                 }
+            );
+
+        }
 
 
-                /* =================================================
-                   NEXT HERO
-                ================================================= */
+        function nextHero() {
 
-                function nextHero() {
+            updateHero(
+                heroCurrent + 1
+            );
 
-                    updateHero(
-                        heroCurrent + 1
-                    );
-
-                }
+        }
 
 
-                /* =================================================
-                   PREVIOUS HERO
-                ================================================= */
+        function previousHero() {
 
-                function previousHero() {
+            updateHero(
+                heroCurrent - 1
+            );
 
-                    updateHero(
-                        heroCurrent - 1
-                    );
-
-                }
+        }
 
 
-                /* =================================================
-                   AUTO SLIDE
-                   15000 = 15 SECONDS
-                ================================================= */
+        function resetHeroTimer() {
 
-                function resetHeroTimer() {
+            clearInterval(
+                heroTimer
+            );
 
-                    clearInterval(
-                        heroTimer
-                    );
-
-                    heroTimer =
-                        setInterval(
-                            function () {
-
-                                nextHero();
-
-                            },
-                            15000
-                        );
-
-                }
-
-
-                /* =================================================
-                   NEXT BUTTON
-                ================================================= */
-
-                heroNext.addEventListener(
-                    "click",
-                    function (event) {
-
-                        event.preventDefault();
-
-                        event.stopPropagation();
+            heroTimer =
+                setInterval(
+                    function () {
 
                         nextHero();
 
-                        resetHeroTimer();
-
-                    }
-                );
-
-
-                /* =================================================
-                   PREVIOUS BUTTON
-                ================================================= */
-
-                heroPrev.addEventListener(
-                    "click",
-                    function (event) {
-
-                        event.preventDefault();
-
-                        event.stopPropagation();
-
-                        previousHero();
-
-                        resetHeroTimer();
-
-                    }
-                );
-
-
-                /* =================================================
-                   HERO DOTS
-                ================================================= */
-
-                heroDots.forEach(
-                    function (
-                        dot,
-                        index
-                    ) {
-
-                        dot.addEventListener(
-                            "click",
-                            function (event) {
-
-                                event.preventDefault();
-
-                                event.stopPropagation();
-
-                                updateHero(
-                                    index
-                                );
-
-                                resetHeroTimer();
-
-                            }
-                        );
-
-                    }
-                );
-
-
-                /* =================================================
-                   TOUCH START
-                ================================================= */
-
-                heroSlider.addEventListener(
-                    "touchstart",
-                    function (event) {
-
-                        heroStartX =
-                            event.touches[0].clientX;
-
-                        heroEndX =
-                            heroStartX;
-
-                        heroDragging = true;
-
-                        heroDragged = false;
-
-                        heroSlider.classList.add(
-                            "dragging"
-                        );
-
-                        clearInterval(
-                            heroTimer
-                        );
-
                     },
-                    {
-                        passive: true
-                    }
+                    15000
                 );
 
+        }
 
-                /* =================================================
-                   TOUCH MOVE
-                ================================================= */
 
-                heroSlider.addEventListener(
-                    "touchmove",
-                    function (event) {
+        heroNext.addEventListener(
+            "click",
+            function (event) {
 
-                        if (!heroDragging) {
+                event.preventDefault();
+                event.stopPropagation();
 
-                            return;
-
-                        }
-
-                        heroEndX =
-                            event.touches[0].clientX;
-
-
-                        if (
-                            Math.abs(
-                                heroStartX -
-                                heroEndX
-                            ) > 10
-                        ) {
-
-                            heroDragged = true;
-
-                        }
-
-                    },
-                    {
-                        passive: true
-                    }
-                );
-
-
-                /* =================================================
-                   TOUCH END
-                ================================================= */
-
-                heroSlider.addEventListener(
-                    "touchend",
-                    function () {
-
-                        if (!heroDragging) {
-
-                            return;
-
-                        }
-
-
-                        const difference =
-                            heroStartX -
-                            heroEndX;
-
-
-                        if (
-                            Math.abs(
-                                difference
-                            ) > 50
-                        ) {
-
-                            if (
-                                difference > 0
-                            ) {
-
-                                nextHero();
-
-                            } else {
-
-                                previousHero();
-
-                            }
-
-                        }
-
-
-                        heroDragging = false;
-
-                        heroSlider.classList.remove(
-                            "dragging"
-                        );
-
-                        resetHeroTimer();
-
-                    }
-                );
-
-
-                /* =================================================
-                   MOUSE START
-                ================================================= */
-
-                heroSlider.addEventListener(
-                    "mousedown",
-                    function (event) {
-
-                        heroStartX =
-                            event.clientX;
-
-                        heroEndX =
-                            heroStartX;
-
-                        heroDragging = true;
-
-                        heroDragged = false;
-
-                        heroSlider.classList.add(
-                            "dragging"
-                        );
-
-                        clearInterval(
-                            heroTimer
-                        );
-
-                    }
-                );
-
-
-                /* =================================================
-                   MOUSE MOVE
-                ================================================= */
-
-                heroSlider.addEventListener(
-                    "mousemove",
-                    function (event) {
-
-                        if (!heroDragging) {
-
-                            return;
-
-                        }
-
-
-                        heroEndX =
-                            event.clientX;
-
-
-                        if (
-                            Math.abs(
-                                heroStartX -
-                                heroEndX
-                            ) > 10
-                        ) {
-
-                            heroDragged = true;
-
-                        }
-
-                    }
-                );
-
-
-                /* =================================================
-                   MOUSE UP
-                ================================================= */
-
-                heroSlider.addEventListener(
-                    "mouseup",
-                    function () {
-
-                        if (!heroDragging) {
-
-                            return;
-
-                        }
-
-
-                        const difference =
-                            heroStartX -
-                            heroEndX;
-
-
-                        if (
-                            Math.abs(
-                                difference
-                            ) > 50
-                        ) {
-
-                            if (
-                                difference > 0
-                            ) {
-
-                                nextHero();
-
-                            } else {
-
-                                previousHero();
-
-                            }
-
-                        }
-
-
-                        heroDragging = false;
-
-                        heroSlider.classList.remove(
-                            "dragging"
-                        );
-
-                        resetHeroTimer();
-
-                    }
-                );
-
-
-                /* =================================================
-                   MOUSE LEAVE
-                ================================================= */
-
-                heroSlider.addEventListener(
-                    "mouseleave",
-                    function () {
-
-                        if (heroDragging) {
-
-                            heroDragging = false;
-
-                            heroSlider.classList.remove(
-                                "dragging"
-                            );
-
-                            resetHeroTimer();
-
-                        }
-
-                    }
-                );
-
-
-                /* =================================================
-                   PREVENT LINK AFTER DRAG
-                ================================================= */
-
-                heroSlides.forEach(
-                    function (slide) {
-
-                        slide.addEventListener(
-                            "click",
-                            function (event) {
-
-                                if (heroDragged) {
-
-                                    event.preventDefault();
-
-                                    heroDragged = false;
-
-                                }
-
-                            }
-                        );
-
-                    }
-                );
-
-
-                /* =================================================
-                   INITIAL HERO
-                ================================================= */
-
-                updateHero(0);
+                nextHero();
 
                 resetHeroTimer();
-
 
             }
         );
 
 
-        /* =====================================================
-           PRODUCT SLIDER
-        ===================================================== */
+        heroPrev.addEventListener(
+            "click",
+            function (event) {
 
-        document.addEventListener(
-            "DOMContentLoaded",
-            function () {
+                event.preventDefault();
+                event.stopPropagation();
 
+                previousHero();
 
-                const slider =
-                    document.getElementById(
-                        "productSlider"
-                    );
+                resetHeroTimer();
 
+            }
+        );
 
-                const track =
-                    document.getElementById(
-                        "productTrack"
-                    );
 
+        heroDots.forEach(
+            function (
+                dot,
+                index
+            ) {
 
-                const slides =
-                    document.querySelectorAll(
-                        ".product-slide"
-                    );
-
-
-                const dots =
-                    document.querySelectorAll(
-                        ".product-dot"
-                    );
-
-
-                const previousButton =
-                    document.getElementById(
-                        "productPrev"
-                    );
-
-
-                const nextButton =
-                    document.getElementById(
-                        "productNext"
-                    );
-
-
-                let currentSlide = 0;
-
-                let startX = 0;
-
-                let endX = 0;
-
-                let isDragging = false;
-
-                let dragged = false;
-
-
-                /* =================================================
-                   NUMBER OF VISIBLE PRODUCTS
-                ================================================= */
-
-                function getVisibleSlides() {
-
-                    if (
-                        window.innerWidth <= 768
-                    ) {
-
-                        return 1;
-
-                    }
-
-                    if (
-                        window.innerWidth <= 1024
-                    ) {
-
-                        return 2;
-
-                    }
-
-                    return 3;
-
-                }
-
-
-                /* =================================================
-                   UPDATE PRODUCT SLIDER
-                ================================================= */
-
-                function updateSlider(index) {
-
-
-                    const visible =
-                        getVisibleSlides();
-
-
-                    const maxIndex =
-                        Math.max(
-                            0,
-                            slides.length -
-                            visible
-                        );
-
-
-                    if (
-                        index < 0
-                    ) {
-
-                        index = maxIndex;
-
-                    }
-
-
-                    if (
-                        index > maxIndex
-                    ) {
-
-                        index = 0;
-
-                    }
-
-
-                    currentSlide =
-                        index;
-
-
-                    if (!slides.length) {
-
-                        return;
-
-                    }
-
-
-                    const slideWidth =
-                        slides[0]
-                            .getBoundingClientRect()
-                            .width;
-
-
-                    const gap =
-                        parseFloat(
-                            getComputedStyle(
-                                track
-                            ).gap
-                        ) || 0;
-
-
-                    const movement =
-                        currentSlide *
-                        (
-                            slideWidth +
-                            gap
-                        );
-
-
-                    track.style.transform =
-                        "translateX(-" +
-                        movement +
-                        "px)";
-
-
-                    dots.forEach(
-                        function (
-                            dot,
-                            dotIndex
-                        ) {
-
-                            dot.classList.toggle(
-                                "active",
-                                dotIndex === currentSlide
-                            );
-
-                            /*
-                             Hide dots that cannot represent
-                             a valid position on desktop/tablet.
-                            */
-
-                            if (
-                                dotIndex <= maxIndex
-                            ) {
-
-                                dot.style.display =
-                                    "";
-
-                            } else {
-
-                                dot.style.display =
-                                    "none";
-
-                            }
-
-                        }
-                    );
-
-                }
-
-
-                /* =================================================
-                   NEXT PRODUCT
-                ================================================= */
-
-                function nextSlide() {
-
-                    updateSlider(
-                        currentSlide + 1
-                    );
-
-                }
-
-
-                /* =================================================
-                   PREVIOUS PRODUCT
-                ================================================= */
-
-                function previousSlide() {
-
-                    updateSlider(
-                        currentSlide - 1
-                    );
-
-                }
-
-
-                /* =================================================
-                   PRODUCT NEXT BUTTON
-                ================================================= */
-
-                nextButton.addEventListener(
+                dot.addEventListener(
                     "click",
-                    function () {
+                    function (event) {
 
-                        nextSlide();
+                        event.preventDefault();
+                        event.stopPropagation();
+
+                        updateHero(index);
+
+                        resetHeroTimer();
 
                     }
                 );
 
+            }
+        );
 
-                /* =================================================
-                   PRODUCT PREVIOUS BUTTON
-                ================================================= */
 
-                previousButton.addEventListener(
+        /* TOUCH */
+
+        heroSlider.addEventListener(
+            "touchstart",
+            function (event) {
+
+                heroStartX =
+                    event.touches[0].clientX;
+
+                heroEndX =
+                    heroStartX;
+
+                heroDragging = true;
+                heroDragged = false;
+
+                heroSlider.classList.add(
+                    "dragging"
+                );
+
+                clearInterval(
+                    heroTimer
+                );
+
+            },
+            {
+                passive: true
+            }
+        );
+
+
+        heroSlider.addEventListener(
+            "touchmove",
+            function (event) {
+
+                if (!heroDragging) {
+                    return;
+                }
+
+                heroEndX =
+                    event.touches[0].clientX;
+
+                if (
+                    Math.abs(
+                        heroStartX -
+                        heroEndX
+                    ) > 10
+                ) {
+
+                    heroDragged = true;
+
+                }
+
+            },
+            {
+                passive: true
+            }
+        );
+
+
+        heroSlider.addEventListener(
+            "touchend",
+            function () {
+
+                if (!heroDragging) {
+                    return;
+                }
+
+                const difference =
+                    heroStartX -
+                    heroEndX;
+
+
+                if (
+                    Math.abs(
+                        difference
+                    ) > 50
+                ) {
+
+                    if (
+                        difference > 0
+                    ) {
+
+                        nextHero();
+
+                    } else {
+
+                        previousHero();
+
+                    }
+
+                }
+
+
+                heroDragging = false;
+
+                heroSlider.classList.remove(
+                    "dragging"
+                );
+
+                resetHeroTimer();
+
+            }
+        );
+
+
+        /* MOUSE */
+
+        heroSlider.addEventListener(
+            "mousedown",
+            function (event) {
+
+                heroStartX =
+                    event.clientX;
+
+                heroEndX =
+                    heroStartX;
+
+                heroDragging = true;
+                heroDragged = false;
+
+                heroSlider.classList.add(
+                    "dragging"
+                );
+
+                clearInterval(
+                    heroTimer
+                );
+
+            }
+        );
+
+
+        heroSlider.addEventListener(
+            "mousemove",
+            function (event) {
+
+                if (!heroDragging) {
+                    return;
+                }
+
+                heroEndX =
+                    event.clientX;
+
+                if (
+                    Math.abs(
+                        heroStartX -
+                        heroEndX
+                    ) > 10
+                ) {
+
+                    heroDragged = true;
+
+                }
+
+            }
+        );
+
+
+        heroSlider.addEventListener(
+            "mouseup",
+            function () {
+
+                if (!heroDragging) {
+                    return;
+                }
+
+                const difference =
+                    heroStartX -
+                    heroEndX;
+
+
+                if (
+                    Math.abs(
+                        difference
+                    ) > 50
+                ) {
+
+                    if (
+                        difference > 0
+                    ) {
+
+                        nextHero();
+
+                    } else {
+
+                        previousHero();
+
+                    }
+
+                }
+
+
+                heroDragging = false;
+
+                heroSlider.classList.remove(
+                    "dragging"
+                );
+
+                resetHeroTimer();
+
+            }
+        );
+
+
+        heroSlider.addEventListener(
+            "mouseleave",
+            function () {
+
+                if (heroDragging) {
+
+                    heroDragging = false;
+
+                    heroSlider.classList.remove(
+                        "dragging"
+                    );
+
+                    resetHeroTimer();
+
+                }
+
+            }
+        );
+
+
+        heroSlides.forEach(
+            function (slide) {
+
+                slide.addEventListener(
+                    "click",
+                    function (event) {
+
+                        if (heroDragged) {
+
+                            event.preventDefault();
+
+                            heroDragged = false;
+
+                        }
+
+                    }
+                );
+
+            }
+        );
+
+
+        updateHero(0);
+
+        resetHeroTimer();
+
+    }
+);
+
+
+/* =====================================================
+   PRODUCT SLIDER
+===================================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        const slider =
+            document.getElementById(
+                "productSlider"
+            );
+
+        const track =
+            document.getElementById(
+                "productTrack"
+            );
+
+        const slides =
+            document.querySelectorAll(
+                ".product-slide"
+            );
+
+        const dots =
+            document.querySelectorAll(
+                ".product-dot"
+            );
+
+        const previousButton =
+            document.getElementById(
+                "productPrev"
+            );
+
+        const nextButton =
+            document.getElementById(
+                "productNext"
+            );
+
+
+        let currentSlide = 0;
+
+        let startX = 0;
+        let endX = 0;
+
+        let isDragging = false;
+        let dragged = false;
+
+
+        function getVisibleSlides() {
+
+            if (
+                window.innerWidth <= 768
+            ) {
+                return 1;
+            }
+
+            if (
+                window.innerWidth <= 1024
+            ) {
+                return 2;
+            }
+
+            return 3;
+        }
+
+
+        function updateSlider(index) {
+
+            const visible =
+                getVisibleSlides();
+
+            const maxIndex =
+                Math.max(
+                    0,
+                    slides.length -
+                    visible
+                );
+
+
+            if (index < 0) {
+                index = maxIndex;
+            }
+
+            if (index > maxIndex) {
+                index = 0;
+            }
+
+
+            currentSlide = index;
+
+
+            if (!slides.length) {
+                return;
+            }
+
+
+            const slideWidth =
+                slides[0]
+                    .getBoundingClientRect()
+                    .width;
+
+
+            const gap =
+                parseFloat(
+                    getComputedStyle(
+                        track
+                    ).gap
+                ) || 0;
+
+
+            const movement =
+                currentSlide *
+                (
+                    slideWidth +
+                    gap
+                );
+
+
+            track.style.transform =
+                "translateX(-" +
+                movement +
+                "px)";
+
+
+            dots.forEach(
+                function (
+                    dot,
+                    dotIndex
+                ) {
+
+                    dot.classList.toggle(
+                        "active",
+                        dotIndex ===
+                        currentSlide
+                    );
+
+
+                    if (
+                        dotIndex <=
+                        maxIndex
+                    ) {
+
+                        dot.style.display =
+                            "";
+
+                    } else {
+
+                        dot.style.display =
+                            "none";
+
+                    }
+
+                }
+            );
+
+        }
+
+
+        function nextSlide() {
+
+            updateSlider(
+                currentSlide + 1
+            );
+
+        }
+
+
+        function previousSlide() {
+
+            updateSlider(
+                currentSlide - 1
+            );
+
+        }
+
+
+        nextButton.addEventListener(
+            "click",
+            function () {
+
+                nextSlide();
+
+            }
+        );
+
+
+        previousButton.addEventListener(
+            "click",
+            function () {
+
+                previousSlide();
+
+            }
+        );
+
+
+        dots.forEach(
+            function (
+                dot,
+                index
+            ) {
+
+                dot.addEventListener(
                     "click",
                     function () {
+
+                        updateSlider(
+                            index
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+
+        /* TOUCH */
+
+        slider.addEventListener(
+            "touchstart",
+            function (event) {
+
+                startX =
+                    event.touches[0].clientX;
+
+                endX =
+                    startX;
+
+                isDragging = true;
+                dragged = false;
+
+                slider.classList.add(
+                    "dragging"
+                );
+
+            },
+            {
+                passive: true
+            }
+        );
+
+
+        slider.addEventListener(
+            "touchmove",
+            function (event) {
+
+                if (!isDragging) {
+                    return;
+                }
+
+                endX =
+                    event.touches[0].clientX;
+
+                if (
+                    Math.abs(
+                        startX -
+                        endX
+                    ) > 10
+                ) {
+
+                    dragged = true;
+
+                }
+
+            },
+            {
+                passive: true
+            }
+        );
+
+
+        slider.addEventListener(
+            "touchend",
+            function () {
+
+                if (!isDragging) {
+                    return;
+                }
+
+                const difference =
+                    startX -
+                    endX;
+
+
+                if (
+                    Math.abs(
+                        difference
+                    ) > 50
+                ) {
+
+                    if (
+                        difference > 0
+                    ) {
+
+                        nextSlide();
+
+                    } else {
 
                         previousSlide();
 
                     }
+
+                }
+
+
+                isDragging = false;
+
+                slider.classList.remove(
+                    "dragging"
                 );
-
-
-                /* =================================================
-                   PRODUCT DOTS
-                ================================================= */
-
-                dots.forEach(
-                    function (
-                        dot,
-                        index
-                    ) {
-
-                        dot.addEventListener(
-                            "click",
-                            function () {
-
-                                updateSlider(
-                                    index
-                                );
-
-                            }
-                        );
-
-                    }
-                );
-
-
-                /* =================================================
-                   TOUCH START
-                ================================================= */
-
-                slider.addEventListener(
-                    "touchstart",
-                    function (event) {
-
-                        startX =
-                            event.touches[0].clientX;
-
-                        endX =
-                            startX;
-
-                        isDragging = true;
-
-                        dragged = false;
-
-                        slider.classList.add(
-                            "dragging"
-                        );
-
-                    },
-                    {
-                        passive: true
-                    }
-                );
-
-
-                /* =================================================
-                   TOUCH MOVE
-                ================================================= */
-
-                slider.addEventListener(
-                    "touchmove",
-                    function (event) {
-
-                        if (!isDragging) {
-
-                            return;
-
-                        }
-
-                        endX =
-                            event.touches[0].clientX;
-
-
-                        if (
-                            Math.abs(
-                                startX -
-                                endX
-                            ) > 10
-                        ) {
-
-                            dragged = true;
-
-                        }
-
-                    },
-                    {
-                        passive: true
-                    }
-                );
-
-
-                /* =================================================
-                   TOUCH END
-                ================================================= */
-
-                slider.addEventListener(
-                    "touchend",
-                    function () {
-
-                        if (!isDragging) {
-
-                            return;
-
-                        }
-
-
-                        const difference =
-                            startX -
-                            endX;
-
-
-                        if (
-                            Math.abs(
-                                difference
-                            ) > 50
-                        ) {
-
-                            if (
-                                difference > 0
-                            ) {
-
-                                nextSlide();
-
-                            } else {
-
-                                previousSlide();
-
-                            }
-
-                        }
-
-
-                        isDragging = false;
-
-                        slider.classList.remove(
-                            "dragging"
-                        );
-
-                    }
-                );
-
-
-                /* =================================================
-                   MOUSE START
-                ================================================= */
-
-                slider.addEventListener(
-                    "mousedown",
-                    function (event) {
-
-                        startX =
-                            event.clientX;
-
-                        endX =
-                            startX;
-
-                        isDragging = true;
-
-                        dragged = false;
-
-                        slider.classList.add(
-                            "dragging"
-                        );
-
-                    }
-                );
-
-
-                /* =================================================
-                   MOUSE MOVE
-                ================================================= */
-
-                slider.addEventListener(
-                    "mousemove",
-                    function (event) {
-
-                        if (!isDragging) {
-
-                            return;
-
-                        }
-
-
-                        endX =
-                            event.clientX;
-
-
-                        if (
-                            Math.abs(
-                                startX -
-                                endX
-                            ) > 10
-                        ) {
-
-                            dragged = true;
-
-                        }
-
-                    }
-                );
-
-
-                /* =================================================
-                   MOUSE UP
-                ================================================= */
-
-                slider.addEventListener(
-                    "mouseup",
-                    function () {
-
-                        if (!isDragging) {
-
-                            return;
-
-                        }
-
-
-                        const difference =
-                            startX -
-                            endX;
-
-
-                        if (
-                            Math.abs(
-                                difference
-                            ) > 50
-                        ) {
-
-                            if (
-                                difference > 0
-                            ) {
-
-                                nextSlide();
-
-                            } else {
-
-                                previousSlide();
-
-                            }
-
-                        }
-
-
-                        isDragging = false;
-
-                        slider.classList.remove(
-                            "dragging"
-                        );
-
-                    }
-                );
-
-
-                /* =================================================
-                   MOUSE LEAVE
-                ================================================= */
-
-                slider.addEventListener(
-                    "mouseleave",
-                    function () {
-
-                        if (isDragging) {
-
-                            isDragging = false;
-
-                            slider.classList.remove(
-                                "dragging"
-                            );
-
-                        }
-
-                    }
-                );
-
-
-                /* =================================================
-                   PREVENT LINK AFTER DRAG
-                ================================================= */
-
-                slides.forEach(
-                    function (slide) {
-
-                        slide.addEventListener(
-                            "click",
-                            function (event) {
-
-                                if (dragged) {
-
-                                    event.preventDefault();
-
-                                    dragged = false;
-
-                                }
-
-                            }
-                        );
-
-                    }
-                );
-
-
-                /* =================================================
-                   WINDOW RESIZE
-                ================================================= */
-
-                window.addEventListener(
-                    "resize",
-                    function () {
-
-                        updateSlider(
-                            currentSlide
-                        );
-
-                    }
-                );
-
-
-                /* =================================================
-                   INITIAL PRODUCT SLIDER
-                ================================================= */
-
-                updateSlider(0);
-
 
             }
         );
 
-    </script>
+
+        /* MOUSE */
+
+        slider.addEventListener(
+            "mousedown",
+            function (event) {
+
+                startX =
+                    event.clientX;
+
+                endX =
+                    startX;
+
+                isDragging = true;
+                dragged = false;
+
+                slider.classList.add(
+                    "dragging"
+                );
+
+            }
+        );
+
+
+        slider.addEventListener(
+            "mousemove",
+            function (event) {
+
+                if (!isDragging) {
+                    return;
+                }
+
+                endX =
+                    event.clientX;
+
+                if (
+                    Math.abs(
+                        startX -
+                        endX
+                    ) > 10
+                ) {
+
+                    dragged = true;
+
+                }
+
+            }
+        );
+
+
+        slider.addEventListener(
+            "mouseup",
+            function () {
+
+                if (!isDragging) {
+                    return;
+                }
+
+                const difference =
+                    startX -
+                    endX;
+
+
+                if (
+                    Math.abs(
+                        difference
+                    ) > 50
+                ) {
+
+                    if (
+                        difference > 0
+                    ) {
+
+                        nextSlide();
+
+                    } else {
+
+                        previousSlide();
+
+                    }
+
+                }
+
+
+                isDragging = false;
+
+                slider.classList.remove(
+                    "dragging"
+                );
+
+            }
+        );
+
+
+        slider.addEventListener(
+            "mouseleave",
+            function () {
+
+                if (isDragging) {
+
+                    isDragging = false;
+
+                    slider.classList.remove(
+                        "dragging"
+                    );
+
+                }
+
+            }
+        );
+
+
+        slides.forEach(
+            function (slide) {
+
+                slide.addEventListener(
+                    "click",
+                    function (event) {
+
+                        if (dragged) {
+
+                            event.preventDefault();
+
+                            dragged = false;
+
+                        }
+
+                    }
+                );
+
+            }
+        );
+
+
+        window.addEventListener(
+            "resize",
+            function () {
+
+                updateSlider(
+                    currentSlide
+                );
+
+            }
+        );
+
+
+        updateSlider(0);
+
+    }
+);
+
+</script>
 
 </body>
 
