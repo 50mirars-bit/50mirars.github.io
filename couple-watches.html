@@ -1,15 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
 <title>Couple Watches | 50 Mirars</title>
 
+
 <style>
-    
-body{
-    margin:0;
-    font-family:Arial,sans-serif;
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+
+    font-family:
+        Arial,
+        sans-serif;
+
     background:
         radial-gradient(
             circle at 50% 15%,
@@ -22,232 +42,985 @@ body{
             #eee8d9 50%,
             #f8f5ed 100%
         );
-    color:#222;
+
+    color: #222;
 }
 
-/* Page Title */
-.page-title{
-    text-align:center;
-    padding:30px 20px 35px;
-}
-.page-title h1{
-    font-size:64px;
-    margin-bottom:20px;
-    color:#111;
-}
-.title-line{
-    width:160px;
-    height:2px;
-    background:#c9a24d;
-    margin:0 auto;
-    position:relative;
-}
-.title-line::after{
-    content:"";
-    width:12px;
-    height:12px;
-    background:#c9a24d;
-    position:absolute;
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%) rotate(45deg);
+
+/* =========================================================
+   BACK TO HOME BUTTON
+========================================================= */
+
+.home-area {
+    padding: 20px 40px;
 }
 
-/* Product Grid */
-.product-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:35px;
-    max-width:1400px;
-    margin:auto;
-    padding:20px 40px 80px;
-}
-.product-card{
-    background:white;
-    border-radius:18px;
-    overflow:hidden;
-    text-align:center;
-    box-shadow:0 8px 25px rgba(0,0,0,0.08);
-    transition:0.3s;
-}
-.product-card:hover{
-    transform:translateY(-5px);
-}
-.product-card img, .product-card video{
-    width:100%;
-    height:350px;
-    object-fit:cover;
-}
-.product-card h3{
-    font-size:22px;
-    margin:25px 15px 10px;
-    color:#111;
-}
-.price{
-    color:#c9a24d;
-    font-weight:bold;
-    font-size:22px;
-    margin:15px 0;
-}
-.enquire-btn{
-    display:inline-block;
-    margin-bottom:35px;
-    padding:14px 35px;
-    background:#c9a24d;
-    color:white;
-    text-decoration:none;
-    border-radius:6px;
-    font-weight:bold;
+.home-btn {
+    display: inline-block;
+
+    background: #111;
+
+    color: #fff;
+
+    text-decoration: none;
+
+    padding: 12px 25px;
+
+    border-radius: 6px;
+
+    font-weight: 600;
+
+    transition: 0.3s;
 }
 
-/* Back Button */
-.home-btn{
-    display:inline-block;
-    background:#111;
-    color:white;
-    text-decoration:none;
-    padding:12px 25px;
-    border-radius:6px;
-    font-weight:600;
-    transition:0.3s;
-}
-.home-btn:hover{
-    background:#c9a24d;
-    color:black;
+.home-btn:hover {
+    background: #c9a24d;
+
+    color: #000;
 }
 
-/* =========================================
-   LUXURY COUPLE WATCHES INTRODUCTION
-   ========================================= */
 
-.couple-intro{
-    width:90%;
-    max-width:1400px;
-    margin:0 auto;
-    text-align:center;
-    padding:10px 0 55px;
+/* =========================================================
+   PAGE TITLE
+========================================================= */
+
+.page-title {
+    text-align: center;
+
+    padding: 30px 20px 35px;
 }
 
-.couple-intro h2{
-    font-family:Georgia, "Times New Roman", serif;
-    font-size:38px;
-    font-weight:600;
-    color:#171717;
-    margin:0 auto 30px;
-    letter-spacing:-0.5px;
+.page-title h1 {
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 64px;
+
+    margin:
+        0 0 20px;
+
+    color: #111;
+
+    font-weight: 600;
 }
 
-.couple-description{
-    max-width:1350px;
-    margin:0 auto;
-    text-align:left;
+.title-line {
+    width: 160px;
+
+    height: 2px;
+
+    background: #c9a24d;
+
+    margin: 0 auto;
+
+    position: relative;
 }
 
-.couple-description p{
-    margin:0 0 24px;
-    font-size:18px;
-    line-height:1.75;
-    color:#4a4a4a;
-    font-weight:400;
+.title-line::after {
+    content: "";
+
+    width: 12px;
+
+    height: 12px;
+
+    background: #c9a24d;
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        rotate(45deg);
 }
 
-.couple-description strong{
-    color:#9b762c;
-    font-weight:600;
+
+/* =========================================================
+   COUPLE WATCHES INTRODUCTION
+========================================================= */
+
+.couple-intro {
+    width: 90%;
+
+    max-width: 1400px;
+
+    margin: 0 auto;
+
+    text-align: center;
+
+    padding:
+        10px 0 55px;
 }
 
-.couple-closing-line{
-    margin-top:40px !important;
-    margin-bottom:0 !important;
+.couple-intro h2 {
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 38px;
+
+    font-weight: 600;
+
+    color: #171717;
+
+    margin:
+        0 auto 30px;
+
+    letter-spacing: -0.5px;
 }
 
-/* Slider styling */
-.slider {
-  position: relative;
-  width: 100%;
-  height: 350px;
-  overflow: hidden;
+.couple-description {
+    max-width: 1350px;
+
+    margin: 0 auto;
+
+    text-align: left;
 }
 
-.slider img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: none;
+.couple-description p {
+    margin:
+        0 0 24px;
+
+    font-size: 18px;
+
+    line-height: 1.75;
+
+    color: #4a4a4a;
+
+    font-weight: 400;
 }
 
-.slider img.active {
-  display: block;
+.couple-description strong {
+    color: #9b762c;
+
+    font-weight: 600;
 }
 
-.slider button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0,0,0,0.5);
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  cursor: pointer;
-  border-radius: 50%;
+.couple-closing-line {
+    margin-top: 40px !important;
+
+    margin-bottom: 0 !important;
 }
 
-.slider .prev {
-  left: 10px;
+
+/* =========================================================
+   PRODUCT GRID
+========================================================= */
+
+.product-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 35px;
+
+    width: 100%;
+
+    max-width: 1400px;
+
+    margin: 0 auto;
+
+    padding:
+        20px 40px 80px;
 }
 
-.slider .next {
-  right: 10px;
+
+/* =========================================================
+   PRODUCT CARD
+========================================================= */
+
+.product-card {
+    background: #fff;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    text-align: center;
+
+    box-shadow:
+        0 8px 25px
+        rgba(0,0,0,0.08);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
-/* ✅ Add to Cart button styled like Enquire Now but with white background */
+.product-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 14px 35px
+        rgba(0,0,0,0.12);
+}
+
+
+/* =========================================================
+   PRODUCT IMAGE / VIDEO
+========================================================= */
+
+.product-card > img,
+.product-card > video {
+    width: 100%;
+
+    height: 350px;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+/* =========================================================
+   PRODUCT TITLE
+========================================================= */
+
+.product-card h3 {
+    font-size: 22px;
+
+    margin:
+        25px 15px 10px;
+
+    color: #111;
+
+    line-height: 1.35;
+}
+
+
+/* =========================================================
+   PRICE
+========================================================= */
+
+.price {
+    color: #c9a24d;
+
+    font-weight: bold;
+
+    font-size: 22px;
+
+    margin:
+        15px 0 22px;
+}
+
+
+/* =========================================================
+   PRODUCT BUTTONS
+========================================================= */
+
+.product-buttons {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+
+    padding:
+        0 15px 35px;
+}
+
+
+/* =========================================================
+   ENQUIRE BUTTON
+========================================================= */
+
+.enquire-btn {
+    display: inline-block;
+
+    padding:
+        14px 25px;
+
+    background: #c9a24d;
+
+    color: #fff;
+
+    text-decoration: none;
+
+    border-radius: 6px;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.enquire-btn:hover {
+    background: #111;
+}
+
+
+/* =========================================================
+   ADD TO CART BUTTON
+========================================================= */
+
 .add-to-cart-btn {
-  background-color: #fff;
-  color: #111;
-  border: 2px solid #111;
-  padding: 12px 30px;
-  border-radius: 6px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.3s;
+    background: #fff;
+
+    color: #111;
+
+    border:
+        2px solid #111;
+
+    padding:
+        12px 25px;
+
+    border-radius: 6px;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s;
 }
 
 .add-to-cart-btn:hover {
-  background-color: #c9a24d;
-  color: #fff;
-  border-color: #c9a24d;
-}
+    background: #c9a24d;
 
-/* Responsive */
-@media(max-width:768px){
-    .page-title h1{font-size:42px;}
-    .product-grid{grid-template-columns:1fr;padding:20px;}
-    .product-card img, .product-card video{height:250px;}
+    color: #fff;
+
+    border-color: #c9a24d;
 }
 
 
-    
+/* =========================================================
+   IMAGE SLIDER
+========================================================= */
+
+.slider {
+    position: relative;
+
+    width: 100%;
+
+    height: 350px;
+
+    overflow: hidden;
+
+    background: #f5f5f5;
+}
+
+.slider img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: none;
+}
+
+.slider img.active {
+    display: block;
+}
+
+
+/* =========================================================
+   SLIDER BUTTONS
+========================================================= */
+
+.slider button {
+    position: absolute;
+
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    width: 42px;
+
+    height: 42px;
+
+    background:
+        rgba(0,0,0,0.55);
+
+    color: #fff;
+
+    border: none;
+
+    cursor: pointer;
+
+    border-radius: 50%;
+
+    font-size: 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    z-index: 5;
+
+    transition: 0.3s;
+}
+
+.slider button:hover {
+    background: #c9a24d;
+}
+
+.slider .prev {
+    left: 12px;
+}
+
+.slider .next {
+    right: 12px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.main-footer {
+    width: 100%;
+
+    background: #080808;
+
+    color: #fff;
+
+    padding:
+        70px 7% 25px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,0.08);
+
+    overflow: hidden;
+}
+
+.footer-container {
+    width: 100%;
+
+    max-width: 1400px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   FOOTER TOP
+========================================================= */
+
+.footer-top {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    column-gap: 70px;
+
+    row-gap: 40px;
+
+    align-items: start;
+}
+
+.footer-top > h2 {
+    grid-column: 1 / -1;
+
+    margin:
+        0 0 10px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 42px;
+
+    font-weight: 500;
+
+    line-height: 1.2;
+
+    color: #fff;
+
+    text-align: center;
+}
+
+.contact-column,
+.whatsapp-column {
+    min-width: 0;
+
+    width: 100%;
+
+    text-align: center;
+}
+
+.contact-column h3,
+.whatsapp-column h3 {
+    margin:
+        0 0 22px;
+
+    color: #fff;
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    line-height: 1.35;
+}
+
+.contact-column p {
+    margin:
+        12px 0 0;
+
+    color: #bdbdbd;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+}
+
+.footer-link {
+    display: block;
+
+    width: fit-content;
+
+    max-width: 100%;
+
+    margin:
+        0 auto 8px;
+
+    color: #fff;
+
+    text-decoration: none;
+
+    font-size: 16px;
+
+    line-height: 1.6;
+
+    overflow-wrap: break-word;
+
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: #c9a24d;
+}
+
+
+/* =========================================================
+   WHATSAPP FOOTER
+========================================================= */
+
+.whatsapp-title {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    flex-wrap: wrap;
+}
+
+.whatsapp-icon {
+    width: 28px;
+
+    height: 28px;
+
+    object-fit: contain;
+
+    display: inline-block;
+
+    flex-shrink: 0;
+}
+
+.whatsapp-button {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-width: 205px;
+
+    min-height: 60px;
+
+    max-width: 100%;
+
+    padding:
+        13px 30px;
+
+    background: #fff;
+
+    color: #111;
+
+    text-decoration: none;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.2px;
+
+    border:
+        1px solid #fff;
+
+    transition: all 0.3s ease;
+}
+
+.whatsapp-button:hover {
+    background: #c9a24d;
+
+    border-color: #c9a24d;
+
+    color: #fff;
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =========================================================
+   FOOTER MIDDLE
+========================================================= */
+
+.footer-middle {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 50px;
+
+    margin-top: 65px;
+
+    padding-top: 45px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,0.10);
+}
+
+.footer-links-column,
+.footer-social {
+    min-width: 0;
+
+    width: 100%;
+
+    text-align: center;
+}
+
+.footer-links-column h3,
+.footer-social h3 {
+    margin:
+        0 0 20px;
+
+    color: #fff;
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    line-height: 1.35;
+}
+
+.footer-links-column a {
+    display: block;
+
+    width: fit-content;
+
+    max-width: 100%;
+
+    margin:
+        0 auto 14px;
+
+    color: #d7d7d7;
+
+    text-decoration: none;
+
+    font-size: 15px;
+
+    line-height: 1.5;
+
+    transition: color 0.3s ease;
+}
+
+.footer-links-column a:hover {
+    color: #c9a24d;
+}
+
+.footer-social p {
+    margin:
+        0 0 14px;
+
+    color: #d7d7d7;
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   INSTAGRAM
+========================================================= */
+
+.instagram-button {
+    width: 58px;
+
+    height: 58px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.65);
+
+    border-radius: 9px;
+
+    text-decoration: none;
+
+    transition: all 0.3s ease;
+}
+
+.instagram-button:hover {
+    border-color: #c9a24d;
+
+    transform:
+        translateY(-2px);
+}
+
+.instagram-button img {
+    width: 32px;
+
+    height: 32px;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+
+/* =========================================================
+   FOOTER BOTTOM
+========================================================= */
+
+.footer-bottom {
+    width: 100%;
+
+    margin-top: 50px;
+
+    padding-top: 20px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,0.10);
+}
+
+.footer-bottom p {
+    margin: 0;
+
+    color: #aaa;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    text-align: center;
+
+    overflow-wrap: break-word;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .product-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .footer-top {
+        column-gap: 35px;
+    }
+}
+
+
+@media (max-width: 768px) {
+
+    .page-title h1 {
+        font-size: 42px;
+    }
+
+    .couple-intro {
+        width: 92%;
+    }
+
+    .couple-intro h2 {
+        font-size: 30px;
+    }
+
+    .couple-description p {
+        font-size: 16px;
+
+        line-height: 1.7;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+
+        padding:
+            20px 20px 60px;
+    }
+
+    .product-card > img,
+    .product-card > video,
+    .slider {
+        height: 300px;
+    }
+
+    .footer-top {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+    }
+
+    .footer-top > h2 {
+        grid-column: auto;
+
+        font-size: 34px;
+    }
+
+    .footer-middle {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .home-area {
+        padding:
+            18px 20px;
+    }
+
+    .page-title {
+        padding:
+            25px 15px 30px;
+    }
+
+    .page-title h1 {
+        font-size: 36px;
+    }
+
+    .title-line {
+        width: 120px;
+    }
+
+    .couple-intro h2 {
+        font-size: 27px;
+    }
+
+    .couple-description p {
+        font-size: 15px;
+    }
+
+    .product-card > img,
+    .product-card > video,
+    .slider {
+        height: 270px;
+    }
+
+    .product-card h3 {
+        font-size: 20px;
+    }
+
+    .product-buttons {
+        flex-direction: column;
+    }
+
+    .enquire-btn,
+    .add-to-cart-btn {
+        width: 90%;
+
+        max-width: 300px;
+    }
+
+    .main-footer {
+        padding:
+            55px 20px 25px;
+    }
+
+    .footer-top > h2 {
+        font-size: 30px;
+    }
+
+    .whatsapp-button {
+        width: 100%;
+
+        min-width: 0;
+    }
+}
+
 </style>
+
 </head>
+
 
 <body>
 
-<div style="padding:20px 40px;">
-    <a href="index.html" class="home-btn">← Back to Home</a>
+
+<!-- =========================================================
+     BACK TO HOME
+========================================================= -->
+
+<div class="home-area">
+
+    <a
+        href="index.html"
+        class="home-btn"
+    >
+        ← Back to Home
+    </a>
+
 </div>
 
-<!-- =========================================
-     COUPLE WATCHES INTRODUCTION
-     ========================================= -->
+
+<!-- =========================================================
+     PAGE TITLE + INTRODUCTION
+========================================================= -->
 
 <section class="couple-intro">
 
+
     <div class="page-title">
-        <h1>Couple Watches</h1>
+
+        <h1>
+            Couple Watches
+        </h1>
+
         <div class="title-line"></div>
+
     </div>
 
-    <h2>Two Timepieces. One Story.</h2>
+
+    <h2>
+        Two Timepieces. One Story.
+    </h2>
+
 
     <div class="couple-description">
 
@@ -262,6 +1035,7 @@ body{
             the joy of being together.
         </p>
 
+
         <p>
             At <strong>50 Mirars</strong>, we believe that choosing watches for two
             should feel just as special as the occasion itself. Our couple watch
@@ -273,6 +1047,7 @@ body{
             togetherness without compromising personal style.
         </p>
 
+
         <p>
             The beauty of a couple watch lies in the details — complementary dials,
             coordinated finishes, matching design elements, and the subtle connection
@@ -283,283 +1058,1060 @@ body{
             to create together.
         </p>
 
+
         <p class="couple-closing-line">
+
             <strong>
                 Two watches, two individual styles, one timeless connection.
             </strong>
+
         </p>
 
     </div>
 
 </section>
 
+
+<!-- =========================================================
+     PRODUCT GRID
+========================================================= -->
+
 <div class="product-grid">
-    
-  <!-- Product cards go here -->
 
-<!-- Cartier Santos Dumont Couple Watch -->
-<div class="product-card">
-  <img src="Cartier Santos Dumont Couple Watch.jpeg" alt="Cartier Santos Dumont Couple Watch">
-  <h3>Cartier Santos Dumont Couple Watch</h3>
-  <div class="price">₹4,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn"
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Cartier%20Santos%20Dumont%20Couple%20Watch.">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="Cartier Santos Dumont Couple Watch" data-price="4500">Add to Cart</button>
-  </div>
+
+    <!-- =====================================================
+         1. CARTIER SANTOS DUMONT
+    ====================================================== -->
+
+    <div class="product-card">
+
+        <img
+            src="Cartier Santos Dumont Couple Watch.jpeg"
+            alt="Cartier Santos Dumont Couple Watch"
+        >
+
+        <h3>
+            Cartier Santos Dumont Couple Watch
+        </h3>
+
+        <div class="price">
+            ₹4,500
+        </div>
+
+        <div class="product-buttons">
+
+            <a
+                class="enquire-btn"
+                href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Cartier%20Santos%20Dumont%20Couple%20Watch."
+            >
+                Enquire Now
+            </a>
+
+            <button
+                class="add-to-cart-btn"
+                data-name="Cartier Santos Dumont Couple Watch"
+                data-price="4500"
+            >
+                Add to Cart
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         2. ROLEX ALL BLACK
+    ====================================================== -->
+
+    <div class="product-card">
+
+        <video
+            width="100%"
+            height="350"
+            controls
+        >
+
+            <source
+                src="Rolex All Black Couple Watch.mp4"
+                type="video/mp4"
+            >
+
+            Your browser does not support video.
+
+        </video>
+
+        <h3>
+            Rolex All Black Couple Watch
+        </h3>
+
+        <div class="price">
+            ₹4,000
+        </div>
+
+        <div class="product-buttons">
+
+            <a
+                class="enquire-btn"
+                href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Rolex%20All%20Black%20Couple%20Watch"
+            >
+                Enquire Now
+            </a>
+
+            <button
+                class="add-to-cart-btn"
+                data-name="Rolex All Black Couple Watch"
+                data-price="4000"
+            >
+                Add to Cart
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         3. ROLEX AUTOMATIC
+    ====================================================== -->
+
+    <div class="product-card">
+
+        <img
+            src="Rolex Automatic Couple Watch.jpeg"
+            alt="Rolex Automatic Couple Watch"
+        >
+
+        <h3>
+            Rolex Automatic Couple Watch
+        </h3>
+
+        <div class="price">
+            ₹5,000
+        </div>
+
+        <div class="product-buttons">
+
+            <a
+                class="enquire-btn"
+                href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Automatic%20Couple%20Watch."
+            >
+                Enquire Now
+            </a>
+
+            <button
+                class="add-to-cart-btn"
+                data-name="Rolex Automatic Couple Watch"
+                data-price="5000"
+            >
+                Add to Cart
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         4. ROLEX SKY-DWELLER
+    ====================================================== -->
+
+    <div class="product-card">
+
+        <img
+            src="Rolex Sky-Dewller Couple Watch.jpeg"
+            alt="Rolex Sky-Dweller Couple Watch"
+        >
+
+        <h3>
+            Rolex Sky-Dweller Couple Watch
+        </h3>
+
+        <div class="price">
+            ₹5,000
+        </div>
+
+        <div class="product-buttons">
+
+            <a
+                class="enquire-btn"
+                href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Sky-Dewller%20Couple%20Watch."
+            >
+                Enquire Now
+            </a>
+
+            <button
+                class="add-to-cart-btn"
+                data-name="Rolex Sky-Dweller Couple Watch"
+                data-price="5000"
+            >
+                Add to Cart
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         5. RADO DIASTAR
+    ====================================================== -->
+
+    <div class="product-card">
+
+        <img
+            src="Rado Diastar Couple Watch.jpeg"
+            alt="Rado Diastar Couple Watch"
+        >
+
+        <h3>
+            Rado Diastar Couple Watch
+        </h3>
+
+        <div class="price">
+            ₹5,000
+        </div>
+
+        <div class="product-buttons">
+
+            <a
+                class="enquire-btn"
+                href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rado%20Diastar%20Couple%20Watch."
+            >
+                Enquire Now
+            </a>
+
+            <button
+                class="add-to-cart-btn"
+                data-name="Rado Diastar Couple Watch"
+                data-price="5000"
+            >
+                Add to Cart
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         6. FOSSIL NICK JONAS
+    ====================================================== -->
+
+    <div class="product-card">
+
+        <div class="slider">
+
+            <img
+                src="Fossil Nick Jonas Couple Watch .jpeg"
+                class="slide active"
+                alt="Fossil Nick Jonas Couple Watch"
+            >
+
+            <img
+                src="Fossil Nick Jonas Couple Watch 2.jpeg"
+                class="slide"
+                alt="Fossil Nick Jonas Couple Watch"
+            >
+
+            <button
+                class="prev"
+                type="button"
+            >
+                ❮
+            </button>
+
+            <button
+                class="next"
+                type="button"
+            >
+                ❯
+            </button>
+
+        </div>
+
+        <h3>
+            Fossil Nick Jonas Couple Watch
+        </h3>
+
+        <div class="price">
+            ₹4,500
+        </div>
+
+        <div class="product-buttons">
+
+            <a
+                class="enquire-btn"
+                href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Fossil%20Nick%20Jonas%20Couple%20Watch."
+            >
+                Enquire Now
+            </a>
+
+            <button
+                class="add-to-cart-btn"
+                data-name="Fossil Nick Jonas Couple Watch"
+                data-price="4500"
+            >
+                Add to Cart
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         7. RADO CENTRIX JUBILE
+    ====================================================== -->
+
+    <div class="product-card">
+
+        <img
+            src="Rado Centrix Jubile Couple Watch.jpeg"
+            alt="Rado Centrix Jubile Couple Watch"
+        >
+
+        <h3>
+            Rado Centrix Jubile Couple Watch
+        </h3>
+
+        <div class="price">
+            ₹4,500
+        </div>
+
+        <div class="product-buttons">
+
+            <a
+                class="enquire-btn"
+                href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rado%20Centrix%20Jubile%20Couple%20Watch."
+            >
+                Enquire Now
+            </a>
+
+            <button
+                class="add-to-cart-btn"
+                data-name="Rado Centrix Jubile Couple Watch"
+                data-price="4500"
+            >
+                Add to Cart
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         8. TISSOT GENTEL
+    ====================================================== -->
+
+    <div class="product-card">
+
+        <img
+            src="Tissot Gentel Couple Watch.jpeg"
+            alt="Tissot Gentel Couple Watch"
+        >
+
+        <h3>
+            Tissot Gentel Couple Watch
+        </h3>
+
+        <div class="price">
+            ₹5,000
+        </div>
+
+        <div class="product-buttons">
+
+            <a
+                class="enquire-btn"
+                href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Tissot%20Gentel%20Couple%20Watch."
+            >
+                Enquire Now
+            </a>
+
+            <button
+                class="add-to-cart-btn"
+                data-name="Tissot Gentel Couple Watch"
+                data-price="5000"
+            >
+                Add to Cart
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         9. OMEGA CONSTELLATION
+    ====================================================== -->
+
+    <div class="product-card">
+
+        <img
+            src="Omega Constellation Couple Watch.jpeg"
+            alt="Omega Constellation Couple Watch"
+        >
+
+        <h3>
+            Omega Constellation Couple Watch
+        </h3>
+
+        <div class="price">
+            ₹4,500
+        </div>
+
+        <div class="product-buttons">
+
+            <a
+                class="enquire-btn"
+                href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Omega%20Constellation%20Couple%20Watch."
+            >
+                Enquire Now
+            </a>
+
+            <button
+                class="add-to-cart-btn"
+                data-name="Omega Constellation Couple Watch"
+                data-price="4500"
+            >
+                Add to Cart
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         10. CARTIER SANTOS ROMAN
+    ====================================================== -->
+
+    <div class="product-card">
+
+        <img
+            src="Cartier Santos Roman Couple Watch.jpeg"
+            alt="Cartier Santos Roman Couple Watch"
+        >
+
+        <h3>
+            Cartier Santos Roman Couple Watch
+        </h3>
+
+        <div class="price">
+            ₹4,500
+        </div>
+
+        <div class="product-buttons">
+
+            <a
+                class="enquire-btn"
+                href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Cartier%20Santos%20Roman%20Couple%20Watch."
+            >
+                Enquire Now
+            </a>
+
+            <button
+                class="add-to-cart-btn"
+                data-name="Cartier Santos Roman Couple Watch"
+                data-price="4500"
+            >
+                Add to Cart
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         11. CITIZEN CLASSIC
+    ====================================================== -->
+
+    <div class="product-card">
+
+        <img
+            src="Citizen Classic Couple Watch.jpeg"
+            alt="Citizen Classic Couple Watch"
+        >
+
+        <h3>
+            Citizen Classic Couple Watch
+        </h3>
+
+        <div class="price">
+            ₹4,500
+        </div>
+
+        <div class="product-buttons">
+
+            <a
+                class="enquire-btn"
+                href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Citizen%20Classic%20Couple%20Watch."
+            >
+                Enquire Now
+            </a>
+
+            <button
+                class="add-to-cart-btn"
+                data-name="Citizen Classic Couple Watch"
+                data-price="4500"
+            >
+                Add to Cart
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         12. CASIO VINTAGE
+    ====================================================== -->
+
+    <div class="product-card">
+
+        <img
+            src="Casio Vintage Couple Watch.jpeg"
+            alt="Casio Vintage Couple Watch"
+        >
+
+        <h3>
+            Casio Vintage Couple Watch
+        </h3>
+
+        <div class="price">
+            ₹4,500
+        </div>
+
+        <div class="product-buttons">
+
+            <a
+                class="enquire-btn"
+                href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Casio%20Vintage%20Couple%20Watch."
+            >
+                Enquire Now
+            </a>
+
+            <button
+                class="add-to-cart-btn"
+                data-name="Casio Vintage Couple Watch"
+                data-price="4500"
+            >
+                Add to Cart
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         13. DANIAL WELLINGTON
+    ====================================================== -->
+
+    <div class="product-card">
+
+        <div class="slider">
+
+            <img
+                src="Danial Wellington Couple Watch.jpeg"
+                class="slide active"
+                alt="Danial Wellington Couple"
+            >
+
+            <img
+                src="Danial Wellington Couple 2.jpeg"
+                class="slide"
+                alt="Danial Wellington Couple"
+            >
+
+            <button
+                class="prev"
+                type="button"
+            >
+                ❮
+            </button>
+
+            <button
+                class="next"
+                type="button"
+            >
+                ❯
+            </button>
+
+        </div>
+
+        <h3>
+            Danial Wellington Couple
+        </h3>
+
+        <div class="price">
+            ₹4,500
+        </div>
+
+        <div class="product-buttons">
+
+            <a
+                class="enquire-btn"
+                href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Danial%20Wellington%20Couple."
+            >
+                Enquire Now
+            </a>
+
+            <button
+                class="add-to-cart-btn"
+                data-name="Danial Wellington Couple"
+                data-price="4500"
+            >
+                Add to Cart
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         14. ROLEX DAY-DATE
+    ====================================================== -->
+
+    <div class="product-card">
+
+        <div class="slider">
+
+            <img
+                src="Rolex Day-Date Couple Watch.jpeg"
+                class="slide active"
+                alt="Rolex Day-Date Couple Watch"
+            >
+
+            <img
+                src="Rolex Day-Date Couple Watch 2.jpeg"
+                class="slide"
+                alt="Rolex Day-Date Couple Watch"
+            >
+
+            <img
+                src="Rolex Day-Date Couple Watch 3.jpeg"
+                class="slide"
+                alt="Rolex Day-Date Couple Watch"
+            >
+
+            <img
+                src="Rolex Day-Date Couple Watch 4.jpeg"
+                class="slide"
+                alt="Rolex Day-Date Couple Watch"
+            >
+
+            <img
+                src="Rolex Day-Date Couple Watch 5.jpeg"
+                class="slide"
+                alt="Rolex Day-Date Couple Watch"
+            >
+
+            <img
+                src="Rolex Day-Date Couple Watch 6.jpeg"
+                class="slide"
+                alt="Rolex Day-Date Couple Watch"
+            >
+
+            <img
+                src="Rolex Day-Date Couple Watch 7.jpeg"
+                class="slide"
+                alt="Rolex Day-Date Couple Watch"
+            >
+
+            <img
+                src="Rolex Day-Date Couple Watch 8.jpeg"
+                class="slide"
+                alt="Rolex Day-Date Couple Watch"
+            >
+
+            <img
+                src="Rolex Day-Date Couple Watch 9.jpeg"
+                class="slide"
+                alt="Rolex Day-Date Couple Watch"
+            >
+
+            <img
+                src="Rolex Day-Date Couple Watch 10.jpeg"
+                class="slide"
+                alt="Rolex Day-Date Couple Watch"
+            >
+
+            <img
+                src="Rolex Day-Date Couple Watch 11.jpeg"
+                class="slide"
+                alt="Rolex Day-Date Couple Watch"
+            >
+
+            <button
+                class="prev"
+                type="button"
+            >
+                ❮
+            </button>
+
+            <button
+                class="next"
+                type="button"
+            >
+                ❯
+            </button>
+
+        </div>
+
+        <h3>
+            Rolex Day-Date Couple Watch
+        </h3>
+
+        <div class="price">
+            ₹5,500
+        </div>
+
+        <div class="product-buttons">
+
+            <a
+                class="enquire-btn"
+                href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Day-Date%20Couple%20Watch."
+            >
+                Enquire Now
+            </a>
+
+            <button
+                class="add-to-cart-btn"
+                data-name="Rolex Day-Date Couple Watch"
+                data-price="5500"
+            >
+                Add to Cart
+            </button>
+
+        </div>
+
+    </div>
+
+
 </div>
 
-<!-- Rolex All Black Couple Watch -->
-<div class="product-card">
-  <video width="100%" height="350" controls>
-    <source src="Rolex All Black Couple Watch.mp4" type="video/mp4">
-  </video>
-  <h3>Rolex All Black Couple Watch</h3>
-  <div class="price">₹4,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Rolex%20All%20Black%20Couple%20Watch">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Rolex All Black Couple Watch" data-price="4000">Add to Cart</button>
-  </div>
-</div>
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="main-footer">
+
+    <div class="footer-container">
 
 
-<!-- Rolex Automatic Couple Watch -->
-<div class="product-card">
-  <img src="Rolex Automatic Couple Watch.jpeg" alt="Rolex Automatic Couple Watch">
-  <h3>Rolex Automatic Couple Watch</h3>
-  <div class="price">₹5,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn"
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Automatic%20Couple%20Watch.">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="Rolex Automatic Couple Watch" data-price="5000">Add to Cart</button>
-  </div>
-</div>
+        <!-- FOOTER TOP -->
 
-<!-- Rolex Sky-Dweller Couple Watch -->
-<div class="product-card">
-  <img src="Rolex Sky-Dewller Couple Watch.jpeg" alt="Rolex Sky-Dweller Couple Watch">
-  <h3>Rolex Sky-Dweller Couple Watch</h3>
-  <div class="price">₹5,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn"
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Sky-Dewller%20Couple%20Watch.">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="Rolex Sky-Dweller Couple Watch" data-price="5000">Add to Cart</button>
-  </div>
-</div>
+        <div class="footer-top">
 
-<!-- Rado Diastar Couple Watch -->
-<div class="product-card">
-  <img src="Rado Diastar Couple Watch.jpeg" alt="Rado Diastar Couple Watch">
-  <h3>Rado Diastar Couple Watch</h3>
-  <div class="price">₹5,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn"
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rado%20Diastar%20Couple%20Watch.">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="Rado Diastar Couple Watch" data-price="5000">Add to Cart</button>
-  </div>
-</div>
 
-<!-- Fossil Nick Jonas Couple Watch -->
-<div class="product-card">
-  <div class="slider">
-    <img src="Fossil Nick Jonas Couple Watch .jpeg" class="slide active" alt="Fossil Nick Jonas Couple Watch">
-    <img src="Fossil Nick Jonas Couple Watch 2.jpeg" class="slide" alt="Fossil Nick Jonas Couple Watch">
-    <button class="prev">❮</button>
-    <button class="next">❯</button>
-  </div>
-  <h3>Fossil Nick Jonas Couple Watch</h3>
-  <div class="price">₹4,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn"
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Fossil%20Nick%20Jonas%20Couple%20Watch.">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="Fossil Nick Jonas Couple Watch" data-price="4500">Add to Cart</button>
-  </div>
-</div>
+            <h2>
+                Contact Us
+            </h2>
 
-<!-- Rado Centrix Jubile Couple Watch -->
-<div class="product-card">
-  <img src="Rado Centrix Jubile Couple Watch.jpeg" alt="Rado Centrix Jubile Couple Watch">
-  <h3>Rado Centrix Jubile Couple Watch</h3>
-  <div class="price">₹4,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn"
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rado%20Centrix%20Jubile%20Couple%20Watch.">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="Rado Centrix Jubile Couple Watch" data-price="4500">Add to Cart</button>
-  </div>
-</div>
 
-<!-- Tissot Gentel Couple Watch -->
-<div class="product-card">
-  <img src="Tissot Gentel Couple Watch.jpeg" alt="Tissot Gentel Couple Watch">
-  <h3>Tissot Gentel Couple Watch</h3>
-  <div class="price">₹5,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn"
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Tissot%20Gentel%20Couple%20Watch.">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="Tissot Gentel Couple Watch" data-price="5000">Add to Cart</button>
-  </div>
-</div>
+            <!-- CUSTOMERS -->
 
-<!-- Omega Constellation Couple Watch -->
-<div class="product-card">
-  <img src="Omega Constellation Couple Watch.jpeg" alt="Omega Constellation Couple Watch">
-  <h3>Omega Constellation Couple Watch</h3>
-  <div class="price">₹4,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn"
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Omega%20Constellation%20Couple%20Watch.">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="Omega Constellation Couple Watch" data-price="4500">Add to Cart</button>
-  </div>
-</div>
+            <div class="contact-column">
 
-<!-- Cartier Santos Roman Couple Watch -->
-<div class="product-card">
-  <img src="Cartier Santos Roman Couple Watch.jpeg" alt="Cartier Santos Roman Couple Watch">
-  <h3>Cartier Santos Roman Couple Watch</h3>
-  <div class="price">₹4,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn"
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Cartier%20Santos%20Roman%20Couple%20Watch.">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="Cartier Santos Roman Couple Watch" data-price="4500">Add to Cart</button>
-  </div>
-</div>
+                <h3>
+                    For Customers:
+                </h3>
 
-<!-- Citizen Classic Couple Watch -->
-<div class="product-card">
-  <img src="Citizen Classic Couple Watch.jpeg" alt="Citizen Classic Couple Watch">
-  <h3>Citizen Classic Couple Watch</h3>
-  <div class="price">₹4,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn"
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Citizen%20Classic%20Couple%20Watch.">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="Citizen Classic Couple Watch" data-price="4500">Add to Cart</button>
-  </div>
-</div>
+                <a
+                    href="mailto:50mirars@gmail.com"
+                    class="footer-link"
+                >
+                    50mirars@gmail.com
+                </a>
 
-<!-- Casio Vintage Couple Watch -->
-<div class="product-card">
-  <img src="Casio Vintage Couple Watch.jpeg" alt="Casio Vintage Couple Watch">
-  <h3>Casio Vintage Couple Watch</h3>
-  <div class="price">₹4,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn"
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Casio%20Vintage%20Couple%20Watch.">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="Casio Vintage Couple Watch" data-price="4500">Add to Cart</button>
-  </div>
-</div>
+                <a
+                    href="tel:+918209989013"
+                    class="footer-link"
+                >
+                    82099 89013
+                </a>
 
-<!-- Danial Wellington Couple -->
-<div class="product-card">
-  <div class="slider">
-    <img src="Danial Wellington Couple Watch.jpeg" class="slide active" alt="Danial Wellington Couple">
-    <img src="Danial Wellington Couple 2.jpeg" class="slide" alt="Danial Wellington Couple">
-    <button class="prev">❮</button>
-    <button class="next">❯</button>
-  </div>
-  <h3>Danial Wellington Couple</h3>
-  <div class="price">₹4,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn"
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Danial%20Wellington%20Couple.">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="Danial Wellington Couple" data-price="4500">Add to Cart</button>
-  </div>
-</div>
+                <p>
+                    09:00 - 21:30 | Monday to Sunday
+                </p>
 
-<!-- Rolex Day-Date Couple Watch -->
-<div class="product-card">
-  <div class="slider">
-    <img src="Rolex Day-Date Couple Watch.jpeg" class="slide active" alt="Rolex Day-Date Couple Watch">
-    <img src="Rolex Day-Date Couple Watch 2.jpeg" class="slide" alt="Rolex Day-Date Couple Watch">
-    <img src="Rolex Day-Date Couple Watch 3.jpeg" class="slide" alt="Rolex Day-Date Couple Watch">
-    <img src="Rolex Day-Date Couple Watch 4.jpeg" class="slide" alt="Rolex Day-Date Couple Watch">
-    <img src="Rolex Day-Date Couple Watch 5.jpeg" class="slide" alt="Rolex Day-Date Couple Watch">
-    <img src="Rolex Day-Date Couple Watch 6.jpeg" class="slide" alt="Rolex Day-Date Couple Watch">
-    <img src="Rolex Day-Date Couple Watch 7.jpeg" class="slide" alt="Rolex Day-Date Couple Watch">
-    <img src="Rolex Day-Date Couple Watch 8.jpeg" class="slide" alt="Rolex Day-Date Couple Watch">
-    <img src="Rolex Day-Date Couple Watch 9.jpeg" class="slide" alt="Rolex Day-Date Couple Watch">
-    <img src="Rolex Day-Date Couple Watch 10.jpeg" class="slide" alt="Rolex Day-Date Couple Watch">
-    <img src="Rolex Day-Date Couple Watch 11.jpeg" class="slide" alt="Rolex Day-Date Couple Watch">
-    <button class="prev">❮</button>
-    <button class="next">❯</button>
-  </div>
-  <h3>Rolex Day-Date Couple Watch</h3>
-  <div class="price">₹5,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn"
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Day-Date%20Couple%20Watch.">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="Rolex Day-Date Couple Watch" data-price="5500">Add to Cart</button>
-  </div>
-</div>
+            </div>
+
+
+            <!-- SALES / WATCH SERVICE -->
+
+            <div class="contact-column">
+
+                <h3>
+                    For Sales/Watch Service:
+                </h3>
+
+                <a
+                    href="mailto:50mirars@gmail.com"
+                    class="footer-link"
+                >
+                    50mirars@gmail.com
+                </a>
+
+                <a
+                    href="tel:+918209989013"
+                    class="footer-link"
+                >
+                    82099 89013
+                </a>
+
+                <p>
+                    09:00 - 21:30 | Monday to Sunday
+                </p>
+
+            </div>
+
+
+            <!-- WHATSAPP -->
+
+            <div class="whatsapp-column">
+
+                <h3 class="whatsapp-title">
+
+                    View Products on WhatsApp
+
+                    <img
+                        src="whatsapplogo.png"
+                        alt="WhatsApp"
+                        class="whatsapp-icon"
+                    >
+
+                </h3>
+
+                <a
+                    href="https://wa.me/918209989013"
+                    target="_blank"
+                    rel="noopener"
+                    class="whatsapp-button"
+                >
+                    View Products
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- FOOTER MIDDLE -->
+
+        <div class="footer-middle">
+
+
+            <!-- KNOW 50 MIRARS -->
+
+            <div class="footer-links-column">
+
+                <h3>
+                    Know 50 Mirars
+                </h3>
+
+                <a href="about.html">
+                    About Us
+                </a>
+
+                <a href="faq.html">
+                    FAQ
+                </a>
+
+            </div>
+
+
+            <!-- TERMS -->
+
+            <div class="footer-links-column">
+
+                <h3>
+                    Terms &amp; Conditions
+                </h3>
+
+                <a href="terms.html">
+                    Terms &amp; Conditions
+                </a>
+
+                <a href="privacypolicy.html">
+                    Privacy Policy
+                </a>
+
+            </div>
+
+
+            <!-- INSTAGRAM -->
+
+            <div class="footer-social">
+
+                <h3>
+                    50 Mirars
+                </h3>
+
+                <p>
+                    Follow Us On
+                </p>
+
+                <a
+                    href="https://instagram.com/50mirars"
+                    target="_blank"
+                    rel="noopener"
+                    class="instagram-button"
+                    aria-label="Follow 50 Mirars on Instagram"
+                >
+
+                    <img
+                        src="instagramimage.webp"
+                        alt="Instagram"
+                    >
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- COPYRIGHT -->
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 50 Mirars - The Watch &amp; Sunglasses Store.
+                All Rights Reserved.
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =========================================================
+     SLIDER JAVASCRIPT
+========================================================= -->
 
 <script>
 
-document.querySelectorAll('.slider').forEach(slider => {
+document
+    .querySelectorAll(".slider")
+    .forEach(function(slider) {
 
-    const slides = slider.querySelectorAll('.slide');
-    let current = 0;
+        const slides =
+            slider.querySelectorAll(".slide");
 
-    slider.querySelector('.next').addEventListener('click', () => {
-        slides[current].classList.remove('active');
-        current = (current + 1) % slides.length;
-        slides[current].classList.add('active');
+        const nextButton =
+            slider.querySelector(".next");
+
+        const prevButton =
+            slider.querySelector(".prev");
+
+        let current = 0;
+
+
+        function showSlide(index) {
+
+            slides.forEach(function(slide) {
+
+                slide.classList.remove("active");
+
+            });
+
+            slides[index].classList.add("active");
+
+        }
+
+
+        nextButton.addEventListener(
+            "click",
+            function() {
+
+                current =
+                    (current + 1)
+                    % slides.length;
+
+                showSlide(current);
+
+            }
+        );
+
+
+        prevButton.addEventListener(
+            "click",
+            function() {
+
+                current =
+                    (current - 1 + slides.length)
+                    % slides.length;
+
+                showSlide(current);
+
+            }
+        );
+
     });
-
-    slider.querySelector('.prev').addEventListener('click', () => {
-        slides[current].classList.remove('active');
-        current = (current - 1 + slides.length) % slides.length;
-        slides[current].classList.add('active');
-    });
-
-});
 
 </script>
+
+
+<!-- =========================================================
+     ADD TO CART JAVASCRIPT
+========================================================= -->
 
 <script>
-document.querySelectorAll(".add-to-cart-btn, .add-to-cart").forEach(button => {
-  button.addEventListener("click", () => {
-    let name = button.dataset.name;
-    let price = button.dataset.price;
 
-    // Get existing cart or create new
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+document
+    .querySelectorAll(
+        ".add-to-cart-btn, .add-to-cart"
+    )
+    .forEach(function(button) {
 
-    // Add product
-    cart.push({ name, price });
+        button.addEventListener(
+            "click",
+            function() {
 
-    // Save back to localStorage
-    localStorage.setItem("cart", JSON.stringify(cart));
+                const name =
+                    button.dataset.name;
 
-    // Redirect to cart page
-    window.location.href = "cart.html";
-  });
-});
+                const price =
+                    button.dataset.price;
+
+
+                let cart =
+                    JSON.parse(
+                        localStorage.getItem("cart")
+                    ) || [];
+
+
+                cart.push({
+                    name: name,
+                    price: price
+                });
+
+
+                localStorage.setItem(
+                    "cart",
+                    JSON.stringify(cart)
+                );
+
+
+                window.location.href =
+                    "cart.html";
+
+            }
+        );
+
+    });
+
 </script>
-    
+
+
 </body>
+
 </html>
