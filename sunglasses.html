@@ -1,15 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<meta
+    name="description"
+    content="Explore the premium sunglasses collection at 50 Mirars."
+>
+
 <title>Sunglasses | 50 Mirars</title>
+
 
 <style>
 
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     margin:0;
-    font-family:Arial,sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
     background:
         radial-gradient(
             circle at 50% 15%,
@@ -24,15 +49,49 @@ body{
         );
     color:#222;
 }
-    
+
+
+/* =========================================================
+   BACK TO HOME
+========================================================= */
+
+.home-container{
+    padding:20px 40px;
+}
+
+.home-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    background:#111;
+    color:#fff;
+    text-decoration:none;
+    padding:12px 25px;
+    border-radius:6px;
+    font-weight:600;
+    transition:0.3s ease;
+}
+
+.home-btn:hover{
+    background:#c9a24d;
+    color:#111;
+}
+
+
+/* =========================================================
+   PAGE TITLE
+========================================================= */
+
 .page-title{
     text-align:center;
-    padding:30px 20px 35px;
+    padding:20px 20px 35px;
 }
-    
+
 .page-title h1{
+    font-family:Georgia, "Times New Roman", serif;
     font-size:64px;
-    margin-bottom:20px;
+    font-weight:600;
+    margin:0 0 20px;
     color:#111;
 }
 
@@ -55,111 +114,10 @@ body{
     transform:translate(-50%,-50%) rotate(45deg);
 }
 
-.product-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:35px;
-    max-width:1400px;
-    margin:auto;
-    padding:20px 40px 80px;
-}
-    
-.product-card{
-    background:white;
-    border-radius:18px;
-    overflow:hidden;
-    text-align:center;
-    box-shadow:0 8px 25px rgba(0,0,0,0.08);
-    transition:0.3s;
-}
 
-.product-card:hover{
-    transform:translateY(-5px);
-}
-
-.product-card img{
-    width:100%;
-    height:350px;
-    object-fit:cover;
-}
-
-.product-card h3{
-    font-size:22px;
-    margin:25px 15px 10px;
-    color:#111;
-}
-
-.price{
-    color:#c9a24d;
-    font-weight:bold;
-    font-size:22px;
-    margin:15px 0;
-}
-    
-.enquire-btn{
-    display:inline-block;
-    margin-bottom:35px;
-    padding:14px 35px;
-    background:#c9a24d;
-    color:white;
-    text-decoration:none;
-    border-radius:6px;
-    font-weight:bold;
-}
-
-/* ✅ Add to Cart button styled like Enquire Now but with white background */
-.add-to-cart-btn {
-  background-color: #fff;
-  color: #111;
-  border: 2px solid #111;
-  padding: 12px 30px;
-  border-radius: 6px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.add-to-cart-btn:hover {
-  background-color: #c9a24d;
-  color: #fff;
-  border-color: #c9a24d;
-}
-    
-@media(max-width:768px){
-
-    .page-title h1{
-        font-size:42px;
-    }
-
-    .product-grid{
-        grid-template-columns:1fr;
-        padding:20px;
-    }
-
-    .product-card img{
-        height:250px;
-    }
-}
-    
-.home-btn{
-    display:inline-block;
-    background:#111;
-    color:white;
-    text-decoration:none;
-    padding:12px 25px;
-    border-radius:6px;
-    font-weight:600;
-    transition:0.3s;
-}
-
-.home-btn:hover{
-    background:#c9a24d;
-    color:black;
-}
-
-/* =========================================
-   LUXURY SUNGLASSES INTRODUCTION
-   ========================================= */
+/* =========================================================
+   SUNGLASSES INTRODUCTION
+========================================================= */
 
 .sunglasses-intro{
     width:90%;
@@ -203,32 +161,695 @@ body{
 }
 
 
-    
+/* =========================================================
+   PRODUCT GRID
+========================================================= */
+
+.product-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:35px;
+
+    width:100%;
+    max-width:1400px;
+
+    margin:0 auto;
+
+    padding:20px 40px 80px;
+}
+
+
+/* =========================================================
+   PRODUCT CARD
+========================================================= */
+
+.product-card{
+    background:#fff;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    text-align:center;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.08);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+    display:flex;
+    flex-direction:column;
+
+    min-width:0;
+}
+
+.product-card:hover{
+    transform:translateY(-5px);
+
+    box-shadow:
+        0 14px 35px rgba(0,0,0,0.13);
+}
+
+
+/* =========================================================
+   PRODUCT IMAGE
+========================================================= */
+
+.product-card > img{
+    width:100%;
+    height:350px;
+
+    object-fit:cover;
+
+    display:block;
+}
+
+
+/* =========================================================
+   PRODUCT VIDEO
+========================================================= */
+
+.product-card > video{
+    width:100%;
+    height:350px;
+
+    object-fit:cover;
+
+    display:block;
+
+    background:#000;
+}
+
+
+/* =========================================================
+   PRODUCT NAME
+========================================================= */
+
+.product-card h3{
+    font-size:22px;
+    line-height:1.35;
+
+    margin:25px 15px 10px;
+
+    color:#111;
+
+    min-height:60px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+
+/* =========================================================
+   PRICE
+========================================================= */
+
+.price{
+    color:#c9a24d;
+
+    font-weight:bold;
+
+    font-size:22px;
+
+    margin:15px 0 20px;
+}
+
+
+/* =========================================================
+   PRODUCT BUTTONS
+========================================================= */
+
+.product-buttons{
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    gap:12px;
+
+    flex-wrap:wrap;
+
+    margin-top:auto;
+
+    padding:0 15px 30px;
+}
+
+
+/* =========================================================
+   ENQUIRE NOW
+========================================================= */
+
+.enquire-btn{
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    min-height:48px;
+
+    padding:12px 25px;
+
+    background:#c9a24d;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    border-radius:6px;
+
+    font-weight:bold;
+
+    transition:0.3s ease;
+}
+
+.enquire-btn:hover{
+    background:#111;
+    color:#fff;
+}
+
+
+/* =========================================================
+   ADD TO CART
+========================================================= */
+
+.add-to-cart-btn{
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    min-height:48px;
+
+    background:#fff;
+
+    color:#111;
+
+    border:2px solid #111;
+
+    padding:10px 25px;
+
+    border-radius:6px;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.3s ease;
+}
+
+.add-to-cart-btn:hover{
+    background:#c9a24d;
+
+    color:#fff;
+
+    border-color:#c9a24d;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.main-footer{
+    background:#111;
+
+    color:#fff;
+
+    margin-top:40px;
+}
+
+.footer-container{
+    width:100%;
+
+    max-width:1400px;
+
+    margin:0 auto;
+
+    padding:60px 50px 0;
+}
+
+
+/* =========================================================
+   FOOTER TOP
+========================================================= */
+
+.footer-top{
+    display:grid;
+
+    grid-template-columns:
+        1fr
+        1fr
+        1fr;
+
+    gap:50px;
+
+    padding-bottom:50px;
+
+    border-bottom:
+        1px solid rgba(255,255,255,0.15);
+}
+
+.footer-top > h2{
+    grid-column:1 / -1;
+
+    text-align:center;
+
+    margin:0 0 10px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:38px;
+
+    font-weight:600;
+
+    color:#c9a24d;
+}
+
+
+/* =========================================================
+   FOOTER CONTACT
+========================================================= */
+
+.contact-column{
+    text-align:left;
+}
+
+.contact-column h3,
+.whatsapp-column h3,
+.footer-links-column h3,
+.footer-social h3{
+    color:#c9a24d;
+
+    font-size:20px;
+
+    margin:0 0 18px;
+}
+
+.contact-column p{
+    color:#bbb;
+
+    font-size:15px;
+
+    line-height:1.6;
+}
+
+.footer-link{
+    display:block;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    margin-bottom:12px;
+
+    transition:0.3s ease;
+}
+
+.footer-link:hover{
+    color:#c9a24d;
+}
+
+
+/* =========================================================
+   WHATSAPP
+========================================================= */
+
+.whatsapp-column{
+    text-align:center;
+}
+
+.whatsapp-title{
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+}
+
+.whatsapp-icon{
+    width:28px !important;
+
+    height:28px !important;
+
+    object-fit:contain !important;
+}
+
+.whatsapp-button{
+    display:inline-block;
+
+    background:#c9a24d;
+
+    color:#111;
+
+    text-decoration:none;
+
+    padding:13px 30px;
+
+    border-radius:6px;
+
+    font-weight:bold;
+
+    transition:0.3s ease;
+}
+
+.whatsapp-button:hover{
+    background:#fff;
+
+    color:#111;
+}
+
+
+/* =========================================================
+   FOOTER MIDDLE
+========================================================= */
+
+.footer-middle{
+    display:grid;
+
+    grid-template-columns:
+        1fr
+        1fr
+        1fr;
+
+    gap:50px;
+
+    padding:50px 0;
+}
+
+.footer-links-column{
+    display:flex;
+
+    flex-direction:column;
+}
+
+.footer-links-column a{
+    color:#ccc;
+
+    text-decoration:none;
+
+    margin-bottom:13px;
+
+    transition:0.3s ease;
+}
+
+.footer-links-column a:hover{
+    color:#c9a24d;
+}
+
+
+/* =========================================================
+   INSTAGRAM
+========================================================= */
+
+.footer-social{
+    text-align:center;
+}
+
+.footer-social p{
+    color:#bbb;
+
+    margin-bottom:15px;
+}
+
+.instagram-button{
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    width:50px;
+
+    height:50px;
+
+    border:1px solid #c9a24d;
+
+    border-radius:50%;
+
+    transition:0.3s ease;
+}
+
+.instagram-button:hover{
+    background:#c9a24d;
+}
+
+.instagram-button img{
+    width:28px;
+
+    height:28px;
+
+    object-fit:contain;
+}
+
+
+/* =========================================================
+   COPYRIGHT
+========================================================= */
+
+.footer-bottom{
+    border-top:
+        1px solid rgba(255,255,255,0.15);
+
+    text-align:center;
+
+    padding:25px 10px;
+}
+
+.footer-bottom p{
+    margin:0;
+
+    color:#999;
+
+    font-size:14px;
+
+    line-height:1.6;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:1100px){
+
+    .product-grid{
+        grid-template-columns:repeat(2,1fr);
+
+        padding-left:25px;
+        padding-right:25px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:768px){
+
+    .home-container{
+        padding:15px 20px;
+    }
+
+    .page-title{
+        padding:15px 15px 30px;
+    }
+
+    .page-title h1{
+        font-size:42px;
+    }
+
+    .title-line{
+        width:120px;
+    }
+
+    .sunglasses-intro{
+        width:92%;
+
+        padding-bottom:40px;
+    }
+
+    .sunglasses-intro h2{
+        font-size:28px;
+
+        line-height:1.3;
+    }
+
+    .sunglasses-description p{
+        font-size:16px;
+
+        line-height:1.7;
+    }
+
+    .product-grid{
+        grid-template-columns:1fr;
+
+        padding:
+            15px
+            20px
+            60px;
+
+        gap:25px;
+    }
+
+    .product-card > img,
+    .product-card > video{
+        height:300px;
+    }
+
+    .product-card h3{
+        font-size:20px;
+
+        min-height:auto;
+
+        margin-top:20px;
+    }
+
+    .product-buttons{
+        flex-direction:column;
+
+        width:100%;
+
+        padding-left:20px;
+        padding-right:20px;
+    }
+
+    .enquire-btn,
+    .add-to-cart-btn{
+        width:100%;
+
+        max-width:300px;
+    }
+
+    .footer-container{
+        padding:
+            45px
+            25px
+            0;
+    }
+
+    .footer-top{
+        grid-template-columns:1fr;
+
+        gap:35px;
+    }
+
+    .footer-top > h2{
+        font-size:32px;
+    }
+
+    .footer-middle{
+        grid-template-columns:1fr;
+
+        gap:35px;
+
+        text-align:center;
+    }
+
+    .footer-links-column{
+        align-items:center;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media(max-width:450px){
+
+    .page-title h1{
+        font-size:36px;
+    }
+
+    .sunglasses-intro h2{
+        font-size:25px;
+    }
+
+    .product-card > img,
+    .product-card > video{
+        height:270px;
+    }
+
+    .product-card h3{
+        font-size:19px;
+    }
+
+    .price{
+        font-size:20px;
+    }
+
+    .footer-top > h2{
+        font-size:29px;
+    }
+
+}
+
 </style>
+
 </head>
 
+
 <body>
-    
-<div style="padding:20px 40px;">
-    <a href="index.html" class="home-btn">← Back to Home</a>
+
+
+<!-- =========================================================
+     BACK TO HOME
+========================================================= -->
+
+<div class="home-container">
+
+    <a
+        href="index.html"
+        class="home-btn"
+    >
+        ← Back to Home
+    </a>
+
 </div>
 
-<!-- =========================================
+
+
+<!-- =========================================================
      SUNGLASSES INTRODUCTION
-     ========================================= -->
+========================================================= -->
 
 <section class="sunglasses-intro">
 
+
     <div class="page-title">
-        <h1>Sunglasses</h1>
+
+        <h1>
+            Sunglasses
+        </h1>
+
         <div class="title-line"></div>
+
     </div>
 
-    <h2>More Than an Accessory. A Statement of Style.</h2>
+
+    <h2>
+        More Than an Accessory. A Statement of Style.
+    </h2>
+
 
     <div class="sunglasses-description">
 
+
         <p>
+
             Sunglasses are more than something you wear to shield your eyes from
             the sun. They are one of the first details people notice, an expression
             of personality, confidence, and individual style. The shape of the frame,
@@ -237,9 +858,12 @@ body{
             can transform a simple outfit, sharpen a sophisticated look, or add an
             effortless sense of confidence to everyday style. They are not simply
             an accessory — they are part of the way you present yourself.
+
         </p>
 
+
         <p>
+
             At <strong>50 Mirars</strong>, we believe that choosing sunglasses should
             be about finding a pair that feels naturally suited to you. Our collection
             brings together distinctive designs ranging from timeless and understated
@@ -249,9 +873,12 @@ body{
             looking for something refined for a polished occasion, a versatile pair
             for everyday wear, or a statement frame that commands attention, our
             collection is designed to complement different personalities and styles.
+
         </p>
 
+
         <p>
+
             A great pair of sunglasses has the ability to become instantly recognizable
             as part of your look. It can add character to a classic outfit, bring a
             modern edge to your everyday wardrobe, or become the finishing touch that
@@ -260,51 +887,108 @@ body{
             presence. From classic-inspired designs to contemporary statement pieces,
             our collection is created for those who appreciate sunglasses that feel
             intentional rather than ordinary.
+
         </p>
 
+
         <p class="sunglasses-closing-line">
+
             <strong>
+
                 Discover the pair that doesn't simply complete your look,
                 but becomes a part of your style.
+
             </strong>
+
         </p>
+
 
     </div>
 
 </section>
-    
+
+
+
+<!-- =========================================================
+     PRODUCT GRID
+========================================================= -->
+
 <div class="product-grid">
 
-    <!-- Balmain Paris 7020 Purple Shade Sunglasses -->
+
+
+<!-- =========================================================
+     1. BALMAIN PARIS 7020 PURPLE
+========================================================= -->
+
 <div class="product-card">
-  <img src="Balmain Paris 7020 Purpule Shade Sungalsses.jpeg" alt="Balmain Paris 7020 Purple Shade Sunglasses">
-  <h3>Balmain Paris 7020 Purple Shade Sunglasses</h3>
-  <div class="price">₹2,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Balmain%20Paris%207020%20Purple%20Shade%20Sunglasses">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Balmain Paris 7020 Purple Shade Sunglasses" data-price="2500">Add to Cart</button>
-  </div>
+
+    <img
+        src="Balmain Paris 7020 Purpule Shade Sungalsses.jpeg"
+        alt="Balmain Paris 7020 Purple Shade Sunglasses"
+    >
+
+    <h3>
+        Balmain Paris 7020 Purple Shade Sunglasses
+    </h3>
+
+    <div class="price">
+        ₹2,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Balmain%20Paris%207020%20Purple%20Shade%20Sunglasses"
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Balmain Paris 7020 Purple Shade Sunglasses"
+            data-price="2500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
 </div>
 
-<!-- Cartier CT06010 -->
+
+
+<!-- =========================================================
+     2. CARTIER CT06010
+========================================================= -->
+
 <div class="product-card">
 
     <video
-        width="100%"
-        height="350"
         controls
         playsinline
+        preload="metadata"
     >
+
         <source
             src="Cartier CT06010.mp4"
             type="video/mp4"
         >
+
         Your browser does not support video playback.
+
     </video>
 
-    <h3>Cartier CT06010</h3>
+    <h3>
+        Cartier CT06010
+    </h3>
 
-    <div class="price">₹2,500</div>
+    <div class="price">
+        ₹2,500
+    </div>
 
     <div class="product-buttons">
 
@@ -312,6 +996,7 @@ body{
             class="enquire-btn"
             href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Cartier%20CT06010.%20Please%20share%20availability%20and%20details."
             target="_blank"
+            rel="noopener"
         >
             Enquire Now
         </a>
@@ -328,32 +1013,44 @@ body{
 
 </div>
 
-<!-- Cartier C Decor -->
+
+
+<!-- =========================================================
+     3. CARTIER C DECOR
+========================================================= -->
+
 <div class="product-card">
 
     <video
-        width="100%"
-        height="350"
         controls
         playsinline
+        preload="metadata"
     >
+
         <source
             src="Cartier C Decor.mp4"
             type="video/mp4"
         >
+
         Your browser does not support video playback.
+
     </video>
 
-    <h3>Cartier C Decor</h3>
+    <h3>
+        Cartier C Decor
+    </h3>
 
-    <div class="price">₹2,500</div>
+    <div class="price">
+        ₹2,500
+    </div>
 
     <div class="product-buttons">
 
         <a
             class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Cartier%20C%20Decor.%20Please%20share%20availability%20and%20details"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Cartier%20C%20Decor.%20Please%20share%20availability%20and%20details."
             target="_blank"
+            rel="noopener"
         >
             Enquire Now
         </a>
@@ -370,33 +1067,120 @@ body{
 
 </div>
 
-<!-- Ray-Ban Original Wayfarer -->
+
+
+<!-- =========================================================
+     4. RAY-BAN ORIGINAL WAYFARER
+========================================================= -->
+
 <div class="product-card">
-  <video width="100%" height="350" controls>
-    <source src="Ray-Ban Original Wayfarer.mp4" type="video/mp4">
-  </video>
-  <h3>Ray-Ban Original Wayfarer</h3>
-  <div class="price">₹2,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Ray-Ban%20Original%20Wayfarer">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Ray-Ban Original Wayfarer" data-price="2500">Add to Cart</button>
-  </div>
+
+    <video
+        controls
+        playsinline
+        preload="metadata"
+    >
+
+        <source
+            src="Ray-Ban Original Wayfarer.mp4"
+            type="video/mp4"
+        >
+
+        Your browser does not support video playback.
+
+    </video>
+
+    <h3>
+        Ray-Ban Original Wayfarer
+    </h3>
+
+    <div class="price">
+        ₹2,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Ray-Ban%20Original%20Wayfarer"
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Ray-Ban Original Wayfarer"
+            data-price="2500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
 </div>
 
-<!-- Calvin Klein Sunglasses (Video) -->
+
+
+<!-- =========================================================
+     5. CALVIN KLEIN
+========================================================= -->
+
 <div class="product-card">
-  <video width="100%" height="350" controls>
-    <source src="Calvin Klein Sunglasses.mp4" type="video/mp4">
-  </video>
-  <h3>Calvin Klein Sunglasses</h3>
-  <div class="price">₹2,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Calvin%20Klein%20Sunglasses">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Calvin Klein Sunglasses" data-price="2500">Add to Cart</button>
-  </div>
+
+    <video
+        controls
+        playsinline
+        preload="metadata"
+    >
+
+        <source
+            src="Calvin Klein Sunglasses.mp4"
+            type="video/mp4"
+        >
+
+        Your browser does not support video playback.
+
+    </video>
+
+    <h3>
+        Calvin Klein Sunglasses
+    </h3>
+
+    <div class="price">
+        ₹2,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Calvin%20Klein%20Sunglasses"
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Calvin Klein Sunglasses"
+            data-price="2500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
 </div>
 
-<!-- Cartier C Decor CT0550S -->
+
+
+<!-- =========================================================
+     6. CARTIER C DECOR CT0550S
+========================================================= -->
+
 <div class="product-card">
 
     <img
@@ -404,9 +1188,13 @@ body{
         alt="Cartier C Decor CT0550S"
     >
 
-    <h3>Cartier C Decor CT0550S</h3>
+    <h3>
+        Cartier C Decor CT0550S
+    </h3>
 
-    <div class="price">₹2,500</div>
+    <div class="price">
+        ₹2,500
+    </div>
 
     <div class="product-buttons">
 
@@ -414,6 +1202,7 @@ body{
             class="enquire-btn"
             href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Cartier%20C%20Decor%20CT0550S.%20Please%20share%20availability%20and%20details."
             target="_blank"
+            rel="noopener"
         >
             Enquire Now
         </a>
@@ -430,545 +1219,1956 @@ body{
 
 </div>
 
-<!-- LOEWE Sunglasses (Video) -->
-<div class="product-card">
-  <video width="100%" height="350" controls>
-    <source src="LOEWE Sunglasses 2583.mp4" type="video/mp4">
-  </video>
-  <h3>LOEWE Sunglasses 2583</h3>
-  <div class="price">₹2,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20LOEWE%20Sunglasses%202583">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="LOEWE Sunglasses 2583" data-price="2500">Add to Cart</button>
-  </div>
-</div>
 
-<!-- Cartier Rimeless 0550S Sunglasses -->
-<div class="product-card">
-  <img src="Cartier Rimeless 0550S Sunglasses.jpeg" alt="Cartier Rimeless 0550S Sunglasses">
-  <h3>Cartier Rimeless 0550S Sunglasses</h3>
-  <div class="price">₹2,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Cartier%20Rimeless%200550S%20Sunglasses.%20Please%20share%20availability%20and%20details.">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Cartier Rimeless 0550S Sunglasses" data-price="2500">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Maybach 1030 -->
-<div class="product-card">
-  <video width="100%" height="350" controls>
-    <source src="Maybach 1030.mp4" type="video/mp4">
-  </video>
-  <h3>Maybach 1030</h3>
-  <div class="price">₹2,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Maybach%201030">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Maybach 1030" data-price="2500">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Ray-Ban Meta Gen-2 -->
-<div class="product-card">
-  <video width="100%" height="350" controls>
-    <source src="Ray-Ban Meta Gen-2.mp4" type="video/mp4">
-  </video>
-  <h3>Ray-Ban Meta Gen-2</h3>
-  <div class="price">₹16,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Ray-Ban%20Meta%20Gen-2">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Ray-Ban Meta Gen-2" data-price="16000">Add to Cart</button>
-  </div>
-</div>
-
-<!-- MayBach Sunglasses (Video) -->
-<div class="product-card">
-  <video width="100%" height="350" controls>
-    <source src="MayBach Sunglasses 0272.mp4" type="video/mp4">
-  </video>
-  <h3>MayBach Sunglasses 0272</h3>
-  <div class="price">₹2,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20MayBach%20Sunglasses%200272">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="MayBach Sunglasses 0272" data-price="2500">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Balmain Paris 7020 Green Shade Sunglasses -->
-<div class="product-card">
-  <img src="Balmain Paris 7020 Green Shade Sungalsses.jpeg" alt="Balmain Paris 7020 Green Shade Sunglasses">
-  <h3>Balmain Paris 7020 Green Shade Sunglasses</h3>
-  <div class="price">₹2,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Balmain%20Paris%207020%20Green%20Shade%20Sunglasses">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Balmain Paris 7020 Green Shade Sunglasses" data-price="2500">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Gucci Diamond Cut Sunglasses -->
-<div class="product-card">
-  <img src="Gucci diamond cut sunglasses.jpeg" alt="Gucci Diamond Cut Sunglasses">
-  <h3>Gucci Diamond Cut Sunglasses</h3>
-  <div class="price">₹2,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Gucci%20Diamond%20Cut%20Sunglasses">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Gucci Diamond Cut Sunglasses" data-price="2500">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Maybach FA-812 -->
-<div class="product-card">
-  <video width="100%" height="350" controls>
-    <source src="Maybach FA-812.mp4" type="video/mp4">
-  </video>
-  <h3>Maybach FA-812</h3>
-  <div class="price">₹2,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Maybach%20FA-812">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Maybach FA-812" data-price="2500">Add to Cart</button>
-  </div>
-</div>
-    
-    <!-- MayBach (MB147) -->
-<div class="product-card">
-  <img src="MayBach (MB147).jpeg" alt="MayBach (MB147)">
-  <h3>MayBach (MB147)</h3>
-  <div class="price">₹2,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20MayBach%20(MB147)%20Sunglasses">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="MayBach (MB147)" data-price="2500">Add to Cart</button>
-  </div>
-</div>
-
-<!-- MayBach Karan Aujla Edition Sunglasses -->
-<div class="product-card">
-  <img src="MayBach Karan Aujla Edition Sunglasses front.jpeg" alt="MayBach Karan Aujla Edition Sunglasses">
-  <h3>MayBach Karan Aujla Edition Sunglasses</h3>
-  <div class="price">₹3,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20MayBach%20Karan%20Aujla%20Edition%20Sunglasses">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="MayBach Karan Aujla Edition Sunglasses" data-price="3000">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Maybach 98522 -->
-<div class="product-card">
-  <video width="100%" height="350" controls>
-    <source src="Maybach 98522.mp4" type="video/mp4">
-  </video>
-  <h3>Maybach 98522</h3>
-  <div class="price">₹2,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Maybach%2098522">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Maybach 98522" data-price="2500">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Ray-Ban X A$AP RB3928 -->
-<div class="product-card">
-  <video width="100%" height="350" controls>
-    <source src="Ray-Ban X A$AP RB3928.mp4" type="video/mp4">
-  </video>
-  <h3>Ray-Ban X A$AP RB3928</h3>
-  <div class="price">₹2,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Ray-Ban%20X%20ASAP%20RB3928">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Ray-Ban X A$AP RB3928" data-price="2500">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Panthere de Cartier -->
-<div class="product-card">
-  <img src="Panthere de Cartier .jpeg" alt="Panthere de Cartier">
-  <h3>Panthere de Cartier</h3>
-  <div class="price">₹2,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Panthere%20de%20Cartier%20Sunglasses">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Panthere de Cartier" data-price="2500">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Premiere de Cartier Malmaison -->
-<div class="product-card">
-  <img src="Premiere de Cartier Malmaison .jpeg" alt="Premiere de Cartier Malmaison">
-  <h3>Premiere de Cartier Malmaison</h3>
-  <div class="price">₹2,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Premiere%20de%20Cartier%20Malmaison">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Premiere de Cartier Malmaison" data-price="2500">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Marc Jacob Round Sunglasses -->
-<div class="product-card">
-  <img src="Marc Jacob Round Sunglasses.jpeg" alt="Marc Jacob Round Sunglasses">
-  <h3>Marc Jacob Round Sunglasses</h3>
-  <div class="price">₹2,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Marc%20Jacob%20Round%20Sunglasses.%20Please%20share%20availability%20and%20details.">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Marc Jacob Round Sunglasses" data-price="2500">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Cartier Round Sunglasses -->
-<div class="product-card">
-  <img src="Cartier Round Sunglasses.jpeg" alt="Cartier Round Sunglasses">
-  <h3>Cartier Round Sunglasses</h3>
-  <div class="price">₹2,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Cartier%20Round%20Sunglasses.%20Please%20share%20availability%20and%20details.">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Cartier Round Sunglasses" data-price="2500">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Maybach M011 -->
-<div class="product-card">
-  <video width="100%" height="350" controls>
-    <source src="Maybach M011.mp4" type="video/mp4">
-  </video>
-  <h3>Maybach M011</h3>
-  <div class="price">₹2,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Maybach%20M011">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Maybach M011" data-price="2500">Add to Cart</button>
-  </div>
-</div>
-
-<!-- RayBan Round Sunglasses -->
-<div class="product-card">
-  <img src="RayBan Round Sunglasses.jpeg" alt="RayBan Round Sunglasses">
-  <h3>RayBan Round Sunglasses</h3>
-  <div class="price">₹2,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20RayBan%20Round%20Sunglasses.%20Please%20share%20availability%20and%20details.">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="RayBan Round Sunglasses" data-price="2500">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Cartier C Decor CT0622S -->
-<div class="product-card">
-  <img src="Cartier C Decor CT0622S.jpeg" alt="Cartier C Decor CT0622S">
-  <h3>Cartier C Decor CT0622S</h3>
-  <div class="price">₹2,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Cartier%20C%20Decor%20CT0622S.%20Please%20share%20availability%20and%20details.">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Cartier C Decor CT0622S" data-price="2500">Add to Cart</button>
-  </div>
-</div>
-
-<!-- MayBach Sunglasses 2735 -->
-<div class="product-card">
-  <img src="MayBach Sunglasses 2735.jpeg" alt="MayBach Sunglasses 2735">
-  <h3>MayBach Sunglasses 2735</h3>
-  <div class="price">₹2,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20MayBach%20Sunglasses%202735.%20Please%20share%20availability%20and%20details.">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="MayBach Sunglasses 2735" data-price="2500">Add to Cart</button>
-  </div>
-</div>
-
-<!-- MayBach Sunglasses 5029 -->
-<div class="product-card">
-  <img src="MayBach Sunglasses 5029.jpeg" alt="MayBach Sunglasses 5029">
-  <h3>MayBach Sunglasses 5029</h3>
-  <div class="price">₹2,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20MayBach%20Sunglasses%205029.%20Please%20share%20availability%20and%20details.">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="MayBach Sunglasses 5029" data-price="2500">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Cartier Aqua Green Karan Aujla Edition -->
-<div class="product-card">
-  <img src="Cartier Aqua Green Karan Aujla Edition.jpeg" alt="Cartier Aqua Green Karan Aujla Edition">
-  <h3>Cartier Aqua Green Karan Aujla Edition</h3>
-  <div class="price">₹3,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Cartier%20Aqua%20Green%20Karan%20Aujla%20Edition.%20Please%20share%20availability%20and%20details.">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Cartier Aqua Green Karan Aujla Edition" data-price="3000">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Cartier CT0468S -->
-<div class="product-card">
-  <img src="Cartier CT0468S.jpeg" alt="Cartier CT0468S">
-  <h3>Cartier CT0468S</h3>
-  <div class="price">₹2,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Cartier%20CT0468S.%20Please%20share%20availability%20and%20details.">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Cartier CT0468S" data-price="2500">Add to Cart</button>
-  </div>
-</div>
-
-<!-- MayBach The Magic Sunglasses -->
-<div class="product-card">
-  <img src="MayBach The Magic Sunglasses.jpeg" alt="MayBach The Magic Sunglasses">
-  <h3>MayBach The Magic Sunglasses</h3>
-  <div class="price">₹2,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20MayBach%20The%20Magic%20Sunglasses.%20Please%20share%20availability%20and%20details.">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="MayBach The Magic Sunglasses" data-price="2500">Add to Cart</button>
-  </div>
-</div>
-    
-<!-- Cartier CT0550S -->
-<div class="product-card">
-  <img src="Cartier CT0550S.jpeg" alt="Cartier CT0550S">
-  <h3>Cartier CT0550S</h3>
-  <div class="price">₹2,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" 
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Cartier%20CT0550S.%20Please%20share%20availability%20and%20details.">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="Cartier CT0550S" data-price="2500">Add to Cart</button>
-  </div>
-</div>
-
-<!-- MayBach Rimless Sunglasses -->
-<div class="product-card">
-  <img src="MayBach Rimless Sunglasses.jpeg" alt="MayBach Rimless Sunglasses">
-  <h3>MayBach Rimless Sunglasses</h3>
-  <div class="price">₹2,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" 
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20MayBach%20Rimless%20Sunglasses.%20Please%20share%20availability%20and%20details.">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="MayBach Rimless Sunglasses" data-price="2500">Add to Cart</button>
-  </div>
-</div>
-
-<!-- MayBach Sunglasses MGWEUM10 -->
-<div class="product-card">
-  <img src="MayBach Sunglasses MGWEUM10.jpeg" alt="MayBach Sunglasses MGWEUM10">
-  <h3>MayBach Sunglasses MGWEUM10</h3>
-  <div class="price">₹2,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" 
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20MayBach%20Sunglasses%20MGWEUM10.%20Please%20share%20availability%20and%20details.">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="MayBach Sunglasses MGWEUM10" data-price="2500">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Voyage Unisex Sunglasses -->
-<div class="product-card">
-  <img src="Voyage Unisex Sunglasses.jpeg" alt="Voyage Unisex Sunglasses">
-  <h3>Voyage Unisex Sunglasses</h3>
-  <div class="price">₹2,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" 
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Voyage%20Unisex%20Sunglasses.%20Please%20share%20availability%20and%20details.">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="Voyage Unisex Sunglasses" data-price="2500">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Roman Kings Milano Sunglasses -->
-<div class="product-card">
-  <img src="Roman Kings Milano Sunglasses.jpeg" alt="Roman Kings Milano Sunglasses">
-  <h3>Roman Kings Milano Sunglasses</h3>
-  <div class="price">₹2,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" 
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Roman%20Kings%20Milano%20Sunglasses.%20Please%20share%20availability%20and%20details.">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="Roman Kings Milano Sunglasses" data-price="2500">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Versace VE2298 -->
-<div class="product-card">
-  <video width="100%" height="350" controls>
-    <source src="Versace VE2298.mp4" type="video/mp4">
-  </video>
-  <h3>Versace VE2298</h3>
-  <div class="price">₹2,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" 
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Versace%20VE2298">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="Versace VE2298" data-price="2500">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Ray-Ban Wayfarer Reverse Sunglasses -->
-<div class="product-card">
-  <img src="Ray-Ban Wayfarer Reverse Sunglasses.jpeg" alt="Ray-Ban Wayfarer Reverse Sunglasses">
-  <h3>Ray-Ban Wayfarer Reverse Sunglasses</h3>
-  <div class="price">₹2,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" 
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Ray-Ban%20Wayfarer%20Reverse%20Sunglasses.%20Please%20share%20availability%20and%20details.">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="Ray-Ban Wayfarer Reverse Sunglasses" data-price="2500">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Cartier Rimless Sunglasses -->
-<div class="product-card">
-  <img src="Cartier Rimless Sunglasses.jpeg" alt="Cartier Rimless Sunglasses">
-  <h3>Cartier Rimless Sunglasses</h3>
-  <div class="price">₹2,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" 
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Cartier%20Rimless%20Sunglasses.%20Please%20share%20availability%20and%20details.">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="Cartier Rimless Sunglasses" data-price="2500">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Cartier Sunglasses 1021 -->
-<div class="product-card">
-  <img src="Cartier Sunglasses 1021.jpeg" alt="Cartier Sunglasses 1021">
-  <h3>Cartier Sunglasses 1021</h3>
-  <div class="price">₹2,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" 
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Cartier%20Sunglasses%201021.%20Please%20share%20availability%20and%20details.">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="Cartier Sunglasses 1021" data-price="2500">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Cartier CT0503S -->
-<div class="product-card">
-  <img src="Cartier CT0503S.jpeg" alt="Cartier CT0503S">
-  <h3>Cartier CT0503S</h3>
-  <div class="price">₹2,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" 
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Cartier%20CT0503S.%20Please%20share%20availability%20and%20details.">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="Cartier CT0503S" data-price="2500">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Maybach 1015 Gold Pink Sunglasses -->
-<div class="product-card">
-  <img src="Maybach 1015 Gold Pink Sunglasses.jpeg" alt="Maybach 1015 Gold Pink Sunglasses">
-  <h3>Maybach 1015 Gold Pink Sunglasses</h3>
-  <div class="price">₹3,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" 
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Maybach%201015%20Gold%20Pink%20Sunglasses.%20Please%20share%20availability%20and%20details.">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="Maybach 1015 Gold Pink Sunglasses" data-price="3000">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Maybach The Character II Sunglasses -->
-<div class="product-card">
-  <img src="Maybach The Character II Sunglasses.jpeg" alt="Maybach The Character II Sunglasses">
-  <h3>Maybach The Character II Sunglasses</h3>
-  <div class="price">₹2,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" 
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Maybach%20The%20Character%20II%20Sunglasses.%20Please%20share%20availability%20and%20details.">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="Maybach The Character II Sunglasses" data-price="2500">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Cartier Santos Sunglasses -->
-<div class="product-card">
-  <img src="Cartier Santos Sunglasses.jpeg" alt="Cartier Santos Sunglasses">
-  <h3>Cartier Santos Sunglasses</h3>
-  <div class="price">₹2,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" 
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Cartier%20Santos%20Sunglasses.%20Please%20share%20availability%20and%20details.">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="Cartier Santos Sunglasses" data-price="2500">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Maybach 1016 Sunglasses -->
-<div class="product-card">
-  <img src="Maybach 1016 Sunglasses.jpeg" alt="Maybach 1016 Sunglasses">
-  <h3>Maybach 1016 Sunglasses</h3>
-  <div class="price">₹2,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" 
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Maybach%201016%20Sunglasses.%20Please%20share%20availability%20and%20details.">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="Maybach 1016 Sunglasses" data-price="2500">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Versace VE2298 Sunglasses -->
-<div class="product-card">
-  <img src="Versace VE2298 Sunglasses.jpeg" alt="Versace VE2298 Sunglasses">
-  <h3>Versace VE2298 Sunglasses</h3>
-  <div class="price">₹2,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" 
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Versace%20VE2298%20Sunglasses.%20Please%20share%20availability%20and%20details.">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="Versace VE2298 Sunglasses" data-price="2500">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Maybach The Magic I Sunglasses -->
-<div class="product-card">
-  <img src="Maybach The Magic I Sunglasses.jpeg" alt="Maybach The Magic I Sunglasses">
-  <h3>Maybach The Magic I Sunglasses</h3>
-  <div class="price">₹2,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" 
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Maybach%20The%20Magic%20I%20Sunglasses.%20Please%20share%20availability%20and%20details.">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="Maybach The Magic I Sunglasses" data-price="2500">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Maybach The Magic I Blue Sunglasses -->
-<div class="product-card">
-  <img src="Maybach The Magic I Blue Sunglasses.jpeg" alt="Maybach The Magic I Blue Sunglasses">
-  <h3>Maybach The Magic I Blue Sunglasses</h3>
-  <div class="price">₹2,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" 
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Maybach%20The%20Magic%20I%20Blue%20Sunglasses.%20Please%20share%20availability%20and%20details.">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="Maybach The Magic I Blue Sunglasses" data-price="2500">Add to Cart</button>
-  </div>
-</div>
-    
-<!-- Cartier Sky Blue Jaguar Sunglasses -->
-<div class="product-card">
-  <img src="Cartier Sky Blue Jaguar Sunglasses.jpeg" alt="Cartier Sky Blue Jaguar Sunglasses">
-  <h3>Cartier Sky Blue Jaguar Sunglasses</h3>
-  <div class="price">₹2,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" 
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Cartier%20Sky%20Blue%20Jaguar%20Sunglasses.%20Please%20share%20availability%20and%20details.">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="Cartier Sky Blue Jaguar Sunglasses" data-price="2500">Add to Cart</button>
-  </div>
-</div>
 
 <!-- =========================================================
-     CONTACT US FOOTER
+     7. LOEWE
+========================================================= -->
+
+<div class="product-card">
+
+    <video
+        controls
+        playsinline
+        preload="metadata"
+    >
+
+        <source
+            src="LOEWE Sunglasses 2583.mp4"
+            type="video/mp4"
+        >
+
+        Your browser does not support video playback.
+
+    </video>
+
+    <h3>
+        LOEWE Sunglasses 2583
+    </h3>
+
+    <div class="price">
+        ₹2,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20LOEWE%20Sunglasses%202583"
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="LOEWE Sunglasses 2583"
+            data-price="2500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     8. CARTIER RIMELESS 0550S
+========================================================= -->
+
+<div class="product-card">
+
+    <img
+        src="Cartier Rimeless 0550S Sunglasses.jpeg"
+        alt="Cartier Rimeless 0550S Sunglasses"
+    >
+
+    <h3>
+        Cartier Rimeless 0550S Sunglasses
+    </h3>
+
+    <div class="price">
+        ₹2,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Cartier%20Rimeless%200550S%20Sunglasses.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Cartier Rimeless 0550S Sunglasses"
+            data-price="2500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     9. MAYBACH 1030
+========================================================= -->
+
+<div class="product-card">
+
+    <video
+        controls
+        playsinline
+        preload="metadata"
+    >
+
+        <source
+            src="Maybach 1030.mp4"
+            type="video/mp4"
+        >
+
+        Your browser does not support video playback.
+
+    </video>
+
+    <h3>
+        Maybach 1030
+    </h3>
+
+    <div class="price">
+        ₹2,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Maybach%201030"
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Maybach 1030"
+            data-price="2500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     10. RAY-BAN META GEN-2
+========================================================= -->
+
+<div class="product-card">
+
+    <video
+        controls
+        playsinline
+        preload="metadata"
+    >
+
+        <source
+            src="Ray-Ban Meta Gen-2.mp4"
+            type="video/mp4"
+        >
+
+        Your browser does not support video playback.
+
+    </video>
+
+    <h3>
+        Ray-Ban Meta Gen-2
+    </h3>
+
+    <div class="price">
+        ₹16,000
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Ray-Ban%20Meta%20Gen-2"
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Ray-Ban Meta Gen-2"
+            data-price="16000"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     11. MAYBACH 0272
+========================================================= -->
+
+<div class="product-card">
+
+    <video
+        controls
+        playsinline
+        preload="metadata"
+    >
+
+        <source
+            src="MayBach Sunglasses 0272.mp4"
+            type="video/mp4"
+        >
+
+        Your browser does not support video playback.
+
+    </video>
+
+    <h3>
+        MayBach Sunglasses 0272
+    </h3>
+
+    <div class="price">
+        ₹2,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20MayBach%20Sunglasses%200272"
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="MayBach Sunglasses 0272"
+            data-price="2500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     12. BALMAIN PARIS 7020 GREEN
+========================================================= -->
+
+<div class="product-card">
+
+    <img
+        src="Balmain Paris 7020 Green Shade Sungalsses.jpeg"
+        alt="Balmain Paris 7020 Green Shade Sunglasses"
+    >
+
+    <h3>
+        Balmain Paris 7020 Green Shade Sunglasses
+    </h3>
+
+    <div class="price">
+        ₹2,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Balmain%20Paris%207020%20Green%20Shade%20Sunglasses"
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Balmain Paris 7020 Green Shade Sunglasses"
+            data-price="2500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     13. GUCCI DIAMOND CUT
+========================================================= -->
+
+<div class="product-card">
+
+    <img
+        src="Gucci diamond cut sunglasses.jpeg"
+        alt="Gucci Diamond Cut Sunglasses"
+    >
+
+    <h3>
+        Gucci Diamond Cut Sunglasses
+    </h3>
+
+    <div class="price">
+        ₹2,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Gucci%20Diamond%20Cut%20Sunglasses"
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Gucci Diamond Cut Sunglasses"
+            data-price="2500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     14. MAYBACH FA-812
+========================================================= -->
+
+<div class="product-card">
+
+    <video
+        controls
+        playsinline
+        preload="metadata"
+    >
+
+        <source
+            src="Maybach FA-812.mp4"
+            type="video/mp4"
+        >
+
+        Your browser does not support video playback.
+
+    </video>
+
+    <h3>
+        Maybach FA-812
+    </h3>
+
+    <div class="price">
+        ₹2,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Maybach%20FA-812"
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Maybach FA-812"
+            data-price="2500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     15. MAYBACH MB147
+========================================================= -->
+
+<div class="product-card">
+
+    <img
+        src="MayBach (MB147).jpeg"
+        alt="MayBach MB147"
+    >
+
+    <h3>
+        MayBach (MB147)
+    </h3>
+
+    <div class="price">
+        ₹2,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20MayBach%20MB147%20Sunglasses"
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="MayBach (MB147)"
+            data-price="2500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     16. MAYBACH KARAN AUJLA
+========================================================= -->
+
+<div class="product-card">
+
+    <img
+        src="MayBach Karan Aujla Edition Sunglasses front.jpeg"
+        alt="MayBach Karan Aujla Edition Sunglasses"
+    >
+
+    <h3>
+        MayBach Karan Aujla Edition Sunglasses
+    </h3>
+
+    <div class="price">
+        ₹3,000
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20MayBach%20Karan%20Aujla%20Edition%20Sunglasses"
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="MayBach Karan Aujla Edition Sunglasses"
+            data-price="3000"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     17. MAYBACH 98522
+========================================================= -->
+
+<div class="product-card">
+
+    <video
+        controls
+        playsinline
+        preload="metadata"
+    >
+
+        <source
+            src="Maybach 98522.mp4"
+            type="video/mp4"
+        >
+
+        Your browser does not support video playback.
+
+    </video>
+
+    <h3>
+        Maybach 98522
+    </h3>
+
+    <div class="price">
+        ₹2,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Maybach%2098522"
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Maybach 98522"
+            data-price="2500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     18. RAY-BAN X A$AP RB3928
+========================================================= -->
+
+<div class="product-card">
+
+    <video
+        controls
+        playsinline
+        preload="metadata"
+    >
+
+        <source
+            src="Ray-Ban X A$AP RB3928.mp4"
+            type="video/mp4"
+        >
+
+        Your browser does not support video playback.
+
+    </video>
+
+    <h3>
+        Ray-Ban X A$AP RB3928
+    </h3>
+
+    <div class="price">
+        ₹2,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Ray-Ban%20X%20ASAP%20RB3928"
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Ray-Ban X A$AP RB3928"
+            data-price="2500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     19. PANTHERE DE CARTIER
+========================================================= -->
+
+<div class="product-card">
+
+    <img
+        src="Panthere de Cartier .jpeg"
+        alt="Panthere de Cartier"
+    >
+
+    <h3>
+        Panthere de Cartier
+    </h3>
+
+    <div class="price">
+        ₹2,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Panthere%20de%20Cartier%20Sunglasses"
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Panthere de Cartier"
+            data-price="2500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     20. PREMIERE DE CARTIER MALMAISON
+========================================================= -->
+
+<div class="product-card">
+
+    <img
+        src="Premiere de Cartier Malmaison .jpeg"
+        alt="Premiere de Cartier Malmaison"
+    >
+
+    <h3>
+        Premiere de Cartier Malmaison
+    </h3>
+
+    <div class="price">
+        ₹2,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Premiere%20de%20Cartier%20Malmaison"
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Premiere de Cartier Malmaison"
+            data-price="2500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     21. MARC JACOB ROUND
+========================================================= -->
+
+<div class="product-card">
+
+    <img
+        src="Marc Jacob Round Sunglasses.jpeg"
+        alt="Marc Jacob Round Sunglasses"
+    >
+
+    <h3>
+        Marc Jacob Round Sunglasses
+    </h3>
+
+    <div class="price">
+        ₹2,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Marc%20Jacob%20Round%20Sunglasses.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Marc Jacob Round Sunglasses"
+            data-price="2500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     22. CARTIER ROUND
+========================================================= -->
+
+<div class="product-card">
+
+    <img
+        src="Cartier Round Sunglasses.jpeg"
+        alt="Cartier Round Sunglasses"
+    >
+
+    <h3>
+        Cartier Round Sunglasses
+    </h3>
+
+    <div class="price">
+        ₹2,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Cartier%20Round%20Sunglasses.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Cartier Round Sunglasses"
+            data-price="2500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     23. MAYBACH M011
+========================================================= -->
+
+<div class="product-card">
+
+    <video
+        controls
+        playsinline
+        preload="metadata"
+    >
+
+        <source
+            src="Maybach M011.mp4"
+            type="video/mp4"
+        >
+
+        Your browser does not support video playback.
+
+    </video>
+
+    <h3>
+        Maybach M011
+    </h3>
+
+    <div class="price">
+        ₹2,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Maybach%20M011"
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Maybach M011"
+            data-price="2500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     24. RAYBAN ROUND
+========================================================= -->
+
+<div class="product-card">
+
+    <img
+        src="RayBan Round Sunglasses.jpeg"
+        alt="RayBan Round Sunglasses"
+    >
+
+    <h3>
+        RayBan Round Sunglasses
+    </h3>
+
+    <div class="price">
+        ₹2,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20RayBan%20Round%20Sunglasses.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="RayBan Round Sunglasses"
+            data-price="2500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     25. CARTIER CT0622S
+========================================================= -->
+
+<div class="product-card">
+
+    <img
+        src="Cartier C Decor CT0622S.jpeg"
+        alt="Cartier C Decor CT0622S"
+    >
+
+    <h3>
+        Cartier C Decor CT0622S
+    </h3>
+
+    <div class="price">
+        ₹2,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Cartier%20C%20Decor%20CT0622S.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Cartier C Decor CT0622S"
+            data-price="2500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     26. MAYBACH 2735
+========================================================= -->
+
+<div class="product-card">
+
+    <img
+        src="MayBach Sunglasses 2735.jpeg"
+        alt="MayBach Sunglasses 2735"
+    >
+
+    <h3>
+        MayBach Sunglasses 2735
+    </h3>
+
+    <div class="price">
+        ₹2,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20MayBach%20Sunglasses%202735.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="MayBach Sunglasses 2735"
+            data-price="2500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     27. MAYBACH 5029
+========================================================= -->
+
+<div class="product-card">
+
+    <img
+        src="MayBach Sunglasses 5029.jpeg"
+        alt="MayBach Sunglasses 5029"
+    >
+
+    <h3>
+        MayBach Sunglasses 5029
+    </h3>
+
+    <div class="price">
+        ₹2,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20MayBach%20Sunglasses%205029.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="MayBach Sunglasses 5029"
+            data-price="2500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     28. CARTIER AQUA GREEN KARAN AUJLA
+========================================================= -->
+
+<div class="product-card">
+
+    <img
+        src="Cartier Aqua Green Karan Aujla Edition.jpeg"
+        alt="Cartier Aqua Green Karan Aujla Edition"
+    >
+
+    <h3>
+        Cartier Aqua Green Karan Aujla Edition
+    </h3>
+
+    <div class="price">
+        ₹3,000
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Cartier%20Aqua%20Green%20Karan%20Aujla%20Edition.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Cartier Aqua Green Karan Aujla Edition"
+            data-price="3000"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     29. CARTIER CT0468S
+========================================================= -->
+
+<div class="product-card">
+
+    <img
+        src="Cartier CT0468S.jpeg"
+        alt="Cartier CT0468S"
+    >
+
+    <h3>
+        Cartier CT0468S
+    </h3>
+
+    <div class="price">
+        ₹2,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Cartier%20CT0468S.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Cartier CT0468S"
+            data-price="2500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     30. MAYBACH THE MAGIC
+========================================================= -->
+
+<div class="product-card">
+
+    <img
+        src="MayBach The Magic Sunglasses.jpeg"
+        alt="MayBach The Magic Sunglasses"
+    >
+
+    <h3>
+        MayBach The Magic Sunglasses
+    </h3>
+
+    <div class="price">
+        ₹2,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20MayBach%20The%20Magic%20Sunglasses.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="MayBach The Magic Sunglasses"
+            data-price="2500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     31. CARTIER CT0550S
+========================================================= -->
+
+<div class="product-card">
+
+    <img
+        src="Cartier CT0550S.jpeg"
+        alt="Cartier CT0550S"
+    >
+
+    <h3>
+        Cartier CT0550S
+    </h3>
+
+    <div class="price">
+        ₹2,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Cartier%20CT0550S.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Cartier CT0550S"
+            data-price="2500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     32. MAYBACH RIMLESS
+========================================================= -->
+
+<div class="product-card">
+
+    <img
+        src="MayBach Rimless Sunglasses.jpeg"
+        alt="MayBach Rimless Sunglasses"
+    >
+
+    <h3>
+        MayBach Rimless Sunglasses
+    </h3>
+
+    <div class="price">
+        ₹2,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20MayBach%20Rimless%20Sunglasses.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="MayBach Rimless Sunglasses"
+            data-price="2500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     33. MAYBACH MGWEUM10
+========================================================= -->
+
+<div class="product-card">
+
+    <img
+        src="MayBach Sunglasses MGWEUM10.jpeg"
+        alt="MayBach Sunglasses MGWEUM10"
+    >
+
+    <h3>
+        MayBach Sunglasses MGWEUM10
+    </h3>
+
+    <div class="price">
+        ₹2,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20MayBach%20Sunglasses%20MGWEUM10.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="MayBach Sunglasses MGWEUM10"
+            data-price="2500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     34. VOYAGE UNISEX
+========================================================= -->
+
+<div class="product-card">
+
+    <img
+        src="Voyage Unisex Sunglasses.jpeg"
+        alt="Voyage Unisex Sunglasses"
+    >
+
+    <h3>
+        Voyage Unisex Sunglasses
+    </h3>
+
+    <div class="price">
+        ₹2,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Voyage%20Unisex%20Sunglasses.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Voyage Unisex Sunglasses"
+            data-price="2500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     35. ROMAN KINGS MILANO
+========================================================= -->
+
+<div class="product-card">
+
+    <img
+        src="Roman Kings Milano Sunglasses.jpeg"
+        alt="Roman Kings Milano Sunglasses"
+    >
+
+    <h3>
+        Roman Kings Milano Sunglasses
+    </h3>
+
+    <div class="price">
+        ₹2,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Roman%20Kings%20Milano%20Sunglasses.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Roman Kings Milano Sunglasses"
+            data-price="2500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     36. VERSACE VE2298 VIDEO
+========================================================= -->
+
+<div class="product-card">
+
+    <video
+        controls
+        playsinline
+        preload="metadata"
+    >
+
+        <source
+            src="Versace VE2298.mp4"
+            type="video/mp4"
+        >
+
+        Your browser does not support video playback.
+
+    </video>
+
+    <h3>
+        Versace VE2298
+    </h3>
+
+    <div class="price">
+        ₹2,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Versace%20VE2298"
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Versace VE2298"
+            data-price="2500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     37. RAY-BAN WAYFARER REVERSE
+========================================================= -->
+
+<div class="product-card">
+
+    <img
+        src="Ray-Ban Wayfarer Reverse Sunglasses.jpeg"
+        alt="Ray-Ban Wayfarer Reverse Sunglasses"
+    >
+
+    <h3>
+        Ray-Ban Wayfarer Reverse Sunglasses
+    </h3>
+
+    <div class="price">
+        ₹2,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Ray-Ban%20Wayfarer%20Reverse%20Sunglasses.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Ray-Ban Wayfarer Reverse Sunglasses"
+            data-price="2500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     38. CARTIER RIMLESS
+========================================================= -->
+
+<div class="product-card">
+
+    <img
+        src="Cartier Rimless Sunglasses.jpeg"
+        alt="Cartier Rimless Sunglasses"
+    >
+
+    <h3>
+        Cartier Rimless Sunglasses
+    </h3>
+
+    <div class="price">
+        ₹2,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Cartier%20Rimless%20Sunglasses.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Cartier Rimless Sunglasses"
+            data-price="2500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     39. CARTIER 1021
+========================================================= -->
+
+<div class="product-card">
+
+    <img
+        src="Cartier Sunglasses 1021.jpeg"
+        alt="Cartier Sunglasses 1021"
+    >
+
+    <h3>
+        Cartier Sunglasses 1021
+    </h3>
+
+    <div class="price">
+        ₹2,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Cartier%20Sunglasses%201021.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Cartier Sunglasses 1021"
+            data-price="2500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     40. CARTIER CT0503S
+========================================================= -->
+
+<div class="product-card">
+
+    <img
+        src="Cartier CT0503S.jpeg"
+        alt="Cartier CT0503S"
+    >
+
+    <h3>
+        Cartier CT0503S
+    </h3>
+
+    <div class="price">
+        ₹2,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Cartier%20CT0503S.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Cartier CT0503S"
+            data-price="2500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     41. MAYBACH 1015 GOLD PINK
+========================================================= -->
+
+<div class="product-card">
+
+    <img
+        src="Maybach 1015 Gold Pink Sunglasses.jpeg"
+        alt="Maybach 1015 Gold Pink Sunglasses"
+    >
+
+    <h3>
+        Maybach 1015 Gold Pink Sunglasses
+    </h3>
+
+    <div class="price">
+        ₹3,000
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Maybach%201015%20Gold%20Pink%20Sunglasses.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Maybach 1015 Gold Pink Sunglasses"
+            data-price="3000"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     42. MAYBACH THE CHARACTER II
+========================================================= -->
+
+<div class="product-card">
+
+    <img
+        src="Maybach The Character II Sunglasses.jpeg"
+        alt="Maybach The Character II Sunglasses"
+    >
+
+    <h3>
+        Maybach The Character II Sunglasses
+    </h3>
+
+    <div class="price">
+        ₹2,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Maybach%20The%20Character%20II%20Sunglasses.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Maybach The Character II Sunglasses"
+            data-price="2500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     43. CARTIER SANTOS
+========================================================= -->
+
+<div class="product-card">
+
+    <img
+        src="Cartier Santos Sunglasses.jpeg"
+        alt="Cartier Santos Sunglasses"
+    >
+
+    <h3>
+        Cartier Santos Sunglasses
+    </h3>
+
+    <div class="price">
+        ₹2,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Cartier%20Santos%20Sunglasses.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Cartier Santos Sunglasses"
+            data-price="2500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     44. MAYBACH 1016
+========================================================= -->
+
+<div class="product-card">
+
+    <img
+        src="Maybach 1016 Sunglasses.jpeg"
+        alt="Maybach 1016 Sunglasses"
+    >
+
+    <h3>
+        Maybach 1016 Sunglasses
+    </h3>
+
+    <div class="price">
+        ₹2,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Maybach%201016%20Sunglasses.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Maybach 1016 Sunglasses"
+            data-price="2500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     45. VERSACE VE2298 IMAGE
+========================================================= -->
+
+<div class="product-card">
+
+    <img
+        src="Versace VE2298 Sunglasses.jpeg"
+        alt="Versace VE2298 Sunglasses"
+    >
+
+    <h3>
+        Versace VE2298 Sunglasses
+    </h3>
+
+    <div class="price">
+        ₹2,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Versace%20VE2298%20Sunglasses.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Versace VE2298 Sunglasses"
+            data-price="2500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     46. MAYBACH THE MAGIC I
+========================================================= -->
+
+<div class="product-card">
+
+    <img
+        src="Maybach The Magic I Sunglasses.jpeg"
+        alt="Maybach The Magic I Sunglasses"
+    >
+
+    <h3>
+        Maybach The Magic I Sunglasses
+    </h3>
+
+    <div class="price">
+        ₹2,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Maybach%20The%20Magic%20I%20Sunglasses.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Maybach The Magic I Sunglasses"
+            data-price="2500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     47. MAYBACH THE MAGIC I BLUE
+========================================================= -->
+
+<div class="product-card">
+
+    <img
+        src="Maybach The Magic I Blue Sunglasses.jpeg"
+        alt="Maybach The Magic I Blue Sunglasses"
+    >
+
+    <h3>
+        Maybach The Magic I Blue Sunglasses
+    </h3>
+
+    <div class="price">
+        ₹2,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Maybach%20The%20Magic%20I%20Blue%20Sunglasses.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Maybach The Magic I Blue Sunglasses"
+            data-price="2500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     48. CARTIER SKY BLUE JAGUAR
+========================================================= -->
+
+<div class="product-card">
+
+    <img
+        src="Cartier Sky Blue Jaguar Sunglasses.jpeg"
+        alt="Cartier Sky Blue Jaguar Sunglasses"
+    >
+
+    <h3>
+        Cartier Sky Blue Jaguar Sunglasses
+    </h3>
+
+    <div class="price">
+        ₹2,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Cartier%20Sky%20Blue%20Jaguar%20Sunglasses.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+            rel="noopener"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Cartier Sky Blue Jaguar Sunglasses"
+            data-price="2500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+</div>
+<!-- END PRODUCT GRID -->
+
+
+
+<!-- =========================================================
+     FOOTER
 ========================================================= -->
 
 <footer class="main-footer">
+
 
     <div class="footer-container">
 
@@ -976,6 +3176,7 @@ body{
         <!-- FOOTER TOP -->
 
         <div class="footer-top">
+
 
             <h2>
                 Contact Us
@@ -1046,7 +3247,9 @@ body{
 
                 <h3 class="whatsapp-title">
 
-                    View Products on WhatsApp
+                    <span>
+                        View Products on WhatsApp
+                    </span>
 
                     <img
                         src="whatsapplogo.png"
@@ -1055,6 +3258,7 @@ body{
                     >
 
                 </h3>
+
 
                 <a
                     href="https://wa.me/918209989013"
@@ -1066,6 +3270,7 @@ body{
                 </a>
 
             </div>
+
 
         </div>
 
@@ -1125,6 +3330,7 @@ body{
                     Follow Us On
                 </p>
 
+
                 <a
                     href="https://instagram.com/50mirars"
                     target="_blank"
@@ -1142,6 +3348,7 @@ body{
 
             </div>
 
+
         </div>
 
 
@@ -1156,46 +3363,73 @@ body{
 
         </div>
 
+
     </div>
 
 </footer>
 
 
-<script>
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-document.querySelectorAll(".add-to-cart").forEach(button => {
-  button.addEventListener("click", () => {
-    let name = button.dataset.name;
-    let price = button.dataset.price;
-
-    cart.push({ name, price });
-    localStorage.setItem("cart", JSON.stringify(cart));
-    alert(name + " added to cart!");
-  });
-});
-</script>
+<!-- =========================================================
+     ADD TO CART JAVASCRIPT
+========================================================= -->
 
 <script>
-document.querySelectorAll(".add-to-cart-btn, .add-to-cart").forEach(button => {
-  button.addEventListener("click", () => {
-    let name = button.dataset.name;
-    let price = button.dataset.price;
 
-    // Get existing cart or create new
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+document
+    .querySelectorAll(".add-to-cart-btn")
+    .forEach(function(button){
 
-    // Add product
-    cart.push({ name, price });
+        button.addEventListener("click", function(){
 
-    // Save back to localStorage
-    localStorage.setItem("cart", JSON.stringify(cart));
+            const name =
+                this.getAttribute("data-name");
 
-    // Redirect to cart page
-    window.location.href = "cart.html";
-  });
-});
+            const price =
+                Number(
+                    this.getAttribute("data-price")
+                );
+
+
+            /* Get existing cart */
+
+            let cart =
+                JSON.parse(
+                    localStorage.getItem("cart")
+                ) || [];
+
+
+            /* Add product */
+
+            cart.push({
+
+                name:name,
+
+                price:price
+
+            });
+
+
+            /* Save cart */
+
+            localStorage.setItem(
+                "cart",
+                JSON.stringify(cart)
+            );
+
+
+            /* Go to cart */
+
+            window.location.href =
+                "cart.html";
+
+        });
+
+    });
+
 </script>
-    
+
+
 </body>
+
 </html>
