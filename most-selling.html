@@ -1,11 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sunglasses | 50 Mirars</title>
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<meta
+    name="theme-color"
+    content="#0b0b0b"
+>
+
+<meta
+    name="description"
+    content="Discover the most selling watches and sunglasses at 50 Mirars."
+>
+
+<title>Most Selling Articles | 50 Mirars</title>
+
 
 <style>
+
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
 
 body{
     margin:0;
@@ -24,16 +54,48 @@ body{
         );
     color:#222;
 }
-    
+
+
+/* =========================================================
+   HOME BUTTON
+   ========================================================= */
+
+.home-wrapper{
+    padding:20px 40px;
+}
+
+.home-btn{
+    display:inline-block;
+    background:#111;
+    color:white;
+    text-decoration:none;
+    padding:12px 25px;
+    border-radius:6px;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.home-btn:hover{
+    background:#c9a24d;
+    color:#111;
+}
+
+
+/* =========================================================
+   PAGE TITLE
+   ========================================================= */
+
 .page-title{
     text-align:center;
     padding:30px 20px 35px;
 }
-    
+
 .page-title h1{
+    font-family:Georgia,"Times New Roman",serif;
     font-size:64px;
-    margin-bottom:20px;
+    margin:0 0 20px;
     color:#111;
+    font-weight:600;
 }
 
 .title-line{
@@ -55,111 +117,10 @@ body{
     transform:translate(-50%,-50%) rotate(45deg);
 }
 
-.product-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:35px;
-    max-width:1600px;
-    margin:auto;
-    padding:20px 40px 80px;
-}
-    
-.product-card{
-    background:white;
-    border-radius:18px;
-    overflow:hidden;
-    text-align:center;
-    box-shadow:0 8px 25px rgba(0,0,0,0.08);
-    transition:0.3s;
-}
 
-.product-card:hover{
-    transform:translateY(-5px);
-}
-
-.product-card img{
-    width:100%;
-    height:350px;
-    object-fit:cover;
-}
-
-.product-card h3{
-    font-size:22px;
-    margin:25px 15px 10px;
-    color:#111;
-}
-
-.price{
-    font-size:22px;
-    font-weight:bold;
-    color:#c9a24d;
-    margin-bottom:20px;
-}
-
-.enquire-btn{
-    display:inline-block;
-    margin-bottom:35px;
-    padding:14px 35px;
-    background:#c9a24d;
-    color:white;
-    text-decoration:none;
-    border-radius:6px;
-    font-weight:bold;
-}
-
-/* ✅ Add to Cart button styled like Enquire Now but with white background */
-.add-to-cart-btn {
-  background-color: #fff;
-  color: #111;
-  border: 2px solid #111;
-  padding: 12px 30px;
-  border-radius: 6px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.add-to-cart-btn:hover {
-  background-color: #c9a24d;
-  color: #fff;
-  border-color: #c9a24d;
-}
-
-@media(max-width:768px){
-
-    .page-title h1{
-        font-size:42px;
-    }
-
-    .product-grid{
-        grid-template-columns:1fr;
-        padding:20px;
-    }
-
-    .product-card img{
-        height:250px;
-    }
-}
-
-.home-btn{
-    display:inline-block;
-    background:#111;
-    color:white;
-    text-decoration:none;
-    padding:12px 25px;
-    border-radius:6px;
-    font-weight:600;
-    transition:0.3s;
-}
-
-.home-btn:hover{
-    background:#c9a24d;
-    color:black;
-}
-
-/* =========================================
-   LUXURY MOST SELLING INTRODUCTION
-   ========================================= */
+/* =========================================================
+   MOST SELLING INTRODUCTION
+   ========================================================= */
 
 .most-selling-intro{
     width:90%;
@@ -170,7 +131,7 @@ body{
 }
 
 .most-selling-intro h2{
-    font-family:Georgia, "Times New Roman", serif;
+    font-family:Georgia,"Times New Roman",serif;
     font-size:38px;
     font-weight:600;
     color:#171717;
@@ -202,8 +163,160 @@ body{
     margin-bottom:0 !important;
 }
 
+
+/* =========================================================
+   PRODUCT GRID
+   ========================================================= */
+
+.product-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:35px;
+    max-width:1600px;
+    margin:auto;
+    padding:20px 40px 80px;
+}
+
+
+/* =========================================================
+   PRODUCT CARD
+   ========================================================= */
+
+.product-card{
+    background:#fff;
+    border-radius:18px;
+    overflow:hidden;
+    text-align:center;
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+    transition:0.3s;
+    display:flex;
+    flex-direction:column;
+}
+
+.product-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 14px 35px rgba(0,0,0,0.13);
+}
+
+
+/* =========================================================
+   PRODUCT IMAGE
+   ========================================================= */
+
+.product-card > img{
+    width:100%;
+    height:350px;
+    object-fit:cover;
+    display:block;
+}
+
+
+/* =========================================================
+   PRODUCT VIDEO
+   ========================================================= */
+
+.product-card > video{
+    width:100%;
+    height:350px;
+    object-fit:cover;
+    display:block;
+    background:#000;
+}
+
+
+/* =========================================================
+   PRODUCT NAME
+   ========================================================= */
+
+.product-card h3{
+    font-size:22px;
+    margin:25px 15px 10px;
+    color:#111;
+    line-height:1.35;
+}
+
+
+/* =========================================================
+   PRICE
+   ========================================================= */
+
+.price{
+    font-size:22px;
+    font-weight:bold;
+    color:#c9a24d;
+    margin-bottom:20px;
+}
+
+
+/* =========================================================
+   PRODUCT BUTTONS
+   ========================================================= */
+
+.product-buttons{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:12px;
+    flex-wrap:wrap;
+    padding:0 15px 35px;
+    margin-top:auto;
+}
+
+
+/* =========================================================
+   ENQUIRE BUTTON
+   ========================================================= */
+
+.enquire-btn{
+    display:inline-block;
+    padding:14px 25px;
+    background:#c9a24d;
+    color:white;
+    text-decoration:none;
+    border-radius:6px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.enquire-btn:hover{
+    background:#111;
+    color:white;
+}
+
+
+/* =========================================================
+   ADD TO CART BUTTON
+   ========================================================= */
+
+.add-to-cart-btn{
+    background:#fff;
+    color:#111;
+    border:2px solid #111;
+    padding:12px 25px;
+    border-radius:6px;
+    font-size:16px;
+    cursor:pointer;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.add-to-cart-btn:hover{
+    background:#c9a24d;
+    color:#fff;
+    border-color:#c9a24d;
+}
+
+
+/* =========================================================
+   IMAGE SLIDER
+   ========================================================= */
+
 .slider{
     position:relative;
+    width:100%;
+    height:350px;
+    overflow:hidden;
+    background:#f5f5f5;
 }
 
 .slide{
@@ -212,554 +325,392 @@ body{
     object-fit:cover;
     display:none !important;
 }
-    
+
 .slide.active{
     display:block !important;
 }
-    
+
+
+/* =========================================================
+   SLIDER BUTTONS
+   ========================================================= */
+
 .prev,
 .next{
     position:absolute;
     top:50%;
     transform:translateY(-50%);
-    background:rgba(0,0,0,0.6);
+    width:44px;
+    height:44px;
+    background:rgba(0,0,0,0.62);
     color:white;
     border:none;
     cursor:pointer;
-    padding:12px 16px;
-    font-size:22px;
+    font-size:20px;
     border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:5;
+    transition:0.3s;
+}
+
+.prev:hover,
+.next:hover{
+    background:#c9a24d;
+    color:#111;
 }
 
 .prev{
-    left:10px;
+    left:12px;
 }
 
 .next{
-    right:10px;
+    right:12px;
 }
+
 
 /* =========================================================
    FOOTER
-========================================================= */
+   ========================================================= */
 
-.main-footer {
-    width: 100%;
-
-    background: #080808;
-
-    color: #fff;
-
-    padding:
-        70px 7% 25px;
-
-    border-top:
-        1px solid
-        rgba(255,255,255,0.08);
-
-    overflow: hidden;
+.main-footer{
+    background:#0b0b0b;
+    color:#fff;
+    margin-top:30px;
+    border-top:1px solid rgba(201,162,77,0.35);
 }
 
-.footer-container {
-    width: 100%;
-
-    max-width: 1400px;
-
-    margin: 0 auto;
+.footer-container{
+    width:90%;
+    max-width:1400px;
+    margin:auto;
 }
 
 
 /* =========================================================
    FOOTER TOP
-========================================================= */
+   ========================================================= */
 
-.footer-top {
-    width: 100%;
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, minmax(0, 1fr));
-
-    column-gap: 70px;
-
-    row-gap: 40px;
-
-    align-items: start;
+.footer-top{
+    padding:55px 0 45px;
+    text-align:center;
 }
 
-.footer-top > h2 {
-    grid-column: 1 / -1;
-
-    margin:
-        0 0 10px;
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size: 42px;
-
-    font-weight: 500;
-
-    line-height: 1.2;
-
-    color: #fff;
-
-    text-align: center;
+.footer-top h2{
+    margin:0 0 15px;
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:32px;
+    color:#c9a24d;
 }
 
-.contact-column,
-.whatsapp-column {
-    min-width: 0;
-
-    width: 100%;
-
-    text-align: center;
-}
-
-.contact-column h3,
-.whatsapp-column h3 {
-    margin:
-        0 0 22px;
-
-    color: #fff;
-
-    font-size: 20px;
-
-    font-weight: 700;
-
-    line-height: 1.35;
-}
-
-.contact-column p {
-    margin:
-        12px 0 0;
-
-    color: #bdbdbd;
-
-    font-size: 15px;
-
-    line-height: 1.6;
-}
-
-.footer-link {
-    display: block;
-
-    width: fit-content;
-
-    max-width: 100%;
-
-    margin:
-        0 auto 8px;
-
-    color: #fff;
-
-    text-decoration: none;
-
-    font-size: 16px;
-
-    line-height: 1.6;
-
-    overflow-wrap: break-word;
-
-    transition: color 0.3s ease;
-}
-
-.footer-link:hover {
-    color: #c9a24d;
-}
-
-
-/* =========================================================
-   WHATSAPP FOOTER
-========================================================= */
-
-.whatsapp-title {
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 8px;
-
-    flex-wrap: wrap;
-}
-
-.whatsapp-icon {
-    width: 28px;
-
-    height: 28px;
-
-    object-fit: contain;
-
-    display: inline-block;
-
-    flex-shrink: 0;
-}
-
-.whatsapp-button {
-    display: inline-flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    min-width: 205px;
-
-    min-height: 60px;
-
-    max-width: 100%;
-
-    padding:
-        13px 30px;
-
-    background: #fff;
-
-    color: #111;
-
-    text-decoration: none;
-
-    font-size: 16px;
-
-    font-weight: 700;
-
-    letter-spacing: 0.2px;
-
-    border:
-        1px solid #fff;
-
-    transition: all 0.3s ease;
-}
-
-.whatsapp-button:hover {
-    background: #c9a24d;
-
-    border-color: #c9a24d;
-
-    color: #fff;
-
-    transform:
-        translateY(-2px);
+.footer-top p{
+    margin:0 auto;
+    max-width:800px;
+    color:#cfcfcf;
+    line-height:1.7;
+    font-size:16px;
 }
 
 
 /* =========================================================
    FOOTER MIDDLE
-========================================================= */
+   ========================================================= */
 
-.footer-middle {
-    width: 100%;
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, minmax(0, 1fr));
-
-    gap: 50px;
-
-    margin-top: 65px;
-
-    padding-top: 45px;
-
-    border-top:
-        1px solid
-        rgba(255,255,255,0.10);
+.footer-middle{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:50px;
+    padding:45px 0;
+    border-top:1px solid rgba(255,255,255,0.10);
+    border-bottom:1px solid rgba(255,255,255,0.10);
 }
 
-.footer-links-column,
-.footer-social {
-    min-width: 0;
-
-    width: 100%;
-
-    text-align: center;
+.footer-column h3{
+    color:#c9a24d;
+    font-size:20px;
+    margin:0 0 20px;
+    font-family:Georgia,"Times New Roman",serif;
 }
 
-.footer-links-column h3,
-.footer-social h3 {
-    margin:
-        0 0 20px;
-
-    color: #fff;
-
-    font-size: 18px;
-
-    font-weight: 700;
-
-    line-height: 1.35;
+.footer-column p{
+    color:#cfcfcf;
+    font-size:15px;
+    line-height:1.7;
+    margin:8px 0;
 }
 
-.footer-links-column a {
-    display: block;
-
-    width: fit-content;
-
-    max-width: 100%;
-
-    margin:
-        0 auto 14px;
-
-    color: #d7d7d7;
-
-    text-decoration: none;
-
-    font-size: 15px;
-
-    line-height: 1.5;
-
-    transition: color 0.3s ease;
+.footer-column a{
+    color:#cfcfcf;
+    text-decoration:none;
+    transition:0.3s;
 }
 
-.footer-links-column a:hover {
-    color: #c9a24d;
-}
-
-.footer-social p {
-    margin:
-        0 0 14px;
-
-    color: #d7d7d7;
-
-    font-size: 15px;
+.footer-column a:hover{
+    color:#c9a24d;
 }
 
 
 /* =========================================================
-   INSTAGRAM
-========================================================= */
+   FOOTER CONTACT ITEMS
+   ========================================================= */
 
-.instagram-button {
-    width: 58px;
-
-    height: 58px;
-
-    display: inline-flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    border:
-        1px solid
-        rgba(255,255,255,0.65);
-
-    border-radius: 9px;
-
-    text-decoration: none;
-
-    transition: all 0.3s ease;
+.footer-contact-item{
+    margin-bottom:16px;
 }
 
-.instagram-button:hover {
-    border-color: #c9a24d;
-
-    transform:
-        translateY(-2px);
+.footer-contact-label{
+    display:block;
+    color:#fff;
+    font-weight:bold;
+    margin-bottom:4px;
 }
 
-.instagram-button img {
-    width: 32px;
+.footer-contact-item a{
+    color:#cfcfcf;
+}
 
-    height: 32px;
 
-    object-fit: contain;
+/* =========================================================
+   WHATSAPP / INSTAGRAM
+   ========================================================= */
 
-    display: block;
+.social-link{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    margin-top:8px;
+    margin-right:15px;
+    color:#fff !important;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.social-link:hover{
+    color:#c9a24d !important;
+}
+
+.social-link img{
+    width:25px;
+    height:25px;
+    object-fit:contain;
+    display:block;
+}
+
+
+/* =========================================================
+   FOOTER NAVIGATION
+   ========================================================= */
+
+.footer-nav{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.footer-nav a{
+    color:#cfcfcf;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.footer-nav a:hover{
+    color:#c9a24d;
+    padding-left:4px;
 }
 
 
 /* =========================================================
    FOOTER BOTTOM
-========================================================= */
+   ========================================================= */
 
-.footer-bottom {
-    width: 100%;
-
-    margin-top: 50px;
-
-    padding-top: 20px;
-
-    border-top:
-        1px solid
-        rgba(255,255,255,0.10);
+.footer-bottom{
+    text-align:center;
+    padding:22px 15px;
 }
 
-.footer-bottom p {
-    margin: 0;
-
-    color: #aaa;
-
-    font-size: 13px;
-
-    line-height: 1.5;
-
-    text-align: center;
-
-    overflow-wrap: break-word;
+.footer-bottom p{
+    margin:0;
+    color:#9e9e9e;
+    font-size:14px;
 }
 
 
 /* =========================================================
-   RESPONSIVE
-========================================================= */
+   MOBILE
+   ========================================================= */
 
-@media (max-width: 1100px) {
+@media(max-width:1100px){
 
-    .product-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
+    .product-grid{
+        grid-template-columns:repeat(2,1fr);
     }
 
-    .footer-top {
-        column-gap: 35px;
+    .footer-middle{
+        grid-template-columns:repeat(2,1fr);
     }
+
 }
 
 
-@media (max-width: 768px) {
+@media(max-width:768px){
 
-    .page-title h1 {
-        font-size: 42px;
+    .home-wrapper{
+        padding:18px 20px;
     }
 
-    .couple-intro {
-        width: 92%;
+    .page-title{
+        padding:25px 15px 30px;
     }
 
-    .couple-intro h2 {
-        font-size: 30px;
+    .page-title h1{
+        font-size:42px;
+        line-height:1.15;
     }
 
-    .couple-description p {
-        font-size: 16px;
-
-        line-height: 1.7;
+    .most-selling-intro{
+        width:90%;
+        padding-bottom:35px;
     }
 
-    .product-grid {
-        grid-template-columns: 1fr;
+    .most-selling-intro h2{
+        font-size:28px;
+        line-height:1.3;
+    }
 
-        padding:
-            20px 20px 60px;
+    .most-selling-description p{
+        font-size:16px;
+        line-height:1.7;
+    }
+
+    .product-grid{
+        grid-template-columns:1fr;
+        padding:20px;
+        gap:25px;
     }
 
     .product-card > img,
     .product-card > video,
-    .slider {
-        height: 300px;
+    .slider,
+    .slide{
+        height:300px;
     }
 
-    .footer-top {
-        grid-template-columns: 1fr;
-
-        gap: 40px;
+    .product-card h3{
+        font-size:20px;
     }
 
-    .footer-top > h2 {
-        grid-column: auto;
-
-        font-size: 34px;
+    .product-buttons{
+        gap:10px;
     }
 
-    .footer-middle {
-        grid-template-columns: 1fr;
-
-        gap: 35px;
+    .enquire-btn{
+        padding:13px 20px;
     }
+
+    .add-to-cart-btn{
+        padding:11px 20px;
+    }
+
+    .footer-middle{
+        grid-template-columns:1fr;
+        gap:35px;
+        padding:35px 0;
+    }
+
+    .footer-top{
+        padding:40px 0 35px;
+    }
+
+    .footer-top h2{
+        font-size:28px;
+    }
+
 }
 
 
-@media (max-width: 500px) {
+@media(max-width:480px){
 
-    .home-area {
-        padding:
-            18px 20px;
+    .page-title h1{
+        font-size:36px;
     }
 
-    .page-title {
-        padding:
-            25px 15px 30px;
-    }
-
-    .page-title h1 {
-        font-size: 36px;
-    }
-
-    .title-line {
-        width: 120px;
-    }
-
-    .couple-intro h2 {
-        font-size: 27px;
-    }
-
-    .couple-description p {
-        font-size: 15px;
+    .title-line{
+        width:130px;
     }
 
     .product-card > img,
     .product-card > video,
-    .slider {
-        height: 270px;
+    .slider,
+    .slide{
+        height:270px;
     }
 
-    .product-card h3 {
-        font-size: 20px;
-    }
-
-    .product-buttons {
-        flex-direction: column;
+    .product-buttons{
+        flex-direction:column;
     }
 
     .enquire-btn,
-    .add-to-cart-btn {
-        width: 90%;
-
-        max-width: 300px;
+    .add-to-cart-btn{
+        width:100%;
+        max-width:250px;
     }
 
-    .main-footer {
-        padding:
-            55px 20px 25px;
-    }
-
-    .footer-top > h2 {
-        font-size: 30px;
-    }
-
-    .whatsapp-button {
-        width: 100%;
-
-        min-width: 0;
-    }
 }
 
 
+/* =========================================================
+   END
+   ========================================================= */
 
 </style>
+
 </head>
 
+
 <body>
-    
-<div style="padding:20px 40px;">
-    <a href="index.html" class="home-btn">← Back to Home</a>
+
+
+<!-- ========================================================
+     BACK TO HOME
+     ======================================================== -->
+
+<div class="home-wrapper">
+
+    <a
+        href="index.html"
+        class="home-btn"
+    >
+        ← Back to Home
+    </a>
+
 </div>
-    
-<!-- =========================================
-     MOST SELLING ARTICLES INTRODUCTION
-     ========================================= -->
+
+
+
+<!-- ========================================================
+     MOST SELLING INTRODUCTION
+     ======================================================== -->
 
 <section class="most-selling-intro">
 
+
     <div class="page-title">
-        <h1>Most Selling Articles</h1>
+
+        <h1>
+            Most Selling Articles
+        </h1>
+
         <div class="title-line"></div>
+
     </div>
 
-    <h2>The Pieces Everyone Is Talking About</h2>
+
+    <h2>
+        The Pieces Everyone Is Talking About
+    </h2>
+
 
     <div class="most-selling-description">
 
@@ -772,6 +723,7 @@ body{
             of presence that makes them easy to choose and even harder to forget.
         </p>
 
+
         <p>
             At <strong>50 Mirars</strong>, we believe the most popular pieces are not
             simply the ones that follow a trend. They are the ones that connect with
@@ -782,6 +734,7 @@ body{
             or bold enough to become the centre of attention.
         </p>
 
+
         <p>
             The appeal of a great product often lies in the details. A well-proportioned
             design, an eye-catching finish, a distinctive silhouette, or simply the way
@@ -791,11 +744,14 @@ body{
             currently catching the attention of the 50 Mirars community.
         </p>
 
+
         <p class="most-selling-closing-line">
+
             <strong>
                 Discover the pieces our customers are choosing — and find the one
                 that becomes your next favourite.
             </strong>
+
         </p>
 
     </div>
@@ -803,107 +759,390 @@ body{
 </section>
 
 
+
+<!-- ========================================================
+     PRODUCT GRID
+     ======================================================== -->
+
 <div class="product-grid">
 
-<!-- Seiko 5 Sports GMT -->
+
+<!-- ========================================================
+     SEIKO 5 SPORTS GMT
+     ======================================================== -->
+
 <div class="product-card">
-  <img src="Seiko 5 Sports GMT SSK035K1.jpeg" alt="Seiko 5 Sports GMT SSK035K1">
-  <h3>Seiko 5 Sports GMT SSK035K1</h3>
-  <div class="price">₹4,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Seiko%205%20Sports%20GMT%20SSK035K1">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Seiko 5 Sports GMT SSK035K1" data-price="4000">Add to Cart</button>
-  </div>
+
+    <img
+        src="Seiko 5 Sports GMT SSK035K1.jpeg"
+        alt="Seiko 5 Sports GMT SSK035K1"
+    >
+
+    <h3>
+        Seiko 5 Sports GMT SSK035K1
+    </h3>
+
+    <div class="price">
+        ₹4,000
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Seiko%205%20Sports%20GMT%20SSK035K1"
+            target="_blank"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Seiko 5 Sports GMT SSK035K1"
+            data-price="4000"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
 </div>
 
-<!-- Rolex Daytona 116578SACO -->
+
+
+<!-- ========================================================
+     ROLEX DAYTONA
+     ======================================================== -->
+
 <div class="product-card">
-  <video width="100%" height="350" controls>
-    <source src="Rolex Daytona 116578SACO.mp4" type="video/mp4">
-  </video>
-  <h3>Rolex Daytona 116578SACO</h3>
-  <div class="price">₹3,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Rolex%20Daytona%20116578SACO">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Rolex Daytona 116578SACO" data-price="3500">Add to Cart</button>
-  </div>
+
+    <video
+        width="100%"
+        height="350"
+        controls
+        playsinline
+    >
+
+        <source
+            src="Rolex Daytona 116578SACO.mp4"
+            type="video/mp4"
+        >
+
+        Your browser does not support video playback.
+
+    </video>
+
+    <h3>
+        Rolex Daytona 116578SACO
+    </h3>
+
+    <div class="price">
+        ₹3,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Rolex%20Daytona%20116578SACO"
+            target="_blank"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Rolex Daytona 116578SACO"
+            data-price="3500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
 </div>
 
-<!-- Rolex GMT-Master II Root Beer -->
+
+
+<!-- ========================================================
+     ROLEX GMT MASTER II
+     ======================================================== -->
+
 <div class="product-card">
-  <video width="100%" height="350" controls>
-    <source src="Rolex GMT-Master II Root Beer .mp4" type="video/mp4">
-  </video>
-  <h3>Rolex GMT-Master II Root Beer</h3>
-  <div class="price">₹3,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Rolex%20GMT-Master%20II%20Root%20Beer">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Rolex GMT-Master II Root Beer" data-price="3500">Add to Cart</button>
-  </div>
+
+    <video
+        width="100%"
+        height="350"
+        controls
+        playsinline
+    >
+
+        <source
+            src="Rolex GMT-Master II Root Beer .mp4"
+            type="video/mp4"
+        >
+
+        Your browser does not support video playback.
+
+    </video>
+
+    <h3>
+        Rolex GMT-Master II Root Beer
+    </h3>
+
+    <div class="price">
+        ₹3,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Rolex%20GMT-Master%20II%20Root%20Beer"
+            target="_blank"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Rolex GMT-Master II Root Beer"
+            data-price="3500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
 </div>
 
-<!-- Tommy Hilfiger Baker Watch -->
+
+
+<!-- ========================================================
+     TOMMY HILFIGER BAKER
+     ======================================================== -->
+
 <div class="product-card">
-  <video width="100%" height="350" controls>
-    <source src="Tommy Hilfiger Baker Watch.mp4" type="video/mp4">
-  </video>
-  <h3>Tommy Hilfiger Baker Watch</h3>
-  <div class="price">₹3,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Tommy%20Hilfiger%20Baker%20Watch">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Tommy Hilfiger Baker Watch" data-price="3500">Add to Cart</button>
-  </div>
-</div>
-    
-<!-- Calvin Klein Sunglasses (Video) -->
-<div class="product-card">
-  <video width="100%" height="350" controls>
-    <source src="Calvin Klein Sunglasses.mp4" type="video/mp4">
-  </video>
-  <h3>Calvin Klein Sunglasses</h3>
-  <div class="price">₹2,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Calvin%20Klein%20Sunglasses">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Calvin Klein Sunglasses" data-price="2500">Add to Cart</button>
-  </div>
-</div>
-    
-<!-- Armani Exchange Black Automatic AX2418 -->
-<div class="product-card">
-  <img src="Armani Exchange Black Automatic AX2418.jpeg" alt="Armani Exchange Black Automatic AX2418">
-  <h3>Armani Exchange Black Automatic AX2418</h3>
-  <div class="price">₹5,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" 
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Armani%20Exchange%20Black%20Automatic%20AX2418.%20Please%20share%20availability%20and%20details.">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="Armani Exchange Black Automatic AX2418" data-price="5000">Add to Cart</button>
-  </div>
+
+    <video
+        width="100%"
+        height="350"
+        controls
+        playsinline
+    >
+
+        <source
+            src="Tommy Hilfiger Baker Watch.mp4"
+            type="video/mp4"
+        >
+
+        Your browser does not support video playback.
+
+    </video>
+
+    <h3>
+        Tommy Hilfiger Baker Watch
+    </h3>
+
+    <div class="price">
+        ₹3,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Tommy%20Hilfiger%20Baker%20Watch"
+            target="_blank"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Tommy Hilfiger Baker Watch"
+            data-price="3500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
 </div>
 
-<!-- Tissot PRX Band -->
+
+
+<!-- ========================================================
+     CALVIN KLEIN SUNGLASSES
+     ======================================================== -->
+
 <div class="product-card">
-  <div class="slider">
-    <img src="Tissot PRX Band 1.jpeg" class="slide active" alt="Tissot PRX Band">
-    <img src="Tissot PRX Band 2.jpeg" class="slide" alt="Tissot PRX Band">
-    <img src="Tissot PRX Band 3.jpeg" class="slide" alt="Tissot PRX Band">
-    <img src="Tissot PRX Band 4.jpeg" class="slide" alt="Tissot PRX Band">
-    <button class="prev">❮</button>
-    <button class="next">❯</button>
-  </div>
-  <h3>Tissot PRX Band</h3>
-  <div class="price">₹4,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" 
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Tissot%20PRX%20Band.%20Please%20share%20availability%20and%20details.">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="Tissot PRX Band" data-price="4500">Add to Cart</button>
-  </div>
+
+    <video
+        width="100%"
+        height="350"
+        controls
+        playsinline
+    >
+
+        <source
+            src="Calvin Klein Sunglasses.mp4"
+            type="video/mp4"
+        >
+
+        Your browser does not support video playback.
+
+    </video>
+
+    <h3>
+        Calvin Klein Sunglasses
+    </h3>
+
+    <div class="price">
+        ₹2,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Calvin%20Klein%20Sunglasses"
+            target="_blank"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Calvin Klein Sunglasses"
+            data-price="2500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
 </div>
 
-<!-- Versace Dominus Skeleton Watch -->
+
+
+<!-- ========================================================
+     ARMANI EXCHANGE
+     ======================================================== -->
+
+<div class="product-card">
+
+    <img
+        src="Armani Exchange Black Automatic AX2418.jpeg"
+        alt="Armani Exchange Black Automatic AX2418"
+    >
+
+    <h3>
+        Armani Exchange Black Automatic AX2418
+    </h3>
+
+    <div class="price">
+        ₹5,000
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Armani%20Exchange%20Black%20Automatic%20AX2418.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Armani Exchange Black Automatic AX2418"
+            data-price="5000"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- ========================================================
+     TISSOT PRX BAND
+     ======================================================== -->
+
+<div class="product-card">
+
+    <div class="slider">
+
+        <img
+            src="Tissot PRX Band 1.jpeg"
+            class="slide active"
+            alt="Tissot PRX Band"
+        >
+
+        <img
+            src="Tissot PRX Band 2.jpeg"
+            class="slide"
+            alt="Tissot PRX Band"
+        >
+
+        <img
+            src="Tissot PRX Band 3.jpeg"
+            class="slide"
+            alt="Tissot PRX Band"
+        >
+
+        <img
+            src="Tissot PRX Band 4.jpeg"
+            class="slide"
+            alt="Tissot PRX Band"
+        >
+
+        <button class="prev" type="button">❮</button>
+
+        <button class="next" type="button">❯</button>
+
+    </div>
+
+    <h3>
+        Tissot PRX Band
+    </h3>
+
+    <div class="price">
+        ₹4,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Tissot%20PRX%20Band.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Tissot PRX Band"
+            data-price="4500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- ========================================================
+     VERSACE DOMINUS
+     ======================================================== -->
+
 <div class="product-card">
 
     <div class="slider">
@@ -933,13 +1172,18 @@ body{
         >
 
         <button class="prev" type="button">❮</button>
+
         <button class="next" type="button">❯</button>
 
     </div>
 
-    <h3>Versace Dominus Skeleton Watch</h3>
+    <h3>
+        Versace Dominus Skeleton Watch
+    </h3>
 
-    <div class="price">₹4,000</div>
+    <div class="price">
+        ₹4,000
+    </div>
 
     <div class="product-buttons">
 
@@ -963,51 +1207,12 @@ body{
 
 </div>
 
-<!-- Maybach M011 -->
-<div class="product-card">
-  <video width="100%" height="350" controls>
-    <source src="Maybach M011.mp4" type="video/mp4">
-  </video>
-  <h3>Maybach M011</h3>
-  <div class="price">₹2,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" 
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Maybach%20M011">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="Maybach M011" data-price="2500">Add to Cart</button>
-  </div>
-</div>
 
-<!-- Balmain Paris 7020 Green Shade Sunglasses -->
-<div class="product-card">
-  <img src="Balmain Paris 7020 Green Shade Sungalsses.jpeg" alt="Balmain Paris 7020 Green Shade Sunglasses">
-  <h3>Balmain Paris 7020 Green Shade Sunglasses</h3>
-  <div class="price">₹2,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" 
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Balmain%20Paris%207020%20Green%20Shade%20Sunglasses">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="Balmain Paris 7020 Green Shade Sunglasses" data-price="2500">Add to Cart</button>
-  </div>
-</div>
 
-<!-- Panthere de Cartier -->
-<div class="product-card">
-  <img src="Panthere de Cartier .jpeg" alt="Panthere de Cartier">
-  <h3>Panthere de Cartier</h3>
-  <div class="price">₹2,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" 
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Panthere%20de%20Cartier%20Edition%20Sunglasses">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="Panthere de Cartier" data-price="2500">Add to Cart</button>
-  </div>
-</div>
+<!-- ========================================================
+     MAYBACH M011
+     ======================================================== -->
 
-<!-- Tommy Hilfiger Model 1792196 -->
 <div class="product-card">
 
     <video
@@ -1016,16 +1221,163 @@ body{
         controls
         playsinline
     >
+
+        <source
+            src="Maybach M011.mp4"
+            type="video/mp4"
+        >
+
+        Your browser does not support video playback.
+
+    </video>
+
+    <h3>
+        Maybach M011
+    </h3>
+
+    <div class="price">
+        ₹2,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Maybach%20M011"
+            target="_blank"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Maybach M011"
+            data-price="2500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- ========================================================
+     BALMAIN GREEN
+     ======================================================== -->
+
+<div class="product-card">
+
+    <img
+        src="Balmain Paris 7020 Green Shade Sungalsses.jpeg"
+        alt="Balmain Paris 7020 Green Shade Sunglasses"
+    >
+
+    <h3>
+        Balmain Paris 7020 Green Shade Sunglasses
+    </h3>
+
+    <div class="price">
+        ₹2,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Balmain%20Paris%207020%20Green%20Shade%20Sunglasses"
+            target="_blank"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Balmain Paris 7020 Green Shade Sunglasses"
+            data-price="2500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- ========================================================
+     PANTHERE DE CARTIER
+     ======================================================== -->
+
+<div class="product-card">
+
+    <img
+        src="Panthere de Cartier .jpeg"
+        alt="Panthere de Cartier"
+    >
+
+    <h3>
+        Panthere de Cartier
+    </h3>
+
+    <div class="price">
+        ₹2,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Panthere%20de%20Cartier%20Edition%20Sunglasses"
+            target="_blank"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Panthere de Cartier"
+            data-price="2500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- ========================================================
+     TOMMY HILFIGER 1792196
+     ======================================================== -->
+
+<div class="product-card">
+
+    <video
+        width="100%"
+        height="350"
+        controls
+        playsinline
+    >
+
         <source
             src="Tommy Hilfiger Model 1792196.mp4"
             type="video/mp4"
         >
+
         Your browser does not support video playback.
+
     </video>
 
-    <h3>Tommy Hilfiger Model 1792196</h3>
+    <h3>
+        Tommy Hilfiger Model 1792196
+    </h3>
 
-    <div class="price">₹4,000</div>
+    <div class="price">
+        ₹4,000
+    </div>
 
     <div class="product-buttons">
 
@@ -1048,313 +1400,843 @@ body{
     </div>
 
 </div>
-    
-<!-- Balmain Paris 7020 Purple Shade Sunglasses -->
+
+
+
+<!-- ========================================================
+     BALMAIN PURPLE
+     ======================================================== -->
+
 <div class="product-card">
-  <img src="Balmain Paris 7020 Purpule Shade Sungalsses.jpeg" alt="Balmain Paris 7020 Purple Shade Sunglasses">
-  <h3>Balmain Paris 7020 Purple Shade Sunglasses</h3>
-  <div class="price">₹2,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" 
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Balmain%20Paris%207020%20Purple%20Shade%20Sunglasses">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="Balmain Paris 7020 Purple Shade Sunglasses" data-price="2500">Add to Cart</button>
-  </div>
+
+    <img
+        src="Balmain Paris 7020 Purpule Shade Sungalsses.jpeg"
+        alt="Balmain Paris 7020 Purple Shade Sunglasses"
+    >
+
+    <h3>
+        Balmain Paris 7020 Purple Shade Sunglasses
+    </h3>
+
+    <div class="price">
+        ₹2,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Balmain%20Paris%207020%20Purple%20Shade%20Sunglasses"
+            target="_blank"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Balmain Paris 7020 Purple Shade Sunglasses"
+            data-price="2500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
 </div>
 
-<!-- Cartier Aqua Green Karan Aujla Edition -->
+
+
+<!-- ========================================================
+     CARTIER AQUA GREEN
+     ======================================================== -->
+
 <div class="product-card">
-  <img src="Cartier Aqua Green Karan Aujla Edition.jpeg" alt="Cartier Aqua Green Karan Aujla Edition">
-  <h3>Cartier Aqua Green Karan Aujla Edition</h3>
-  <div class="price">₹3,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" 
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Cartier%20Aqua%20Green%20Karan%20Aujla%20Edition.%20Please%20share%20availability%20and%20details.">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="Cartier Aqua Green Karan Aujla Edition" data-price="3000">Add to Cart</button>
-  </div>
+
+    <img
+        src="Cartier Aqua Green Karan Aujla Edition.jpeg"
+        alt="Cartier Aqua Green Karan Aujla Edition"
+    >
+
+    <h3>
+        Cartier Aqua Green Karan Aujla Edition
+    </h3>
+
+    <div class="price">
+        ₹3,000
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Cartier%20Aqua%20Green%20Karan%20Aujla%20Edition.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Cartier Aqua Green Karan Aujla Edition"
+            data-price="3000"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
 </div>
 
-<!-- Maybach 1015 Gold Pink Sunglasses -->
+
+
+<!-- ========================================================
+     MAYBACH 1015
+     ======================================================== -->
+
 <div class="product-card">
-  <img src="Maybach 1015 Gold Pink Sunglasses.jpeg" alt="Maybach 1015 Gold Pink Sunglasses">
-  <h3>Maybach 1015 Gold Pink Sunglasses</h3>
-  <div class="price">₹3,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" 
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Maybach%201015%20Gold%20Pink%20Sunglasses.%20Please%20share%20availability%20and%20details.">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="Maybach 1015 Gold Pink Sunglasses" data-price="3000">Add to Cart</button>
-  </div>
+
+    <img
+        src="Maybach 1015 Gold Pink Sunglasses.jpeg"
+        alt="Maybach 1015 Gold Pink Sunglasses"
+    >
+
+    <h3>
+        Maybach 1015 Gold Pink Sunglasses
+    </h3>
+
+    <div class="price">
+        ₹3,000
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Maybach%201015%20Gold%20Pink%20Sunglasses.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Maybach 1015 Gold Pink Sunglasses"
+            data-price="3000"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
 </div>
 
-<!-- Casio Edifice EFR-539SG-1AVUDF -->
+
+
+<!-- ========================================================
+     CASIO EDIFICE
+     ======================================================== -->
+
 <div class="product-card">
-  <div class="slider">
-    <img src="Casio Edifice EFR-539SG-1AVUDF 1.jpeg" class="slide active" alt="Casio Edifice">
-    <img src="Casio Edifice EFR-539SG-1AVUDF 2.jpeg" class="slide" alt="Casio Edifice">
-    <img src="Casio Edifice EFR-539SG-1AVUDF 3.jpeg" class="slide" alt="Casio Edifice">
-    <img src="Casio Edifice EFR-539SG-1AVUDF 4.jpeg" class="slide" alt="Casio Edifice">
-    <img src="Casio Edifice EFR-539SG-1AVUDF 5.jpeg" class="slide" alt="Casio Edifice">
-    <img src="Casio Edifice EFR-539SG-1AVUDF 6.jpeg" class="slide" alt="Casio Edifice">
-    <button class="prev">❮</button>
-    <button class="next">❯</button>
-  </div>
-  <h3>Casio Edifice EFR-539SG-1AVUDF</h3>
-  <div class="price">₹3,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" 
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Casio%20Edifice%20EFR-539SG-1AVUDF.%20Please%20share%20availability%20and%20details.">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="Casio Edifice EFR-539SG-1AVUDF" data-price="3500">Add to Cart</button>
-  </div>
+
+    <div class="slider">
+
+        <img
+            src="Casio Edifice EFR-539SG-1AVUDF 1.jpeg"
+            class="slide active"
+            alt="Casio Edifice"
+        >
+
+        <img
+            src="Casio Edifice EFR-539SG-1AVUDF 2.jpeg"
+            class="slide"
+            alt="Casio Edifice"
+        >
+
+        <img
+            src="Casio Edifice EFR-539SG-1AVUDF 3.jpeg"
+            class="slide"
+            alt="Casio Edifice"
+        >
+
+        <img
+            src="Casio Edifice EFR-539SG-1AVUDF 4.jpeg"
+            class="slide"
+            alt="Casio Edifice"
+        >
+
+        <img
+            src="Casio Edifice EFR-539SG-1AVUDF 5.jpeg"
+            class="slide"
+            alt="Casio Edifice"
+        >
+
+        <img
+            src="Casio Edifice EFR-539SG-1AVUDF 6.jpeg"
+            class="slide"
+            alt="Casio Edifice"
+        >
+
+        <button class="prev" type="button">❮</button>
+
+        <button class="next" type="button">❯</button>
+
+    </div>
+
+    <h3>
+        Casio Edifice EFR-539SG-1AVUDF
+    </h3>
+
+    <div class="price">
+        ₹3,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Casio%20Edifice%20EFR-539SG-1AVUDF.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Casio Edifice EFR-539SG-1AVUDF"
+            data-price="3500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
 </div>
 
-<!-- Bannon Automatic Analog (ME3207) -->
+
+
+<!-- ========================================================
+     BANNON AUTOMATIC
+     ======================================================== -->
+
 <div class="product-card">
-  <img src="Bannon Automatic Analog (ME3207).jpeg" alt="Bannon Automatic Analog (ME3207)">
-  <h3>Bannon Automatic Analog (ME3207)</h3>
-  <div class="price">₹4,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" 
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Bannon%20Automatic%20Analog%20(ME3207).%20Please%20share%20availability%20and%20details.">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="Bannon Automatic Analog (ME3207)" data-price="4500">Add to Cart</button>
-  </div>
+
+    <img
+        src="Bannon Automatic Analog (ME3207).jpeg"
+        alt="Bannon Automatic Analog ME3207"
+    >
+
+    <h3>
+        Bannon Automatic Analog (ME3207)
+    </h3>
+
+    <div class="price">
+        ₹4,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Bannon%20Automatic%20Analog%20(ME3207).%20Please%20share%20availability%20and%20details."
+            target="_blank"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Bannon Automatic Analog (ME3207)"
+            data-price="4500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
 </div>
 
-<!-- Jacob & Co Ramjanam Bhoomi Edition Watch -->
+
+
+<!-- ========================================================
+     JACOB & CO
+     ======================================================== -->
+
 <div class="product-card">
-  <img src="Jacob & Co Ramjanam Bhoomi Edition Watch.jpeg" alt="Jacob & Co Ramjanam Bhoomi Edition Watch">
-  <h3>Jacob & Co Ramjanam Bhoomi Edition Watch</h3>
-  <div class="price">₹7,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" 
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Jacob%20%26%20Co%20Ramjanam%20Bhoomi%20Edition%20Watch.%20Please%20share%20availability%20and%20details.">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="Jacob & Co Ramjanam Bhoomi Edition Watch" data-price="7500">Add to Cart</button>
-  </div>
+
+    <img
+        src="Jacob & Co Ramjanam Bhoomi Edition Watch.jpeg"
+        alt="Jacob & Co Ramjanam Bhoomi Edition Watch"
+    >
+
+    <h3>
+        Jacob & Co Ramjanam Bhoomi Edition Watch
+    </h3>
+
+    <div class="price">
+        ₹7,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Jacob%20%26%20Co%20Ramjanam%20Bhoomi%20Edition%20Watch.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Jacob & Co Ramjanam Bhoomi Edition Watch"
+            data-price="7500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
 </div>
 
-<!-- MayBach Sunglasses 2735 -->
+
+
+<!-- ========================================================
+     MAYBACH 2735
+     ======================================================== -->
+
 <div class="product-card">
-  <img src="MayBach Sunglasses 2735.jpeg" alt="MayBach Sunglasses 2735">
-  <h3>MayBach Sunglasses 2735</h3>
-  <div class="price">₹2,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" 
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20MayBach%20Sunglasses%202735.%20Please%20share%20availability%20and%20details.">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="MayBach Sunglasses 2735" data-price="2500">Add to Cart</button>
-  </div>
+
+    <img
+        src="MayBach Sunglasses 2735.jpeg"
+        alt="MayBach Sunglasses 2735"
+    >
+
+    <h3>
+        MayBach Sunglasses 2735
+    </h3>
+
+    <div class="price">
+        ₹2,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20MayBach%20Sunglasses%202735.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="MayBach Sunglasses 2735"
+            data-price="2500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
 </div>
 
-<!-- King Seiko Vanac SLA087 -->
+
+
+<!-- ========================================================
+     KING SEIKO
+     ======================================================== -->
+
 <div class="product-card">
-  <img src="King Seiko Vanac SLA087.jpeg" alt="King Seiko Vanac SLA087">
-  <h3>King Seiko Vanac SLA087</h3>
-  <div class="price">₹5,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" 
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20King%20Seiko%20Vanac%20SLA087.%20Please%20share%20availability%20and%20details.">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="King Seiko Vanac SLA087" data-price="5500">Add to Cart</button>
-  </div>
+
+    <img
+        src="King Seiko Vanac SLA087.jpeg"
+        alt="King Seiko Vanac SLA087"
+    >
+
+    <h3>
+        King Seiko Vanac SLA087
+    </h3>
+
+    <div class="price">
+        ₹5,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20King%20Seiko%20Vanac%20SLA087.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="King Seiko Vanac SLA087"
+            data-price="5500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
 </div>
 
-<!-- Seiko Presage Cocktail SRPG23J1 -->
+
+
+<!-- ========================================================
+     SEIKO PRESAGE
+     ======================================================== -->
+
 <div class="product-card">
-  <video width="100%" height="350" controls>
-    <source src="Seiko Presage Cocktail SRPG23J1.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-  <h3>Seiko Presage Cocktail SRPG23J1</h3>
-  <div class="price">₹4,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" 
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Seiko%20Presage%20Cocktail%20SRPG23J1">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="Seiko Presage Cocktail SRPG23J1" data-price="4000">Add to Cart</button>
-  </div>
+
+    <video
+        width="100%"
+        height="350"
+        controls
+        playsinline
+    >
+
+        <source
+            src="Seiko Presage Cocktail SRPG23J1.mp4"
+            type="video/mp4"
+        >
+
+        Your browser does not support the video tag.
+
+    </video>
+
+    <h3>
+        Seiko Presage Cocktail SRPG23J1
+    </h3>
+
+    <div class="price">
+        ₹4,000
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Seiko%20Presage%20Cocktail%20SRPG23J1"
+            target="_blank"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Seiko Presage Cocktail SRPG23J1"
+            data-price="4000"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
 </div>
 
-<!-- Maserati R8853100027 Competizione Plain 3 -->
+
+
+<!-- ========================================================
+     MASERATI
+     ======================================================== -->
+
 <div class="product-card">
-  <img src="Maserati R8853100027 Competizione Plain 3.jpeg" alt="Maserati R8853100027 Competizione Plain 3">
-  <h3>Maserati R8853100027 Competizione Plain 3</h3>
-  <div class="price">₹5,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" 
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Maserati%20R8853100027%20Competizione%20Plain%203.%20Please%20share%20availability%20and%20details.">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="Maserati R8853100027 Competizione Plain 3" data-price="5500">Add to Cart</button>
-  </div>
+
+    <img
+        src="Maserati R8853100027 Competizione Plain 3.jpeg"
+        alt="Maserati R8853100027 Competizione Plain 3"
+    >
+
+    <h3>
+        Maserati R8853100027 Competizione Plain 3
+    </h3>
+
+    <div class="price">
+        ₹5,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Maserati%20R8853100027%20Competizione%20Plain%203.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Maserati R8853100027 Competizione Plain 3"
+            data-price="5500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
 </div>
 
-<!-- MayBach Karan Aujla Edition Sunglasses -->
+
+
+<!-- ========================================================
+     MAYBACH KARAN AUJLA
+     ======================================================== -->
+
 <div class="product-card">
-  <img src="MayBach Karan Aujla Edition Sunglasses front.jpeg" alt="MayBach Karan Aujla Edition Sunglasses">
-  <h3>MayBach Karan Aujla Edition Sunglasses</h3>
-  <div class="price">₹3,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" 
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20MayBach%20Karan%20Aujla%20Edition%20Sunglasses">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="MayBach Karan Aujla Edition Sunglasses" data-price="3000">Add to Cart</button>
-  </div>
+
+    <img
+        src="MayBach Karan Aujla Edition Sunglasses front.jpeg"
+        alt="MayBach Karan Aujla Edition Sunglasses"
+    >
+
+    <h3>
+        MayBach Karan Aujla Edition Sunglasses
+    </h3>
+
+    <div class="price">
+        ₹3,000
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20MayBach%20Karan%20Aujla%20Edition%20Sunglasses"
+            target="_blank"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="MayBach Karan Aujla Edition Sunglasses"
+            data-price="3000"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
 </div>
 
-<!-- Tissot PRX -->
+
+
+<!-- ========================================================
+     TISSOT PRX
+     ======================================================== -->
+
 <div class="product-card">
-  <div class="slider">
-    <img src="Tissot PRX 1.jpeg" class="slide active" alt="Tissot PRX">
-    <img src="Tissot PRX 2.jpeg" class="slide" alt="Tissot PRX">
-    <img src="Tissot PRX 3.jpeg" class="slide" alt="Tissot PRX">
-    <img src="Tissot PRX 4.jpeg" class="slide" alt="Tissot PRX">
-    <img src="Tissot PRX 5.jpeg" class="slide" alt="Tissot PRX">
-    <img src="Tissot PRX 6.jpeg" class="slide" alt="Tissot PRX">
-    <img src="Tissot PRX 7.jpeg" class="slide" alt="Tissot PRX">
-    <img src="Tissot PRX 8.jpeg" class="slide" alt="Tissot PRX">
-    <img src="Tissot PRX 9.jpeg" class="slide" alt="Tissot PRX">
-    <button class="prev">❮</button>
-    <button class="next">❯</button>
-  </div>
-  <h3>Tissot PRX</h3>
-  <div class="price">₹4,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn"
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Tissot%20PRX.%20Please%20share%20availability%20and%20details.">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="Tissot PRX" data-price="4500">Add to Cart</button>
-  </div>
+
+    <div class="slider">
+
+        <img
+            src="Tissot PRX 1.jpeg"
+            class="slide active"
+            alt="Tissot PRX"
+        >
+
+        <img
+            src="Tissot PRX 2.jpeg"
+            class="slide"
+            alt="Tissot PRX"
+        >
+
+        <img
+            src="Tissot PRX 3.jpeg"
+            class="slide"
+            alt="Tissot PRX"
+        >
+
+        <img
+            src="Tissot PRX 4.jpeg"
+            class="slide"
+            alt="Tissot PRX"
+        >
+
+        <img
+            src="Tissot PRX 5.jpeg"
+            class="slide"
+            alt="Tissot PRX"
+        >
+
+        <img
+            src="Tissot PRX 6.jpeg"
+            class="slide"
+            alt="Tissot PRX"
+        >
+
+        <img
+            src="Tissot PRX 7.jpeg"
+            class="slide"
+            alt="Tissot PRX"
+        >
+
+        <img
+            src="Tissot PRX 8.jpeg"
+            class="slide"
+            alt="Tissot PRX"
+        >
+
+        <img
+            src="Tissot PRX 9.jpeg"
+            class="slide"
+            alt="Tissot PRX"
+        >
+
+        <button class="prev" type="button">❮</button>
+
+        <button class="next" type="button">❯</button>
+
+    </div>
+
+    <h3>
+        Tissot PRX
+    </h3>
+
+    <div class="price">
+        ₹4,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Tissot%20PRX.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Tissot PRX"
+            data-price="4500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
 </div>
 
-<!-- Tommy Hilfiger 1710647 -->
+
+
+<!-- ========================================================
+     TOMMY HILFIGER 1710647
+     ======================================================== -->
+
 <div class="product-card">
-  <img src="Tommy Hilfiger 1710647.jpeg" alt="Tommy Hilfiger 1710647">
-  <h3>Tommy Hilfiger 1710647</h3>
-  <div class="price">₹5,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn"
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Tommy%20Hilfiger%201710647.%20Please%20share%20availability%20and%20details.">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="Tommy Hilfiger 1710647" data-price="5500">Add to Cart</button>
-  </div>
+
+    <img
+        src="Tommy Hilfiger 1710647.jpeg"
+        alt="Tommy Hilfiger 1710647"
+    >
+
+    <h3>
+        Tommy Hilfiger 1710647
+    </h3>
+
+    <div class="price">
+        ₹5,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Tommy%20Hilfiger%201710647.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Tommy Hilfiger 1710647"
+            data-price="5500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
 </div>
 
-<!-- Cartier C Decor CT0622S -->
+
+
+<!-- ========================================================
+     CARTIER C DECOR
+     ======================================================== -->
+
 <div class="product-card">
-  <img src="Cartier C Decor CT0622S.jpeg" alt="Cartier C Decor CT0622S">
-  <h3>Cartier C Decor CT0622S</h3>
-  <div class="price">₹2,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn"
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Cartier%20C%20Decor%20CT0622S.%20Please%20share%20availability%20and%20details.">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="Cartier C Decor CT0622S" data-price="2500">Add to Cart</button>
-  </div>
+
+    <img
+        src="Cartier C Decor CT0622S.jpeg"
+        alt="Cartier C Decor CT0622S"
+    >
+
+    <h3>
+        Cartier C Decor CT0622S
+    </h3>
+
+    <div class="price">
+        ₹2,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Cartier%20C%20Decor%20CT0622S.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Cartier C Decor CT0622S"
+            data-price="2500"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
 </div>
 
-<!-- Tommy Hilfiger TW001863-001 -->
+
+
+<!-- ========================================================
+     TOMMY HILFIGER TW001863-001
+     ======================================================== -->
+
 <div class="product-card">
-  <img src="Tommy Hilfiger TW001863-001.jpeg" alt="Tommy Hilfiger TW001863-001">
-  <h3>Tommy Hilfiger TW001863-001</h3>
-  <div class="price">₹4,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn"
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Tommy%20Hilfiger%20TW001863-001.%20Please%20share%20availability%20and%20details.">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="Tommy Hilfiger TW001863-001" data-price="4000">Add to Cart</button>
-  </div>
+
+    <img
+        src="Tommy Hilfiger TW001863-001.jpeg"
+        alt="Tommy Hilfiger TW001863-001"
+    >
+
+    <h3>
+        Tommy Hilfiger TW001863-001
+    </h3>
+
+    <div class="price">
+        ₹4,000
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            class="enquire-btn"
+            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Tommy%20Hilfiger%20TW001863-001.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+        >
+            Enquire Now
+        </a>
+
+        <button
+            class="add-to-cart-btn"
+            data-name="Tommy Hilfiger TW001863-001"
+            data-price="4000"
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
 </div>
 
-<!-- =========================================================
+
+</div>
+
+
+
+<!-- ========================================================
      FOOTER
-========================================================= -->
+     ======================================================== -->
 
 <footer class="main-footer">
 
-    <div class="footer-container">
+
+<div class="footer-container">
 
 
-        <!-- FOOTER TOP -->
+    <!-- FOOTER TOP -->
 
-        <div class="footer-top">
+    <div class="footer-top">
+
+        <h2>
+            50 Mirars
+        </h2>
+
+        <p>
+            Timeless Watches • Premium Sunglasses
+            <br>
+            Discover distinctive styles crafted to complement
+            every occasion.
+        </p>
+
+    </div>
 
 
-            <h2>
+
+    <!-- FOOTER MIDDLE -->
+
+    <div class="footer-middle">
+
+
+        <!-- CONTACT -->
+
+        <div class="footer-column">
+
+            <h3>
                 Contact Us
-            </h2>
+            </h3>
 
 
-            <!-- CUSTOMERS -->
+            <div class="footer-contact-item">
 
-            <div class="contact-column">
+                <span class="footer-contact-label">
+                    Customer Support
+                </span>
 
-                <h3>
-                    For Customers:
-                </h3>
-
-                <a
-                    href="mailto:50mirars@gmail.com"
-                    class="footer-link"
-                >
+                <a href="mailto:50mirars@gmail.com">
                     50mirars@gmail.com
                 </a>
-
-                <a
-                    href="tel:+918209989013"
-                    class="footer-link"
-                >
-                    82099 89013
-                </a>
-
-                <p>
-                    09:00 - 21:30 | Monday to Sunday
-                </p>
 
             </div>
 
 
-            <!-- SALES / WATCH SERVICE -->
+            <div class="footer-contact-item">
 
-            <div class="contact-column">
+                <span class="footer-contact-label">
+                    Sales & Watch Service
+                </span>
 
-                <h3>
-                    For Sales/Watch Service:
-                </h3>
-
-                <a
-                    href="mailto:50mirars@gmail.com"
-                    class="footer-link"
-                >
-                    50mirars@gmail.com
+                <a href="tel:+918209989013">
+                    +91 82099 89013
                 </a>
 
-                <a
-                    href="tel:+918209989013"
-                    class="footer-link"
-                >
-                    82099 89013
-                </a>
+            </div>
+
+
+            <div class="footer-contact-item">
+
+                <span class="footer-contact-label">
+                    Working Hours
+                </span>
 
                 <p>
-                    09:00 - 21:30 | Monday to Sunday
+                    09:00 AM – 09:30 PM
+                    <br>
+                    Monday – Sunday
                 </p>
 
             </div>
@@ -1362,46 +2244,86 @@ body{
 
             <!-- WHATSAPP -->
 
-            <div class="whatsapp-column">
+            <a
+                href="https://wa.me/c/918209989013"
+                class="social-link"
+                target="_blank"
+            >
 
-                <h3 class="whatsapp-title">
-
-                    View Products on WhatsApp
-
-                    <img
-                        src="whatsapplogo.png"
-                        alt="WhatsApp"
-                        class="whatsapp-icon"
-                    >
-
-                </h3>
-
-                <a
-                    href="https://wa.me/918209989013"
-                    target="_blank"
-                    rel="noopener"
-                    class="whatsapp-button"
+                <img
+                    src="whatsapplogo.png"
+                    alt="WhatsApp"
                 >
-                    View Products
-                </a>
 
-            </div>
+                WhatsApp
+
+            </a>
+
+
+            <!-- INSTAGRAM -->
+
+            <a
+                href="https://instagram.com/50mirars"
+                class="social-link"
+                target="_blank"
+            >
+
+                <img
+                    src="instagramlogo.webp"
+                    alt="Instagram"
+                >
+
+                Instagram
+
+            </a>
 
         </div>
 
 
-        <!-- FOOTER MIDDLE -->
 
-        <div class="footer-middle">
+        <!-- SERVICES -->
+
+        <div class="footer-column">
+
+            <h3>
+                Customer Service
+            </h3>
+
+            <p>
+                We are here to help you with your
+                watch and sunglasses purchases.
+            </p>
+
+            <p>
+                For product availability, pricing,
+                orders and service enquiries,
+                contact our team directly.
+            </p>
+
+            <p>
+                We aim to provide a smooth,
+                reliable and premium shopping
+                experience at 50 Mirars.
+            </p>
+
+        </div>
 
 
-            <!-- KNOW 50 MIRARS -->
 
-            <div class="footer-links-column">
+        <!-- QUICK LINKS -->
 
-                <h3>
-                    Know 50 Mirars
-                </h3>
+        <div class="footer-column">
+
+            <h3>
+                Quick Links
+            </h3>
+
+
+            <div class="footer-nav">
+
+                <a href="index.html">
+                    Home
+                </a>
 
                 <a href="about.html">
                     About Us
@@ -1411,19 +2333,8 @@ body{
                     FAQ
                 </a>
 
-            </div>
-
-
-            <!-- TERMS -->
-
-            <div class="footer-links-column">
-
-                <h3>
-                    Terms &amp; Conditions
-                </h3>
-
                 <a href="terms.html">
-                    Terms &amp; Conditions
+                    Terms & Conditions
                 </a>
 
                 <a href="privacypolicy.html">
@@ -1432,98 +2343,145 @@ body{
 
             </div>
 
-
-            <!-- INSTAGRAM -->
-
-            <div class="footer-social">
-
-                <h3>
-                    50 Mirars
-                </h3>
-
-                <p>
-                    Follow Us On
-                </p>
-
-                <a
-                    href="https://instagram.com/50mirars"
-                    target="_blank"
-                    rel="noopener"
-                    class="instagram-button"
-                    aria-label="Follow 50 Mirars on Instagram"
-                >
-
-                    <img
-                        src="instagramimage.webp"
-                        alt="Instagram"
-                    >
-
-                </a>
-
-            </div>
-
         </div>
 
-
-        <!-- COPYRIGHT -->
-
-        <div class="footer-bottom">
-
-            <p>
-                © 2026 50 Mirars - The Watch &amp; Sunglasses Store.
-                All Rights Reserved.
-            </p>
-
-        </div>
 
     </div>
 
+
+
+    <!-- FOOTER BOTTOM -->
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 50 Mirars - The Watch & Sunglasses Store.
+            All Rights Reserved.
+        </p>
+
+    </div>
+
+
+</div>
+
 </footer>
 
-    
+
+
+<!-- ========================================================
+     SLIDER JAVASCRIPT
+     ======================================================== -->
+
 <script>
 
-document.querySelectorAll('.slider').forEach(slider => {
+document.querySelectorAll(".slider").forEach(function(slider){
 
-    const slides = slider.querySelectorAll('.slide');
+    const slides = slider.querySelectorAll(".slide");
+
+    const nextButton = slider.querySelector(".next");
+
+    const prevButton = slider.querySelector(".prev");
+
     let current = 0;
 
-    slider.querySelector('.next').addEventListener('click', () => {
-        slides[current].classList.remove('active');
-        current = (current + 1) % slides.length;
-        slides[current].classList.add('active');
+
+    function showSlide(index){
+
+        slides.forEach(function(slide){
+
+            slide.classList.remove("active");
+
+        });
+
+
+        slides[index].classList.add("active");
+
+    }
+
+
+    nextButton.addEventListener("click",function(){
+
+        current++;
+
+        if(current >= slides.length){
+
+            current = 0;
+
+        }
+
+        showSlide(current);
+
     });
 
-    slider.querySelector('.prev').addEventListener('click', () => {
-        slides[current].classList.remove('active');
-        current = (current - 1 + slides.length) % slides.length;
-        slides[current].classList.add('active');
+
+    prevButton.addEventListener("click",function(){
+
+        current--;
+
+        if(current < 0){
+
+            current = slides.length - 1;
+
+        }
+
+        showSlide(current);
+
     });
 
 });
 
+
 </script>
+
+
+
+<!-- ========================================================
+     ADD TO CART JAVASCRIPT
+     ======================================================== -->
 
 <script>
-document.querySelectorAll(".add-to-cart-btn, .add-to-cart").forEach(button => {
-  button.addEventListener("click", () => {
-    let name = button.dataset.name;
-    let price = button.dataset.price;
 
-    // Get existing cart or create new
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+document.querySelectorAll(
+    ".add-to-cart-btn, .add-to-cart"
+).forEach(function(button){
 
-    // Add product
-    cart.push({ name, price });
+    button.addEventListener("click",function(){
 
-    // Save back to localStorage
-    localStorage.setItem("cart", JSON.stringify(cart));
+        const name = button.dataset.name;
 
-    // Redirect to cart page
-    window.location.href = "cart.html";
-  });
+        const price = button.dataset.price;
+
+
+        let cart =
+            JSON.parse(
+                localStorage.getItem("cart")
+            ) || [];
+
+
+        cart.push({
+
+            name:name,
+
+            price:price
+
+        });
+
+
+        localStorage.setItem(
+            "cart",
+            JSON.stringify(cart)
+        );
+
+
+        window.location.href = "cart.html";
+
+    });
+
 });
+
 </script>
-    
+
+
 </body>
+
 </html>
