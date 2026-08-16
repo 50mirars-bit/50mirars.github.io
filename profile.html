@@ -7,12 +7,12 @@
 
     <meta
         name="viewport"
-        content="width=device-width, initial-scale=1.0"
+        content="width=1200"
     >
 
     <meta
         name="theme-color"
-        content="#ffffff"
+        content="#0b0b0b"
     >
 
     <meta
@@ -25,6 +25,10 @@
 
     <style>
 
+        /* =====================================================
+           RESET
+        ===================================================== */
+
         * {
             box-sizing: border-box;
         }
@@ -35,6 +39,7 @@
             padding: 0;
             width: 100%;
             min-height: 100%;
+            scroll-behavior: smooth;
         }
 
 
@@ -49,13 +54,37 @@
                 Helvetica,
                 sans-serif;
 
-            background: #f7f7f7;
+            background:
+                linear-gradient(
+                    135deg,
+                    #f8f8f8 0%,
+                    #ffffff 45%,
+                    #f4f4f4 100%
+                );
 
             color: #111;
 
             display: flex;
             flex-direction: column;
         }
+
+
+        button,
+        input,
+        textarea {
+            font: inherit;
+        }
+
+
+        button {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+
+        a {
+            -webkit-tap-highlight-color: transparent;
+        }
+
 
 
         /* =====================================================
@@ -66,13 +95,16 @@
 
             width: 100%;
 
-            background: #ffffff;
-
-            border-bottom:
-                1px solid #e5e5e5;
+            min-height: 92px;
 
             padding:
-                28px 4%;
+                0 5%;
+
+            background:
+                rgba(255, 255, 255, 0.96);
+
+            border-bottom:
+                1px solid #e8e8e8;
 
             display: flex;
 
@@ -80,7 +112,15 @@
 
             justify-content: space-between;
 
-            gap: 20px;
+            gap: 30px;
+
+            position: relative;
+
+            z-index: 20;
+
+            box-shadow:
+                0 4px 25px
+                rgba(0, 0, 0, 0.035);
         }
 
 
@@ -91,7 +131,7 @@
                 "Times New Roman",
                 serif;
 
-            font-size: 34px;
+            font-size: 30px;
 
             font-weight: 700;
 
@@ -102,27 +142,62 @@
             text-decoration: none;
 
             white-space: nowrap;
+
+            transition:
+                opacity 0.2s ease;
+        }
+
+
+        .logo:hover {
+            opacity: 0.7;
         }
 
 
         .back-home {
 
-            color: #111;
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            color: #222;
 
             text-decoration: none;
 
-            font-size: 16px;
+            font-size: 14px;
 
-            font-weight: 600;
+            font-weight: 700;
 
-            transition: 0.2s;
+            letter-spacing: 0.3px;
+
+            padding:
+                11px 17px;
+
+            border:
+                1px solid #d8d8d8;
+
+            border-radius: 7px;
+
+            background: #ffffff;
+
+            transition:
+                all 0.2s ease;
         }
 
 
         .back-home:hover {
 
-            opacity: 0.6;
+            background: #111;
+
+            color: #fff;
+
+            border-color: #111;
+
+            transform:
+                translateY(-1px);
         }
+
 
 
         /* =====================================================
@@ -142,7 +217,63 @@
             align-items: flex-start;
 
             padding:
-                70px 20px 90px;
+                70px 20px 100px;
+
+            position: relative;
+        }
+
+
+        main::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 520px;
+
+            height: 520px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(184, 145, 75, 0.08),
+                    transparent 68%
+                );
+
+            top: -170px;
+
+            right: -180px;
+
+            pointer-events: none;
+        }
+
+
+        main::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 430px;
+
+            height: 430px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(0, 0, 0, 0.035),
+                    transparent 68%
+                );
+
+            bottom: -150px;
+
+            left: -160px;
+
+            pointer-events: none;
         }
 
 
@@ -150,33 +281,127 @@
 
             width: 100%;
 
-            max-width: 600px;
+            max-width: 660px;
+
+            position: relative;
+
+            z-index: 2;
         }
 
 
+
         /* =====================================================
-           LOGIN CARD
+           ACCOUNT CARD
         ===================================================== */
 
         .account-card {
 
             width: 100%;
 
-            background: #ffffff;
+            background:
+                rgba(255, 255, 255, 0.98);
 
             border:
-                1px solid #e2e2e2;
+                1px solid #dedede;
 
-            border-radius: 16px;
+            border-radius: 20px;
 
             padding:
-                50px 45px;
+                52px 50px;
 
             box-shadow:
-                0 12px 35px
-                rgba(0, 0, 0, 0.06);
+                0 25px 70px
+                rgba(0, 0, 0, 0.08);
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+
+        .account-card::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            width: 100%;
+
+            height: 3px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #111,
+                    #b18a45,
+                    #111
+                );
+        }
+
+
+
+        /* =====================================================
+           LOGIN SECTION
+        ===================================================== */
+
+        .login-brand-mark {
+
+            width: 68px;
+
+            height: 68px;
+
+            margin:
+                0 auto 24px;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: #111;
+
+            color: #d6b06b;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 22px;
+
+            font-weight: 700;
+
+            letter-spacing: 1px;
+
+            box-shadow:
+                0 10px 25px
+                rgba(0, 0, 0, 0.18);
+        }
+
+
+        .eyebrow {
+
+            margin:
+                0 0 10px;
 
             text-align: center;
+
+            color: #a47c38;
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            letter-spacing: 2.5px;
+
+            text-transform: uppercase;
         }
 
 
@@ -185,16 +410,20 @@
             margin:
                 0 0 12px;
 
+            text-align: center;
+
             font-family:
                 Georgia,
                 "Times New Roman",
                 serif;
 
-            font-size: 40px;
+            font-size: 42px;
 
             font-weight: 700;
 
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
+
+            color: #111;
         }
 
 
@@ -203,18 +432,21 @@
             margin:
                 0 auto 35px;
 
-            max-width: 450px;
+            max-width: 470px;
+
+            text-align: center;
 
             color: #707070;
 
-            font-size: 17px;
+            font-size: 16px;
 
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
 
+
         /* =====================================================
-           GOOGLE LOGIN BUTTON
+           GOOGLE BUTTON
         ===================================================== */
 
         .google-button {
@@ -226,13 +458,13 @@
             background: #ffffff;
 
             border:
-                1px solid #bdbdbd;
+                1px solid #c9c9c9;
 
-            border-radius: 8px;
+            border-radius: 9px;
 
             color: #111;
 
-            font-size: 17px;
+            font-size: 16px;
 
             font-weight: 700;
 
@@ -247,19 +479,24 @@
             gap: 12px;
 
             transition:
-                background 0.2s,
-                border 0.2s,
-                transform 0.2s;
+                all 0.25s ease;
         }
 
 
         .google-button:hover {
 
-            background: #f5f5f5;
+            background: #111;
 
-            border-color: #888;
+            border-color: #111;
 
-            transform: translateY(-1px);
+            color: #ffffff;
+
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                0 10px 25px
+                rgba(0, 0, 0, 0.14);
         }
 
 
@@ -270,6 +507,8 @@
             opacity: 0.65;
 
             transform: none;
+
+            box-shadow: none;
         }
 
 
@@ -285,14 +524,20 @@
 
         .login-note {
 
-            margin-top: 22px;
+            margin:
+                22px auto 0;
+
+            max-width: 420px;
 
             color: #888;
 
-            font-size: 13px;
+            font-size: 12px;
 
-            line-height: 1.6;
+            line-height: 1.7;
+
+            text-align: center;
         }
+
 
 
         /* =====================================================
@@ -314,27 +559,66 @@
             align-items: center;
 
             margin-bottom: 35px;
+
+            padding-bottom: 30px;
+
+            border-bottom:
+                1px solid #ededed;
+        }
+
+
+        .profile-image-wrapper {
+
+            position: relative;
+
+            margin-bottom: 18px;
         }
 
 
         .profile-image {
 
-            width: 105px;
+            width: 112px;
 
-            height: 105px;
+            height: 112px;
 
             border-radius: 50%;
 
             object-fit: cover;
 
             border:
-                3px solid #eeeeee;
+                4px solid #ffffff;
 
-            margin-bottom: 18px;
+            outline:
+                1px solid #d5d5d5;
 
             display: block;
 
             background: #f0f0f0;
+
+            box-shadow:
+                0 10px 30px
+                rgba(0, 0, 0, 0.12);
+        }
+
+
+        .online-dot {
+
+            position: absolute;
+
+            width: 17px;
+
+            height: 17px;
+
+            border-radius: 50%;
+
+            background: #2dbb68;
+
+            border:
+                3px solid #ffffff;
+
+            right: 4px;
+
+            bottom: 6px;
         }
 
 
@@ -347,9 +631,13 @@
                 "Times New Roman",
                 serif;
 
-            font-size: 30px;
+            font-size: 31px;
 
             font-weight: 700;
+
+            text-align: center;
+
+            color: #111;
         }
 
 
@@ -360,14 +648,39 @@
 
             color: #777;
 
-            font-size: 15px;
+            font-size: 14px;
 
             word-break: break-word;
+
+            text-align: center;
         }
 
 
+        .member-since {
+
+            margin:
+                13px 0 0;
+
+            padding:
+                7px 12px;
+
+            border-radius: 30px;
+
+            background: #f5f1e9;
+
+            color: #8a6630;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.7px;
+        }
+
+
+
         /* =====================================================
-           PROFILE FORM
+           SECTION HEADING
         ===================================================== */
 
         .section-heading {
@@ -375,24 +688,53 @@
             text-align: left;
 
             margin:
-                0 0 20px;
+                0 0 22px;
 
-            font-size: 21px;
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 23px;
 
             font-weight: 700;
 
-            border-bottom:
-                1px solid #e5e5e5;
+            color: #111;
 
-            padding-bottom: 12px;
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
         }
 
+
+        .section-heading::before {
+
+            content: "";
+
+            display: block;
+
+            width: 4px;
+
+            height: 23px;
+
+            border-radius: 3px;
+
+            background: #b18a45;
+        }
+
+
+
+        /* =====================================================
+           FORM
+        ===================================================== */
 
         .form-group {
 
             text-align: left;
 
-            margin-bottom: 20px;
+            margin-bottom: 21px;
         }
 
 
@@ -402,11 +744,13 @@
 
             margin-bottom: 8px;
 
-            font-size: 14px;
+            font-size: 13px;
 
-            font-weight: 700;
+            font-weight: 800;
 
             color: #333;
+
+            letter-spacing: 0.2px;
         }
 
 
@@ -416,9 +760,9 @@
             width: 100%;
 
             border:
-                1px solid #cfcfcf;
+                1px solid #d0d0d0;
 
-            border-radius: 7px;
+            border-radius: 8px;
 
             padding:
                 14px 15px;
@@ -437,8 +781,15 @@
             outline: none;
 
             transition:
-                border 0.2s,
-                box-shadow 0.2s;
+                border 0.2s ease,
+                box-shadow 0.2s ease,
+                background 0.2s ease;
+        }
+
+
+        .form-group input {
+
+            min-height: 52px;
         }
 
 
@@ -448,16 +799,18 @@
             border-color: #111;
 
             box-shadow:
-                0 0 0 2px
-                rgba(0, 0, 0, 0.05);
+                0 0 0 3px
+                rgba(177, 138, 69, 0.12);
         }
 
 
         .form-group textarea {
 
-            min-height: 110px;
+            min-height: 115px;
 
             resize: vertical;
+
+            line-height: 1.6;
         }
 
 
@@ -468,7 +821,10 @@
             color: #777 !important;
 
             cursor: not-allowed;
+
+            border-color: #dedede !important;
         }
+
 
 
         /* =====================================================
@@ -479,34 +835,54 @@
 
             width: 100%;
 
-            min-height: 54px;
+            min-height: 55px;
 
-            border: none;
+            border:
+                1px solid #111;
 
-            border-radius: 7px;
+            border-radius: 8px;
 
             background: #111;
 
             color: #ffffff;
 
-            font-size: 16px;
+            font-size: 15px;
 
-            font-weight: 700;
+            font-weight: 800;
 
             cursor: pointer;
 
+            letter-spacing: 0.3px;
+
             transition:
-                background 0.2s,
-                transform 0.2s;
+                all 0.25s ease;
         }
 
 
         .save-button:hover {
 
-            background: #333;
+            background: #b18a45;
 
-            transform: translateY(-1px);
+            border-color: #b18a45;
+
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                0 10px 25px
+                rgba(177, 138, 69, 0.22);
         }
+
+
+        .save-button:disabled {
+
+            cursor: wait;
+
+            opacity: 0.65;
+
+            transform: none;
+        }
+
 
 
         /* =====================================================
@@ -528,18 +904,18 @@
 
         .action-button {
 
-            min-height: 50px;
+            min-height: 51px;
 
             border:
-                1px solid #cfcfcf;
+                1px solid #d0d0d0;
 
-            border-radius: 7px;
+            border-radius: 8px;
 
             background: #ffffff;
 
             color: #111;
 
-            font-size: 15px;
+            font-size: 14px;
 
             font-weight: 700;
 
@@ -553,9 +929,10 @@
 
             justify-content: center;
 
+            gap: 7px;
+
             transition:
-                background 0.2s,
-                border 0.2s;
+                all 0.2s ease;
         }
 
 
@@ -564,6 +941,9 @@
             background: #f5f5f5;
 
             border-color: #999;
+
+            transform:
+                translateY(-1px);
         }
 
 
@@ -573,26 +953,25 @@
 
             width: 100%;
 
-            min-height: 50px;
+            min-height: 51px;
 
             border:
-                1px solid #222;
+                1px solid #d4d4d4;
 
-            border-radius: 7px;
+            border-radius: 8px;
 
             background: #ffffff;
 
-            color: #111;
+            color: #555;
 
-            font-size: 15px;
+            font-size: 14px;
 
             font-weight: 700;
 
             cursor: pointer;
 
             transition:
-                background 0.2s,
-                color 0.2s;
+                all 0.2s ease;
         }
 
 
@@ -601,7 +980,10 @@
             background: #111;
 
             color: #ffffff;
+
+            border-color: #111;
         }
+
 
 
         /* =====================================================
@@ -612,21 +994,52 @@
 
             display: none;
 
-            margin-top: 18px;
+            margin-top: 17px;
 
             padding:
                 12px 14px;
 
-            border-radius: 7px;
+            border-radius: 8px;
 
-            background: #f3f3f3;
+            background: #f4f4f4;
 
             color: #333;
 
-            font-size: 14px;
+            font-size: 13px;
 
             line-height: 1.5;
+
+            text-align: center;
+
+            white-space: pre-line;
         }
+
+
+        .status-message.success {
+
+            display: block;
+
+            background: #edf8f1;
+
+            color: #247342;
+
+            border:
+                1px solid #ccebd7;
+        }
+
+
+        .status-message.error {
+
+            display: block;
+
+            background: #fff1f1;
+
+            color: #a32828;
+
+            border:
+                1px solid #f0caca;
+        }
+
 
 
         /* =====================================================
@@ -640,17 +1053,18 @@
             text-align: center;
 
             padding:
-                30px 20px;
+                28px 20px;
 
             color: #777;
 
-            font-size: 14px;
+            font-size: 13px;
 
             background: #ffffff;
 
             border-top:
                 1px solid #e5e5e5;
         }
+
 
 
         /* =====================================================
@@ -661,14 +1075,16 @@
 
             header {
 
+                min-height: 78px;
+
                 padding:
-                    22px 20px;
+                    0 18px;
             }
 
 
             .logo {
 
-                font-size: 25px;
+                font-size: 23px;
 
                 letter-spacing: 3px;
             }
@@ -676,35 +1092,38 @@
 
             .back-home {
 
-                font-size: 14px;
+                font-size: 12px;
+
+                padding:
+                    9px 11px;
             }
 
 
             main {
 
                 padding:
-                    35px 14px 55px;
+                    35px 12px 60px;
             }
 
 
             .account-card {
 
                 padding:
-                    35px 22px;
+                    38px 22px;
 
-                border-radius: 12px;
+                border-radius: 15px;
             }
 
 
             .account-title {
 
-                font-size: 32px;
+                font-size: 34px;
             }
 
 
             .account-subtitle {
 
-                font-size: 15px;
+                font-size: 14px;
 
                 margin-bottom: 28px;
             }
@@ -712,7 +1131,7 @@
 
             .profile-name {
 
-                font-size: 26px;
+                font-size: 27px;
             }
 
 
@@ -722,9 +1141,65 @@
             }
 
 
+            .profile-image {
+
+                width: 100px;
+
+                height: 100px;
+            }
+
+
+            .section-heading {
+
+                font-size: 21px;
+            }
+
+
             footer {
 
-                font-size: 13px;
+                font-size: 12px;
+
+                padding:
+                    24px 15px;
+            }
+
+        }
+
+
+
+        /* =====================================================
+           VERY SMALL SCREENS
+        ===================================================== */
+
+        @media (max-width: 380px) {
+
+            .logo {
+
+                font-size: 20px;
+
+                letter-spacing: 2px;
+            }
+
+
+            .back-home {
+
+                font-size: 11px;
+
+                padding:
+                    8px 9px;
+            }
+
+
+            .account-card {
+
+                padding:
+                    32px 17px;
+            }
+
+
+            .account-title {
+
+                font-size: 30px;
             }
 
         }
@@ -761,6 +1236,7 @@
     </header>
 
 
+
     <!-- =====================================================
          MAIN
     ===================================================== -->
@@ -779,15 +1255,25 @@
                 class="account-card"
             >
 
+                <div class="login-brand-mark">
+                    50
+                </div>
+
+
+                <p class="eyebrow">
+                    50 Mirars
+                </p>
+
+
                 <h1 class="account-title">
                     My Account
                 </h1>
 
 
                 <p class="account-subtitle">
-                    Sign in to your 50 Mirars account
-                    to manage your profile and
-                    customer details.
+                    Sign in securely with Google to manage
+                    your personal details, delivery address
+                    and 50 Mirars shopping account.
                 </p>
 
 
@@ -840,8 +1326,8 @@
 
 
                 <p class="login-note">
-                    Your Google account is used securely
-                    to create and access your 50 Mirars account.
+                    🔒 Your Google account is used securely.
+                    Your password is never shared with 50 Mirars.
                 </p>
 
             </section>
@@ -862,12 +1348,18 @@
 
                 <div class="profile-top">
 
-                    <img
-                        id="profile-image"
-                        class="profile-image"
-                        src=""
-                        alt="Customer Profile"
-                    >
+                    <div class="profile-image-wrapper">
+
+                        <img
+                            id="profile-image"
+                            class="profile-image"
+                            src=""
+                            alt="Customer Profile"
+                        >
+
+                        <span class="online-dot"></span>
+
+                    </div>
 
 
                     <h1
@@ -884,6 +1376,14 @@
                     >
                         customer@example.com
                     </p>
+
+
+                    <div
+                        id="member-since"
+                        class="member-since"
+                    >
+                        50 MIRARS MEMBER
+                    </div>
 
                 </div>
 
@@ -907,7 +1407,8 @@
                     <input
                         type="text"
                         id="customer-name"
-                        placeholder="Your full name"
+                        placeholder="Enter your full name"
+                        autocomplete="name"
                     >
 
                 </div>
@@ -944,6 +1445,7 @@
                         id="customer-phone"
                         placeholder="Enter your phone number"
                         maxlength="15"
+                        autocomplete="tel"
                     >
 
                 </div>
@@ -959,7 +1461,8 @@
 
                     <textarea
                         id="customer-address"
-                        placeholder="Enter your complete delivery address"
+                        placeholder="House / Flat No., Street, Area, City, State, PIN Code"
+                        autocomplete="street-address"
                     ></textarea>
 
                 </div>
@@ -1041,6 +1544,7 @@
 
     <script type="module">
 
+
         /* =====================================================
            FIREBASE IMPORTS
         ===================================================== */
@@ -1063,11 +1567,19 @@
         "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 
 
+        import {
+            getFirestore,
+            doc,
+            getDoc,
+            setDoc,
+            serverTimestamp
+        } from
+        "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+
 
         /* =====================================================
            FIREBASE CONFIGURATION
-           
-           THIS IS YOUR CURRENT FIREBASE CONFIGURATION
         ===================================================== */
 
         const firebaseConfig = {
@@ -1109,6 +1621,10 @@
             getAuth(app);
 
 
+        const db =
+            getFirestore(app);
+
+
         const provider =
             new GoogleAuthProvider();
 
@@ -1123,7 +1639,7 @@
 
 
         /* =====================================================
-           GET PAGE ELEMENTS
+           ELEMENTS
         ===================================================== */
 
         const loginSection =
@@ -1174,6 +1690,12 @@
             );
 
 
+        const memberSince =
+            document.getElementById(
+                "member-since"
+            );
+
+
         const customerName =
             document.getElementById(
                 "customer-name"
@@ -1218,16 +1740,20 @@
 
 
         /* =====================================================
-           SHOW STATUS MESSAGE
+           STATUS FUNCTIONS
         ===================================================== */
 
-        function showLoginStatus(message) {
+        function showLoginStatus(
+            message,
+            type = "error"
+        ) {
 
             loginStatus.innerText =
                 message;
 
-            loginStatus.style.display =
-                "block";
+            loginStatus.className =
+                "status-message " +
+                type;
 
         }
 
@@ -1240,13 +1766,17 @@
         }
 
 
-        function showSaveStatus(message) {
+        function showSaveStatus(
+            message,
+            type = "success"
+        ) {
 
             saveStatus.innerText =
                 message;
 
-            saveStatus.style.display =
-                "block";
+            saveStatus.className =
+                "status-message " +
+                type;
 
         }
 
@@ -1278,42 +1808,24 @@
                         provider
                     );
 
-
-                    console.log(
-                        "Google sign-in successful."
-                    );
-
                 }
-
 
                 catch (error) {
 
                     console.error(
-                        "Firebase Google Login Error"
-                    );
-
-                    console.error(
-                        "Code:",
-                        error.code
-                    );
-
-                    console.error(
-                        "Message:",
-                        error.message
+                        "Google Login Error:",
+                        error
                     );
 
 
                     /*
-                       If the popup was blocked,
-                       try redirect login.
+                       Only use redirect when the
+                       browser actually blocks popups.
                     */
 
                     if (
                         error.code ===
-                        "auth/popup-blocked" ||
-
-                        error.code ===
-                        "auth/popup-closed-by-user"
+                        "auth/popup-blocked"
                     ) {
 
                         try {
@@ -1327,16 +1839,35 @@
 
                         }
 
-                        catch (
-                            redirectError
-                        ) {
+                        catch (redirectError) {
 
                             console.error(
-                                "Redirect error:",
+                                "Redirect Login Error:",
                                 redirectError
                             );
 
+                            showLoginStatus(
+                                "Google sign-in could not be completed. Please try again.",
+                                "error"
+                            );
+
                         }
+
+                    }
+
+                    else if (
+                        error.code !==
+                        "auth/popup-closed-by-user"
+                    ) {
+
+                        showLoginStatus(
+
+                            "Google sign-in failed.\n\n" +
+                            "Please try again.",
+
+                            "error"
+
+                        );
 
                     }
 
@@ -1348,29 +1879,6 @@
                     googleButtonText.innerText =
                         "Continue with Google";
 
-
-                    showLoginStatus(
-
-                        "Google sign-in failed.\n\n" +
-                        "Error Code: " +
-                        error.code +
-                        "\n\n" +
-                        error.message
-
-                    );
-
-
-                    alert(
-
-                        "GOOGLE LOGIN ERROR\n\n" +
-                        "Code:\n" +
-                        error.code +
-                        "\n\n" +
-                        "Message:\n" +
-                        error.message
-
-                    );
-
                 }
 
             }
@@ -1379,7 +1887,7 @@
 
 
         /* =====================================================
-           HANDLE REDIRECT LOGIN
+           REDIRECT LOGIN RESULT
         ===================================================== */
 
         getRedirectResult(auth)
@@ -1390,7 +1898,7 @@
                     if (result) {
 
                         console.log(
-                            "Redirect Google login successful."
+                            "Google redirect login successful."
                         );
 
                     }
@@ -1406,19 +1914,11 @@
                         error
                     );
 
-                    if (error.code) {
 
-                        showLoginStatus(
-
-                            "Google sign-in failed.\n\n" +
-                            "Error Code: " +
-                            error.code +
-                            "\n\n" +
-                            error.message
-
-                        );
-
-                    }
+                    showLoginStatus(
+                        "Google sign-in could not be completed. Please try again.",
+                        "error"
+                    );
 
                 }
             );
@@ -1426,10 +1926,158 @@
 
 
         /* =====================================================
-           LOAD SAVED CUSTOMER DETAILS
+           LOAD CUSTOMER FROM FIRESTORE
         ===================================================== */
 
-        function loadSavedDetails(user) {
+        async function loadFirestoreProfile(user) {
+
+            if (!user) {
+
+                return;
+
+            }
+
+
+            try {
+
+                const customerRef =
+                    doc(
+                        db,
+                        "customers",
+                        user.uid
+                    );
+
+
+                const customerSnapshot =
+                    await getDoc(
+                        customerRef
+                    );
+
+
+                if (
+                    customerSnapshot.exists()
+                ) {
+
+                    const data =
+                        customerSnapshot.data();
+
+
+                    if (
+                        data.name !==
+                        undefined
+                    ) {
+
+                        customerName.value =
+                            data.name;
+
+                    }
+
+
+                    if (
+                        data.phone !==
+                        undefined
+                    ) {
+
+                        customerPhone.value =
+                            data.phone;
+
+                    }
+
+
+                    if (
+                        data.address !==
+                        undefined
+                    ) {
+
+                        customerAddress.value =
+                            data.address;
+
+                    }
+
+
+                    console.log(
+                        "Customer profile loaded from Firestore."
+                    );
+
+                }
+
+                else {
+
+                    /*
+                       First login:
+                       create the customer document.
+                    */
+
+                    await setDoc(
+
+                        customerRef,
+
+                        {
+
+                            name:
+                                user.displayName ||
+                                "50 Mirars Customer",
+
+                            email:
+                                user.email || "",
+
+                            phone:
+                                "",
+
+                            address:
+                                "",
+
+                            photoURL:
+                                user.photoURL || "",
+
+                            createdAt:
+                                serverTimestamp(),
+
+                            updatedAt:
+                                serverTimestamp()
+
+                        },
+
+                        {
+                            merge: true
+                        }
+
+                    );
+
+
+                    console.log(
+                        "New customer document created."
+                    );
+
+                }
+
+            }
+
+            catch (error) {
+
+                console.error(
+                    "Firestore profile loading error:",
+                    error
+                );
+
+
+                /*
+                   Local storage fallback.
+                */
+
+                loadLocalProfile(user);
+
+            }
+
+        }
+
+
+
+        /* =====================================================
+           LOCAL STORAGE FALLBACK
+        ===================================================== */
+
+        function loadLocalProfile(user) {
 
             if (!user) {
 
@@ -1501,7 +2149,7 @@
             catch (error) {
 
                 console.error(
-                    "Could not load saved profile:",
+                    "Local profile loading error:",
                     error
                 );
 
@@ -1512,7 +2160,7 @@
 
 
         /* =====================================================
-           DISPLAY CUSTOMER PROFILE
+           DISPLAY USER
         ===================================================== */
 
         function displayUser(user) {
@@ -1524,14 +2172,17 @@
             }
 
 
-            /* ---------------------------------------------
-               PROFILE NAME
-            --------------------------------------------- */
-
             const name =
                 user.displayName ||
                 "50 Mirars Customer";
 
+
+            const email =
+                user.email ||
+                "";
+
+
+            /* PROFILE NAME */
 
             profileName.innerText =
                 name;
@@ -1541,14 +2192,7 @@
                 name;
 
 
-            /* ---------------------------------------------
-               EMAIL
-            --------------------------------------------- */
-
-            const email =
-                user.email ||
-                "";
-
+            /* EMAIL */
 
             profileEmail.innerText =
                 email;
@@ -1558,9 +2202,7 @@
                 email;
 
 
-            /* ---------------------------------------------
-               PROFILE IMAGE
-            --------------------------------------------- */
+            /* PHOTO */
 
             if (user.photoURL) {
 
@@ -1574,16 +2216,47 @@
                 profileImage.src =
                     "https://ui-avatars.com/api/?name=" +
                     encodeURIComponent(name) +
-                    "&background=f0f0f0&color=111111";
+                    "&background=111111&color=d6b06b";
 
             }
 
 
-            /* ---------------------------------------------
-               LOAD SAVED DETAILS
-            --------------------------------------------- */
+            /* MEMBER SINCE */
 
-            loadSavedDetails(user);
+            if (
+                user.metadata &&
+                user.metadata.creationTime
+            ) {
+
+                const date =
+                    new Date(
+                        user.metadata.creationTime
+                    );
+
+
+                const formatted =
+                    date.toLocaleDateString(
+                        "en-IN",
+                        {
+                            month: "long",
+                            year: "numeric"
+                        }
+                    );
+
+
+                memberSince.innerText =
+                    "MEMBER SINCE " +
+                    formatted.toUpperCase();
+
+            }
+
+
+            /*
+               Load Firestore after basic
+               Firebase information is displayed.
+            */
+
+            loadFirestoreProfile(user);
 
         }
 
@@ -1603,13 +2276,9 @@
 
                     console.log(
                         "Customer logged in:",
-                        user
+                        user.uid
                     );
 
-
-                    /* -----------------------------------------
-                       SHOW PROFILE
-                    ----------------------------------------- */
 
                     loginSection.style.display =
                         "none";
@@ -1619,24 +2288,11 @@
                         "block";
 
 
-                    /* -----------------------------------------
-                       DISPLAY CUSTOMER
-                    ----------------------------------------- */
-
                     displayUser(user);
 
                 }
 
                 else {
-
-                    console.log(
-                        "No customer logged in."
-                    );
-
-
-                    /* -----------------------------------------
-                       SHOW LOGIN
-                    ----------------------------------------- */
 
                     loginSection.style.display =
                         "block";
@@ -1669,7 +2325,7 @@
 
             "click",
 
-            function () {
+            async function () {
 
                 const user =
                     auth.currentUser;
@@ -1698,6 +2354,9 @@
                     customerAddress.value.trim();
 
 
+
+                /* VALIDATION */
+
                 if (!name) {
 
                     alert(
@@ -1724,6 +2383,30 @@
                 }
 
 
+                const cleanPhone =
+                    phone.replace(
+                        /[\s\-()+]/g,
+                        ""
+                    );
+
+
+                if (
+                    !/^\d{10,15}$/.test(
+                        cleanPhone
+                    )
+                ) {
+
+                    alert(
+                        "Please enter a valid phone number."
+                    );
+
+                    customerPhone.focus();
+
+                    return;
+
+                }
+
+
                 if (!address) {
 
                     alert(
@@ -1737,69 +2420,175 @@
                 }
 
 
-                /* ---------------------------------------------
-                   CREATE USER-SPECIFIC STORAGE KEY
-                --------------------------------------------- */
 
-                const storageKey =
-                    "50mirars_profile_" +
-                    user.uid;
+                /* BUTTON LOADING */
+
+                saveProfile.disabled =
+                    true;
 
 
-                const profileData = {
-
-                    name:
-                        name,
-
-                    email:
-                        user.email || "",
-
-                    phone:
-                        phone,
-
-                    address:
-                        address,
-
-                    photoURL:
-                        user.photoURL || "",
-
-                    updatedAt:
-                        new Date().toISOString()
-
-                };
+                saveProfile.innerText =
+                    "Saving Profile...";
 
 
-                /* ---------------------------------------------
-                   SAVE
-                --------------------------------------------- */
-
-                localStorage.setItem(
-
-                    storageKey,
-
-                    JSON.stringify(
-                        profileData
-                    )
-
-                );
+                saveStatus.style.display =
+                    "none";
 
 
-                /* ---------------------------------------------
-                   UPDATE SCREEN
-                --------------------------------------------- */
 
-                profileName.innerText =
-                    name;
+                try {
+
+                    /*
+                       Firestore document:
+                       customers / USER_UID
+                    */
+
+                    const customerRef =
+                        doc(
+                            db,
+                            "customers",
+                            user.uid
+                        );
 
 
-                showSaveStatus(
-                    "Profile saved successfully."
-                );
+                    const profileData = {
+
+                        name:
+                            name,
+
+                        email:
+                            user.email || "",
+
+                        phone:
+                            phone,
+
+                        address:
+                            address,
+
+                        photoURL:
+                            user.photoURL || "",
+
+                        updatedAt:
+                            serverTimestamp()
+
+                    };
 
 
-                alert(
-                    "Your 50 Mirars profile has been saved successfully."
-                );
+                    await setDoc(
+
+                        customerRef,
+
+                        profileData,
+
+                        {
+                            merge: true
+                        }
+
+                    );
+
+
+
+                    /* LOCAL BACKUP */
+
+                    const storageKey =
+                        "50mirars_profile_" +
+                        user.uid;
+
+
+                    localStorage.setItem(
+
+                        storageKey,
+
+                        JSON.stringify({
+
+                            name:
+                                name,
+
+                            email:
+                                user.email || "",
+
+                            phone:
+                                phone,
+
+                            address:
+                                address,
+
+                            photoURL:
+                                user.photoURL || "",
+
+                            updatedAt:
+                                new Date().toISOString()
+
+                        })
+
+                    );
+
+
+
+                    /* UPDATE SCREEN */
+
+                    profileName.innerText =
+                        name;
+
+
+                    showSaveStatus(
+                        "✓ Your profile has been saved successfully.",
+                        "success"
+                    );
+
+
+                    /*
+                       Automatically hide message
+                       after a few seconds.
+                    */
+
+                    setTimeout(
+                        function () {
+
+                            saveStatus.style.display =
+                                "none";
+
+                        },
+                        5000
+                    );
+
+                }
+
+                catch (error) {
+
+                    console.error(
+                        "Profile save error:",
+                        error
+                    );
+
+
+                    showSaveStatus(
+
+                        "We could not save your profile right now.\nPlease try again.",
+
+                        "error"
+
+                    );
+
+                    alert(
+
+                        "Profile could not be saved.\n\n" +
+                        "Please check your internet connection and try again."
+
+                    );
+
+                }
+
+                finally {
+
+                    saveProfile.disabled =
+                        false;
+
+
+                    saveProfile.innerText =
+                        "Save Profile";
+
+                }
 
             }
 
@@ -1819,7 +2608,7 @@
 
                 const confirmLogout =
                     confirm(
-                        "Are you sure you want to logout?"
+                        "Are you sure you want to logout from your 50 Mirars account?"
                     );
 
 
@@ -1830,14 +2619,17 @@
                 }
 
 
+                logoutButton.disabled =
+                    true;
+
+
+                logoutButton.innerText =
+                    "Logging out...";
+
+
                 try {
 
                     await signOut(auth);
-
-
-                    console.log(
-                        "Customer logged out."
-                    );
 
 
                     window.location.href =
@@ -1853,14 +2645,16 @@
                     );
 
 
+                    logoutButton.disabled =
+                        false;
+
+
+                    logoutButton.innerText =
+                        "Logout";
+
+
                     alert(
-
-                        "Logout failed.\n\n" +
-                        "Code: " +
-                        error.code +
-                        "\n\n" +
-                        error.message
-
+                        "Logout failed. Please try again."
                     );
 
                 }
@@ -1868,6 +2662,8 @@
             }
 
         );
+
+
 
     </script>
 
