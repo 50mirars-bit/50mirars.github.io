@@ -569,287 +569,325 @@
 
     <script type="module">
 
-
-        /* =====================================================
-           FIREBASE IMPORTS
-        ===================================================== */
-
-        import {
-            initializeApp
-        }
-        from
-            "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+    import {
+        initializeApp
+    } from
+        "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
 
 
-        import {
-            getAuth,
-            GoogleAuthProvider,
-            signInWithPopup,
-            signOut,
-            onAuthStateChanged
-        }
-        from
-            "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+    import {
+        getAuth,
+        GoogleAuthProvider,
+        signInWithPopup,
+        signOut,
+        onAuthStateChanged
+    } from
+        "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 
 
+    /* =====================================================
+       FIREBASE CONFIG
+    ===================================================== */
 
-        /* =====================================================
-           YOUR FIREBASE CONFIG
-        ===================================================== */
+    const firebaseConfig = {
 
-        const firebaseConfig = {
+        apiKey:
+            "AIzaSyD5oZFZRUDnmb2d1_juGTeWAbQcy3gycjc",
 
-            apiKey:
-                "AIzaSyD5oZFZRUDnmb2d1_juGTeWAbQcy3gycjc",
+        authDomain:
+            "mirars-project.firebaseapp.com",
 
-            authDomain:
-                "mirars-project.firebaseapp.com",
+        projectId:
+            "mirars-project",
 
-            projectId:
-                "mirars-project",
+        storageBucket:
+            "mirars-project.firebasestorage.app",
 
-            storageBucket:
-                "mirars-project.firebasestorage.app",
+        messagingSenderId:
+            "947955901957",
 
-            messagingSenderId:
-                "947955901957",
+        appId:
+            "1:947955901957:web:67bb04627f25bf2a419e6c",
 
-            appId:
-                "1:947955901957:web:67bb04627f25bf2a419e6c",
+        measurementId:
+            "G-HXESQZER5L"
 
-            measurementId:
-                "G-HXESQZER5L"
-
-        };
-
+    };
 
 
-        /* =====================================================
-           INITIALIZE FIREBASE
-        ===================================================== */
+    /* =====================================================
+       INITIALIZE FIREBASE
+    ===================================================== */
 
-        const app =
-            initializeApp(
-                firebaseConfig
-            );
+    const app =
+        initializeApp(firebaseConfig);
 
+    const auth =
+        getAuth(app);
 
-        const auth =
-            getAuth(app);
-
-
-        const provider =
-            new GoogleAuthProvider();
+    const provider =
+        new GoogleAuthProvider();
 
 
+    /* =====================================================
+       GET HTML ELEMENTS
+    ===================================================== */
 
-        /* =====================================================
-           ELEMENTS
-        ===================================================== */
+    const loginSection =
+        document.getElementById("login-section");
 
-        const loginSection =
-            document.getElementById(
-                "login-section"
-            );
+    const profileSection =
+        document.getElementById("profile-section");
 
+    const googleLogin =
+        document.getElementById("google-login");
 
-        const profileSection =
-            document.getElementById(
-                "profile-section"
-            );
+    const logoutButton =
+        document.getElementById("logout-button");
 
+    const profileImage =
+        document.getElementById("profile-image");
 
-        const googleLogin =
-            document.getElementById(
-                "google-login"
-            );
+    const profileName =
+        document.getElementById("profile-name");
 
-
-        const logoutButton =
-            document.getElementById(
-                "logout-button"
-            );
+    const profileEmail =
+        document.getElementById("profile-email");
 
 
-        const profileImage =
-            document.getElementById(
-                "profile-image"
-            );
+    /* =====================================================
+       GOOGLE LOGIN
+    ===================================================== */
+
+    googleLogin.addEventListener(
+        "click",
+        async function () {
+
+            googleLogin.disabled = true;
+
+            googleLogin.innerText =
+                "Opening Google...";
 
 
-        const profileName =
-            document.getElementById(
-                "profile-name"
-            );
+            try {
+
+                provider.setCustomParameters({
+                    prompt: "select_account"
+                });
 
 
-        const profileEmail =
-            document.getElementById(
-                "profile-email"
-            );
-
-
-
-        /* =====================================================
-           GOOGLE LOGIN
-        ===================================================== */
-
-        googleLogin.addEventListener(
-            "click",
-            async function() {
-
-                try {
-
-                    googleLogin.disabled =
-                        true;
-
-                    googleLogin.innerText =
-                        "Signing in...";
-
-
+                const result =
                     await signInWithPopup(
                         auth,
                         provider
                     );
 
 
-                }
+                console.log(
+                    "Google login successful"
+                );
 
-                catch (error) {
+                console.log(
+                    "User:",
+                    result.user
+                );
 
-    console.error("Firebase Google Login Error:");
-    console.error("Code:", error.code);
-    console.error("Message:", error.message);
-    console.error(error);
 
-    alert(
-        "Google sign-in failed.\n\n" +
-        "Error: " +
-        error.code +
-        "\n\n" +
-        error.message
+            }
+
+            catch (error) {
+
+                console.error(
+                    "=============================="
+                );
+
+                console.error(
+                    "FIREBASE GOOGLE LOGIN ERROR"
+                );
+
+                console.error(
+                    "Error Code:",
+                    error.code
+                );
+
+                console.error(
+                    "Error Message:",
+                    error.message
+                );
+
+                console.error(
+                    "Full Error:",
+                    error
+                );
+
+                console.error(
+                    "=============================="
+                );
+
+
+                alert(
+                    "GOOGLE LOGIN ERROR\n\n" +
+                    "Code:\n" +
+                    error.code +
+                    "\n\nMessage:\n" +
+                    error.message
+                );
+
+
+                googleLogin.disabled =
+                    false;
+
+                googleLogin.innerText =
+                    "Continue with Google";
+
+            }
+
+        }
     );
 
-    googleLogin.disabled = false;
 
-    googleLogin.innerText =
-        "Continue with Google";
+    /* =====================================================
+       CHECK LOGIN STATUS
+    ===================================================== */
 
-}
+    onAuthStateChanged(
+        auth,
+        function (user) {
 
+            if (user) {
 
+                console.log(
+                    "Customer is logged in:"
+                );
 
-        /* =====================================================
-           AUTHENTICATION STATE
-        ===================================================== */
-
-        onAuthStateChanged(
-            auth,
-            function(user) {
-
-
-                if (user) {
-
-                    /* ================================
-                       USER IS LOGGED IN
-                    ================================= */
+                console.log(user);
 
 
-                    loginSection.style.display =
-                        "none";
+                /* -----------------------------------------
+                   HIDE LOGIN
+                ----------------------------------------- */
+
+                loginSection.style.display =
+                    "none";
 
 
-                    profileSection.style.display =
-                        "block";
+                /* -----------------------------------------
+                   SHOW PROFILE
+                ----------------------------------------- */
+
+                profileSection.style.display =
+                    "block";
 
 
-                    profileName.innerText =
-                        user.displayName ||
-                        "50 Mirars Customer";
+                /* -----------------------------------------
+                   CUSTOMER NAME
+                ----------------------------------------- */
+
+                profileName.innerText =
+                    user.displayName ||
+                    "50 Mirars Customer";
 
 
-                    profileEmail.innerText =
-                        user.email ||
-                        "";
+                /* -----------------------------------------
+                   CUSTOMER EMAIL
+                ----------------------------------------- */
+
+                profileEmail.innerText =
+                    user.email ||
+                    "";
 
 
-                    if (
-                        user.photoURL
-                    ) {
+                /* -----------------------------------------
+                   GOOGLE PROFILE IMAGE
+                ----------------------------------------- */
 
-                        profileImage.src =
-                            user.photoURL;
+                if (user.photoURL) {
 
-                    }
+                    profileImage.src =
+                        user.photoURL;
 
-
-                }
-
-                else {
-
-                    /* ================================
-                       USER IS LOGGED OUT
-                    ================================= */
-
-
-                    loginSection.style.display =
-                        "block";
-
-
-                    profileSection.style.display =
-                        "none";
-
-
-                    googleLogin.disabled =
-                        false;
-
-
-                    googleLogin.innerText =
-                        "Continue with Google";
+                    profileImage.style.display =
+                        "inline-block";
 
                 }
+
 
             }
-        );
+
+            else {
+
+                console.log(
+                    "No customer is logged in."
+                );
 
 
+                /* -----------------------------------------
+                   SHOW LOGIN
+                ----------------------------------------- */
 
-        /* =====================================================
-           LOGOUT
-        ===================================================== */
-
-        logoutButton.addEventListener(
-            "click",
-            async function() {
-
-                try {
-
-                    await signOut(
-                        auth
-                    );
+                loginSection.style.display =
+                    "block";
 
 
-                }
+                /* -----------------------------------------
+                   HIDE PROFILE
+                ----------------------------------------- */
 
-                catch (error) {
-
-                    console.error(
-                        error
-                    );
+                profileSection.style.display =
+                    "none";
 
 
-                    alert(
-                        "Unable to log out. Please try again."
-                    );
+                googleLogin.disabled =
+                    false;
 
-                }
+                googleLogin.innerText =
+                    "Continue with Google";
 
             }
-        );
+
+        }
+    );
 
 
-    </script>
+    /* =====================================================
+       LOGOUT
+    ===================================================== */
 
+    logoutButton.addEventListener(
+        "click",
+        async function () {
+
+            try {
+
+                await signOut(auth);
+
+                console.log(
+                    "Customer logged out."
+                );
+
+            }
+
+            catch (error) {
+
+                console.error(
+                    "Logout error:",
+                    error
+                );
+
+
+                alert(
+                    "Logout failed.\n\n" +
+                    error.code +
+                    "\n\n" +
+                    error.message
+                );
+
+            }
+
+        }
+    );
+
+</script>
 
 </body>
 
