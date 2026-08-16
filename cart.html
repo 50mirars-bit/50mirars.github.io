@@ -2923,12 +2923,18 @@ function() {
    PROCEED TO DELIVERY
 ===================================================== */
 
+/* =====================================================
+   PROCEED TO DELIVERY
+===================================================== */
+
 window.goToDelivery =
 async function() {
 
-    if (
-        !authReady
-    ) {
+    /* ---------------------------------------------
+       WAIT FOR FIREBASE AUTH CHECK
+    --------------------------------------------- */
+
+    if (!authReady) {
 
         alert(
             "Please wait while your account is being checked."
@@ -2938,6 +2944,10 @@ async function() {
 
     }
 
+
+    /* ---------------------------------------------
+       CHECK CART
+    --------------------------------------------- */
 
     if (
         customerCart.length === 0
@@ -2952,17 +2962,41 @@ async function() {
     }
 
 
+    /* ---------------------------------------------
+       CHECK LOGIN
+    --------------------------------------------- */
+
+    if (!currentUser) {
+
+        alert(
+            "Please sign in to your account before proceeding to delivery."
+        );
+
+        /*
+           Send the customer to the profile/login page.
+           After signing in, they can return to the cart
+           and proceed to delivery.
+        */
+
+        window.location.href =
+            "profile.html";
+
+        return;
+
+    }
+
+
+    /* ---------------------------------------------
+       CUSTOMER IS SIGNED IN
+       SAVE CART BEFORE DELIVERY
+    --------------------------------------------- */
+
     checkoutButton.disabled =
         true;
 
     checkoutButton.innerText =
         "Saving Cart...";
 
-
-    /*
-       Make sure latest cart is saved
-       before moving to delivery.
-    */
 
     const saved =
         await saveCustomerCart();
@@ -2986,16 +3020,16 @@ async function() {
     }
 
 
-    /*
-       Save latest totals.
-    */
+    /* ---------------------------------------------
+       SAVE LATEST TOTALS
+    --------------------------------------------- */
 
     updateSummary();
 
 
-    /*
-       Continue to delivery.
-    */
+    /* ---------------------------------------------
+       GO TO DELIVERY
+    --------------------------------------------- */
 
     window.location.href =
         "delivery.html";
