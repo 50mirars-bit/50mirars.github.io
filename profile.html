@@ -2119,12 +2119,13 @@ async function loadCustomerProfile(user) {
 
 
         showStatus(
-            profileStatus,
-            "Profile could not be loaded. " +
-            "Please check your internet connection.",
-            "error"
-        );
-
+    profileStatus,
+    "Profile could not be loaded: " +
+    error.code +
+    " — " +
+    error.message,
+    "error"
+);
     }
 
 }
