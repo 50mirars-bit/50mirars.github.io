@@ -2981,78 +2981,69 @@ document.querySelectorAll(".slider").forEach(function(slider) {
 
 <script>
 
-document.addEventListener("DOMContentLoaded", function() {
+document
+    .querySelectorAll(".add-to-cart-btn, .add-to-cart")
+    .forEach(function(button) {
 
-    document
-        .querySelectorAll(
-            ".add-to-cart-btn, .add-to-cart"
-        )
-        .forEach(function(button) {
+        button.addEventListener("click", function() {
 
-            button.addEventListener(
-                "click",
-                function() {
+            const name =
+                button.dataset.name || "";
 
-                    const name =
-                        button.dataset.name || "";
+            const price =
+                button.dataset.price || "0";
 
-                    const price =
-                        button.dataset.price || "0";
-
-                    const image =
-                        button.dataset.image || "";
+            const image =
+                button.dataset.image || "";
 
 
-                    /* -----------------------------------------
-                       GET EXISTING CART
-                    ----------------------------------------- */
+            /* -------------------------------------------------
+               GET EXISTING CART
+            ------------------------------------------------- */
 
-                    let cart =
-                        JSON.parse(
-                            localStorage.getItem("cart")
-                        ) || [];
-
-
-                    /* -----------------------------------------
-                       ADD PRODUCT
-                    ----------------------------------------- */
-
-                    cart.push({
-
-                        name: name,
-
-                        price: price,
-
-                        image: image
-
-                    });
+            let cart =
+                JSON.parse(
+                    localStorage.getItem("cart")
+                ) || [];
 
 
-                    /* -----------------------------------------
-                       SAVE CART
-                    ----------------------------------------- */
+            /* -------------------------------------------------
+               ADD PRODUCT
+            ------------------------------------------------- */
 
-                    localStorage.setItem(
-                        "cart",
-                        JSON.stringify(cart)
-                    );
+            cart.push({
+
+                name: name,
+
+                price: price,
+
+                image: image
+
+            });
 
 
-                    /* -----------------------------------------
-                       REDIRECT TO CART
-                    ----------------------------------------- */
+            /* -------------------------------------------------
+               SAVE CART
+            ------------------------------------------------- */
 
-                    window.location.href =
-                        "cart.html";
-
-                }
+            localStorage.setItem(
+                "cart",
+                JSON.stringify(cart)
             );
+
+
+            /* -------------------------------------------------
+               REDIRECT TO CART
+            ------------------------------------------------- */
+
+            window.location.href = "cart.html";
 
         });
 
-});
+    });
 
 </script>
+
 
 </body>
 
