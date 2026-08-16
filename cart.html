@@ -1876,22 +1876,44 @@ function mergeCarts(
 
 async function loadCustomerCart() {
 
+    /*
+       Always start with the cart saved
+       on this device.
+    */
+
+    const localCart =
+        normalizeCart(
+            getLocalCart()
+        );
+
+
+    /*
+       If user is not signed in,
+       use local cart only.
+    */
+
     if (!currentUser) {
 
         customerCart =
-            normalizeCart(
-                getLocalCart()
-            );
+            localCart;
 
-        return;
+        return true;
 
     }
 
 
+    /*
+       Signed-in customer
+    */
+
     try {
 
         const cartRef =
-            getCartDocument();
+            doc(
+                db,
+                "carts",
+                currentUser.uid
+            );
 
 
         const cartSnapshot =
@@ -1900,14 +1922,8 @@ async function loadCustomerCart() {
             );
 
 
-        const localCart =
-            normalizeCart(
-                getLocalCart()
-            );
-
-
         /*
-           CUSTOMER ALREADY HAS A FIRESTORE CART
+           Customer has a Firebase cart
         */
 
         if (
@@ -1925,9 +1941,8 @@ async function loadCustomerCart() {
 
 
             /*
-               If there are guest items on this
-               device, merge them with the
-               customer's online cart.
+               If there is a local cart,
+               merge it with Firebase cart.
             */
 
             if (
@@ -1940,14 +1955,6 @@ async function loadCustomerCart() {
                         localCart
                     );
 
-
-                /*
-                   Save the merged cart back
-                   to the customer's account.
-                */
-
-                await saveCustomerCart();
-
             }
 
             else {
@@ -1955,18 +1962,12 @@ async function loadCustomerCart() {
                 customerCart =
                     onlineCart;
 
-
-                saveLocalCart(
-                    customerCart
-                );
-
             }
 
         }
 
         /*
-           CUSTOMER DOES NOT HAVE A
-           FIRESTORE CART YET
+           No Firebase cart yet
         */
 
         else {
@@ -1974,42 +1975,86 @@ async function loadCustomerCart() {
             customerCart =
                 localCart;
 
+        }
 
-            await saveCustomerCart();
+
+        /*
+           Save the final cart locally.
+        */
+
+        saveLocalCart(
+            customerCart
+        );
+
+
+        /*
+           IMPORTANT:
+           Do not make loading the cart fail
+           just because Firebase saving fails.
+        */
+
+        try {
+
+            await setDoc(
+                cartRef,
+                {
+                    cart: customerCart,
+                    updatedAt: new Date()
+                },
+                {
+                    merge: true
+                }
+            );
 
         }
+
+        catch (saveError) {
+
+            console.error(
+                "Firebase cart save warning:",
+                saveError
+            );
+
+            /*
+               The cart is still usable locally.
+            */
+
+        }
+
+
+        return true;
 
     }
 
     catch (error) {
 
         console.error(
-            "Could not load customer cart:",
+            "Firebase cart loading error:",
             error
         );
 
 
         /*
-           Do NOT destroy the local cart
-           if Firebase temporarily fails.
+           Firebase failed, but don't
+           destroy the customer's cart.
         */
 
         customerCart =
-            normalizeCart(
-                getLocalCart()
-            );
+            localCart;
 
 
         accountStatus.innerHTML =
 
-            "Unable to load your online cart right now. " +
-            "Showing the cart saved on this device. " +
+            "Your online cart could not be loaded. " +
+            "Your device cart is being used. " +
             "<a href='profile.html'>My Account</a>";
+
+
+        return false;
 
     }
 
 }
-
 
 
 /* =====================================================
@@ -2842,16 +2887,13 @@ function() {
    PROCEED TO DELIVERY
 ===================================================== */
 
-/* =====================================================
-   PROCEED TO DELIVERY
-===================================================== */
-
 window.goToDelivery =
 async function() {
 
-    /* ---------------------------------------------
-       WAIT FOR FIREBASE AUTH CHECK
-    --------------------------------------------- */
+    /*
+       Make sure Firebase authentication
+       has finished checking.
+    */
 
     if (!authReady) {
 
@@ -2864,9 +2906,9 @@ async function() {
     }
 
 
-    /* ---------------------------------------------
-       CHECK CART
-    --------------------------------------------- */
+    /*
+       Check cart.
+    */
 
     if (
         customerCart.length === 0
@@ -2881,9 +2923,10 @@ async function() {
     }
 
 
-    /* ---------------------------------------------
-       CHECK LOGIN
-    --------------------------------------------- */
+    /*
+       IMPORTANT:
+       Customer MUST be signed in.
+    */
 
     if (!currentUser) {
 
@@ -2891,19 +2934,83 @@ async function() {
             "Please sign in to your account before proceeding to delivery."
         );
 
+
         /*
-           Send the customer to the profile/login page.
-           After signing in, they can return to the cart
-           and proceed to delivery.
+           Remember that the customer wants
+           to continue checkout.
+        */
+
+        localStorage.setItem(
+            "returnToCheckout",
+            "true"
+        );
+
+
+        /*
+           Open profile/login page.
         */
 
         window.location.href =
             "profile.html";
 
+
         return;
 
     }
 
+
+    /*
+       Customer is signed in.
+       Save checkout information locally first.
+    */
+
+    updateSummary();
+
+
+    localStorage.setItem(
+        "checkoutCart",
+        JSON.stringify(
+            customerCart
+        )
+    );
+
+
+    /*
+       Do NOT block the customer forever
+       waiting for Firebase.
+    */
+
+    checkoutButton.disabled =
+        true;
+
+    checkoutButton.innerText =
+        "Proceeding...";
+
+
+    try {
+
+        await saveCustomerCart();
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Checkout cart save error:",
+            error
+        );
+
+    }
+
+
+    /*
+       Go to delivery.
+    */
+
+    window.location.href =
+        "delivery.html";
+
+};
 
     /* ---------------------------------------------
        CUSTOMER IS SIGNED IN
