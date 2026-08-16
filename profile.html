@@ -3113,19 +3113,16 @@ saveAddressButton.addEventListener(
 
 
             showStatus(
-                addressStatus,
-                "Address saved successfully.",
-                "success"
-            );
+    addressStatus,
+    "Address saved successfully. Redirecting...",
+    "success"
+);
 
+setTimeout(function () {
 
-            hideAddressForm();
+    window.location.href = "index.html";
 
-
-            await loadAddresses(
-                user
-            );
-
+}, 1000);
         }
 
         catch (error) {
