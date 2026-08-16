@@ -10,7 +10,13 @@
     content="width=1110"
 >
 
+<meta
+    name="theme-color"
+    content="#ffffff"
+>
+
 <title>Your Cart | 50 Mirars</title>
+
 
 <style>
 
@@ -100,6 +106,37 @@ header h1 {
     width: 120px;
 
     height: auto;
+
+}
+
+
+/* =====================================================
+   ACCOUNT STATUS
+===================================================== */
+
+.account-status {
+
+    width: 100%;
+
+    background: #111;
+
+    color: #fff;
+
+    padding: 10px 20px;
+
+    text-align: center;
+
+    font-size: 14px;
+
+}
+
+.account-status a {
+
+    color: #fff;
+
+    font-weight: 700;
+
+    margin-left: 5px;
 
 }
 
@@ -276,7 +313,7 @@ td {
 
 
 /* =====================================================
-   COUPON SECTION
+   COUPON
 ===================================================== */
 
 .coupon-section {
@@ -467,7 +504,7 @@ td {
 
 
 /* =====================================================
-   CHECKOUT BUTTON
+   CHECKOUT
 ===================================================== */
 
 .checkout-btn {
@@ -519,7 +556,24 @@ td {
 
 
 /* =====================================================
-   HOMEPAGE CONTACT FOOTER
+   LOADING
+===================================================== */
+
+.cart-loading {
+
+    text-align: center;
+
+    padding: 50px 20px;
+
+    font-size: 17px;
+
+    color: #777;
+
+}
+
+
+/* =====================================================
+   FOOTER
 ===================================================== */
 
 .main-footer {
@@ -831,7 +885,7 @@ td {
 
 
 /* =====================================================
-   FOOTER MOBILE
+   MOBILE
 ===================================================== */
 
 @media screen and (max-width: 768px) {
@@ -862,15 +916,6 @@ td {
         grid-template-columns: 1fr;
 
     }
-
-}
-
-
-/* =====================================================
-   MOBILE CART
-===================================================== */
-
-@media screen and (max-width: 768px) {
 
     header {
 
@@ -952,82 +997,6 @@ td {
 
 }
 
-
-/* =====================================================
-   SMALL PHONES
-===================================================== */
-
-@media screen and (max-width: 480px) {
-
-    header {
-
-        padding:
-            12px
-            12px;
-
-    }
-
-    header h1 {
-
-        font-size: 20px;
-
-    }
-
-    .back-btn {
-
-        padding:
-            8px
-            10px;
-
-        font-size: 12px;
-
-    }
-
-    .logo {
-
-        width: 75px;
-
-    }
-
-    .footer-top > h2 {
-
-        font-size: 32px;
-
-    }
-
-}
-
-
-/* =====================================================
-   VERY SMALL PHONES
-===================================================== */
-
-@media screen and (max-width: 360px) {
-
-    header h1 {
-
-        font-size: 18px;
-
-    }
-
-    .back-btn {
-
-        font-size: 11px;
-
-        padding:
-            7px
-            8px;
-
-    }
-
-    .logo {
-
-        width: 65px;
-
-    }
-
-}
-
 </style>
 
 </head>
@@ -1066,16 +1035,30 @@ td {
 
 
 <!-- =====================================================
+     ACCOUNT STATUS
+===================================================== -->
+
+<div
+    id="account-status"
+    class="account-status"
+>
+    Checking your account...
+</div>
+
+
+
+<!-- =====================================================
      CART PAGE
 ===================================================== -->
 
 <section class="cart-page">
 
 
-    <!-- LEFT SIDE -->
+    <!-- =================================================
+         LEFT
+    ================================================== -->
 
     <div class="cart-items">
-
 
         <table>
 
@@ -1110,6 +1093,18 @@ td {
 
             <tbody id="cart-items">
 
+                <tr>
+
+                    <td colspan="5">
+
+                        <div class="cart-loading">
+                            Loading your cart...
+                        </div>
+
+                    </td>
+
+                </tr>
+
             </tbody>
 
         </table>
@@ -1118,7 +1113,7 @@ td {
 
         <!-- =================================================
              COUPON
-        ================================================= -->
+        ================================================== -->
 
         <div class="coupon-section">
 
@@ -1168,10 +1163,9 @@ td {
 
     <!-- =================================================
          ORDER SUMMARY
-    ================================================= -->
+    ================================================== -->
 
     <div class="cart-summary">
-
 
         <h2>
             Order Summary
@@ -1191,9 +1185,7 @@ td {
         </div>
 
 
-        <div
-            class="summary-line discount-line"
-        >
+        <div class="summary-line discount-line">
 
             <span>
                 Discount
@@ -1246,7 +1238,7 @@ td {
 
 
 <!-- =====================================================
-     CONTACT US FOOTER
+     FOOTER
 ===================================================== -->
 
 <footer class="main-footer">
@@ -1256,13 +1248,10 @@ td {
 
         <div class="footer-top">
 
-
             <h2>
                 Contact Us
             </h2>
 
-
-            <!-- CUSTOMER -->
 
             <div class="contact-column">
 
@@ -1291,8 +1280,6 @@ td {
             </div>
 
 
-            <!-- SALES / WATCH SERVICE -->
-
             <div class="contact-column">
 
                 <h3>
@@ -1320,8 +1307,6 @@ td {
             </div>
 
 
-            <!-- WHATSAPP -->
-
             <div class="whatsapp-column">
 
                 <h3 class="whatsapp-title">
@@ -1347,19 +1332,12 @@ td {
 
             </div>
 
-
         </div>
 
 
 
-        <!-- =================================================
-             FOOTER MIDDLE
-        ================================================= -->
-
         <div class="footer-middle">
 
-
-            <!-- KNOW 50 MIRARS -->
 
             <div class="footer-links-column">
 
@@ -1378,8 +1356,6 @@ td {
             </div>
 
 
-            <!-- TERMS -->
-
             <div class="footer-links-column">
 
                 <h3>
@@ -1396,8 +1372,6 @@ td {
 
             </div>
 
-
-            <!-- INSTAGRAM -->
 
             <div class="footer-social">
 
@@ -1426,14 +1400,9 @@ td {
 
             </div>
 
-
         </div>
 
 
-
-        <!-- =================================================
-             FOOTER BOTTOM
-        ================================================= -->
 
         <div class="footer-bottom">
 
@@ -1444,14 +1413,18 @@ td {
 
         </div>
 
-
     </div>
 
 </footer>
 
 
 
+<!-- =====================================================
+     FIREBASE + CART SYSTEM
+===================================================== -->
+
 <script type="module">
+
 
 /* =====================================================
    FIREBASE IMPORTS
@@ -1459,14 +1432,16 @@ td {
 
 import {
     initializeApp
-} from
+}
+from
 "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
 
 
 import {
     getAuth,
     onAuthStateChanged
-} from
+}
+from
 "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 
 
@@ -1474,15 +1449,15 @@ import {
     getFirestore,
     doc,
     getDoc,
-    setDoc,
-    updateDoc
-} from
+    setDoc
+}
+from
 "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
 
 
 /* =====================================================
-   FIREBASE CONFIG
+   YOUR FIREBASE CONFIG
 ===================================================== */
 
 const firebaseConfig = {
@@ -1530,10 +1505,68 @@ const db =
 
 
 /* =====================================================
-   CURRENT CUSTOMER
+   CURRENT USER
 ===================================================== */
 
 let currentUser = null;
+
+
+/*
+   This tells the page whether we are still
+   checking Firebase authentication.
+*/
+
+let authReady = false;
+
+
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const cartItems =
+    document.getElementById("cart-items");
+
+
+const accountStatus =
+    document.getElementById("account-status");
+
+
+
+/* =====================================================
+   FIRESTORE CART DOCUMENT
+===================================================== */
+
+/*
+   Every customer gets a completely separate
+   Firestore document.
+
+   Example:
+
+   carts/
+       RahulFirebaseUID
+
+   carts/
+       HimanshuFirebaseUID
+
+*/
+
+function getCartDocument() {
+
+    if (!currentUser) {
+
+        return null;
+
+    }
+
+
+    return doc(
+        db,
+        "carts",
+        currentUser.uid
+    );
+
+}
 
 
 
@@ -1563,35 +1596,30 @@ function saveLocalCart(cart) {
 
 
 /* =====================================================
-   GET CUSTOMER FIRESTORE DOCUMENT
+   GET CURRENT CART
 ===================================================== */
 
-function getCustomerRef() {
+let customerCart = [];
+
+
+
+/*
+   This function loads the customer's cart
+   from Firestore.
+*/
+
+async function loadCustomerCart() {
 
     if (!currentUser) {
 
-        return null;
+        /*
+           No Google account.
 
-    }
+           Use old local cart.
+        */
 
-
-    return doc(
-        db,
-        "customers",
-        currentUser.uid
-    );
-
-}
-
-
-
-/* =====================================================
-   LOAD CART FROM FIRESTORE
-===================================================== */
-
-async function loadCartFromFirestore() {
-
-    if (!currentUser) {
+        customerCart =
+            getLocalCart();
 
         return;
 
@@ -1600,57 +1628,34 @@ async function loadCartFromFirestore() {
 
     try {
 
-        const customerRef =
-            getCustomerRef();
+        const cartRef =
+            getCartDocument();
 
 
-        const customerSnap =
-            await getDoc(customerRef);
+        const cartSnapshot =
+            await getDoc(cartRef);
 
 
-        if (customerSnap.exists()) {
+        if (
+            cartSnapshot.exists()
+        ) {
 
             const data =
-                customerSnap.data();
+                cartSnapshot.data();
 
 
-            const firestoreCart =
+            if (
                 Array.isArray(data.cart)
-                    ? data.cart
-                    : [];
+            ) {
 
-
-            /*
-               If customer has a Firestore cart,
-               use it.
-            */
-
-            if (firestoreCart.length > 0) {
-
-                saveLocalCart(
-                    firestoreCart
-                );
+                customerCart =
+                    data.cart;
 
             }
 
-            /*
-               If Firestore cart is empty but
-               local cart exists, upload local cart.
-            */
-
             else {
 
-                const localCart =
-                    getLocalCart();
-
-
-                if (localCart.length > 0) {
-
-                    await saveCartToFirestore(
-                        localCart
-                    );
-
-                }
+                customerCart = [];
 
             }
 
@@ -1659,33 +1664,31 @@ async function loadCartFromFirestore() {
         else {
 
             /*
-               Customer document doesn't exist yet.
-               Create cart using local cart.
+               First time this customer
+               is using the cart.
             */
 
-            const localCart =
+            customerCart =
                 getLocalCart();
 
 
-            await setDoc(
+            /*
+               Save existing local cart
+               into this customer's account.
+            */
 
-                customerRef,
-
-                {
-                    cart:
-                        localCart
-                },
-
-                {
-                    merge: true
-                }
-
-            );
+            await saveCustomerCart();
 
         }
 
 
-        renderCart();
+        /*
+           Keep local storage updated too.
+        */
+
+        saveLocalCart(
+            customerCart
+        );
 
     }
 
@@ -1697,11 +1700,18 @@ async function loadCartFromFirestore() {
         );
 
 
-        alert(
-            "Could not load your account cart. Please check your internet connection and try again."
-        );
+        /*
+           If Firestore fails,
+           use local cart instead.
+        */
 
-        renderCart();
+        customerCart =
+            getLocalCart();
+
+
+        alert(
+            "Your online cart could not be loaded. Your local cart is being displayed."
+        );
 
     }
 
@@ -1710,19 +1720,16 @@ async function loadCartFromFirestore() {
 
 
 /* =====================================================
-   SAVE CART TO FIRESTORE
+   SAVE CUSTOMER CART
 ===================================================== */
 
-async function saveCartToFirestore(cart) {
+async function saveCustomerCart() {
 
     if (!currentUser) {
 
-        /*
-           Customer isn't logged in.
-           Keep cart locally.
-        */
-
-        saveLocalCart(cart);
+        saveLocalCart(
+            customerCart
+        );
 
         return;
 
@@ -1731,25 +1738,25 @@ async function saveCartToFirestore(cart) {
 
     try {
 
-        const customerRef =
-            getCustomerRef();
-
-
         await setDoc(
 
-            customerRef,
+            getCartDocument(),
 
             {
-                cart:
-                    cart,
 
-                cartUpdatedAt:
-                    new Date().toISOString()
+                cart:
+                    customerCart,
+
+                updatedAt:
+                    new Date()
 
             },
 
             {
-                merge: true
+
+                merge:
+                    true
+
             }
 
         );
@@ -1759,28 +1766,22 @@ async function saveCartToFirestore(cart) {
            Also keep local copy.
         */
 
-        saveLocalCart(cart);
+        saveLocalCart(
+            customerCart
+        );
 
     }
 
     catch (error) {
 
         console.error(
-            "Could not save cart:",
+            "Could not save customer cart:",
             error
         );
 
 
-        /*
-           Keep local copy so the cart
-           isn't lost.
-        */
-
-        saveLocalCart(cart);
-
-
         alert(
-            "Your cart could not be saved to your account. Please check your internet connection."
+            "Cart could not be saved online. Please check your internet connection."
         );
 
     }
@@ -1790,27 +1791,20 @@ async function saveCartToFirestore(cart) {
 
 
 /* =====================================================
-   GET CART
-===================================================== */
-
-function getCart() {
-
-    return getLocalCart();
-
-}
-
-
-
-/* =====================================================
-   GET PRODUCT PRICE
+   GET PRICE
 ===================================================== */
 
 function getPrice(item) {
 
     return parseFloat(
 
-        String(item.price)
-            .replace(/[^0-9.]/g, "")
+        String(
+            item.price || "0"
+        )
+        .replace(
+            /[^0-9.]/g,
+            ""
+        )
 
     ) || 0;
 
@@ -1824,25 +1818,12 @@ function getPrice(item) {
 
 function renderCart() {
 
-    const cart =
-        getCart();
+    cartItems.innerHTML = "";
 
 
-    const cartItems =
-        document.getElementById(
-            "cart-items"
-        );
-
-
-    cartItems.innerHTML =
-        "";
-
-
-    /* =================================================
-       EMPTY CART
-    ================================================= */
-
-    if (cart.length === 0) {
+    if (
+        customerCart.length === 0
+    ) {
 
         cartItems.innerHTML = `
 
@@ -1871,20 +1852,20 @@ function renderCart() {
 
 
 
-    /* =================================================
+    /*
        GROUP IDENTICAL PRODUCTS
-    ================================================= */
+    */
 
     const products = {};
 
 
-    cart.forEach(
+    customerCart.forEach(
         function(item) {
 
             const key =
-                item.name +
+                String(item.name) +
                 "|" +
-                item.price;
+                String(item.price);
 
 
             if (!products[key]) {
@@ -1915,17 +1896,22 @@ function renderCart() {
 
 
 
-    /* =================================================
+    /*
        DISPLAY PRODUCTS
-    ================================================= */
+    */
 
     Object.values(products).forEach(
-
         function(item) {
 
             const subtotal =
                 item.price *
                 item.quantity;
+
+
+            const safeName =
+                encodeURIComponent(
+                    item.name
+                );
 
 
             cartItems.innerHTML += `
@@ -1934,18 +1920,14 @@ function renderCart() {
 
                     <td class="product-name">
 
-                        ${escapeHTML(
-                            item.name
-                        )}
+                        ${escapeHTML(item.name)}
 
                     </td>
 
 
                     <td>
 
-                        ₹${item.price.toLocaleString(
-                            "en-IN"
-                        )}
+                        ₹${item.price.toLocaleString("en-IN")}
 
                     </td>
 
@@ -1954,47 +1936,33 @@ function renderCart() {
 
                         <div class="quantity-box">
 
-
                             <button
-
                                 class="quantity-btn"
-
                                 onclick="changeQuantity(
-                                    ${JSON.stringify(item.name)},
+                                    '${safeName}',
                                     -1
                                 )"
-
                             >
-
                                 −
-
                             </button>
 
 
                             <span
                                 class="quantity-number"
                             >
-
                                 ${item.quantity}
-
                             </span>
 
 
                             <button
-
                                 class="quantity-btn"
-
                                 onclick="changeQuantity(
-                                    ${JSON.stringify(item.name)},
+                                    '${safeName}',
                                     1
                                 )"
-
                             >
-
                                 +
-
                             </button>
-
 
                         </div>
 
@@ -2003,9 +1971,7 @@ function renderCart() {
 
                     <td>
 
-                        ₹${subtotal.toLocaleString(
-                            "en-IN"
-                        )}
+                        ₹${subtotal.toLocaleString("en-IN")}
 
                     </td>
 
@@ -2013,17 +1979,12 @@ function renderCart() {
                     <td>
 
                         <button
-
                             class="remove-btn"
-
                             onclick="removeProduct(
-                                ${JSON.stringify(item.name)}
+                                '${safeName}'
                             )"
-
                         >
-
                             Remove
-
                         </button>
 
                     </td>
@@ -2033,7 +1994,6 @@ function renderCart() {
             `;
 
         }
-
     );
 
 
@@ -2084,26 +2044,34 @@ function escapeHTML(text) {
    CHANGE QUANTITY
 ===================================================== */
 
-window.changeQuantity = async function(
-    name,
+window.changeQuantity =
+async function(
+    encodedName,
     amount
 ) {
 
-    let cart =
-        getCart();
+    const name =
+        decodeURIComponent(
+            encodedName
+        );
 
 
-    /* =================================================
+    /*
        ADD ONE
-    ================================================= */
+    */
 
-    if (amount === 1) {
+    if (
+        amount === 1
+    ) {
 
         const item =
-            cart.find(
+            customerCart.find(
                 function(product) {
 
-                    return product.name === name;
+                    return (
+                        product.name ===
+                        name
+                    );
 
                 }
             );
@@ -2111,7 +2079,7 @@ window.changeQuantity = async function(
 
         if (item) {
 
-            cart.push({
+            customerCart.push({
 
                 name:
                     item.name,
@@ -2130,25 +2098,32 @@ window.changeQuantity = async function(
 
 
 
-    /* =================================================
+    /*
        REMOVE ONE
-    ================================================= */
+    */
 
-    if (amount === -1) {
+    if (
+        amount === -1
+    ) {
 
         const index =
-            cart.findIndex(
+            customerCart.findIndex(
                 function(product) {
 
-                    return product.name === name;
+                    return (
+                        product.name ===
+                        name
+                    );
 
                 }
             );
 
 
-        if (index !== -1) {
+        if (
+            index !== -1
+        ) {
 
-            cart.splice(
+            customerCart.splice(
                 index,
                 1
             );
@@ -2158,13 +2133,7 @@ window.changeQuantity = async function(
     }
 
 
-    /*
-       Save immediately.
-    */
-
-    await saveCartToFirestore(
-        cart
-    );
+    await saveCustomerCart();
 
 
     renderCart();
@@ -2177,27 +2146,31 @@ window.changeQuantity = async function(
    REMOVE ENTIRE PRODUCT
 ===================================================== */
 
-window.removeProduct = async function(
-    name
+window.removeProduct =
+async function(
+    encodedName
 ) {
 
-    let cart =
-        getCart();
+    const name =
+        decodeURIComponent(
+            encodedName
+        );
 
 
-    cart =
-        cart.filter(
+    customerCart =
+        customerCart.filter(
             function(item) {
 
-                return item.name !== name;
+                return (
+                    item.name !==
+                    name
+                );
 
             }
         );
 
 
-    await saveCartToFirestore(
-        cart
-    );
+    await saveCustomerCart();
 
 
     renderCart();
@@ -2212,15 +2185,10 @@ window.removeProduct = async function(
 
 function calculateSubtotal() {
 
-    const cart =
-        getCart();
+    let subtotal = 0;
 
 
-    let subtotal =
-        0;
-
-
-    cart.forEach(
+    customerCart.forEach(
         function(item) {
 
             subtotal +=
@@ -2231,6 +2199,46 @@ function calculateSubtotal() {
 
 
     return subtotal;
+
+}
+
+
+
+/* =====================================================
+   COUPON STORAGE
+===================================================== */
+
+function getCouponStorageKey() {
+
+    if (currentUser) {
+
+        return (
+            "50mirars_coupon_" +
+            currentUser.uid
+        );
+
+    }
+
+
+    return "50mirars_guest_coupon";
+
+}
+
+
+
+function getDiscountStorageKey() {
+
+    if (currentUser) {
+
+        return (
+            "50mirars_discount_" +
+            currentUser.uid
+        );
+
+    }
+
+
+    return "50mirars_guest_discount";
 
 }
 
@@ -2250,7 +2258,7 @@ function updateSummary() {
         parseFloat(
 
             localStorage.getItem(
-                "cartDiscount"
+                getDiscountStorageKey()
             )
 
         ) || 0;
@@ -2303,7 +2311,8 @@ function updateSummary() {
 
 
     /*
-       Save values for delivery/payment.
+       These values are used by
+       delivery.html / payment page.
     */
 
     localStorage.setItem(
@@ -2331,7 +2340,8 @@ function updateSummary() {
    APPLY COUPON
 ===================================================== */
 
-window.applyCoupon = function() {
+window.applyCoupon =
+async function() {
 
     const input =
         document.getElementById(
@@ -2355,7 +2365,9 @@ window.applyCoupon = function() {
         calculateSubtotal();
 
 
-    if (subtotal <= 0) {
+    if (
+        subtotal <= 0
+    ) {
 
         message.innerText =
             "Your cart is empty.";
@@ -2368,16 +2380,17 @@ window.applyCoupon = function() {
     }
 
 
-    let discount =
-        0;
+    let discount = 0;
 
 
 
-    /* =================================================
-       BIRTH1 - 20%
-    ================================================= */
+    /*
+       BIRTH1 = 20%
+    */
 
-    if (code === "BIRTH1") {
+    if (
+        code === "BIRTH1"
+    ) {
 
         discount =
             subtotal * 0.20;
@@ -2386,11 +2399,13 @@ window.applyCoupon = function() {
 
 
 
-    /* =================================================
-       10OFF10 - 10%
-    ================================================= */
+    /*
+       10OFF10 = 10%
+    */
 
-    else if (code === "10OFF10") {
+    else if (
+        code === "10OFF10"
+    ) {
 
         discount =
             subtotal * 0.10;
@@ -2399,25 +2414,23 @@ window.applyCoupon = function() {
 
 
 
-    /* =================================================
+    /*
        INVALID
-    ================================================= */
+    */
 
     else {
 
         localStorage.removeItem(
-            "cartDiscount"
+            getDiscountStorageKey()
         );
 
-
         localStorage.removeItem(
-            "cartCoupon"
+            getCouponStorageKey()
         );
 
 
         message.innerText =
             "Invalid coupon code.";
-
 
         message.style.color =
             "#e53935";
@@ -2431,27 +2444,37 @@ window.applyCoupon = function() {
 
 
 
-    /* =================================================
-       SAVE COUPON
-    ================================================= */
+    /*
+       SAVE COUPON LOCALLY
+    */
 
     localStorage.setItem(
-        "cartDiscount",
+
+        getDiscountStorageKey(),
+
         discount
+
     );
 
 
     localStorage.setItem(
-        "cartCoupon",
+
+        getCouponStorageKey(),
+
         code
+
     );
 
+
+
+    /*
+       UPDATE
+    */
 
     updateSummary();
 
 
     message.innerText =
-
         code +
         " applied successfully! You saved ₹" +
         discount.toLocaleString(
@@ -2470,22 +2493,22 @@ window.applyCoupon = function() {
    REMOVE COUPON
 ===================================================== */
 
-window.removeCoupon = function() {
+window.removeCoupon =
+function() {
 
     localStorage.removeItem(
-        "cartDiscount"
+        getDiscountStorageKey()
     );
 
 
     localStorage.removeItem(
-        "cartCoupon"
+        getCouponStorageKey()
     );
 
 
     document.getElementById(
         "coupon-code"
-    ).value =
-        "";
+    ).value = "";
 
 
     const message =
@@ -2512,13 +2535,12 @@ window.removeCoupon = function() {
    PROCEED TO DELIVERY
 ===================================================== */
 
-window.goToDelivery = function() {
+window.goToDelivery =
+async function() {
 
-    const cart =
-        getCart();
-
-
-    if (cart.length === 0) {
+    if (
+        customerCart.length === 0
+    ) {
 
         alert(
             "Your cart is empty."
@@ -2530,33 +2552,53 @@ window.goToDelivery = function() {
 
 
     /*
-       If customer isn't logged in,
-       send them to profile first.
+       Make sure the latest cart
+       is saved before checkout.
     */
 
-    if (!currentUser) {
-
-        alert(
-            "Please sign in to your 50 Mirars account before proceeding to delivery."
-        );
+    await saveCustomerCart();
 
 
-        window.location.href =
-            "profile.html";
-
-
-        return;
-
-    }
-
+    /*
+       Save latest totals.
+    */
 
     updateSummary();
 
+
+    /*
+       Continue to delivery.
+    */
 
     window.location.href =
         "delivery.html";
 
 };
+
+
+
+/* =====================================================
+   LOAD SAVED COUPON
+===================================================== */
+
+function loadSavedCoupon() {
+
+    const coupon =
+        localStorage.getItem(
+            getCouponStorageKey()
+        );
+
+
+    if (coupon) {
+
+        document.getElementById(
+            "coupon-code"
+        ).value =
+            coupon;
+
+    }
+
+}
 
 
 
@@ -2574,33 +2616,72 @@ onAuthStateChanged(
             user;
 
 
+        authReady =
+            true;
+
+
         if (user) {
 
-            console.log(
-                "Customer logged in:",
-                user.uid
-            );
+            /*
+               Customer is logged in.
+            */
+
+            accountStatus.innerHTML =
+
+                "Signed in as " +
+                "<strong>" +
+                escapeHTML(
+                    user.displayName ||
+                    user.email ||
+                    "Customer"
+                ) +
+                "</strong> · " +
+                "<a href='profile.html'>My Account</a>";
 
 
             /*
                Load this customer's
-               personal cart.
+               Firestore cart.
             */
 
-            await loadCartFromFirestore();
+            await loadCustomerCart();
+
+
+            /*
+               Load customer's coupon.
+            */
+
+            loadSavedCoupon();
+
+
+            /*
+               Render.
+            */
+
+            renderCart();
 
         }
 
         else {
 
-            console.log(
-                "No customer logged in."
-            );
+            /*
+               Nobody logged in.
+            */
+
+            accountStatus.innerHTML =
+
+                "You are browsing as a guest. " +
+                "<a href='profile.html'>Sign in with Google</a> " +
+                "to save your cart to your account.";
 
 
             /*
-               Guest cart stays local.
+               Use guest local cart.
             */
+
+            customerCart =
+                getLocalCart();
+
 
             renderCart();
 
@@ -2612,13 +2693,8 @@ onAuthStateChanged(
 
 
 
-/* =====================================================
-   INITIAL DISPLAY
-===================================================== */
-
-renderCart();
-
 </script>
+
 
 </body>
 
