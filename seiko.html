@@ -3230,128 +3230,77 @@ document
 
     });
 
+</script>
 
-
+    
 /* =========================================================
-   ADD TO CART
+   Add To Cart
 ========================================================= */
 
+<script>
+
 document
-    .querySelectorAll(".add-to-cart-btn")
+    .querySelectorAll(".add-to-cart-btn, .add-to-cart")
     .forEach(function(button) {
 
+        button.addEventListener("click", function() {
 
-        button.addEventListener(
-            "click",
-            function() {
+            const name =
+                button.dataset.name || "";
 
+            const price =
+                button.dataset.price || "0";
 
-                const name =
-                    button.dataset.name;
-
-                const price =
-                    Number(
-                        button.dataset.price
-                    );
+            const image =
+                button.dataset.image || "";
 
 
-                if (
-                    !name ||
-                    Number.isNaN(price)
-                ) {
+            /* -------------------------------------------------
+               GET EXISTING CART
+            ------------------------------------------------- */
 
-                    return;
-
-                }
-
-
-                let cart = [];
+            let cart =
+                JSON.parse(
+                    localStorage.getItem("cart")
+                ) || [];
 
 
-                try {
+            /* -------------------------------------------------
+               ADD PRODUCT
+            ------------------------------------------------- */
 
-                    cart =
-                        JSON.parse(
-                            localStorage.getItem(
-                                "cart"
-                            )
-                        ) || [];
+            cart.push({
 
-                }
+                name: name,
 
-                catch(error) {
+                price: price,
 
-                    cart = [];
+                image: image
 
-                }
+            });
 
 
-                const existingProduct =
-                    cart.find(
-                        function(item) {
+            /* -------------------------------------------------
+               SAVE CART
+            ------------------------------------------------- */
 
-                            return (
-                                item.name ===
-                                name
-                            );
-
-                        }
-                    );
+            localStorage.setItem(
+                "cart",
+                JSON.stringify(cart)
+            );
 
 
-                if (existingProduct) {
+            /* -------------------------------------------------
+               REDIRECT TO CART
+            ------------------------------------------------- */
 
-                    existingProduct.quantity += 1;
+            window.location.href = "cart.html";
 
-                }
-
-                else {
-
-                    cart.push({
-
-                        name:
-                            name,
-
-                        price:
-                            price,
-
-                        quantity:
-                            1
-
-                    });
-
-                }
-
-
-                localStorage.setItem(
-                    "cart",
-                    JSON.stringify(cart)
-                );
-
-
-                const originalText =
-                    button.textContent;
-
-
-                button.textContent =
-                    "Added ✓";
-
-
-                setTimeout(
-                    function() {
-
-                        button.textContent =
-                            originalText;
-
-                    },
-                    1200
-                );
-
-
-            }
-        );
+        });
 
     });
+
+</script>
 
 
 </script>
