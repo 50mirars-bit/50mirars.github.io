@@ -217,8 +217,6 @@
         }
 
 
-        /* Dynamic QR */
-
         #qr-code {
             display: flex;
 
@@ -432,6 +430,31 @@
             border-radius: 5px;
 
             margin-bottom: 20px;
+
+            font-size: 14px;
+        }
+
+
+        /* =====================================================
+           SUCCESS
+        ===================================================== */
+
+        .success-message {
+            display: none;
+
+            background: #e8f5e9;
+
+            color: #2e7d32;
+
+            border: 1px solid #81c784;
+
+            padding: 12px;
+
+            border-radius: 5px;
+
+            margin-bottom: 20px;
+
+            font-size: 14px;
         }
 
 
@@ -459,11 +482,22 @@
             font-weight: 600;
 
             cursor: pointer;
+
+            transition: 0.3s;
         }
 
 
         .submit-btn:hover {
             background: #00796b;
+        }
+
+
+        .submit-btn:disabled {
+            background: #777;
+
+            cursor: not-allowed;
+
+            opacity: 0.8;
         }
 
 
@@ -933,7 +967,7 @@
 
     <!-- =====================================================
          HEADER
-    ====================================================== -->
+    ===================================================== -->
 
     <header>
 
@@ -962,7 +996,7 @@
 
     <!-- =====================================================
          MAIN PAGE
-    ====================================================== -->
+    ===================================================== -->
 
     <section class="payment-page">
 
@@ -982,6 +1016,13 @@
                 id="error-message"
                 class="error-message"
             ></div>
+
+
+            <div
+                id="success-message"
+                class="success-message"
+            ></div>
+
 
 
             <!-- =================================================
@@ -1017,7 +1058,6 @@
                 </h3>
 
 
-                <!-- DYNAMIC QR -->
                 <div
                     id="qr-code"
                     class="qr-image"
@@ -1026,6 +1066,7 @@
 
 
                 <!-- MOBILE UPI BUTTON -->
+
                 <a
                     id="upi-pay-button"
                     class="upi-pay-button"
@@ -1128,11 +1169,15 @@
                     </span>
 
                     <span>
+
                         BARB0DBKOOT
+
                         <br>
+
                         <small>
                             Fifth character is Zero
                         </small>
+
                     </span>
 
                 </div>
@@ -1163,6 +1208,7 @@
                     id="transactionId"
                     placeholder="Enter your UPI Transaction ID / UTR"
                     required
+                    autocomplete="off"
                 >
 
 
@@ -1183,10 +1229,13 @@
             ================================================== -->
 
             <button
+                type="button"
                 class="submit-btn"
                 onclick="submitPayment()"
             >
+
                 Confirm Payment & Place Order
+
             </button>
 
         </div>
@@ -1281,16 +1330,12 @@
 
     <!-- =====================================================
          FOOTER
-    ====================================================== -->
+    ===================================================== -->
 
     <footer class="main-footer">
 
         <div class="footer-container">
 
-
-            <!-- =================================================
-                 FOOTER TOP
-            ================================================== -->
 
             <div class="footer-top">
 
@@ -1408,8 +1453,6 @@
             <div class="footer-middle">
 
 
-                <!-- KNOW 50 MIRARS -->
-
                 <div class="footer-links-column">
 
                     <h3>
@@ -1430,8 +1473,6 @@
 
 
 
-                <!-- TERMS -->
-
                 <div class="footer-links-column">
 
                     <h3>
@@ -1451,8 +1492,6 @@
                 </div>
 
 
-
-                <!-- INSTAGRAM -->
 
                 <div class="footer-social">
 
@@ -1520,6 +1559,15 @@
 
 
         /* =====================================================
+           GOOGLE SHEETS WEB APP URL
+        ===================================================== */
+
+        const GOOGLE_SHEET_WEB_APP_URL =
+            "https://script.google.com/macros/s/AKfycbwTXhQudWUm4oZqSk-d3zJH58KuEhnsxxT-dLUe29yE0J2oEi3dEvzso3j5bF1bdon1Yw/exec";
+
+
+
+        /* =====================================================
            UPI SETTINGS
         ===================================================== */
 
@@ -1562,7 +1610,7 @@
 
 
         /* =====================================================
-           GENERATE DYNAMIC QR
+           GENERATE PAYMENT QR
         ===================================================== */
 
         function generatePaymentQR(amount) {
@@ -1587,10 +1635,6 @@
             }
 
 
-            /* -----------------------------------------------
-               CHECK AMOUNT
-            ------------------------------------------------ */
-
             if (
                 !amount ||
                 amount <= 0
@@ -1606,13 +1650,9 @@
 
 
                 return;
+
             }
 
-
-
-            /* -----------------------------------------------
-               CREATE UPI LINK
-            ------------------------------------------------ */
 
             const upiLink =
                 createUPIPaymentLink(
@@ -1620,28 +1660,22 @@
                 );
 
 
+            qrContainer.innerHTML =
+                "";
 
-            /* -----------------------------------------------
-               REMOVE OLD QR
-            ------------------------------------------------ */
-
-            qrContainer.innerHTML = "";
-
-
-
-            /* -----------------------------------------------
-               GENERATE NEW QR
-            ------------------------------------------------ */
 
             new QRCode(
                 qrContainer,
                 {
 
-                    text: upiLink,
+                    text:
+                        upiLink,
 
-                    width: 230,
+                    width:
+                        230,
 
-                    height: 230,
+                    height:
+                        230,
 
                     correctLevel:
                         QRCode.CorrectLevel.H
@@ -1649,11 +1683,6 @@
                 }
             );
 
-
-
-            /* -----------------------------------------------
-               MOBILE UPI BUTTON
-            ------------------------------------------------ */
 
             upiButton.href =
                 upiLink;
@@ -1672,11 +1701,26 @@
 
         function getCart() {
 
-            return JSON.parse(
-                localStorage.getItem(
-                    "cart"
-                )
-            ) || [];
+            try {
+
+                return JSON.parse(
+
+                    localStorage.getItem(
+                        "cart"
+                    )
+
+                ) || [];
+
+            } catch (error) {
+
+                console.error(
+                    "Cart error:",
+                    error
+                );
+
+                return [];
+
+            }
 
         }
 
@@ -1690,12 +1734,13 @@
 
             return parseFloat(
 
-                String(item.price)
-
-                    .replace(
-                        /[^0-9.]/g,
-                        ""
-                    )
+                String(
+                    item.price
+                )
+                .replace(
+                    /[^0-9.]/g,
+                    ""
+                )
 
             ) || 0;
 
@@ -1713,20 +1758,175 @@
                 getCart();
 
 
-            let subtotal = 0;
+            let subtotal =
+                0;
 
 
             cart.forEach(
                 function(item) {
 
                     subtotal +=
-                        getPrice(item);
+                        getPrice(
+                            item
+                        );
 
                 }
             );
 
 
             return subtotal;
+
+        }
+
+
+
+        /* =====================================================
+           GET SAVED DELIVERY DETAILS
+        ===================================================== */
+
+        function getDeliveryDetails() {
+
+            try {
+
+                return JSON.parse(
+
+                    localStorage.getItem(
+                        "deliveryDetails"
+                    )
+
+                );
+
+            } catch (error) {
+
+                console.error(
+                    "Delivery details error:",
+                    error
+                );
+
+                return null;
+
+            }
+
+        }
+
+
+
+        /* =====================================================
+           CREATE ORDER ID
+        ===================================================== */
+
+        function generateOrderId() {
+
+            const now =
+                new Date();
+
+
+            const datePart =
+
+                now.getFullYear().toString() +
+
+                String(
+                    now.getMonth() + 1
+                ).padStart(
+                    2,
+                    "0"
+                ) +
+
+                String(
+                    now.getDate()
+                ).padStart(
+                    2,
+                    "0"
+                );
+
+
+            const randomPart =
+                Math.floor(
+                    100000 +
+                    Math.random() *
+                    900000
+                );
+
+
+            return (
+                "50M-" +
+                datePart +
+                "-" +
+                randomPart
+            );
+
+        }
+
+
+
+        /* =====================================================
+           CREATE PRODUCT TEXT
+        ===================================================== */
+
+        function getProductText(cart) {
+
+            const products = {};
+
+
+            cart.forEach(
+                function(item) {
+
+                    const key =
+                        item.name +
+                        "|" +
+                        item.price;
+
+
+                    if (
+                        !products[key]
+                    ) {
+
+                        products[key] = {
+
+                            name:
+                                item.name,
+
+                            quantity:
+                                0
+
+                        };
+
+                    }
+
+
+                    products[key].quantity++;
+
+                }
+            );
+
+
+            return Object.values(
+                products
+            )
+            .map(
+                function(item) {
+
+                    return (
+                        item.name +
+                        " × " +
+                        item.quantity
+                    );
+
+                }
+            )
+            .join(" | ");
+
+        }
+
+
+
+        /* =====================================================
+           GET TOTAL QUANTITY
+        ===================================================== */
+
+        function getTotalQuantity(cart) {
+
+            return cart.length;
 
         }
 
@@ -1807,7 +2007,6 @@
             const products = {};
 
 
-
             cart.forEach(
                 function(item) {
 
@@ -1853,7 +2052,8 @@
 
             Object.values(
                 products
-            ).forEach(
+            )
+            .forEach(
                 function(item) {
 
                     const itemTotal =
@@ -1898,25 +2098,41 @@
                GET SAVED TOTALS
             ================================================= */
 
-            const subtotal =
+            const savedSubtotal =
                 parseFloat(
 
                     localStorage.getItem(
                         "orderSubtotal"
                     )
 
-                ) || calculateSubtotal();
+                );
+
+
+            const subtotal =
+                Number.isFinite(
+                    savedSubtotal
+                )
+                ? savedSubtotal
+                : calculateSubtotal();
 
 
 
-            const discount =
+            const savedDiscount =
                 parseFloat(
 
                     localStorage.getItem(
                         "orderDiscount"
                     )
 
-                ) || 0;
+                );
+
+
+            const discount =
+                Number.isFinite(
+                    savedDiscount
+                )
+                ? savedDiscount
+                : 0;
 
 
 
@@ -1924,9 +2140,19 @@
                FINAL TOTAL
             ================================================= */
 
+            const safeDiscount =
+                Math.min(
+                    discount,
+                    subtotal
+                );
+
+
             const total =
-                subtotal -
-                discount;
+                Math.max(
+                    subtotal -
+                    safeDiscount,
+                    0
+                );
 
 
 
@@ -1954,7 +2180,7 @@
             ).innerText =
 
                 "₹" +
-                discount.toLocaleString(
+                safeDiscount.toLocaleString(
                     "en-IN"
                 );
 
@@ -1991,7 +2217,7 @@
 
 
             /* =================================================
-               GENERATE QR FOR EXACT TOTAL
+               GENERATE QR
             ================================================= */
 
             generatePaymentQR(
@@ -2003,10 +2229,53 @@
 
 
         /* =====================================================
+           SEND ORDER TO GOOGLE SHEETS
+        ===================================================== */
+
+        async function sendOrderToGoogleSheets(
+            orderData
+        ) {
+
+            await fetch(
+
+                GOOGLE_SHEET_WEB_APP_URL,
+
+                {
+
+                    method:
+                        "POST",
+
+                    mode:
+                        "no-cors",
+
+                    headers: {
+
+                        "Content-Type":
+                            "text/plain;charset=utf-8"
+
+                    },
+
+                    body:
+                        JSON.stringify(
+                            orderData
+                        )
+
+                }
+
+            );
+
+
+            return true;
+
+        }
+
+
+
+        /* =====================================================
            SUBMIT PAYMENT
         ===================================================== */
 
-        function submitPayment() {
+        async function submitPayment() {
 
             const errorBox =
                 document.getElementById(
@@ -2014,11 +2283,31 @@
                 );
 
 
+            const successBox =
+                document.getElementById(
+                    "success-message"
+                );
+
+
+            const submitButton =
+                document.querySelector(
+                    ".submit-btn"
+                );
+
+
             errorBox.style.display =
                 "none";
 
 
+            successBox.style.display =
+                "none";
+
+
             errorBox.innerText =
+                "";
+
+
+            successBox.innerText =
                 "";
 
 
@@ -2027,10 +2316,14 @@
                GET TRANSACTION ID
             ================================================= */
 
-            const transactionId =
+            const transactionInput =
                 document.getElementById(
                     "transactionId"
-                ).value.trim();
+                );
+
+
+            const transactionId =
+                transactionInput.value.trim();
 
 
 
@@ -2050,6 +2343,9 @@
                     "block";
 
 
+                transactionInput.focus();
+
+
                 return;
 
             }
@@ -2066,6 +2362,9 @@
 
                 errorBox.style.display =
                     "block";
+
+
+                transactionInput.focus();
 
 
                 return;
@@ -2105,14 +2404,7 @@
             ================================================= */
 
             const deliveryDetails =
-                JSON.parse(
-
-                    localStorage.getItem(
-                        "deliveryDetails"
-                    )
-
-                );
-
+                getDeliveryDetails();
 
 
             if (
@@ -2134,63 +2426,147 @@
 
 
             /* =================================================
-               GET FINAL TOTAL
+               GET TOTALS
             ================================================= */
 
-            const subtotal =
+            const savedSubtotal =
                 parseFloat(
 
                     localStorage.getItem(
                         "orderSubtotal"
                     )
 
-                ) || calculateSubtotal();
+                );
+
+
+            const subtotal =
+                Number.isFinite(
+                    savedSubtotal
+                )
+                ? savedSubtotal
+                : calculateSubtotal();
 
 
 
-            const discount =
+            const savedDiscount =
                 parseFloat(
 
                     localStorage.getItem(
                         "orderDiscount"
                     )
 
-                ) || 0;
+                );
 
+
+            const discount =
+                Number.isFinite(
+                    savedDiscount
+                )
+                ? savedDiscount
+                : 0;
+
+
+
+            const safeDiscount =
+                Math.min(
+                    discount,
+                    subtotal
+                );
 
 
             const total =
-                subtotal -
-                discount;
+                Math.max(
+                    subtotal -
+                    safeDiscount,
+                    0
+                );
 
 
 
             /* =================================================
-               SAVE TRANSACTION ID
+               CREATE ORDER ID
             ================================================= */
 
-            localStorage.setItem(
-
-                "transactionId",
-
-                transactionId
-
-            );
+            const orderId =
+                generateOrderId();
 
 
 
             /* =================================================
-               SAVE ORDER INFORMATION
+               PRODUCT INFORMATION
+            ================================================= */
+
+            const productText =
+                getProductText(
+                    cart
+                );
+
+
+            const totalQuantity =
+                getTotalQuantity(
+                    cart
+                );
+
+
+
+            /* =================================================
+               CREATE ORDER DATA
             ================================================= */
 
             const orderData = {
 
-                cart:
-                    cart,
+                orderId:
+                    orderId,
 
 
-                deliveryDetails:
-                    deliveryDetails,
+                date:
+                    new Date()
+                        .toLocaleString(
+                            "en-IN"
+                        ),
+
+
+                customerName:
+                    deliveryDetails.customerName ||
+                    "",
+
+
+                phone:
+                    deliveryDetails.phone ||
+                    "",
+
+
+                email:
+                    deliveryDetails.email ||
+                    "",
+
+
+                address:
+                    deliveryDetails.address ||
+                    "",
+
+
+                city:
+                    deliveryDetails.city ||
+                    "",
+
+
+                state:
+                    deliveryDetails.state ||
+                    "",
+
+
+                pin:
+                    deliveryDetails.pin ||
+                    "",
+
+
+                products:
+                    productText,
+
+
+                quantity:
+                    totalQuantity,
 
 
                 subtotal:
@@ -2198,7 +2574,7 @@
 
 
                 discount:
-                    discount,
+                    safeDiscount,
 
 
                 total:
@@ -2206,30 +2582,136 @@
 
 
                 transactionId:
-                    transactionId
+                    transactionId,
+
+
+                paymentStatus:
+                    "Payment Submitted"
 
             };
 
 
 
+            /* =================================================
+               SAVE LOCALLY FIRST
+            ================================================= */
+
             localStorage.setItem(
+                "transactionId",
+                transactionId
+            );
 
+
+            localStorage.setItem(
+                "orderId",
+                orderId
+            );
+
+
+            localStorage.setItem(
                 "orderData",
-
                 JSON.stringify(
                     orderData
                 )
-
             );
 
 
 
             /* =================================================
-               GO TO CONFIRMATION
+               DISABLE BUTTON
             ================================================= */
 
-            window.location.href =
-                "order-confirmation.html";
+            const originalButtonText =
+                submitButton.innerText;
+
+
+            submitButton.disabled =
+                true;
+
+
+            submitButton.innerText =
+                "Submitting Order...";
+
+
+
+            /* =================================================
+               SEND TO GOOGLE SHEETS
+            ================================================= */
+
+            try {
+
+                await sendOrderToGoogleSheets(
+                    orderData
+                );
+
+
+                /* =============================================
+                   SHOW SUCCESS
+                ============================================= */
+
+                successBox.innerText =
+                    "Order submitted successfully. Redirecting...";
+
+
+                successBox.style.display =
+                    "block";
+
+
+
+                /* =============================================
+                   CLEAR CART
+                ============================================= */
+
+                localStorage.removeItem(
+                    "cart"
+                );
+
+
+                localStorage.removeItem(
+                    "cartDiscount"
+                );
+
+
+
+                /* =============================================
+                   REDIRECT
+                ============================================= */
+
+                setTimeout(
+                    function() {
+
+                        window.location.href =
+                            "order-confirmation.html";
+
+                    },
+                    700
+                );
+
+
+            } catch (error) {
+
+                console.error(
+                    "Google Sheets submission error:",
+                    error
+                );
+
+
+                submitButton.disabled =
+                    false;
+
+
+                submitButton.innerText =
+                    originalButtonText;
+
+
+                errorBox.innerText =
+                    "Unable to submit your order right now. Please check your internet connection and try again.";
+
+
+                errorBox.style.display =
+                    "block";
+
+            }
 
         }
 
@@ -2239,7 +2721,14 @@
            START PAGE
         ===================================================== */
 
-        loadOrder();
+        document.addEventListener(
+            "DOMContentLoaded",
+            function() {
+
+                loadOrder();
+
+            }
+        );
 
 
     </script>
