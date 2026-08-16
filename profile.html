@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#ffffff"
+    >
+
+    <title>My Account | 50 Mirars</title>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        body {
+            margin: 0;
+
+            font-family:
+                Arial,
+                sans-serif;
+
+            background: #f7f7f7;
+
+            color: #222;
+        }
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        header {
+
+            height: 80px;
+
+            background: #fff;
+
+            border-bottom:
+                1px solid #ddd;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding:
+                0 50px;
+        }
+
+
+        .logo {
+
+            font-family:
+                Georgia,
+                serif;
+
+            font-size: 28px;
+
+            font-weight: bold;
+
+            letter-spacing: 2px;
+        }
+
+
+        .home-link {
+
+            text-decoration: none;
+
+            color: #111;
+
+            font-size: 15px;
+
+            font-weight: 600;
+        }
+
+
+        /* =====================================================
+           MAIN
+        ===================================================== */
+
+        .account-container {
+
+            width: 100%;
+
+            max-width: 500px;
+
+            margin:
+                70px auto;
+
+            padding:
+                0 20px;
+        }
+
+
+        .account-card {
+
+            background: #fff;
+
+            border:
+                1px solid #ddd;
+
+            border-radius: 12px;
+
+            padding: 40px 35px;
+
+            text-align: center;
+
+            box-shadow:
+                0 4px 18px
+                rgba(0,0,0,0.07);
+        }
+
+
+        .account-title {
+
+            font-family:
+                Georgia,
+                serif;
+
+            font-size: 32px;
+
+            margin:
+                0 0 10px;
+        }
+
+
+        .account-subtitle {
+
+            color: #777;
+
+            font-size: 15px;
+
+            line-height: 1.5;
+
+            margin-bottom: 30px;
+        }
+
+
+        /* =====================================================
+           LOGIN SECTION
+        ===================================================== */
+
+        #login-section {
+
+            display: block;
+        }
+
+
+        .google-button {
+
+            width: 100%;
+
+            padding: 14px;
+
+            background: #fff;
+
+            border:
+                1px solid #ccc;
+
+            border-radius: 6px;
+
+            cursor: pointer;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 12px;
+
+            font-size: 16px;
+
+            font-weight: 600;
+
+            color: #222;
+
+            transition: 0.2s;
+        }
+
+
+        .google-button:hover {
+
+            background: #f5f5f5;
+
+            border-color: #999;
+        }
+
+
+        .google-icon {
+
+            width: 20px;
+
+            height: 20px;
+
+            font-weight: bold;
+
+            font-size: 18px;
+        }
+
+
+        /* =====================================================
+           PROFILE SECTION
+        ===================================================== */
+
+        #profile-section {
+
+            display: none;
+        }
+
+
+        .profile-image {
+
+            width: 90px;
+
+            height: 90px;
+
+            border-radius: 50%;
+
+            object-fit: cover;
+
+            margin-bottom: 15px;
+
+            border:
+                3px solid #eee;
+        }
+
+
+        .profile-name {
+
+            font-size: 24px;
+
+            font-weight: 600;
+
+            margin-bottom: 6px;
+        }
+
+
+        .profile-email {
+
+            color: #777;
+
+            font-size: 14px;
+
+            margin-bottom: 30px;
+        }
+
+
+        /* =====================================================
+           ACCOUNT OPTIONS
+        ===================================================== */
+
+        .account-options {
+
+            text-align: left;
+
+            border-top:
+                1px solid #eee;
+        }
+
+
+        .account-option {
+
+            display: block;
+
+            width: 100%;
+
+            padding: 17px 5px;
+
+            border-bottom:
+                1px solid #eee;
+
+            color: #222;
+
+            text-decoration: none;
+
+            font-size: 15px;
+        }
+
+
+        .account-option:hover {
+
+            color: #a27a20;
+        }
+
+
+        /* =====================================================
+           LOGOUT
+        ===================================================== */
+
+        .logout-button {
+
+            width: 100%;
+
+            margin-top: 25px;
+
+            padding: 13px;
+
+            background: #111;
+
+            color: #fff;
+
+            border: none;
+
+            border-radius: 6px;
+
+            cursor: pointer;
+
+            font-size: 15px;
+
+            font-weight: 600;
+        }
+
+
+        .logout-button:hover {
+
+            background: #333;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+
+            text-align: center;
+
+            padding:
+                30px 20px;
+
+            color: #777;
+
+            font-size: 13px;
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media
+        screen and
+        (max-width: 600px) {
+
+            header {
+
+                padding:
+                    0 20px;
+            }
+
+
+            .logo {
+
+                font-size: 22px;
+            }
+
+
+            .account-container {
+
+                margin:
+                    40px auto;
+            }
+
+
+            .account-card {
+
+                padding:
+                    30px 22px;
+            }
+
+
+            .account-title {
+
+                font-size: 27px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         HEADER
+    ===================================================== -->
+
+    <header>
+
+        <div class="logo">
+            50 MIRARS
+        </div>
+
+
+        <a
+            href="index.html"
+            class="home-link"
+        >
+            ← Back to Home
+        </a>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         ACCOUNT
+    ===================================================== -->
+
+    <main class="account-container">
+
+        <div class="account-card">
+
+
+            <!-- =================================================
+                 LOGIN
+            ================================================== -->
+
+            <div id="login-section">
+
+                <h1 class="account-title">
+                    My Account
+                </h1>
+
+
+                <p class="account-subtitle">
+
+                    Sign in to your
+                    50 Mirars account
+                    to manage your orders
+                    and profile.
+
+                </p>
+
+
+                <button
+                    id="google-login"
+                    class="google-button"
+                >
+
+                    <span class="google-icon">
+                        G
+                    </span>
+
+                    Continue with Google
+
+                </button>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 PROFILE
+            ================================================== -->
+
+            <div id="profile-section">
+
+
+                <img
+                    id="profile-image"
+                    class="profile-image"
+                    src=""
+                    alt="Profile Picture"
+                >
+
+
+                <div
+                    id="profile-name"
+                    class="profile-name"
+                >
+                    Customer
+                </div>
+
+
+                <div
+                    id="profile-email"
+                    class="profile-email"
+                >
+                    customer@email.com
+                </div>
+
+
+
+                <!-- ACCOUNT OPTIONS -->
+
+                <div class="account-options">
+
+
+                    <a
+                        href="orders.html"
+                        class="account-option"
+                    >
+                        My Orders
+                    </a>
+
+
+                    <a
+                        href="profile-details.html"
+                        class="account-option"
+                    >
+                        My Profile
+                    </a>
+
+
+                    <a
+                        href="addresses.html"
+                        class="account-option"
+                    >
+                        Saved Addresses
+                    </a>
+
+
+                </div>
+
+
+
+                <!-- LOGOUT -->
+
+                <button
+                    id="logout-button"
+                    class="logout-button"
+                >
+                    Logout
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ===================================================== -->
+
+    <footer>
+
+        © 2026 50 Mirars.
+        All Rights Reserved.
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         FIREBASE
+    ===================================================== -->
+
+    <script type="module">
+
+
+        /* =====================================================
+           FIREBASE IMPORTS
+        ===================================================== */
+
+        import {
+            initializeApp
+        }
+        from
+            "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+
+
+        import {
+            getAuth,
+            GoogleAuthProvider,
+            signInWithPopup,
+            signOut,
+            onAuthStateChanged
+        }
+        from
+            "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+
+
+
+        /* =====================================================
+           YOUR FIREBASE CONFIG
+        ===================================================== */
+
+        const firebaseConfig = {
+
+            apiKey:
+                "AIzaSyD5oZFZRUDnmb2d1_juGTeWAbQcy3gycjc",
+
+            authDomain:
+                "mirars-project.firebaseapp.com",
+
+            projectId:
+                "mirars-project",
+
+            storageBucket:
+                "mirars-project.firebasestorage.app",
+
+            messagingSenderId:
+                "947955901957",
+
+            appId:
+                "1:947955901957:web:67bb04627f25bf2a419e6c",
+
+            measurementId:
+                "G-HXESQZER5L"
+
+        };
+
+
+
+        /* =====================================================
+           INITIALIZE FIREBASE
+        ===================================================== */
+
+        const app =
+            initializeApp(
+                firebaseConfig
+            );
+
+
+        const auth =
+            getAuth(app);
+
+
+        const provider =
+            new GoogleAuthProvider();
+
+
+
+        /* =====================================================
+           ELEMENTS
+        ===================================================== */
+
+        const loginSection =
+            document.getElementById(
+                "login-section"
+            );
+
+
+        const profileSection =
+            document.getElementById(
+                "profile-section"
+            );
+
+
+        const googleLogin =
+            document.getElementById(
+                "google-login"
+            );
+
+
+        const logoutButton =
+            document.getElementById(
+                "logout-button"
+            );
+
+
+        const profileImage =
+            document.getElementById(
+                "profile-image"
+            );
+
+
+        const profileName =
+            document.getElementById(
+                "profile-name"
+            );
+
+
+        const profileEmail =
+            document.getElementById(
+                "profile-email"
+            );
+
+
+
+        /* =====================================================
+           GOOGLE LOGIN
+        ===================================================== */
+
+        googleLogin.addEventListener(
+            "click",
+            async function() {
+
+                try {
+
+                    googleLogin.disabled =
+                        true;
+
+                    googleLogin.innerText =
+                        "Signing in...";
+
+
+                    await signInWithPopup(
+                        auth,
+                        provider
+                    );
+
+
+                }
+
+                catch (error) {
+
+                    console.error(
+                        error
+                    );
+
+
+                    alert(
+                        "Google sign-in failed. Please try again."
+                    );
+
+
+                    googleLogin.disabled =
+                        false;
+
+                    googleLogin.innerText =
+                        "Continue with Google";
+
+                }
+
+            }
+        );
+
+
+
+        /* =====================================================
+           AUTHENTICATION STATE
+        ===================================================== */
+
+        onAuthStateChanged(
+            auth,
+            function(user) {
+
+
+                if (user) {
+
+                    /* ================================
+                       USER IS LOGGED IN
+                    ================================= */
+
+
+                    loginSection.style.display =
+                        "none";
+
+
+                    profileSection.style.display =
+                        "block";
+
+
+                    profileName.innerText =
+                        user.displayName ||
+                        "50 Mirars Customer";
+
+
+                    profileEmail.innerText =
+                        user.email ||
+                        "";
+
+
+                    if (
+                        user.photoURL
+                    ) {
+
+                        profileImage.src =
+                            user.photoURL;
+
+                    }
+
+
+                }
+
+                else {
+
+                    /* ================================
+                       USER IS LOGGED OUT
+                    ================================= */
+
+
+                    loginSection.style.display =
+                        "block";
+
+
+                    profileSection.style.display =
+                        "none";
+
+
+                    googleLogin.disabled =
+                        false;
+
+
+                    googleLogin.innerText =
+                        "Continue with Google";
+
+                }
+
+            }
+        );
+
+
+
+        /* =====================================================
+           LOGOUT
+        ===================================================== */
+
+        logoutButton.addEventListener(
+            "click",
+            async function() {
+
+                try {
+
+                    await signOut(
+                        auth
+                    );
+
+
+                }
+
+                catch (error) {
+
+                    console.error(
+                        error
+                    );
+
+
+                    alert(
+                        "Unable to log out. Please try again."
+                    );
+
+                }
+
+            }
+        );
+
+
+    </script>
+
+
+</body>
+
+</html>
