@@ -1451,13 +1451,97 @@ td {
 
 
 
-<script>
+<script type="module">
 
 /* =====================================================
-   GET CART
+   FIREBASE IMPORTS
 ===================================================== */
 
-function getCart() {
+import {
+    initializeApp
+} from
+"https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+
+
+import {
+    getAuth,
+    onAuthStateChanged
+} from
+"https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+
+
+import {
+    getFirestore,
+    doc,
+    getDoc,
+    setDoc,
+    updateDoc
+} from
+"https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+
+
+/* =====================================================
+   FIREBASE CONFIG
+===================================================== */
+
+const firebaseConfig = {
+
+    apiKey:
+        "AIzaSyD5oZFRZUDnmb2d1_juGTeWAbQcy3gcyjc",
+
+    authDomain:
+        "mirars-project.firebaseapp.com",
+
+    projectId:
+        "mirars-project",
+
+    storageBucket:
+        "mirars-project.firebasestorage.app",
+
+    messagingSenderId:
+        "947955901957",
+
+    appId:
+        "1:947955901957:web:67bb04627f25bf2a419e6c",
+
+    measurementId:
+        "G-HXESQZER5L"
+
+};
+
+
+
+/* =====================================================
+   INITIALIZE FIREBASE
+===================================================== */
+
+const app =
+    initializeApp(firebaseConfig);
+
+
+const auth =
+    getAuth(app);
+
+
+const db =
+    getFirestore(app);
+
+
+
+/* =====================================================
+   CURRENT CUSTOMER
+===================================================== */
+
+let currentUser = null;
+
+
+
+/* =====================================================
+   LOCAL CART
+===================================================== */
+
+function getLocalCart() {
 
     return JSON.parse(
         localStorage.getItem("cart")
@@ -1467,16 +1551,251 @@ function getCart() {
 
 
 
-/* =====================================================
-   SAVE CART
-===================================================== */
-
-function saveCart(cart) {
+function saveLocalCart(cart) {
 
     localStorage.setItem(
         "cart",
         JSON.stringify(cart)
     );
+
+}
+
+
+
+/* =====================================================
+   GET CUSTOMER FIRESTORE DOCUMENT
+===================================================== */
+
+function getCustomerRef() {
+
+    if (!currentUser) {
+
+        return null;
+
+    }
+
+
+    return doc(
+        db,
+        "customers",
+        currentUser.uid
+    );
+
+}
+
+
+
+/* =====================================================
+   LOAD CART FROM FIRESTORE
+===================================================== */
+
+async function loadCartFromFirestore() {
+
+    if (!currentUser) {
+
+        return;
+
+    }
+
+
+    try {
+
+        const customerRef =
+            getCustomerRef();
+
+
+        const customerSnap =
+            await getDoc(customerRef);
+
+
+        if (customerSnap.exists()) {
+
+            const data =
+                customerSnap.data();
+
+
+            const firestoreCart =
+                Array.isArray(data.cart)
+                    ? data.cart
+                    : [];
+
+
+            /*
+               If customer has a Firestore cart,
+               use it.
+            */
+
+            if (firestoreCart.length > 0) {
+
+                saveLocalCart(
+                    firestoreCart
+                );
+
+            }
+
+            /*
+               If Firestore cart is empty but
+               local cart exists, upload local cart.
+            */
+
+            else {
+
+                const localCart =
+                    getLocalCart();
+
+
+                if (localCart.length > 0) {
+
+                    await saveCartToFirestore(
+                        localCart
+                    );
+
+                }
+
+            }
+
+        }
+
+        else {
+
+            /*
+               Customer document doesn't exist yet.
+               Create cart using local cart.
+            */
+
+            const localCart =
+                getLocalCart();
+
+
+            await setDoc(
+
+                customerRef,
+
+                {
+                    cart:
+                        localCart
+                },
+
+                {
+                    merge: true
+                }
+
+            );
+
+        }
+
+
+        renderCart();
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Could not load customer cart:",
+            error
+        );
+
+
+        alert(
+            "Could not load your account cart. Please check your internet connection and try again."
+        );
+
+        renderCart();
+
+    }
+
+}
+
+
+
+/* =====================================================
+   SAVE CART TO FIRESTORE
+===================================================== */
+
+async function saveCartToFirestore(cart) {
+
+    if (!currentUser) {
+
+        /*
+           Customer isn't logged in.
+           Keep cart locally.
+        */
+
+        saveLocalCart(cart);
+
+        return;
+
+    }
+
+
+    try {
+
+        const customerRef =
+            getCustomerRef();
+
+
+        await setDoc(
+
+            customerRef,
+
+            {
+                cart:
+                    cart,
+
+                cartUpdatedAt:
+                    new Date().toISOString()
+
+            },
+
+            {
+                merge: true
+            }
+
+        );
+
+
+        /*
+           Also keep local copy.
+        */
+
+        saveLocalCart(cart);
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Could not save cart:",
+            error
+        );
+
+
+        /*
+           Keep local copy so the cart
+           isn't lost.
+        */
+
+        saveLocalCart(cart);
+
+
+        alert(
+            "Your cart could not be saved to your account. Please check your internet connection."
+        );
+
+    }
+
+}
+
+
+
+/* =====================================================
+   GET CART
+===================================================== */
+
+function getCart() {
+
+    return getLocalCart();
 
 }
 
@@ -1505,7 +1824,9 @@ function getPrice(item) {
 
 function renderCart() {
 
-    const cart = getCart();
+    const cart =
+        getCart();
+
 
     const cartItems =
         document.getElementById(
@@ -1513,10 +1834,13 @@ function renderCart() {
         );
 
 
-    cartItems.innerHTML = "";
+    cartItems.innerHTML =
+        "";
 
 
-    /* EMPTY CART */
+    /* =================================================
+       EMPTY CART
+    ================================================= */
 
     if (cart.length === 0) {
 
@@ -1547,41 +1871,56 @@ function renderCart() {
 
 
 
-    /* GROUP IDENTICAL PRODUCTS */
+    /* =================================================
+       GROUP IDENTICAL PRODUCTS
+    ================================================= */
 
     const products = {};
 
 
-    cart.forEach(function(item) {
+    cart.forEach(
+        function(item) {
 
-        const key =
-            item.name + "|" + item.price;
+            const key =
+                item.name +
+                "|" +
+                item.price;
 
 
-        if (!products[key]) {
+            if (!products[key]) {
 
-            products[key] = {
+                products[key] = {
 
-                name: item.name,
+                    name:
+                        item.name,
 
-                price: getPrice(item),
+                    price:
+                        getPrice(item),
 
-                quantity: 0
+                    image:
+                        item.image || "",
 
-            };
+                    quantity:
+                        0
+
+                };
+
+            }
+
+
+            products[key].quantity++;
 
         }
-
-
-        products[key].quantity++;
-
-    });
+    );
 
 
 
-    /* DISPLAY PRODUCTS */
+    /* =================================================
+       DISPLAY PRODUCTS
+    ================================================= */
 
     Object.values(products).forEach(
+
         function(item) {
 
             const subtotal =
@@ -1595,14 +1934,18 @@ function renderCart() {
 
                     <td class="product-name">
 
-                        ${item.name}
+                        ${escapeHTML(
+                            item.name
+                        )}
 
                     </td>
 
 
                     <td>
 
-                        ₹${item.price.toLocaleString("en-IN")}
+                        ₹${item.price.toLocaleString(
+                            "en-IN"
+                        )}
 
                     </td>
 
@@ -1617,7 +1960,7 @@ function renderCart() {
                                 class="quantity-btn"
 
                                 onclick="changeQuantity(
-                                    '${escapeQuotes(item.name)}',
+                                    ${JSON.stringify(item.name)},
                                     -1
                                 )"
 
@@ -1642,7 +1985,7 @@ function renderCart() {
                                 class="quantity-btn"
 
                                 onclick="changeQuantity(
-                                    '${escapeQuotes(item.name)}',
+                                    ${JSON.stringify(item.name)},
                                     1
                                 )"
 
@@ -1660,7 +2003,9 @@ function renderCart() {
 
                     <td>
 
-                        ₹${subtotal.toLocaleString("en-IN")}
+                        ₹${subtotal.toLocaleString(
+                            "en-IN"
+                        )}
 
                     </td>
 
@@ -1672,7 +2017,7 @@ function renderCart() {
                             class="remove-btn"
 
                             onclick="removeProduct(
-                                '${escapeQuotes(item.name)}'
+                                ${JSON.stringify(item.name)}
                             )"
 
                         >
@@ -1688,6 +2033,7 @@ function renderCart() {
             `;
 
         }
+
     );
 
 
@@ -1698,14 +2044,37 @@ function renderCart() {
 
 
 /* =====================================================
-   ESCAPE PRODUCT NAME
+   ESCAPE HTML
 ===================================================== */
 
-function escapeQuotes(text) {
+function escapeHTML(text) {
 
-    return text
-        .replace(/\\/g, "\\\\")
-        .replace(/'/g, "\\'");
+    return String(text)
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
 
 }
 
@@ -1715,15 +2084,18 @@ function escapeQuotes(text) {
    CHANGE QUANTITY
 ===================================================== */
 
-function changeQuantity(
+window.changeQuantity = async function(
     name,
     amount
 ) {
 
-    let cart = getCart();
+    let cart =
+        getCart();
 
 
-    /* ADD ONE */
+    /* =================================================
+       ADD ONE
+    ================================================= */
 
     if (amount === 1) {
 
@@ -1741,9 +2113,14 @@ function changeQuantity(
 
             cart.push({
 
-                name: item.name,
+                name:
+                    item.name,
 
-                price: item.price
+                price:
+                    item.price,
+
+                image:
+                    item.image || ""
 
             });
 
@@ -1753,7 +2130,9 @@ function changeQuantity(
 
 
 
-    /* REMOVE ONE */
+    /* =================================================
+       REMOVE ONE
+    ================================================= */
 
     if (amount === -1) {
 
@@ -1769,19 +2148,28 @@ function changeQuantity(
 
         if (index !== -1) {
 
-            cart.splice(index, 1);
+            cart.splice(
+                index,
+                1
+            );
 
         }
 
     }
 
 
-    saveCart(cart);
+    /*
+       Save immediately.
+    */
+
+    await saveCartToFirestore(
+        cart
+    );
 
 
     renderCart();
 
-}
+};
 
 
 
@@ -1789,26 +2177,32 @@ function changeQuantity(
    REMOVE ENTIRE PRODUCT
 ===================================================== */
 
-function removeProduct(name) {
+window.removeProduct = async function(
+    name
+) {
 
-    let cart = getCart();
+    let cart =
+        getCart();
 
 
-    cart = cart.filter(
-        function(item) {
+    cart =
+        cart.filter(
+            function(item) {
 
-            return item.name !== name;
+                return item.name !== name;
 
-        }
+            }
+        );
+
+
+    await saveCartToFirestore(
+        cart
     );
-
-
-    saveCart(cart);
 
 
     renderCart();
 
-}
+};
 
 
 
@@ -1818,15 +2212,19 @@ function removeProduct(name) {
 
 function calculateSubtotal() {
 
-    const cart = getCart();
+    const cart =
+        getCart();
 
-    let subtotal = 0;
+
+    let subtotal =
+        0;
 
 
     cart.forEach(
         function(item) {
 
-            subtotal += getPrice(item);
+            subtotal +=
+                getPrice(item);
 
         }
     );
@@ -1858,8 +2256,6 @@ function updateSummary() {
         ) || 0;
 
 
-    /* DON'T ALLOW DISCOUNT ABOVE SUBTOTAL */
-
     const safeDiscount =
         Math.min(
             discount,
@@ -1868,7 +2264,8 @@ function updateSummary() {
 
 
     const total =
-        subtotal - safeDiscount;
+        subtotal -
+        safeDiscount;
 
 
 
@@ -1905,7 +2302,9 @@ function updateSummary() {
 
 
 
-    /* SAVE VALUES FOR DELIVERY / PAYMENT */
+    /*
+       Save values for delivery/payment.
+    */
 
     localStorage.setItem(
         "orderSubtotal",
@@ -1932,7 +2331,7 @@ function updateSummary() {
    APPLY COUPON
 ===================================================== */
 
-function applyCoupon() {
+window.applyCoupon = function() {
 
     const input =
         document.getElementById(
@@ -1969,10 +2368,14 @@ function applyCoupon() {
     }
 
 
-    let discount = 0;
+    let discount =
+        0;
 
 
-    /* BIRTH1 - 20% OFF */
+
+    /* =================================================
+       BIRTH1 - 20%
+    ================================================= */
 
     if (code === "BIRTH1") {
 
@@ -1982,7 +2385,10 @@ function applyCoupon() {
     }
 
 
-    /* 10OFF10 - 10% OFF */
+
+    /* =================================================
+       10OFF10 - 10%
+    ================================================= */
 
     else if (code === "10OFF10") {
 
@@ -1992,13 +2398,17 @@ function applyCoupon() {
     }
 
 
-    /* INVALID COUPON */
+
+    /* =================================================
+       INVALID
+    ================================================= */
 
     else {
 
         localStorage.removeItem(
             "cartDiscount"
         );
+
 
         localStorage.removeItem(
             "cartCoupon"
@@ -2007,6 +2417,7 @@ function applyCoupon() {
 
         message.innerText =
             "Invalid coupon code.";
+
 
         message.style.color =
             "#e53935";
@@ -2020,7 +2431,9 @@ function applyCoupon() {
 
 
 
-    /* SAVE COUPON */
+    /* =================================================
+       SAVE COUPON
+    ================================================= */
 
     localStorage.setItem(
         "cartDiscount",
@@ -2034,12 +2447,11 @@ function applyCoupon() {
     );
 
 
-    /* UPDATE SCREEN */
-
     updateSummary();
 
 
     message.innerText =
+
         code +
         " applied successfully! You saved ₹" +
         discount.toLocaleString(
@@ -2050,7 +2462,7 @@ function applyCoupon() {
     message.style.color =
         "#008577";
 
-}
+};
 
 
 
@@ -2058,7 +2470,7 @@ function applyCoupon() {
    REMOVE COUPON
 ===================================================== */
 
-function removeCoupon() {
+window.removeCoupon = function() {
 
     localStorage.removeItem(
         "cartDiscount"
@@ -2072,7 +2484,8 @@ function removeCoupon() {
 
     document.getElementById(
         "coupon-code"
-    ).value = "";
+    ).value =
+        "";
 
 
     const message =
@@ -2091,7 +2504,7 @@ function removeCoupon() {
 
     updateSummary();
 
-}
+};
 
 
 
@@ -2099,7 +2512,7 @@ function removeCoupon() {
    PROCEED TO DELIVERY
 ===================================================== */
 
-function goToDelivery() {
+window.goToDelivery = function() {
 
     const cart =
         getCart();
@@ -2116,28 +2529,96 @@ function goToDelivery() {
     }
 
 
-    /* SAVE LATEST TOTAL */
+    /*
+       If customer isn't logged in,
+       send them to profile first.
+    */
+
+    if (!currentUser) {
+
+        alert(
+            "Please sign in to your 50 Mirars account before proceeding to delivery."
+        );
+
+
+        window.location.href =
+            "profile.html";
+
+
+        return;
+
+    }
+
 
     updateSummary();
 
 
-    /* GO TO DELIVERY PAGE */
-
     window.location.href =
         "delivery.html";
 
-}
+};
 
 
 
 /* =====================================================
-   START CART
+   FIREBASE AUTH STATE
+===================================================== */
+
+onAuthStateChanged(
+
+    auth,
+
+    async function(user) {
+
+        currentUser =
+            user;
+
+
+        if (user) {
+
+            console.log(
+                "Customer logged in:",
+                user.uid
+            );
+
+
+            /*
+               Load this customer's
+               personal cart.
+            */
+
+            await loadCartFromFirestore();
+
+        }
+
+        else {
+
+            console.log(
+                "No customer logged in."
+            );
+
+
+            /*
+               Guest cart stays local.
+            */
+
+            renderCart();
+
+        }
+
+    }
+
+);
+
+
+
+/* =====================================================
+   INITIAL DISPLAY
 ===================================================== */
 
 renderCart();
 
 </script>
-
 
 </body>
 
