@@ -17,7 +17,7 @@
 
 <meta
     name="description"
-    content="Delivery Details - 50 Mirars"
+    content="Delivery Details | 50 Mirars"
 >
 
 <title>Delivery Details | 50 Mirars</title>
@@ -171,7 +171,7 @@ header h1 {
 
 
 /* =====================================================
-   DELIVERY FORM
+   DELIVERY FORM CONTAINER
 ===================================================== */
 
 .delivery-form {
@@ -204,68 +204,46 @@ header h1 {
 
 
 /* =====================================================
-   SAVED ADDRESS SECTION
+   SAVED PROFILE ADDRESS
 ===================================================== */
 
 .saved-address-section {
 
     display: none;
 
-    background: #f7f7f7;
+    background: #fafafa;
 
-    border: 1px solid #d8d8d8;
+    border: 1px solid #ddd;
 
     border-radius: 10px;
 
-    padding: 20px;
+    padding: 22px;
 
-    margin-bottom: 28px;
-
-}
-
-.saved-address-section.visible {
-
-    display: block;
+    margin-bottom: 30px;
 
 }
 
-.saved-address-header {
+.saved-address-section h3 {
 
-    display: flex;
+    margin:
+        0
+        0
+        8px;
 
-    justify-content: space-between;
-
-    align-items: center;
-
-    gap: 15px;
-
-    margin-bottom: 15px;
+    font-size: 19px;
 
 }
 
-.saved-address-title {
+.saved-address-subtitle {
 
-    margin: 0;
+    color: #666;
 
-    font-size: 18px;
+    font-size: 14px;
 
-    font-weight: 700;
-
-}
-
-.saved-address-badge {
-
-    background: #111;
-
-    color: #fff;
-
-    padding: 5px 10px;
-
-    border-radius: 20px;
-
-    font-size: 11px;
-
-    white-space: nowrap;
+    margin:
+        0
+        0
+        18px;
 
 }
 
@@ -277,53 +255,45 @@ header h1 {
 
     border-radius: 8px;
 
-    padding: 17px;
-
-    line-height: 1.6;
+    padding: 18px;
 
 }
 
 .saved-address-name {
 
+    font-size: 17px;
+
     font-weight: 700;
 
-    font-size: 16px;
-
-    margin-bottom: 5px;
+    margin-bottom: 8px;
 
 }
 
-.saved-address-text {
+.saved-address-line {
 
     color: #444;
+
+    line-height: 1.6;
 
     font-size: 14px;
 
 }
 
-.saved-address-phone {
+.saved-address-contact {
 
-    color: #444;
+    margin-top: 10px;
+
+    color: #555;
 
     font-size: 14px;
 
-    margin-top: 5px;
-
 }
 
-.saved-address-actions {
+.saved-address-button {
 
-    display: flex;
+    width: 100%;
 
-    gap: 10px;
-
-    margin-top: 15px;
-
-}
-
-.use-address-btn {
-
-    flex: 1;
+    margin-top: 18px;
 
     padding: 13px 18px;
 
@@ -337,39 +307,60 @@ header h1 {
 
     font-size: 15px;
 
-    font-weight: 700;
+    font-weight: 600;
 
     cursor: pointer;
 
 }
 
-.use-address-btn:hover {
+.saved-address-button:hover {
 
     background: #00796b;
 
 }
 
-.use-manual-btn {
+.saved-address-button:disabled {
 
-    padding: 13px 18px;
+    opacity: 0.6;
 
-    background: #fff;
-
-    color: #111;
-
-    border: 1px solid #bbb;
-
-    border-radius: 6px;
-
-    font-size: 14px;
-
-    cursor: pointer;
+    cursor: wait;
 
 }
 
-.use-manual-btn:hover {
 
-    background: #f1f1f1;
+/* =====================================================
+   USE DIFFERENT ADDRESS
+===================================================== */
+
+.different-address-heading {
+
+    display: none;
+
+    border-top: 1px solid #eee;
+
+    padding-top: 25px;
+
+    margin-top: 10px;
+
+    margin-bottom: 25px;
+
+}
+
+.different-address-heading h3 {
+
+    margin: 0 0 7px;
+
+    font-size: 19px;
+
+}
+
+.different-address-heading p {
+
+    margin: 0;
+
+    color: #666;
+
+    font-size: 14px;
 
 }
 
@@ -414,7 +405,9 @@ header h1 {
 
     padding: 12px;
 
-    border: 1px solid #ccc;
+    border:
+        1px solid
+        #ccc;
 
     border-radius: 5px;
 
@@ -422,7 +415,6 @@ header h1 {
 
     font-family:
         Arial,
-        Helvetica,
         sans-serif;
 
     outline: none;
@@ -447,7 +439,7 @@ header h1 {
 
 
 /* =====================================================
-   REQUIRED STAR
+   REQUIRED
 ===================================================== */
 
 .required {
@@ -501,12 +493,68 @@ header h1 {
 
 
 /* =====================================================
+   ERROR MESSAGE
+===================================================== */
+
+.error-message {
+
+    display: none;
+
+    background: #ffebee;
+
+    color: #c62828;
+
+    border:
+        1px solid
+        #ef9a9a;
+
+    padding: 12px;
+
+    border-radius: 5px;
+
+    margin-bottom: 20px;
+
+    font-size: 14px;
+
+}
+
+
+/* =====================================================
+   SUCCESS MESSAGE
+===================================================== */
+
+.success-message {
+
+    display: none;
+
+    background: #e8f5e9;
+
+    color: #2e7d32;
+
+    border:
+        1px solid
+        #a5d6a7;
+
+    padding: 12px;
+
+    border-radius: 5px;
+
+    margin-bottom: 20px;
+
+    font-size: 14px;
+
+}
+
+
+/* =====================================================
    ORDER SUMMARY
 ===================================================== */
 
 .order-summary {
 
-    flex: 0 0 350px;
+    flex:
+        0 0
+        350px;
 
     background: #fff;
 
@@ -514,7 +562,9 @@ header h1 {
 
     border-radius: 10px;
 
-    border: 1px solid #ddd;
+    border:
+        1px solid
+        #ddd;
 
     box-shadow:
         0 2px 8px
@@ -548,7 +598,9 @@ header h1 {
 
     padding: 12px 0;
 
-    border-bottom: 1px solid #eee;
+    border-bottom:
+        1px solid
+        #eee;
 
     font-size: 14px;
 
@@ -594,7 +646,9 @@ header h1 {
 
     justify-content: space-between;
 
-    border-top: 1px solid #ddd;
+    border-top:
+        1px solid
+        #ddd;
 
     padding-top: 16px;
 
@@ -608,7 +662,7 @@ header h1 {
 
 
 /* =====================================================
-   BACK TO CART
+   BACK CART
 ===================================================== */
 
 .back-cart {
@@ -635,57 +689,7 @@ header h1 {
 
 
 /* =====================================================
-   ERROR MESSAGE
-===================================================== */
-
-.error-message {
-
-    display: none;
-
-    background: #ffebee;
-
-    color: #c62828;
-
-    border: 1px solid #ef9a9a;
-
-    padding: 12px;
-
-    border-radius: 5px;
-
-    margin-bottom: 20px;
-
-    font-size: 14px;
-
-}
-
-
-/* =====================================================
-   SUCCESS MESSAGE
-===================================================== */
-
-.success-message {
-
-    display: none;
-
-    background: #e8f5e9;
-
-    color: #2e7d32;
-
-    border: 1px solid #a5d6a7;
-
-    padding: 12px;
-
-    border-radius: 5px;
-
-    margin-bottom: 20px;
-
-    font-size: 14px;
-
-}
-
-
-/* =====================================================
-   HOMEPAGE FOOTER
+   FOOTER
 ===================================================== */
 
 .main-footer {
@@ -970,10 +974,10 @@ header h1 {
 
 
 /* =====================================================
-   TABLET
+   MOBILE SAFETY
 ===================================================== */
 
-@media (max-width: 900px) {
+@media screen and (max-width: 900px) {
 
     .delivery-page {
 
@@ -1087,31 +1091,11 @@ header h1 {
 
     }
 
-    .saved-address-header {
-
-        align-items: flex-start;
-
-        flex-direction: column;
-
-    }
-
-    .saved-address-actions {
-
-        flex-direction: column;
-
-    }
-
-    .use-manual-btn {
-
-        width: 100%;
-
-    }
-
 }
 
 
 /* =====================================================
-   END OF STYLES
+   END CSS
 ===================================================== */
 
 </style>
@@ -1172,88 +1156,14 @@ header h1 {
 
 
     <!-- =================================================
-         CUSTOMER FORM
+         DELIVERY AREA
     ================================================== -->
 
     <div class="delivery-form">
 
         <h2>
-            Enter Delivery Details
+            Delivery Details
         </h2>
-
-
-        <!-- =================================================
-             SAVED PROFILE ADDRESS
-        ================================================== -->
-
-        <div
-            id="saved-address-section"
-            class="saved-address-section"
-        >
-
-            <div class="saved-address-header">
-
-                <h3 class="saved-address-title">
-                    Use Your Saved Address
-                </h3>
-
-                <span class="saved-address-badge">
-                    MY ACCOUNT
-                </span>
-
-            </div>
-
-
-            <div class="saved-address-card">
-
-                <div
-                    id="saved-address-name"
-                    class="saved-address-name"
-                >
-                    Customer
-                </div>
-
-
-                <div
-                    id="saved-address-text"
-                    class="saved-address-text"
-                >
-                    Loading saved address...
-                </div>
-
-
-                <div
-                    id="saved-address-phone"
-                    class="saved-address-phone"
-                >
-                </div>
-
-
-                <div class="saved-address-actions">
-
-                    <button
-                        type="button"
-                        id="use-saved-address-btn"
-                        class="use-address-btn"
-                    >
-                        Continue with This Address
-                    </button>
-
-
-                    <button
-                        type="button"
-                        id="manual-address-btn"
-                        class="use-manual-btn"
-                    >
-                        Enter Another Address
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
 
 
         <!-- =================================================
@@ -1274,6 +1184,80 @@ header h1 {
             id="success-message"
             class="success-message"
         ></div>
+
+
+        <!-- =================================================
+             SAVED PROFILE ADDRESS
+        ================================================== -->
+
+        <div
+            id="saved-address-section"
+            class="saved-address-section"
+        >
+
+            <h3>
+                Use Your Saved Address
+            </h3>
+
+            <p class="saved-address-subtitle">
+                We found an address saved in your 50 Mirars profile.
+            </p>
+
+
+            <div class="saved-address-card">
+
+                <div
+                    id="saved-address-name"
+                    class="saved-address-name"
+                >
+                    Customer
+                </div>
+
+
+                <div
+                    id="saved-address-line"
+                    class="saved-address-line"
+                ></div>
+
+
+                <div
+                    id="saved-address-contact"
+                    class="saved-address-contact"
+                ></div>
+
+
+                <button
+                    type="button"
+                    id="use-saved-address-btn"
+                    class="saved-address-button"
+                >
+                    Continue with This Address →
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             MANUAL ADDRESS HEADING
+        ================================================== -->
+
+        <div
+            id="different-address-heading"
+            class="different-address-heading"
+        >
+
+            <h3>
+                Enter a Different Address
+            </h3>
+
+            <p>
+                Fill in the form below if you want your order delivered somewhere else.
+            </p>
+
+        </div>
 
 
 
@@ -1630,6 +1614,7 @@ header h1 {
 
                 </h3>
 
+
                 <a
                     href="https://wa.me/c/918209989013"
                     target="_blank"
@@ -1692,6 +1677,7 @@ header h1 {
                     Follow Us On
                 </p>
 
+
                 <a
                     href="https://instagram.com/50mirars"
                     target="_blank"
@@ -1722,6 +1708,7 @@ header h1 {
 
         </div>
 
+
     </div>
 
 </footer>
@@ -1729,7 +1716,7 @@ header h1 {
 
 
 <!-- =====================================================
-     FIREBASE + DELIVERY SYSTEM
+     FIREBASE DELIVERY SYSTEM
 ===================================================== -->
 
 <script type="module">
@@ -1757,7 +1744,11 @@ from
 import {
     getFirestore,
     doc,
-    getDoc
+    getDoc,
+    setDoc,
+    addDoc,
+    collection,
+    serverTimestamp
 }
 from
 "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
@@ -1815,6 +1806,22 @@ const db =
 
 
 /* =====================================================
+   GLOBAL STATE
+===================================================== */
+
+let currentUser = null;
+
+let checkoutCart = [];
+
+let profileAddress = null;
+
+let usingSavedProfileAddress = false;
+
+let authReady = false;
+
+
+
+/* =====================================================
    ELEMENTS
 ===================================================== */
 
@@ -1836,15 +1843,15 @@ const savedAddressName =
     );
 
 
-const savedAddressText =
+const savedAddressLine =
     document.getElementById(
-        "saved-address-text"
+        "saved-address-line"
     );
 
 
-const savedAddressPhone =
+const savedAddressContact =
     document.getElementById(
-        "saved-address-phone"
+        "saved-address-contact"
     );
 
 
@@ -1854,9 +1861,15 @@ const useSavedAddressButton =
     );
 
 
-const manualAddressButton =
+const differentAddressHeading =
     document.getElementById(
-        "manual-address-btn"
+        "different-address-heading"
+    );
+
+
+const deliveryForm =
+    document.getElementById(
+        "delivery-form"
     );
 
 
@@ -1872,12 +1885,6 @@ const successMessage =
     );
 
 
-const deliveryForm =
-    document.getElementById(
-        "delivery-form"
-    );
-
-
 const continuePaymentButton =
     document.getElementById(
         "continue-payment-btn"
@@ -1886,24 +1893,12 @@ const continuePaymentButton =
 
 
 /* =====================================================
-   GLOBAL STATE
+   HTML ESCAPE
 ===================================================== */
 
-let currentUser = null;
+function escapeHTML(value) {
 
-let savedProfileAddress = null;
-
-let authReady = false;
-
-
-
-/* =====================================================
-   SAFE TEXT
-===================================================== */
-
-function escapeHTML(text) {
-
-    return String(text || "")
+    return String(value || "")
 
         .replace(
             /&/g,
@@ -1935,102 +1930,70 @@ function escapeHTML(text) {
 
 
 /* =====================================================
-   GET LOCAL STORAGE CART
+   GET PRICE
 ===================================================== */
 
-function getCart() {
+function getPrice(item) {
 
-    /*
-       The cart page saves the current
-       checkout cart here.
-    */
+    return parseFloat(
 
-    try {
+        String(
+            item?.price || "0"
+        )
+        .replace(
+            /[^0-9.]/g,
+            ""
+        )
 
-        const checkoutCart =
-            localStorage.getItem(
-                "checkoutCart"
-            );
+    ) || 0;
 
-
-        if (checkoutCart) {
-
-            const parsedCheckoutCart =
-                JSON.parse(
-                    checkoutCart
-                );
+}
 
 
-            if (
-                Array.isArray(
-                    parsedCheckoutCart
-                ) &&
-                parsedCheckoutCart.length > 0
-            ) {
 
-                return normalizeCart(
-                    parsedCheckoutCart
-                );
+/* =====================================================
+   NORMALIZE CART ITEM
+===================================================== */
 
-            }
+function normalizeCartItem(item) {
 
-        }
+    if (!item) {
 
-    }
-
-    catch (error) {
-
-        console.error(
-            "Checkout cart error:",
-            error
-        );
+        return null;
 
     }
 
 
-
-    /*
-       Fallback to normal cart.
-    */
-
-    try {
-
-        const normalCart =
-            localStorage.getItem(
-                "cart"
-            );
+    const name =
+        String(
+            item.name || ""
+        ).trim();
 
 
-        if (!normalCart) {
+    if (!name) {
 
-            return [];
-
-        }
-
-
-        const parsedCart =
-            JSON.parse(
-                normalCart
-            );
-
-
-        return normalizeCart(
-            parsedCart
-        );
+        return null;
 
     }
 
-    catch (error) {
 
-        console.error(
-            "Cart loading error:",
-            error
-        );
+    return {
 
+        name:
+            name,
 
-        return [];
+        price:
+            item.price || "0",
 
-    }
+        image:
+            item.image || "",
+
+        quantity:
+            Number(item.quantity) > 0
+                ? Number(item.quantity)
+                : 1
+
+    };
 
 }
 
@@ -2049,54 +2012,43 @@ function normalizeCart(cart) {
     }
 
 
-    const result = [];
+    const normalized = [];
 
 
     cart.forEach(
         function(item) {
 
-            if (!item) {
+            const cleanItem =
+                normalizeCartItem(
+                    item
+                );
+
+
+            if (!cleanItem) {
 
                 return;
 
             }
-
-
-            const name =
-                String(
-                    item.name || ""
-                ).trim();
-
-
-            if (!name) {
-
-                return;
-
-            }
-
-
-            const price =
-                getPrice(item);
-
-
-            const quantity =
-                Number(
-                    item.quantity
-                ) > 0
-                    ? Number(item.quantity)
-                    : 1;
-
 
 
             const existing =
-                result.find(
+                normalized.find(
                     function(product) {
 
                         return (
+
                             product.name ===
-                            name &&
-                            product.price ===
-                            price
+                            cleanItem.name
+
+                            &&
+
+                            String(
+                                product.price
+                            ) ===
+                            String(
+                                cleanItem.price
+                            )
+
                         );
 
                     }
@@ -2106,24 +2058,15 @@ function normalizeCart(cart) {
             if (existing) {
 
                 existing.quantity +=
-                    quantity;
+                    cleanItem.quantity;
 
             }
 
             else {
 
-                result.push({
-
-                    name:
-                        name,
-
-                    price:
-                        price,
-
-                    quantity:
-                        quantity
-
-                });
+                normalized.push(
+                    cleanItem
+                );
 
             }
 
@@ -2131,29 +2074,178 @@ function normalizeCart(cart) {
     );
 
 
-    return result;
+    return normalized;
 
 }
 
 
 
 /* =====================================================
-   GET PRICE
+   GET CHECKOUT CART
 ===================================================== */
 
-function getPrice(item) {
+async function loadCheckoutCart() {
 
-    return parseFloat(
+    let localCheckoutCart = [];
 
-        String(
-            item.price || "0"
-        )
-        .replace(
-            /[^0-9.]/g,
-            ""
-        )
 
-    ) || 0;
+    /*
+       FIRST:
+       checkoutCart created by cart.html
+    */
+
+    try {
+
+        const savedCheckoutCart =
+            localStorage.getItem(
+                "checkoutCart"
+            );
+
+
+        if (savedCheckoutCart) {
+
+            localCheckoutCart =
+                normalizeCart(
+                    JSON.parse(
+                        savedCheckoutCart
+                    )
+                );
+
+        }
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "checkoutCart error:",
+            error
+        );
+
+    }
+
+
+
+    /*
+       SECOND:
+       If checkoutCart is empty,
+       use local cart.
+    */
+
+    if (
+        localCheckoutCart.length === 0
+    ) {
+
+        try {
+
+            const savedCart =
+                localStorage.getItem(
+                    "cart"
+                );
+
+
+            if (savedCart) {
+
+                localCheckoutCart =
+                    normalizeCart(
+                        JSON.parse(
+                            savedCart
+                        )
+                    );
+
+            }
+
+        }
+
+        catch (error) {
+
+            console.error(
+                "local cart error:",
+                error
+            );
+
+        }
+
+    }
+
+
+
+    /*
+       THIRD:
+       If logged in and local cart
+       is empty, get Firebase cart.
+    */
+
+    if (
+        currentUser &&
+        localCheckoutCart.length === 0
+    ) {
+
+        try {
+
+            const cartRef =
+                doc(
+                    db,
+                    "carts",
+                    currentUser.uid
+                );
+
+
+            const cartSnapshot =
+                await getDoc(
+                    cartRef
+                );
+
+
+            if (
+                cartSnapshot.exists()
+            ) {
+
+                const data =
+                    cartSnapshot.data();
+
+
+                localCheckoutCart =
+                    normalizeCart(
+                        data.cart || []
+                    );
+
+            }
+
+        }
+
+        catch (error) {
+
+            console.error(
+                "Firebase checkout cart error:",
+                error
+            );
+
+        }
+
+    }
+
+
+    checkoutCart =
+        localCheckoutCart;
+
+
+    /*
+       Keep checkoutCart synchronized.
+    */
+
+    if (
+        checkoutCart.length > 0
+    ) {
+
+        localStorage.setItem(
+            "checkoutCart",
+            JSON.stringify(
+                checkoutCart
+            )
+        );
+
+    }
 
 }
 
@@ -2165,14 +2257,10 @@ function getPrice(item) {
 
 function calculateSubtotal() {
 
-    const cart =
-        getCart();
-
-
     let subtotal = 0;
 
 
-    cart.forEach(
+    checkoutCart.forEach(
         function(item) {
 
             subtotal +=
@@ -2192,14 +2280,40 @@ function calculateSubtotal() {
 
 
 /* =====================================================
-   LOAD ORDER
+   GET DISCOUNT
 ===================================================== */
 
-function loadOrder() {
+function getDiscount(subtotal) {
 
-    const cart =
-        getCart();
+    /*
+       Cart page saves the latest
+       discount as orderDiscount.
+    */
 
+    const savedDiscount =
+        parseFloat(
+
+            localStorage.getItem(
+                "orderDiscount"
+            )
+
+        ) || 0;
+
+
+    return Math.min(
+        savedDiscount,
+        subtotal
+    );
+
+}
+
+
+
+/* =====================================================
+   DISPLAY ORDER
+===================================================== */
+
+function displayOrder() {
 
     const productList =
         document.getElementById(
@@ -2211,7 +2325,7 @@ function loadOrder() {
 
 
     if (
-        cart.length === 0
+        checkoutCart.length === 0
     ) {
 
         productList.innerHTML = `
@@ -2223,7 +2337,7 @@ function loadOrder() {
         `;
 
 
-        updateSummaryDisplay(
+        updateSummary(
             0,
             0
         );
@@ -2234,15 +2348,10 @@ function loadOrder() {
     }
 
 
-
-    /* =================================================
-       SHOW PRODUCTS
-    ================================================= */
-
-    cart.forEach(
+    checkoutCart.forEach(
         function(item) {
 
-            const itemPrice =
+            const price =
                 getPrice(item);
 
 
@@ -2253,7 +2362,7 @@ function loadOrder() {
 
 
             const itemTotal =
-                itemPrice *
+                price *
                 quantity;
 
 
@@ -2292,48 +2401,33 @@ function loadOrder() {
     );
 
 
-
-    /* =================================================
-       GET SAVED ORDER VALUES
-    ================================================= */
-
-    const calculatedSubtotal =
+    const subtotal =
         calculateSubtotal();
 
 
-    const storedSubtotal =
-        parseFloat(
-            localStorage.getItem(
-                "orderSubtotal"
-            )
-        );
-
-
-    const subtotal =
-        !isNaN(
-            storedSubtotal
-        )
-            ? storedSubtotal
-            : calculatedSubtotal;
-
-
-
-    const storedDiscount =
-        parseFloat(
-            localStorage.getItem(
-                "orderDiscount"
-            )
-        );
-
-
     const discount =
-        !isNaN(
-            storedDiscount
-        )
-            ? storedDiscount
-            : 0;
+        getDiscount(
+            subtotal
+        );
 
 
+    updateSummary(
+        subtotal,
+        discount
+    );
+
+}
+
+
+
+/* =====================================================
+   UPDATE SUMMARY
+===================================================== */
+
+function updateSummary(
+    subtotal,
+    discount
+) {
 
     const safeDiscount =
         Math.min(
@@ -2345,48 +2439,12 @@ function loadOrder() {
         );
 
 
-    updateSummaryDisplay(
-        subtotal,
-        safeDiscount
-    );
-
-}
-
-
-
-/* =====================================================
-   UPDATE SUMMARY
-===================================================== */
-
-function updateSummaryDisplay(
-    subtotal,
-    discount
-) {
-
-    const safeSubtotal =
-        Math.max(
-            Number(subtotal) || 0,
-            0
-        );
-
-
-    const safeDiscount =
-        Math.min(
-            Math.max(
-                Number(discount) || 0,
-                0
-            ),
-            safeSubtotal
-        );
-
-
     const total =
         Math.max(
-            safeSubtotal -
+            subtotal -
             safeDiscount,
             0
         );
-
 
 
     document.getElementById(
@@ -2394,10 +2452,9 @@ function updateSummaryDisplay(
     ).innerText =
 
         "₹" +
-        safeSubtotal.toLocaleString(
+        subtotal.toLocaleString(
             "en-IN"
         );
-
 
 
     document.getElementById(
@@ -2410,7 +2467,6 @@ function updateSummaryDisplay(
         );
 
 
-
     document.getElementById(
         "total"
     ).innerText =
@@ -2421,14 +2477,14 @@ function updateSummaryDisplay(
         );
 
 
-
     /*
-       Keep order values synchronized.
+       Keep values available for
+       payment.html.
     */
 
     localStorage.setItem(
         "orderSubtotal",
-        safeSubtotal
+        subtotal
     );
 
 
@@ -2441,6 +2497,704 @@ function updateSummaryDisplay(
     localStorage.setItem(
         "orderTotal",
         total
+    );
+
+}
+
+
+
+/* =====================================================
+   PROFILE ADDRESS HELPERS
+===================================================== */
+
+function cleanProfileAddress(data) {
+
+    if (!data) {
+
+        return null;
+
+    }
+
+
+    /*
+       We support the common address
+       field names used by the profile.
+    */
+
+    const name =
+        String(
+            data.fullName ||
+            data.customerName ||
+            data.name ||
+            ""
+        ).trim();
+
+
+    const phone =
+        String(
+            data.phone ||
+            data.phoneNumber ||
+            data.mobile ||
+            ""
+        ).trim();
+
+
+    const email =
+        String(
+            data.email ||
+            currentUser?.email ||
+            ""
+        ).trim();
+
+
+    const address =
+        String(
+            data.address ||
+            data.completeAddress ||
+            data.deliveryAddress ||
+            ""
+        ).trim();
+
+
+    const city =
+        String(
+            data.city ||
+            ""
+        ).trim();
+
+
+    const state =
+        String(
+            data.state ||
+            ""
+        ).trim();
+
+
+    const pin =
+        String(
+            data.pin ||
+            data.pincode ||
+            data.pinCode ||
+            postalCodeValue(data) ||
+            ""
+        ).trim();
+
+
+    /*
+       A valid saved address needs
+       the actual address information.
+    */
+
+    if (
+        !address ||
+        !city ||
+        !state ||
+        !pin
+    ) {
+
+        return null;
+
+    }
+
+
+    return {
+
+        customerName:
+            name ||
+            currentUser?.displayName ||
+            "Customer",
+
+        phone:
+            phone,
+
+        email:
+            email,
+
+        address:
+            address,
+
+        city:
+            city,
+
+        state:
+            state,
+
+        pin:
+            pin
+
+    };
+
+}
+
+
+
+/*
+   Handles a few possible PIN field names.
+*/
+
+function postalCodeValue(data) {
+
+    return (
+        data.postalCode ||
+        data.zip ||
+        ""
+    );
+
+}
+
+
+
+/* =====================================================
+   LOAD PROFILE ADDRESS
+===================================================== */
+
+async function loadProfileAddress() {
+
+    if (!currentUser) {
+
+        return;
+
+    }
+
+
+    let profileData = null;
+
+
+
+    /*
+       PRIMARY PROFILE DOCUMENT
+
+       users/{uid}
+    */
+
+    try {
+
+        const userRef =
+            doc(
+                db,
+                "users",
+                currentUser.uid
+            );
+
+
+        const userSnapshot =
+            await getDoc(
+                userRef
+            );
+
+
+        if (
+            userSnapshot.exists()
+        ) {
+
+            profileData =
+                userSnapshot.data();
+
+        }
+
+    }
+
+    catch (error) {
+
+        console.warn(
+            "Could not read users profile:",
+            error
+        );
+
+    }
+
+
+
+    /*
+       If the profile wasn't found,
+       try profiles/{uid}.
+    */
+
+    if (!profileData) {
+
+        try {
+
+            const profileRef =
+                doc(
+                    db,
+                    "profiles",
+                    currentUser.uid
+                );
+
+
+            const profileSnapshot =
+                await getDoc(
+                    profileRef
+                );
+
+
+            if (
+                profileSnapshot.exists()
+            ) {
+
+                profileData =
+                    profileSnapshot.data();
+
+            }
+
+        }
+
+        catch (error) {
+
+            console.warn(
+                "Could not read profiles document:",
+                error
+            );
+
+        }
+
+    }
+
+
+
+    /*
+       If no profile document exists,
+       there is no saved address.
+    */
+
+    if (!profileData) {
+
+        showNoSavedAddress();
+
+        return;
+
+    }
+
+
+
+    /*
+       Some profile systems store
+       address information inside
+       an "address" object.
+    */
+
+    let addressData =
+        profileData;
+
+
+    if (
+        profileData.address &&
+        typeof profileData.address ===
+        "object"
+    ) {
+
+        addressData = {
+
+            ...profileData,
+
+            ...profileData.address
+
+        };
+
+    }
+
+
+    const cleaned =
+        cleanProfileAddress(
+            addressData
+        );
+
+
+    if (!cleaned) {
+
+        showNoSavedAddress();
+
+        return;
+
+    }
+
+
+    profileAddress =
+        cleaned;
+
+
+    displaySavedAddress();
+
+}
+
+
+
+/* =====================================================
+   SHOW SAVED ADDRESS
+===================================================== */
+
+function displaySavedAddress() {
+
+    if (!profileAddress) {
+
+        showNoSavedAddress();
+
+        return;
+
+    }
+
+
+    savedAddressSection.style.display =
+        "block";
+
+
+    savedAddressName.innerText =
+        profileAddress.customerName;
+
+
+    savedAddressLine.innerHTML =
+
+        escapeHTML(
+            profileAddress.address
+        )
+
+        +
+
+        "<br>" +
+
+        escapeHTML(
+            profileAddress.city
+        )
+
+        +
+
+        ", " +
+
+        escapeHTML(
+            profileAddress.state
+        )
+
+        +
+
+        " - " +
+
+        escapeHTML(
+            profileAddress.pin
+        );
+
+
+    let contactText = "";
+
+
+    if (
+        profileAddress.phone
+    ) {
+
+        contactText +=
+            "Phone: " +
+            profileAddress.phone;
+
+    }
+
+
+    if (
+        profileAddress.email
+    ) {
+
+        if (contactText) {
+
+            contactText +=
+                " &nbsp; | &nbsp; ";
+
+        }
+
+        contactText +=
+            "Email: " +
+            profileAddress.email;
+
+    }
+
+
+    savedAddressContact.innerHTML =
+        escapeHTML(
+            contactText
+        );
+
+
+    differentAddressHeading.style.display =
+        "block";
+
+}
+
+
+
+/* =====================================================
+   NO SAVED ADDRESS
+===================================================== */
+
+function showNoSavedAddress() {
+
+    savedAddressSection.style.display =
+        "none";
+
+
+    differentAddressHeading.style.display =
+        "block";
+
+}
+
+
+
+/* =====================================================
+   FILL FORM WITH PROFILE ADDRESS
+===================================================== */
+
+function fillFormWithProfileAddress() {
+
+    if (!profileAddress) {
+
+        return;
+
+    }
+
+
+    document.getElementById(
+        "customerName"
+    ).value =
+        profileAddress.customerName;
+
+
+    document.getElementById(
+        "phone"
+    ).value =
+        profileAddress.phone;
+
+
+    document.getElementById(
+        "email"
+    ).value =
+        profileAddress.email;
+
+
+    document.getElementById(
+        "address"
+    ).value =
+        profileAddress.address;
+
+
+    document.getElementById(
+        "city"
+    ).value =
+        profileAddress.city;
+
+
+    document.getElementById(
+        "state"
+    ).value =
+        profileAddress.state;
+
+
+    document.getElementById(
+        "pin"
+    ).value =
+        profileAddress.pin;
+
+}
+
+
+
+/* =====================================================
+   SAVE DELIVERY ORDER TO FIREBASE
+===================================================== */
+
+async function saveOrderToFirebase(
+    deliveryDetails,
+    subtotal,
+    discount,
+    total
+) {
+
+    if (!currentUser) {
+
+        throw new Error(
+            "Customer is not signed in."
+        );
+
+    }
+
+
+    const orderData = {
+
+        customerUid:
+            currentUser.uid,
+
+        customerName:
+            deliveryDetails.customerName,
+
+        phone:
+            deliveryDetails.phone,
+
+        email:
+            deliveryDetails.email,
+
+        address:
+            deliveryDetails.address,
+
+        city:
+            deliveryDetails.city,
+
+        state:
+            deliveryDetails.state,
+
+        pin:
+            deliveryDetails.pin,
+
+        deliveryAddressSource:
+            deliveryDetails.addressSource,
+
+        cart:
+            checkoutCart,
+
+        subtotal:
+            subtotal,
+
+        discount:
+            discount,
+
+        total:
+            total,
+
+        paymentStatus:
+            "Pending",
+
+        orderStatus:
+            "Pending",
+
+        createdAt:
+            serverTimestamp()
+
+    };
+
+
+    /*
+       Save order as a new document.
+    */
+
+    const orderRef =
+        await addDoc(
+            collection(
+                db,
+                "orders"
+            ),
+            orderData
+        );
+
+
+    /*
+       Keep the generated order ID
+       locally for payment.html.
+    */
+
+    localStorage.setItem(
+        "orderId",
+        orderRef.id
+    );
+
+
+    /*
+       Also save a customer-specific
+       order reference.
+
+       users/{uid}/orders/{orderId}
+    */
+
+    try {
+
+        await setDoc(
+
+            doc(
+                db,
+                "users",
+                currentUser.uid,
+                "orders",
+                orderRef.id
+            ),
+
+            {
+
+                orderId:
+                    orderRef.id,
+
+                customerName:
+                    deliveryDetails.customerName,
+
+                phone:
+                    deliveryDetails.phone,
+
+                email:
+                    deliveryDetails.email,
+
+                address:
+                    deliveryDetails.address,
+
+                city:
+                    deliveryDetails.city,
+
+                state:
+                    deliveryDetails.state,
+
+                pin:
+                    deliveryDetails.pin,
+
+                deliveryAddressSource:
+                    deliveryDetails.addressSource,
+
+                subtotal:
+                    subtotal,
+
+                discount:
+                    discount,
+
+                total:
+                    total,
+
+                paymentStatus:
+                    "Pending",
+
+                orderStatus:
+                    "Pending",
+
+                createdAt:
+                    serverTimestamp()
+
+            }
+
+        );
+
+    }
+
+    catch (customerOrderError) {
+
+        console.warn(
+            "Customer order copy could not be saved:",
+            customerOrderError
+        );
+
+    }
+
+
+    return orderRef.id;
+
+}
+
+
+
+/* =====================================================
+   SAVE DELIVERY DETAILS
+===================================================== */
+
+function saveDeliveryDetailsLocally(
+    deliveryDetails
+) {
+
+    localStorage.setItem(
+
+        "deliveryDetails",
+
+        JSON.stringify(
+            deliveryDetails
+        )
+
     );
 
 }
@@ -2476,235 +3230,103 @@ function validPin(pin) {
 
 
 /* =====================================================
-   GET VALUE FROM OBJECT
+   SHOW ERROR
 ===================================================== */
 
-function firstValue(
-    object,
-    keys
-) {
+function showError(message) {
 
-    if (
-        !object ||
-        typeof object !== "object"
-    ) {
-
-        return "";
-
-    }
+    successMessage.style.display =
+        "none";
 
 
-    for (
-        let i = 0;
-        i < keys.length;
-        i++
-    ) {
-
-        const key =
-            keys[i];
+    errorMessage.innerText =
+        message;
 
 
-        if (
-            object[key] !== undefined &&
-            object[key] !== null &&
-            String(
-                object[key]
-            ).trim() !== ""
-        ) {
-
-            return String(
-                object[key]
-            ).trim();
-
-        }
-
-    }
+    errorMessage.style.display =
+        "block";
 
 
-    return "";
+    window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
+    });
 
 }
 
 
 
 /* =====================================================
-   FIND ADDRESS INSIDE PROFILE DATA
+   SHOW SUCCESS
 ===================================================== */
 
-function extractAddress(data) {
+function showSuccess(message) {
 
-    if (
-        !data ||
-        typeof data !== "object"
-    ) {
-
-        return null;
-
-    }
+    errorMessage.style.display =
+        "none";
 
 
+    successMessage.innerText =
+        message;
 
-    /*
-       Sometimes the address is stored
-       directly inside the user document.
-    */
 
-    let source =
-        data;
+    successMessage.style.display =
+        "block";
+
+}
 
 
 
-    /*
-       Sometimes it is stored as:
+/* =====================================================
+   CREATE DELIVERY DETAILS
+===================================================== */
 
-       address: {
-           name,
-           phone,
-           address,
-           city,
-           state,
-           pin
-       }
-    */
-
-    if (
-        data.address &&
-        typeof data.address === "object"
-    ) {
-
-        source =
-            {
-                ...data,
-                ...data.address
-            };
-
-    }
-
-
-
-    /*
-       Support common naming styles.
-    */
-
-    const name =
-        firstValue(
-            source,
-            [
-                "customerName",
-                "fullName",
-                "name",
-                "displayName"
-            ]
-        );
-
-
-    const phone =
-        firstValue(
-            source,
-            [
-                "phone",
-                "phoneNumber",
-                "mobile",
-                "mobileNumber"
-            ]
-        );
-
-
-    const email =
-        firstValue(
-            source,
-            [
-                "email",
-                "emailAddress"
-            ]
-        );
-
-
-    const address =
-        firstValue(
-            source,
-            [
-                "completeAddress",
-                "address",
-                "streetAddress",
-                "deliveryAddress"
-            ]
-        );
-
-
-    const city =
-        firstValue(
-            source,
-            [
-                "city",
-                "town"
-            ]
-        );
-
-
-    const state =
-        firstValue(
-            source,
-            [
-                "state",
-                "stateName"
-            ]
-        );
-
-
-    const pin =
-        firstValue(
-            source,
-            [
-                "pin",
-                "pinCode",
-                "pincode",
-                "postalCode",
-                "zipCode"
-            ]
-        );
-
-
-
-    /*
-       An address is considered valid
-       when the main address fields exist.
-    */
-
-    if (
-        !address ||
-        !city ||
-        !state ||
-        !pin
-    ) {
-
-        return null;
-
-    }
-
+function createDeliveryDetails(
+    source
+) {
 
     return {
 
         customerName:
-            name,
+            document.getElementById(
+                "customerName"
+            ).value.trim(),
 
         phone:
-            phone,
+            document.getElementById(
+                "phone"
+            ).value.trim(),
 
         email:
-            email,
+            document.getElementById(
+                "email"
+            ).value.trim(),
 
         address:
-            address,
+            document.getElementById(
+                "address"
+            ).value.trim(),
 
         city:
-            city,
+            document.getElementById(
+                "city"
+            ).value.trim(),
 
         state:
-            state,
+            document.getElementById(
+                "state"
+            ).value.trim(),
 
         pin:
-            pin
+            document.getElementById(
+                "pin"
+            ).value.trim(),
+
+        addressSource:
+            source
 
     };
 
@@ -2713,356 +3335,74 @@ function extractAddress(data) {
 
 
 /* =====================================================
-   CHECK LOCAL PROFILE DATA
+   PROCESS DELIVERY
 ===================================================== */
 
-function getLocalProfileAddress() {
+async function processDelivery(
+    deliveryDetails
+) {
 
-    const possibleKeys = [
-
-        "profileData",
-
-        "userProfile",
-
-        "customerProfile",
-
-        "profile",
-
-        "savedAddress",
-
-        "deliveryAddress"
-
-    ];
+    errorMessage.style.display =
+        "none";
 
 
-    for (
-        let i = 0;
-        i < possibleKeys.length;
-        i++
-    ) {
-
-        const key =
-            possibleKeys[i];
-
-
-        try {
-
-            const stored =
-                localStorage.getItem(
-                    key
-                );
-
-
-            if (!stored) {
-
-                continue;
-
-            }
-
-
-            const parsed =
-                JSON.parse(
-                    stored
-                );
-
-
-            const address =
-                extractAddress(
-                    parsed
-                );
-
-
-            if (address) {
-
-                return address;
-
-            }
-
-        }
-
-        catch (error) {
-
-            console.warn(
-                "Could not read local profile:",
-                key,
-                error
-            );
-
-        }
-
-    }
-
-
-    return null;
-
-}
-
-
-
-/* =====================================================
-   LOAD PROFILE ADDRESS FROM FIREBASE
-===================================================== */
-
-async function loadProfileAddress() {
-
-    savedProfileAddress =
-        null;
-
+    successMessage.style.display =
+        "none";
 
 
     /*
-       First check local profile information.
-       This makes the page work even if the
-       profile page has already stored the
-       customer's address locally.
+       Cart check
     */
 
-    const localAddress =
-        getLocalProfileAddress();
+    if (
+        checkoutCart.length === 0
+    ) {
 
-
-    if (localAddress) {
-
-        savedProfileAddress =
-            localAddress;
-
-        showSavedAddress(
-            localAddress
+        showError(
+            "Your cart is empty. Please return to your cart and add a product."
         );
+
+        return;
 
     }
 
 
-
     /*
-       If the customer is not logged in,
-       local profile information is all we
-       can use.
+       Authentication check
     */
 
     if (!currentUser) {
 
-        if (!localAddress) {
-
-            hideSavedAddress();
-
-        }
-
-        return;
-
-    }
-
-
-
-    /*
-       Firebase profile.
-       
-       The primary profile document used here is:
-
-       users / USER_UID
-    */
-
-    try {
-
-        const userRef =
-            doc(
-                db,
-                "users",
-                currentUser.uid
-            );
-
-
-        const snapshot =
-            await getDoc(
-                userRef
-            );
-
-
-        if (
-            snapshot.exists()
-        ) {
-
-            const firebaseData =
-                snapshot.data();
-
-
-            const firebaseAddress =
-                extractAddress(
-                    firebaseData
-                );
-
-
-            if (firebaseAddress) {
-
-                savedProfileAddress =
-                    firebaseAddress;
-
-
-                showSavedAddress(
-                    firebaseAddress
-                );
-
-
-
-                /*
-                   Also keep a local copy.
-                */
-
-                try {
-
-                    localStorage.setItem(
-
-                        "profileData",
-
-                        JSON.stringify(
-                            firebaseData
-                        )
-
-                    );
-
-                }
-
-                catch (storageError) {
-
-                    console.warn(
-                        "Could not save local profile:",
-                        storageError
-                    );
-
-                }
-
-
-                return;
-
-            }
-
-        }
-
-    }
-
-    catch (error) {
-
-        console.warn(
-            "Could not load Firebase profile address:",
-            error
+        localStorage.setItem(
+            "returnToCheckout",
+            "true"
         );
 
-    }
+
+        alert(
+            "Please sign in to your account before continuing to payment."
+        );
 
 
+        window.location.href =
+            "profile.html";
 
-    /*
-       If Firebase didn't provide an address,
-       keep the local address if one existed.
-    */
-
-    if (!savedProfileAddress) {
-
-        hideSavedAddress();
-
-    }
-
-}
-
-
-
-/* =====================================================
-   SHOW SAVED ADDRESS
-===================================================== */
-
-function showSavedAddress(address) {
-
-    if (!address) {
-
-        hideSavedAddress();
 
         return;
 
     }
 
 
-    savedAddressSection.classList.add(
-        "visible"
-    );
+    /*
+       Validate customer name
+    */
 
-
-    savedAddressName.innerText =
-
-        address.customerName ||
-        (
-            currentUser &&
-            (
-                currentUser.displayName ||
-                currentUser.email
-            )
-        ) ||
-        "Saved Address";
-
-
-
-    savedAddressText.innerHTML = `
-
-        ${escapeHTML(
-            address.address
-        )}
-
-        <br>
-
-        ${escapeHTML(
-            address.city
-        )}
-
-        ,
-
-        ${escapeHTML(
-            address.state
-        )}
-
-        -
-
-        ${escapeHTML(
-            address.pin
-        )}
-
-    `;
-
-
-
-    savedAddressPhone.innerText =
-
-        address.phone
-            ? "Phone: " +
-              address.phone
-            : "";
-
-}
-
-
-
-/* =====================================================
-   HIDE SAVED ADDRESS
-===================================================== */
-
-function hideSavedAddress() {
-
-    savedAddressSection.classList.remove(
-        "visible"
-    );
-
-}
-
-
-
-/* =====================================================
-   FILL FORM WITH SAVED ADDRESS
-===================================================== */
-
-function fillFormWithSavedAddress() {
-
-    if (!savedProfileAddress) {
+    if (
+        !deliveryDetails.customerName
+    ) {
 
         showError(
-            "No saved profile address was found."
+            "Please enter your full name."
         );
 
         return;
@@ -3070,583 +3410,378 @@ function fillFormWithSavedAddress() {
     }
 
 
-    document.getElementById(
-        "customerName"
-    ).value =
+    /*
+       Validate phone
+    */
 
-        savedProfileAddress.customerName ||
-        (
-            currentUser &&
-            currentUser.displayName
-        ) ||
-        "";
+    if (
+        !validPhone(
+            deliveryDetails.phone
+        )
+    ) {
 
+        showError(
+            "Please enter a valid 10-digit Indian mobile number."
+        );
 
+        return;
 
-    document.getElementById(
-        "phone"
-    ).value =
-
-        savedProfileAddress.phone ||
-        "";
+    }
 
 
+    /*
+       Validate email
+    */
 
-    document.getElementById(
-        "email"
-    ).value =
+    if (
+        !deliveryDetails.email ||
+        !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
+            deliveryDetails.email
+        )
+    ) {
 
-        savedProfileAddress.email ||
-        (
-            currentUser &&
-            currentUser.email
-        ) ||
-        "";
+        showError(
+            "Please enter a valid email address."
+        );
 
+        return;
 
-
-    document.getElementById(
-        "address"
-    ).value =
-
-        savedProfileAddress.address ||
-        "";
+    }
 
 
+    /*
+       Validate address
+    */
 
-    document.getElementById(
-        "city"
-    ).value =
+    if (
+        !deliveryDetails.address
+    ) {
 
-        savedProfileAddress.city ||
-        "";
+        showError(
+            "Please enter your complete delivery address."
+        );
 
+        return;
 
-
-    document.getElementById(
-        "state"
-    ).value =
-
-        savedProfileAddress.state ||
-        "";
-
+    }
 
 
-    document.getElementById(
-        "pin"
-    ).value =
+    /*
+       Validate city
+    */
 
-        savedProfileAddress.pin ||
-        "";
+    if (
+        !deliveryDetails.city
+    ) {
+
+        showError(
+            "Please enter your city."
+        );
+
+        return;
+
+    }
+
+
+    /*
+       Validate state
+    */
+
+    if (
+        !deliveryDetails.state
+    ) {
+
+        showError(
+            "Please enter your state."
+        );
+
+        return;
+
+    }
+
+
+    /*
+       Validate PIN
+    */
+
+    if (
+        !validPin(
+            deliveryDetails.pin
+        )
+    ) {
+
+        showError(
+            "Please enter a valid 6-digit PIN code."
+        );
+
+        return;
+
+    }
 
 
 
     /*
-       Show a confirmation.
+       Calculate final amount
     */
 
-    successMessage.innerText =
-        "Your saved profile address has been selected. You can edit any detail below if needed.";
+    const subtotal =
+        calculateSubtotal();
 
-    successMessage.style.display =
-        "block";
 
-
-
-    errorMessage.style.display =
-        "none";
-
-
-
-    /*
-       Scroll gently to the form.
-    */
-
-    document.getElementById(
-        "delivery-form"
-    ).scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-    });
-
-}
-
-
-
-/* =====================================================
-   USE SAVED ADDRESS
-===================================================== */
-
-useSavedAddressButton.addEventListener(
-    "click",
-    function() {
-
-        fillFormWithSavedAddress();
-
-    }
-);
-
-
-
-/* =====================================================
-   ENTER ANOTHER ADDRESS
-===================================================== */
-
-manualAddressButton.addEventListener(
-    "click",
-    function() {
-
-        /*
-           Do not erase anything already
-           entered by the customer.
-        */
-
-        document.getElementById(
-            "customerName"
-        ).focus();
-
-
-        successMessage.style.display =
-            "none";
-
-
-        errorMessage.style.display =
-            "none";
-
-    }
-);
-
-
-
-/* =====================================================
-   SHOW ERROR
-===================================================== */
-
-function showError(message) {
-
-    errorMessage.innerText =
-        message;
-
-    errorMessage.style.display =
-        "block";
-
-
-    successMessage.style.display =
-        "none";
-
-
-    errorMessage.scrollIntoView({
-        behavior: "smooth",
-        block: "center"
-    });
-
-}
-
-
-
-/* =====================================================
-   CONTINUE TO PAYMENT
-===================================================== */
-
-deliveryForm.addEventListener(
-    "submit",
-    async function(event) {
-
-        event.preventDefault();
-
-
-        errorMessage.style.display =
-            "none";
-
-        successMessage.style.display =
-            "none";
-
-
-
-        /*
-           Make sure authentication check
-           has completed.
-        */
-
-        if (!authReady) {
-
-            showError(
-                "Please wait while your account is being checked."
-            );
-
-            return;
-
-        }
-
-
-
-        /*
-           GET FORM VALUES
-        */
-
-        const customerName =
-            document.getElementById(
-                "customerName"
-            ).value.trim();
-
-
-        const phone =
-            document.getElementById(
-                "phone"
-            ).value.trim();
-
-
-        const email =
-            document.getElementById(
-                "email"
-            ).value.trim();
-
-
-        const address =
-            document.getElementById(
-                "address"
-            ).value.trim();
-
-
-        const city =
-            document.getElementById(
-                "city"
-            ).value.trim();
-
-
-        const state =
-            document.getElementById(
-                "state"
-            ).value.trim();
-
-
-        const pin =
-            document.getElementById(
-                "pin"
-            ).value.trim();
-
-
-
-        /*
-           BASIC REQUIRED VALIDATION
-        */
-
-        if (!customerName) {
-
-            showError(
-                "Please enter your full name."
-            );
-
-            return;
-
-        }
-
-
-        if (!email) {
-
-            showError(
-                "Please enter your email address."
-            );
-
-            return;
-
-        }
-
-
-        if (!address) {
-
-            showError(
-                "Please enter your complete delivery address."
-            );
-
-            return;
-
-        }
-
-
-        if (!city) {
-
-            showError(
-                "Please enter your city."
-            );
-
-            return;
-
-        }
-
-
-        if (!state) {
-
-            showError(
-                "Please enter your state."
-            );
-
-            return;
-
-        }
-
-
-
-        /*
-           PHONE VALIDATION
-        */
-
-        if (
-            !validPhone(phone)
-        ) {
-
-            showError(
-                "Please enter a valid 10-digit Indian mobile number."
-            );
-
-            return;
-
-        }
-
-
-
-        /*
-           PIN VALIDATION
-        */
-
-        if (
-            !validPin(pin)
-        ) {
-
-            showError(
-                "Please enter a valid 6-digit PIN code."
-            );
-
-            return;
-
-        }
-
-
-
-        /*
-           GET CART
-        */
-
-        const cart =
-            getCart();
-
-
-        if (
-            cart.length === 0
-        ) {
-
-            showError(
-                "Your cart is empty. Please return to your cart and add a product."
-            );
-
-            return;
-
-        }
-
-
-
-        /*
-           SAVE DELIVERY DETAILS
-        */
-
-        const deliveryDetails = {
-
-            customerName:
-                customerName,
-
-            phone:
-                phone,
-
-            email:
-                email,
-
-            address:
-                address,
-
-            city:
-                city,
-
-            state:
-                state,
-
-            pin:
-                pin,
-
-            savedFromProfile:
-                savedProfileAddress
-                    ? (
-                        customerName ===
-                        savedProfileAddress.customerName &&
-                        phone ===
-                        savedProfileAddress.phone &&
-                        address ===
-                        savedProfileAddress.address &&
-                        city ===
-                        savedProfileAddress.city &&
-                        state ===
-                        savedProfileAddress.state &&
-                        pin ===
-                        savedProfileAddress.pin
-                    )
-                    : false,
-
-            savedAt:
-                new Date().toISOString()
-
-        };
-
-
-
-        try {
-
-            localStorage.setItem(
-
-                "deliveryDetails",
-
-                JSON.stringify(
-                    deliveryDetails
-                )
-
-            );
-
-        }
-
-        catch (storageError) {
-
-            console.error(
-                "Could not save delivery details:",
-                storageError
-            );
-
-
-            showError(
-                "Could not save your delivery details on this device. Please try again."
-            );
-
-            return;
-
-        }
-
-
-
-        /*
-           CALCULATE ORDER VALUES
-        */
-
-        const subtotal =
-            calculateSubtotal();
-
-
-        const storedDiscount =
-            parseFloat(
-                localStorage.getItem(
-                    "orderDiscount"
-                )
-            );
-
-
-        const discount =
-            !isNaN(
-                storedDiscount
-            )
-                ? storedDiscount
-                : 0;
-
-
-        const safeDiscount =
-            Math.min(
-                Math.max(
-                    discount,
-                    0
-                ),
-                subtotal
-            );
-
-
-        const total =
-            Math.max(
-                subtotal -
-                safeDiscount,
-                0
-            );
-
-
-
-        /*
-           SAVE ORDER TOTALS
-        */
-
-        localStorage.setItem(
-            "orderSubtotal",
+    const discount =
+        getDiscount(
             subtotal
         );
 
 
-        localStorage.setItem(
-            "orderDiscount",
-            safeDiscount
-        );
-
-
-        localStorage.setItem(
-            "orderTotal",
-            total
+    const total =
+        Math.max(
+            subtotal -
+            discount,
+            0
         );
 
 
 
+    /*
+       Save values locally for
+       payment.html.
+    */
+
+    saveDeliveryDetailsLocally(
+        deliveryDetails
+    );
+
+
+    localStorage.setItem(
+        "orderSubtotal",
+        subtotal
+    );
+
+
+    localStorage.setItem(
+        "orderDiscount",
+        discount
+    );
+
+
+    localStorage.setItem(
+        "orderTotal",
+        total
+    );
+
+
+    localStorage.setItem(
+        "checkoutCart",
+        JSON.stringify(
+            checkoutCart
+        )
+    );
+
+
+
+    /*
+       Disable buttons while saving.
+    */
+
+    continuePaymentButton.disabled =
+        true;
+
+
+    useSavedAddressButton.disabled =
+        true;
+
+
+    continuePaymentButton.innerText =
+        "Saving Order...";
+
+
+    useSavedAddressButton.innerText =
+        "Saving Order...";
+
+
+
+    try {
+
         /*
-           Save a clean copy of the
-           checkout cart.
+           Save complete order to Firebase.
         */
 
-        try {
+        const orderId =
+            await saveOrderToFirebase(
 
-            localStorage.setItem(
+                deliveryDetails,
 
-                "checkoutCart",
+                subtotal,
 
-                JSON.stringify(
-                    cart
-                )
+                discount,
+
+                total
 
             );
 
-        }
-
-        catch (cartSaveError) {
-
-            console.error(
-                "Checkout cart save error:",
-                cartSaveError
-            );
-
-        }
-
-
 
         /*
-           Disable button to prevent
-           double clicks.
+           Save order ID.
         */
 
-        continuePaymentButton.disabled =
-            true;
-
-
-        continuePaymentButton.innerText =
-            "Opening Payment...";
-
+        localStorage.setItem(
+            "orderId",
+            orderId
+        );
 
 
         /*
-           Continue to payment page.
+           Clear checkout return flag.
+        */
+
+        localStorage.removeItem(
+            "returnToCheckout"
+        );
+
+
+        /*
+           Continue to payment.
         */
 
         window.location.href =
             "payment.html";
 
     }
+
+    catch (error) {
+
+        console.error(
+            "Order save error:",
+            error
+        );
+
+
+        continuePaymentButton.disabled =
+            false;
+
+
+        useSavedAddressButton.disabled =
+            false;
+
+
+        continuePaymentButton.innerText =
+            "Continue to Payment →";
+
+
+        useSavedAddressButton.innerText =
+            "Continue with This Address →";
+
+
+        showError(
+
+            "We could not save your delivery details right now. Please check your internet connection and try again."
+
+        );
+
+    }
+
+}
+
+
+
+/* =====================================================
+   SAVED ADDRESS BUTTON
+===================================================== */
+
+useSavedAddressButton.addEventListener(
+
+    "click",
+
+    async function() {
+
+        if (
+            !authReady
+        ) {
+
+            return;
+
+        }
+
+
+        if (
+            !profileAddress
+        ) {
+
+            showError(
+                "No saved profile address was found. Please enter your delivery address below."
+            );
+
+            return;
+
+        }
+
+
+        /*
+           Put saved address into the form.
+        */
+
+        fillFormWithProfileAddress();
+
+
+        usingSavedProfileAddress =
+            true;
+
+
+        /*
+           Process immediately.
+        */
+
+        const deliveryDetails =
+            createDeliveryDetails(
+                "Profile Address"
+            );
+
+
+        await processDelivery(
+            deliveryDetails
+        );
+
+    }
+
+);
+
+
+
+/* =====================================================
+   MANUAL FORM SUBMIT
+===================================================== */
+
+deliveryForm.addEventListener(
+
+    "submit",
+
+    async function(event) {
+
+        event.preventDefault();
+
+
+        /*
+           Customer manually entered
+           a delivery address.
+        */
+
+        usingSavedProfileAddress =
+            false;
+
+
+        const deliveryDetails =
+            createDeliveryDetails(
+                "New Delivery Address"
+            );
+
+
+        await processDelivery(
+            deliveryDetails
+        );
+
+    }
+
 );
 
 
@@ -3669,9 +3804,8 @@ onAuthStateChanged(
             false;
 
 
-
         /*
-           SIGNED IN
+           Customer is logged in.
         */
 
         if (user) {
@@ -3679,15 +3813,36 @@ onAuthStateChanged(
             accountStatus.innerHTML =
 
                 "Signed in as " +
+
                 "<strong>" +
+
                 escapeHTML(
+
                     user.displayName ||
+
                     user.email ||
+
                     "Customer"
+
                 ) +
+
                 "</strong> · " +
+
                 "<a href='profile.html'>My Account</a>";
 
+
+            /*
+               Load cart.
+            */
+
+            await loadCheckoutCart();
+
+
+            /*
+               Display order.
+            */
+
+            displayOrder();
 
 
             /*
@@ -3696,68 +3851,52 @@ onAuthStateChanged(
 
             await loadProfileAddress();
 
-        }
 
-
-
-        /*
-           GUEST
-        */
-
-        else {
-
-            accountStatus.innerHTML =
-
-                "You are browsing as a guest. " +
-                "<a href='profile.html'>Sign in to your account</a>";
-
+            authReady =
+                true;
 
 
             /*
-               A local profile address may
-               still be available.
+               If a saved address exists,
+               don't automatically fill it.
+               The customer must choose it.
             */
-
-            const localAddress =
-                getLocalProfileAddress();
-
-
-            if (localAddress) {
-
-                savedProfileAddress =
-                    localAddress;
-
-
-                showSavedAddress(
-                    localAddress
-                );
-
-            }
-
-            else {
-
-                hideSavedAddress();
-
-            }
 
         }
 
+        else {
+
+            /*
+               Customer is not signed in.
+            */
+
+            accountStatus.innerHTML =
+
+                "Please " +
+
+                "<a href='profile.html'>sign in to your account</a>" +
+
+                " before continuing to payment.";
 
 
-        /*
-           Authentication check is finished.
-        */
+            /*
+               Still display any local
+               checkout cart.
+            */
 
-        authReady =
-            true;
+            await loadCheckoutCart();
 
 
+            displayOrder();
 
-        /*
-           Load order after auth is ready.
-        */
 
-        loadOrder();
+            showNoSavedAddress();
+
+
+            authReady =
+                true;
+
+        }
 
     }
 
@@ -3766,10 +3905,24 @@ onAuthStateChanged(
 
 
 /* =====================================================
-   INITIAL ORDER LOAD
+   INITIAL FALLBACK
 ===================================================== */
 
-loadOrder();
+window.addEventListener(
+
+    "load",
+
+    function() {
+
+        /*
+           If Firebase takes a moment,
+           the authentication listener
+           will complete the page.
+        */
+
+    }
+
+);
 
 
 </script>
