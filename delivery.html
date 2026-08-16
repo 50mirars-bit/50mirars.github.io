@@ -10,6 +10,16 @@
     content="width=1200"
 >
 
+<meta
+    name="theme-color"
+    content="#ffffff"
+>
+
+<meta
+    name="description"
+    content="Delivery Details - 50 Mirars"
+>
+
 <title>Delivery Details | 50 Mirars</title>
 
 
@@ -23,11 +33,25 @@
     box-sizing: border-box;
 }
 
+html {
+    overflow-x: hidden;
+}
+
 body {
+
     margin: 0;
-    font-family: Arial, sans-serif;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
     background: #f9f9f9;
+
     color: #222;
+
+    overflow-x: hidden;
+
 }
 
 
@@ -36,37 +60,92 @@ body {
 ===================================================== */
 
 header {
+
     background: #fff;
+
     padding: 20px 40px;
+
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
+
     border-bottom: 1px solid #ddd;
+
 }
 
 header h1 {
+
     margin: 0;
+
     font-size: 28px;
+
     text-align: center;
+
     flex: 1;
+
 }
 
 .back-btn {
+
     background: #111;
+
     color: #fff;
+
     padding: 10px 20px;
+
     text-decoration: none;
+
     border-radius: 6px;
+
     font-size: 15px;
+
 }
 
 .back-btn:hover {
+
     background: #333;
+
 }
 
 .logo {
+
     width: 120px;
+
     height: auto;
+
+}
+
+
+/* =====================================================
+   ACCOUNT STATUS
+===================================================== */
+
+.account-status {
+
+    width: 100%;
+
+    background: #111;
+
+    color: #fff;
+
+    padding: 10px 20px;
+
+    text-align: center;
+
+    font-size: 14px;
+
+}
+
+.account-status a {
+
+    color: #fff;
+
+    font-weight: 700;
+
+    margin-left: 5px;
+
 }
 
 
@@ -75,12 +154,19 @@ header h1 {
 ===================================================== */
 
 .delivery-page {
+
     max-width: 1200px;
+
     margin: 40px auto;
+
     padding: 0 20px;
+
     display: flex;
+
     gap: 30px;
+
     align-items: flex-start;
+
 }
 
 
@@ -89,59 +175,274 @@ header h1 {
 ===================================================== */
 
 .delivery-form {
+
     flex: 2;
+
     background: #fff;
+
     padding: 30px;
+
     border-radius: 10px;
+
     border: 1px solid #ddd;
+
     box-shadow:
-        0 2px 8px rgba(0,0,0,0.08);
+        0 2px 8px
+        rgba(0,0,0,0.08);
+
 }
 
 .delivery-form h2 {
+
     margin-top: 0;
+
     margin-bottom: 25px;
+
     font-size: 22px;
+
 }
 
-.form-row {
+
+/* =====================================================
+   SAVED ADDRESS SECTION
+===================================================== */
+
+.saved-address-section {
+
+    display: none;
+
+    background: #f7f7f7;
+
+    border: 1px solid #d8d8d8;
+
+    border-radius: 10px;
+
+    padding: 20px;
+
+    margin-bottom: 28px;
+
+}
+
+.saved-address-section.visible {
+
+    display: block;
+
+}
+
+.saved-address-header {
+
     display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 15px;
+
+}
+
+.saved-address-title {
+
+    margin: 0;
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+}
+
+.saved-address-badge {
+
+    background: #111;
+
+    color: #fff;
+
+    padding: 5px 10px;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+
+    white-space: nowrap;
+
+}
+
+.saved-address-card {
+
+    background: #fff;
+
+    border: 1px solid #ddd;
+
+    border-radius: 8px;
+
+    padding: 17px;
+
+    line-height: 1.6;
+
+}
+
+.saved-address-name {
+
+    font-weight: 700;
+
+    font-size: 16px;
+
+    margin-bottom: 5px;
+
+}
+
+.saved-address-text {
+
+    color: #444;
+
+    font-size: 14px;
+
+}
+
+.saved-address-phone {
+
+    color: #444;
+
+    font-size: 14px;
+
+    margin-top: 5px;
+
+}
+
+.saved-address-actions {
+
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 15px;
+
+}
+
+.use-address-btn {
+
+    flex: 1;
+
+    padding: 13px 18px;
+
+    background: #009688;
+
+    color: #fff;
+
+    border: none;
+
+    border-radius: 6px;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+}
+
+.use-address-btn:hover {
+
+    background: #00796b;
+
+}
+
+.use-manual-btn {
+
+    padding: 13px 18px;
+
+    background: #fff;
+
+    color: #111;
+
+    border: 1px solid #bbb;
+
+    border-radius: 6px;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+}
+
+.use-manual-btn:hover {
+
+    background: #f1f1f1;
+
+}
+
+
+/* =====================================================
+   FORM
+===================================================== */
+
+.form-row {
+
+    display: flex;
+
     gap: 20px;
+
 }
 
 .form-group {
+
     flex: 1;
+
     margin-bottom: 20px;
+
 }
 
 .form-group label {
+
     display: block;
+
     margin-bottom: 7px;
+
     font-weight: 600;
+
     font-size: 14px;
+
 }
 
 .form-group input,
 .form-group textarea,
 .form-group select {
+
     width: 100%;
+
     padding: 12px;
+
     border: 1px solid #ccc;
+
     border-radius: 5px;
+
     font-size: 14px;
-    font-family: Arial, sans-serif;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
     outline: none;
+
 }
 
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus {
+
     border-color: #009688;
+
 }
 
 .form-group textarea {
+
     min-height: 100px;
+
     resize: vertical;
+
 }
 
 
@@ -150,7 +451,9 @@ header h1 {
 ===================================================== */
 
 .required {
+
     color: #e53935;
+
 }
 
 
@@ -159,20 +462,41 @@ header h1 {
 ===================================================== */
 
 .continue-btn {
+
     width: 100%;
+
     padding: 14px;
+
     margin-top: 10px;
+
     background: #009688;
+
     color: #fff;
+
     border: none;
+
     border-radius: 6px;
+
     font-size: 16px;
+
     font-weight: 600;
+
     cursor: pointer;
+
 }
 
 .continue-btn:hover {
+
     background: #00796b;
+
+}
+
+.continue-btn:disabled {
+
+    opacity: 0.6;
+
+    cursor: wait;
+
 }
 
 
@@ -181,63 +505,105 @@ header h1 {
 ===================================================== */
 
 .order-summary {
+
     flex: 0 0 350px;
+
     background: #fff;
+
     padding: 25px;
+
     border-radius: 10px;
+
     border: 1px solid #ddd;
+
     box-shadow:
-        0 2px 8px rgba(0,0,0,0.08);
+        0 2px 8px
+        rgba(0,0,0,0.08);
+
 }
 
 .order-summary h2 {
+
     margin-top: 0;
+
     font-size: 21px;
+
     margin-bottom: 20px;
+
 }
 
 .product-list {
+
     margin-bottom: 20px;
+
 }
 
 .product-item {
+
     display: flex;
+
     justify-content: space-between;
+
     gap: 15px;
+
     padding: 12px 0;
+
     border-bottom: 1px solid #eee;
+
     font-size: 14px;
+
 }
 
 .product-item-name {
+
     flex: 1;
+
     line-height: 1.4;
+
 }
 
 .product-item-price {
+
     font-weight: 600;
+
     white-space: nowrap;
+
 }
 
 .summary-line {
+
     display: flex;
+
     justify-content: space-between;
+
     margin: 12px 0;
+
     font-size: 15px;
+
 }
 
 .discount {
+
     color: #008577;
+
 }
 
 .total-line {
+
     display: flex;
+
     justify-content: space-between;
+
     border-top: 1px solid #ddd;
+
     padding-top: 16px;
+
     margin-top: 18px;
+
     font-size: 20px;
+
     font-weight: bold;
+
 }
 
 
@@ -246,16 +612,25 @@ header h1 {
 ===================================================== */
 
 .back-cart {
+
     display: block;
+
     text-align: center;
+
     margin-top: 15px;
+
     color: #333;
+
     text-decoration: none;
+
     font-size: 14px;
+
 }
 
 .back-cart:hover {
+
     text-decoration: underline;
+
 }
 
 
@@ -264,14 +639,48 @@ header h1 {
 ===================================================== */
 
 .error-message {
+
     display: none;
+
     background: #ffebee;
+
     color: #c62828;
+
     border: 1px solid #ef9a9a;
+
     padding: 12px;
+
     border-radius: 5px;
+
     margin-bottom: 20px;
+
     font-size: 14px;
+
+}
+
+
+/* =====================================================
+   SUCCESS MESSAGE
+===================================================== */
+
+.success-message {
+
+    display: none;
+
+    background: #e8f5e9;
+
+    color: #2e7d32;
+
+    border: 1px solid #a5d6a7;
+
+    padding: 12px;
+
+    border-radius: 5px;
+
+    margin-bottom: 20px;
+
+    font-size: 14px;
+
 }
 
 
@@ -291,6 +700,8 @@ header h1 {
         70px
         7%
         25px;
+
+    margin-top: 50px;
 
 }
 
@@ -371,6 +782,14 @@ header h1 {
 
     font-size: 16px;
 
+    text-decoration: none;
+
+}
+
+.footer-link:hover {
+
+    color: #c9a24d;
+
 }
 
 .whatsapp-title {
@@ -390,6 +809,8 @@ header h1 {
     width: 24px !important;
 
     height: 24px !important;
+
+    object-fit: contain;
 
 }
 
@@ -412,6 +833,16 @@ header h1 {
     color: #111111;
 
     font-weight: 700;
+
+    text-decoration: none;
+
+}
+
+.whatsapp-button:hover {
+
+    background: #c9a24d;
+
+    color: #ffffff;
 
 }
 
@@ -461,6 +892,14 @@ header h1 {
 
     color: #d7d7d7;
 
+    text-decoration: none;
+
+}
+
+.footer-links-column a:hover {
+
+    color: #c9a24d;
+
 }
 
 .footer-social p {
@@ -488,6 +927,12 @@ header h1 {
         rgba(255,255,255,0.7);
 
     border-radius: 10px;
+
+}
+
+.instagram-button:hover {
+
+    border-color: #c9a24d;
 
 }
 
@@ -525,23 +970,37 @@ header h1 {
 
 
 /* =====================================================
-   MOBILE SAFETY
+   TABLET
 ===================================================== */
 
 @media (max-width: 900px) {
 
     .delivery-page {
+
         flex-direction: column;
+
+    }
+
+    .delivery-form {
+
+        width: 100%;
+
     }
 
     .order-summary {
+
         width: 100%;
+
         flex: none;
+
     }
 
     .form-row {
+
         flex-direction: column;
+
         gap: 0;
+
     }
 
 }
@@ -577,6 +1036,74 @@ header h1 {
     .footer-middle {
 
         grid-template-columns: 1fr;
+
+    }
+
+    header {
+
+        padding:
+            15px
+            20px;
+
+    }
+
+    header h1 {
+
+        font-size: 23px;
+
+    }
+
+    .back-btn {
+
+        padding:
+            9px
+            13px;
+
+        font-size: 13px;
+
+    }
+
+    .logo {
+
+        width: 90px;
+
+    }
+
+    .delivery-page {
+
+        margin:
+            25px
+            auto;
+
+        padding:
+            0
+            12px;
+
+    }
+
+    .delivery-form {
+
+        padding: 20px;
+
+    }
+
+    .saved-address-header {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+    }
+
+    .saved-address-actions {
+
+        flex-direction: column;
+
+    }
+
+    .use-manual-btn {
+
+        width: 100%;
 
     }
 
@@ -625,6 +1152,19 @@ header h1 {
 
 
 <!-- =====================================================
+     ACCOUNT STATUS
+===================================================== -->
+
+<div
+    id="account-status"
+    class="account-status"
+>
+    Checking your account...
+</div>
+
+
+
+<!-- =====================================================
      MAIN PAGE
 ===================================================== -->
 
@@ -642,15 +1182,107 @@ header h1 {
         </h2>
 
 
+        <!-- =================================================
+             SAVED PROFILE ADDRESS
+        ================================================== -->
+
+        <div
+            id="saved-address-section"
+            class="saved-address-section"
+        >
+
+            <div class="saved-address-header">
+
+                <h3 class="saved-address-title">
+                    Use Your Saved Address
+                </h3>
+
+                <span class="saved-address-badge">
+                    MY ACCOUNT
+                </span>
+
+            </div>
+
+
+            <div class="saved-address-card">
+
+                <div
+                    id="saved-address-name"
+                    class="saved-address-name"
+                >
+                    Customer
+                </div>
+
+
+                <div
+                    id="saved-address-text"
+                    class="saved-address-text"
+                >
+                    Loading saved address...
+                </div>
+
+
+                <div
+                    id="saved-address-phone"
+                    class="saved-address-phone"
+                >
+                </div>
+
+
+                <div class="saved-address-actions">
+
+                    <button
+                        type="button"
+                        id="use-saved-address-btn"
+                        class="use-address-btn"
+                    >
+                        Continue with This Address
+                    </button>
+
+
+                    <button
+                        type="button"
+                        id="manual-address-btn"
+                        class="use-manual-btn"
+                    >
+                        Enter Another Address
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             ERROR
+        ================================================== -->
+
         <div
             id="error-message"
             class="error-message"
         ></div>
 
 
+        <!-- =================================================
+             SUCCESS
+        ================================================== -->
+
+        <div
+            id="success-message"
+            class="success-message"
+        ></div>
+
+
+
+        <!-- =================================================
+             DELIVERY FORM
+        ================================================== -->
+
         <form
             id="delivery-form"
-            onsubmit="continueToPayment(event)"
         >
 
 
@@ -817,6 +1449,7 @@ header h1 {
 
             <button
                 type="submit"
+                id="continue-payment-btn"
                 class="continue-btn"
             >
 
@@ -914,7 +1547,7 @@ header h1 {
 
 
 <!-- =====================================================
-     HOMEPAGE FOOTER
+     FOOTER
 ===================================================== -->
 
 <footer class="main-footer">
@@ -923,7 +1556,6 @@ header h1 {
 
 
         <div class="footer-top">
-
 
             <h2>
                 Contact Us
@@ -1009,8 +1641,8 @@ header h1 {
 
             </div>
 
-
         </div>
+
 
 
         <div class="footer-middle">
@@ -1077,8 +1709,8 @@ header h1 {
 
             </div>
 
-
         </div>
+
 
 
         <div class="footer-bottom">
@@ -1090,24 +1722,416 @@ header h1 {
 
         </div>
 
-
     </div>
 
 </footer>
 
 
 
-<script>
+<!-- =====================================================
+     FIREBASE + DELIVERY SYSTEM
+===================================================== -->
+
+<script type="module">
+
 
 /* =====================================================
-   GET CART
+   FIREBASE IMPORTS
+===================================================== */
+
+import {
+    initializeApp
+}
+from
+"https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+
+
+import {
+    getAuth,
+    onAuthStateChanged
+}
+from
+"https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+
+
+import {
+    getFirestore,
+    doc,
+    getDoc
+}
+from
+"https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+
+
+/* =====================================================
+   FIREBASE CONFIG
+===================================================== */
+
+const firebaseConfig = {
+
+    apiKey:
+        "AIzaSyD5oZFRZUDnmb2d1_juGTeWAbQcy3gcyjc",
+
+    authDomain:
+        "mirars-project.firebaseapp.com",
+
+    projectId:
+        "mirars-project",
+
+    storageBucket:
+        "mirars-project.firebasestorage.app",
+
+    messagingSenderId:
+        "947955901957",
+
+    appId:
+        "1:947955901957:web:67bb04627f25bf2a419e6c",
+
+    measurementId:
+        "G-HXESQZER5L"
+
+};
+
+
+
+/* =====================================================
+   INITIALIZE FIREBASE
+===================================================== */
+
+const app =
+    initializeApp(
+        firebaseConfig
+    );
+
+
+const auth =
+    getAuth(app);
+
+
+const db =
+    getFirestore(app);
+
+
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const accountStatus =
+    document.getElementById(
+        "account-status"
+    );
+
+
+const savedAddressSection =
+    document.getElementById(
+        "saved-address-section"
+    );
+
+
+const savedAddressName =
+    document.getElementById(
+        "saved-address-name"
+    );
+
+
+const savedAddressText =
+    document.getElementById(
+        "saved-address-text"
+    );
+
+
+const savedAddressPhone =
+    document.getElementById(
+        "saved-address-phone"
+    );
+
+
+const useSavedAddressButton =
+    document.getElementById(
+        "use-saved-address-btn"
+    );
+
+
+const manualAddressButton =
+    document.getElementById(
+        "manual-address-btn"
+    );
+
+
+const errorMessage =
+    document.getElementById(
+        "error-message"
+    );
+
+
+const successMessage =
+    document.getElementById(
+        "success-message"
+    );
+
+
+const deliveryForm =
+    document.getElementById(
+        "delivery-form"
+    );
+
+
+const continuePaymentButton =
+    document.getElementById(
+        "continue-payment-btn"
+    );
+
+
+
+/* =====================================================
+   GLOBAL STATE
+===================================================== */
+
+let currentUser = null;
+
+let savedProfileAddress = null;
+
+let authReady = false;
+
+
+
+/* =====================================================
+   SAFE TEXT
+===================================================== */
+
+function escapeHTML(text) {
+
+    return String(text || "")
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+
+
+/* =====================================================
+   GET LOCAL STORAGE CART
 ===================================================== */
 
 function getCart() {
 
-    return JSON.parse(
-        localStorage.getItem("cart")
-    ) || [];
+    /*
+       The cart page saves the current
+       checkout cart here.
+    */
+
+    try {
+
+        const checkoutCart =
+            localStorage.getItem(
+                "checkoutCart"
+            );
+
+
+        if (checkoutCart) {
+
+            const parsedCheckoutCart =
+                JSON.parse(
+                    checkoutCart
+                );
+
+
+            if (
+                Array.isArray(
+                    parsedCheckoutCart
+                ) &&
+                parsedCheckoutCart.length > 0
+            ) {
+
+                return normalizeCart(
+                    parsedCheckoutCart
+                );
+
+            }
+
+        }
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Checkout cart error:",
+            error
+        );
+
+    }
+
+
+
+    /*
+       Fallback to normal cart.
+    */
+
+    try {
+
+        const normalCart =
+            localStorage.getItem(
+                "cart"
+            );
+
+
+        if (!normalCart) {
+
+            return [];
+
+        }
+
+
+        const parsedCart =
+            JSON.parse(
+                normalCart
+            );
+
+
+        return normalizeCart(
+            parsedCart
+        );
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Cart loading error:",
+            error
+        );
+
+
+        return [];
+
+    }
+
+}
+
+
+
+/* =====================================================
+   NORMALIZE CART
+===================================================== */
+
+function normalizeCart(cart) {
+
+    if (!Array.isArray(cart)) {
+
+        return [];
+
+    }
+
+
+    const result = [];
+
+
+    cart.forEach(
+        function(item) {
+
+            if (!item) {
+
+                return;
+
+            }
+
+
+            const name =
+                String(
+                    item.name || ""
+                ).trim();
+
+
+            if (!name) {
+
+                return;
+
+            }
+
+
+            const price =
+                getPrice(item);
+
+
+            const quantity =
+                Number(
+                    item.quantity
+                ) > 0
+                    ? Number(item.quantity)
+                    : 1;
+
+
+
+            const existing =
+                result.find(
+                    function(product) {
+
+                        return (
+                            product.name ===
+                            name &&
+                            product.price ===
+                            price
+                        );
+
+                    }
+                );
+
+
+            if (existing) {
+
+                existing.quantity +=
+                    quantity;
+
+            }
+
+            else {
+
+                result.push({
+
+                    name:
+                        name,
+
+                    price:
+                        price,
+
+                    quantity:
+                        quantity
+
+                });
+
+            }
+
+        }
+    );
+
+
+    return result;
 
 }
 
@@ -1121,10 +2145,47 @@ function getPrice(item) {
 
     return parseFloat(
 
-        String(item.price)
-            .replace(/[^0-9.]/g, "")
+        String(
+            item.price || "0"
+        )
+        .replace(
+            /[^0-9.]/g,
+            ""
+        )
 
     ) || 0;
+
+}
+
+
+
+/* =====================================================
+   CALCULATE SUBTOTAL
+===================================================== */
+
+function calculateSubtotal() {
+
+    const cart =
+        getCart();
+
+
+    let subtotal = 0;
+
+
+    cart.forEach(
+        function(item) {
+
+            subtotal +=
+                getPrice(item) *
+                Number(
+                    item.quantity || 1
+                );
+
+        }
+    );
+
+
+    return subtotal;
 
 }
 
@@ -1149,7 +2210,9 @@ function loadOrder() {
     productList.innerHTML = "";
 
 
-    if (cart.length === 0) {
+    if (
+        cart.length === 0
+    ) {
 
         productList.innerHTML = `
 
@@ -1159,57 +2222,39 @@ function loadOrder() {
 
         `;
 
-        updateSummaryDisplay(0, 0);
+
+        updateSummaryDisplay(
+            0,
+            0
+        );
+
 
         return;
 
     }
 
 
-    /* =========================
-       GROUP IDENTICAL PRODUCTS
-    ========================= */
 
-    const products = {};
-
-
-    cart.forEach(function(item) {
-
-        const key =
-            item.name + "|" + item.price;
-
-
-        if (!products[key]) {
-
-            products[key] = {
-
-                name: item.name,
-
-                price: getPrice(item),
-
-                quantity: 0
-
-            };
-
-        }
-
-
-        products[key].quantity++;
-
-    });
-
-
-
-    /* =========================
+    /* =================================================
        SHOW PRODUCTS
-    ========================= */
+    ================================================= */
 
-    Object.values(products).forEach(
+    cart.forEach(
         function(item) {
 
+            const itemPrice =
+                getPrice(item);
+
+
+            const quantity =
+                Number(
+                    item.quantity || 1
+                );
+
+
             const itemTotal =
-                item.price *
-                item.quantity;
+                itemPrice *
+                quantity;
 
 
             productList.innerHTML += `
@@ -1218,12 +2263,14 @@ function loadOrder() {
 
                     <div class="product-item-name">
 
-                        ${item.name}
+                        ${escapeHTML(
+                            item.name
+                        )}
 
                         <br>
 
                         <small>
-                            Quantity: ${item.quantity}
+                            Quantity: ${quantity}
                         </small>
 
                     </div>
@@ -1231,7 +2278,9 @@ function loadOrder() {
 
                     <div class="product-item-price">
 
-                        ₹${itemTotal.toLocaleString("en-IN")}
+                        ₹${itemTotal.toLocaleString(
+                            "en-IN"
+                        )}
 
                     </div>
 
@@ -1244,29 +2293,54 @@ function loadOrder() {
 
 
 
-    /* =========================
-       GET SAVED VALUES
-    ========================= */
+    /* =================================================
+       GET SAVED ORDER VALUES
+    ================================================= */
 
-    const subtotal =
+    const calculatedSubtotal =
+        calculateSubtotal();
+
+
+    const storedSubtotal =
         parseFloat(
             localStorage.getItem(
                 "orderSubtotal"
             )
-        ) || calculateSubtotal();
+        );
 
 
-    const discount =
+    const subtotal =
+        !isNaN(
+            storedSubtotal
+        )
+            ? storedSubtotal
+            : calculatedSubtotal;
+
+
+
+    const storedDiscount =
         parseFloat(
             localStorage.getItem(
                 "orderDiscount"
             )
-        ) || 0;
+        );
+
+
+    const discount =
+        !isNaN(
+            storedDiscount
+        )
+            ? storedDiscount
+            : 0;
+
 
 
     const safeDiscount =
         Math.min(
-            discount,
+            Math.max(
+                discount,
+                0
+            ),
             subtotal
         );
 
@@ -1281,7 +2355,7 @@ function loadOrder() {
 
 
 /* =====================================================
-   UPDATE SUMMARY DISPLAY
+   UPDATE SUMMARY
 ===================================================== */
 
 function updateSummaryDisplay(
@@ -1289,64 +2363,85 @@ function updateSummaryDisplay(
     discount
 ) {
 
-    const total =
+    const safeSubtotal =
         Math.max(
-            subtotal - discount,
+            Number(subtotal) || 0,
             0
         );
+
+
+    const safeDiscount =
+        Math.min(
+            Math.max(
+                Number(discount) || 0,
+                0
+            ),
+            safeSubtotal
+        );
+
+
+    const total =
+        Math.max(
+            safeSubtotal -
+            safeDiscount,
+            0
+        );
+
 
 
     document.getElementById(
         "subtotal"
     ).innerText =
+
         "₹" +
-        subtotal.toLocaleString(
+        safeSubtotal.toLocaleString(
             "en-IN"
         );
+
 
 
     document.getElementById(
         "discount"
     ).innerText =
+
         "₹" +
-        discount.toLocaleString(
+        safeDiscount.toLocaleString(
             "en-IN"
         );
+
 
 
     document.getElementById(
         "total"
     ).innerText =
+
         "₹" +
         total.toLocaleString(
             "en-IN"
         );
 
-}
 
 
+    /*
+       Keep order values synchronized.
+    */
 
-/* =====================================================
-   CALCULATE SUBTOTAL
-===================================================== */
-
-function calculateSubtotal() {
-
-    const cart =
-        getCart();
-
-
-    let subtotal = 0;
+    localStorage.setItem(
+        "orderSubtotal",
+        safeSubtotal
+    );
 
 
-    cart.forEach(function(item) {
+    localStorage.setItem(
+        "orderDiscount",
+        safeDiscount
+    );
 
-        subtotal += getPrice(item);
 
-    });
-
-
-    return subtotal;
+    localStorage.setItem(
+        "orderTotal",
+        total
+    );
 
 }
 
@@ -1381,141 +2476,217 @@ function validPin(pin) {
 
 
 /* =====================================================
-   CONTINUE TO PAYMENT
+   GET VALUE FROM OBJECT
 ===================================================== */
 
-function continueToPayment(event) {
+function firstValue(
+    object,
+    keys
+) {
 
-    event.preventDefault();
+    if (
+        !object ||
+        typeof object !== "object"
+    ) {
+
+        return "";
+
+    }
 
 
-    const errorBox =
-        document.getElementById(
-            "error-message"
+    for (
+        let i = 0;
+        i < keys.length;
+        i++
+    ) {
+
+        const key =
+            keys[i];
+
+
+        if (
+            object[key] !== undefined &&
+            object[key] !== null &&
+            String(
+                object[key]
+            ).trim() !== ""
+        ) {
+
+            return String(
+                object[key]
+            ).trim();
+
+        }
+
+    }
+
+
+    return "";
+
+}
+
+
+
+/* =====================================================
+   FIND ADDRESS INSIDE PROFILE DATA
+===================================================== */
+
+function extractAddress(data) {
+
+    if (
+        !data ||
+        typeof data !== "object"
+    ) {
+
+        return null;
+
+    }
+
+
+
+    /*
+       Sometimes the address is stored
+       directly inside the user document.
+    */
+
+    let source =
+        data;
+
+
+
+    /*
+       Sometimes it is stored as:
+
+       address: {
+           name,
+           phone,
+           address,
+           city,
+           state,
+           pin
+       }
+    */
+
+    if (
+        data.address &&
+        typeof data.address === "object"
+    ) {
+
+        source =
+            {
+                ...data,
+                ...data.address
+            };
+
+    }
+
+
+
+    /*
+       Support common naming styles.
+    */
+
+    const name =
+        firstValue(
+            source,
+            [
+                "customerName",
+                "fullName",
+                "name",
+                "displayName"
+            ]
         );
 
 
-    errorBox.style.display =
-        "none";
-
-    errorBox.innerText =
-        "";
-
-
-
-    /* =========================
-       GET FORM VALUES
-    ========================= */
-
-    const customerName =
-        document.getElementById(
-            "customerName"
-        ).value.trim();
-
-
     const phone =
-        document.getElementById(
-            "phone"
-        ).value.trim();
+        firstValue(
+            source,
+            [
+                "phone",
+                "phoneNumber",
+                "mobile",
+                "mobileNumber"
+            ]
+        );
 
 
     const email =
-        document.getElementById(
-            "email"
-        ).value.trim();
+        firstValue(
+            source,
+            [
+                "email",
+                "emailAddress"
+            ]
+        );
 
 
     const address =
-        document.getElementById(
-            "address"
-        ).value.trim();
+        firstValue(
+            source,
+            [
+                "completeAddress",
+                "address",
+                "streetAddress",
+                "deliveryAddress"
+            ]
+        );
 
 
     const city =
-        document.getElementById(
-            "city"
-        ).value.trim();
+        firstValue(
+            source,
+            [
+                "city",
+                "town"
+            ]
+        );
 
 
     const state =
-        document.getElementById(
-            "state"
-        ).value.trim();
+        firstValue(
+            source,
+            [
+                "state",
+                "stateName"
+            ]
+        );
 
 
     const pin =
-        document.getElementById(
-            "pin"
-        ).value.trim();
+        firstValue(
+            source,
+            [
+                "pin",
+                "pinCode",
+                "pincode",
+                "postalCode",
+                "zipCode"
+            ]
+        );
 
 
 
-    /* =========================
-       CHECK PHONE
-    ========================= */
+    /*
+       An address is considered valid
+       when the main address fields exist.
+    */
 
-    if (!validPhone(phone)) {
+    if (
+        !address ||
+        !city ||
+        !state ||
+        !pin
+    ) {
 
-        errorBox.innerText =
-            "Please enter a valid 10-digit Indian mobile number.";
-
-        errorBox.style.display =
-            "block";
-
-        return;
-
-    }
-
-
-
-    /* =========================
-       CHECK PIN
-    ========================= */
-
-    if (!validPin(pin)) {
-
-        errorBox.innerText =
-            "Please enter a valid 6-digit PIN code.";
-
-        errorBox.style.display =
-            "block";
-
-        return;
+        return null;
 
     }
 
 
-
-    /* =========================
-       GET CART
-    ========================= */
-
-    const cart =
-        getCart();
-
-
-    if (cart.length === 0) {
-
-        errorBox.innerText =
-            "Your cart is empty.";
-
-        errorBox.style.display =
-            "block";
-
-        return;
-
-    }
-
-
-
-    /* =========================
-       SAVE CUSTOMER DETAILS
-    ========================= */
-
-    const deliveryDetails = {
+    return {
 
         customerName:
-            customerName,
+            name,
 
         phone:
             phone,
@@ -1537,84 +2708,1069 @@ function continueToPayment(event) {
 
     };
 
-
-    localStorage.setItem(
-
-        "deliveryDetails",
-
-        JSON.stringify(
-            deliveryDetails
-        )
-
-    );
+}
 
 
 
-    /* =========================
-       SAVE ORDER VALUES
-    ========================= */
+/* =====================================================
+   CHECK LOCAL PROFILE DATA
+===================================================== */
 
-    const subtotal =
-        calculateSubtotal();
+function getLocalProfileAddress() {
 
+    const possibleKeys = [
 
-    const discount =
-        parseFloat(
-            localStorage.getItem(
-                "cartDiscount"
-            )
-        ) || 0;
+        "profileData",
 
+        "userProfile",
 
-    const safeDiscount =
-        Math.min(
-            discount,
-            subtotal
-        );
+        "customerProfile",
 
+        "profile",
 
-    const total =
-        Math.max(
-            subtotal - safeDiscount,
-            0
-        );
+        "savedAddress",
+
+        "deliveryAddress"
+
+    ];
 
 
-    localStorage.setItem(
-        "orderSubtotal",
-        subtotal
-    );
+    for (
+        let i = 0;
+        i < possibleKeys.length;
+        i++
+    ) {
+
+        const key =
+            possibleKeys[i];
 
 
-    localStorage.setItem(
-        "orderDiscount",
-        safeDiscount
-    );
+        try {
+
+            const stored =
+                localStorage.getItem(
+                    key
+                );
 
 
-    localStorage.setItem(
-        "orderTotal",
-        total
-    );
+            if (!stored) {
+
+                continue;
+
+            }
 
 
+            const parsed =
+                JSON.parse(
+                    stored
+                );
 
-    /* =========================
-       GO TO PAYMENT
-    ========================= */
 
-    window.location.href =
-        "payment.html";
+            const address =
+                extractAddress(
+                    parsed
+                );
+
+
+            if (address) {
+
+                return address;
+
+            }
+
+        }
+
+        catch (error) {
+
+            console.warn(
+                "Could not read local profile:",
+                key,
+                error
+            );
+
+        }
+
+    }
+
+
+    return null;
 
 }
 
 
 
 /* =====================================================
-   START
+   LOAD PROFILE ADDRESS FROM FIREBASE
+===================================================== */
+
+async function loadProfileAddress() {
+
+    savedProfileAddress =
+        null;
+
+
+
+    /*
+       First check local profile information.
+       This makes the page work even if the
+       profile page has already stored the
+       customer's address locally.
+    */
+
+    const localAddress =
+        getLocalProfileAddress();
+
+
+    if (localAddress) {
+
+        savedProfileAddress =
+            localAddress;
+
+        showSavedAddress(
+            localAddress
+        );
+
+    }
+
+
+
+    /*
+       If the customer is not logged in,
+       local profile information is all we
+       can use.
+    */
+
+    if (!currentUser) {
+
+        if (!localAddress) {
+
+            hideSavedAddress();
+
+        }
+
+        return;
+
+    }
+
+
+
+    /*
+       Firebase profile.
+       
+       The primary profile document used here is:
+
+       users / USER_UID
+    */
+
+    try {
+
+        const userRef =
+            doc(
+                db,
+                "users",
+                currentUser.uid
+            );
+
+
+        const snapshot =
+            await getDoc(
+                userRef
+            );
+
+
+        if (
+            snapshot.exists()
+        ) {
+
+            const firebaseData =
+                snapshot.data();
+
+
+            const firebaseAddress =
+                extractAddress(
+                    firebaseData
+                );
+
+
+            if (firebaseAddress) {
+
+                savedProfileAddress =
+                    firebaseAddress;
+
+
+                showSavedAddress(
+                    firebaseAddress
+                );
+
+
+
+                /*
+                   Also keep a local copy.
+                */
+
+                try {
+
+                    localStorage.setItem(
+
+                        "profileData",
+
+                        JSON.stringify(
+                            firebaseData
+                        )
+
+                    );
+
+                }
+
+                catch (storageError) {
+
+                    console.warn(
+                        "Could not save local profile:",
+                        storageError
+                    );
+
+                }
+
+
+                return;
+
+            }
+
+        }
+
+    }
+
+    catch (error) {
+
+        console.warn(
+            "Could not load Firebase profile address:",
+            error
+        );
+
+    }
+
+
+
+    /*
+       If Firebase didn't provide an address,
+       keep the local address if one existed.
+    */
+
+    if (!savedProfileAddress) {
+
+        hideSavedAddress();
+
+    }
+
+}
+
+
+
+/* =====================================================
+   SHOW SAVED ADDRESS
+===================================================== */
+
+function showSavedAddress(address) {
+
+    if (!address) {
+
+        hideSavedAddress();
+
+        return;
+
+    }
+
+
+    savedAddressSection.classList.add(
+        "visible"
+    );
+
+
+    savedAddressName.innerText =
+
+        address.customerName ||
+        (
+            currentUser &&
+            (
+                currentUser.displayName ||
+                currentUser.email
+            )
+        ) ||
+        "Saved Address";
+
+
+
+    savedAddressText.innerHTML = `
+
+        ${escapeHTML(
+            address.address
+        )}
+
+        <br>
+
+        ${escapeHTML(
+            address.city
+        )}
+
+        ,
+
+        ${escapeHTML(
+            address.state
+        )}
+
+        -
+
+        ${escapeHTML(
+            address.pin
+        )}
+
+    `;
+
+
+
+    savedAddressPhone.innerText =
+
+        address.phone
+            ? "Phone: " +
+              address.phone
+            : "";
+
+}
+
+
+
+/* =====================================================
+   HIDE SAVED ADDRESS
+===================================================== */
+
+function hideSavedAddress() {
+
+    savedAddressSection.classList.remove(
+        "visible"
+    );
+
+}
+
+
+
+/* =====================================================
+   FILL FORM WITH SAVED ADDRESS
+===================================================== */
+
+function fillFormWithSavedAddress() {
+
+    if (!savedProfileAddress) {
+
+        showError(
+            "No saved profile address was found."
+        );
+
+        return;
+
+    }
+
+
+    document.getElementById(
+        "customerName"
+    ).value =
+
+        savedProfileAddress.customerName ||
+        (
+            currentUser &&
+            currentUser.displayName
+        ) ||
+        "";
+
+
+
+    document.getElementById(
+        "phone"
+    ).value =
+
+        savedProfileAddress.phone ||
+        "";
+
+
+
+    document.getElementById(
+        "email"
+    ).value =
+
+        savedProfileAddress.email ||
+        (
+            currentUser &&
+            currentUser.email
+        ) ||
+        "";
+
+
+
+    document.getElementById(
+        "address"
+    ).value =
+
+        savedProfileAddress.address ||
+        "";
+
+
+
+    document.getElementById(
+        "city"
+    ).value =
+
+        savedProfileAddress.city ||
+        "";
+
+
+
+    document.getElementById(
+        "state"
+    ).value =
+
+        savedProfileAddress.state ||
+        "";
+
+
+
+    document.getElementById(
+        "pin"
+    ).value =
+
+        savedProfileAddress.pin ||
+        "";
+
+
+
+    /*
+       Show a confirmation.
+    */
+
+    successMessage.innerText =
+        "Your saved profile address has been selected. You can edit any detail below if needed.";
+
+    successMessage.style.display =
+        "block";
+
+
+
+    errorMessage.style.display =
+        "none";
+
+
+
+    /*
+       Scroll gently to the form.
+    */
+
+    document.getElementById(
+        "delivery-form"
+    ).scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+
+}
+
+
+
+/* =====================================================
+   USE SAVED ADDRESS
+===================================================== */
+
+useSavedAddressButton.addEventListener(
+    "click",
+    function() {
+
+        fillFormWithSavedAddress();
+
+    }
+);
+
+
+
+/* =====================================================
+   ENTER ANOTHER ADDRESS
+===================================================== */
+
+manualAddressButton.addEventListener(
+    "click",
+    function() {
+
+        /*
+           Do not erase anything already
+           entered by the customer.
+        */
+
+        document.getElementById(
+            "customerName"
+        ).focus();
+
+
+        successMessage.style.display =
+            "none";
+
+
+        errorMessage.style.display =
+            "none";
+
+    }
+);
+
+
+
+/* =====================================================
+   SHOW ERROR
+===================================================== */
+
+function showError(message) {
+
+    errorMessage.innerText =
+        message;
+
+    errorMessage.style.display =
+        "block";
+
+
+    successMessage.style.display =
+        "none";
+
+
+    errorMessage.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+
+}
+
+
+
+/* =====================================================
+   CONTINUE TO PAYMENT
+===================================================== */
+
+deliveryForm.addEventListener(
+    "submit",
+    async function(event) {
+
+        event.preventDefault();
+
+
+        errorMessage.style.display =
+            "none";
+
+        successMessage.style.display =
+            "none";
+
+
+
+        /*
+           Make sure authentication check
+           has completed.
+        */
+
+        if (!authReady) {
+
+            showError(
+                "Please wait while your account is being checked."
+            );
+
+            return;
+
+        }
+
+
+
+        /*
+           GET FORM VALUES
+        */
+
+        const customerName =
+            document.getElementById(
+                "customerName"
+            ).value.trim();
+
+
+        const phone =
+            document.getElementById(
+                "phone"
+            ).value.trim();
+
+
+        const email =
+            document.getElementById(
+                "email"
+            ).value.trim();
+
+
+        const address =
+            document.getElementById(
+                "address"
+            ).value.trim();
+
+
+        const city =
+            document.getElementById(
+                "city"
+            ).value.trim();
+
+
+        const state =
+            document.getElementById(
+                "state"
+            ).value.trim();
+
+
+        const pin =
+            document.getElementById(
+                "pin"
+            ).value.trim();
+
+
+
+        /*
+           BASIC REQUIRED VALIDATION
+        */
+
+        if (!customerName) {
+
+            showError(
+                "Please enter your full name."
+            );
+
+            return;
+
+        }
+
+
+        if (!email) {
+
+            showError(
+                "Please enter your email address."
+            );
+
+            return;
+
+        }
+
+
+        if (!address) {
+
+            showError(
+                "Please enter your complete delivery address."
+            );
+
+            return;
+
+        }
+
+
+        if (!city) {
+
+            showError(
+                "Please enter your city."
+            );
+
+            return;
+
+        }
+
+
+        if (!state) {
+
+            showError(
+                "Please enter your state."
+            );
+
+            return;
+
+        }
+
+
+
+        /*
+           PHONE VALIDATION
+        */
+
+        if (
+            !validPhone(phone)
+        ) {
+
+            showError(
+                "Please enter a valid 10-digit Indian mobile number."
+            );
+
+            return;
+
+        }
+
+
+
+        /*
+           PIN VALIDATION
+        */
+
+        if (
+            !validPin(pin)
+        ) {
+
+            showError(
+                "Please enter a valid 6-digit PIN code."
+            );
+
+            return;
+
+        }
+
+
+
+        /*
+           GET CART
+        */
+
+        const cart =
+            getCart();
+
+
+        if (
+            cart.length === 0
+        ) {
+
+            showError(
+                "Your cart is empty. Please return to your cart and add a product."
+            );
+
+            return;
+
+        }
+
+
+
+        /*
+           SAVE DELIVERY DETAILS
+        */
+
+        const deliveryDetails = {
+
+            customerName:
+                customerName,
+
+            phone:
+                phone,
+
+            email:
+                email,
+
+            address:
+                address,
+
+            city:
+                city,
+
+            state:
+                state,
+
+            pin:
+                pin,
+
+            savedFromProfile:
+                savedProfileAddress
+                    ? (
+                        customerName ===
+                        savedProfileAddress.customerName &&
+                        phone ===
+                        savedProfileAddress.phone &&
+                        address ===
+                        savedProfileAddress.address &&
+                        city ===
+                        savedProfileAddress.city &&
+                        state ===
+                        savedProfileAddress.state &&
+                        pin ===
+                        savedProfileAddress.pin
+                    )
+                    : false,
+
+            savedAt:
+                new Date().toISOString()
+
+        };
+
+
+
+        try {
+
+            localStorage.setItem(
+
+                "deliveryDetails",
+
+                JSON.stringify(
+                    deliveryDetails
+                )
+
+            );
+
+        }
+
+        catch (storageError) {
+
+            console.error(
+                "Could not save delivery details:",
+                storageError
+            );
+
+
+            showError(
+                "Could not save your delivery details on this device. Please try again."
+            );
+
+            return;
+
+        }
+
+
+
+        /*
+           CALCULATE ORDER VALUES
+        */
+
+        const subtotal =
+            calculateSubtotal();
+
+
+        const storedDiscount =
+            parseFloat(
+                localStorage.getItem(
+                    "orderDiscount"
+                )
+            );
+
+
+        const discount =
+            !isNaN(
+                storedDiscount
+            )
+                ? storedDiscount
+                : 0;
+
+
+        const safeDiscount =
+            Math.min(
+                Math.max(
+                    discount,
+                    0
+                ),
+                subtotal
+            );
+
+
+        const total =
+            Math.max(
+                subtotal -
+                safeDiscount,
+                0
+            );
+
+
+
+        /*
+           SAVE ORDER TOTALS
+        */
+
+        localStorage.setItem(
+            "orderSubtotal",
+            subtotal
+        );
+
+
+        localStorage.setItem(
+            "orderDiscount",
+            safeDiscount
+        );
+
+
+        localStorage.setItem(
+            "orderTotal",
+            total
+        );
+
+
+
+        /*
+           Save a clean copy of the
+           checkout cart.
+        */
+
+        try {
+
+            localStorage.setItem(
+
+                "checkoutCart",
+
+                JSON.stringify(
+                    cart
+                )
+
+            );
+
+        }
+
+        catch (cartSaveError) {
+
+            console.error(
+                "Checkout cart save error:",
+                cartSaveError
+            );
+
+        }
+
+
+
+        /*
+           Disable button to prevent
+           double clicks.
+        */
+
+        continuePaymentButton.disabled =
+            true;
+
+
+        continuePaymentButton.innerText =
+            "Opening Payment...";
+
+
+
+        /*
+           Continue to payment page.
+        */
+
+        window.location.href =
+            "payment.html";
+
+    }
+);
+
+
+
+/* =====================================================
+   AUTH STATE
+===================================================== */
+
+onAuthStateChanged(
+
+    auth,
+
+    async function(user) {
+
+        currentUser =
+            user;
+
+
+        authReady =
+            false;
+
+
+
+        /*
+           SIGNED IN
+        */
+
+        if (user) {
+
+            accountStatus.innerHTML =
+
+                "Signed in as " +
+                "<strong>" +
+                escapeHTML(
+                    user.displayName ||
+                    user.email ||
+                    "Customer"
+                ) +
+                "</strong> · " +
+                "<a href='profile.html'>My Account</a>";
+
+
+
+            /*
+               Load profile address.
+            */
+
+            await loadProfileAddress();
+
+        }
+
+
+
+        /*
+           GUEST
+        */
+
+        else {
+
+            accountStatus.innerHTML =
+
+                "You are browsing as a guest. " +
+                "<a href='profile.html'>Sign in to your account</a>";
+
+
+
+            /*
+               A local profile address may
+               still be available.
+            */
+
+            const localAddress =
+                getLocalProfileAddress();
+
+
+            if (localAddress) {
+
+                savedProfileAddress =
+                    localAddress;
+
+
+                showSavedAddress(
+                    localAddress
+                );
+
+            }
+
+            else {
+
+                hideSavedAddress();
+
+            }
+
+        }
+
+
+
+        /*
+           Authentication check is finished.
+        */
+
+        authReady =
+            true;
+
+
+
+        /*
+           Load order after auth is ready.
+        */
+
+        loadOrder();
+
+    }
+
+);
+
+
+
+/* =====================================================
+   INITIAL ORDER LOAD
 ===================================================== */
 
 loadOrder();
+
 
 </script>
 
