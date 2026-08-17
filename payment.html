@@ -227,48 +227,65 @@
 
 
         /* =====================================================
-           UPI BUTTON
+           UPI APP BUTTON
         ===================================================== */
 
-        .upi-pay-button {
-            display: none;
+       .upi-app-buttons {
+    display: none;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    max-width: 520px;
+    margin: 18px auto 0;
+}
 
-            align-items: center;
+.upi-app-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-            justify-content: center;
+    min-height: 48px;
+    padding: 12px 16px;
 
-            margin: 18px auto 0;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 7px;
 
-            padding: 13px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
 
-            background: #111;
+    transition:
+        transform 0.2s,
+        opacity 0.2s;
+}
 
-            color: #fff;
+.upi-app-button:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
 
-            text-decoration: none;
+.gpay-button {
+    background: #4285f4;
+}
 
-            border-radius: 6px;
+.phonepe-button {
+    background: #5f259f;
+}
 
-            font-size: 15px;
+.paytm-button {
+    background: #00baf2;
+}
 
-            font-weight: 600;
+.other-upi-button {
+    background: #111;
+}
 
-            transition: 0.3s;
-        }
-
-        .upi-pay-button:hover {
-            background: #333;
-        }
-
-        .payment-note {
-            margin-top: 12px;
-
-            color: #555;
-
-            font-size: 14px;
-
-            line-height: 1.6;
-        }
+@media screen and (max-width: 600px) {
+    .upi-app-buttons {
+        grid-template-columns: 1fr;
+        max-width: 300px;
+    }
+}
 
 
         /* =====================================================
@@ -975,13 +992,42 @@
             ></div>
 
 
-            <a
-                id="upi-pay-button"
-                class="upi-pay-button"
-                href="#"
-            >
-                Pay Now with UPI
-            </a>
+            <div id="upi-app-buttons" class="upi-app-buttons">
+
+    <a
+        id="gpay-button"
+        class="upi-app-button gpay-button"
+        href="#"
+    >
+        Pay with Google Pay
+    </a>
+
+    <a
+        id="phonepe-button"
+        class="upi-app-button phonepe-button"
+        href="#"
+    >
+        Pay with PhonePe
+    </a>
+
+    <a
+        id="paytm-button"
+        class="upi-app-button paytm-button"
+        href="#"
+    >
+        Pay with Paytm
+    </a>
+
+    <a
+        id="other-upi-button"
+        class="upi-app-button other-upi-button"
+        href="#"
+    >
+        Other UPI App
+    </a>
+
+</div>
+
 
 
             <p class="payment-note">
@@ -1468,60 +1514,74 @@ function createUPIPaymentLink(amount) {
 ===================================================== */
 
 function generatePaymentQR(amount) {
-
     const qrContainer =
         document.getElementById("qr-code");
 
-    const upiButton =
-        document.getElementById("upi-pay-button");
+    const appButtons =
+        document.getElementById("upi-app-buttons");
 
+    const gpayButton =
+        document.getElementById("gpay-button");
 
-    if (!qrContainer || !upiButton) {
+    const phonepeButton =
+        document.getElementById("phonepe-button");
+
+    const paytmButton =
+        document.getElementById("paytm-button");
+
+    const otherUPIButton =
+        document.getElementById("other-upi-button");
+
+    if (
+        !qrContainer ||
+        !appButtons ||
+        !gpayButton ||
+        !phonepeButton ||
+        !paytmButton ||
+        !otherUPIButton
+    ) {
         return;
     }
 
-
-    if (!amount || amount <= 0) {
-
+    if (!Number.isFinite(Number(amount)) || Number(amount) <= 0) {
         qrContainer.innerHTML =
             '<span style="color:#777;font-size:14px;">Unable to generate payment QR.</span>';
 
-        upiButton.style.display =
-            "none";
-
+        appButtons.style.display = "none";
         return;
     }
-
 
     const upiLink =
         createUPIPaymentLink(amount);
 
+    qrContainer.innerHTML = "";
 
-    qrContainer.innerHTML =
-        "";
+    new QRCode(qrContainer, {
+        text: upiLink,
+        width: 230,
+        height: 230,
+        correctLevel: QRCode.CorrectLevel.H
+    });
 
+    /*
+       These schemes attempt to open their respective apps.
+       The generic UPI button opens Android's available-app chooser.
+    */
 
-    new QRCode(
-        qrContainer,
-        {
-            text: upiLink,
+    gpayButton.href =
+        upiLink.replace("upi://pay", "tez://upi/pay");
 
-            width: 230,
+    phonepeButton.href =
+        upiLink.replace("upi://pay", "phonepe://pay");
 
-            height: 230,
+    paytmButton.href =
+        upiLink.replace("upi://pay", "paytmmp://pay");
 
-            correctLevel:
-                QRCode.CorrectLevel.H
-        }
-    );
-
-
-    upiButton.href =
+    otherUPIButton.href =
         upiLink;
 
-    upiButton.style.display =
-        "inline-flex";
-
+    appButtons.style.display =
+        "grid";
 }
 
 
