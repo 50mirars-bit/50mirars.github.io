@@ -150,72 +150,58 @@ body{
     font-weight:bold;
 }
 
-.enquire-btn {
-  background-color: #111;
-  color: #fff;
-  border: none;
-  padding: 12px 30px;
-  border-radius: 6px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.3s;
+/* =========================================================
+   PRODUCT DETAILS BUTTON
+========================================================= */
+
+.product-buttons{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    margin:18px 0 22px;
 }
 
-.enquire-btn:hover {
-  background-color: #c9a24d;
-  color: #111;
+.show-details-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#111;
+    color:#fff;
+
+    border:1px solid #111;
+
+    padding:12px 28px;
+
+    border-radius:6px;
+
+    font-size:16px;
+    font-weight:600;
+
+    text-decoration:none;
+
+    cursor:pointer;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.2s ease;
 }
 
-/* ✅ Add to Cart button styled like Enquire Now but with white background */
-.add-to-cart-btn {
-  background-color: #fff;
-  color: #111;
-  border: 2px solid #111;
-  padding: 12px 30px;
-  border-radius: 6px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.3s;
+.show-details-btn:hover{
+    background:#c9a24d;
+    color:#111;
+    border-color:#c9a24d;
+
+    transform:translateY(-2px);
 }
 
-.add-to-cart-btn:hover {
-  background-color: #c9a24d;
-  color: #fff;
-  border-color: #c9a24d;
+.show-details-btn:active{
+    transform:translateY(0);
 }
-
-/* Common button styling */
-.product-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.enquire-btn,
-.add-to-cart-btn {
-  padding: 10px 20px;
-  border: 1px solid #111;
-  cursor: pointer;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.enquire-btn {
-  background-color: #111;
-  color: #fff;
-}
-
-.add-to-cart-btn {
-  background-color: #fff;
-  color: #111;
-}
-
-.add-to-cart-btn:hover {
-  background-color: gold;
-  color: #111;
-}
-    
+   
 .slider{
     position:relative;
 }
@@ -2106,91 +2092,141 @@ body{
 
 <script>
 
-document.querySelectorAll('.slider').forEach(slider => {
+/* =========================================================
+   50 MIRARS
+   WATCHES COLLECTION
+   PRODUCT SLIDER + PRODUCT DETAILS
+========================================================= */
 
-    const slides = slider.querySelectorAll('.slide');
+
+/* =========================================================
+   PRODUCT IMAGE SLIDERS
+========================================================= */
+
+document.querySelectorAll(".slider").forEach(function(slider){
+
+    const slides = slider.querySelectorAll(".slide");
+
+    const nextButton = slider.querySelector(".next");
+    const prevButton = slider.querySelector(".prev");
+
+    if(!slides.length){
+        return;
+    }
+
     let current = 0;
 
-    slider.querySelector('.next').addEventListener('click', () => {
-        slides[current].classList.remove('active');
-        current = (current + 1) % slides.length;
-        slides[current].classList.add('active');
-    });
 
-    slider.querySelector('.prev').addEventListener('click', () => {
-        slides[current].classList.remove('active');
-        current = (current - 1 + slides.length) % slides.length;
-        slides[current].classList.add('active');
-    });
+    /* ---------------------------------------------
+       SHOW SLIDE
+    --------------------------------------------- */
+
+    function showSlide(index){
+
+        slides.forEach(function(slide){
+            slide.classList.remove("active");
+        });
+
+        slides[index].classList.add("active");
+    }
+
+
+    /* ---------------------------------------------
+       NEXT
+    --------------------------------------------- */
+
+    if(nextButton){
+
+        nextButton.addEventListener("click", function(event){
+
+            event.stopPropagation();
+
+            current =
+                (current + 1) % slides.length;
+
+            showSlide(current);
+
+        });
+
+    }
+
+
+    /* ---------------------------------------------
+       PREVIOUS
+    --------------------------------------------- */
+
+    if(prevButton){
+
+        prevButton.addEventListener("click", function(event){
+
+            event.stopPropagation();
+
+            current =
+                (current - 1 + slides.length)
+                % slides.length;
+
+            showSlide(current);
+
+        });
+
+    }
 
 });
 
-</script>
-
-<script>
-document.querySelectorAll(".add-to-cart-btn, .add-to-cart").forEach(button => {
-  button.addEventListener("click", () => {
-    let name = button.dataset.name;
-    let price = button.dataset.price;
-    let image = button.dataset.image || "images/default.jpg"; // optional image path
-
-    // Get existing cart or create new
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-    // Add product
-    cart.push({ name, price, image });
-
-    // Save back to localStorage
-    localStorage.setItem("cart", JSON.stringify(cart));
-
-    // Redirect to cart page
-    window.location.href = "cart.html";
-  });
-});
-</script>
-
-<script>
 
 /* =========================================================
    AUTOMATIC PRODUCT DETAILS SYSTEM
-   50 MIRARS
-   ========================================================= */
+========================================================= */
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function(){
 
-    const productCards = document.querySelectorAll(".product-card");
 
-    productCards.forEach(function (card) {
+    /* ---------------------------------------------
+       GET ALL PRODUCT CARDS
+    --------------------------------------------- */
 
-        /* ---------------------------------------------
+    const productCards =
+        document.querySelectorAll(".product-card");
+
+
+    productCards.forEach(function(card){
+
+
+        /* =============================================
            GET PRODUCT NAME
-           --------------------------------------------- */
+        ============================================= */
 
-        const titleElement = card.querySelector("h3");
+        const titleElement =
+            card.querySelector("h3");
 
-        if (!titleElement) {
+        if(!titleElement){
             return;
         }
 
-        const productName = titleElement.textContent.trim();
+        const productName =
+            titleElement.textContent.trim();
 
 
-        /* ---------------------------------------------
+        /* =============================================
            GET PRODUCT PRICE
-           --------------------------------------------- */
+        ============================================= */
 
-        const priceElement = card.querySelector(".price");
+        const priceElement =
+            card.querySelector(".price");
 
         let productPrice = "";
 
-        if (priceElement) {
-            productPrice = priceElement.textContent.trim();
+        if(priceElement){
+
+            productPrice =
+                priceElement.textContent.trim();
+
         }
 
 
-        /* ---------------------------------------------
-           CREATE PRODUCT ID AUTOMATICALLY
-           --------------------------------------------- */
+        /* =============================================
+           CREATE PRODUCT ID
+        ============================================= */
 
         const productId = productName
             .toLowerCase()
@@ -2200,49 +2236,62 @@ document.addEventListener("DOMContentLoaded", function () {
             .replace(/^-+|-+$/g, "");
 
 
-        /* ---------------------------------------------
-           GET PRODUCT IMAGES
-           --------------------------------------------- */
+        /* =============================================
+           GET ALL PRODUCT IMAGES
+        ============================================= */
 
         const images = [];
 
-        card.querySelectorAll("img").forEach(function (img) {
 
-            const src = img.getAttribute("src");
+        card.querySelectorAll("img").forEach(function(img){
 
-            if (
+            const src =
+                img.getAttribute("src");
+
+
+            if(
                 src &&
                 !src.includes("whatsapplogo") &&
                 !src.includes("instagramimage")
-            ) {
+            ){
+
                 images.push(src);
+
             }
 
         });
 
 
-        /* ---------------------------------------------
+        /* =============================================
            GET PRODUCT VIDEO
-           --------------------------------------------- */
+        ============================================= */
 
         let video = "";
 
-        const videoElement = card.querySelector("video");
 
-        if (videoElement) {
+        const videoElement =
+            card.querySelector("video");
 
-            const source = videoElement.querySelector("source");
 
-            if (source) {
-                video = source.getAttribute("src") || "";
+        if(videoElement){
+
+            const source =
+                videoElement.querySelector("source");
+
+
+            if(source){
+
+                video =
+                    source.getAttribute("src") || "";
+
             }
 
         }
 
 
-        /* ---------------------------------------------
-           PRODUCT DATA
-           --------------------------------------------- */
+        /* =============================================
+           CREATE PRODUCT DATA
+        ============================================= */
 
         const productData = {
 
@@ -2259,84 +2308,184 @@ document.addEventListener("DOMContentLoaded", function () {
         };
 
 
-        /* ---------------------------------------------
-           FIND PRODUCT MEDIA AREA
-           --------------------------------------------- */
+        /* =============================================
+           REMOVE OLD BUTTONS
+           ENQUIRE + ADD TO CART
+        ============================================= */
 
-        const slider = card.querySelector(".slider");
+        const oldButtons =
+            card.querySelector(".product-buttons");
 
-        const image = card.querySelector(
-            ":scope > img"
+
+        if(oldButtons){
+
+            oldButtons.innerHTML = "";
+
+        }
+
+
+        /* =============================================
+           CREATE SHOW PRODUCT DETAILS BUTTON
+        ============================================= */
+
+        const buttonsContainer =
+            card.querySelector(".product-buttons");
+
+
+        if(!buttonsContainer){
+            return;
+        }
+
+
+        const detailsButton =
+            document.createElement("button");
+
+
+        detailsButton.type = "button";
+
+        detailsButton.className =
+            "show-details-btn";
+
+        detailsButton.textContent =
+            "Show Product Details";
+
+
+        /* =============================================
+           BUTTON CLICK
+        ============================================= */
+
+        detailsButton.addEventListener(
+            "click",
+            function(event){
+
+                event.preventDefault();
+
+                event.stopPropagation();
+
+
+                /* -------------------------------------
+                   SAVE PRODUCT INFORMATION
+                ------------------------------------- */
+
+                localStorage.setItem(
+                    "selectedProduct",
+                    JSON.stringify(productData)
+                );
+
+
+                /* -------------------------------------
+                   REDIRECT TO PRODUCT DETAILS PAGE
+                ------------------------------------- */
+
+                window.location.href =
+                    "product-details.html?id=" +
+                    encodeURIComponent(productId);
+
+            }
         );
 
-        const videoElementDirect = card.querySelector(
-            ":scope > video"
+
+        buttonsContainer.appendChild(
+            detailsButton
         );
 
 
-        /* ---------------------------------------------
-           MAKE SLIDER CLICKABLE
-           --------------------------------------------- */
+        /* =============================================
+           FIND PRODUCT MEDIA
+        ============================================= */
 
-        if (slider) {
+        const slider =
+            card.querySelector(".slider");
 
-            slider.classList.add("product-click-area");
+
+        const directImage =
+            card.querySelector(":scope > img");
+
+
+        const directVideo =
+            card.querySelector(":scope > video");
+
+
+        /* =============================================
+           SLIDER CLICK
+        ============================================= */
+
+        if(slider){
 
             slider.style.cursor = "pointer";
 
-            slider.addEventListener("click", function (event) {
 
-                /*
-                   Do NOT open product details when
-                   customer clicks the slider arrows.
-                */
+            slider.addEventListener(
+                "click",
+                function(event){
 
-                if (
-                    event.target.closest(".prev") ||
-                    event.target.closest(".next")
-                ) {
-                    return;
+                    /* Do nothing if arrow was clicked */
+
+                    if(
+                        event.target.closest(".prev") ||
+                        event.target.closest(".next")
+                    ){
+
+                        return;
+
+                    }
+
+
+                    openProduct(
+                        productData
+                    );
+
                 }
-
-                openProduct(productData);
-
-            });
+            );
 
         }
 
 
-        /* ---------------------------------------------
-           MAKE NORMAL IMAGE CLICKABLE
-           --------------------------------------------- */
+        /* =============================================
+           NORMAL IMAGE CLICK
+        ============================================= */
 
-        if (image) {
+        if(directImage){
 
-            image.classList.add("product-click-image");
+            directImage.style.cursor =
+                "pointer";
 
-            image.style.cursor = "pointer";
 
-            image.addEventListener("click", function () {
+            directImage.addEventListener(
+                "click",
+                function(event){
 
-                openProduct(productData);
+                    event.stopPropagation();
 
-            });
+                    openProduct(
+                        productData
+                    );
+
+                }
+            );
 
         }
 
 
-        /* ---------------------------------------------
-           MAKE VIDEO CLICKABLE
-           --------------------------------------------- */
+        /* =============================================
+           VIDEO DOUBLE CLICK
+        ============================================= */
 
-        if (videoElementDirect) {
+        if(directVideo){
 
-            videoElementDirect.style.cursor = "pointer";
+            directVideo.style.cursor =
+                "pointer";
 
-            videoElementDirect.addEventListener(
+
+            directVideo.addEventListener(
                 "dblclick",
-                function () {
+                function(event){
 
-                    openProduct(productData);
+                    event.stopPropagation();
+
+                    openProduct(
+                        productData
+                    );
 
                 }
             );
@@ -2349,14 +2498,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* =================================================
        OPEN PRODUCT DETAILS
-       ================================================= */
+    ================================================= */
 
-    function openProduct(product) {
+    function openProduct(product){
 
-        /*
-           Save selected product so
-           product-details.html can read it.
-        */
+        /* ---------------------------------------------
+           SAVE SELECTED PRODUCT
+        --------------------------------------------- */
 
         localStorage.setItem(
             "selectedProduct",
@@ -2364,9 +2512,9 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
 
-        /*
-           Also keep the product ID in the URL.
-        */
+        /* ---------------------------------------------
+           REDIRECT
+        --------------------------------------------- */
 
         window.location.href =
             "product-details.html?id=" +
@@ -2374,9 +2522,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
+
 });
 
 </script>
-    
+   
 </body>
 </html>
