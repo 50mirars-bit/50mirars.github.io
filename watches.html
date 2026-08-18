@@ -624,12 +624,39 @@ body{
 <!-- Tissot T-Race Chronograph Watch -->
 <div class="product-card">
 
-    <div class="slider">
-        <img src="Tissot T-Race Chronograph Watch.jpeg" class="slide active">
-        <img src="Tissot T-Race Chronograph Watch 2.jpeg" class="slide">
+    <!-- CLICKABLE PRODUCT IMAGE AREA -->
+    <div
+        class="slider product-image-click"
+        onclick="openProductDetails('tissot-t-race')"
+        style="cursor:pointer;"
+    >
 
-        <button class="prev">❮</button>
-        <button class="next">❯</button>
+        <img
+            src="Tissot T-Race Chronograph Watch.jpeg"
+            class="slide active"
+            alt="Tissot T-Race Chronograph Watch"
+        >
+
+        <img
+            src="Tissot T-Race Chronograph Watch 2.jpeg"
+            class="slide"
+            alt="Tissot T-Race Chronograph Watch"
+        >
+
+        <button
+            class="prev"
+            onclick="event.stopPropagation();"
+        >
+            ❮
+        </button>
+
+        <button
+            class="next"
+            onclick="event.stopPropagation();"
+        >
+            ❯
+        </button>
+
     </div>
 
     <h3>Tissot T-Race Chronograph Watch</h3>
@@ -657,7 +684,6 @@ body{
     </div>
 
 </div>
-
 <!-- Rolex Pheonix Watch -->
 <div class="product-card">
 
@@ -2121,6 +2147,17 @@ document.querySelectorAll(".add-to-cart-btn, .add-to-cart").forEach(button => {
     window.location.href = "cart.html";
   });
 });
+</script>
+
+<script>
+
+function openProductDetails(productId) {
+
+    window.location.href =
+        "product-details.html?id=" + productId;
+
+}
+
 </script>
     
 </body>
