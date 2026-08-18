@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
@@ -16,23 +15,31 @@
     content="#ffffff"
 >
 
-<title>
-    Product Details | 50 Mirars
-</title>
+<meta
+    name="description"
+    content="50 Mirars - Premium Watch Product Details"
+>
+
+<title>Product Details | 50 Mirars</title>
 
 
 <style>
 
 /* =========================================================
-   BASIC RESET
+   RESET
 ========================================================= */
 
 *{
     box-sizing:border-box;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     margin:0;
+    padding:0;
 
     font-family:
         Arial,
@@ -51,17 +58,27 @@ body{
 
 .header{
 
-    padding:22px 5%;
+    width:100%;
 
-    border-bottom:
-        1px solid #eee;
+    padding:20px 5%;
+
+    border-bottom:1px solid #e9e9e9;
+
+    background:#fff;
 
     display:flex;
 
+    align-items:center;
+
     justify-content:space-between;
 
-    align-items:center;
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
 }
+
 
 .logo{
 
@@ -69,16 +86,29 @@ body{
 
     font-weight:700;
 
-    letter-spacing:2px;
+    letter-spacing:3px;
+
+    color:#111;
 }
 
+
 .back{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
 
     text-decoration:none;
 
     color:#111;
 
+    font-size:14px;
+
     font-weight:600;
+
+    transition:.3s;
 }
 
 .back:hover{
@@ -93,19 +123,21 @@ body{
 
 .page{
 
-    max-width:1250px;
+    width:100%;
 
-    margin:45px auto;
+    max-width:1280px;
 
-    padding:
-        0 25px;
+    margin:55px auto;
+
+    padding:0 30px;
 
     display:grid;
 
     grid-template-columns:
-        1.1fr 1fr;
+        minmax(0,1.08fr)
+        minmax(0,1fr);
 
-    gap:65px;
+    gap:70px;
 }
 
 
@@ -116,15 +148,27 @@ body{
 .gallery{
 
     width:100%;
+
+    min-width:0;
 }
+
 
 .main-media{
 
-    height:560px;
+    width:100%;
 
-    background:#f7f7f7;
+    height:600px;
 
-    border-radius:10px;
+    background:
+        linear-gradient(
+            135deg,
+            #fafafa,
+            #f3f3f3
+        );
+
+    border:1px solid #eeeeee;
+
+    border-radius:14px;
 
     display:flex;
 
@@ -135,6 +179,7 @@ body{
     overflow:hidden;
 }
 
+
 .main-media img{
 
     width:100%;
@@ -142,7 +187,12 @@ body{
     height:100%;
 
     object-fit:contain;
+
+    display:block;
+
+    transition:.3s;
 }
+
 
 .main-media video{
 
@@ -151,6 +201,10 @@ body{
     height:100%;
 
     object-fit:contain;
+
+    display:block;
+
+    background:#000;
 }
 
 
@@ -162,37 +216,58 @@ body{
 
     display:flex;
 
-    gap:10px;
+    gap:12px;
 
-    margin-top:14px;
+    margin-top:15px;
 
-    overflow:auto;
+    overflow-x:auto;
+
+    padding-bottom:5px;
 }
 
-.thumbs img{
 
-    width:90px;
+.thumbs::-webkit-scrollbar{
 
-    height:90px;
+    height:5px;
+}
+
+.thumbs::-webkit-scrollbar-thumb{
+
+    background:#c9a24d;
+
+    border-radius:20px;
+}
+
+
+.thumb{
+
+    width:85px;
+
+    height:85px;
+
+    flex:0 0 85px;
 
     object-fit:cover;
 
-    border:
-        1px solid #ddd;
+    border:1px solid #ddd;
 
-    border-radius:6px;
+    border-radius:8px;
 
     cursor:pointer;
 
-    flex-shrink:0;
+    transition:.25s;
+
+    background:#f7f7f7;
 }
 
-.thumbs img:hover{
+
+.thumb:hover{
 
     border-color:#c9a24d;
 }
 
-.thumbs img.active{
+
+.thumb.active{
 
     border:
         2px solid #c9a24d;
@@ -203,102 +278,278 @@ body{
    PRODUCT INFORMATION
 ========================================================= */
 
+.product-info{
+
+    width:100%;
+}
+
+
 .brand{
 
-    font-size:13px;
+    font-size:12px;
 
     letter-spacing:3px;
 
-    color:#888;
-
     text-transform:uppercase;
+
+    color:#888;
 
     margin-bottom:12px;
 }
 
+
 h1{
+
+    margin:
+        0 0 18px;
 
     font-family:
         Georgia,
         "Times New Roman",
         serif;
 
-    font-size:42px;
-
-    font-weight:500;
+    font-size:44px;
 
     line-height:1.15;
 
-    margin:
-        0 0 20px;
+    font-weight:500;
+
+    color:#111;
 }
+
+
+.price-row{
+
+    display:flex;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    margin-bottom:20px;
+}
+
 
 .price{
 
-    font-size:30px;
+    font-size:31px;
 
     font-weight:700;
 
     color:#c9a24d;
-
-    margin-bottom:22px;
 }
 
-.availability{
 
-    display:inline-block;
+.old-price{
 
-    background:#f4f4f4;
+    font-size:18px;
 
-    padding:
-        8px 14px;
+    color:#999;
 
-    margin-bottom:25px;
-
-    font-size:14px;
+    text-decoration:line-through;
 }
 
-.desc{
 
-    font-size:16px;
+.discount{
 
-    line-height:1.8;
+    background:#111;
 
-    color:#555;
+    color:#fff;
 
-    margin-bottom:30px;
+    padding:6px 10px;
+
+    border-radius:4px;
+
+    font-size:12px;
+
+    font-weight:700;
 }
 
 
 /* =========================================================
-   PRODUCT DETAILS TABLE
+   AVAILABILITY
 ========================================================= */
 
-.title{
+.availability{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:7px;
+
+    padding:9px 14px;
+
+    background:#f6f6f6;
+
+    border:1px solid #ededed;
+
+    border-radius:5px;
+
+    font-size:13px;
+
+    margin-bottom:24px;
+}
+
+
+.availability-dot{
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    background:#3b9b4a;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.desc{
+
+    font-size:15px;
+
+    line-height:1.8;
+
+    color:#5c5c5c;
+
+    margin:
+        0 0 30px;
+}
+
+
+/* =========================================================
+   QUANTITY
+========================================================= */
+
+.quantity-section{
+
+    margin-bottom:22px;
+}
+
+
+.quantity-label{
+
+    display:block;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    margin-bottom:9px;
+}
+
+
+.quantity-box{
+
+    width:135px;
+
+    height:44px;
+
+    display:flex;
+
+    border:1px solid #ccc;
+
+    border-radius:6px;
+
+    overflow:hidden;
+}
+
+
+.quantity-box button{
+
+    width:42px;
+
+    border:0;
+
+    background:#f7f7f7;
 
     font-size:20px;
 
-    margin-bottom:15px;
+    cursor:pointer;
+
+    transition:.2s;
 }
 
-table{
+
+.quantity-box button:hover{
+
+    background:#c9a24d;
+
+    color:#fff;
+}
+
+
+.quantity-box input{
+
+    width:51px;
+
+    border:0;
+
+    border-left:1px solid #ddd;
+
+    border-right:1px solid #ddd;
+
+    text-align:center;
+
+    font-size:15px;
+
+    outline:none;
+}
+
+
+/* =========================================================
+   PRODUCT DETAILS
+========================================================= */
+
+.section-title{
+
+    margin:
+        30px 0 14px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:22px;
+
+    font-weight:500;
+}
+
+
+.details-table{
 
     width:100%;
 
     border-collapse:collapse;
 
-    margin-bottom:30px;
+    margin-bottom:28px;
 }
 
-td{
+
+.details-table tr{
+
+    border-bottom:1px solid #eeeeee;
+}
+
+
+.details-table td{
 
     padding:13px 5px;
 
-    border-bottom:
-        1px solid #eee;
+    font-size:14px;
+
+    vertical-align:top;
 }
 
-td:first-child{
+
+.details-table td:first-child{
 
     width:40%;
 
@@ -306,8 +557,16 @@ td:first-child{
 }
 
 
+.details-table td:last-child{
+
+    color:#222;
+
+    font-weight:500;
+}
+
+
 /* =========================================================
-   ACTION BUTTONS
+   ACTIONS
 ========================================================= */
 
 .actions{
@@ -317,36 +576,49 @@ td:first-child{
     gap:12px;
 
     flex-wrap:wrap;
+
+    margin-top:10px;
 }
 
-button,
-.whatsapp{
+
+.action-btn{
+
+    min-height:48px;
 
     padding:
-        14px 24px;
-
-    font-size:15px;
-
-    font-weight:600;
+        13px 25px;
 
     border-radius:6px;
+
+    font-size:14px;
+
+    font-weight:700;
 
     cursor:pointer;
 
     text-decoration:none;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    transition:.3s;
+
+    border:1px solid #111;
 }
 
-.cart{
+
+.add-cart{
 
     background:#fff;
-
-    border:
-        1px solid #111;
 
     color:#111;
 }
 
-.cart:hover{
+
+.add-cart:hover{
 
     background:#c9a24d;
 
@@ -355,18 +627,63 @@ button,
     color:#fff;
 }
 
-.whatsapp{
+
+.buy-now{
 
     background:#111;
 
     color:#fff;
 }
 
+
+.buy-now:hover{
+
+    background:#c9a24d;
+
+    border-color:#c9a24d;
+
+    color:#111;
+}
+
+
+.whatsapp{
+
+    background:#fff;
+
+    color:#111;
+}
+
+
 .whatsapp:hover{
 
     background:#c9a24d;
 
-    color:#111;
+    border-color:#c9a24d;
+
+    color:#fff;
+}
+
+
+/* =========================================================
+   PRODUCT MESSAGE
+========================================================= */
+
+.cart-message{
+
+    display:none;
+
+    margin-top:15px;
+
+    padding:12px 15px;
+
+    background:#f7f7f7;
+
+    border-left:
+        3px solid #c9a24d;
+
+    font-size:13px;
+
+    color:#333;
 }
 
 
@@ -376,15 +693,258 @@ button,
 
 .error{
 
+    min-height:500px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
     text-align:center;
 
-    padding:
-        100px 20px;
+    padding:40px 20px;
 }
+
 
 .error h1{
 
     font-size:38px;
+
+    margin-bottom:10px;
+}
+
+
+.error p{
+
+    color:#777;
+
+    margin-bottom:25px;
+}
+
+
+/* =========================================================
+   RELATED PRODUCTS
+========================================================= */
+
+.related-section{
+
+    width:100%;
+
+    max-width:1280px;
+
+    margin:
+        20px auto 70px;
+
+    padding:
+        0 30px;
+}
+
+
+.related-heading{
+
+    text-align:center;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:30px;
+
+    font-weight:500;
+
+    margin-bottom:30px;
+}
+
+
+.related-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:20px;
+}
+
+
+.related-card{
+
+    border:1px solid #eee;
+
+    border-radius:10px;
+
+    overflow:hidden;
+
+    background:#fff;
+
+    transition:.3s;
+
+    cursor:pointer;
+}
+
+
+.related-card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.08);
+}
+
+
+.related-image{
+
+    width:100%;
+
+    height:220px;
+
+    background:#f6f6f6;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    overflow:hidden;
+}
+
+
+.related-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:contain;
+}
+
+
+.related-info{
+
+    padding:15px;
+}
+
+
+.related-name{
+
+    font-size:14px;
+
+    font-weight:600;
+
+    line-height:1.4;
+
+    min-height:40px;
+}
+
+
+.related-price{
+
+    margin-top:8px;
+
+    color:#c9a24d;
+
+    font-size:16px;
+
+    font-weight:700;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer{
+
+    margin-top:70px;
+
+    padding:
+        45px 5% 25px;
+
+    background:#111;
+
+    color:#fff;
+}
+
+
+.footer-inner{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:40px;
+}
+
+
+.footer h3{
+
+    margin-top:0;
+
+    margin-bottom:15px;
+
+    font-size:17px;
+}
+
+
+.footer p{
+
+    color:#ccc;
+
+    font-size:14px;
+
+    line-height:1.7;
+
+    margin:6px 0;
+}
+
+
+.footer a{
+
+    color:#ccc;
+
+    text-decoration:none;
+
+    font-size:14px;
+
+    line-height:2;
+
+    transition:.2s;
+}
+
+
+.footer a:hover{
+
+    color:#c9a24d;
+}
+
+
+.footer-bottom{
+
+    max-width:1200px;
+
+    margin:
+        35px auto 0;
+
+    padding-top:20px;
+
+    border-top:
+        1px solid #333;
+
+    text-align:center;
+
+    color:#999;
+
+    font-size:13px;
 }
 
 
@@ -392,46 +952,156 @@ button,
    MOBILE
 ========================================================= */
 
-@media(max-width:800px){
+@media(max-width:900px){
 
     .page{
 
         grid-template-columns:1fr;
 
-        gap:30px;
+        gap:35px;
 
-        margin:25px auto;
-
-        padding:
-            0 18px;
+        margin:35px auto;
     }
+
 
     .main-media{
 
-        height:420px;
+        height:500px;
     }
+
 
     h1{
 
-        font-size:32px;
+        font-size:36px;
     }
 
-    .actions > *{
 
-        width:100%;
+    .related-grid{
 
-        text-align:center;
+        grid-template-columns:
+            repeat(2,1fr);
     }
+
+}
+
+
+@media(max-width:600px){
 
     .header{
 
         padding:
-            18px 20px;
+            17px 18px;
     }
+
 
     .logo{
 
-        font-size:20px;
+        font-size:19px;
+
+        letter-spacing:2px;
+    }
+
+
+    .back{
+
+        font-size:12px;
+    }
+
+
+    .page{
+
+        padding:
+            0 16px;
+
+        margin:
+            25px auto;
+    }
+
+
+    .main-media{
+
+        height:400px;
+
+        border-radius:10px;
+    }
+
+
+    h1{
+
+        font-size:30px;
+    }
+
+
+    .price{
+
+        font-size:27px;
+    }
+
+
+    .desc{
+
+        font-size:14px;
+
+        line-height:1.75;
+    }
+
+
+    .actions{
+
+        flex-direction:column;
+    }
+
+
+    .action-btn{
+
+        width:100%;
+    }
+
+
+    .related-section{
+
+        padding:
+            0 16px;
+    }
+
+
+    .related-grid{
+
+        grid-template-columns:1fr 1fr;
+
+        gap:12px;
+    }
+
+
+    .related-image{
+
+        height:160px;
+    }
+
+
+    .related-info{
+
+        padding:11px;
+    }
+
+
+    .related-name{
+
+        font-size:12px;
+    }
+
+
+    .related-price{
+
+        font-size:14px;
+    }
+
+
+    .footer-inner{
+
+        grid-template-columns:1fr;
+
+        gap:25px;
     }
 
 }
@@ -451,9 +1121,7 @@ button,
 <header class="header">
 
     <div class="logo">
-
         50 MIRARS
-
     </div>
 
 
@@ -461,9 +1129,7 @@ button,
         class="back"
         href="watches.html"
     >
-
         ← Back to Watches
-
     </a>
 
 </header>
@@ -478,860 +1144,1058 @@ button,
 
 
 
+<!-- =========================================================
+     RELATED PRODUCTS
+========================================================= -->
+
+<section
+    id="relatedSection"
+    class="related-section"
+    style="display:none;"
+>
+
+    <h2 class="related-heading">
+        You May Also Like
+    </h2>
+
+
+    <div
+        id="relatedProducts"
+        class="related-grid"
+    ></div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="footer">
+
+    <div class="footer-inner">
+
+
+        <div>
+
+            <h3>
+                Contact Us
+            </h3>
+
+            <p>
+                50 Mirars
+            </p>
+
+            <p>
+                Premium Watches &amp; Sunglasses
+            </p>
+
+            <p>
+                WhatsApp:
+                +91 82099 89013
+            </p>
+
+        </div>
+
+
+
+        <div>
+
+            <h3>
+                Know 50 Mirars
+            </h3>
+
+            <a href="index.html">
+                Home
+            </a>
+            <br>
+
+            <a href="about.html">
+                About Us
+            </a>
+            <br>
+
+            <a href="faq.html">
+                FAQ
+            </a>
+            <br>
+
+            <a href="watches.html">
+                Watches
+            </a>
+            <br>
+
+            <a href="sunglasses.html">
+                Sunglasses
+            </a>
+
+        </div>
+
+
+
+        <div>
+
+            <h3>
+                Information
+            </h3>
+
+            <a href="terms.html">
+                Terms &amp; Conditions
+            </a>
+            <br>
+
+            <a href="privacyPolicy.html">
+                Privacy Policy
+            </a>
+            <br>
+
+            <a
+                href="https://www.instagram.com/"
+                target="_blank"
+            >
+                Instagram
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="footer-bottom">
+
+        © 2026 50 Mirars. All Rights Reserved.
+
+    </div>
+
+</footer>
+
+
+
 <script>
 
-
 /* =========================================================
-   ALL PRODUCTS
+   ALL WATCH PRODUCTS
 ========================================================= */
 
 const products = [
 
     {
-        id:
-            "tissot-t-race-chronograph-watch",
-
-        name:
-            "Tissot T-Race Chronograph Watch",
-
-        price:
-            "₹3,500",
-
+        id:"tissot-t-race-chronograph-watch",
+        name:"Tissot T-Race Chronograph Watch",
+        price:"₹3,500",
         images:[
             "Tissot T-Race Chronograph Watch.jpeg",
             "Tissot T-Race Chronograph Watch 2.jpeg"
         ],
-
-        video:null
+        video:null,
+        brand:"Tissot",
+        description:"A sporty and stylish Tissot T-Race Chronograph Watch designed for a bold and premium appearance.",
+        details:{
+            "Brand":"Tissot",
+            "Collection":"T-Race",
+            "Category":"Watch",
+            "Movement":"Chronograph",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "rolex-pheonix-watch",
-
-        name:
-            "Rolex Pheonix Watch",
-
-        price:
-            "₹4,000",
-
+        id:"rolex-pheonix-watch",
+        name:"Rolex Pheonix Watch",
+        price:"₹4,000",
         images:[],
-
-        video:
-            "Rolex Pheonix Watch.mp4"
+        video:"Rolex Pheonix Watch.mp4",
+        brand:"Rolex",
+        description:"A premium Rolex Pheonix Watch featuring a bold design and distinctive wrist presence.",
+        details:{
+            "Brand":"Rolex",
+            "Collection":"Pheonix",
+            "Category":"Watch",
+            "Movement":"Automatic Style",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "versace-dominus-watch",
-
-        name:
-            "Versace Dominus Watch",
-
-        price:
-            "₹4,000",
-
+        id:"versace-dominus-watch",
+        name:"Versace Dominus Watch",
+        price:"₹4,000",
         images:[
             "Versace Dominus Skeleton Watch 3.jpeg",
             "Versace Dominus Skeleton Watch4.jpeg"
         ],
-
-        video:null
+        video:null,
+        brand:"Versace",
+        description:"Versace Dominus Watch with a sophisticated skeleton-inspired design and premium appearance.",
+        details:{
+            "Brand":"Versace",
+            "Collection":"Dominus",
+            "Category":"Watch",
+            "Style":"Skeleton",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "rolex-daytona-116578saco",
-
-        name:
-            "Rolex Daytona 116578SACO",
-
-        price:
-            "₹3,500",
-
+        id:"rolex-daytona-116578saco",
+        name:"Rolex Daytona 116578SACO",
+        price:"₹3,500",
         images:[],
-
-        video:
-            "Rolex Daytona 116578SACO.mp4"
+        video:"Rolex Daytona 116578SACO.mp4",
+        brand:"Rolex",
+        description:"Rolex Daytona 116578SACO with a distinctive luxury chronograph-inspired appearance.",
+        details:{
+            "Brand":"Rolex",
+            "Collection":"Daytona",
+            "Category":"Watch",
+            "Style":"Chronograph",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "tommy-hilfiger-clark",
-
-        name:
-            "Tommy Hilfiger Clark",
-
-        price:
-            "₹3,500",
-
+        id:"tommy-hilfiger-clark",
+        name:"Tommy Hilfiger Clark",
+        price:"₹3,500",
         images:[
             "Tommy Hilfiger Clark.jpeg",
             "Tommy Hilfiger Clark 2.jpeg",
             "Tommy Hilfiger Clark 3.jpeg",
             "Tommy Hilfiger Clark 4.jpeg"
         ],
-
-        video:null
+        video:null,
+        brand:"Tommy Hilfiger",
+        description:"Tommy Hilfiger Clark Watch offering a clean, modern and premium everyday style.",
+        details:{
+            "Brand":"Tommy Hilfiger",
+            "Collection":"Clark",
+            "Category":"Watch",
+            "Style":"Classic",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "omega-speedmaster-james-bond",
-
-        name:
-            "Omega Speedmaster James Bond",
-
-        price:
-            "₹4,000",
-
+        id:"omega-speedmaster-james-bond",
+        name:"Omega Speedmaster James Bond",
+        price:"₹4,000",
         images:[],
-
-        video:
-            "Omega Speedmaster James Bond.mp4"
+        video:"Omega Speedmaster James Bond.mp4",
+        brand:"Omega",
+        description:"Omega Speedmaster James Bond inspired watch with a bold and sophisticated appearance.",
+        details:{
+            "Brand":"Omega",
+            "Collection":"Speedmaster",
+            "Category":"Watch",
+            "Style":"Chronograph",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "versace-hellenyium-chrono-watch",
-
-        name:
-            "Versace Hellenyium Chrono Watch",
-
-        price:
-            "₹4,000",
-
+        id:"versace-hellenyium-chrono-watch",
+        name:"Versace Hellenyium Chrono Watch",
+        price:"₹4,000",
         images:[
             "Versace Hellenyium Chrono Watch.jpeg",
             "Versace Hellenyium Chrono Watch 2.jpeg"
         ],
-
-        video:null
+        video:null,
+        brand:"Versace",
+        description:"Versace Hellenyium Chrono Watch combining a bold chronograph appearance with luxury styling.",
+        details:{
+            "Brand":"Versace",
+            "Collection":"Hellenyium",
+            "Category":"Watch",
+            "Style":"Chronograph",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "tommy-hilfiger-legend-series",
-
-        name:
-            "Tommy Hilfiger Legend Series",
-
-        price:
-            "₹4,000",
-
+        id:"tommy-hilfiger-legend-series",
+        name:"Tommy Hilfiger Legend Series",
+        price:"₹4,000",
         images:[],
-
-        video:
-            "Tommy Hilfiger Legend Series.mp4"
+        video:"Tommy Hilfiger Legend Series.mp4",
+        brand:"Tommy Hilfiger",
+        description:"Tommy Hilfiger Legend Series watch designed for a sophisticated and premium everyday look.",
+        details:{
+            "Brand":"Tommy Hilfiger",
+            "Collection":"Legend",
+            "Category":"Watch",
+            "Style":"Premium",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "tommy-hilfiger-dual-tone-watch-th1781644",
-
-        name:
-            "Tommy Hilfiger Dual Tone Watch TH1781644",
-
-        price:
-            "₹3,500",
-
+        id:"tommy-hilfiger-dual-tone-watch-th1781644",
+        name:"Tommy Hilfiger Dual Tone Watch TH1781644",
+        price:"₹3,500",
         images:[],
-
-        video:
-            "Tommy Hilfiger Dual Tone Watch TH1781644.mp4"
+        video:"Tommy Hilfiger Dual Tone Watch TH1781644.mp4",
+        brand:"Tommy Hilfiger",
+        description:"A stylish dual-tone Tommy Hilfiger watch with a sophisticated contemporary appearance.",
+        details:{
+            "Brand":"Tommy Hilfiger",
+            "Model":"TH1781644",
+            "Category":"Watch",
+            "Style":"Dual Tone",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "versace-tonneau-skeleton-watch",
-
-        name:
-            "Versace Tonneau Skeleton Watch",
-
-        price:
-            "₹4,000",
-
+        id:"versace-tonneau-skeleton-watch",
+        name:"Versace Tonneau Skeleton Watch",
+        price:"₹4,000",
         images:[
             "Versace Tonneau Skeleton Watch.jpeg",
             "Versace Tonneau Skeleton Watch 2.jpeg"
         ],
-
-        video:null
+        video:null,
+        brand:"Versace",
+        description:"Versace Tonneau Skeleton Watch with a distinctive tonneau case and skeleton-inspired design.",
+        details:{
+            "Brand":"Versace",
+            "Collection":"Tonneau",
+            "Category":"Watch",
+            "Style":"Skeleton",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "seiko-5-sports-red-blood",
-
-        name:
-            "Seiko 5 Sports Red Blood",
-
-        price:
-            "₹4,500",
-
+        id:"seiko-5-sports-red-blood",
+        name:"Seiko 5 Sports Red Blood",
+        price:"₹4,500",
         images:[],
-
-        video:
-            "Seiko 5 Sports Red Blood.mp4"
+        video:"Seiko 5 Sports Red Blood.mp4",
+        brand:"Seiko",
+        description:"Seiko 5 Sports Red Blood featuring a sporty and powerful wrist presence.",
+        details:{
+            "Brand":"Seiko",
+            "Collection":"5 Sports",
+            "Category":"Watch",
+            "Style":"Sports",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "omega-seamaster-diver-300m-co-axial-master",
-
-        name:
-            "Omega Seamaster Diver 300M Co-Axial Master",
-
-        price:
-            "₹3,500",
-
+        id:"omega-seamaster-diver-300m-co-axial-master",
+        name:"Omega Seamaster Diver 300M Co-Axial Master",
+        price:"₹3,500",
         images:[],
-
-        video:
-            "Omega Seamaster Diver 300M Co-Axial Master.mp4"
+        video:"Omega Seamaster Diver 300M Co-Axial Master.mp4",
+        brand:"Omega",
+        description:"Omega Seamaster Diver 300M Co-Axial Master inspired watch with a sporty luxury appearance.",
+        details:{
+            "Brand":"Omega",
+            "Collection":"Seamaster Diver 300M",
+            "Category":"Watch",
+            "Style":"Diver",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "casio-edifice-efr-539sg-1audf",
-
-        name:
-            "Casio Edifice EFR-539SG-1AUDF",
-
-        price:
-            "₹3,000",
-
+        id:"casio-edifice-efr-539sg-1audf",
+        name:"Casio Edifice EFR-539SG-1AUDF",
+        price:"₹3,000",
         images:[],
-
-        video:
-            "Casio Edifice EFR-539SG-1AUDF.mp4"
+        video:"Casio Edifice EFR-539SG-1AUDF.mp4",
+        brand:"Casio",
+        description:"Casio Edifice EFR-539SG-1AUDF with a sporty chronograph-inspired design.",
+        details:{
+            "Brand":"Casio",
+            "Collection":"Edifice",
+            "Model":"EFR-539SG-1AUDF",
+            "Category":"Watch",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "tommy-hilfiger-model-1792196",
-
-        name:
-            "Tommy Hilfiger Model 1792196",
-
-        price:
-            "₹4,000",
-
+        id:"tommy-hilfiger-model-1792196",
+        name:"Tommy Hilfiger Model 1792196",
+        price:"₹4,000",
         images:[],
-
-        video:
-            "Tommy Hilfiger Model 1792196.mp4"
+        video:"Tommy Hilfiger Model 1792196.mp4",
+        brand:"Tommy Hilfiger",
+        description:"Tommy Hilfiger Model 1792196 offering a premium modern look.",
+        details:{
+            "Brand":"Tommy Hilfiger",
+            "Model":"1792196",
+            "Category":"Watch",
+            "Style":"Classic",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "rolex-datejust-41-wimbledon-dial",
-
-        name:
-            "Rolex Datejust 41 Wimbledon Dial",
-
-        price:
-            "₹3,500",
-
+        id:"rolex-datejust-41-wimbledon-dial",
+        name:"Rolex Datejust 41 Wimbledon Dial",
+        price:"₹3,500",
         images:[],
-
-        video:
-            "Rolex Datejust 41 Wimbledon Dial.mp4"
+        video:"Rolex Datejust 41 Wimbledon Dial.mp4",
+        brand:"Rolex",
+        description:"Rolex Datejust 41 Wimbledon Dial inspired watch featuring a sophisticated luxury appearance.",
+        details:{
+            "Brand":"Rolex",
+            "Collection":"Datejust",
+            "Model":"41 Wimbledon Dial",
+            "Category":"Watch",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "rolex-cosmograph-daytona-john-mayer-116508",
-
-        name:
-            "Rolex Cosmograph Daytona John Mayer 116508",
-
-        price:
-            "₹3,500",
-
+        id:"rolex-cosmograph-daytona-john-mayer-116508",
+        name:"Rolex Cosmograph Daytona John Mayer 116508",
+        price:"₹3,500",
         images:[],
-
-        video:
-            "Rolex Cosmograph Daytona John Mayer 116508.mp4"
+        video:"Rolex Cosmograph Daytona John Mayer 116508.mp4",
+        brand:"Rolex",
+        description:"Rolex Cosmograph Daytona John Mayer 116508 inspired luxury chronograph design.",
+        details:{
+            "Brand":"Rolex",
+            "Collection":"Cosmograph Daytona",
+            "Model":"116508",
+            "Category":"Watch",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "breitling-navitimer",
-
-        name:
-            "Breitling Navitimer",
-
-        price:
-            "₹6,000",
-
+        id:"breitling-navitimer",
+        name:"Breitling Navitimer",
+        price:"₹6,000",
         images:[],
-
-        video:
-            "Breitling Navitimer .mp4"
+        video:"Breitling Navitimer .mp4",
+        brand:"Breitling",
+        description:"Breitling Navitimer inspired watch with a sophisticated aviation-style appearance.",
+        details:{
+            "Brand":"Breitling",
+            "Collection":"Navitimer",
+            "Category":"Watch",
+            "Style":"Aviation",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "tommy-hilfiger-henry-skeleton-automatic-watch",
-
-        name:
-            "Tommy Hilfiger Henry Skeleton Automatic Watch",
-
-        price:
-            "₹4,000",
-
+        id:"tommy-hilfiger-henry-skeleton-automatic-watch",
+        name:"Tommy Hilfiger Henry Skeleton Automatic Watch",
+        price:"₹4,000",
         images:[],
-
-        video:
-            "Tommy Hilfiger Henry Skeleton Automatic Watch.mp4"
+        video:"Tommy Hilfiger Henry Skeleton Automatic Watch.mp4",
+        brand:"Tommy Hilfiger",
+        description:"Tommy Hilfiger Henry Skeleton Automatic Watch featuring a striking skeleton design.",
+        details:{
+            "Brand":"Tommy Hilfiger",
+            "Collection":"Henry",
+            "Category":"Watch",
+            "Style":"Skeleton Automatic",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "guess-camden-multifunction-gw1051g2",
-
-        name:
-            "Guess Camden Multifunction GW1051G2",
-
-        price:
-            "₹3,500",
-
+        id:"guess-camden-multifunction-gw1051g2",
+        name:"Guess Camden Multifunction GW1051G2",
+        price:"₹3,500",
         images:[
             "Guess Camden Multifunction GW1051G2 1.jpeg",
             "Guess Camden Multifunction GW1051G2.jpeg"
         ],
-
-        video:null
+        video:null,
+        brand:"Guess",
+        description:"Guess Camden Multifunction GW1051G2 with a modern multifunction watch design.",
+        details:{
+            "Brand":"Guess",
+            "Collection":"Camden",
+            "Model":"GW1051G2",
+            "Category":"Watch",
+            "Style":"Multifunction",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "seiko-presage-srpe15",
-
-        name:
-            "Seiko Presage SRPE15",
-
-        price:
-            "₹5,500",
-
+        id:"seiko-presage-srpe15",
+        name:"Seiko Presage SRPE15",
+        price:"₹5,500",
         images:[
             "Seiko Presage SRPE15.jpeg"
         ],
-
-        video:null
+        video:null,
+        brand:"Seiko",
+        description:"Seiko Presage SRPE15 offering a refined and elegant dress-watch appearance.",
+        details:{
+            "Brand":"Seiko",
+            "Collection":"Presage",
+            "Model":"SRPE15",
+            "Category":"Watch",
+            "Style":"Dress Watch",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "tommy-hilfiger-baker-watch",
-
-        name:
-            "Tommy Hilfiger Baker Watch",
-
-        price:
-            "₹3,500",
-
+        id:"tommy-hilfiger-baker-watch",
+        name:"Tommy Hilfiger Baker Watch",
+        price:"₹3,500",
         images:[],
-
-        video:
-            "Tommy Hilfiger Baker Watch.mp4"
+        video:"Tommy Hilfiger Baker Watch.mp4",
+        brand:"Tommy Hilfiger",
+        description:"Tommy Hilfiger Baker Watch with a clean and contemporary premium appearance.",
+        details:{
+            "Brand":"Tommy Hilfiger",
+            "Collection":"Baker",
+            "Category":"Watch",
+            "Style":"Classic",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "seiko-5-sports-gmt-ssk035k1",
-
-        name:
-            "Seiko 5 Sports GMT SSK035K1",
-
-        price:
-            "₹4,000",
-
+        id:"seiko-5-sports-gmt-ssk035k1",
+        name:"Seiko 5 Sports GMT SSK035K1",
+        price:"₹4,000",
         images:[
             "Seiko 5 Sports GMT SSK035K1.jpeg"
         ],
-
-        video:null
+        video:null,
+        brand:"Seiko",
+        description:"Seiko 5 Sports GMT SSK035K1 with a sporty GMT-inspired design.",
+        details:{
+            "Brand":"Seiko",
+            "Collection":"5 Sports GMT",
+            "Model":"SSK035K1",
+            "Category":"Watch",
+            "Style":"GMT",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "seiko-5-sports-quartz-gmt-ssk035k1",
-
-        name:
-            "Seiko 5 Sports Quartz GMT SSK035K1",
-
-        price:
-            "₹3,500",
-
+        id:"seiko-5-sports-quartz-gmt-ssk035k1",
+        name:"Seiko 5 Sports Quartz GMT SSK035K1",
+        price:"₹3,500",
         images:[
             "Seiko 5 Sports Quartz GMT SSK035K1.jpeg"
         ],
-
-        video:null
+        video:null,
+        brand:"Seiko",
+        description:"Seiko 5 Sports Quartz GMT SSK035K1 inspired sporty GMT design.",
+        details:{
+            "Brand":"Seiko",
+            "Collection":"5 Sports GMT",
+            "Model":"SSK035K1",
+            "Category":"Watch",
+            "Movement":"Quartz",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "seiko-prospex-speedtimer-spb513",
-
-        name:
-            "Seiko Prospex Speedtimer SPB513",
-
-        price:
-            "₹3,500",
-
+        id:"seiko-prospex-speedtimer-spb513",
+        name:"Seiko Prospex Speedtimer SPB513",
+        price:"₹3,500",
         images:[
             "Seiko Prospex Speedtimer SPB513.jpeg"
         ],
-
-        video:null
+        video:null,
+        brand:"Seiko",
+        description:"Seiko Prospex Speedtimer SPB513 featuring a bold sports chronograph appearance.",
+        details:{
+            "Brand":"Seiko",
+            "Collection":"Prospex Speedtimer",
+            "Model":"SPB513",
+            "Category":"Watch",
+            "Style":"Chronograph",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "seiko-5-sports-group",
-
-        name:
-            "Seiko 5 Sports Group",
-
-        price:
-            "₹4,000",
-
+        id:"seiko-5-sports-group",
+        name:"Seiko 5 Sports Group",
+        price:"₹4,000",
         images:[],
-
-        video:
-            "Seiko 5 Sports Group.mp4"
+        video:"Seiko 5 Sports Group.mp4",
+        brand:"Seiko",
+        description:"Seiko 5 Sports Group watch collection with a sporty premium appearance.",
+        details:{
+            "Brand":"Seiko",
+            "Collection":"5 Sports",
+            "Category":"Watch",
+            "Style":"Sports",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "seiko-presage-cocktail-srpg23j1",
-
-        name:
-            "Seiko Presage Cocktail SRPG23J1",
-
-        price:
-            "₹4,000",
-
+        id:"seiko-presage-cocktail-srpg23j1",
+        name:"Seiko Presage Cocktail SRPG23J1",
+        price:"₹4,000",
         images:[],
-
-        video:
-            "Seiko Presage Cocktail SRPG23J1.mp4"
+        video:"Seiko Presage Cocktail SRPG23J1.mp4",
+        brand:"Seiko",
+        description:"Seiko Presage Cocktail SRPG23J1 inspired by elegant cocktail-time styling.",
+        details:{
+            "Brand":"Seiko",
+            "Collection":"Presage Cocktail",
+            "Model":"SRPG23J1",
+            "Category":"Watch",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "armani-exchange-automatic-skeleton",
-
-        name:
-            "Armani Exchange Automatic Skeleton",
-
-        price:
-            "₹4,000",
-
+        id:"armani-exchange-automatic-skeleton",
+        name:"Armani Exchange Automatic Skeleton",
+        price:"₹4,000",
         images:[
             "Armani Exchange Automatic Skeleton.jpeg"
         ],
-
-        video:null
+        video:null,
+        brand:"Armani Exchange",
+        description:"Armani Exchange Automatic Skeleton with a bold open-dial appearance.",
+        details:{
+            "Brand":"Armani Exchange",
+            "Category":"Watch",
+            "Style":"Automatic Skeleton",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "tudor-pelagos-39",
-
-        name:
-            "Tudor Pelagos 39",
-
-        price:
-            "₹5,000",
-
+        id:"tudor-pelagos-39",
+        name:"Tudor Pelagos 39",
+        price:"₹5,000",
         images:[],
-
-        video:
-            "Tudor Pelagos 39.mp4"
+        video:"Tudor Pelagos 39.mp4",
+        brand:"Tudor",
+        description:"Tudor Pelagos 39 inspired diver-style watch with a refined sports appearance.",
+        details:{
+            "Brand":"Tudor",
+            "Collection":"Pelagos",
+            "Model":"39",
+            "Category":"Watch",
+            "Style":"Diver",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "seiko-mod-watches",
-
-        name:
-            "Seiko Mod Watches",
-
-        price:
-            "₹5,500",
-
+        id:"seiko-mod-watches",
+        name:"Seiko Mod Watches",
+        price:"₹5,500",
         images:[
             "Seiko Mod Watches.jpeg"
         ],
-
-        video:null
+        video:null,
+        brand:"Seiko",
+        description:"Seiko Mod Watch with a custom-inspired premium appearance.",
+        details:{
+            "Brand":"Seiko",
+            "Category":"Watch",
+            "Style":"Mod",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "guess-arc-champagne",
-
-        name:
-            "Guess Arc Champagne",
-
-        price:
-            "₹4,000",
-
+        id:"guess-arc-champagne",
+        name:"Guess Arc Champagne",
+        price:"₹4,000",
         images:[
             "Guess Arc Champagne.jpeg"
         ],
-
-        video:null
+        video:null,
+        brand:"Guess",
+        description:"Guess Arc Champagne watch with an elegant champagne-toned appearance.",
+        details:{
+            "Brand":"Guess",
+            "Collection":"Arc",
+            "Category":"Watch",
+            "Style":"Premium",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "rolex-yatch-master-42",
-
-        name:
-            "Rolex Yatch-Master 42",
-
-        price:
-            "₹5,000",
-
+        id:"rolex-yatch-master-42",
+        name:"Rolex Yatch-Master 42",
+        price:"₹5,000",
         images:[
             "Rolex Yatch-Master 42.jpeg"
         ],
-
-        video:null
+        video:null,
+        brand:"Rolex",
+        description:"Rolex Yacht-Master 42 inspired watch with a bold luxury sports appearance.",
+        details:{
+            "Brand":"Rolex",
+            "Collection":"Yacht-Master",
+            "Model":"42",
+            "Category":"Watch",
+            "Style":"Sports",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "seiko-blue-moon-ssa347j1",
-
-        name:
-            "Seiko Blue Moon SSA347J1",
-
-        price:
-            "₹6,000",
-
+        id:"seiko-blue-moon-ssa347j1",
+        name:"Seiko Blue Moon SSA347J1",
+        price:"₹6,000",
         images:[
             "Seiko Blue Moon SSA347J1.jpeg"
         ],
-
-        video:null
+        video:null,
+        brand:"Seiko",
+        description:"Seiko Blue Moon SSA347J1 with an elegant blue-dial inspired appearance.",
+        details:{
+            "Brand":"Seiko",
+            "Collection":"Presage",
+            "Model":"SSA347J1",
+            "Category":"Watch",
+            "Style":"Blue Moon",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "seiko-mod",
-
-        name:
-            "Seiko Mod",
-
-        price:
-            "₹5,000",
-
+        id:"seiko-mod",
+        name:"Seiko Mod",
+        price:"₹5,000",
         images:[
             "Seiko Mod .jpeg"
         ],
-
-        video:null
+        video:null,
+        brand:"Seiko",
+        description:"Seiko Mod watch with a distinctive custom-inspired luxury appearance.",
+        details:{
+            "Brand":"Seiko",
+            "Category":"Watch",
+            "Style":"Mod",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "rolex-gmt-master-ii-root-beer",
-
-        name:
-            "Rolex GMT-Master II Root Beer",
-
-        price:
-            "₹3,500",
-
+        id:"rolex-gmt-master-ii-root-beer",
+        name:"Rolex GMT-Master II Root Beer",
+        price:"₹3,500",
         images:[],
-
-        video:
-            "Rolex GMT-Master II Root Beer .mp4"
+        video:"Rolex GMT-Master II Root Beer .mp4",
+        brand:"Rolex",
+        description:"Rolex GMT-Master II Root Beer inspired watch with a distinctive luxury sports appearance.",
+        details:{
+            "Brand":"Rolex",
+            "Collection":"GMT-Master II",
+            "Style":"Root Beer",
+            "Category":"Watch",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "seiko-mod-yatch-master-rose-gold",
-
-        name:
-            "Seiko Mod Yatch-Master Rose Gold",
-
-        price:
-            "₹5,000",
-
+        id:"seiko-mod-yatch-master-rose-gold",
+        name:"Seiko Mod Yatch-Master Rose Gold",
+        price:"₹5,000",
         images:[],
-
-        video:
-            "Seiko Mod Yatch-Master Rose Gold.mp4"
+        video:"Seiko Mod Yatch-Master Rose Gold.mp4",
+        brand:"Seiko",
+        description:"Seiko Mod Yacht-Master Rose Gold inspired design with a premium rose-gold appearance.",
+        details:{
+            "Brand":"Seiko",
+            "Category":"Watch",
+            "Style":"Mod",
+            "Finish":"Rose Gold",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "guess-waygene",
-
-        name:
-            "Guess Waygene",
-
-        price:
-            "₹3,500",
-
+        id:"guess-waygene",
+        name:"Guess Waygene",
+        price:"₹3,500",
         images:[
             "Guess Waygene.jpeg"
         ],
-
-        video:null
+        video:null,
+        brand:"Guess",
+        description:"Guess Waygene watch with a fashionable contemporary appearance.",
+        details:{
+            "Brand":"Guess",
+            "Category":"Watch",
+            "Style":"Fashion",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "seiko-pepsi-edition",
-
-        name:
-            "Seiko Pepsi Edition",
-
-        price:
-            "₹6,000",
-
+        id:"seiko-pepsi-edition",
+        name:"Seiko Pepsi Edition",
+        price:"₹6,000",
         images:[
             "Seiko Pepsi Edition.jpeg"
         ],
-
-        video:null
+        video:null,
+        brand:"Seiko",
+        description:"Seiko Pepsi Edition featuring a bold and sporty colour combination.",
+        details:{
+            "Brand":"Seiko",
+            "Category":"Watch",
+            "Style":"Sports",
+            "Edition":"Pepsi",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "cartier-21l-71-6-151",
-
-        name:
-            "Cartier 21L 71-6-151",
-
-        price:
-            "₹6,000",
-
+        id:"cartier-21l-71-6-151",
+        name:"Cartier 21L 71-6-151",
+        price:"₹6,000",
         images:[],
-
-        video:
-            "Cartier 21L 71-6-151.mp4"
+        video:"Cartier 21L 71-6-151.mp4",
+        brand:"Cartier",
+        description:"Cartier 21L 71-6-151 inspired luxury watch with a sophisticated appearance.",
+        details:{
+            "Brand":"Cartier",
+            "Model":"21L 71-6-151",
+            "Category":"Watch",
+            "Style":"Luxury",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "swatch-x-audemars-piguet-royal-pop",
-
-        name:
-            "Swatch X Audemars Piguet Royal Pop",
-
-        price:
-            "₹4,000",
-
+        id:"swatch-x-audemars-piguet-royal-pop",
+        name:"Swatch X Audemars Piguet Royal Pop",
+        price:"₹4,000",
         images:[
             "Swatch X Audemars Piguet Royal Pop.jpeg"
         ],
-
-        video:null
+        video:null,
+        brand:"Swatch",
+        description:"Swatch X Audemars Piguet Royal Pop inspired watch with a distinctive modern appearance.",
+        details:{
+            "Brand":"Swatch",
+            "Collection":"Royal Pop",
+            "Category":"Watch",
+            "Style":"Luxury Inspired",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "seiko-mod-watches-video",
-
-        name:
-            "Seiko Mod Watches",
-
-        price:
-            "₹4,500",
-
+        id:"seiko-mod-watches-video",
+        name:"Seiko Mod Watches",
+        price:"₹4,500",
         images:[],
-
-        video:
-            "Seiko Mod Watches Video.mp4"
+        video:"Seiko Mod Watches Video.mp4",
+        brand:"Seiko",
+        description:"Seiko Mod Watch featuring a bold custom-inspired appearance.",
+        details:{
+            "Brand":"Seiko",
+            "Category":"Watch",
+            "Style":"Mod",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "tag-heuer-grand-carrera-cr7",
-
-        name:
-            "Tag Heuer Grand Carrera CR7",
-
-        price:
-            "₹4,000",
-
+        id:"tag-heuer-grand-carrera-cr7",
+        name:"Tag Heuer Grand Carrera CR7",
+        price:"₹4,000",
         images:[
             "Tag Heuer Grand Carrera CR7 .jpeg"
         ],
-
-        video:null
+        video:null,
+        brand:"TAG Heuer",
+        description:"Tag Heuer Grand Carrera CR7 inspired watch with a bold motorsport-style appearance.",
+        details:{
+            "Brand":"TAG Heuer",
+            "Collection":"Grand Carrera",
+            "Edition":"CR7",
+            "Category":"Watch",
+            "Style":"Sports",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "audemars-piguet-royal-oak",
-
-        name:
-            "Audemars Piguet Royal Oak",
-
-        price:
-            "₹6,000",
-
+        id:"audemars-piguet-royal-oak",
+        name:"Audemars Piguet Royal Oak",
+        price:"₹6,000",
         images:[
             "Audemars Piguet Royal Oak 1.jpeg",
             "Audemars Piguet Royal Oak 2.jpeg",
             "Audemars Piguet Royal Oak 3.jpeg"
         ],
-
-        video:null
+        video:null,
+        brand:"Audemars Piguet",
+        description:"Audemars Piguet Royal Oak inspired watch featuring a distinctive luxury sports design.",
+        details:{
+            "Brand":"Audemars Piguet",
+            "Collection":"Royal Oak",
+            "Category":"Watch",
+            "Style":"Luxury Sports",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "bannon-automatic-analog--me3207",
-
-        name:
-            "Bannon Automatic Analog (ME3207)",
-
-        price:
-            "₹4,500",
-
+        id:"bannon-automatic-analog--me3207",
+        name:"Bannon Automatic Analog (ME3207)",
+        price:"₹4,500",
         images:[
             "Bannon Automatic Analog (ME3207).jpeg"
         ],
-
-        video:null
+        video:null,
+        brand:"Bannon",
+        description:"Bannon Automatic Analog ME3207 featuring an elegant automatic watch design.",
+        details:{
+            "Brand":"Bannon",
+            "Model":"ME3207",
+            "Category":"Watch",
+            "Style":"Automatic Analog",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "armani-exchange-hampton-ax2418",
-
-        name:
-            "Armani Exchange Hampton AX2418",
-
-        price:
-            "₹4,500",
-
+        id:"armani-exchange-hampton-ax2418",
+        name:"Armani Exchange Hampton AX2418",
+        price:"₹4,500",
         images:[
             "Armani Exchange Hampton AX2418.jpeg"
         ],
-
-        video:null
+        video:null,
+        brand:"Armani Exchange",
+        description:"Armani Exchange Hampton AX2418 with a refined contemporary appearance.",
+        details:{
+            "Brand":"Armani Exchange",
+            "Collection":"Hampton",
+            "Model":"AX2418",
+            "Category":"Watch",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "seiko-datejust-mod",
-
-        name:
-            "Seiko Datejust Mod",
-
-        price:
-            "₹5,000",
-
+        id:"seiko-datejust-mod",
+        name:"Seiko Datejust Mod",
+        price:"₹5,000",
         images:[
             "Seiko Datejust Mod.jpeg"
         ],
-
-        video:null
+        video:null,
+        brand:"Seiko",
+        description:"Seiko Datejust Mod featuring a classic luxury-inspired design.",
+        details:{
+            "Brand":"Seiko",
+            "Category":"Watch",
+            "Style":"Datejust Mod",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "seiko-mod-datejust",
-
-        name:
-            "Seiko Mod Datejust",
-
-        price:
-            "₹5,000",
-
+        id:"seiko-mod-datejust",
+        name:"Seiko Mod Datejust",
+        price:"₹5,000",
         images:[
             "Seiko Mod Datejust.jpeg"
         ],
-
-        video:null
+        video:null,
+        brand:"Seiko",
+        description:"Seiko Mod Datejust with a sophisticated classic-inspired appearance.",
+        details:{
+            "Brand":"Seiko",
+            "Category":"Watch",
+            "Style":"Mod Datejust",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "seiko-5-sports",
-
-        name:
-            "Seiko 5 Sports",
-
-        price:
-            "₹4,000",
-
+        id:"seiko-5-sports",
+        name:"Seiko 5 Sports",
+        price:"₹4,000",
         images:[
             "Seiko 5 Sports.jpeg"
         ],
-
-        video:null
+        video:null,
+        brand:"Seiko",
+        description:"Seiko 5 Sports watch designed with a bold sporty appearance.",
+        details:{
+            "Brand":"Seiko",
+            "Collection":"5 Sports",
+            "Category":"Watch",
+            "Style":"Sports",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "seiko-presage-cocktail-time",
-
-        name:
-            "Seiko Presage Cocktail Time",
-
-        price:
-            "₹4,500",
-
+        id:"seiko-presage-cocktail-time",
+        name:"Seiko Presage Cocktail Time",
+        price:"₹4,500",
         images:[
             "Seiko Presage Cocktail Time.jpeg",
             "Seiko Presage Cocktail Time 2.jpeg",
@@ -1340,56 +2204,61 @@ const products = [
             "Seiko Presage Cocktail Time 5.jpeg",
             "Seiko Presage Cocktail Time 6.jpeg"
         ],
-
-        video:null
+        video:null,
+        brand:"Seiko",
+        description:"Seiko Presage Cocktail Time featuring an elegant and sophisticated cocktail-inspired dial.",
+        details:{
+            "Brand":"Seiko",
+            "Collection":"Presage",
+            "Style":"Cocktail Time",
+            "Category":"Watch",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "seiko-prospex-diver",
-
-        name:
-            "Seiko Prospex Diver",
-
-        price:
-            "₹4,000",
-
+        id:"seiko-prospex-diver",
+        name:"Seiko Prospex Diver",
+        price:"₹4,000",
         images:[],
-
-        video:
-            "Seiko Prospex Diver .mp4"
+        video:"Seiko Prospex Diver .mp4",
+        brand:"Seiko",
+        description:"Seiko Prospex Diver inspired watch with a bold diver-style appearance.",
+        details:{
+            "Brand":"Seiko",
+            "Collection":"Prospex",
+            "Category":"Watch",
+            "Style":"Diver",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "emporio-armani-ceramica",
-
-        name:
-            "Emporio Armani Ceramica",
-
-        price:
-            "₹4,000",
-
+        id:"emporio-armani-ceramica",
+        name:"Emporio Armani Ceramica",
+        price:"₹4,000",
         images:[
             "Emporio Armani Ceramica.jpeg"
         ],
-
-        video:null
+        video:null,
+        brand:"Emporio Armani",
+        description:"Emporio Armani Ceramica with a sleek and sophisticated contemporary design.",
+        details:{
+            "Brand":"Emporio Armani",
+            "Collection":"Ceramica",
+            "Category":"Watch",
+            "Style":"Premium",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "seiko-srpl64",
-
-        name:
-            "Seiko SRPL64",
-
-        price:
-            "₹4,500",
-
+        id:"seiko-srpl64",
+        name:"Seiko SRPL64",
+        price:"₹4,500",
         images:[
             "Seiko SRPL64.jpeg",
             "Seiko SRPL64 1.jpeg",
@@ -1399,169 +2268,188 @@ const products = [
             "Seiko SRPL64 5.jpeg",
             "Seiko SRPL64 6.jpeg"
         ],
-
-        video:null
+        video:null,
+        brand:"Seiko",
+        description:"Seiko SRPL64 featuring a refined and premium watch appearance.",
+        details:{
+            "Brand":"Seiko",
+            "Model":"SRPL64",
+            "Category":"Watch",
+            "Style":"Premium",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "rolex-cosmograph",
-
-        name:
-            "Rolex Cosmograph",
-
-        price:
-            "₹5,000",
-
+        id:"rolex-cosmograph",
+        name:"Rolex Cosmograph",
+        price:"₹5,000",
         images:[
             "Rolex Cosmograph .jpeg"
         ],
-
-        video:null
+        video:null,
+        brand:"Rolex",
+        description:"Rolex Cosmograph inspired watch featuring a bold luxury chronograph appearance.",
+        details:{
+            "Brand":"Rolex",
+            "Collection":"Cosmograph",
+            "Category":"Watch",
+            "Style":"Chronograph",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "emporio-armani-luigi-ar187",
-
-        name:
-            "Emporio Armani Luigi AR187",
-
-        price:
-            "₹4,000",
-
+        id:"emporio-armani-luigi-ar187",
+        name:"Emporio Armani Luigi AR187",
+        price:"₹4,000",
         images:[
             "Emporio Armani Luigi AR187.jpeg"
         ],
-
-        video:null
+        video:null,
+        brand:"Emporio Armani",
+        description:"Emporio Armani Luigi AR187 offering a sophisticated premium everyday style.",
+        details:{
+            "Brand":"Emporio Armani",
+            "Model":"AR187",
+            "Category":"Watch",
+            "Style":"Classic",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "rolex-cosmograph-daytona-green",
-
-        name:
-            "Rolex Cosmograph Daytona Green",
-
-        price:
-            "₹5,000",
-
+        id:"rolex-cosmograph-daytona-green",
+        name:"Rolex Cosmograph Daytona Green",
+        price:"₹5,000",
         images:[
             "Rolex Cosmograph Dayona Green.jpeg"
         ],
-
-        video:null
+        video:null,
+        brand:"Rolex",
+        description:"Rolex Cosmograph Daytona Green inspired watch featuring a bold green-dial appearance.",
+        details:{
+            "Brand":"Rolex",
+            "Collection":"Cosmograph Daytona",
+            "Category":"Watch",
+            "Style":"Chronograph",
+            "Dial":"Green",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "tissot-carson",
-
-        name:
-            "Tissot Carson",
-
-        price:
-            "₹4,500",
-
+        id:"tissot-carson",
+        name:"Tissot Carson",
+        price:"₹4,500",
         images:[
             "Tissot Carson.jpeg",
             "Tissot Carson 2.jpeg"
         ],
-
-        video:null
+        video:null,
+        brand:"Tissot",
+        description:"Tissot Carson offering an elegant and sophisticated everyday watch appearance.",
+        details:{
+            "Brand":"Tissot",
+            "Collection":"Carson",
+            "Category":"Watch",
+            "Style":"Classic",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "rolex-cosmograph-daytona-john-walker",
-
-        name:
-            "Rolex Cosmograph Daytona John Walker",
-
-        price:
-            "₹5,000",
-
+        id:"rolex-cosmograph-daytona-john-walker",
+        name:"Rolex Cosmograph Daytona John Walker",
+        price:"₹5,000",
         images:[
             "Rolex Cosmograph Daytona John Walker.jpeg"
         ],
-
-        video:null
+        video:null,
+        brand:"Rolex",
+        description:"Rolex Cosmograph Daytona John Walker inspired luxury chronograph design.",
+        details:{
+            "Brand":"Rolex",
+            "Collection":"Cosmograph Daytona",
+            "Style":"Chronograph",
+            "Category":"Watch",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "rolex-daytona-rainbow",
-
-        name:
-            "Rolex Daytona Rainbow",
-
-        price:
-            "₹5,000",
-
+        id:"rolex-daytona-rainbow",
+        name:"Rolex Daytona Rainbow",
+        price:"₹5,000",
         images:[
             "Rolex Daytona Rainbow.jpeg"
         ],
-
-        video:null
+        video:null,
+        brand:"Rolex",
+        description:"Rolex Daytona Rainbow inspired watch featuring a distinctive luxury appearance.",
+        details:{
+            "Brand":"Rolex",
+            "Collection":"Daytona",
+            "Style":"Rainbow",
+            "Category":"Watch",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "tissot-gentleman-powermatic-80",
-
-        name:
-            "Tissot Gentleman Powermatic 80",
-
-        price:
-            "₹5,000",
-
+        id:"tissot-gentleman-powermatic-80",
+        name:"Tissot Gentleman Powermatic 80",
+        price:"₹5,000",
         images:[
             "Tissot Gentelman Powermatic 80.jpeg",
             "Tissot Gentelman Powermatic 80 2.jpeg"
         ],
-
-        video:null
+        video:null,
+        brand:"Tissot",
+        description:"Tissot Gentleman Powermatic 80 inspired watch featuring an elegant gentleman-style design.",
+        details:{
+            "Brand":"Tissot",
+            "Collection":"Gentleman",
+            "Movement":"Powermatic 80",
+            "Category":"Watch",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "tommy-hilfiger-automatic-skeleton-watch",
-
-        name:
-            "Tommy Hilfiger Automatic Skeleton Watch",
-
-        price:
-            "₹4,500",
-
+        id:"tommy-hilfiger-automatic-skeleton-watch",
+        name:"Tommy Hilfiger Automatic Skeleton Watch",
+        price:"₹4,500",
         images:[
             "Tommy Hilfiger Automatic Skeleton Watch 1.jpeg",
             "Tommy Hilfiger Automatic Skeleton Watch 2.jpeg",
             "Tommy Hilfiger Automatic Skeleton Watch 3.jpeg"
         ],
-
-        video:null
+        video:null,
+        brand:"Tommy Hilfiger",
+        description:"Tommy Hilfiger Automatic Skeleton Watch featuring a striking open-dial appearance.",
+        details:{
+            "Brand":"Tommy Hilfiger",
+            "Style":"Automatic Skeleton",
+            "Category":"Watch",
+            "Movement":"Automatic",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "casio-edifice-efr-539sg-1avudf",
-
-        name:
-            "Casio Edifice EFR-539SG-1AVUDF",
-
-        price:
-            "₹3,500",
-
+        id:"casio-edifice-efr-539sg-1avudf",
+        name:"Casio Edifice EFR-539SG-1AVUDF",
+        price:"₹3,500",
         images:[
             "Casio Edifice EFR-539SG-1AVUDF 1.jpeg",
             "Casio Edifice EFR-539SG-1AVUDF 2.jpeg",
@@ -1570,21 +2458,24 @@ const products = [
             "Casio Edifice EFR-539SG-1AVUDF 5.jpeg",
             "Casio Edifice EFR-539SG-1AVUDF 6.jpeg"
         ],
-
-        video:null
+        video:null,
+        brand:"Casio",
+        description:"Casio Edifice EFR-539SG-1AVUDF with a sporty and sophisticated Edifice appearance.",
+        details:{
+            "Brand":"Casio",
+            "Collection":"Edifice",
+            "Model":"EFR-539SG-1AVUDF",
+            "Category":"Watch",
+            "Style":"Chronograph",
+            "Availability":"Available"
+        }
     },
 
 
     {
-        id:
-            "tissot-prx",
-
-        name:
-            "Tissot PRX",
-
-        price:
-            "₹4,000",
-
+        id:"tissot-prx",
+        name:"Tissot PRX",
+        price:"₹4,000",
         images:[
             "Tissot PRX 1.jpeg",
             "Tissot PRX 2.jpeg",
@@ -1596,8 +2487,16 @@ const products = [
             "Tissot PRX 8.jpeg",
             "Tissot PRX 9.jpeg"
         ],
-
-        video:null
+        video:null,
+        brand:"Tissot",
+        description:"Tissot PRX inspired watch with a clean integrated-bracelet sports-luxury appearance.",
+        details:{
+            "Brand":"Tissot",
+            "Collection":"PRX",
+            "Category":"Watch",
+            "Style":"Sports Luxury",
+            "Availability":"Available"
+        }
     }
 
 ];
@@ -1613,7 +2512,7 @@ const params =
     );
 
 
-const id =
+const productId =
     params.get("id");
 
 
@@ -1623,7 +2522,7 @@ const id =
 
 const product =
     products.find(
-        p => p.id === id
+        item => item.id === productId
     );
 
 
@@ -1637,10 +2536,9 @@ const app =
 
 function esc(value){
 
-    return String(value)
+    return String(value ?? "")
         .replace(
             /[&<>'"]/g,
-
             character => ({
 
                 "&":"&amp;",
@@ -1650,297 +2548,67 @@ function esc(value){
                 '"':"&quot;"
 
             }[character])
-
         );
 
 }
 
 
 /* =========================================================
-   RENDER PRODUCT
+   GET NUMERIC PRICE
 ========================================================= */
 
-function render(){
+function getNumericPrice(price){
 
-    if(!product){
+    return Number(
+        String(price)
+            .replace(/[^0-9.]/g,"")
+    ) || 0;
 
-        app.innerHTML = `
+}
 
-            <div class="error">
 
-                <h1>
-                    Product Not Found
-                </h1>
+/* =========================================================
+   QUANTITY
+========================================================= */
 
-                <p>
-                    This product could not be found.
-                </p>
+function increaseQuantity(){
 
-                <a
-                    class="back"
-                    href="watches.html"
-                >
-                    ← Back to Watches
-                </a>
+    const input =
+        document.getElementById("quantity");
 
-            </div>
-
-        `;
-
+    if(!input){
         return;
     }
 
+    let value =
+        parseInt(input.value) || 1;
 
-    let media = "";
+    value++;
+
+    input.value = value;
+
+}
 
 
-    /* =====================================================
-       VIDEO PRODUCT
-    ====================================================== */
+function decreaseQuantity(){
 
-    if(product.video){
+    const input =
+        document.getElementById("quantity");
 
-        media = `
+    if(!input){
+        return;
+    }
 
-            <div class="main-media">
+    let value =
+        parseInt(input.value) || 1;
 
-                <video
-                    controls
-                    playsinline
-                >
+    if(value > 1){
 
-                    <source
-                        src="${esc(product.video)}"
-                        type="video/mp4"
-                    >
-
-                    Your browser does not support
-                    the video element.
-
-                </video>
-
-            </div>
-
-        `;
+        value--;
 
     }
 
-
-    /* =====================================================
-       IMAGE PRODUCT
-    ====================================================== */
-
-    else{
-
-        media = `
-
-            <div class="main-media">
-
-                <img
-                    id="mainImage"
-                    src="${esc(product.images[0] || "")}"
-                    alt="${esc(product.name)}"
-                >
-
-            </div>
-
-
-            <div class="thumbs">
-
-                ${
-
-                    product.images
-                        .map(
-                            (image,index) => `
-
-                                <img
-                                    src="${esc(image)}"
-                                    class="${index === 0 ? "active" : ""}"
-                                    onclick="changeImage(this)"
-                                    alt="${esc(product.name)}"
-                                >
-
-                            `
-                        )
-                        .join("")
-
-                }
-
-            </div>
-
-        `;
-
-    }
-
-
-    /* =====================================================
-       COMPLETE PRODUCT PAGE
-    ====================================================== */
-
-    app.innerHTML = `
-
-        <section class="page">
-
-
-            <!-- GALLERY -->
-
-            <section class="gallery">
-
-                ${media}
-
-            </section>
-
-
-            <!-- PRODUCT INFORMATION -->
-
-            <section>
-
-
-                <div class="brand">
-
-                    50 Mirars • Watch Collection
-
-                </div>
-
-
-                <h1>
-
-                    ${esc(product.name)}
-
-                </h1>
-
-
-                <div class="price">
-
-                    ${esc(product.price)}
-
-                </div>
-
-
-                <div class="availability">
-
-                    ✓ Available
-
-                </div>
-
-
-                <p class="desc">
-
-                    Explore the
-                    ${esc(product.name)}
-                    from the 50 Mirars watch collection.
-                    View the product media, confirm the
-                    displayed price, and contact us for
-                    availability and further product
-                    information.
-
-                </p>
-
-
-                <h2 class="title">
-
-                    Product Details
-
-                </h2>
-
-
-                <table>
-
-                    <tr>
-
-                        <td>
-                            Product
-                        </td>
-
-                        <td>
-                            ${esc(product.name)}
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>
-                            Category
-                        </td>
-
-                        <td>
-                            Watch
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>
-                            Price
-                        </td>
-
-                        <td>
-                            ${esc(product.price)}
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>
-                            Availability
-                        </td>
-
-                        <td>
-                            Available
-                        </td>
-
-                    </tr>
-
-                </table>
-
-
-                <!-- ACTIONS -->
-
-                <div class="actions">
-
-
-                    <!-- ADD TO CART -->
-
-                    <button
-                        class="cart"
-                        onclick="addToCart()"
-                    >
-
-                        Add to Cart
-
-                    </button>
-
-
-                    <!-- WHATSAPP -->
-
-                    <a
-                        class="whatsapp"
-                        target="_blank"
-                        href="https://api.whatsapp.com/send?phone=918209989013&text=${encodeURIComponent(
-                            "Hello 50 Mirars, I am interested in " +
-                            product.name +
-                            ". Please share availability and details."
-                        )}"
-                    >
-
-                        Enquire Now
-
-                    </a>
-
-
-                </div>
-
-            </section>
-
-        </section>
-
-    `;
+    input.value = value;
 
 }
 
@@ -1952,24 +2620,18 @@ function render(){
 function changeImage(element){
 
     const mainImage =
-        document.getElementById(
-            "mainImage"
-        );
-
+        document.getElementById("mainImage");
 
     if(!mainImage){
         return;
     }
-
 
     mainImage.src =
         element.src;
 
 
     document
-        .querySelectorAll(
-            ".thumbs img"
-        )
+        .querySelectorAll(".thumb")
         .forEach(
             image => {
 
@@ -1999,6 +2661,140 @@ function addToCart(){
     }
 
 
+    const quantityInput =
+        document.getElementById("quantity");
+
+
+    const quantity =
+        Math.max(
+            1,
+            parseInt(
+                quantityInput?.value
+            ) || 1
+        );
+
+
+    let cart =
+        JSON.parse(
+            localStorage.getItem("cart")
+        ) || [];
+
+
+    const existingIndex =
+        cart.findIndex(
+            item =>
+                item.productId === product.id
+        );
+
+
+    const price =
+        getNumericPrice(
+            product.price
+        );
+
+
+    const image =
+        product.images?.[0] || "";
+
+
+    if(existingIndex !== -1){
+
+        cart[existingIndex].quantity =
+            (
+                Number(
+                    cart[existingIndex].quantity
+                ) || 1
+            ) + quantity;
+
+    }
+
+    else{
+
+        cart.push({
+
+            productId:
+                product.id,
+
+            name:
+                product.name,
+
+            price:
+                price,
+
+            image:
+                image,
+
+            quantity:
+                quantity
+
+        });
+
+    }
+
+
+    localStorage.setItem(
+        "cart",
+        JSON.stringify(cart)
+    );
+
+
+    const message =
+        document.getElementById(
+            "cartMessage"
+        );
+
+
+    if(message){
+
+        message.style.display =
+            "block";
+
+        message.textContent =
+            quantity +
+            " × " +
+            product.name +
+            " added to your cart.";
+
+    }
+
+
+    setTimeout(
+        () => {
+
+            window.location.href =
+                "cart.html";
+
+        },
+        700
+    );
+
+}
+
+
+/* =========================================================
+   BUY NOW
+========================================================= */
+
+function buyNow(){
+
+    if(!product){
+        return;
+    }
+
+
+    const quantityInput =
+        document.getElementById("quantity");
+
+
+    const quantity =
+        Math.max(
+            1,
+            parseInt(
+                quantityInput?.value
+            ) || 1
+        );
+
+
     let cart =
         JSON.parse(
             localStorage.getItem("cart")
@@ -2006,30 +2802,51 @@ function addToCart(){
 
 
     const price =
-        String(product.price)
-            .replace(
-                /[^0-9.]/g,
-                ""
-            );
+        getNumericPrice(
+            product.price
+        );
 
 
     const image =
-        product.images[0] ||
-        "";
+        product.images?.[0] || "";
 
 
-    cart.push({
+    const existingIndex =
+        cart.findIndex(
+            item =>
+                item.productId === product.id
+        );
 
-        name:
-            product.name,
 
-        price:
-            price,
+    if(existingIndex !== -1){
 
-        image:
-            image
+        cart[existingIndex].quantity =
+            quantity;
 
-    });
+    }
+
+    else{
+
+        cart.push({
+
+            productId:
+                product.id,
+
+            name:
+                product.name,
+
+            price:
+                price,
+
+            image:
+                image,
+
+            quantity:
+                quantity
+
+        });
+
+    }
 
 
     localStorage.setItem(
@@ -2045,10 +2862,593 @@ function addToCart(){
 
 
 /* =========================================================
-   LOAD PRODUCT
+   WHATSAPP LINK
 ========================================================= */
 
-render();
+function whatsappLink(){
+
+    if(!product){
+        return "#";
+    }
+
+
+    const message =
+        "Hello 50 Mirars, I am interested in " +
+        product.name +
+        ". Please share availability and details.";
+
+
+    return (
+        "https://api.whatsapp.com/send" +
+        "?phone=918209989013" +
+        "&text=" +
+        encodeURIComponent(message)
+    );
+
+}
+
+
+/* =========================================================
+   RENDER PRODUCT
+========================================================= */
+
+function renderProduct(){
+
+    if(!product){
+
+        app.innerHTML = `
+
+            <div class="error">
+
+                <h1>
+                    Product Not Found
+                </h1>
+
+                <p>
+                    Sorry, this product could not be found.
+                </p>
+
+                <a
+                    class="action-btn buy-now"
+                    href="watches.html"
+                >
+                    ← Back to Watches
+                </a>
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    /* =====================================================
+       MEDIA
+    ====================================================== */
+
+    let media = "";
+
+
+    if(product.video){
+
+        media = `
+
+            <div class="main-media">
+
+                <video
+                    controls
+                    playsinline
+                    preload="metadata"
+                >
+
+                    <source
+                        src="${esc(product.video)}"
+                        type="video/mp4"
+                    >
+
+                    Your browser does not support
+                    video playback.
+
+                </video>
+
+            </div>
+
+        `;
+
+    }
+
+    else{
+
+        const firstImage =
+            product.images?.[0] || "";
+
+
+        media = `
+
+            <div class="main-media">
+
+                <img
+                    id="mainImage"
+                    src="${esc(firstImage)}"
+                    alt="${esc(product.name)}"
+                >
+
+            </div>
+
+
+            ${
+                product.images &&
+                product.images.length > 0
+
+                ?
+
+                `
+
+                    <div class="thumbs">
+
+                        ${
+                            product.images
+                                .map(
+                                    (image,index) => `
+
+                                        <img
+                                            class="thumb ${
+                                                index === 0
+                                                ? "active"
+                                                : ""
+                                            }"
+                                            src="${esc(image)}"
+                                            alt="${esc(product.name)}"
+                                            onclick="changeImage(this)"
+                                        >
+
+                                    `
+                                )
+                                .join("")
+                        }
+
+                    </div>
+
+                `
+
+                :
+
+                ""
+
+            }
+
+        `;
+
+    }
+
+
+    /* =====================================================
+       PRODUCT DETAILS TABLE
+    ====================================================== */
+
+    let detailRows = "";
+
+
+    if(product.details){
+
+        detailRows =
+            Object.entries(
+                product.details
+            )
+            .map(
+                ([key,value]) => `
+
+                    <tr>
+
+                        <td>
+                            ${esc(key)}
+                        </td>
+
+                        <td>
+                            ${esc(value)}
+                        </td>
+
+                    </tr>
+
+                `
+            )
+            .join("");
+
+    }
+
+
+    /* =====================================================
+       COMPLETE PAGE
+    ====================================================== */
+
+    app.innerHTML = `
+
+        <section class="page">
+
+
+            <!-- =========================================
+                 PRODUCT GALLERY
+            ========================================== -->
+
+            <section class="gallery">
+
+                ${media}
+
+            </section>
+
+
+
+            <!-- =========================================
+                 PRODUCT INFORMATION
+            ========================================== -->
+
+            <section class="product-info">
+
+
+                <div class="brand">
+
+                    ${esc(
+                        product.brand ||
+                        "50 Mirars"
+                    )}
+
+                    • 50 MIRARS
+
+                </div>
+
+
+                <h1>
+
+                    ${esc(product.name)}
+
+                </h1>
+
+
+                <div class="price-row">
+
+                    <span class="price">
+
+                        ${esc(product.price)}
+
+                    </span>
+
+                </div>
+
+
+                <div class="availability">
+
+                    <span
+                        class="availability-dot"
+                    ></span>
+
+                    Available
+
+                </div>
+
+
+                <p class="desc">
+
+                    ${esc(
+                        product.description ||
+                        "Explore this premium product from the 50 Mirars collection."
+                    )}
+
+                </p>
+
+
+
+                <!-- =====================================
+                     QUANTITY
+                ====================================== -->
+
+                <div class="quantity-section">
+
+                    <span class="quantity-label">
+
+                        Quantity
+
+                    </span>
+
+
+                    <div class="quantity-box">
+
+                        <button
+                            type="button"
+                            onclick="decreaseQuantity()"
+                        >
+                            −
+                        </button>
+
+
+                        <input
+                            id="quantity"
+                            type="number"
+                            min="1"
+                            value="1"
+                        >
+
+
+                        <button
+                            type="button"
+                            onclick="increaseQuantity()"
+                        >
+                            +
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =====================================
+                     PRODUCT DETAILS
+                ====================================== -->
+
+                <h2 class="section-title">
+
+                    Product Details
+
+                </h2>
+
+
+                <table class="details-table">
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>
+                                Product
+                            </td>
+
+                            <td>
+                                ${esc(product.name)}
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Category
+                            </td>
+
+                            <td>
+                                Watch
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Price
+                            </td>
+
+                            <td>
+                                ${esc(product.price)}
+                            </td>
+
+                        </tr>
+
+
+                        ${detailRows}
+
+                    </tbody>
+
+                </table>
+
+
+
+                <!-- =====================================
+                     ACTION BUTTONS
+                ====================================== -->
+
+                <div class="actions">
+
+
+                    <button
+                        type="button"
+                        class="action-btn add-cart"
+                        onclick="addToCart()"
+                    >
+
+                        Add to Cart
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="action-btn buy-now"
+                        onclick="buyNow()"
+                    >
+
+                        Buy Now
+
+                    </button>
+
+
+                    <a
+                        class="action-btn whatsapp"
+                        target="_blank"
+                        rel="noopener"
+                        href="${whatsappLink()}"
+                    >
+
+                        Enquire Now
+
+                    </a>
+
+                </div>
+
+
+
+                <div
+                    id="cartMessage"
+                    class="cart-message"
+                ></div>
+
+
+            </section>
+
+        </section>
+
+    `;
+
+
+    renderRelatedProducts();
+
+}
+
+
+/* =========================================================
+   RELATED PRODUCTS
+========================================================= */
+
+function renderRelatedProducts(){
+
+    if(!product){
+        return;
+    }
+
+
+    const section =
+        document.getElementById(
+            "relatedSection"
+        );
+
+
+    const container =
+        document.getElementById(
+            "relatedProducts"
+        );
+
+
+    if(!section || !container){
+        return;
+    }
+
+
+    const related =
+        products
+            .filter(
+                item =>
+                    item.id !== product.id &&
+                    (
+                        item.brand === product.brand
+                    )
+            )
+            .slice(0,4);
+
+
+    if(related.length === 0){
+
+        return;
+
+    }
+
+
+    container.innerHTML =
+        related
+            .map(
+                item => {
+
+                    const image =
+                        item.images?.[0] || "";
+
+
+                    return `
+
+                        <article
+                            class="related-card"
+                            onclick="openRelatedProduct('${esc(item.id)}')"
+                        >
+
+                            <div class="related-image">
+
+                                ${
+                                    image
+
+                                    ?
+
+                                    `
+
+                                        <img
+                                            src="${esc(image)}"
+                                            alt="${esc(item.name)}"
+                                        >
+
+                                    `
+
+                                    :
+
+                                    `
+
+                                        <span>
+                                            Video Product
+                                        </span>
+
+                                    `
+                                }
+
+                            </div>
+
+
+                            <div class="related-info">
+
+                                <div class="related-name">
+
+                                    ${esc(item.name)}
+
+                                </div>
+
+
+                                <div class="related-price">
+
+                                    ${esc(item.price)}
+
+                                </div>
+
+                            </div>
+
+                        </article>
+
+                    `;
+
+                }
+            )
+            .join("");
+
+
+    section.style.display =
+        "block";
+
+}
+
+
+/* =========================================================
+   OPEN RELATED PRODUCT
+========================================================= */
+
+function openRelatedProduct(id){
+
+    window.location.href =
+        "product-details.html?id=" +
+        encodeURIComponent(id);
+
+}
+
+
+/* =========================================================
+   LOAD PAGE
+========================================================= */
+
+renderProduct();
 
 </script>
 
