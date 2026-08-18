@@ -2151,12 +2151,230 @@ document.querySelectorAll(".add-to-cart-btn, .add-to-cart").forEach(button => {
 
 <script>
 
-function openProductDetails(productId) {
+/* =========================================================
+   AUTOMATIC PRODUCT DETAILS SYSTEM
+   50 MIRARS
+   ========================================================= */
 
-    window.location.href =
-        "product-details.html?id=" + productId;
+document.addEventListener("DOMContentLoaded", function () {
 
-}
+    const productCards = document.querySelectorAll(".product-card");
+
+    productCards.forEach(function (card) {
+
+        /* ---------------------------------------------
+           GET PRODUCT NAME
+           --------------------------------------------- */
+
+        const titleElement = card.querySelector("h3");
+
+        if (!titleElement) {
+            return;
+        }
+
+        const productName = titleElement.textContent.trim();
+
+
+        /* ---------------------------------------------
+           GET PRODUCT PRICE
+           --------------------------------------------- */
+
+        const priceElement = card.querySelector(".price");
+
+        let productPrice = "";
+
+        if (priceElement) {
+            productPrice = priceElement.textContent.trim();
+        }
+
+
+        /* ---------------------------------------------
+           CREATE PRODUCT ID AUTOMATICALLY
+           --------------------------------------------- */
+
+        const productId = productName
+            .toLowerCase()
+            .trim()
+            .replace(/&/g, "and")
+            .replace(/[^a-z0-9]+/g, "-")
+            .replace(/^-+|-+$/g, "");
+
+
+        /* ---------------------------------------------
+           GET PRODUCT IMAGES
+           --------------------------------------------- */
+
+        const images = [];
+
+        card.querySelectorAll("img").forEach(function (img) {
+
+            const src = img.getAttribute("src");
+
+            if (
+                src &&
+                !src.includes("whatsapplogo") &&
+                !src.includes("instagramimage")
+            ) {
+                images.push(src);
+            }
+
+        });
+
+
+        /* ---------------------------------------------
+           GET PRODUCT VIDEO
+           --------------------------------------------- */
+
+        let video = "";
+
+        const videoElement = card.querySelector("video");
+
+        if (videoElement) {
+
+            const source = videoElement.querySelector("source");
+
+            if (source) {
+                video = source.getAttribute("src") || "";
+            }
+
+        }
+
+
+        /* ---------------------------------------------
+           PRODUCT DATA
+           --------------------------------------------- */
+
+        const productData = {
+
+            id: productId,
+
+            name: productName,
+
+            price: productPrice,
+
+            images: images,
+
+            video: video
+
+        };
+
+
+        /* ---------------------------------------------
+           FIND PRODUCT MEDIA AREA
+           --------------------------------------------- */
+
+        const slider = card.querySelector(".slider");
+
+        const image = card.querySelector(
+            ":scope > img"
+        );
+
+        const videoElementDirect = card.querySelector(
+            ":scope > video"
+        );
+
+
+        /* ---------------------------------------------
+           MAKE SLIDER CLICKABLE
+           --------------------------------------------- */
+
+        if (slider) {
+
+            slider.classList.add("product-click-area");
+
+            slider.style.cursor = "pointer";
+
+            slider.addEventListener("click", function (event) {
+
+                /*
+                   Do NOT open product details when
+                   customer clicks the slider arrows.
+                */
+
+                if (
+                    event.target.closest(".prev") ||
+                    event.target.closest(".next")
+                ) {
+                    return;
+                }
+
+                openProduct(productData);
+
+            });
+
+        }
+
+
+        /* ---------------------------------------------
+           MAKE NORMAL IMAGE CLICKABLE
+           --------------------------------------------- */
+
+        if (image) {
+
+            image.classList.add("product-click-image");
+
+            image.style.cursor = "pointer";
+
+            image.addEventListener("click", function () {
+
+                openProduct(productData);
+
+            });
+
+        }
+
+
+        /* ---------------------------------------------
+           MAKE VIDEO CLICKABLE
+           --------------------------------------------- */
+
+        if (videoElementDirect) {
+
+            videoElementDirect.style.cursor = "pointer";
+
+            videoElementDirect.addEventListener(
+                "dblclick",
+                function () {
+
+                    openProduct(productData);
+
+                }
+            );
+
+        }
+
+
+    });
+
+
+    /* =================================================
+       OPEN PRODUCT DETAILS
+       ================================================= */
+
+    function openProduct(product) {
+
+        /*
+           Save selected product so
+           product-details.html can read it.
+        */
+
+        localStorage.setItem(
+            "selectedProduct",
+            JSON.stringify(product)
+        );
+
+
+        /*
+           Also keep the product ID in the URL.
+        */
+
+        window.location.href =
+            "product-details.html?id=" +
+            encodeURIComponent(product.id);
+
+    }
+
+});
 
 </script>
     
