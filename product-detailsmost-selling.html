@@ -17,10 +17,10 @@
 
 <meta
     name="description"
-    content="Premium sunglasses product details at 50 Mirars."
+    content="Explore detailed information about the most selling watches and sunglasses at 50 Mirars."
 >
 
-<title>Sunglasses Product Details | 50 Mirars</title>
+<title>Product Details | 50 Mirars</title>
 
 
 <style>
@@ -44,13 +44,11 @@ body{
         Arial,
         sans-serif;
 
-    color:#222;
-
     background:
         radial-gradient(
             circle at 50% 10%,
-            rgba(201,162,77,0.12),
-            transparent 30%
+            rgba(201,162,77,0.10),
+            transparent 28%
         ),
         linear-gradient(
             135deg,
@@ -59,35 +57,22 @@ body{
             #f8f5ed 100%
         );
 
-    min-height:100vh;
+    color:#222;
 }
 
 
 /* =========================================================
-   TOP NAVIGATION
+   HOME BUTTON
    ========================================================= */
 
-.top-navigation{
-    width:100%;
-
-    padding:
-        20px 40px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    gap:20px;
+.home-wrapper{
+    padding:20px 40px;
 }
 
-.back-button{
-    display:inline-flex;
+.home-btn{
+    display:inline-block;
 
-    align-items:center;
-
-    justify-content:center;
+    padding:12px 25px;
 
     background:#111;
 
@@ -95,93 +80,17 @@ body{
 
     text-decoration:none;
 
-    padding:
-        12px 24px;
-
     border-radius:6px;
-
-    font-size:15px;
 
     font-weight:600;
 
-    border:2px solid #111;
-
-    transition:
-        0.3s ease;
+    transition:0.3s ease;
 }
 
-.back-button:hover{
+.home-btn:hover{
     background:#c9a24d;
 
     color:#111;
-
-    border-color:#c9a24d;
-}
-
-
-/* =========================================================
-   CART BUTTON
-   ========================================================= */
-
-.cart-button{
-    display:inline-flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:8px;
-
-    background:#fff;
-
-    color:#111;
-
-    text-decoration:none;
-
-    padding:
-        11px 22px;
-
-    border:
-        2px solid #111;
-
-    border-radius:6px;
-
-    font-size:15px;
-
-    font-weight:700;
-
-    transition:
-        0.3s ease;
-}
-
-.cart-button:hover{
-    background:#111;
-
-    color:#fff;
-}
-
-.cart-count{
-    min-width:23px;
-
-    height:23px;
-
-    padding:0 6px;
-
-    border-radius:50%;
-
-    background:#c9a24d;
-
-    color:#111;
-
-    display:inline-flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    font-size:12px;
-
-    font-weight:bold;
 }
 
 
@@ -189,55 +98,13 @@ body{
    MAIN PRODUCT AREA
    ========================================================= */
 
-.product-page{
-    width:100%;
+.product-detail-wrapper{
+
+    width:94%;
 
     max-width:1500px;
 
-    margin:
-        20px auto 90px;
-
-    padding:
-        0 40px;
-}
-
-
-/* =========================================================
-   BREADCRUMB
-   ========================================================= */
-
-.breadcrumb{
-    width:100%;
-
-    margin:
-        0 0 25px;
-
-    color:#777;
-
-    font-size:14px;
-
-    text-align:left;
-}
-
-.breadcrumb a{
-    color:#777;
-
-    text-decoration:none;
-
-    transition:0.3s;
-}
-
-.breadcrumb a:hover{
-    color:#c9a24d;
-}
-
-
-/* =========================================================
-   PRODUCT BOX
-   ========================================================= */
-
-.product-container{
-    width:100%;
+    margin:25px auto 80px;
 
     background:#fff;
 
@@ -246,32 +113,37 @@ body{
     overflow:hidden;
 
     box-shadow:
-        0 15px 45px
+        0 12px 40px
         rgba(0,0,0,0.10);
-
-    display:grid;
-
-    grid-template-columns:
-        minmax(0,1.05fr)
-        minmax(0,0.95fr);
-
-    gap:0;
 }
 
 
 /* =========================================================
-   PRODUCT MEDIA SECTION
+   PRODUCT DETAIL GRID
+   ========================================================= */
+
+.product-detail{
+
+    display:grid;
+
+    grid-template-columns:
+        1.05fr
+        0.95fr;
+
+    min-height:650px;
+}
+
+
+/* =========================================================
+   PRODUCT MEDIA AREA
    ========================================================= */
 
 .product-media{
-    width:100%;
-
-    min-width:0;
 
     background:
         linear-gradient(
-            145deg,
-            #f9f9f9,
+            135deg,
+            #f8f8f8,
             #eeeeee
         );
 
@@ -279,184 +151,91 @@ body{
 
     display:flex;
 
-    flex-direction:column;
-
     align-items:center;
+
+    justify-content:center;
+
+    min-height:650px;
 }
 
+.media-container{
 
-/* =========================================================
-   MAIN MEDIA
-   ========================================================= */
+    width:100%;
 
-.main-media{
+    max-width:650px;
+
     position:relative;
-
-    width:100%;
-
-    height:620px;
-
-    background:#fff;
-
-    border-radius:15px;
-
-    overflow:hidden;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
 }
 
-.main-media img{
+.main-product-image,
+.main-product-video{
+
     width:100%;
 
-    height:100%;
+    height:570px;
 
     object-fit:contain;
 
     display:block;
+
+    background:#f5f5f5;
+
+    border-radius:14px;
 }
 
-.main-media video{
-    width:100%;
-
-    height:100%;
-
+.main-product-video{
     object-fit:contain;
-
-    background:#000;
-
-    display:block;
 }
 
 
 /* =========================================================
-   MEDIA ARROWS
-   ========================================================= */
-
-.media-arrow{
-    position:absolute;
-
-    top:50%;
-
-    transform:translateY(-50%);
-
-    width:46px;
-
-    height:46px;
-
-    border:none;
-
-    border-radius:50%;
-
-    background:
-        rgba(0,0,0,0.68);
-
-    color:#fff;
-
-    font-size:20px;
-
-    cursor:pointer;
-
-    z-index:10;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    transition:0.3s ease;
-}
-
-.media-arrow:hover{
-    background:#c9a24d;
-
-    color:#111;
-}
-
-.media-prev{
-    left:15px;
-}
-
-.media-next{
-    right:15px;
-}
-
-
-/* =========================================================
-   THUMBNAILS
+   IMAGE THUMBNAILS
    ========================================================= */
 
 .thumbnail-container{
-    width:100%;
-
-    margin-top:18px;
 
     display:flex;
 
+    justify-content:center;
+
+    align-items:center;
+
     gap:12px;
 
-    overflow-x:auto;
+    margin-top:18px;
 
-    padding:
-        5px 2px 10px;
-
-    scrollbar-width:thin;
+    flex-wrap:wrap;
 }
 
 .thumbnail{
-    width:82px;
 
-    height:82px;
+    width:75px;
 
-    flex:
-        0 0 82px;
+    height:75px;
 
-    border:
-        2px solid transparent;
+    object-fit:cover;
 
     border-radius:8px;
 
-    overflow:hidden;
-
-    background:#fff;
+    border:2px solid transparent;
 
     cursor:pointer;
 
     transition:0.3s ease;
 
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
+    background:#fff;
 }
 
-.thumbnail img{
-    width:100%;
+.thumbnail:hover{
 
-    height:100%;
+    border-color:#c9a24d;
 
-    object-fit:cover;
-
-    display:block;
-}
-
-.thumbnail-video{
-    font-size:28px;
-
-    color:#111;
+    transform:translateY(-2px);
 }
 
 .thumbnail.active{
-    border-color:#c9a24d;
 
-    box-shadow:
-        0 3px 10px
-        rgba(201,162,77,0.25);
+    border-color:#111;
 }
 
 
@@ -464,11 +243,11 @@ body{
    PRODUCT INFORMATION
    ========================================================= */
 
-.product-information{
-    width:100%;
+.product-info{
 
     padding:
-        60px 55px;
+        65px
+        55px;
 
     display:flex;
 
@@ -477,33 +256,34 @@ body{
     justify-content:center;
 }
 
-
-/* =========================================================
-   CATEGORY
-   ========================================================= */
-
 .product-category{
+
     display:inline-block;
+
+    width:fit-content;
+
+    padding:
+        8px 16px;
+
+    border-radius:30px;
+
+    background:#f2ead8;
 
     color:#9b762c;
 
-    font-size:14px;
+    font-size:13px;
 
     font-weight:700;
 
-    letter-spacing:2px;
+    letter-spacing:1px;
 
     text-transform:uppercase;
 
-    margin-bottom:18px;
+    margin-bottom:20px;
 }
 
+.product-info h1{
 
-/* =========================================================
-   PRODUCT TITLE
-   ========================================================= */
-
-.product-title{
     font-family:
         Georgia,
         "Times New Roman",
@@ -513,224 +293,87 @@ body{
 
     line-height:1.15;
 
+    margin:
+        0 0 20px;
+
     color:#111;
 
     font-weight:600;
-
-    margin:
-        0 0 20px;
 }
-
-
-/* =========================================================
-   GOLD LINE
-   ========================================================= */
-
-.gold-line{
-    width:100px;
-
-    height:2px;
-
-    background:#c9a24d;
-
-    margin:
-        0 0 28px;
-
-    position:relative;
-}
-
-.gold-line::after{
-    content:"";
-
-    position:absolute;
-
-    width:10px;
-
-    height:10px;
-
-    background:#c9a24d;
-
-    left:50%;
-
-    top:50%;
-
-    transform:
-        translate(-50%,-50%)
-        rotate(45deg);
-}
-
-
-/* =========================================================
-   PRICE
-   ========================================================= */
 
 .product-price{
-    font-size:32px;
 
-    color:#c9a24d;
+    font-size:30px;
 
     font-weight:700;
 
-    margin:
-        0 0 28px;
+    color:#c9a24d;
+
+    margin-bottom:25px;
 }
 
-
-/* =========================================================
-   DESCRIPTION
-   ========================================================= */
-
 .product-description{
-    color:#555;
 
     font-size:17px;
 
     line-height:1.8;
 
+    color:#555;
+
     margin:
         0 0 30px;
 }
 
 
 /* =========================================================
-   PRODUCT FEATURES
+   PRODUCT HIGHLIGHT
    ========================================================= */
 
-.product-features{
-    margin:
-        0 0 30px;
+.product-highlight{
 
-    padding:0;
+    display:grid;
 
-    list-style:none;
-}
-
-.product-features li{
-    display:flex;
-
-    align-items:flex-start;
+    grid-template-columns:
+        repeat(2,1fr);
 
     gap:12px;
 
-    margin-bottom:13px;
-
-    color:#444;
-
-    font-size:15px;
-
-    line-height:1.5;
+    margin-bottom:30px;
 }
 
-.product-features li::before{
-    content:"✓";
+.highlight-box{
 
-    width:22px;
+    padding:15px;
 
-    height:22px;
+    background:#f8f6f0;
 
-    flex:
-        0 0 22px;
+    border:
+        1px solid
+        #e9e2d2;
 
-    border-radius:50%;
+    border-radius:8px;
+}
 
-    background:#c9a24d;
+.highlight-box span{
 
-    color:#111;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
+    display:block;
 
     font-size:12px;
 
-    font-weight:bold;
+    color:#888;
+
+    text-transform:uppercase;
+
+    letter-spacing:0.8px;
+
+    margin-bottom:5px;
 }
 
+.highlight-box strong{
 
-/* =========================================================
-   QUANTITY
-   ========================================================= */
-
-.quantity-section{
-    display:flex;
-
-    align-items:center;
-
-    gap:15px;
-
-    margin:
-        0 0 25px;
-}
-
-.quantity-label{
     font-size:15px;
 
-    font-weight:700;
-
     color:#222;
-}
-
-.quantity-control{
-    display:flex;
-
-    align-items:center;
-
-    border:
-        1px solid #bbb;
-
-    border-radius:6px;
-
-    overflow:hidden;
-
-    background:#fff;
-}
-
-.quantity-control button{
-    width:40px;
-
-    height:40px;
-
-    border:none;
-
-    background:#f5f5f5;
-
-    color:#111;
-
-    cursor:pointer;
-
-    font-size:18px;
-
-    font-weight:bold;
-
-    transition:0.2s;
-}
-
-.quantity-control button:hover{
-    background:#c9a24d;
-}
-
-.quantity-control input{
-    width:45px;
-
-    height:40px;
-
-    border:none;
-
-    border-left:
-        1px solid #ddd;
-
-    border-right:
-        1px solid #ddd;
-
-    text-align:center;
-
-    font-size:16px;
-
-    font-weight:600;
-
-    outline:none;
 }
 
 
@@ -738,24 +381,34 @@ body{
    ACTION BUTTONS
    ========================================================= */
 
-.product-actions{
+.action-buttons{
+
     display:flex;
 
-    gap:12px;
+    gap:14px;
 
     flex-wrap:wrap;
 
     margin-top:5px;
 }
 
-.add-cart-button,
-.buy-now-button{
+.add-cart-btn,
+.back-products-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
     min-height:54px;
 
     padding:
-        14px 25px;
+        14px 28px;
 
     border-radius:6px;
+
+    text-decoration:none;
 
     font-size:16px;
 
@@ -763,17 +416,11 @@ body{
 
     cursor:pointer;
 
-    transition:
-        0.3s ease;
-
-    display:inline-flex;
-
-    align-items:center;
-
-    justify-content:center;
+    transition:0.3s ease;
 }
 
-.add-cart-button{
+.add-cart-btn{
+
     background:#111;
 
     color:#fff;
@@ -782,85 +429,52 @@ body{
         2px solid #111;
 }
 
-.add-cart-button:hover{
+.add-cart-btn:hover{
+
     background:#c9a24d;
+
+    border-color:#c9a24d;
 
     color:#111;
 
-    border-color:#c9a24d;
+    transform:translateY(-2px);
 }
 
-.buy-now-button{
-    background:#c9a24d;
+.back-products-btn{
+
+    background:#fff;
 
     color:#111;
 
     border:
-        2px solid #c9a24d;
+        2px solid #111;
 }
 
-.buy-now-button:hover{
+.back-products-btn:hover{
+
     background:#111;
 
     color:#fff;
 
-    border-color:#111;
+    transform:translateY(-2px);
 }
 
 
 /* =========================================================
-   DELIVERY NOTE
+   PRODUCT INFORMATION SECTION
    ========================================================= */
 
-.delivery-note{
-    margin-top:30px;
+.additional-details{
+
+    border-top:
+        1px solid
+        #e5e5e5;
 
     padding:
-        18px 20px;
-
-    background:#f7f3e9;
-
-    border-left:
-        3px solid #c9a24d;
-
-    color:#555;
-
-    font-size:14px;
-
-    line-height:1.6;
+        55px 65px;
 }
 
-
-/* =========================================================
-   PRODUCT INFO BELOW
-   ========================================================= */
-
-.product-extra{
-    max-width:1500px;
-
-    margin:
-        0 auto 90px;
-
-    padding:
-        0 40px;
-}
-
-.extra-box{
-    background:#fff;
-
-    border-radius:16px;
-
-    padding:
-        45px 50px;
-
-    box-shadow:
-        0 10px 35px
-        rgba(0,0,0,0.07);
-}
-
-.extra-box h2{
-    margin:
-        0 0 22px;
+.additional-details h2{
 
     font-family:
         Georgia,
@@ -869,87 +483,112 @@ body{
 
     font-size:32px;
 
+    margin:
+        0 0 30px;
+
     color:#111;
 }
 
-.extra-box p{
-    margin:0;
+.details-table{
+
+    width:100%;
+
+    border-collapse:collapse;
+}
+
+.details-table tr{
+
+    border-bottom:
+        1px solid
+        #eeeeee;
+}
+
+.details-table td{
+
+    padding:
+        17px 10px;
+
+    font-size:16px;
+
+    vertical-align:top;
+}
+
+.details-table td:first-child{
+
+    width:30%;
+
+    font-weight:700;
+
+    color:#555;
+}
+
+.details-table td:last-child{
+
+    color:#222;
+}
+
+
+/* =========================================================
+   WHY CHOOSE
+   ========================================================= */
+
+.why-section{
+
+    margin-top:50px;
+
+    padding-top:45px;
+
+    border-top:
+        1px solid
+        #e5e5e5;
+}
+
+.why-section h2{
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:30px;
+
+    margin:
+        0 0 20px;
+}
+
+.why-section p{
 
     color:#555;
 
     font-size:16px;
 
     line-height:1.8;
+
+    margin:0;
 }
 
 
 /* =========================================================
-   LOADING / ERROR
+   NOTICE
    ========================================================= */
 
-.product-error{
-    width:100%;
+.product-notice{
 
-    max-width:900px;
+    margin-top:30px;
 
-    margin:
-        100px auto;
+    padding:18px 20px;
 
-    padding:
-        60px 30px;
+    background:#faf7ef;
 
-    text-align:center;
+    border-left:
+        4px solid
+        #c9a24d;
 
-    background:#fff;
+    color:#555;
 
-    border-radius:15px;
-
-    box-shadow:
-        0 10px 35px
-        rgba(0,0,0,0.08);
-}
-
-.product-error h1{
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    margin:
-        0 0 15px;
-
-    font-size:38px;
-}
-
-.product-error p{
-    color:#666;
+    font-size:14px;
 
     line-height:1.7;
-}
-
-.error-button{
-    display:inline-block;
-
-    margin-top:20px;
-
-    background:#111;
-
-    color:#fff;
-
-    padding:
-        13px 25px;
-
-    text-decoration:none;
-
-    border-radius:6px;
-
-    font-weight:600;
-}
-
-.error-button:hover{
-    background:#c9a24d;
-
-    color:#111;
 }
 
 
@@ -958,6 +597,7 @@ body{
    ========================================================= */
 
 .main-footer{
+
     width:100%;
 
     background:#080808;
@@ -975,6 +615,7 @@ body{
 }
 
 .footer-container{
+
     width:100%;
 
     max-width:1400px;
@@ -983,6 +624,7 @@ body{
 }
 
 .footer-top{
+
     width:100%;
 
     display:grid;
@@ -998,6 +640,7 @@ body{
 }
 
 .footer-top > h2{
+
     grid-column:1 / -1;
 
     margin:
@@ -1021,6 +664,7 @@ body{
 
 .contact-column,
 .whatsapp-column{
+
     min-width:0;
 
     width:100%;
@@ -1030,6 +674,7 @@ body{
 
 .contact-column h3,
 .whatsapp-column h3{
+
     margin:
         0 0 22px;
 
@@ -1043,6 +688,7 @@ body{
 }
 
 .contact-column p{
+
     margin:
         12px 0 0;
 
@@ -1054,6 +700,7 @@ body{
 }
 
 .footer-link{
+
     display:block;
 
     width:fit-content;
@@ -1078,6 +725,7 @@ body{
 }
 
 .footer-link:hover{
+
     color:#c9a24d;
 }
 
@@ -1087,6 +735,7 @@ body{
    ========================================================= */
 
 .whatsapp-title{
+
     display:flex;
 
     align-items:center;
@@ -1099,6 +748,7 @@ body{
 }
 
 .whatsapp-icon{
+
     width:28px;
 
     height:28px;
@@ -1111,6 +761,7 @@ body{
 }
 
 .whatsapp-button{
+
     display:inline-flex;
 
     align-items:center;
@@ -1145,6 +796,7 @@ body{
 }
 
 .whatsapp-button:hover{
+
     background:#c9a24d;
 
     border-color:#c9a24d;
@@ -1161,6 +813,7 @@ body{
    ========================================================= */
 
 .footer-middle{
+
     width:100%;
 
     display:grid;
@@ -1181,6 +834,7 @@ body{
 
 .footer-links-column,
 .footer-social{
+
     min-width:0;
 
     width:100%;
@@ -1190,6 +844,7 @@ body{
 
 .footer-links-column h3,
 .footer-social h3{
+
     margin:
         0 0 20px;
 
@@ -1203,6 +858,7 @@ body{
 }
 
 .footer-links-column a{
+
     display:block;
 
     width:fit-content;
@@ -1225,10 +881,12 @@ body{
 }
 
 .footer-links-column a:hover{
+
     color:#c9a24d;
 }
 
 .footer-social p{
+
     margin:
         0 0 14px;
 
@@ -1243,6 +901,7 @@ body{
    ========================================================= */
 
 .instagram-button{
+
     width:58px;
 
     height:58px;
@@ -1265,6 +924,7 @@ body{
 }
 
 .instagram-button:hover{
+
     border-color:#c9a24d;
 
     transform:
@@ -1272,6 +932,7 @@ body{
 }
 
 .instagram-button img{
+
     width:32px;
 
     height:32px;
@@ -1287,6 +948,7 @@ body{
    ========================================================= */
 
 .footer-bottom{
+
     width:100%;
 
     margin-top:50px;
@@ -1299,6 +961,7 @@ body{
 }
 
 .footer-bottom p{
+
     margin:0;
 
     color:#aaa;
@@ -1317,24 +980,28 @@ body{
    TABLET
    ========================================================= */
 
-@media(max-width:1100px){
+@media(max-width:1000px){
 
-    .product-container{
+    .product-detail{
+
         grid-template-columns:1fr;
     }
 
-    .main-media{
-        height:550px;
+    .product-media{
+
+        min-height:auto;
     }
 
-    .product-information{
+    .product-info{
+
         padding:
             45px;
     }
 
-    .footer-middle{
-        grid-template-columns:
-            repeat(2,1fr);
+    .main-product-image,
+    .main-product-video{
+
+        height:500px;
     }
 
 }
@@ -1346,106 +1013,96 @@ body{
 
 @media(max-width:768px){
 
-    .top-navigation{
+    .home-wrapper{
+
         padding:
             18px 20px;
     }
 
-    .back-button,
-    .cart-button{
-        font-size:14px;
+    .product-detail-wrapper{
 
-        padding:
-            10px 15px;
-    }
+        width:94%;
 
-    .product-page{
-        padding:
-            0 20px;
-
-        margin-top:10px;
-    }
-
-    .product-container{
-        border-radius:15px;
+        border-radius:14px;
     }
 
     .product-media{
+
         padding:20px;
     }
 
-    .main-media{
-        height:430px;
+    .main-product-image,
+    .main-product-video{
 
-        border-radius:10px;
+        height:380px;
     }
 
-    .thumbnail{
-        width:70px;
+    .product-info{
 
-        height:70px;
-
-        flex-basis:70px;
-    }
-
-    .product-information{
         padding:
             35px 25px;
     }
 
-    .product-title{
-        font-size:36px;
+    .product-info h1{
+
+        font-size:34px;
     }
 
     .product-price{
-        font-size:28px;
+
+        font-size:26px;
     }
 
-    .product-description{
-        font-size:16px;
+    .product-highlight{
+
+        grid-template-columns:1fr;
     }
 
-    .product-actions{
+    .action-buttons{
+
         flex-direction:column;
     }
 
-    .add-cart-button,
-    .buy-now-button{
+    .add-cart-btn,
+    .back-products-btn{
+
         width:100%;
     }
 
-    .product-extra{
-        padding:
-            0 20px;
-    }
-
-    .extra-box{
-        padding:
-            30px 25px;
-    }
-
-    .extra-box h2{
-        font-size:27px;
-    }
-
-    .footer-top{
-        grid-template-columns:1fr;
+    .additional-details{
 
         padding:
-            40px 0 35px;
+            35px 25px;
     }
 
-    .footer-top > h2{
-        font-size:28px;
+    .details-table td{
+
+        padding:
+            13px 5px;
+
+        font-size:14px;
+    }
+
+    .details-table td:first-child{
+
+        width:40%;
     }
 
     .footer-middle{
+
         grid-template-columns:1fr;
 
         gap:35px;
+    }
 
-        padding:
-            35px 0;
+    .footer-top{
+
+        grid-template-columns:1fr;
+    }
+
+    .footer-top > h2{
+
+        font-size:30px;
     }
 
 }
@@ -1457,54 +1114,25 @@ body{
 
 @media(max-width:480px){
 
-    .top-navigation{
-        padding:
-            15px;
+    .main-product-image,
+    .main-product-video{
+
+        height:300px;
     }
 
-    .back-button{
-        font-size:13px;
+    .product-info h1{
 
-        padding:
-            9px 12px;
+        font-size:29px;
     }
 
-    .cart-button{
-        font-size:13px;
+    .product-description{
 
-        padding:
-            9px 12px;
+        font-size:15px;
     }
 
-    .product-page{
-        padding:
-            0 15px;
-    }
+    .additional-details h2{
 
-    .main-media{
-        height:350px;
-    }
-
-    .product-information{
-        padding:
-            30px 20px;
-    }
-
-    .product-title{
-        font-size:30px;
-    }
-
-    .product-price{
-        font-size:25px;
-    }
-
-    .quantity-section{
-        flex-wrap:wrap;
-    }
-
-    .product-extra{
-        padding:
-            0 15px;
+        font-size:26px;
     }
 
 }
@@ -1518,33 +1146,16 @@ body{
 
 
 <!-- ========================================================
-     TOP NAVIGATION
+     BACK TO HOME
      ======================================================== -->
 
-<div class="top-navigation">
+<div class="home-wrapper">
 
     <a
-        href="sunglasses.html"
-        class="back-button"
+        href="most-selling.html"
+        class="home-btn"
     >
-        ← Back to Sunglasses
-    </a>
-
-
-    <a
-        href="cart.html"
-        class="cart-button"
-    >
-
-        🛒 Cart
-
-        <span
-            class="cart-count"
-            id="cartCount"
-        >
-            0
-        </span>
-
+        ← Back to Most Selling Articles
     </a>
 
 </div>
@@ -1552,74 +1163,171 @@ body{
 
 
 <!-- ========================================================
-     PRODUCT PAGE
+     PRODUCT DETAILS
      ======================================================== -->
 
-<main
-    class="product-page"
-    id="productPage"
->
+<div class="product-detail-wrapper">
+
+    <div class="product-detail">
 
 
-    <div class="breadcrumb">
+        <!-- =================================================
+             PRODUCT MEDIA
+             ================================================= -->
 
-        <a href="index.html">
-            Home
-        </a>
+        <div class="product-media">
 
-        &nbsp; / &nbsp;
+            <div class="media-container">
 
-        <a href="sunglasses.html">
-            Sunglasses
-        </a>
+                <div id="mediaArea"></div>
 
-        &nbsp; / &nbsp;
+                <div
+                    class="thumbnail-container"
+                    id="thumbnailContainer"
+                ></div>
 
-        <span id="breadcrumbProduct">
-            Product
-        </span>
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             PRODUCT INFORMATION
+             ================================================= -->
+
+        <div class="product-info">
+
+            <div
+                class="product-category"
+                id="productCategory"
+            >
+                Most Selling
+            </div>
+
+
+            <h1 id="productName">
+                Product
+            </h1>
+
+
+            <div
+                class="product-price"
+                id="productPrice"
+            >
+                ₹0
+            </div>
+
+
+            <p
+                class="product-description"
+                id="productDescription"
+            >
+                Discover this selected piece from the Most Selling Articles
+                collection at 50 Mirars.
+            </p>
+
+
+
+            <!-- =============================================
+                 HIGHLIGHTS
+                 ============================================= -->
+
+            <div
+                class="product-highlight"
+                id="productHighlights"
+            >
+            </div>
+
+
+
+            <!-- =============================================
+                 BUTTONS
+                 ============================================= -->
+
+            <div class="action-buttons">
+
+                <button
+                    type="button"
+                    class="add-cart-btn"
+                    id="addToCartBtn"
+                >
+                    Add to Cart
+                </button>
+
+
+                <a
+                    href="most-selling.html"
+                    class="back-products-btn"
+                >
+                    Back to Collection
+                </a>
+
+            </div>
+
+        </div>
 
     </div>
 
 
 
-    <div
-        id="productContainer"
-        class="product-container"
-    >
+    <!-- ====================================================
+         PRODUCT SPECIFICATIONS
+         ==================================================== -->
 
-    </div>
-
-
-</main>
-
-
-
-<!-- ========================================================
-     EXTRA PRODUCT INFORMATION
-     ======================================================== -->
-
-<section class="product-extra">
-
-    <div class="extra-box">
+    <div class="additional-details">
 
         <h2>
-            About This Product
+            Product Details
         </h2>
 
-        <p id="extraDescription">
 
-            Every sunglasses product at 50 Mirars is selected
-            for its distinctive appearance, stylish character
-            and ability to complement your personal look.
-            Explore the product details above and choose the
-            pair that fits your style.
+        <table class="details-table">
 
-        </p>
+            <tbody id="detailsTable">
+
+            </tbody>
+
+        </table>
+
+
+
+        <!-- ================================================
+             WHY THIS PIECE
+             ================================================ -->
+
+        <div class="why-section">
+
+            <h2>
+                Why This Piece Stands Out
+            </h2>
+
+            <p id="whyProduct">
+                A distinctive selection from the 50 Mirars Most Selling
+                Articles collection, chosen for its visual appeal,
+                character and strong customer interest.
+            </p>
+
+        </div>
+
+
+
+        <!-- ================================================
+             NOTICE
+             ================================================ -->
+
+        <div class="product-notice">
+
+            Product images and descriptions are provided for
+            presentation purposes. Product availability may vary.
+            Please contact 50 Mirars for current availability,
+            delivery information and order confirmation.
+
+        </div>
 
     </div>
 
-</section>
+</div>
 
 
 
@@ -1632,17 +1340,12 @@ body{
     <div class="footer-container">
 
 
-        <!-- FOOTER TOP -->
-
         <div class="footer-top">
-
 
             <h2>
                 Contact Us
             </h2>
 
-
-            <!-- CUSTOMERS -->
 
             <div class="contact-column">
 
@@ -1671,12 +1374,10 @@ body{
             </div>
 
 
-            <!-- SALES / WATCH SERVICE -->
-
             <div class="contact-column">
 
                 <h3>
-                    For Sales/Sunglasses Service:
+                    For Sales/Watch Service:
                 </h3>
 
                 <a
@@ -1699,8 +1400,6 @@ body{
 
             </div>
 
-
-            <!-- WHATSAPP -->
 
             <div class="whatsapp-column">
 
@@ -1730,12 +1429,9 @@ body{
         </div>
 
 
-        <!-- FOOTER MIDDLE -->
 
         <div class="footer-middle">
 
-
-            <!-- KNOW 50 MIRARS -->
 
             <div class="footer-links-column">
 
@@ -1754,8 +1450,6 @@ body{
             </div>
 
 
-            <!-- TERMS -->
-
             <div class="footer-links-column">
 
                 <h3>
@@ -1772,8 +1466,6 @@ body{
 
             </div>
 
-
-            <!-- INSTAGRAM -->
 
             <div class="footer-social">
 
@@ -1805,7 +1497,6 @@ body{
         </div>
 
 
-        <!-- COPYRIGHT -->
 
         <div class="footer-bottom">
 
@@ -1822,273 +1513,1323 @@ body{
 
 
 
-<!-- ========================================================
-     PRODUCT JAVASCRIPT
-     ======================================================== -->
-
 <script>
 
-
 /* =========================================================
-   SUNGLASSES PRODUCT DATABASE
+   MOST SELLING PRODUCTS DATABASE
+   IMPORTANT:
+   THIS DATABASE BELONGS ONLY TO
+   product-detailsmost-selling.html
    ========================================================= */
+
 
 const products = {
 
 
-/* ---------------------------------------------------------
-   CALVIN KLEIN
-   --------------------------------------------------------- */
+/* =========================================================
+   SEIKO 5 SPORTS GMT
+   ========================================================= */
+
+"Seiko 5 Sports GMT SSK035K1":{
+
+    name:
+        "Seiko 5 Sports GMT SSK035K1",
+
+    price:
+        "₹4,000",
+
+    category:
+        "Most Selling Watch",
+
+    type:
+        "image",
+
+    images:[
+        "Seiko 5 Sports GMT SSK035K1.jpeg"
+    ],
+
+    description:
+        "The Seiko 5 Sports GMT SSK035K1 brings together a sporty silhouette, a bold GMT-inspired presence and an eye-catching dial design. It is a strong choice for customers looking for a statement timepiece with an adventurous character.",
+
+    highlights:{
+        "Category":"Watch",
+        "Collection":"Most Selling",
+        "Style":"Sport / GMT",
+        "Price":"₹4,000"
+    },
+
+    details:{
+        "Product":"Seiko 5 Sports GMT SSK035K1",
+        "Category":"Wrist Watch",
+        "Collection":"Most Selling Articles",
+        "Style":"Sport / GMT",
+        "Design":"Bold and sporty",
+        "Ideal For":"Everyday and casual styling",
+        "Price":"₹4,000"
+    },
+
+    why:
+        "Its sporty proportions and distinctive GMT-inspired styling give it a strong wrist presence while keeping the overall design versatile."
+},
+
+
+
+/* =========================================================
+   ROLEX DAYTONA
+   ========================================================= */
+
+"Rolex Daytona 116578SACO":{
+
+    name:
+        "Rolex Daytona 116578SACO",
+
+    price:
+        "₹3,500",
+
+    category:
+        "Most Selling Watch",
+
+    type:
+        "video",
+
+    video:
+        "Rolex Daytona 116578SACO.mp4",
+
+    description:
+        "The Rolex Daytona 116578SACO is presented with an unmistakable motorsport-inspired character. Its bold appearance makes it a standout selection for customers who prefer a luxurious and commanding watch design.",
+
+    highlights:{
+        "Category":"Watch",
+        "Collection":"Most Selling",
+        "Style":"Chronograph",
+        "Price":"₹3,500"
+    },
+
+    details:{
+        "Product":"Rolex Daytona 116578SACO",
+        "Category":"Wrist Watch",
+        "Collection":"Most Selling Articles",
+        "Style":"Chronograph",
+        "Design":"Luxury / Motorsport inspired",
+        "Ideal For":"Statement styling",
+        "Price":"₹3,500"
+    },
+
+    why:
+        "The Daytona-inspired design combines a strong sporty attitude with a luxurious visual character, making it one of the standout pieces in this collection."
+},
+
+
+
+/* =========================================================
+   ROLEX GMT MASTER II
+   ========================================================= */
+
+"Rolex GMT-Master II Root Beer":{
+
+    name:
+        "Rolex GMT-Master II Root Beer",
+
+    price:
+        "₹3,500",
+
+    category:
+        "Most Selling Watch",
+
+    type:
+        "video",
+
+    video:
+        "Rolex GMT-Master II Root Beer .mp4",
+
+    description:
+        "The Rolex GMT-Master II Root Beer is known for its distinctive two-tone inspired appearance and adventurous character. It is designed for customers who prefer a watch that immediately attracts attention.",
+
+    highlights:{
+        "Category":"Watch",
+        "Collection":"Most Selling",
+        "Style":"GMT / Luxury",
+        "Price":"₹3,500"
+    },
+
+    details:{
+        "Product":"Rolex GMT-Master II Root Beer",
+        "Category":"Wrist Watch",
+        "Collection":"Most Selling Articles",
+        "Style":"GMT",
+        "Design":"Two-tone inspired",
+        "Ideal For":"Premium casual styling",
+        "Price":"₹3,500"
+    },
+
+    why:
+        "Its recognizable GMT-inspired silhouette and warm colour combination create a distinctive luxury look."
+},
+
+
+
+/* =========================================================
+   TOMMY HILFIGER BAKER
+   ========================================================= */
+
+"Tommy Hilfiger Baker Watch":{
+
+    name:
+        "Tommy Hilfiger Baker Watch",
+
+    price:
+        "₹3,500",
+
+    category:
+        "Most Selling Watch",
+
+    type:
+        "video",
+
+    video:
+        "Tommy Hilfiger Baker Watch.mp4",
+
+    description:
+        "The Tommy Hilfiger Baker Watch delivers a clean contemporary appearance with the recognizable Tommy Hilfiger aesthetic. It is an easy choice for customers looking for a fashionable everyday timepiece.",
+
+    highlights:{
+        "Category":"Watch",
+        "Collection":"Most Selling",
+        "Style":"Fashion / Everyday",
+        "Price":"₹3,500"
+    },
+
+    details:{
+        "Product":"Tommy Hilfiger Baker Watch",
+        "Category":"Wrist Watch",
+        "Collection":"Most Selling Articles",
+        "Style":"Fashion Watch",
+        "Design":"Modern and refined",
+        "Ideal For":"Everyday wear",
+        "Price":"₹3,500"
+    },
+
+    why:
+        "Its clean fashion-oriented design makes it easy to pair with both casual and smart outfits."
+},
+
+
+
+/* =========================================================
+   CALVIN KLEIN SUNGLASSES
+   ========================================================= */
 
 "Calvin Klein Sunglasses":{
 
-    name:"Calvin Klein Sunglasses",
+    name:
+        "Calvin Klein Sunglasses",
 
-    price:2500,
+    price:
+        "₹2,500",
 
-    category:"Sunglasses",
+    category:
+        "Most Selling Sunglasses",
 
-    media:[
-        {
-            type:"video",
-            src:"Calvin Klein Sunglasses.mp4"
-        }
-    ],
+    type:
+        "video",
+
+    video:
+        "Calvin Klein Sunglasses.mp4",
 
     description:
-        "A clean and modern sunglasses design created for a sophisticated look with an understated luxury character.",
+        "The Calvin Klein Sunglasses bring a clean and contemporary fashion aesthetic to the Most Selling Articles collection. Their streamlined appearance makes them an effortless accessory for modern everyday styling.",
 
-    features:[
-        "Modern silhouette",
-        "Sophisticated appearance",
-        "Easy to pair with everyday outfits",
-        "Premium fashion-inspired styling"
-    ]
+    highlights:{
+        "Category":"Sunglasses",
+        "Collection":"Most Selling",
+        "Style":"Modern / Fashion",
+        "Price":"₹2,500"
+    },
 
+    details:{
+        "Product":"Calvin Klein Sunglasses",
+        "Category":"Sunglasses",
+        "Collection":"Most Selling Articles",
+        "Style":"Fashion Eyewear",
+        "Design":"Clean and contemporary",
+        "Ideal For":"Everyday styling",
+        "Price":"₹2,500"
+    },
+
+    why:
+        "The understated fashion-forward design makes these sunglasses easy to combine with a wide range of looks."
 },
 
 
-/* ---------------------------------------------------------
+
+/* =========================================================
+   ARMANI EXCHANGE
+   ========================================================= */
+
+"Armani Exchange Black Automatic AX2418":{
+
+    name:
+        "Armani Exchange Black Automatic AX2418",
+
+    price:
+        "₹5,000",
+
+    category:
+        "Most Selling Watch",
+
+    type:
+        "image",
+
+    images:[
+        "Armani Exchange Black Automatic AX2418.jpeg"
+    ],
+
+    description:
+        "The Armani Exchange Black Automatic AX2418 combines an elegant black appearance with a bold contemporary watch profile. It is designed for customers who prefer a refined yet noticeable timepiece.",
+
+    highlights:{
+        "Category":"Watch",
+        "Collection":"Most Selling",
+        "Style":"Automatic / Fashion",
+        "Price":"₹5,000"
+    },
+
+    details:{
+        "Product":"Armani Exchange Black Automatic AX2418",
+        "Category":"Wrist Watch",
+        "Collection":"Most Selling Articles",
+        "Style":"Automatic",
+        "Design":"Black / Contemporary",
+        "Ideal For":"Smart casual wear",
+        "Price":"₹5,000"
+    },
+
+    why:
+        "The dark colour palette gives the watch a sophisticated appearance while the bold case design adds presence."
+},
+
+
+
+/* =========================================================
+   TISSOT PRX BAND
+   ========================================================= */
+
+"Tissot PRX Band":{
+
+    name:
+        "Tissot PRX Band",
+
+    price:
+        "₹4,500",
+
+    category:
+        "Most Selling Watch",
+
+    type:
+        "gallery",
+
+    images:[
+        "Tissot PRX Band 1.jpeg",
+        "Tissot PRX Band 2.jpeg",
+        "Tissot PRX Band 3.jpeg",
+        "Tissot PRX Band 4.jpeg"
+    ],
+
+    description:
+        "The Tissot PRX Band captures the distinctive integrated-bracelet aesthetic associated with the PRX-inspired design language. Its clean geometry and polished appearance make it a strong choice for modern watch enthusiasts.",
+
+    highlights:{
+        "Category":"Watch",
+        "Collection":"Most Selling",
+        "Style":"Integrated Bracelet",
+        "Price":"₹4,500"
+    },
+
+    details:{
+        "Product":"Tissot PRX Band",
+        "Category":"Wrist Watch",
+        "Collection":"Most Selling Articles",
+        "Style":"Integrated Bracelet",
+        "Design":"Contemporary / Refined",
+        "Ideal For":"Smart casual and formal styling",
+        "Price":"₹4,500"
+    },
+
+    why:
+        "Its integrated-bracelet inspired appearance gives the watch a sleek and sophisticated wrist presence."
+},
+
+
+
+/* =========================================================
+   VERSACE DOMINUS
+   ========================================================= */
+
+"Versace Dominus Skeleton Watch":{
+
+    name:
+        "Versace Dominus Skeleton Watch",
+
+    price:
+        "₹4,000",
+
+    category:
+        "Most Selling Watch",
+
+    type:
+        "gallery",
+
+    images:[
+        "Versace Dominus Skeleton Watch.jpeg",
+        "Versace Dominus Skeleton Watch 2.jpeg",
+        "Versace Dominus Skeleton Watch 3.jpeg",
+        "Versace Dominus Skeleton Watch4.jpeg"
+    ],
+
+    description:
+        "The Versace Dominus Skeleton Watch is designed for those who want a bold statement piece. Its skeleton-inspired visual character creates an expressive and contemporary appearance.",
+
+    highlights:{
+        "Category":"Watch",
+        "Collection":"Most Selling",
+        "Style":"Skeleton / Luxury",
+        "Price":"₹4,000"
+    },
+
+    details:{
+        "Product":"Versace Dominus Skeleton Watch",
+        "Category":"Wrist Watch",
+        "Collection":"Most Selling Articles",
+        "Style":"Skeleton",
+        "Design":"Bold / Statement",
+        "Ideal For":"Occasion and statement styling",
+        "Price":"₹4,000"
+    },
+
+    why:
+        "The skeleton-inspired presentation gives the watch a distinctive visual identity that stands apart from conventional designs."
+},
+
+
+
+/* =========================================================
+   MAYBACH M011
+   ========================================================= */
+
+"Maybach M011":{
+
+    name:
+        "Maybach M011",
+
+    price:
+        "₹2,500",
+
+    category:
+        "Most Selling Watch",
+
+    type:
+        "video",
+
+    video:
+        "Maybach M011.mp4",
+
+    description:
+        "The Maybach M011 offers a luxurious-looking design with a strong fashion presence. It is suited to customers who want an accessory that adds character to their overall appearance.",
+
+    highlights:{
+        "Category":"Watch",
+        "Collection":"Most Selling",
+        "Style":"Luxury Fashion",
+        "Price":"₹2,500"
+    },
+
+    details:{
+        "Product":"Maybach M011",
+        "Category":"Wrist Watch",
+        "Collection":"Most Selling Articles",
+        "Style":"Luxury Fashion",
+        "Design":"Premium-inspired",
+        "Ideal For":"Fashion and everyday styling",
+        "Price":"₹2,500"
+    },
+
+    why:
+        "Its luxury-oriented appearance offers a strong visual impact while remaining suitable for everyday fashion."
+},
+
+
+
+/* =========================================================
    BALMAIN GREEN
-   --------------------------------------------------------- */
+   ========================================================= */
 
 "Balmain Paris 7020 Green Shade Sunglasses":{
 
-    name:"Balmain Paris 7020 Green Shade Sunglasses",
+    name:
+        "Balmain Paris 7020 Green Shade Sunglasses",
 
-    price:2500,
+    price:
+        "₹2,500",
 
-    category:"Sunglasses",
+    category:
+        "Most Selling Sunglasses",
 
-    media:[
-        {
-            type:"image",
-            src:"Balmain Paris 7020 Green Shade Sungalsses.jpeg"
-        }
+    type:
+        "image",
+
+    images:[
+        "Balmain Paris 7020 Green Shade Sungalsses.jpeg"
     ],
 
     description:
-        "A bold green-shade sunglasses design with a fashionable silhouette created for customers who prefer a distinctive statement look.",
+        "The Balmain Paris 7020 Green Shade Sunglasses are a statement eyewear selection featuring a distinctive green shade appearance. They are designed for customers who prefer expressive and fashion-led eyewear.",
 
-    features:[
-        "Green shade lenses",
-        "Statement fashion styling",
-        "Distinctive silhouette",
-        "Ideal for bold everyday looks"
-    ]
+    highlights:{
+        "Category":"Sunglasses",
+        "Collection":"Most Selling",
+        "Style":"Statement Eyewear",
+        "Price":"₹2,500"
+    },
 
+    details:{
+        "Product":"Balmain Paris 7020 Green Shade Sunglasses",
+        "Category":"Sunglasses",
+        "Collection":"Most Selling Articles",
+        "Style":"Statement Eyewear",
+        "Design":"Green Shade",
+        "Ideal For":"Fashion styling",
+        "Price":"₹2,500"
+    },
+
+    why:
+        "The green shade gives the eyewear a distinctive personality and makes it an eye-catching addition to a fashion-focused look."
 },
 
 
-/* ---------------------------------------------------------
+
+/* =========================================================
+   PANTHERE DE CARTIER
+   ========================================================= */
+
+"Panthere de Cartier":{
+
+    name:
+        "Panthere de Cartier",
+
+    price:
+        "₹2,500",
+
+    category:
+        "Most Selling Watch",
+
+    type:
+        "image",
+
+    images:[
+        "Panthere de Cartier .jpeg"
+    ],
+
+    description:
+        "The Panthere de Cartier brings an elegant and sophisticated character to the Most Selling collection. Its refined appearance makes it suitable for customers who appreciate distinctive luxury-inspired styling.",
+
+    highlights:{
+        "Category":"Watch",
+        "Collection":"Most Selling",
+        "Style":"Luxury / Elegant",
+        "Price":"₹2,500"
+    },
+
+    details:{
+        "Product":"Panthere de Cartier",
+        "Category":"Wrist Watch",
+        "Collection":"Most Selling Articles",
+        "Style":"Luxury Fashion",
+        "Design":"Elegant and refined",
+        "Ideal For":"Formal and occasion styling",
+        "Price":"₹2,500"
+    },
+
+    why:
+        "Its elegant profile creates a refined wrist presence and makes it especially suited to sophisticated outfits."
+},
+
+
+
+/* =========================================================
+   TOMMY HILFIGER 1792196
+   ========================================================= */
+
+"Tommy Hilfiger Model 1792196":{
+
+    name:
+        "Tommy Hilfiger Model 1792196",
+
+    price:
+        "₹4,000",
+
+    category:
+        "Most Selling Watch",
+
+    type:
+        "video",
+
+    video:
+        "Tommy Hilfiger Model 1792196.mp4",
+
+    description:
+        "The Tommy Hilfiger Model 1792196 combines contemporary fashion styling with a versatile everyday appearance. It is an excellent choice for customers looking for a recognizable fashion-watch aesthetic.",
+
+    highlights:{
+        "Category":"Watch",
+        "Collection":"Most Selling",
+        "Style":"Fashion Watch",
+        "Price":"₹4,000"
+    },
+
+    details:{
+        "Product":"Tommy Hilfiger Model 1792196",
+        "Category":"Wrist Watch",
+        "Collection":"Most Selling Articles",
+        "Style":"Fashion",
+        "Design":"Contemporary",
+        "Ideal For":"Everyday wear",
+        "Price":"₹4,000"
+    },
+
+    why:
+        "The versatile design makes it easy to incorporate into everyday outfits while maintaining a polished appearance."
+},
+
+
+
+/* =========================================================
    BALMAIN PURPLE
-   --------------------------------------------------------- */
+   ========================================================= */
 
 "Balmain Paris 7020 Purple Shade Sunglasses":{
 
-    name:"Balmain Paris 7020 Purple Shade Sunglasses",
+    name:
+        "Balmain Paris 7020 Purple Shade Sunglasses",
 
-    price:2500,
+    price:
+        "₹2,500",
 
-    category:"Sunglasses",
+    category:
+        "Most Selling Sunglasses",
 
-    media:[
-        {
-            type:"image",
-            src:"Balmain Paris 7020 Purpule Shade Sungalsses.jpeg"
-        }
+    type:
+        "image",
+
+    images:[
+        "Balmain Paris 7020 Purpule Shade Sungalsses.jpeg"
     ],
 
     description:
-        "A distinctive purple-shade sunglasses design created for customers who want a stylish and expressive fashion accessory.",
+        "The Balmain Paris 7020 Purple Shade Sunglasses offer an expressive eyewear style with a distinctive purple shade appearance. They are made for customers who enjoy bold fashion accessories.",
 
-    features:[
-        "Purple shade lenses",
-        "Distinctive fashion appearance",
-        "Bold styling",
-        "Eye-catching everyday accessory"
-    ]
+    highlights:{
+        "Category":"Sunglasses",
+        "Collection":"Most Selling",
+        "Style":"Statement Eyewear",
+        "Price":"₹2,500"
+    },
 
+    details:{
+        "Product":"Balmain Paris 7020 Purple Shade Sunglasses",
+        "Category":"Sunglasses",
+        "Collection":"Most Selling Articles",
+        "Style":"Statement Eyewear",
+        "Design":"Purple Shade",
+        "Ideal For":"Fashion styling",
+        "Price":"₹2,500"
+    },
+
+    why:
+        "The distinctive purple shade gives these sunglasses a bold visual identity and makes them especially suitable for statement looks."
 },
 
 
-/* ---------------------------------------------------------
-   CARTIER AQUA
-   --------------------------------------------------------- */
+
+/* =========================================================
+   CARTIER AQUA GREEN
+   ========================================================= */
 
 "Cartier Aqua Green Karan Aujla Edition":{
 
-    name:"Cartier Aqua Green Karan Aujla Edition",
+    name:
+        "Cartier Aqua Green Karan Aujla Edition",
 
-    price:3000,
+    price:
+        "₹3,000",
 
-    category:"Sunglasses",
+    category:
+        "Most Selling Sunglasses",
 
-    media:[
-        {
-            type:"image",
-            src:"Cartier Aqua Green Karan Aujla Edition.jpeg"
-        }
+    type:
+        "image",
+
+    images:[
+        "Cartier Aqua Green Karan Aujla Edition.jpeg"
     ],
 
     description:
-        "A striking aqua-green sunglasses design with a bold fashion-forward appearance inspired by contemporary statement styling.",
+        "The Cartier Aqua Green Karan Aujla Edition combines a distinctive aqua green colour treatment with a strong fashion-forward appearance. It is a standout selection for customers who prefer expressive eyewear.",
 
-    features:[
-        "Aqua green shade",
-        "Statement fashion appearance",
-        "Distinctive design",
-        "Designed for standout looks"
-    ]
+    highlights:{
+        "Category":"Sunglasses",
+        "Collection":"Most Selling",
+        "Style":"Statement Eyewear",
+        "Price":"₹3,000"
+    },
 
+    details:{
+        "Product":"Cartier Aqua Green Karan Aujla Edition",
+        "Category":"Sunglasses",
+        "Collection":"Most Selling Articles",
+        "Style":"Fashion Eyewear",
+        "Design":"Aqua Green",
+        "Ideal For":"Statement styling",
+        "Price":"₹3,000"
+    },
+
+    why:
+        "The aqua green colour creates a distinctive fashion statement and gives the eyewear a memorable appearance."
 },
 
 
-/* ---------------------------------------------------------
+
+/* =========================================================
    MAYBACH 1015
-   --------------------------------------------------------- */
+   ========================================================= */
 
 "Maybach 1015 Gold Pink Sunglasses":{
 
-    name:"Maybach 1015 Gold Pink Sunglasses",
+    name:
+        "Maybach 1015 Gold Pink Sunglasses",
 
-    price:3000,
+    price:
+        "₹3,000",
 
-    category:"Sunglasses",
+    category:
+        "Most Selling Sunglasses",
 
-    media:[
-        {
-            type:"image",
-            src:"Maybach 1015 Gold Pink Sunglasses.jpeg"
-        }
+    type:
+        "image",
+
+    images:[
+        "Maybach 1015 Gold Pink Sunglasses.jpeg"
     ],
 
     description:
-        "A sophisticated gold and pink sunglasses design combining a luxurious colour palette with a fashionable contemporary appearance.",
+        "The Maybach 1015 Gold Pink Sunglasses combine warm gold tones with a distinctive pink shade aesthetic. Their luxurious visual character makes them a strong fashion accessory.",
 
-    features:[
-        "Gold and pink styling",
-        "Premium fashion appearance",
-        "Distinctive silhouette",
-        "Suitable for statement outfits"
-    ]
+    highlights:{
+        "Category":"Sunglasses",
+        "Collection":"Most Selling",
+        "Style":"Luxury Eyewear",
+        "Price":"₹3,000"
+    },
 
+    details:{
+        "Product":"Maybach 1015 Gold Pink Sunglasses",
+        "Category":"Sunglasses",
+        "Collection":"Most Selling Articles",
+        "Style":"Luxury Eyewear",
+        "Design":"Gold / Pink",
+        "Ideal For":"Fashion and occasion styling",
+        "Price":"₹3,000"
+    },
+
+    why:
+        "The combination of gold and pink creates a luxurious and expressive look that immediately stands out."
 },
 
 
-/* ---------------------------------------------------------
+
+/* =========================================================
+   CASIO EDIFICE
+   ========================================================= */
+
+"Casio Edifice EFR-539SG-1AVUDF":{
+
+    name:
+        "Casio Edifice EFR-539SG-1AVUDF",
+
+    price:
+        "₹3,500",
+
+    category:
+        "Most Selling Watch",
+
+    type:
+        "gallery",
+
+    images:[
+        "Casio Edifice EFR-539SG-1AVUDF 1.jpeg",
+        "Casio Edifice EFR-539SG-1AVUDF 2.jpeg",
+        "Casio Edifice EFR-539SG-1AVUDF 3.jpeg",
+        "Casio Edifice EFR-539SG-1AVUDF 4.jpeg",
+        "Casio Edifice EFR-539SG-1AVUDF 5.jpeg",
+        "Casio Edifice EFR-539SG-1AVUDF 6.jpeg"
+    ],
+
+    description:
+        "The Casio Edifice EFR-539SG-1AVUDF combines a sporty chronograph-inspired appearance with the refined styling expected from the Edifice collection. Its bold dial and metal bracelet create a confident everyday look.",
+
+    highlights:{
+        "Category":"Watch",
+        "Collection":"Most Selling",
+        "Style":"Chronograph / Sport",
+        "Price":"₹3,500"
+    },
+
+    details:{
+        "Product":"Casio Edifice EFR-539SG-1AVUDF",
+        "Category":"Wrist Watch",
+        "Collection":"Most Selling Articles",
+        "Style":"Chronograph Inspired",
+        "Design":"Sporty / Refined",
+        "Ideal For":"Everyday and smart casual wear",
+        "Price":"₹3,500"
+    },
+
+    why:
+        "Its sporty dial presentation and polished bracelet give the watch a strong balance between everyday functionality and premium styling."
+},
+
+
+
+/* =========================================================
+   BANNON
+   ========================================================= */
+
+"Bannon Automatic Analog (ME3207)":{
+
+    name:
+        "Bannon Automatic Analog (ME3207)",
+
+    price:
+        "₹4,500",
+
+    category:
+        "Most Selling Watch",
+
+    type:
+        "image",
+
+    images:[
+        "Bannon Automatic Analog (ME3207).jpeg"
+    ],
+
+    description:
+        "The Bannon Automatic Analog ME3207 offers a classic automatic-watch character with a refined traditional appearance. It is an appealing selection for customers who prefer timeless watch styling.",
+
+    highlights:{
+        "Category":"Watch",
+        "Collection":"Most Selling",
+        "Style":"Automatic / Classic",
+        "Price":"₹4,500"
+    },
+
+    details:{
+        "Product":"Bannon Automatic Analog (ME3207)",
+        "Category":"Wrist Watch",
+        "Collection":"Most Selling Articles",
+        "Style":"Automatic",
+        "Design":"Classic and refined",
+        "Ideal For":"Traditional and formal styling",
+        "Price":"₹4,500"
+    },
+
+    why:
+        "Its classic automatic-inspired appearance gives it a timeless quality that works particularly well with refined outfits."
+},
+
+
+
+/* =========================================================
+   JACOB & CO
+   ========================================================= */
+
+"Jacob & Co Ramjanam Bhoomi Edition Watch":{
+
+    name:
+        "Jacob & Co Ramjanam Bhoomi Edition Watch",
+
+    price:
+        "₹7,500",
+
+    category:
+        "Most Selling Watch",
+
+    type:
+        "image",
+
+    images:[
+        "Jacob & Co Ramjanam Bhoomi Edition Watch.jpeg"
+    ],
+
+    description:
+        "The Jacob & Co Ramjanam Bhoomi Edition Watch is one of the most distinctive pieces in the Most Selling collection. Its elaborate presentation and statement character make it particularly suited to collectors and customers who prefer unusual designs.",
+
+    highlights:{
+        "Category":"Watch",
+        "Collection":"Most Selling",
+        "Style":"Statement / Luxury",
+        "Price":"₹7,500"
+    },
+
+    details:{
+        "Product":"Jacob & Co Ramjanam Bhoomi Edition Watch",
+        "Category":"Wrist Watch",
+        "Collection":"Most Selling Articles",
+        "Style":"Statement Luxury",
+        "Design":"Distinctive / Elaborate",
+        "Ideal For":"Special occasions and collectors",
+        "Price":"₹7,500"
+    },
+
+    why:
+        "Its distinctive presentation gives it a collector-inspired personality and makes it one of the most visually memorable watches in the collection."
+},
+
+
+
+/* =========================================================
    MAYBACH 2735
-   --------------------------------------------------------- */
+   ========================================================= */
 
 "MayBach Sunglasses 2735":{
 
-    name:"MayBach Sunglasses 2735",
+    name:
+        "MayBach Sunglasses 2735",
 
-    price:2500,
+    price:
+        "₹2,500",
 
-    category:"Sunglasses",
+    category:
+        "Most Selling Sunglasses",
 
-    media:[
-        {
-            type:"image",
-            src:"MayBach Sunglasses 2735.jpeg"
-        }
+    type:
+        "image",
+
+    images:[
+        "MayBach Sunglasses 2735.jpeg"
     ],
 
     description:
-        "A premium-looking sunglasses design with a distinctive silhouette for customers who appreciate bold luxury-inspired styling.",
+        "The MayBach Sunglasses 2735 offer a premium-inspired eyewear appearance with a strong fashion presence. They are designed for customers who want sunglasses that become an important part of their overall look.",
 
-    features:[
-        "Bold silhouette",
-        "Luxury-inspired appearance",
-        "Distinctive fashion styling",
-        "Suitable for everyday use"
-    ]
+    highlights:{
+        "Category":"Sunglasses",
+        "Collection":"Most Selling",
+        "Style":"Luxury Eyewear",
+        "Price":"₹2,500"
+    },
 
+    details:{
+        "Product":"MayBach Sunglasses 2735",
+        "Category":"Sunglasses",
+        "Collection":"Most Selling Articles",
+        "Style":"Luxury Eyewear",
+        "Design":"Premium-inspired",
+        "Ideal For":"Fashion styling",
+        "Price":"₹2,500"
+    },
+
+    why:
+        "The bold eyewear character makes this model an easy choice for customers looking for a stronger fashion statement."
 },
 
 
-/* ---------------------------------------------------------
+
+/* =========================================================
+   KING SEIKO
+   ========================================================= */
+
+"King Seiko Vanac SLA087":{
+
+    name:
+        "King Seiko Vanac SLA087",
+
+    price:
+        "₹5,500",
+
+    category:
+        "Most Selling Watch",
+
+    type:
+        "image",
+
+    images:[
+        "King Seiko Vanac SLA087.jpeg"
+    ],
+
+    description:
+        "The King Seiko Vanac SLA087 presents a refined watch aesthetic with a distinctive contemporary character. Its strong proportions and elegant appearance make it a standout selection in the Most Selling collection.",
+
+    highlights:{
+        "Category":"Watch",
+        "Collection":"Most Selling",
+        "Style":"Luxury / Contemporary",
+        "Price":"₹5,500"
+    },
+
+    details:{
+        "Product":"King Seiko Vanac SLA087",
+        "Category":"Wrist Watch",
+        "Collection":"Most Selling Articles",
+        "Style":"Luxury Watch",
+        "Design":"Refined / Contemporary",
+        "Ideal For":"Premium everyday styling",
+        "Price":"₹5,500"
+    },
+
+    why:
+        "Its combination of refined detailing and a strong silhouette gives it a premium and sophisticated wrist presence."
+},
+
+
+
+/* =========================================================
+   SEIKO PRESAGE
+   ========================================================= */
+
+"Seiko Presage Cocktail SRPG23J1":{
+
+    name:
+        "Seiko Presage Cocktail SRPG23J1",
+
+    price:
+        "₹4,000",
+
+    category:
+        "Most Selling Watch",
+
+    type:
+        "video",
+
+    video:
+        "Seiko Presage Cocktail SRPG23J1.mp4",
+
+    description:
+        "The Seiko Presage Cocktail SRPG23J1 is inspired by elegant cocktail-bar aesthetics, combining a sophisticated dial presentation with a refined dress-watch character.",
+
+    highlights:{
+        "Category":"Watch",
+        "Collection":"Most Selling",
+        "Style":"Dress / Cocktail",
+        "Price":"₹4,000"
+    },
+
+    details:{
+        "Product":"Seiko Presage Cocktail SRPG23J1",
+        "Category":"Wrist Watch",
+        "Collection":"Most Selling Articles",
+        "Style":"Dress Watch",
+        "Design":"Elegant / Cocktail inspired",
+        "Ideal For":"Formal and occasion wear",
+        "Price":"₹4,000"
+    },
+
+    why:
+        "The elegant dial-focused presentation gives this watch a sophisticated character that works especially well for formal occasions."
+},
+
+
+
+/* =========================================================
+   MASERATI
+   ========================================================= */
+
+"Maserati R8853100027 Competizione Plain 3":{
+
+    name:
+        "Maserati R8853100027 Competizione Plain 3",
+
+    price:
+        "₹5,500",
+
+    category:
+        "Most Selling Watch",
+
+    type:
+        "image",
+
+    images:[
+        "Maserati R8853100027 Competizione Plain 3.jpeg"
+    ],
+
+    description:
+        "The Maserati R8853100027 Competizione Plain 3 combines automotive-inspired styling with a refined modern watch profile. It is an excellent choice for customers who enjoy sporty luxury aesthetics.",
+
+    highlights:{
+        "Category":"Watch",
+        "Collection":"Most Selling",
+        "Style":"Sport / Automotive",
+        "Price":"₹5,500"
+    },
+
+    details:{
+        "Product":"Maserati R8853100027 Competizione Plain 3",
+        "Category":"Wrist Watch",
+        "Collection":"Most Selling Articles",
+        "Style":"Sport Luxury",
+        "Design":"Automotive inspired",
+        "Ideal For":"Sporty and smart casual styling",
+        "Price":"₹5,500"
+    },
+
+    why:
+        "Its automotive-inspired personality creates a strong sporty presence while maintaining a polished overall appearance."
+},
+
+
+
+/* =========================================================
    MAYBACH KARAN AUJLA
-   --------------------------------------------------------- */
+   ========================================================= */
 
 "MayBach Karan Aujla Edition Sunglasses":{
 
-    name:"MayBach Karan Aujla Edition Sunglasses",
+    name:
+        "MayBach Karan Aujla Edition Sunglasses",
 
-    price:3000,
+    price:
+        "₹3,000",
 
-    category:"Sunglasses",
+    category:
+        "Most Selling Sunglasses",
 
-    media:[
-        {
-            type:"image",
-            src:"MayBach Karan Aujla Edition Sunglasses front.jpeg"
-        }
+    type:
+        "image",
+
+    images:[
+        "MayBach Karan Aujla Edition Sunglasses front.jpeg"
     ],
 
     description:
-        "A bold statement sunglasses design with a distinctive appearance created for customers who prefer fashion-forward styling.",
+        "The MayBach Karan Aujla Edition Sunglasses are designed for a bold and contemporary fashion statement. Their distinctive appearance makes them particularly suited to customers who prefer expressive eyewear.",
 
-    features:[
-        "Statement design",
-        "Distinctive fashion appearance",
-        "Bold styling",
-        "Ideal for standout outfits"
-    ]
+    highlights:{
+        "Category":"Sunglasses",
+        "Collection":"Most Selling",
+        "Style":"Statement Eyewear",
+        "Price":"₹3,000"
+    },
 
+    details:{
+        "Product":"MayBach Karan Aujla Edition Sunglasses",
+        "Category":"Sunglasses",
+        "Collection":"Most Selling Articles",
+        "Style":"Statement Eyewear",
+        "Design":"Bold / Contemporary",
+        "Ideal For":"Fashion-forward styling",
+        "Price":"₹3,000"
+    },
+
+    why:
+        "The bold design language gives these sunglasses a strong identity and makes them a natural choice for statement outfits."
 },
 
 
-/* ---------------------------------------------------------
-   CARTIER C DECOR
-   --------------------------------------------------------- */
 
-"Cartier C Decor CT0622S":{
+/* =========================================================
+   TISSOT PRX
+   ========================================================= */
 
-    name:"Cartier C Decor CT0622S",
+"Tissot PRX":{
 
-    price:2500,
+    name:
+        "Tissot PRX",
 
-    category:"Sunglasses",
+    price:
+        "₹4,500",
 
-    media:[
-        {
-            type:"image",
-            src:"Cartier C Decor CT0622S.jpeg"
-        }
+    category:
+        "Most Selling Watch",
+
+    type:
+        "gallery",
+
+    images:[
+        "Tissot PRX 1.jpeg",
+        "Tissot PRX 2.jpeg",
+        "Tissot PRX 3.jpeg",
+        "Tissot PRX 4.jpeg",
+        "Tissot PRX 5.jpeg",
+        "Tissot PRX 6.jpeg",
+        "Tissot PRX 7.jpeg",
+        "Tissot PRX 8.jpeg",
+        "Tissot PRX 9.jpeg"
     ],
 
     description:
-        "A sophisticated C Decor-inspired sunglasses design offering an elegant silhouette and a refined fashion appearance.",
+        "The Tissot PRX is known for its clean integrated-bracelet aesthetic and distinctive retro-modern character. It offers a polished appearance that works across casual, business and formal styling.",
 
-    features:[
-        "Elegant C Decor-inspired styling",
-        "Sophisticated silhouette",
-        "Fashion-forward appearance",
-        "Suitable for everyday styling"
-    ]
+    highlights:{
+        "Category":"Watch",
+        "Collection":"Most Selling",
+        "Style":"Integrated Bracelet",
+        "Price":"₹4,500"
+    },
 
+    details:{
+        "Product":"Tissot PRX",
+        "Category":"Wrist Watch",
+        "Collection":"Most Selling Articles",
+        "Style":"Integrated Bracelet",
+        "Design":"Retro-modern",
+        "Ideal For":"Everyday and formal styling",
+        "Price":"₹4,500"
+    },
+
+    why:
+        "The clean integrated-bracelet design gives the Tissot PRX a modern yet timeless character that makes it highly versatile."
+},
+
+
+
+/* =========================================================
+   TOMMY HILFIGER 1710647
+   ========================================================= */
+
+"Tommy Hilfiger 1710647":{
+
+    name:
+        "Tommy Hilfiger 1710647",
+
+    price:
+        "₹5,500",
+
+    category:
+        "Most Selling Watch",
+
+    type:
+        "image",
+
+    images:[
+        "Tommy Hilfiger 1710647.jpeg"
+    ],
+
+    description:
+        "The Tommy Hilfiger 1710647 offers a sophisticated fashion-watch appearance with a clean and versatile design. It is suited to customers who want a polished timepiece for everyday styling.",
+
+    highlights:{
+        "Category":"Watch",
+        "Collection":"Most Selling",
+        "Style":"Fashion / Classic",
+        "Price":"₹5,500"
+    },
+
+    details:{
+        "Product":"Tommy Hilfiger 1710647",
+        "Category":"Wrist Watch",
+        "Collection":"Most Selling Articles",
+        "Style":"Fashion Watch",
+        "Design":"Clean and sophisticated",
+        "Ideal For":"Everyday and smart casual wear",
+        "Price":"₹5,500"
+    },
+
+    why:
+        "Its versatile fashion-watch design allows it to transition easily between everyday and more polished outfits."
+},
+
+
+
+/* =========================================================
+   CARTIER C DECOR
+   ========================================================= */
+
+"Cartier C Decor CT0622S":{
+
+    name:
+        "Cartier C Decor CT0622S",
+
+    price:
+        "₹2,500",
+
+    category:
+        "Most Selling Sunglasses",
+
+    type:
+        "image",
+
+    images:[
+        "Cartier C Decor CT0622S.jpeg"
+    ],
+
+    description:
+        "The Cartier C Decor CT0622S brings a sophisticated eyewear aesthetic with a distinctive decorative character. It is a refined selection for customers who prefer elegant and recognizable eyewear styling.",
+
+    highlights:{
+        "Category":"Sunglasses",
+        "Collection":"Most Selling",
+        "Style":"Luxury Eyewear",
+        "Price":"₹2,500"
+    },
+
+    details:{
+        "Product":"Cartier C Decor CT0622S",
+        "Category":"Sunglasses",
+        "Collection":"Most Selling Articles",
+        "Style":"Luxury Eyewear",
+        "Design":"Elegant / Decorative",
+        "Ideal For":"Premium fashion styling",
+        "Price":"₹2,500"
+    },
+
+    why:
+        "The decorative styling adds sophistication while maintaining a clean and wearable eyewear appearance."
+},
+
+
+
+/* =========================================================
+   TOMMY HILFIGER TW001863-001
+   ========================================================= */
+
+"Tommy Hilfiger TW001863-001":{
+
+    name:
+        "Tommy Hilfiger TW001863-001",
+
+    price:
+        "₹4,000",
+
+    category:
+        "Most Selling Watch",
+
+    type:
+        "image",
+
+    images:[
+        "Tommy Hilfiger TW001863-001.jpeg"
+    ],
+
+    description:
+        "The Tommy Hilfiger TW001863-001 is a versatile fashion timepiece with a refined contemporary appearance. Its clean design makes it suitable for customers who want an easy-to-style everyday watch.",
+
+    highlights:{
+        "Category":"Watch",
+        "Collection":"Most Selling",
+        "Style":"Fashion Watch",
+        "Price":"₹4,000"
+    },
+
+    details:{
+        "Product":"Tommy Hilfiger TW001863-001",
+        "Category":"Wrist Watch",
+        "Collection":"Most Selling Articles",
+        "Style":"Fashion",
+        "Design":"Contemporary / Refined",
+        "Ideal For":"Everyday wear",
+        "Price":"₹4,000"
+    },
+
+    why:
+        "Its clean fashion-oriented design makes it an effortless accessory for everyday outfits."
 }
 
 };
@@ -2099,93 +2840,385 @@ const products = {
    GET PRODUCT FROM URL
    ========================================================= */
 
-const urlParams =
+const params =
     new URLSearchParams(
         window.location.search
     );
 
 const productName =
-    urlParams.get("product");
-
-const product =
-    products[productName];
-
+    params.get("product");
 
 
 /* =========================================================
-   CART COUNT
+   PRODUCT NOT FOUND
    ========================================================= */
 
-function updateCartCount(){
-
-    let cart = [];
-
-    try{
-
-        cart =
-            JSON.parse(
-                localStorage.getItem("cart")
-            ) || [];
-
-    }catch(error){
-
-        cart = [];
-
-    }
-
-    let totalQuantity = 0;
-
-    cart.forEach(function(item){
-
-        totalQuantity +=
-            Number(item.quantity) || 1;
-
-    });
+if(
+    !productName ||
+    !products[productName]
+){
 
     document.getElementById(
-        "cartCount"
+        "productName"
     ).textContent =
-        totalQuantity;
+        "Product Not Found";
+
+    document.getElementById(
+        "productDescription"
+    ).textContent =
+        "The requested product could not be found in the Most Selling Articles collection.";
+
+    document.getElementById(
+        "productPrice"
+    ).textContent =
+        "";
+
+    document.getElementById(
+        "productCategory"
+    ).textContent =
+        "Most Selling Articles";
 
 }
 
-updateCartCount();
-
-
 
 /* =========================================================
-   ERROR IF PRODUCT DOES NOT EXIST
+   LOAD PRODUCT
    ========================================================= */
 
-if(!product){
+else{
+
+    const product =
+        products[productName];
+
+
+    /* =====================================================
+       BASIC INFORMATION
+       ===================================================== */
 
     document.getElementById(
-        "productPage"
-    ).innerHTML = `
+        "productName"
+    ).textContent =
+        product.name;
 
-        <div class="product-error">
 
-            <h1>
-                Sunglasses Not Found
-            </h1>
+    document.getElementById(
+        "productPrice"
+    ).textContent =
+        product.price;
 
-            <p>
-                Sorry, the sunglasses product you are
-                looking for could not be found.
-            </p>
 
-            <a
-                href="sunglasses.html"
-                class="error-button"
-            >
-                ← Back to Sunglasses
-            </a>
+    document.getElementById(
+        "productCategory"
+    ).textContent =
+        product.category;
 
-        </div>
 
-    `;
+    document.getElementById(
+        "productDescription"
+    ).textContent =
+        product.description;
 
-}else{
+
+    document.getElementById(
+        "whyProduct"
+    ).textContent =
+        product.why;
+
+
+
+    /* =====================================================
+       HIGHLIGHTS
+       ===================================================== */
+
+    const highlights =
+        document.getElementById(
+            "productHighlights"
+        );
+
+    highlights.innerHTML = "";
+
+
+    Object.entries(
+        product.highlights
+    ).forEach(
+        function([label,value]){
+
+            const box =
+                document.createElement(
+                    "div"
+                );
+
+            box.className =
+                "highlight-box";
+
+
+            box.innerHTML = `
+
+                <span>
+                    ${label}
+                </span>
+
+                <strong>
+                    ${value}
+                </strong>
+
+            `;
+
+
+            highlights.appendChild(
+                box
+            );
+
+        }
+    );
+
+
+
+    /* =====================================================
+       SPECIFICATION TABLE
+       ===================================================== */
+
+    const detailsTable =
+        document.getElementById(
+            "detailsTable"
+        );
+
+    detailsTable.innerHTML = "";
+
+
+    Object.entries(
+        product.details
+    ).forEach(
+        function([label,value]){
+
+            const row =
+                document.createElement(
+                    "tr"
+                );
+
+
+            row.innerHTML = `
+
+                <td>
+                    ${label}
+                </td>
+
+                <td>
+                    ${value}
+                </td>
+
+            `;
+
+
+            detailsTable.appendChild(
+                row
+            );
+
+        }
+    );
+
+
+
+    /* =====================================================
+       PRODUCT MEDIA
+       ===================================================== */
+
+    const mediaArea =
+        document.getElementById(
+            "mediaArea"
+        );
+
+    const thumbnailContainer =
+        document.getElementById(
+            "thumbnailContainer"
+        );
+
+
+    mediaArea.innerHTML = "";
+
+    thumbnailContainer.innerHTML = "";
+
+
+
+    /* =====================================================
+       VIDEO PRODUCT
+       ===================================================== */
+
+    if(
+        product.type === "video"
+    ){
+
+        const video =
+            document.createElement(
+                "video"
+            );
+
+        video.className =
+            "main-product-video";
+
+        video.controls =
+            true;
+
+        video.playsInline =
+            true;
+
+        video.preload =
+            "metadata";
+
+        const source =
+            document.createElement(
+                "source"
+            );
+
+        source.src =
+            product.video;
+
+        source.type =
+            "video/mp4";
+
+        video.appendChild(
+            source
+        );
+
+        mediaArea.appendChild(
+            video
+        );
+
+    }
+
+
+
+    /* =====================================================
+       SINGLE IMAGE
+       ===================================================== */
+
+    else if(
+        product.type === "image"
+    ){
+
+        const image =
+            document.createElement(
+                "img"
+            );
+
+        image.className =
+            "main-product-image";
+
+        image.src =
+            product.images[0];
+
+        image.alt =
+            product.name;
+
+        image.loading =
+            "eager";
+
+        mediaArea.appendChild(
+            image
+        );
+
+    }
+
+
+
+    /* =====================================================
+       IMAGE GALLERY
+       ===================================================== */
+
+    else if(
+        product.type === "gallery"
+    ){
+
+        const mainImage =
+            document.createElement(
+                "img"
+            );
+
+        mainImage.className =
+            "main-product-image";
+
+        mainImage.src =
+            product.images[0];
+
+        mainImage.alt =
+            product.name;
+
+        mainImage.loading =
+            "eager";
+
+        mediaArea.appendChild(
+            mainImage
+        );
+
+
+        product.images.forEach(
+            function(imageSrc,index){
+
+                const thumbnail =
+                    document.createElement(
+                        "img"
+                    );
+
+                thumbnail.className =
+                    "thumbnail";
+
+
+                if(index === 0){
+
+                    thumbnail.classList.add(
+                        "active"
+                    );
+
+                }
+
+
+                thumbnail.src =
+                    imageSrc;
+
+                thumbnail.alt =
+                    product.name;
+
+
+                thumbnail.addEventListener(
+                    "click",
+                    function(){
+
+                        mainImage.src =
+                            imageSrc;
+
+
+                        document
+                            .querySelectorAll(
+                                ".thumbnail"
+                            )
+                            .forEach(
+                                function(item){
+
+                                    item.classList.remove(
+                                        "active"
+                                    );
+
+                                }
+                            );
+
+
+                        thumbnail.classList.add(
+                            "active"
+                        );
+
+                    }
+                );
+
+
+                thumbnailContainer.appendChild(
+                    thumbnail
+                );
+
+            }
+        );
+
+    }
+
 
 
     /* =====================================================
@@ -2197,699 +3230,86 @@ if(!product){
         " | 50 Mirars";
 
 
-    document.getElementById(
-        "breadcrumbProduct"
-    ).textContent =
-        product.name;
-
-
-
-    /* =====================================================
-       BUILD MEDIA
-       ===================================================== */
-
-    let currentMedia = 0;
-
-
-    function createMedia(media,index){
-
-        if(media.type === "video"){
-
-            return `
-
-                <video
-                    src="${media.src}"
-                    controls
-                    playsinline
-                    preload="metadata"
-                ></video>
-
-            `;
-
-        }
-
-        return `
-
-            <img
-                src="${media.src}"
-                alt="${product.name}"
-            >
-
-        `;
-
-    }
-
-
-    function createThumbnail(media,index){
-
-        if(media.type === "video"){
-
-            return `
-
-                <div
-                    class="thumbnail ${index === 0 ? "active" : ""}"
-                    data-index="${index}"
-                >
-
-                    <div
-                        class="thumbnail-video"
-                    >
-                        ▶
-                    </div>
-
-                </div>
-
-            `;
-
-        }
-
-        return `
-
-            <div
-                class="thumbnail ${index === 0 ? "active" : ""}"
-                data-index="${index}"
-            >
-
-                <img
-                    src="${media.src}"
-                    alt="${product.name}"
-                >
-
-            </div>
-
-        `;
-
-    }
-
-
-
-    /* =====================================================
-       PRODUCT HTML
-       ===================================================== */
-
-    document.getElementById(
-        "productContainer"
-    ).innerHTML = `
-
-        <div class="product-media">
-
-            <div
-                class="main-media"
-                id="mainMedia"
-            >
-
-                ${createMedia(
-                    product.media[0],
-                    0
-                )}
-
-                ${
-                    product.media.length > 1
-                    ? `
-                        <button
-                            type="button"
-                            class="media-arrow media-prev"
-                            id="mediaPrev"
-                        >
-                            ❮
-                        </button>
-
-                        <button
-                            type="button"
-                            class="media-arrow media-next"
-                            id="mediaNext"
-                        >
-                            ❯
-                        </button>
-                    `
-                    : ""
-                }
-
-            </div>
-
-
-            ${
-                product.media.length > 1
-                ? `
-                    <div
-                        class="thumbnail-container"
-                        id="thumbnailContainer"
-                    >
-
-                        ${product.media
-                            .map(
-                                createThumbnail
-                            )
-                            .join("")
-                        }
-
-                    </div>
-                `
-                : ""
-            }
-
-        </div>
-
-
-
-        <div class="product-information">
-
-            <div class="product-category">
-
-                ${product.category}
-
-            </div>
-
-
-            <h1
-                class="product-title"
-            >
-
-                ${product.name}
-
-            </h1>
-
-
-            <div class="gold-line"></div>
-
-
-            <div
-                class="product-price"
-            >
-
-                ₹${product.price.toLocaleString("en-IN")}
-
-            </div>
-
-
-            <p
-                class="product-description"
-            >
-
-                ${product.description}
-
-            </p>
-
-
-            <ul
-                class="product-features"
-            >
-
-                ${product.features
-                    .map(
-                        feature =>
-                        `<li>${feature}</li>`
-                    )
-                    .join("")
-                }
-
-            </ul>
-
-
-            <div class="quantity-section">
-
-                <span
-                    class="quantity-label"
-                >
-                    Quantity:
-                </span>
-
-
-                <div
-                    class="quantity-control"
-                >
-
-                    <button
-                        type="button"
-                        id="quantityMinus"
-                    >
-                        −
-                    </button>
-
-                    <input
-                        type="number"
-                        id="quantityInput"
-                        value="1"
-                        min="1"
-                        max="10"
-                    >
-
-                    <button
-                        type="button"
-                        id="quantityPlus"
-                    >
-                        +
-                    </button>
-
-                </div>
-
-            </div>
-
-
-            <div class="product-actions">
-
-                <button
-                    type="button"
-                    class="add-cart-button"
-                    id="addCartButton"
-                >
-                    🛒 Add to Cart
-                </button>
-
-
-                <button
-                    type="button"
-                    class="buy-now-button"
-                    id="buyNowButton"
-                >
-                    Buy Now
-                </button>
-
-            </div>
-
-
-            <div class="delivery-note">
-
-                <strong>
-                    50 Mirars
-                </strong>
-
-                &nbsp; • &nbsp;
-
-                Premium Watches &amp; Sunglasses
-
-                <br>
-
-                For product enquiries or assistance,
-                contact us through WhatsApp.
-
-            </div>
-
-        </div>
-
-    `;
-
-
-
-    /* =====================================================
-       MEDIA SWITCHING
-       ===================================================== */
-
-    function showMedia(index){
-
-        if(index < 0){
-
-            index =
-                product.media.length - 1;
-
-        }
-
-        if(index >= product.media.length){
-
-            index = 0;
-
-        }
-
-        currentMedia = index;
-
-
-        const mainMedia =
-            document.getElementById(
-                "mainMedia"
-            );
-
-
-        mainMedia.innerHTML =
-            createMedia(
-                product.media[index],
-                index
-            );
-
-
-        if(product.media.length > 1){
-
-            const thumbnails =
-                document.querySelectorAll(
-                    ".thumbnail"
-                );
-
-            thumbnails.forEach(
-                function(thumbnail){
-
-                    thumbnail.classList.remove(
-                        "active"
-                    );
-
-                }
-            );
-
-
-            if(thumbnails[index]){
-
-                thumbnails[index].classList.add(
-                    "active"
-                );
-
-                thumbnails[index].scrollIntoView({
-
-                    behavior:"smooth",
-
-                    block:"nearest",
-
-                    inline:"center"
-
-                });
-
-            }
-
-        }
-
-    }
-
-
-
-    /* =====================================================
-       NEXT / PREVIOUS MEDIA
-       ===================================================== */
-
-    if(product.media.length > 1){
-
-        document.getElementById(
-            "mediaNext"
-        ).addEventListener(
-            "click",
-            function(){
-
-                showMedia(
-                    currentMedia + 1
-                );
-
-            }
-        );
-
-
-        document.getElementById(
-            "mediaPrev"
-        ).addEventListener(
-            "click",
-            function(){
-
-                showMedia(
-                    currentMedia - 1
-                );
-
-            }
-        );
-
-
-        document.querySelectorAll(
-            ".thumbnail"
-        ).forEach(
-            function(thumbnail){
-
-                thumbnail.addEventListener(
-                    "click",
-                    function(){
-
-                        showMedia(
-                            Number(
-                                thumbnail.dataset.index
-                            )
-                        );
-
-                    }
-                );
-
-            }
-        );
-
-    }
-
-
-
-    /* =====================================================
-       QUANTITY
-       ===================================================== */
-
-    const quantityInput =
-        document.getElementById(
-            "quantityInput"
-        );
-
-
-    document.getElementById(
-        "quantityMinus"
-    ).addEventListener(
-        "click",
-        function(){
-
-            let quantity =
-                Number(
-                    quantityInput.value
-                );
-
-            if(quantity > 1){
-
-                quantity--;
-
-            }
-
-            quantityInput.value =
-                quantity;
-
-        }
-    );
-
-
-    document.getElementById(
-        "quantityPlus"
-    ).addEventListener(
-        "click",
-        function(){
-
-            let quantity =
-                Number(
-                    quantityInput.value
-                );
-
-            if(quantity < 10){
-
-                quantity++;
-
-            }
-
-            quantityInput.value =
-                quantity;
-
-        }
-    );
-
-
-    quantityInput.addEventListener(
-        "input",
-        function(){
-
-            let quantity =
-                Number(
-                    quantityInput.value
-                );
-
-            if(!quantity || quantity < 1){
-
-                quantity = 1;
-
-            }
-
-            if(quantity > 10){
-
-                quantity = 10;
-
-            }
-
-            quantityInput.value =
-                quantity;
-
-        }
-    );
-
-
 
     /* =====================================================
        ADD TO CART
        ===================================================== */
 
-    function addProductToCart(
-        redirectToCart
-    ){
+    document
+        .getElementById(
+            "addToCartBtn"
+        )
+        .addEventListener(
+            "click",
+            function(){
 
-        let cart = [];
-
-
-        try{
-
-            cart =
-                JSON.parse(
-                    localStorage.getItem("cart")
-                ) || [];
-
-        }catch(error){
-
-            cart = [];
-
-        }
+                let cart =
+                    JSON.parse(
+                        localStorage.getItem(
+                            "cart"
+                        )
+                    ) || [];
 
 
-        const quantity =
-            Number(
-                quantityInput.value
-            ) || 1;
+                const existingProduct =
+                    cart.find(
+                        function(item){
 
+                            return (
+                                item.name ===
+                                product.name
+                            );
 
-        const existingProduct =
-            cart.find(
-                function(item){
-
-                    return (
-                        item.name ===
-                        product.name
+                        }
                     );
 
+
+                if(existingProduct){
+
+                    existingProduct.quantity =
+                        (existingProduct.quantity || 1)
+                        + 1;
+
                 }
-            );
+
+                else{
+
+                    cart.push({
+
+                        name:
+                            product.name,
+
+                        price:
+                            product.price,
+
+                        image:
+                            product.images
+                            ? product.images[0]
+                            : product.video,
+
+                        quantity:
+                            1
+
+                    });
+
+                }
 
 
-        if(existingProduct){
-
-            existingProduct.quantity =
-                (
-                    Number(
-                        existingProduct.quantity
-                    ) || 0
-                ) + quantity;
-
-        }else{
-
-            cart.push({
-
-                name:
-                    product.name,
-
-                price:
-                    product.price,
-
-                image:
-                    product.media[0].type === "image"
-                    ? product.media[0].src
-                    : "",
-
-                quantity:
-                    quantity
-
-            });
-
-        }
-
-
-        localStorage.setItem(
-            "cart",
-            JSON.stringify(cart)
-        );
-
-
-        updateCartCount();
-
-
-        if(redirectToCart){
-
-            window.location.href =
-                "cart.html";
-
-        }else{
-
-            const button =
-                document.getElementById(
-                    "addCartButton"
+                localStorage.setItem(
+                    "cart",
+                    JSON.stringify(cart)
                 );
 
 
-            const originalText =
-                button.innerHTML;
+                alert(
+                    product.name +
+                    " has been added to your cart."
+                );
 
-
-            button.innerHTML =
-                "✓ Added to Cart";
-
-
-            button.style.background =
-                "#c9a24d";
-
-            button.style.color =
-                "#111";
-
-            button.style.borderColor =
-                "#c9a24d";
-
-
-            setTimeout(
-                function(){
-
-                    button.innerHTML =
-                        originalText;
-
-                    button.style.background =
-                        "#111";
-
-                    button.style.color =
-                        "#fff";
-
-                    button.style.borderColor =
-                        "#111";
-
-                },
-                1600
-            );
-
-        }
-
-    }
-
-
-    document.getElementById(
-        "addCartButton"
-    ).addEventListener(
-        "click",
-        function(){
-
-            addProductToCart(false);
-
-        }
-    );
-
-
-    document.getElementById(
-        "buyNowButton"
-    ).addEventListener(
-        "click",
-        function(){
-
-            addProductToCart(true);
-
-        }
-    );
-
-
-
-    /* =====================================================
-       EXTRA DESCRIPTION
-       ===================================================== */
-
-    document.getElementById(
-        "extraDescription"
-    ).textContent =
-        product.description;
+            }
+        );
 
 }
-
 
 </script>
 
