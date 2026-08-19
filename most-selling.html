@@ -40,6 +40,7 @@ html{
 body{
     margin:0;
     font-family:Arial,sans-serif;
+
     background:
         radial-gradient(
             circle at 50% 15%,
@@ -52,6 +53,7 @@ body{
             #eee8d9 50%,
             #f8f5ed 100%
         );
+
     color:#222;
 }
 
@@ -66,12 +68,18 @@ body{
 
 .home-btn{
     display:inline-block;
+
     background:#111;
     color:white;
+
     text-decoration:none;
+
     padding:12px 25px;
+
     border-radius:6px;
+
     font-weight:600;
+
     transition:0.3s;
 }
 
@@ -87,34 +95,52 @@ body{
 
 .page-title{
     text-align:center;
+
     padding:30px 20px 35px;
 }
 
 .page-title h1{
-    font-family:Georgia,"Times New Roman",serif;
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
     font-size:64px;
+
     margin:0 0 20px;
+
     color:#111;
+
     font-weight:600;
 }
 
 .title-line{
     width:160px;
     height:2px;
+
     background:#c9a24d;
+
     margin:0 auto;
+
     position:relative;
 }
 
 .title-line::after{
     content:"";
+
     width:12px;
     height:12px;
+
     background:#c9a24d;
+
     position:absolute;
+
     left:50%;
     top:50%;
-    transform:translate(-50%,-50%) rotate(45deg);
+
+    transform:
+        translate(-50%,-50%)
+        rotate(45deg);
 }
 
 
@@ -124,42 +150,62 @@ body{
 
 .most-selling-intro{
     width:90%;
+
     max-width:1400px;
+
     margin:0 auto;
+
     text-align:center;
+
     padding:10px 0 55px;
 }
 
 .most-selling-intro h2{
-    font-family:Georgia,"Times New Roman",serif;
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
     font-size:38px;
+
     font-weight:600;
+
     color:#171717;
+
     margin:0 auto 30px;
+
     letter-spacing:-0.5px;
 }
 
 .most-selling-description{
     max-width:1350px;
+
     margin:0 auto;
+
     text-align:left;
 }
 
 .most-selling-description p{
     margin:0 0 24px;
+
     font-size:18px;
+
     line-height:1.75;
+
     color:#4a4a4a;
+
     font-weight:400;
 }
 
 .most-selling-description strong{
     color:#9b762c;
+
     font-weight:600;
 }
 
 .most-selling-closing-line{
     margin-top:40px !important;
+
     margin-bottom:0 !important;
 }
 
@@ -170,10 +216,16 @@ body{
 
 .product-grid{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+
+    grid-template-columns:
+        repeat(3,1fr);
+
     gap:35px;
+
     max-width:1600px;
+
     margin:auto;
+
     padding:20px 40px 80px;
 }
 
@@ -184,18 +236,30 @@ body{
 
 .product-card{
     background:#fff;
+
     border-radius:18px;
+
     overflow:hidden;
+
     text-align:center;
-    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+
+    box-shadow:
+        0 8px 25px
+        rgba(0,0,0,0.08);
+
     transition:0.3s;
+
     display:flex;
+
     flex-direction:column;
 }
 
 .product-card:hover{
     transform:translateY(-5px);
-    box-shadow:0 14px 35px rgba(0,0,0,0.13);
+
+    box-shadow:
+        0 14px 35px
+        rgba(0,0,0,0.13);
 }
 
 
@@ -205,8 +269,11 @@ body{
 
 .product-card > img{
     width:100%;
+
     height:350px;
+
     object-fit:cover;
+
     display:block;
 }
 
@@ -217,9 +284,13 @@ body{
 
 .product-card > video{
     width:100%;
+
     height:350px;
+
     object-fit:cover;
+
     display:block;
+
     background:#000;
 }
 
@@ -230,8 +301,12 @@ body{
 
 .product-card h3{
     font-size:22px;
-    margin:25px 15px 10px;
+
+    margin:
+        25px 15px 10px;
+
     color:#111;
+
     line-height:1.35;
 }
 
@@ -242,68 +317,81 @@ body{
 
 .price{
     font-size:22px;
+
     font-weight:bold;
+
     color:#c9a24d;
+
     margin-bottom:20px;
 }
 
 
 /* =========================================================
-   PRODUCT BUTTONS
+   PRODUCT DETAILS BUTTON AREA
    ========================================================= */
 
 .product-buttons{
     display:flex;
+
     justify-content:center;
+
     align-items:center;
+
     gap:12px;
+
     flex-wrap:wrap;
-    padding:0 15px 35px;
+
+    padding:
+        0 15px 35px;
+
     margin-top:auto;
 }
 
 
 /* =========================================================
-   ENQUIRE BUTTON
+   SHOW PRODUCT DETAILS BUTTON
    ========================================================= */
 
-.enquire-btn{
-    display:inline-block;
-    padding:14px 25px;
-    background:#c9a24d;
-    color:white;
-    text-decoration:none;
-    border-radius:6px;
-    font-weight:bold;
-    transition:0.3s;
-}
+.product-details-btn{
+    display:inline-flex;
 
-.enquire-btn:hover{
+    align-items:center;
+
+    justify-content:center;
+
+    min-width:210px;
+
+    padding:14px 28px;
+
     background:#111;
-    color:white;
-}
 
-
-/* =========================================================
-   ADD TO CART BUTTON
-   ========================================================= */
-
-.add-to-cart-btn{
-    background:#fff;
-    color:#111;
-    border:2px solid #111;
-    padding:12px 25px;
-    border-radius:6px;
-    font-size:16px;
-    cursor:pointer;
-    font-weight:600;
-    transition:0.3s;
-}
-
-.add-to-cart-btn:hover{
-    background:#c9a24d;
     color:#fff;
+
+    text-decoration:none;
+
+    border:2px solid #111;
+
+    border-radius:6px;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.product-details-btn:hover{
+    background:#c9a24d;
+
+    color:#111;
+
     border-color:#c9a24d;
+
+    transform:translateY(-2px);
 }
 
 
@@ -313,16 +401,23 @@ body{
 
 .slider{
     position:relative;
+
     width:100%;
+
     height:350px;
+
     overflow:hidden;
+
     background:#f5f5f5;
 }
 
 .slide{
     width:100%;
+
     height:350px;
+
     object-fit:cover;
+
     display:none !important;
 }
 
@@ -338,26 +433,43 @@ body{
 .prev,
 .next{
     position:absolute;
+
     top:50%;
+
     transform:translateY(-50%);
+
     width:44px;
+
     height:44px;
-    background:rgba(0,0,0,0.62);
+
+    background:
+        rgba(0,0,0,0.62);
+
     color:white;
+
     border:none;
+
     cursor:pointer;
+
     font-size:20px;
+
     border-radius:50%;
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
+
     z-index:5;
+
     transition:0.3s;
 }
 
 .prev:hover,
 .next:hover{
     background:#c9a24d;
+
     color:#111;
 }
 
@@ -372,14 +484,14 @@ body{
 
 /* =========================================================
    FOOTER
-========================================================= */
+   ========================================================= */
 
-.main-footer {
-    width: 100%;
+.main-footer{
+    width:100%;
 
-    background: #080808;
+    background:#080808;
 
-    color: #fff;
+    color:#fff;
 
     padding:
         70px 7% 25px;
@@ -388,39 +500,39 @@ body{
         1px solid
         rgba(255,255,255,0.08);
 
-    overflow: hidden;
+    overflow:hidden;
 }
 
-.footer-container {
-    width: 100%;
+.footer-container{
+    width:100%;
 
-    max-width: 1400px;
+    max-width:1400px;
 
-    margin: 0 auto;
+    margin:0 auto;
 }
 
 
 /* =========================================================
    FOOTER TOP
-========================================================= */
+   ========================================================= */
 
-.footer-top {
-    width: 100%;
+.footer-top{
+    width:100%;
 
-    display: grid;
+    display:grid;
 
     grid-template-columns:
-        repeat(3, minmax(0, 1fr));
+        repeat(3,minmax(0,1fr));
 
-    column-gap: 70px;
+    column-gap:70px;
 
-    row-gap: 40px;
+    row-gap:40px;
 
-    align-items: start;
+    align-items:start;
 }
 
-.footer-top > h2 {
-    grid-column: 1 / -1;
+.footer-top > h2{
+    grid-column:1 / -1;
 
     margin:
         0 0 10px;
@@ -430,147 +542,148 @@ body{
         "Times New Roman",
         serif;
 
-    font-size: 42px;
+    font-size:42px;
 
-    font-weight: 500;
+    font-weight:500;
 
-    line-height: 1.2;
+    line-height:1.2;
 
-    color: #fff;
+    color:#fff;
 
-    text-align: center;
+    text-align:center;
 }
 
 .contact-column,
-.whatsapp-column {
-    min-width: 0;
+.whatsapp-column{
+    min-width:0;
 
-    width: 100%;
+    width:100%;
 
-    text-align: center;
+    text-align:center;
 }
 
 .contact-column h3,
-.whatsapp-column h3 {
+.whatsapp-column h3{
     margin:
         0 0 22px;
 
-    color: #fff;
+    color:#fff;
 
-    font-size: 20px;
+    font-size:20px;
 
-    font-weight: 700;
+    font-weight:700;
 
-    line-height: 1.35;
+    line-height:1.35;
 }
 
-.contact-column p {
+.contact-column p{
     margin:
         12px 0 0;
 
-    color: #bdbdbd;
+    color:#bdbdbd;
 
-    font-size: 15px;
+    font-size:15px;
 
-    line-height: 1.6;
+    line-height:1.6;
 }
 
-.footer-link {
-    display: block;
+.footer-link{
+    display:block;
 
-    width: fit-content;
+    width:fit-content;
 
-    max-width: 100%;
+    max-width:100%;
 
     margin:
         0 auto 8px;
 
-    color: #fff;
+    color:#fff;
 
-    text-decoration: none;
+    text-decoration:none;
 
-    font-size: 16px;
+    font-size:16px;
 
-    line-height: 1.6;
+    line-height:1.6;
 
-    overflow-wrap: break-word;
+    overflow-wrap:break-word;
 
-    transition: color 0.3s ease;
+    transition:
+        color 0.3s ease;
 }
 
-.footer-link:hover {
-    color: #c9a24d;
+.footer-link:hover{
+    color:#c9a24d;
 }
 
 
 /* =========================================================
    WHATSAPP FOOTER
-========================================================= */
+   ========================================================= */
 
-.whatsapp-title {
-    display: flex;
+.whatsapp-title{
+    display:flex;
 
-    align-items: center;
+    align-items:center;
 
-    justify-content: center;
+    justify-content:center;
 
-    gap: 8px;
+    gap:8px;
 
-    flex-wrap: wrap;
+    flex-wrap:wrap;
 }
 
-.whatsapp-icon {
-    width: 28px;
+.whatsapp-icon{
+    width:28px;
 
-    height: 28px;
+    height:28px;
 
-    object-fit: contain;
+    object-fit:contain;
 
-    display: inline-block;
+    display:inline-block;
 
-    flex-shrink: 0;
+    flex-shrink:0;
 }
 
-.whatsapp-button {
-    display: inline-flex;
+.whatsapp-button{
+    display:inline-flex;
 
-    align-items: center;
+    align-items:center;
 
-    justify-content: center;
+    justify-content:center;
 
-    min-width: 205px;
+    min-width:205px;
 
-    min-height: 60px;
+    min-height:60px;
 
-    max-width: 100%;
+    max-width:100%;
 
     padding:
         13px 30px;
 
-    background: #fff;
+    background:#fff;
 
-    color: #111;
+    color:#111;
 
-    text-decoration: none;
+    text-decoration:none;
 
-    font-size: 16px;
+    font-size:16px;
 
-    font-weight: 700;
+    font-weight:700;
 
-    letter-spacing: 0.2px;
+    letter-spacing:0.2px;
 
     border:
         1px solid #fff;
 
-    transition: all 0.3s ease;
+    transition:all 0.3s ease;
 }
 
-.whatsapp-button:hover {
-    background: #c9a24d;
+.whatsapp-button:hover{
+    background:#c9a24d;
 
-    border-color: #c9a24d;
+    border-color:#c9a24d;
 
-    color: #fff;
+    color:#fff;
 
     transform:
         translateY(-2px);
@@ -579,21 +692,21 @@ body{
 
 /* =========================================================
    FOOTER MIDDLE
-========================================================= */
+   ========================================================= */
 
-.footer-middle {
-    width: 100%;
+.footer-middle{
+    width:100%;
 
-    display: grid;
+    display:grid;
 
     grid-template-columns:
-        repeat(3, minmax(0, 1fr));
+        repeat(3,minmax(0,1fr));
 
-    gap: 50px;
+    gap:50px;
 
-    margin-top: 65px;
+    margin-top:65px;
 
-    padding-top: 45px;
+    padding-top:45px;
 
     border-top:
         1px solid
@@ -601,135 +714,155 @@ body{
 }
 
 .footer-links-column,
-.footer-social {
-    min-width: 0;
+.footer-social{
+    min-width:0;
 
-    width: 100%;
+    width:100%;
 
-    text-align: center;
+    text-align:center;
 }
 
 .footer-links-column h3,
-.footer-social h3 {
+.footer-social h3{
     margin:
         0 0 20px;
 
-    color: #fff;
+    color:#fff;
 
-    font-size: 18px;
+    font-size:18px;
 
-    font-weight: 700;
+    font-weight:700;
 
-    line-height: 1.35;
+    line-height:1.35;
 }
 
-.footer-links-column a {
-    display: block;
+.footer-links-column a{
+    display:block;
 
-    width: fit-content;
+    width:fit-content;
 
-    max-width: 100%;
+    max-width:100%;
 
     margin:
         0 auto 14px;
 
-    color: #d7d7d7;
+    color:#d7d7d7;
 
-    text-decoration: none;
+    text-decoration:none;
 
-    font-size: 15px;
+    font-size:15px;
 
-    line-height: 1.5;
+    line-height:1.5;
 
-    transition: color 0.3s ease;
+    transition:
+        color 0.3s ease;
 }
 
-.footer-links-column a:hover {
-    color: #c9a24d;
+.footer-links-column a:hover{
+    color:#c9a24d;
 }
 
-.footer-social p {
+.footer-social p{
     margin:
         0 0 14px;
 
-    color: #d7d7d7;
+    color:#d7d7d7;
 
-    font-size: 15px;
+    font-size:15px;
 }
 
 
 /* =========================================================
    INSTAGRAM
-========================================================= */
+   ========================================================= */
 
-.instagram-button {
-    width: 58px;
+.instagram-button{
+    width:58px;
 
-    height: 58px;
+    height:58px;
 
-    display: inline-flex;
+    display:inline-flex;
 
-    align-items: center;
+    align-items:center;
 
-    justify-content: center;
+    justify-content:center;
 
     border:
         1px solid
         rgba(255,255,255,0.65);
 
-    border-radius: 9px;
+    border-radius:9px;
 
-    text-decoration: none;
+    text-decoration:none;
 
-    transition: all 0.3s ease;
+    transition:all 0.3s ease;
 }
 
-.instagram-button:hover {
-    border-color: #c9a24d;
+.instagram-button:hover{
+    border-color:#c9a24d;
 
     transform:
         translateY(-2px);
 }
 
-.instagram-button img {
-    width: 32px;
+.instagram-button img{
+    width:32px;
 
-    height: 32px;
+    height:32px;
 
-    object-fit: contain;
+    object-fit:contain;
 
-    display: block;
+    display:block;
 }
 
 
 /* =========================================================
    FOOTER BOTTOM
-========================================================= */
+   ========================================================= */
 
-.footer-bottom {
-    width: 100%;
+.footer-bottom{
+    width:100%;
 
-    margin-top: 50px;
+    margin-top:50px;
 
-    padding-top: 20px;
+    padding-top:20px;
 
     border-top:
         1px solid
         rgba(255,255,255,0.10);
 }
 
-.footer-bottom p {
-    margin: 0;
+.footer-bottom p{
+    margin:0;
 
-    color: #aaa;
+    color:#aaa;
 
-    font-size: 13px;
+    font-size:13px;
 
-    line-height: 1.5;
+    line-height:1.5;
 
-    text-align: center;
+    text-align:center;
 
-    overflow-wrap: break-word;
+    overflow-wrap:break-word;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media(max-width:1100px){
+
+    .product-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .footer-middle{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
 }
 
 
@@ -737,52 +870,47 @@ body{
    MOBILE
    ========================================================= */
 
-@media(max-width:1100px){
-
-    .product-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .footer-middle{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-}
-
-
 @media(max-width:768px){
 
     .home-wrapper{
-        padding:18px 20px;
+        padding:
+            18px 20px;
     }
 
     .page-title{
-        padding:25px 15px 30px;
+        padding:
+            25px 15px 30px;
     }
 
     .page-title h1{
         font-size:42px;
+
         line-height:1.15;
     }
 
     .most-selling-intro{
         width:90%;
+
         padding-bottom:35px;
     }
 
     .most-selling-intro h2{
         font-size:28px;
+
         line-height:1.3;
     }
 
     .most-selling-description p{
         font-size:16px;
+
         line-height:1.7;
     }
 
     .product-grid{
         grid-template-columns:1fr;
+
         padding:20px;
+
         gap:25px;
     }
 
@@ -801,22 +929,27 @@ body{
         gap:10px;
     }
 
-    .enquire-btn{
-        padding:13px 20px;
-    }
+    .product-details-btn{
+        width:100%;
 
-    .add-to-cart-btn{
-        padding:11px 20px;
+        max-width:280px;
+
+        padding:
+            13px 20px;
     }
 
     .footer-middle{
         grid-template-columns:1fr;
+
         gap:35px;
-        padding:35px 0;
+
+        padding:
+            35px 0;
     }
 
     .footer-top{
-        padding:40px 0 35px;
+        padding:
+            40px 0 35px;
     }
 
     .footer-top h2{
@@ -825,6 +958,10 @@ body{
 
 }
 
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
 
 @media(max-width:480px){
 
@@ -847,9 +984,9 @@ body{
         flex-direction:column;
     }
 
-    .enquire-btn,
-    .add-to-cart-btn{
+    .product-details-btn{
         width:100%;
+
         max-width:250px;
     }
 
@@ -857,7 +994,7 @@ body{
 
 
 /* =========================================================
-   END
+   END CSS
    ========================================================= */
 
 </style>
@@ -963,6 +1100,7 @@ body{
 <div class="product-grid">
 
 
+
 <!-- ========================================================
      SEIKO 5 SPORTS GMT
      ======================================================== -->
@@ -985,20 +1123,11 @@ body{
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Seiko%205%20Sports%20GMT%20SSK035K1"
-            target="_blank"
+            href="product-detailsmost-selling.html?product=Seiko%205%20Sports%20GMT%20SSK035K1"
+            class="product-details-btn"
         >
-            Enquire Now
+            Show Product Details
         </a>
-
-        <button
-            class="add-to-cart-btn"
-            data-name="Seiko 5 Sports GMT SSK035K1"
-            data-price="4000"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -1039,20 +1168,11 @@ body{
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Rolex%20Daytona%20116578SACO"
-            target="_blank"
+            href="product-detailsmost-selling.html?product=Rolex%20Daytona%20116578SACO"
+            class="product-details-btn"
         >
-            Enquire Now
+            Show Product Details
         </a>
-
-        <button
-            class="add-to-cart-btn"
-            data-name="Rolex Daytona 116578SACO"
-            data-price="3500"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -1093,20 +1213,11 @@ body{
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Rolex%20GMT-Master%20II%20Root%20Beer"
-            target="_blank"
+            href="product-detailsmost-selling.html?product=Rolex%20GMT-Master%20II%20Root%20Beer"
+            class="product-details-btn"
         >
-            Enquire Now
+            Show Product Details
         </a>
-
-        <button
-            class="add-to-cart-btn"
-            data-name="Rolex GMT-Master II Root Beer"
-            data-price="3500"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -1147,20 +1258,11 @@ body{
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Tommy%20Hilfiger%20Baker%20Watch"
-            target="_blank"
+            href="product-detailsmost-selling.html?product=Tommy%20Hilfiger%20Baker%20Watch"
+            class="product-details-btn"
         >
-            Enquire Now
+            Show Product Details
         </a>
-
-        <button
-            class="add-to-cart-btn"
-            data-name="Tommy Hilfiger Baker Watch"
-            data-price="3500"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -1201,20 +1303,11 @@ body{
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Calvin%20Klein%20Sunglasses"
-            target="_blank"
+            href="product-detailsmost-selling.html?product=Calvin%20Klein%20Sunglasses"
+            class="product-details-btn"
         >
-            Enquire Now
+            Show Product Details
         </a>
-
-        <button
-            class="add-to-cart-btn"
-            data-name="Calvin Klein Sunglasses"
-            data-price="2500"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -1244,20 +1337,11 @@ body{
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Armani%20Exchange%20Black%20Automatic%20AX2418.%20Please%20share%20availability%20and%20details."
-            target="_blank"
+            href="product-detailsmost-selling.html?product=Armani%20Exchange%20Black%20Automatic%20AX2418"
+            class="product-details-btn"
         >
-            Enquire Now
+            Show Product Details
         </a>
-
-        <button
-            class="add-to-cart-btn"
-            data-name="Armani Exchange Black Automatic AX2418"
-            data-price="5000"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -1297,9 +1381,19 @@ body{
             alt="Tissot PRX Band"
         >
 
-        <button class="prev" type="button">❮</button>
+        <button
+            class="prev"
+            type="button"
+        >
+            ❮
+        </button>
 
-        <button class="next" type="button">❯</button>
+        <button
+            class="next"
+            type="button"
+        >
+            ❯
+        </button>
 
     </div>
 
@@ -1314,20 +1408,11 @@ body{
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Tissot%20PRX%20Band.%20Please%20share%20availability%20and%20details."
-            target="_blank"
+            href="product-detailsmost-selling.html?product=Tissot%20PRX%20Band"
+            class="product-details-btn"
         >
-            Enquire Now
+            Show Product Details
         </a>
-
-        <button
-            class="add-to-cart-btn"
-            data-name="Tissot PRX Band"
-            data-price="4500"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -1367,9 +1452,19 @@ body{
             alt="Versace Dominus Skeleton Watch"
         >
 
-        <button class="prev" type="button">❮</button>
+        <button
+            class="prev"
+            type="button"
+        >
+            ❮
+        </button>
 
-        <button class="next" type="button">❯</button>
+        <button
+            class="next"
+            type="button"
+        >
+            ❯
+        </button>
 
     </div>
 
@@ -1384,20 +1479,11 @@ body{
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Versace%20Dominus%20Skeleton%20Watch.%20Please%20share%20availability%20and%20details."
-            target="_blank"
+            href="product-detailsmost-selling.html?product=Versace%20Dominus%20Skeleton%20Watch"
+            class="product-details-btn"
         >
-            Enquire Now
+            Show Product Details
         </a>
-
-        <button
-            class="add-to-cart-btn"
-            data-name="Versace Dominus Skeleton Watch"
-            data-price="4000"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -1438,20 +1524,11 @@ body{
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Maybach%20M011"
-            target="_blank"
+            href="product-detailsmost-selling.html?product=Maybach%20M011"
+            class="product-details-btn"
         >
-            Enquire Now
+            Show Product Details
         </a>
-
-        <button
-            class="add-to-cart-btn"
-            data-name="Maybach M011"
-            data-price="2500"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -1481,20 +1558,11 @@ body{
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Balmain%20Paris%207020%20Green%20Shade%20Sunglasses"
-            target="_blank"
+            href="product-detailsmost-selling.html?product=Balmain%20Paris%207020%20Green%20Shade%20Sunglasses"
+            class="product-details-btn"
         >
-            Enquire Now
+            Show Product Details
         </a>
-
-        <button
-            class="add-to-cart-btn"
-            data-name="Balmain Paris 7020 Green Shade Sunglasses"
-            data-price="2500"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -1524,20 +1592,11 @@ body{
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Panthere%20de%20Cartier%20Edition%20Sunglasses"
-            target="_blank"
+            href="product-detailsmost-selling.html?product=Panthere%20de%20Cartier"
+            class="product-details-btn"
         >
-            Enquire Now
+            Show Product Details
         </a>
-
-        <button
-            class="add-to-cart-btn"
-            data-name="Panthere de Cartier"
-            data-price="2500"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -1578,20 +1637,11 @@ body{
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Tommy%20Hilfiger%20Model%201792196.%20Please%20share%20availability%20and%20details."
-            target="_blank"
+            href="product-detailsmost-selling.html?product=Tommy%20Hilfiger%20Model%201792196"
+            class="product-details-btn"
         >
-            Enquire Now
+            Show Product Details
         </a>
-
-        <button
-            class="add-to-cart-btn"
-            data-name="Tommy Hilfiger Model 1792196"
-            data-price="4000"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -1621,20 +1671,11 @@ body{
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Balmain%20Paris%207020%20Purple%20Shade%20Sunglasses"
-            target="_blank"
+            href="product-detailsmost-selling.html?product=Balmain%20Paris%207020%20Purple%20Shade%20Sunglasses"
+            class="product-details-btn"
         >
-            Enquire Now
+            Show Product Details
         </a>
-
-        <button
-            class="add-to-cart-btn"
-            data-name="Balmain Paris 7020 Purple Shade Sunglasses"
-            data-price="2500"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -1664,20 +1705,11 @@ body{
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Cartier%20Aqua%20Green%20Karan%20Aujla%20Edition.%20Please%20share%20availability%20and%20details."
-            target="_blank"
+            href="product-detailsmost-selling.html?product=Cartier%20Aqua%20Green%20Karan%20Aujla%20Edition"
+            class="product-details-btn"
         >
-            Enquire Now
+            Show Product Details
         </a>
-
-        <button
-            class="add-to-cart-btn"
-            data-name="Cartier Aqua Green Karan Aujla Edition"
-            data-price="3000"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -1707,20 +1739,11 @@ body{
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Maybach%201015%20Gold%20Pink%20Sunglasses.%20Please%20share%20availability%20and%20details."
-            target="_blank"
+            href="product-detailsmost-selling.html?product=Maybach%201015%20Gold%20Pink%20Sunglasses"
+            class="product-details-btn"
         >
-            Enquire Now
+            Show Product Details
         </a>
-
-        <button
-            class="add-to-cart-btn"
-            data-name="Maybach 1015 Gold Pink Sunglasses"
-            data-price="3000"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -1772,9 +1795,19 @@ body{
             alt="Casio Edifice"
         >
 
-        <button class="prev" type="button">❮</button>
+        <button
+            class="prev"
+            type="button"
+        >
+            ❮
+        </button>
 
-        <button class="next" type="button">❯</button>
+        <button
+            class="next"
+            type="button"
+        >
+            ❯
+        </button>
 
     </div>
 
@@ -1789,20 +1822,11 @@ body{
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Casio%20Edifice%20EFR-539SG-1AVUDF.%20Please%20share%20availability%20and%20details."
-            target="_blank"
+            href="product-detailsmost-selling.html?product=Casio%20Edifice%20EFR-539SG-1AVUDF"
+            class="product-details-btn"
         >
-            Enquire Now
+            Show Product Details
         </a>
-
-        <button
-            class="add-to-cart-btn"
-            data-name="Casio Edifice EFR-539SG-1AVUDF"
-            data-price="3500"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -1832,20 +1856,11 @@ body{
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Bannon%20Automatic%20Analog%20(ME3207).%20Please%20share%20availability%20and%20details."
-            target="_blank"
+            href="product-detailsmost-selling.html?product=Bannon%20Automatic%20Analog%20(ME3207)"
+            class="product-details-btn"
         >
-            Enquire Now
+            Show Product Details
         </a>
-
-        <button
-            class="add-to-cart-btn"
-            data-name="Bannon Automatic Analog (ME3207)"
-            data-price="4500"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -1865,7 +1880,7 @@ body{
     >
 
     <h3>
-        Jacob & Co Ramjanam Bhoomi Edition Watch
+        Jacob &amp; Co Ramjanam Bhoomi Edition Watch
     </h3>
 
     <div class="price">
@@ -1875,20 +1890,11 @@ body{
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Jacob%20%26%20Co%20Ramjanam%20Bhoomi%20Edition%20Watch.%20Please%20share%20availability%20and%20details."
-            target="_blank"
+            href="product-detailsmost-selling.html?product=Jacob%20%26%20Co%20Ramjanam%20Bhoomi%20Edition%20Watch"
+            class="product-details-btn"
         >
-            Enquire Now
+            Show Product Details
         </a>
-
-        <button
-            class="add-to-cart-btn"
-            data-name="Jacob & Co Ramjanam Bhoomi Edition Watch"
-            data-price="7500"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -1918,20 +1924,11 @@ body{
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20MayBach%20Sunglasses%202735.%20Please%20share%20availability%20and%20details."
-            target="_blank"
+            href="product-detailsmost-selling.html?product=MayBach%20Sunglasses%202735"
+            class="product-details-btn"
         >
-            Enquire Now
+            Show Product Details
         </a>
-
-        <button
-            class="add-to-cart-btn"
-            data-name="MayBach Sunglasses 2735"
-            data-price="2500"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -1961,20 +1958,11 @@ body{
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20King%20Seiko%20Vanac%20SLA087.%20Please%20share%20availability%20and%20details."
-            target="_blank"
+            href="product-detailsmost-selling.html?product=King%20Seiko%20Vanac%20SLA087"
+            class="product-details-btn"
         >
-            Enquire Now
+            Show Product Details
         </a>
-
-        <button
-            class="add-to-cart-btn"
-            data-name="King Seiko Vanac SLA087"
-            data-price="5500"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -2015,20 +2003,11 @@ body{
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Seiko%20Presage%20Cocktail%20SRPG23J1"
-            target="_blank"
+            href="product-detailsmost-selling.html?product=Seiko%20Presage%20Cocktail%20SRPG23J1"
+            class="product-details-btn"
         >
-            Enquire Now
+            Show Product Details
         </a>
-
-        <button
-            class="add-to-cart-btn"
-            data-name="Seiko Presage Cocktail SRPG23J1"
-            data-price="4000"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -2058,20 +2037,11 @@ body{
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Maserati%20R8853100027%20Competizione%20Plain%203.%20Please%20share%20availability%20and%20details."
-            target="_blank"
+            href="product-detailsmost-selling.html?product=Maserati%20R8853100027%20Competizione%20Plain%203"
+            class="product-details-btn"
         >
-            Enquire Now
+            Show Product Details
         </a>
-
-        <button
-            class="add-to-cart-btn"
-            data-name="Maserati R8853100027 Competizione Plain 3"
-            data-price="5500"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -2101,20 +2071,11 @@ body{
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20MayBach%20Karan%20Aujla%20Edition%20Sunglasses"
-            target="_blank"
+            href="product-detailsmost-selling.html?product=MayBach%20Karan%20Aujla%20Edition%20Sunglasses"
+            class="product-details-btn"
         >
-            Enquire Now
+            Show Product Details
         </a>
-
-        <button
-            class="add-to-cart-btn"
-            data-name="MayBach Karan Aujla Edition Sunglasses"
-            data-price="3000"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -2184,9 +2145,19 @@ body{
             alt="Tissot PRX"
         >
 
-        <button class="prev" type="button">❮</button>
+        <button
+            class="prev"
+            type="button"
+        >
+            ❮
+        </button>
 
-        <button class="next" type="button">❯</button>
+        <button
+            class="next"
+            type="button"
+        >
+            ❯
+        </button>
 
     </div>
 
@@ -2201,20 +2172,11 @@ body{
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Tissot%20PRX.%20Please%20share%20availability%20and%20details."
-            target="_blank"
+            href="product-detailsmost-selling.html?product=Tissot%20PRX"
+            class="product-details-btn"
         >
-            Enquire Now
+            Show Product Details
         </a>
-
-        <button
-            class="add-to-cart-btn"
-            data-name="Tissot PRX"
-            data-price="4500"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -2244,20 +2206,11 @@ body{
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Tommy%20Hilfiger%201710647.%20Please%20share%20availability%20and%20details."
-            target="_blank"
+            href="product-detailsmost-selling.html?product=Tommy%20Hilfiger%201710647"
+            class="product-details-btn"
         >
-            Enquire Now
+            Show Product Details
         </a>
-
-        <button
-            class="add-to-cart-btn"
-            data-name="Tommy Hilfiger 1710647"
-            data-price="5500"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -2287,20 +2240,11 @@ body{
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Cartier%20C%20Decor%20CT0622S.%20Please%20share%20availability%20and%20details."
-            target="_blank"
+            href="product-detailsmost-selling.html?product=Cartier%20C%20Decor%20CT0622S"
+            class="product-details-btn"
         >
-            Enquire Now
+            Show Product Details
         </a>
-
-        <button
-            class="add-to-cart-btn"
-            data-name="Cartier C Decor CT0622S"
-            data-price="2500"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -2330,20 +2274,11 @@ body{
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Tommy%20Hilfiger%20TW001863-001.%20Please%20share%20availability%20and%20details."
-            target="_blank"
+            href="product-detailsmost-selling.html?product=Tommy%20Hilfiger%20TW001863-001"
+            class="product-details-btn"
         >
-            Enquire Now
+            Show Product Details
         </a>
-
-        <button
-            class="add-to-cart-btn"
-            data-name="Tommy Hilfiger TW001863-001"
-            data-price="4000"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -2356,7 +2291,7 @@ body{
 
 <!-- =========================================================
      FOOTER
-========================================================= -->
+     ========================================================= -->
 
 <footer class="main-footer">
 
@@ -2552,6 +2487,7 @@ body{
 </footer>
 
 
+
 <!-- ========================================================
      SLIDER JAVASCRIPT
      ======================================================== -->
@@ -2560,11 +2496,14 @@ body{
 
 document.querySelectorAll(".slider").forEach(function(slider){
 
-    const slides = slider.querySelectorAll(".slide");
+    const slides =
+        slider.querySelectorAll(".slide");
 
-    const nextButton = slider.querySelector(".next");
+    const nextButton =
+        slider.querySelector(".next");
 
-    const prevButton = slider.querySelector(".prev");
+    const prevButton =
+        slider.querySelector(".prev");
 
     let current = 0;
 
@@ -2577,89 +2516,45 @@ document.querySelectorAll(".slider").forEach(function(slider){
 
         });
 
-
         slides[index].classList.add("active");
 
     }
 
 
-    nextButton.addEventListener("click",function(){
+    nextButton.addEventListener(
+        "click",
+        function(){
 
-        current++;
+            current++;
 
-        if(current >= slides.length){
+            if(current >= slides.length){
 
-            current = 0;
+                current = 0;
 
-        }
+            }
 
-        showSlide(current);
-
-    });
-
-
-    prevButton.addEventListener("click",function(){
-
-        current--;
-
-        if(current < 0){
-
-            current = slides.length - 1;
+            showSlide(current);
 
         }
-
-        showSlide(current);
-
-    });
-
-});
+    );
 
 
-</script>
+    prevButton.addEventListener(
+        "click",
+        function(){
 
+            current--;
 
+            if(current < 0){
 
-<!-- ========================================================
-     ADD TO CART JAVASCRIPT
-     ======================================================== -->
+                current = slides.length - 1;
 
-<script>
+            }
 
-document.querySelectorAll(
-    ".add-to-cart-btn, .add-to-cart"
-).forEach(function(button){
+            showSlide(current);
 
-    button.addEventListener("click",function(){
-
-        const name = button.dataset.name;
-
-        const price = button.dataset.price;
-
-
-        let cart =
-            JSON.parse(
-                localStorage.getItem("cart")
-            ) || [];
-
-
-        cart.push({
-
-            name:name,
-
-            price:price
-
-        });
-
-
-        localStorage.setItem(
-            "cart",
-            JSON.stringify(cart)
-        );
-
-
-        window.location.href = "cart.html";
-
-    });
+        }
+    );
 
 });
 
