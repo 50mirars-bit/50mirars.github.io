@@ -7,828 +7,1075 @@
 
 <meta
     name="viewport"
-    content="width=1110"
->
-
-<meta
-    name="theme-color"
-    content="#0b0b0b"
+    content="width=1250"
 >
 
 <meta
     name="description"
-    content="Explore premium Couple Watches at 50 Mirars."
+    content="Premium most selling watches and sunglasses product details at 50 Mirars."
 >
 
-<title>Couple Watches | 50 Mirars</title>
+<title>Product Details | 50 Mirars</title>
 
 
 <style>
 
 /* =========================================================
    GLOBAL
-   ========================================================= */
+========================================================= */
 
 *{
     box-sizing:border-box;
 }
 
-html,
-body{
-    width:100%;
-    max-width:100%;
-    overflow-x:hidden;
+html{
+    scroll-behavior:smooth;
 }
 
 body{
     margin:0;
-    font-family:Arial, Helvetica, sans-serif;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color:#222;
+
     background:
         radial-gradient(
-            circle at top center,
-            rgba(212,175,55,0.08),
-            transparent 38%
+            circle at 50% 10%,
+            rgba(201,162,77,0.12),
+            transparent 30%
         ),
-        #0b0b0b;
-    color:#ffffff;
+        linear-gradient(
+            135deg,
+            #f7f3e9 0%,
+            #eee8d9 50%,
+            #f8f5ed 100%
+        );
 }
 
 
 /* =========================================================
-   HEADER
-   ========================================================= */
+   TOP HEADER
+========================================================= */
 
-header{
+.top-bar{
     width:100%;
-    background:#080808;
-    border-bottom:1px solid rgba(212,175,55,0.25);
-    padding:22px 30px;
-    text-align:center;
+
+    padding:25px 80px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    background:#fff;
+
+    border-bottom:1px solid #e5e5e5;
 }
 
-.logo{
-    font-size:30px;
+.brand-logo{
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size:28px;
+
     font-weight:700;
-    letter-spacing:3px;
-    color:#d4af37;
-    text-transform:uppercase;
-}
 
-.logo-subtitle{
-    margin-top:7px;
-    font-size:13px;
-    letter-spacing:2px;
-    color:#bdbdbd;
-}
+    letter-spacing:4px;
 
+    color:#111;
 
-/* =========================================================
-   BACK BUTTON
-   ========================================================= */
-
-.back-wrapper{
-    width:100%;
-    padding:25px 35px 5px;
+    line-height:1;
 }
 
 .back-btn{
     display:inline-flex;
+
     align-items:center;
+
     justify-content:center;
 
-    padding:12px 22px;
+    background:transparent;
 
-    color:#d4af37;
-    background:#111111;
-
-    border:1px solid #d4af37;
-    border-radius:5px;
+    color:#111;
 
     text-decoration:none;
 
-    font-size:14px;
-    font-weight:700;
+    border:none;
+
+    font-size:16px;
+
+    font-weight:600;
 
     transition:
-        background .25s ease,
-        color .25s ease,
-        transform .25s ease;
+        color 0.3s ease;
 }
 
 .back-btn:hover{
-    background:#d4af37;
-    color:#000000;
-    transform:translateY(-2px);
+    color:#c9a24d;
 }
 
 
 /* =========================================================
-   PAGE TITLE
-   ========================================================= */
+   PAGE HEADER
+========================================================= */
 
-.page-heading{
+.page-header{
     text-align:center;
-    padding:35px 20px 25px;
+
+    padding:
+        25px
+        20px
+        40px;
 }
 
-.page-heading h1{
-    margin:0;
+.page-header h1{
+    margin:0 0 18px;
 
-    font-size:34px;
-    letter-spacing:2px;
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 
-    color:#ffffff;
+    font-size:54px;
+
+    font-weight:600;
+
+    color:#111;
 }
 
-.page-heading h1 span{
-    color:#d4af37;
+.title-line{
+    width:150px;
+
+    height:2px;
+
+    background:#c9a24d;
+
+    margin:auto;
+
+    position:relative;
 }
 
-.page-heading p{
-    margin:12px 0 0;
+.title-line::after{
+    content:"";
 
-    color:#a9a9a9;
-    font-size:14px;
-    letter-spacing:1px;
+    position:absolute;
+
+    width:11px;
+
+    height:11px;
+
+    background:#c9a24d;
+
+    left:50%;
+
+    top:50%;
+
+    transform:
+        translate(-50%,-50%)
+        rotate(45deg);
 }
 
 
 /* =========================================================
-   PRODUCT DETAIL AREA
-   ========================================================= */
+   PRODUCT SECTION
+========================================================= */
 
-.product-detail-container{
+.product-detail-section{
     width:100%;
-    max-width:1050px;
+
+    max-width:1400px;
 
     margin:0 auto;
-    padding:15px 25px 60px;
+
+    padding:
+        10px
+        40px
+        80px;
+}
+
+.product-detail-card{
+    background:#fff;
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 15px 50px rgba(0,0,0,0.10);
+
+    display:grid;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
+    min-height:650px;
 }
 
 
 /* =========================================================
-   PRODUCT DETAIL CARD
-   ========================================================= */
+   MEDIA
+========================================================= */
 
-.product-detail-card{
-    width:100%;
-
+.product-media-area{
     background:
         linear-gradient(
             145deg,
-            #151515,
-            #0d0d0d
+            #f8f5ed,
+            #e9e3d3
         );
 
-    border:1px solid rgba(212,175,55,0.25);
-
-    border-radius:12px;
-
-    padding:25px;
-
-    box-shadow:
-        0 15px 45px rgba(0,0,0,0.55);
+    min-height:650px;
 
     display:flex;
-    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:40px;
+
+    position:relative;
 }
 
-
-/* =========================================================
-   MEDIA AREA
-   ========================================================= */
-
-.detail-media{
+.product-media-wrapper{
     width:100%;
+
     max-width:650px;
 
-    margin:0 auto 25px;
+    height:570px;
 
-    position:relative;
+    display:flex;
 
-    overflow:hidden;
+    align-items:center;
 
-    border-radius:10px;
+    justify-content:center;
 
-    background:#050505;
+    background:#fff;
 
-    border:1px solid rgba(212,175,55,0.18);
-}
-
-.detail-media img,
-.detail-media video{
-    display:block;
-
-    width:100%;
-    height:430px;
-
-    object-fit:contain;
-
-    background:#050505;
-}
-
-
-/* =========================================================
-   DETAIL IMAGE SLIDER
-   ========================================================= */
-
-.detail-slider{
-    width:100%;
-    height:430px;
-
-    position:relative;
+    border-radius:18px;
 
     overflow:hidden;
 
-    background:#050505;
+    box-shadow:
+        0 8px 30px rgba(0,0,0,0.08);
 }
 
-.detail-slider .detail-slide{
-    display:none;
-
+.product-media-wrapper img,
+.product-media-wrapper video{
     width:100%;
-    height:430px;
+
+    height:100%;
 
     object-fit:contain;
 
-    background:#050505;
-}
-
-.detail-slider .detail-slide.active{
     display:block;
 }
 
+.product-media-wrapper video{
+    background:#111;
+}
 
-/* =========================================================
-   SLIDER BUTTONS
-   ========================================================= */
-
-.slider-prev,
-.slider-next{
+.media-badge{
     position:absolute;
 
-    top:50%;
-    transform:translateY(-50%);
+    top:25px;
 
-    width:42px;
-    height:42px;
+    left:25px;
 
-    border:none;
-    border-radius:50%;
+    background:#111;
 
-    background:rgba(0,0,0,0.72);
+    color:#c9a24d;
 
-    color:#d4af37;
+    padding:9px 15px;
 
-    font-size:22px;
+    border-radius:30px;
+
+    font-size:13px;
+
     font-weight:bold;
 
-    cursor:pointer;
-
-    z-index:5;
-
-    transition:
-        background .25s ease,
-        color .25s ease,
-        transform .25s ease;
-}
-
-.slider-prev{
-    left:12px;
-}
-
-.slider-next{
-    right:12px;
-}
-
-.slider-prev:hover,
-.slider-next:hover{
-    background:#d4af37;
-    color:#000;
+    letter-spacing:0.5px;
 }
 
 
 /* =========================================================
    PRODUCT INFORMATION
-   ========================================================= */
+========================================================= */
 
-.detail-info{
-    width:100%;
+.product-info{
+    padding:
+        60px
+        55px;
 
-    text-align:center;
-}
-
-.detail-info h2{
-    margin:5px 0 12px;
-
-    font-size:29px;
-    line-height:1.3;
-
-    color:#ffffff;
-}
-
-.detail-price{
-    margin:10px 0 20px;
-
-    font-size:27px;
-    font-weight:700;
-
-    color:#d4af37;
-}
-
-
-/* =========================================================
-   PRODUCT DESCRIPTION
-   ========================================================= */
-
-.detail-description{
-    max-width:800px;
-
-    margin:0 auto 25px;
-
-    padding:18px 20px;
-
-    background:#111111;
-
-    border-left:3px solid #d4af37;
-
-    border-radius:5px;
-
-    color:#c7c7c7;
-
-    font-size:14px;
-    line-height:1.7;
-
-    text-align:left;
-}
-
-
-/* =========================================================
-   ACTION BUTTONS
-   ========================================================= */
-
-.detail-actions{
     display:flex;
 
+    flex-direction:column;
+
     justify-content:center;
-    align-items:center;
-
-    flex-wrap:wrap;
-
-    gap:12px;
-
-    margin-top:10px;
 }
 
-
-/* WhatsApp */
-
-.enquire-btn{
-    display:inline-flex;
-
-    align-items:center;
-    justify-content:center;
-
-    min-width:180px;
-
-    padding:13px 25px;
-
-    background:#ffffff;
-
-    color:#000000;
-
-    border:1px solid #ffffff;
-
-    border-radius:5px;
-
-    text-decoration:none;
+.product-brand{
+    color:#9b762c;
 
     font-size:14px;
-    font-weight:700;
 
-    cursor:pointer;
+    font-weight:bold;
 
-    transition:
-        background .25s ease,
-        color .25s ease,
-        transform .25s ease;
+    text-transform:uppercase;
+
+    letter-spacing:2px;
+
+    margin-bottom:15px;
 }
 
-.enquire-btn:hover{
-    background:#d4af37;
-    border-color:#d4af37;
-    transform:translateY(-2px);
+.product-name{
+    margin:0 0 18px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:43px;
+
+    line-height:1.15;
+
+    color:#111;
+
+    font-weight:600;
 }
 
-
-/* Add to cart */
-
-.add-to-cart-btn{
-    min-width:180px;
-
-    padding:13px 25px;
-
-    background:#d4af37;
-
-    color:#000000;
-
-    border:1px solid #d4af37;
-
-    border-radius:5px;
+.product-id{
+    color:#777;
 
     font-size:14px;
-    font-weight:700;
 
-    cursor:pointer;
-
-    transition:
-        background .25s ease,
-        color .25s ease,
-        transform .25s ease;
+    margin-bottom:25px;
 }
 
-.add-to-cart-btn:hover{
-    background:#ffffff;
-    border-color:#ffffff;
+.product-price{
+    color:#c9a24d;
 
-    transform:translateY(-2px);
+    font-size:32px;
+
+    font-weight:bold;
+
+    margin-bottom:28px;
+}
+
+.divider{
+    width:100%;
+
+    height:1px;
+
+    background:#ddd;
+
+    margin-bottom:28px;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.product-description{
+    color:#555;
+
+    font-size:17px;
+
+    line-height:1.75;
+
+    margin:0 0 30px;
+}
+
+
+/* =========================================================
+   FEATURES
+========================================================= */
+
+.feature-list{
+    margin:0 0 30px;
+
+    padding:0;
+
+    list-style:none;
+}
+
+.feature-list li{
+    margin-bottom:12px;
+
+    color:#444;
+
+    font-size:15px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+}
+
+.feature-list li::before{
+    content:"◆";
+
+    color:#c9a24d;
+
+    font-size:9px;
 }
 
 
 /* =========================================================
    QUANTITY
-   ========================================================= */
+========================================================= */
 
-.quantity-wrapper{
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    gap:10px;
-
-    margin:18px 0;
-}
-
-.quantity-wrapper span{
-    color:#cfcfcf;
+.quantity-title{
     font-size:14px;
-    font-weight:600;
-}
 
-.quantity-control{
-    display:flex;
-
-    align-items:center;
-
-    border:1px solid rgba(212,175,55,0.5);
-
-    border-radius:5px;
-
-    overflow:hidden;
-}
-
-.quantity-control button{
-    width:38px;
-    height:36px;
-
-    border:none;
-
-    background:#151515;
-
-    color:#d4af37;
-
-    font-size:20px;
     font-weight:bold;
 
+    margin-bottom:10px;
+
+    color:#333;
+}
+
+.quantity-box{
+    display:flex;
+
+    align-items:center;
+
+    width:max-content;
+
+    border:1px solid #ccc;
+
+    border-radius:6px;
+
+    overflow:hidden;
+
+    margin-bottom:25px;
+}
+
+.quantity-box button{
+    width:42px;
+
+    height:42px;
+
+    border:0;
+
+    background:#f4f4f4;
+
+    font-size:20px;
+
     cursor:pointer;
+
+    transition:
+        background 0.2s ease;
 }
 
-.quantity-control button:hover{
-    background:#d4af37;
-    color:#000;
+.quantity-box button:hover{
+    background:#c9a24d;
 }
 
-.quantity-control input{
-    width:45px;
-    height:36px;
+.quantity-box input{
+    width:55px;
 
-    border:none;
+    height:42px;
 
-    border-left:1px solid rgba(212,175,55,0.3);
-    border-right:1px solid rgba(212,175,55,0.3);
+    border:0;
 
-    background:#0b0b0b;
+    border-left:1px solid #ddd;
 
-    color:#ffffff;
+    border-right:1px solid #ddd;
 
     text-align:center;
 
-    font-size:15px;
+    font-size:16px;
+
+    font-weight:bold;
 
     outline:none;
 }
 
 
 /* =========================================================
+   ACTION BUTTONS
+========================================================= */
+
+.action-buttons{
+    display:grid;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
+    gap:12px;
+
+    margin-bottom:15px;
+}
+
+.add-cart-btn,
+.buy-now-btn{
+    min-height:54px;
+
+    border-radius:6px;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.3s ease;
+}
+
+.add-cart-btn{
+    background:#fff;
+
+    color:#111;
+
+    border:2px solid #111;
+}
+
+.add-cart-btn:hover{
+    background:#111;
+
+    color:#fff;
+}
+
+.buy-now-btn{
+    background:#111;
+
+    color:#fff;
+
+    border:2px solid #111;
+}
+
+.buy-now-btn:hover{
+    background:#c9a24d;
+
+    color:#111;
+
+    border-color:#c9a24d;
+}
+
+
+/* =========================================================
+   WHATSAPP
+========================================================= */
+
+.whatsapp-product-btn{
+    width:100%;
+
+    min-height:52px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    background:#c9a24d;
+
+    color:#111;
+
+    text-decoration:none;
+
+    border-radius:6px;
+
+    font-weight:bold;
+
+    border:2px solid #c9a24d;
+
+    transition:0.3s ease;
+}
+
+.whatsapp-product-btn:hover{
+    background:#111;
+
+    color:#fff;
+
+    border-color:#111;
+}
+
+.whatsapp-product-btn img{
+    width:25px;
+
+    height:25px;
+
+    object-fit:contain;
+}
+
+
+/* =========================================================
    CART MESSAGE
-   ========================================================= */
+========================================================= */
 
 .cart-message{
-    min-height:20px;
+    min-height:24px;
 
-    margin-top:14px;
+    color:#2d8a43;
 
-    color:#d4af37;
+    font-size:14px;
 
-    font-size:13px;
-    font-weight:600;
+    font-weight:bold;
+
+    margin-top:10px;
+}
+
+
+/* =========================================================
+   DELIVERY
+========================================================= */
+
+.delivery-info{
+    margin-top:25px;
+
+    padding-top:20px;
+
+    border-top:1px solid #ddd;
+}
+
+.delivery-info strong{
+    color:#111;
+
+    font-size:16px;
+}
+
+.delivery-info p{
+    margin:10px 0 0;
+
+    color:#666;
+
+    font-size:14px;
+
+    line-height:1.6;
 }
 
 
 /* =========================================================
    RELATED PRODUCTS
-   ========================================================= */
+========================================================= */
 
 .related-section{
     width:100%;
 
-    max-width:1050px;
+    max-width:1400px;
 
-    margin:10px auto 70px;
+    margin:0 auto;
 
-    padding:0 25px;
+    padding:
+        20px
+        40px
+        80px;
 }
 
-.related-title{
+.related-heading{
     text-align:center;
 
-    margin-bottom:25px;
+    margin-bottom:40px;
 }
 
-.related-title h2{
+.related-heading h2{
+    margin:0 0 12px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:38px;
+
+    color:#111;
+}
+
+.related-heading p{
     margin:0;
 
-    color:#ffffff;
+    color:#666;
 
-    font-size:27px;
-    letter-spacing:1px;
-}
-
-.related-title span{
-    color:#d4af37;
+    font-size:16px;
 }
 
 .related-grid{
     display:grid;
 
     grid-template-columns:
-        repeat(3, 1fr);
+        repeat(4,1fr);
 
-    gap:18px;
+    gap:25px;
 }
 
 .related-card{
-    background:#111111;
+    background:#fff;
 
-    border:1px solid rgba(212,175,55,0.22);
+    border-radius:15px;
 
-    border-radius:8px;
+    overflow:hidden;
 
-    padding:15px;
-
-    text-align:center;
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.08);
 
     transition:
-        transform .25s ease,
-        border-color .25s ease;
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .related-card:hover{
-    transform:translateY(-4px);
+    transform:translateY(-5px);
 
-    border-color:#d4af37;
+    box-shadow:
+        0 14px 35px rgba(0,0,0,0.13);
 }
 
-.related-card img{
+.related-media{
     width:100%;
-    height:220px;
+
+    height:260px;
+
+    background:#f5f5f5;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    overflow:hidden;
+}
+
+.related-media img,
+.related-media video{
+    width:100%;
+
+    height:100%;
 
     object-fit:contain;
-
-    background:#050505;
-
-    border-radius:5px;
 }
 
-.related-card h3{
-    min-height:42px;
+.related-media video{
+    background:#111;
+}
 
-    margin:13px 0 7px;
+.related-info{
+    padding:20px;
 
-    color:#ffffff;
+    text-align:center;
+}
 
-    font-size:15px;
+.related-info h3{
+    margin:0 0 12px;
+
+    font-size:17px;
+
     line-height:1.4;
+
+    min-height:48px;
+
+    color:#111;
 }
 
 .related-price{
-    color:#d4af37;
+    color:#c9a24d;
 
-    font-size:17px;
-    font-weight:700;
+    font-size:18px;
 
-    margin-bottom:12px;
+    font-weight:bold;
+
+    margin-bottom:15px;
 }
 
 .related-btn{
-    display:inline-block;
+    display:inline-flex;
 
-    padding:9px 15px;
+    align-items:center;
 
-    border:1px solid #d4af37;
+    justify-content:center;
 
-    border-radius:4px;
+    width:100%;
 
-    color:#d4af37;
+    min-height:45px;
+
+    background:#111;
+
+    color:#fff;
 
     text-decoration:none;
 
-    font-size:12px;
-    font-weight:700;
+    border-radius:5px;
 
-    transition:
-        background .25s ease,
-        color .25s ease;
+    font-weight:bold;
+
+    transition:0.3s ease;
 }
 
 .related-btn:hover{
-    background:#d4af37;
-    color:#000;
+    background:#c9a24d;
+
+    color:#111;
 }
 
 
 /* =========================================================
    FOOTER
-   ========================================================= */
+========================================================= */
 
-footer{
-    width:100%;
+.main-footer{
+    background:#111;
 
-    background:#070707;
+    color:#fff;
 
-    border-top:1px solid rgba(212,175,55,0.25);
-
-    padding:45px 30px 20px;
+    margin-top:20px;
 }
 
 .footer-container{
-    max-width:1050px;
+    width:100%;
 
-    margin:auto;
+    max-width:1400px;
 
+    margin:0 auto;
+
+    padding:
+        60px
+        50px
+        0;
+}
+
+.footer-top{
     display:grid;
 
     grid-template-columns:
-        repeat(3,1fr);
+        1fr
+        1fr
+        1fr;
 
-    gap:35px;
+    gap:50px;
+
+    padding-bottom:50px;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,0.15);
 }
 
-.footer-column h3{
-    margin:0 0 15px;
+.footer-top > h2{
+    grid-column:1 / -1;
 
-    color:#d4af37;
+    text-align:center;
 
-    font-size:17px;
+    margin:0 0 10px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:38px;
+
+    color:#c9a24d;
 }
 
-.footer-column p{
-    margin:7px 0;
+.contact-column h3,
+.whatsapp-column h3,
+.footer-links-column h3,
+.footer-social h3{
+    color:#c9a24d;
 
-    color:#a8a8a8;
+    font-size:20px;
 
-    font-size:13px;
+    margin:0 0 18px;
+}
+
+.contact-column p{
+    color:#bbb;
+
+    font-size:15px;
 
     line-height:1.6;
 }
 
-.footer-column a{
+.footer-link{
     display:block;
 
-    margin:8px 0;
-
-    color:#a8a8a8;
+    color:#fff;
 
     text-decoration:none;
 
-    font-size:13px;
+    margin-bottom:12px;
 
-    transition:color .2s ease;
+    transition:0.3s ease;
 }
 
-.footer-column a:hover{
-    color:#d4af37;
+.footer-link:hover{
+    color:#c9a24d;
 }
 
+.whatsapp-column{
+    text-align:center;
+}
 
-/* =========================================================
-   WHATSAPP FOOTER BUTTON
-   ========================================================= */
-
-.whatsapp-btn{
-    display:inline-flex !important;
+.whatsapp-title{
+    display:flex;
 
     align-items:center;
+
     justify-content:center;
 
-    width:auto;
-
-    padding:11px 18px;
-
-    margin-top:8px !important;
-
-    background:#ffffff;
-
-    color:#000000 !important;
-
-    border-radius:5px;
-
-    font-weight:700;
-
-    transition:
-        background .25s ease,
-        color .25s ease;
+    gap:10px;
 }
 
-.whatsapp-btn:hover{
-    background:#d4af37;
+.whatsapp-icon{
+    width:28px !important;
 
-    color:#000000 !important;
+    height:28px !important;
+
+    object-fit:contain !important;
 }
 
+.whatsapp-button{
+    display:inline-block;
 
-/* =========================================================
-   INSTAGRAM BUTTON
-   ========================================================= */
+    background:#c9a24d;
 
-.instagram-btn{
-    display:inline-flex !important;
+    color:#111;
+
+    text-decoration:none;
+
+    padding:13px 30px;
+
+    border-radius:6px;
+
+    font-weight:bold;
+
+    transition:0.3s ease;
+}
+
+.whatsapp-button:hover{
+    background:#fff;
+
+    color:#111;
+}
+
+.footer-middle{
+    display:grid;
+
+    grid-template-columns:
+        1fr
+        1fr
+        1fr;
+
+    gap:50px;
+
+    padding:50px 0;
+}
+
+.footer-links-column{
+    display:flex;
+
+    flex-direction:column;
+}
+
+.footer-links-column a{
+    color:#ccc;
+
+    text-decoration:none;
+
+    margin-bottom:13px;
+
+    transition:0.3s ease;
+}
+
+.footer-links-column a:hover{
+    color:#c9a24d;
+}
+
+.footer-social{
+    text-align:center;
+}
+
+.footer-social p{
+    color:#bbb;
+
+    margin-bottom:15px;
+}
+
+.instagram-button{
+    display:inline-flex;
 
     align-items:center;
+
     justify-content:center;
 
-    width:auto;
+    width:50px;
 
-    padding:11px 18px;
+    height:50px;
 
-    margin-top:8px !important;
+    border:
+        1px solid
+        #c9a24d;
 
-    border:1px solid #d4af37;
+    border-radius:50%;
 
-    border-radius:5px;
-
-    color:#d4af37 !important;
-
-    font-weight:700;
+    transition:0.3s ease;
 }
 
-.instagram-btn:hover{
-    background:#d4af37;
-
-    color:#000000 !important;
+.instagram-button:hover{
+    background:#c9a24d;
 }
 
+.instagram-button img{
+    width:28px;
 
-/* =========================================================
-   COPYRIGHT
-   ========================================================= */
+    height:28px;
 
-.copyright{
-    max-width:1050px;
+    object-fit:contain;
+}
 
-    margin:35px auto 0;
-
-    padding-top:20px;
-
-    border-top:1px solid rgba(255,255,255,0.08);
+.footer-bottom{
+    border-top:
+        1px solid
+        rgba(255,255,255,0.15);
 
     text-align:center;
 
-    color:#777777;
+    padding:25px 10px;
+}
 
-    font-size:12px;
+.footer-bottom p{
+    margin:0;
+
+    color:#999;
+
+    font-size:14px;
+
+    line-height:1.6;
 }
 
 
 /* =========================================================
-   RESPONSIVE
-   ========================================================= */
+   TABLET
+========================================================= */
 
-@media(max-width:800px){
+@media(max-width:1100px){
 
-    .footer-container{
-        grid-template-columns:1fr 1fr;
+    .product-detail-card{
+        grid-template-columns:1fr;
+    }
+
+    .product-media-area{
+        min-height:550px;
+    }
+
+    .product-media-wrapper{
+        height:500px;
     }
 
     .related-grid{
@@ -839,54 +1086,79 @@ footer{
 }
 
 
-@media(max-width:600px){
+/* =========================================================
+   MOBILE
+========================================================= */
 
-    .back-wrapper{
-        padding-left:20px;
-        padding-right:20px;
+@media(max-width:768px){
+
+    .top-bar{
+        padding:
+            20px
+            25px;
     }
 
-    .page-heading h1{
+    .brand-logo{
+        font-size:22px;
+
+        letter-spacing:3px;
+    }
+
+    .back-btn{
+        font-size:14px;
+    }
+
+    .page-header{
+        padding:
+            20px
+            15px
+            30px;
+    }
+
+    .page-header h1{
+        font-size:40px;
+    }
+
+    .product-detail-section{
+        padding:
+            10px
+            15px
+            50px;
+    }
+
+    .product-media-area{
+        min-height:400px;
+
+        padding:25px;
+    }
+
+    .product-media-wrapper{
+        height:360px;
+    }
+
+    .product-info{
+        padding:
+            40px
+            25px;
+    }
+
+    .product-name{
+        font-size:34px;
+    }
+
+    .product-price{
         font-size:28px;
     }
 
-    .product-detail-container{
-        padding-left:15px;
-        padding-right:15px;
-    }
-
-    .product-detail-card{
-        padding:15px;
-    }
-
-    .detail-media,
-    .detail-slider{
-        height:350px;
-    }
-
-    .detail-media img,
-    .detail-media video,
-    .detail-slider .detail-slide{
-        height:350px;
-    }
-
-    .detail-info h2{
-        font-size:24px;
-    }
-
-    .detail-actions{
-        flex-direction:column;
-    }
-
-    .enquire-btn,
-    .add-to-cart-btn{
-        width:100%;
-        max-width:350px;
+    .action-buttons{
+        grid-template-columns:1fr;
     }
 
     .related-section{
-        padding-left:15px;
-        padding-right:15px;
+        padding:
+            20px
+            15px
+            60px;
     }
 
     .related-grid{
@@ -894,58 +1166,89 @@ footer{
     }
 
     .footer-container{
+        padding:
+            45px
+            25px
+            0;
+    }
+
+    .footer-top{
         grid-template-columns:1fr;
+
+        gap:35px;
+    }
+
+    .footer-top > h2{
+        font-size:32px;
+    }
+
+    .footer-middle{
+        grid-template-columns:1fr;
+
+        gap:35px;
+
         text-align:center;
     }
 
-}
-
-
-/* =========================================================
-   SMALL SCREEN
-   ========================================================= */
-
-@media(max-width:400px){
-
-    .detail-media,
-    .detail-slider{
-        height:300px;
-    }
-
-    .detail-media img,
-    .detail-media video,
-    .detail-slider .detail-slide{
-        height:300px;
-    }
-
-    .page-heading h1{
-        font-size:24px;
+    .footer-links-column{
+        align-items:center;
     }
 
 }
 
 
 /* =========================================================
-   SUCCESS ANIMATION
-   ========================================================= */
+   SMALL MOBILE
+========================================================= */
 
-.added-animation{
-    animation:
-        addedPulse .45s ease;
-}
+@media(max-width:450px){
 
-@keyframes addedPulse{
-
-    0%{
-        transform:scale(1);
+    .top-bar{
+        padding:
+            18px
+            15px;
     }
 
-    50%{
-        transform:scale(1.04);
+    .brand-logo{
+        font-size:18px;
+
+        letter-spacing:2px;
     }
 
-    100%{
-        transform:scale(1);
+    .back-btn{
+        font-size:13px;
+    }
+
+    .page-header h1{
+        font-size:34px;
+    }
+
+    .product-media-area{
+        min-height:330px;
+
+        padding:15px;
+    }
+
+    .product-media-wrapper{
+        height:300px;
+    }
+
+    .product-info{
+        padding:
+            30px
+            20px;
+    }
+
+    .product-name{
+        font-size:29px;
+    }
+
+    .product-description{
+        font-size:15px;
+    }
+
+    .related-heading h2{
+        font-size:30px;
     }
 
 }
@@ -959,96 +1262,243 @@ footer{
 
 
 <!-- =========================================================
-     HEADER
-     ========================================================= -->
+     TOP HEADER
+========================================================= -->
 
-<header>
+<div class="top-bar">
 
-    <div class="logo">
+    <div class="brand-logo">
         50 MIRARS
     </div>
 
-    <div class="logo-subtitle">
-        WATCHES • SUNGLASSES • LUXURY
-    </div>
-
-</header>
-
-
-
-<!-- =========================================================
-     BACK BUTTON
-     ========================================================= -->
-
-<div class="back-wrapper">
-
     <a
-        href="couple-watches.html"
+        href="most-selling.html"
         class="back-btn"
     >
-        ← Back to Couple Watches
+        ← Back to Most Selling Articles
     </a>
 
 </div>
 
 
-
 <!-- =========================================================
-     PAGE HEADING
-     ========================================================= -->
+     PAGE HEADER
+========================================================= -->
 
-<section class="page-heading">
+<header class="page-header">
 
     <h1>
-        Couple <span>Watches</span>
+        Couple Watches
     </h1>
 
-    <p>
-        Discover timeless watches designed for two.
-    </p>
+    <div class="title-line"></div>
+
+</header>
+
+
+<!-- =========================================================
+     PRODUCT DETAIL
+========================================================= -->
+
+<section class="product-detail-section">
+
+    <div class="product-detail-card">
+
+
+        <div class="product-media-area">
+
+            <div
+                class="media-badge"
+                id="mediaBadge"
+            >
+                50 MIRARS
+            </div>
+
+            <div
+                class="product-media-wrapper"
+                id="productMedia"
+            >
+            </div>
+
+        </div>
+
+
+        <div class="product-info">
+
+            <div
+                class="product-brand"
+                id="productBrand"
+            >
+                Couple Watches
+            </div>
+
+
+            <h2
+                class="product-name"
+                id="productName"
+            >
+                Loading Product...
+            </h2>
+
+
+            <div
+                class="product-id"
+                id="productId"
+            >
+                Product ID
+            </div>
+
+
+            <div
+                class="product-price"
+                id="productPrice"
+            >
+                ₹0
+            </div>
+
+
+            <div class="divider"></div>
+
+
+            <p
+                class="product-description"
+                id="productDescription"
+            >
+                Loading product information...
+            </p>
+
+
+            <ul
+                class="feature-list"
+                id="featureList"
+            >
+            </ul>
+
+
+            <div class="quantity-title">
+                Quantity
+            </div>
+
+
+            <div class="quantity-box">
+
+                <button
+                    type="button"
+                    id="minusBtn"
+                >
+                    −
+                </button>
+
+                <input
+                    type="number"
+                    id="quantity"
+                    value="1"
+                    min="1"
+                    max="10"
+                >
+
+                <button
+                    type="button"
+                    id="plusBtn"
+                >
+                    +
+                </button>
+
+            </div>
+
+
+            <div class="action-buttons">
+
+                <button
+                    type="button"
+                    class="add-cart-btn"
+                    id="addCartBtn"
+                >
+                    Add to Cart
+                </button>
+
+
+                <button
+                    type="button"
+                    class="buy-now-btn"
+                    id="buyNowBtn"
+                >
+                    Buy Now
+                </button>
+
+            </div>
+
+
+            <a
+                href="#"
+                target="_blank"
+                rel="noopener"
+                class="whatsapp-product-btn"
+                id="whatsappBtn"
+            >
+
+                <img
+                    src="whatsapplogo.png"
+                    alt="WhatsApp"
+                >
+
+                Enquire on WhatsApp
+
+            </a>
+
+
+            <div
+                class="cart-message"
+                id="cartMessage"
+            >
+            </div>
+
+
+            <div class="delivery-info">
+
+                <strong>
+                    Delivery Information
+                </strong>
+
+                <p>
+                    Full payment is required before delivery.
+                    Delivery availability and estimated delivery
+                    time may vary depending on your location.
+                    Contact 50 Mirars for assistance.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 
 
 
 <!-- =========================================================
-     PRODUCT DETAIL
-     ========================================================= -->
-
-<main class="product-detail-container">
-
-    <div
-        class="product-detail-card"
-        id="productDetail"
-    >
-
-        <!-- Dynamic product content inserted here -->
-
-    </div>
-
-</main>
-
-
-
-<!-- =========================================================
      RELATED PRODUCTS
-     ========================================================= -->
+========================================================= -->
 
 <section class="related-section">
 
-    <div class="related-title">
+    <div class="related-heading">
 
         <h2>
-            More <span>Couple Watches</span>
+            You May Also Like
         </h2>
+
+        <p>
+            Explore more most selling watches and sunglasses from the 50 Mirars collection.
+        </p>
 
     </div>
 
     <div
         class="related-grid"
-        id="relatedProducts"
+        id="relatedGrid"
     >
-        <!-- Dynamic related products -->
     </div>
 
 </section>
@@ -1057,105 +1507,177 @@ footer{
 
 <!-- =========================================================
      FOOTER
-     ========================================================= -->
+========================================================= -->
 
-<footer>
+<footer class="main-footer">
 
     <div class="footer-container">
 
+        <div class="footer-top">
 
-        <!-- CONTACT -->
-
-        <div class="footer-column">
-
-            <h3>
+            <h2>
                 Contact Us
-            </h3>
+            </h2>
 
-            <p>
-                50 Mirars
-            </p>
 
-            <p>
-                Premium Watches &amp; Sunglasses
-            </p>
+            <div class="contact-column">
 
-            <p>
-                India
-            </p>
+                <h3>
+                    For Customers:
+                </h3>
 
-            <a
-                class="whatsapp-btn"
-                href="https://api.whatsapp.com/send?phone=918209989013"
-                target="_blank"
-            >
-                WhatsApp Us
-            </a>
+                <a
+                    href="mailto:50mirars@gmail.com"
+                    class="footer-link"
+                >
+                    50mirars@gmail.com
+                </a>
+
+                <a
+                    href="tel:+918209989013"
+                    class="footer-link"
+                >
+                    82099 89013
+                </a>
+
+                <p>
+                    09:00 - 21:30 | Monday to Sunday
+                </p>
+
+            </div>
+
+
+            <div class="contact-column">
+
+                <h3>
+                    For Sales/Watch Service:
+                </h3>
+
+                <a
+                    href="mailto:50mirars@gmail.com"
+                    class="footer-link"
+                >
+                    50mirars@gmail.com
+                </a>
+
+                <a
+                    href="tel:+918209989013"
+                    class="footer-link"
+                >
+                    82099 89013
+                </a>
+
+                <p>
+                    09:00 - 21:30 | Monday to Sunday
+                </p>
+
+            </div>
+
+
+            <div class="whatsapp-column">
+
+                <h3 class="whatsapp-title">
+
+                    <span>
+                        View Products on WhatsApp
+                    </span>
+
+                    <img
+                        src="whatsapplogo.png"
+                        alt="WhatsApp"
+                        class="whatsapp-icon"
+                    >
+
+                </h3>
+
+                <a
+                    href="https://wa.me/918209989013"
+                    target="_blank"
+                    rel="noopener"
+                    class="whatsapp-button"
+                >
+                    View Products
+                </a>
+
+            </div>
 
         </div>
 
 
-        <!-- KNOW 50 MIRARS -->
+        <div class="footer-middle">
 
-        <div class="footer-column">
+            <div class="footer-links-column">
 
-            <h3>
-                Know 50 Mirars
-            </h3>
+                <h3>
+                    Know 50 Mirars
+                </h3>
 
-            <a href="index.html">
-                Home
-            </a>
+                <a href="about.html">
+                    About Us
+                </a>
 
-            <a href="about.html">
-                About Us
-            </a>
+                <a href="faq.html">
+                    FAQ
+                </a>
 
-            <a href="faq.html">
-                FAQ
-            </a>
+            </div>
 
-            <a href="terms.html">
-                Terms &amp; Conditions
-            </a>
 
-            <a href="privacyPolicy.html">
-                Privacy Policy
-            </a>
+            <div class="footer-links-column">
+
+                <h3>
+                    Terms &amp; Conditions
+                </h3>
+
+                <a href="terms.html">
+                    Terms &amp; Conditions
+                </a>
+
+                <a href="privacypolicy.html">
+                    Privacy Policy
+                </a>
+
+            </div>
+
+
+            <div class="footer-social">
+
+                <h3>
+                    50 Mirars
+                </h3>
+
+                <p>
+                    Follow Us On
+                </p>
+
+                <a
+                    href="https://instagram.com/50mirars"
+                    target="_blank"
+                    rel="noopener"
+                    class="instagram-button"
+                    aria-label="Follow 50 Mirars on Instagram"
+                >
+
+                    <img
+                        src="instagramimage.webp"
+                        alt="Instagram"
+                    >
+
+                </a>
+
+            </div>
 
         </div>
 
 
-        <!-- SOCIAL -->
-
-        <div class="footer-column">
-
-            <h3>
-                Follow Us
-            </h3>
+        <div class="footer-bottom">
 
             <p>
-                Follow 50 Mirars for our latest
-                watches, sunglasses and offers.
+                © 2026 50 Mirars - The Watch &amp; Sunglasses Store.
+                All Rights Reserved.
             </p>
 
-            <a
-                class="instagram-btn"
-                href="https://www.instagram.com/"
-                target="_blank"
-            >
-                Instagram
-            </a>
-
         </div>
-
-
-    </div>
-
-
-    <div class="copyright">
-
-        © 2026 50 Mirars. All Rights Reserved.
 
     </div>
 
