@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +13,7 @@
 
 <meta
     name="description"
-    content="Premium most selling watches and sunglasses product details at 50 Mirars."
+    content="Premium couple watches product details at 50 Mirars."
 >
 
 <title>Product Details | 50 Mirars</title>
@@ -1272,10 +1273,10 @@ body{
     </div>
 
     <a
-        href="most-selling.html"
+        href="couple-watches.html"
         class="back-btn"
     >
-        ← Back to Most Selling Articles
+        ← Back to Couple Watches
     </a>
 
 </div>
@@ -1476,7 +1477,6 @@ body{
 </section>
 
 
-
 <!-- =========================================================
      RELATED PRODUCTS
 ========================================================= -->
@@ -1490,7 +1490,7 @@ body{
         </h2>
 
         <p>
-            Explore more most selling watches and sunglasses from the 50 Mirars collection.
+            Explore more couple watches from the 50 Mirars collection.
         </p>
 
     </div>
@@ -1502,7 +1502,6 @@ body{
     </div>
 
 </section>
-
 
 
 <!-- =========================================================
@@ -1684,1012 +1683,967 @@ body{
 </footer>
 
 
-
 <script>
 
 /* =========================================================
-   PRODUCT DATABASE
-   ========================================================= */
+   COUPLE WATCHES DATABASE
+========================================================= */
 
-const products = [
+const coupleWatches = [
 
     {
+        id:1,
         name:"Cartier Santos Dumont Couple Watch",
         price:4500,
-        type:"image",
-        media:[
-            "Cartier Santos Dumont Couple Watch.jpeg"
-        ]
+        media:"image",
+        file:"Cartier Santos Dumont Couple Watch.jpeg",
+        brand:"Cartier"
     },
 
-
     {
+        id:2,
         name:"Rolex All Black Couple Watch",
         price:4000,
-        type:"video",
-        media:[
-            "Rolex All Black Couple Watch.mp4"
-        ]
+        media:"video",
+        file:"Rolex All Black Couple Watch.mp4",
+        brand:"Rolex"
     },
 
-
     {
+        id:3,
         name:"Rolex Automatic Couple Watch",
         price:5000,
-        type:"image",
-        media:[
-            "Rolex Automatic Couple Watch.jpeg"
-        ]
+        media:"image",
+        file:"Rolex Automatic Couple Watch.jpeg",
+        brand:"Rolex"
     },
 
-
     {
+        id:4,
         name:"Rolex Sky-Dweller Couple Watch",
         price:5000,
-        type:"image",
-        media:[
-            "Rolex Sky-Dewller Couple Watch.jpeg"
-        ]
+        media:"image",
+        file:"Rolex Sky-Dweller Couple Watch.jpeg",
+        brand:"Rolex"
     },
 
-
     {
+        id:5,
         name:"Rado Diastar Couple Watch",
         price:5000,
-        type:"image",
-        media:[
-            "Rado Diastar Couple Watch.jpeg"
-        ]
+        media:"image",
+        file:"Rado Diastar Couple Watch.jpeg",
+        brand:"Rado"
     },
 
-
     {
+        id:6,
         name:"Fossil Nick Jonas Couple Watch",
         price:4500,
-        type:"slider",
-        media:[
-            "Fossil Nick Jonas Couple Watch .jpeg",
-            "Fossil Nick Jonas Couple Watch 2.jpeg"
-        ]
+        media:"image",
+        file:"Fossil Nick Jonas Couple Watch.jpeg",
+        brand:"Fossil"
     },
 
-
     {
+        id:7,
         name:"Rado Centrix Jubile Couple Watch",
         price:4500,
-        type:"image",
-        media:[
-            "Rado Centrix Jubile Couple Watch.jpeg"
-        ]
+        media:"image",
+        file:"Rado Centrix Jubile Couple Watch.jpeg",
+        brand:"Rado"
     },
 
-
     {
+        id:8,
         name:"Tissot Gentel Couple Watch",
         price:5000,
-        type:"image",
-        media:[
-            "Tissot Gentel Couple Watch.jpeg"
-        ]
+        media:"image",
+        file:"Tissot Gentel Couple Watch.jpeg",
+        brand:"Tissot"
     },
 
-
     {
+        id:9,
         name:"Omega Constellation Couple Watch",
         price:4500,
-        type:"image",
-        media:[
-            "Omega Constellation Couple Watch.jpeg"
-        ]
+        media:"image",
+        file:"Omega Constellation Couple Watch.jpeg",
+        brand:"Omega"
     },
 
-
     {
+        id:10,
         name:"Cartier Santos Roman Couple Watch",
         price:4500,
-        type:"image",
-        media:[
-            "Cartier Santos Roman Couple Watch.jpeg"
-        ]
+        media:"image",
+        file:"Cartier Santos Roman Couple Watch.jpeg",
+        brand:"Cartier"
     },
 
-
     {
+        id:11,
         name:"Citizen Classic Couple Watch",
         price:4500,
-        type:"image",
-        media:[
-            "Citizen Classic Couple Watch.jpeg"
-        ]
-    },
-
-
-    {
-        name:"Casio Vintage Couple Watch",
-        price:4500,
-        type:"image",
-        media:[
-            "Casio Vintage Couple Watch.jpeg"
-        ]
-    },
-
-
-    {
-        name:"Danial Wellington Couple",
-        price:4500,
-        type:"slider",
-        media:[
-            "Danial Wellington Couple Watch.jpeg",
-            "Danial Wellington Couple 2.jpeg"
-        ]
-    },
-
-
-    {
-        name:"Rolex Day-Date Couple Watch",
-        price:5500,
-        type:"slider",
-        media:[
-            "Rolex Day-Date Couple Watch.jpeg",
-            "Rolex Day-Date Couple Watch 2.jpeg",
-            "Rolex Day-Date Couple Watch 3.jpeg",
-            "Rolex Day-Date Couple Watch 4.jpeg",
-            "Rolex Day-Date Couple Watch 5.jpeg",
-            "Rolex Day-Date Couple Watch 6.jpeg",
-            "Rolex Day-Date Couple Watch 7.jpeg",
-            "Rolex Day-Date Couple Watch 8.jpeg",
-            "Rolex Day-Date Couple Watch 9.jpeg",
-            "Rolex Day-Date Couple Watch 10.jpeg",
-            "Rolex Day-Date Couple Watch 11.jpeg"
-        ]
+        media:"image",
+        file:"Citizen Classic Couple Watch.jpeg",
+        brand:"Citizen"
     }
 
 ];
 
 
-
 /* =========================================================
-   GET PRODUCT FROM URL
-   ========================================================= */
+   GET PRODUCT ID
+========================================================= */
 
-const urlParams =
+const params =
     new URLSearchParams(
         window.location.search
     );
 
-const requestedProduct =
-    urlParams.get("product");
+const rawProductId =
+    params.get("id");
 
+const productId =
+    Number.parseInt(
+        rawProductId,
+        10
+    );
 
 
 /* =========================================================
    FIND PRODUCT
-   ========================================================= */
+========================================================= */
 
-let currentProduct =
-    products.find(
-        product =>
-            product.name === requestedProduct
+const product =
+    coupleWatches.find(
+        item =>
+            Number(item.id) ===
+            productId
     );
 
 
-
 /* =========================================================
-   DEFAULT PRODUCT
-   ========================================================= */
+   ELEMENTS
+========================================================= */
 
-if(!currentProduct){
+const productMedia =
+    document.getElementById(
+        "productMedia"
+    );
 
-    currentProduct = products[0];
+const productBrand =
+    document.getElementById(
+        "productBrand"
+    );
 
-}
+const productName =
+    document.getElementById(
+        "productName"
+    );
 
+const productIdElement =
+    document.getElementById(
+        "productId"
+    );
+
+const productPrice =
+    document.getElementById(
+        "productPrice"
+    );
+
+const productDescription =
+    document.getElementById(
+        "productDescription"
+    );
+
+const featureList =
+    document.getElementById(
+        "featureList"
+    );
+
+const quantity =
+    document.getElementById(
+        "quantity"
+    );
+
+const cartMessage =
+    document.getElementById(
+        "cartMessage"
+    );
+
+const relatedGrid =
+    document.getElementById(
+        "relatedGrid"
+    );
+
+const whatsappBtn =
+    document.getElementById(
+        "whatsappBtn"
+    );
 
 
 /* =========================================================
    FORMAT PRICE
-   ========================================================= */
+========================================================= */
 
 function formatPrice(price){
 
     return "₹" +
-        Number(price).toLocaleString("en-IN");
+        Number(price)
+            .toLocaleString("en-IN");
 
 }
-
-
-
-/* =========================================================
-   WHATSAPP URL
-   ========================================================= */
-
-function whatsappLink(productName){
-
-    const message =
-        `Hello 50 Mirars, I am interested in ${productName}.`;
-
-    return (
-        "https://api.whatsapp.com/send" +
-        "?phone=918209989013" +
-        "&text=" +
-        encodeURIComponent(message)
-    );
-
-}
-
-
-
-/* =========================================================
-   CREATE PRODUCT MEDIA
-   ========================================================= */
-
-function createMedia(product){
-
-    const wrapper =
-        document.createElement("div");
-
-    wrapper.className =
-        "detail-media";
-
-
-    /* -------------------------
-       VIDEO
-       ------------------------- */
-
-    if(product.type === "video"){
-
-        const video =
-            document.createElement("video");
-
-        video.controls = true;
-        video.playsInline = true;
-        video.preload = "metadata";
-
-        const source =
-            document.createElement("source");
-
-        source.src =
-            product.media[0];
-
-        source.type =
-            "video/mp4";
-
-        video.appendChild(source);
-
-        wrapper.appendChild(video);
-
-        return wrapper;
-
-    }
-
-
-    /* -------------------------
-       SINGLE IMAGE
-       ------------------------- */
-
-    if(product.type === "image"){
-
-        const image =
-            document.createElement("img");
-
-        image.src =
-            product.media[0];
-
-        image.alt =
-            product.name;
-
-        wrapper.appendChild(image);
-
-        return wrapper;
-
-    }
-
-
-    /* -------------------------
-       IMAGE SLIDER
-       ------------------------- */
-
-    if(product.type === "slider"){
-
-        const slider =
-            document.createElement("div");
-
-        slider.className =
-            "detail-slider";
-
-
-        product.media.forEach(
-            (src,index) => {
-
-                const image =
-                    document.createElement("img");
-
-                image.src = src;
-
-                image.alt =
-                    product.name;
-
-                image.className =
-                    "detail-slide" +
-                    (index === 0
-                        ? " active"
-                        : "");
-
-                slider.appendChild(image);
-
-            }
-        );
-
-
-        if(product.media.length > 1){
-
-            const prev =
-                document.createElement("button");
-
-            prev.className =
-                "slider-prev";
-
-            prev.type =
-                "button";
-
-            prev.innerHTML =
-                "❮";
-
-
-            const next =
-                document.createElement("button");
-
-            next.className =
-                "slider-next";
-
-            next.type =
-                "button";
-
-            next.innerHTML =
-                "❯";
-
-
-            slider.appendChild(prev);
-            slider.appendChild(next);
-
-
-            let currentSlide = 0;
-
-            const slides =
-                slider.querySelectorAll(
-                    ".detail-slide"
-                );
-
-
-            function showSlide(index){
-
-                if(index < 0){
-
-                    currentSlide =
-                        slides.length - 1;
-
-                }
-                else if(
-                    index >= slides.length
-                ){
-
-                    currentSlide = 0;
-
-                }
-                else{
-
-                    currentSlide = index;
-
-                }
-
-
-                slides.forEach(
-                    slide =>
-                        slide.classList.remove(
-                            "active"
-                        )
-                );
-
-
-                slides[currentSlide]
-                    .classList.add("active");
-
-            }
-
-
-            prev.addEventListener(
-                "click",
-                function(){
-
-                    showSlide(
-                        currentSlide - 1
-                    );
-
-                }
-            );
-
-
-            next.addEventListener(
-                "click",
-                function(){
-
-                    showSlide(
-                        currentSlide + 1
-                    );
-
-                }
-            );
-
-        }
-
-
-        wrapper.appendChild(slider);
-
-        return wrapper;
-
-    }
-
-}
-
-
-
-/* =========================================================
-   RENDER PRODUCT
-   ========================================================= */
-
-function renderProduct(){
-
-    const container =
-        document.getElementById(
-            "productDetail"
-        );
-
-
-    container.innerHTML = "";
-
-
-    /* MEDIA */
-
-    container.appendChild(
-        createMedia(currentProduct)
-    );
-
-
-    /* INFO */
-
-    const info =
-        document.createElement("div");
-
-    info.className =
-        "detail-info";
-
-
-    /* PRODUCT NAME */
-
-    const title =
-        document.createElement("h2");
-
-    title.textContent =
-        currentProduct.name;
-
-
-    /* PRICE */
-
-    const price =
-        document.createElement("div");
-
-    price.className =
-        "detail-price";
-
-    price.textContent =
-        formatPrice(
-            currentProduct.price
-        );
-
-
-    /* DESCRIPTION */
-
-    const description =
-        document.createElement("div");
-
-    description.className =
-        "detail-description";
-
-    description.innerHTML =
-        `
-        <strong>Product Details</strong><br><br>
-        Premium ${escapeHtml(currentProduct.name)}
-        available at 50 Mirars.
-        Perfect for couples looking for a stylish,
-        elegant and timeless watch combination.
-        <br><br>
-        For product availability, specifications
-        and purchase assistance, contact us directly
-        through WhatsApp.
-        `;
-
-
-    /* QUANTITY */
-
-    const quantityWrapper =
-        document.createElement("div");
-
-    quantityWrapper.className =
-        "quantity-wrapper";
-
-
-    const quantityLabel =
-        document.createElement("span");
-
-    quantityLabel.textContent =
-        "Quantity";
-
-
-    const quantityControl =
-        document.createElement("div");
-
-    quantityControl.className =
-        "quantity-control";
-
-
-    const minus =
-        document.createElement("button");
-
-    minus.type =
-        "button";
-
-    minus.textContent =
-        "−";
-
-
-    const quantityInput =
-        document.createElement("input");
-
-    quantityInput.type =
-        "number";
-
-    quantityInput.min =
-        "1";
-
-    quantityInput.value =
-        "1";
-
-
-    const plus =
-        document.createElement("button");
-
-    plus.type =
-        "button";
-
-    plus.textContent =
-        "+";
-
-
-    quantityControl.appendChild(minus);
-
-    quantityControl.appendChild(
-        quantityInput
-    );
-
-    quantityControl.appendChild(plus);
-
-
-    quantityWrapper.appendChild(
-        quantityLabel
-    );
-
-    quantityWrapper.appendChild(
-        quantityControl
-    );
-
-
-    /* QUANTITY EVENTS */
-
-    minus.addEventListener(
-        "click",
-        function(){
-
-            let value =
-                parseInt(
-                    quantityInput.value
-                ) || 1;
-
-            if(value > 1){
-
-                value--;
-
-            }
-
-            quantityInput.value =
-                value;
-
-        }
-    );
-
-
-    plus.addEventListener(
-        "click",
-        function(){
-
-            let value =
-                parseInt(
-                    quantityInput.value
-                ) || 1;
-
-            value++;
-
-            quantityInput.value =
-                value;
-
-        }
-    );
-
-
-    quantityInput.addEventListener(
-        "change",
-        function(){
-
-            let value =
-                parseInt(
-                    quantityInput.value
-                ) || 1;
-
-            if(value < 1){
-
-                value = 1;
-
-            }
-
-            quantityInput.value =
-                value;
-
-        }
-    );
-
-
-    /* ACTIONS */
-
-    const actions =
-        document.createElement("div");
-
-    actions.className =
-        "detail-actions";
-
-
-    /* WHATSAPP */
-
-    const enquire =
-        document.createElement("a");
-
-    enquire.className =
-        "enquire-btn";
-
-    enquire.href =
-        whatsappLink(
-            currentProduct.name
-        );
-
-    enquire.target =
-        "_blank";
-
-    enquire.rel =
-        "noopener noreferrer";
-
-    enquire.textContent =
-        "Enquire Now";
-
-
-    /* CART */
-
-    const addToCart =
-        document.createElement("button");
-
-    addToCart.className =
-        "add-to-cart-btn";
-
-    addToCart.type =
-        "button";
-
-    addToCart.textContent =
-        "Add to Cart";
-
-
-    /* MESSAGE */
-
-    const cartMessage =
-        document.createElement("div");
-
-    cartMessage.className =
-        "cart-message";
-
-
-    /* ADD TO CART FUNCTION */
-
-    addToCart.addEventListener(
-        "click",
-        function(){
-
-            let quantity =
-                parseInt(
-                    quantityInput.value
-                ) || 1;
-
-
-            if(quantity < 1){
-
-                quantity = 1;
-
-            }
-
-
-            let cart =
-                JSON.parse(
-                    localStorage.getItem(
-                        "cart"
-                    )
-                ) || [];
-
-
-            const existingProduct =
-                cart.find(
-                    item =>
-                        item.name ===
-                        currentProduct.name
-                );
-
-
-            if(existingProduct){
-
-                existingProduct.quantity =
-                    (
-                        Number(
-                            existingProduct.quantity
-                        ) || 0
-                    ) + quantity;
-
-            }
-            else{
-
-                cart.push({
-
-                    name:
-                        currentProduct.name,
-
-                    price:
-                        currentProduct.price,
-
-                    quantity:
-                        quantity,
-
-                    image:
-                        currentProduct.media[0]
-
-                });
-
-            }
-
-
-            localStorage.setItem(
-                "cart",
-                JSON.stringify(cart)
-            );
-
-
-            cartMessage.textContent =
-                `${quantity} × ${currentProduct.name} added to cart.`;
-
-
-            addToCart.classList.add(
-                "added-animation"
-            );
-
-
-            addToCart.textContent =
-                "✓ Added to Cart";
-
-
-            setTimeout(
-                function(){
-
-                    addToCart.classList.remove(
-                        "added-animation"
-                    );
-
-                    addToCart.textContent =
-                        "Add to Cart";
-
-                },
-                1200
-            );
-
-        }
-    );
-
-
-    actions.appendChild(
-        enquire
-    );
-
-    actions.appendChild(
-        addToCart
-    );
-
-
-    info.appendChild(title);
-
-    info.appendChild(price);
-
-    info.appendChild(description);
-
-    info.appendChild(quantityWrapper);
-
-    info.appendChild(actions);
-
-    info.appendChild(cartMessage);
-
-
-    container.appendChild(info);
-
-}
-
 
 
 /* =========================================================
    ESCAPE HTML
-   ========================================================= */
+========================================================= */
 
-function escapeHtml(text){
+function escapeHTML(value){
 
-    return String(text)
-        .replace(
-            /&/g,
-            "&amp;"
-        )
-        .replace(
-            /</g,
-            "&lt;"
-        )
-        .replace(
-            />/g,
-            "&gt;"
-        )
-        .replace(
-            /"/g,
-            "&quot;"
-        )
-        .replace(
-            /'/g,
-            "&#039;"
+    const div =
+        document.createElement(
+            "div"
         );
+
+    div.textContent =
+        String(value);
+
+    return div.innerHTML;
+}
+
+
+/* =========================================================
+   LOAD PRODUCT
+========================================================= */
+
+function loadProduct(){
+
+    if(!product){
+
+        document.title =
+            "Product Not Found | 50 Mirars";
+
+        productBrand.textContent =
+            "Couple Watches";
+
+        productName.textContent =
+            "Product Not Found";
+
+        productIdElement.textContent =
+            rawProductId
+                ? "Product ID: " + rawProductId
+                : "No Product ID Provided";
+
+        productPrice.textContent =
+            "";
+
+        productDescription.textContent =
+            "The requested couple watch product could not be found. Please return to the Couple Watches section and select a product again.";
+
+        featureList.innerHTML = "";
+
+        productMedia.innerHTML = `
+
+            <div
+                style="
+                    text-align:center;
+                    padding:40px;
+                    font-weight:bold;
+                    color:#555;
+                "
+            >
+                Product could not be found.
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    document.title =
+        product.name +
+        " | 50 Mirars";
+
+
+    productBrand.textContent =
+        product.brand;
+
+
+    productName.textContent =
+        product.name;
+
+
+    productIdElement.textContent =
+        "Product ID: CW-" +
+        String(product.id)
+            .padStart(3,"0");
+
+
+    productPrice.textContent =
+        formatPrice(
+            product.price
+        );
+
+
+    /* =====================================================
+       MEDIA
+    ===================================================== */
+
+    if(product.media === "video"){
+
+        productMedia.innerHTML = `
+
+            <video
+                controls
+                playsinline
+                preload="metadata"
+            >
+
+                <source
+                    src="${encodeURI(product.file)}"
+                    type="video/mp4"
+                >
+
+                Your browser does not support
+                video playback.
+
+            </video>
+
+        `;
+
+    }
+
+    else{
+
+        productMedia.innerHTML = `
+
+            <img
+                src="${encodeURI(product.file)}"
+                alt="${escapeHTML(product.name)}"
+            >
+
+        `;
+
+    }
+
+
+    /* =====================================================
+       DESCRIPTION
+    ===================================================== */
+
+    productDescription.textContent =
+        "Discover the distinctive character of the " +
+        product.name +
+        " at 50 Mirars. Designed as a coordinated timepiece set for couples, this watch collection brings together a refined appearance and a stylish presence. Whether chosen for everyday wear, special occasions or as a meaningful gift, it is selected for couples who appreciate a coordinated and premium-looking watch style.";
+
+
+    /* =====================================================
+       FEATURES
+    ===================================================== */
+
+    featureList.innerHTML = `
+
+        <li>
+            Premium-inspired couple watch design
+        </li>
+
+        <li>
+            Distinctive ${escapeHTML(product.brand)} styling
+        </li>
+
+        <li>
+            Coordinated design for couples
+        </li>
+
+        <li>
+            Suitable for everyday and occasion wear
+        </li>
+
+        <li>
+            Carefully selected by 50 Mirars
+        </li>
+
+        <li>
+            Premium presentation and packaging
+        </li>
+
+    `;
+
+
+    /* =====================================================
+       WHATSAPP
+    ===================================================== */
+
+    const whatsappText =
+        "Hello 50 Mirars, I am interested in " +
+        product.name +
+        " (" +
+        formatPrice(product.price) +
+        "). Please share more details.";
+
+    whatsappBtn.href =
+        "https://wa.me/918209989013?text=" +
+        encodeURIComponent(
+            whatsappText
+        );
+
+
+    /* =====================================================
+       RELATED
+    ===================================================== */
+
+    loadRelatedProducts();
 
 }
 
 
-
 /* =========================================================
    RELATED PRODUCTS
-   ========================================================= */
+========================================================= */
 
-function renderRelatedProducts(){
+function loadRelatedProducts(){
 
-    const container =
-        document.getElementById(
-            "relatedProducts"
+    if(!product){
+
+        relatedGrid.innerHTML =
+            "";
+
+        return;
+    }
+
+
+    let related =
+        coupleWatches.filter(
+            item =>
+                item.id !==
+                product.id
         );
 
 
-    container.innerHTML = "";
+    const sameBrand =
+        related.filter(
+            item =>
+                item.brand ===
+                product.brand
+        );
 
 
-    const related =
-        products
-            .filter(
-                product =>
-                    product.name !==
-                    currentProduct.name
+    const differentBrand =
+        related.filter(
+            item =>
+                item.brand !==
+                product.brand
+        );
+
+
+    related =
+        [
+            ...sameBrand,
+            ...differentBrand
+        ].slice(0,4);
+
+
+    relatedGrid.innerHTML =
+        related
+            .map(
+                item => {
+
+                    let mediaHTML =
+                        "";
+
+
+                    if(
+                        item.media ===
+                        "video"
+                    ){
+
+                        mediaHTML = `
+
+                            <video
+                                muted
+                                playsinline
+                                preload="metadata"
+                            >
+
+                                <source
+                                    src="${encodeURI(item.file)}"
+                                    type="video/mp4"
+                                >
+
+                            </video>
+
+                        `;
+
+                    }
+
+                    else{
+
+                        mediaHTML = `
+
+                            <img
+                                src="${encodeURI(item.file)}"
+                                alt="${escapeHTML(item.name)}"
+                            >
+
+                        `;
+
+                    }
+
+
+                    return `
+
+                        <div class="related-card">
+
+                            <div class="related-media">
+
+                                ${mediaHTML}
+
+                            </div>
+
+
+                            <div class="related-info">
+
+                                <h3>
+                                    ${escapeHTML(item.name)}
+                                </h3>
+
+
+                                <div class="related-price">
+                                    ${formatPrice(item.price)}
+                                </div>
+
+
+                                <a
+                                    href="product-detailscouple-watches.html?id=${item.id}"
+                                    class="related-btn"
+                                >
+                                    View Details
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    `;
+
+                }
             )
-            .slice(0,6);
+            .join("");
+
+}
 
 
-    related.forEach(
-        product => {
+/* =========================================================
+   GET CART
+========================================================= */
 
-            const card =
-                document.createElement(
-                    "div"
-                );
+function getCart(){
 
-            card.className =
-                "related-card";
+    try{
 
-
-            /* IMAGE */
-
-            const image =
-                document.createElement(
-                    "img"
-                );
-
-            image.src =
-                product.media[0];
-
-            image.alt =
-                product.name;
+        const stored =
+            localStorage.getItem(
+                "cart"
+            );
 
 
-            /* NAME */
+        if(!stored){
 
-            const name =
-                document.createElement(
-                    "h3"
-                );
-
-            name.textContent =
-                product.name;
-
-
-            /* PRICE */
-
-            const price =
-                document.createElement(
-                    "div"
-                );
-
-            price.className =
-                "related-price";
-
-            price.textContent =
-                formatPrice(
-                    product.price
-                );
-
-
-            /* BUTTON */
-
-            const button =
-                document.createElement(
-                    "a"
-                );
-
-            button.className =
-                "related-btn";
-
-            button.href =
-                "product-detailscouple-watches.html?product=" +
-                encodeURIComponent(
-                    product.name
-                );
-
-            button.textContent =
-                "View Product";
-
-
-            card.appendChild(image);
-
-            card.appendChild(name);
-
-            card.appendChild(price);
-
-            card.appendChild(button);
-
-
-            container.appendChild(card);
+            return [];
 
         }
+
+
+        const parsed =
+            JSON.parse(
+                stored
+            );
+
+
+        return Array.isArray(parsed)
+            ? parsed
+            : [];
+
+    }
+
+    catch(error){
+
+        console.error(
+            "Cart loading error:",
+            error
+        );
+
+        return [];
+
+    }
+
+}
+
+
+/* =========================================================
+   SAVE CART
+========================================================= */
+
+function saveCart(cart){
+
+    localStorage.setItem(
+        "cart",
+        JSON.stringify(cart)
     );
 
 }
 
 
+/* =========================================================
+   CREATE CART ITEM
+========================================================= */
+
+function createCartItem(
+    selectedQuantity
+){
+
+    return {
+
+        id:
+            "couple-watches-" +
+            product.id,
+
+        productId:
+            product.id,
+
+        name:
+            product.name,
+
+        price:
+            product.price,
+
+        quantity:
+            selectedQuantity,
+
+        image:
+            product.media === "image"
+                ? product.file
+                : "",
+
+        media:
+            product.media,
+
+        video:
+            product.media === "video"
+                ? product.file
+                : "",
+
+        category:
+            "Couple Watches",
+
+        brand:
+            product.brand
+
+    };
+
+}
+
+
+/* =========================================================
+   GET SELECTED QUANTITY
+========================================================= */
+
+function getSelectedQuantity(){
+
+    let value =
+        Number(
+            quantity.value
+        );
+
+
+    if(!Number.isFinite(value)){
+
+        value = 1;
+
+    }
+
+
+    value =
+        Math.floor(value);
+
+
+    if(value < 1){
+
+        value = 1;
+
+    }
+
+
+    if(value > 10){
+
+        value = 10;
+
+    }
+
+
+    quantity.value =
+        value;
+
+
+    return value;
+
+}
+
+
+/* =========================================================
+   ADD TO CART
+========================================================= */
+
+function addToCart(){
+
+    if(!product){
+
+        return;
+
+    }
+
+
+    const selectedQuantity =
+        getSelectedQuantity();
+
+
+    const cart =
+        getCart();
+
+
+    const cartProductId =
+        "couple-watches-" +
+        product.id;
+
+
+    const existing =
+        cart.find(
+            item =>
+                String(item.id) ===
+                String(cartProductId)
+        );
+
+
+    if(existing){
+
+        existing.quantity =
+            (
+                Number(
+                    existing.quantity
+                ) || 0
+            ) +
+            selectedQuantity;
+
+    }
+
+    else{
+
+        cart.push(
+            createCartItem(
+                selectedQuantity
+            )
+        );
+
+    }
+
+
+    saveCart(cart);
+
+
+    cartMessage.textContent =
+        "✓ Added to your cart";
+
+
+    setTimeout(
+        function(){
+
+            cartMessage.textContent =
+                "";
+
+        },
+        3000
+    );
+
+}
+
+
+/* =========================================================
+   BUY NOW
+========================================================= */
+
+function buyNow(){
+
+    if(!product){
+
+        return;
+
+    }
+
+
+    const selectedQuantity =
+        getSelectedQuantity();
+
+
+    const cart =
+        getCart();
+
+
+    const cartProductId =
+        "couple-watches-" +
+        product.id;
+
+
+    const existing =
+        cart.find(
+            item =>
+                String(item.id) ===
+                String(cartProductId)
+        );
+
+
+    if(existing){
+
+        existing.quantity =
+            (
+                Number(
+                    existing.quantity
+                ) || 0
+            ) +
+            selectedQuantity;
+
+    }
+
+    else{
+
+        cart.push(
+            createCartItem(
+                selectedQuantity
+            )
+        );
+
+    }
+
+
+    saveCart(cart);
+
+
+    window.location.href =
+        "cart.html";
+
+}
+
+
+/* =========================================================
+   MINUS BUTTON
+========================================================= */
+
+document
+    .getElementById(
+        "minusBtn"
+    )
+    .addEventListener(
+        "click",
+        function(){
+
+            let value =
+                Number(
+                    quantity.value
+                ) || 1;
+
+
+            value =
+                Math.max(
+                    1,
+                    value - 1
+                );
+
+
+            quantity.value =
+                value;
+
+        }
+    );
+
+
+/* =========================================================
+   PLUS BUTTON
+========================================================= */
+
+document
+    .getElementById(
+        "plusBtn"
+    )
+    .addEventListener(
+        "click",
+        function(){
+
+            let value =
+                Number(
+                    quantity.value
+                ) || 1;
+
+
+            value =
+                Math.min(
+                    10,
+                    value + 1
+                );
+
+
+            quantity.value =
+                value;
+
+        }
+    );
+
+
+/* =========================================================
+   QUANTITY INPUT
+========================================================= */
+
+quantity.addEventListener(
+    "change",
+    function(){
+
+        getSelectedQuantity();
+
+    }
+);
+
+
+/* =========================================================
+   BUTTON EVENTS
+========================================================= */
+
+document
+    .getElementById(
+        "addCartBtn"
+    )
+    .addEventListener(
+        "click",
+        addToCart
+    );
+
+
+document
+    .getElementById(
+        "buyNowBtn"
+    )
+    .addEventListener(
+        "click",
+        buyNow
+    );
+
 
 /* =========================================================
    INITIALIZE
-   ========================================================= */
+========================================================= */
 
-renderProduct();
-
-renderRelatedProducts();
-
+loadProduct();
 
 </script>
 
@@ -2697,3 +2651,4 @@ renderRelatedProducts();
 </body>
 
 </html>
+```
