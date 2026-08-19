@@ -58,13 +58,13 @@ body{
 
 
 /* =========================================================
-   TOP NAVIGATION
+   TOP HEADER
 ========================================================= */
 
 .top-bar{
     width:100%;
 
-    padding:20px 40px;
+    padding:25px 80px;
 
     display:flex;
 
@@ -72,7 +72,26 @@ body{
 
     align-items:center;
 
-    gap:15px;
+    background:#fff;
+
+    border-bottom:1px solid #e5e5e5;
+}
+
+.brand-logo{
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size:28px;
+
+    font-weight:700;
+
+    letter-spacing:4px;
+
+    color:#111;
+
+    line-height:1;
 }
 
 .back-btn{
@@ -82,61 +101,24 @@ body{
 
     justify-content:center;
 
-    padding:12px 24px;
+    background:transparent;
 
-    background:#111;
-
-    color:#fff;
+    color:#111;
 
     text-decoration:none;
 
-    border-radius:6px;
+    border:none;
+
+    font-size:16px;
 
     font-weight:600;
 
-    border:2px solid #111;
-
-    transition:0.3s ease;
+    transition:
+        color 0.3s ease;
 }
 
 .back-btn:hover{
-    background:#c9a24d;
-
-    color:#111;
-
-    border-color:#c9a24d;
-}
-
-.cart-top-btn{
-    display:inline-flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:8px;
-
-    padding:12px 20px;
-
-    background:#fff;
-
-    color:#111;
-
-    text-decoration:none;
-
-    border:2px solid #111;
-
-    border-radius:6px;
-
-    font-weight:bold;
-
-    transition:0.3s ease;
-}
-
-.cart-top-btn:hover{
-    background:#111;
-
-    color:#fff;
+    color:#c9a24d;
 }
 
 
@@ -148,7 +130,7 @@ body{
     text-align:center;
 
     padding:
-        15px
+        25px
         20px
         40px;
 }
@@ -202,7 +184,7 @@ body{
 
 
 /* =========================================================
-   PRODUCT DETAIL WRAPPER
+   PRODUCT SECTION
 ========================================================= */
 
 .product-detail-section{
@@ -239,7 +221,7 @@ body{
 
 
 /* =========================================================
-   MEDIA AREA
+   MEDIA
 ========================================================= */
 
 .product-media-area{
@@ -300,11 +282,6 @@ body{
 .product-media-wrapper video{
     background:#111;
 }
-
-
-/* =========================================================
-   MEDIA BADGE
-========================================================= */
 
 .media-badge{
     position:absolute;
@@ -406,7 +383,7 @@ body{
 
 
 /* =========================================================
-   PRODUCT DESCRIPTION
+   DESCRIPTION
 ========================================================= */
 
 .product-description{
@@ -421,7 +398,7 @@ body{
 
 
 /* =========================================================
-   PRODUCT FEATURES
+   FEATURES
 ========================================================= */
 
 .feature-list{
@@ -498,7 +475,8 @@ body{
 
     cursor:pointer;
 
-    transition:0.2s ease;
+    transition:
+        background 0.2s ease;
 }
 
 .quantity-box button:hover{
@@ -629,9 +607,9 @@ body{
 }
 
 .whatsapp-product-btn img{
-    width:23px;
+    width:25px;
 
-    height:23px;
+    height:25px;
 
     object-fit:contain;
 }
@@ -642,46 +620,38 @@ body{
 ========================================================= */
 
 .cart-message{
-    min-height:22px;
+    min-height:24px;
 
-    margin-top:14px;
-
-    color:#9b762c;
+    color:#2d8a43;
 
     font-size:14px;
 
     font-weight:bold;
 
-    text-align:center;
+    margin-top:10px;
 }
 
 
 /* =========================================================
-   DELIVERY INFO
+   DELIVERY
 ========================================================= */
 
 .delivery-info{
     margin-top:25px;
 
-    padding:20px;
+    padding-top:20px;
 
-    background:#f8f6ef;
-
-    border-left:3px solid #c9a24d;
-
-    border-radius:5px;
+    border-top:1px solid #ddd;
 }
 
 .delivery-info strong{
-    display:block;
-
     color:#111;
 
-    margin-bottom:7px;
+    font-size:16px;
 }
 
 .delivery-info p{
-    margin:0;
+    margin:10px 0 0;
 
     color:#666;
 
@@ -703,9 +673,9 @@ body{
     margin:0 auto;
 
     padding:
-        0
+        20px
         40px
-        90px;
+        80px;
 }
 
 .related-heading{
@@ -715,7 +685,7 @@ body{
 }
 
 .related-heading h2{
-    margin:0 0 15px;
+    margin:0 0 12px;
 
     font-family:
         Georgia,
@@ -732,7 +702,7 @@ body{
 
     color:#666;
 
-    font-size:15px;
+    font-size:16px;
 }
 
 .related-grid{
@@ -754,22 +724,24 @@ body{
     box-shadow:
         0 8px 25px rgba(0,0,0,0.08);
 
-    transition:0.3s ease;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .related-card:hover{
     transform:translateY(-5px);
 
     box-shadow:
-        0 14px 35px rgba(0,0,0,0.12);
+        0 14px 35px rgba(0,0,0,0.13);
 }
 
 .related-media{
     width:100%;
 
-    height:220px;
+    height:260px;
 
-    background:#f4f1e8;
+    background:#f5f5f5;
 
     display:flex;
 
@@ -786,27 +758,35 @@ body{
 
     height:100%;
 
-    object-fit:cover;
+    object-fit:contain;
+}
+
+.related-media video{
+    background:#111;
 }
 
 .related-info{
-    padding:18px;
+    padding:20px;
 
     text-align:center;
 }
 
 .related-info h3{
+    margin:0 0 12px;
+
     font-size:17px;
 
-    line-height:1.35;
+    line-height:1.4;
 
-    margin:0 0 10px;
+    min-height:48px;
 
-    min-height:46px;
+    color:#111;
 }
 
 .related-price{
     color:#c9a24d;
+
+    font-size:18px;
 
     font-weight:bold;
 
@@ -822,7 +802,7 @@ body{
 
     width:100%;
 
-    padding:10px;
+    min-height:45px;
 
     background:#111;
 
@@ -831,8 +811,6 @@ body{
     text-decoration:none;
 
     border-radius:5px;
-
-    font-size:14px;
 
     font-weight:bold;
 
@@ -855,7 +833,7 @@ body{
 
     color:#fff;
 
-    margin-top:30px;
+    margin-top:20px;
 }
 
 .footer-container{
@@ -903,10 +881,6 @@ body{
     font-size:38px;
 
     color:#c9a24d;
-}
-
-.contact-column{
-    text-align:left;
 }
 
 .contact-column h3,
@@ -986,6 +960,8 @@ body{
 
 .whatsapp-button:hover{
     background:#fff;
+
+    color:#111;
 }
 
 .footer-middle{
@@ -1098,8 +1074,8 @@ body{
         min-height:550px;
     }
 
-    .product-info{
-        padding:45px;
+    .product-media-wrapper{
+        height:500px;
     }
 
     .related-grid{
@@ -1118,21 +1094,25 @@ body{
 
     .top-bar{
         padding:
-            15px
-            20px;
+            20px
+            25px;
     }
 
-    .back-btn,
-    .cart-top-btn{
-        padding:
-            10px
-            15px;
+    .brand-logo{
+        font-size:22px;
 
+        letter-spacing:3px;
+    }
+
+    .back-btn{
         font-size:14px;
     }
 
     .page-header{
-        padding-bottom:30px;
+        padding:
+            20px
+            15px
+            30px;
     }
 
     .page-header h1{
@@ -1143,37 +1123,27 @@ body{
         padding:
             10px
             15px
-            60px;
-    }
-
-    .product-detail-card{
-        border-radius:15px;
+            50px;
     }
 
     .product-media-area{
         min-height:400px;
 
-        padding:20px;
+        padding:25px;
     }
 
     .product-media-wrapper{
         height:360px;
-
-        border-radius:12px;
-    }
-
-    .media-badge{
-        top:15px;
-
-        left:15px;
     }
 
     .product-info{
-        padding:35px 25px;
+        padding:
+            40px
+            25px;
     }
 
     .product-name{
-        font-size:32px;
+        font-size:34px;
     }
 
     .product-price{
@@ -1186,17 +1156,13 @@ body{
 
     .related-section{
         padding:
-            0
+            20px
             15px
             60px;
     }
 
     .related-grid{
         grid-template-columns:1fr;
-    }
-
-    .related-media{
-        height:270px;
     }
 
     .footer-container{
@@ -1238,14 +1204,19 @@ body{
 @media(max-width:450px){
 
     .top-bar{
-        flex-direction:column;
-
-        align-items:stretch;
+        padding:
+            18px
+            15px;
     }
 
-    .back-btn,
-    .cart-top-btn{
-        width:100%;
+    .brand-logo{
+        font-size:18px;
+
+        letter-spacing:2px;
+    }
+
+    .back-btn{
+        font-size:13px;
     }
 
     .page-header h1{
@@ -1253,7 +1224,7 @@ body{
     }
 
     .product-media-area{
-        min-height:340px;
+        min-height:330px;
 
         padding:15px;
     }
@@ -1263,26 +1234,23 @@ body{
     }
 
     .product-info{
-        padding:30px 20px;
+        padding:
+            30px
+            20px;
     }
 
     .product-name{
-        font-size:28px;
+        font-size:29px;
     }
 
     .product-description{
         font-size:15px;
     }
 
-}
+    .related-heading h2{
+        font-size:30px;
+    }
 
-
-/* =========================================================
-   HIDDEN
-========================================================= */
-
-.hidden{
-    display:none !important;
 }
 
 </style>
@@ -1294,10 +1262,14 @@ body{
 
 
 <!-- =========================================================
-     TOP BAR
+     TOP HEADER
 ========================================================= -->
 
 <div class="top-bar">
+
+    <div class="brand-logo">
+        50 MIRARS
+    </div>
 
     <a
         href="sunglasses.html"
@@ -1306,16 +1278,7 @@ body{
         ← Back to Sunglasses
     </a>
 
-    <a
-        href="cart.html"
-        class="cart-top-btn"
-    >
-        🛒 Cart
-        <span id="cartCount">0</span>
-    </a>
-
 </div>
-
 
 
 <!-- =========================================================
@@ -1333,7 +1296,6 @@ body{
 </header>
 
 
-
 <!-- =========================================================
      PRODUCT DETAIL
 ========================================================= -->
@@ -1342,8 +1304,6 @@ body{
 
     <div class="product-detail-card">
 
-
-        <!-- MEDIA -->
 
         <div class="product-media-area">
 
@@ -1362,9 +1322,6 @@ body{
 
         </div>
 
-
-
-        <!-- INFORMATION -->
 
         <div class="product-info">
 
@@ -1418,11 +1375,10 @@ body{
             </ul>
 
 
-            <!-- QUANTITY -->
-
             <div class="quantity-title">
                 Quantity
             </div>
+
 
             <div class="quantity-box">
 
@@ -1451,8 +1407,6 @@ body{
             </div>
 
 
-            <!-- ACTIONS -->
-
             <div class="action-buttons">
 
                 <button
@@ -1474,8 +1428,6 @@ body{
 
             </div>
 
-
-            <!-- WHATSAPP -->
 
             <a
                 href="#"
@@ -1502,8 +1454,6 @@ body{
             </div>
 
 
-            <!-- DELIVERY -->
-
             <div class="delivery-info">
 
                 <strong>
@@ -1526,7 +1476,6 @@ body{
 </section>
 
 
-
 <!-- =========================================================
      RELATED PRODUCTS
 ========================================================= -->
@@ -1545,7 +1494,6 @@ body{
 
     </div>
 
-
     <div
         class="related-grid"
         id="relatedGrid"
@@ -1555,7 +1503,6 @@ body{
 </section>
 
 
-
 <!-- =========================================================
      FOOTER
 ========================================================= -->
@@ -1563,7 +1510,6 @@ body{
 <footer class="main-footer">
 
     <div class="footer-container">
-
 
         <div class="footer-top">
 
@@ -1656,9 +1602,7 @@ body{
         </div>
 
 
-
         <div class="footer-middle">
-
 
             <div class="footer-links-column">
 
@@ -1724,7 +1668,6 @@ body{
         </div>
 
 
-
         <div class="footer-bottom">
 
             <p>
@@ -1738,11 +1681,6 @@ body{
 
 </footer>
 
-
-
-<!-- =========================================================
-     JAVASCRIPT
-========================================================= -->
 
 <script>
 
@@ -2191,18 +2129,31 @@ const sunglasses = [
    GET PRODUCT ID
 ========================================================= */
 
-const params = new URLSearchParams(window.location.search);
+const params =
+    new URLSearchParams(
+        window.location.search
+    );
 
-const productId = Number(params.get("id"));
+const rawProductId =
+    params.get("id");
+
+const productId =
+    Number.parseInt(
+        rawProductId,
+        10
+    );
 
 
 /* =========================================================
    FIND PRODUCT
 ========================================================= */
 
-const product = sunglasses.find(
-    item => item.id === productId
-);
+const product =
+    sunglasses.find(
+        item =>
+            Number(item.id) ===
+            productId
+    );
 
 
 /* =========================================================
@@ -2210,40 +2161,59 @@ const product = sunglasses.find(
 ========================================================= */
 
 const productMedia =
-    document.getElementById("productMedia");
+    document.getElementById(
+        "productMedia"
+    );
 
 const productBrand =
-    document.getElementById("productBrand");
+    document.getElementById(
+        "productBrand"
+    );
 
 const productName =
-    document.getElementById("productName");
+    document.getElementById(
+        "productName"
+    );
 
 const productIdElement =
-    document.getElementById("productId");
+    document.getElementById(
+        "productId"
+    );
 
 const productPrice =
-    document.getElementById("productPrice");
+    document.getElementById(
+        "productPrice"
+    );
 
 const productDescription =
-    document.getElementById("productDescription");
+    document.getElementById(
+        "productDescription"
+    );
 
 const featureList =
-    document.getElementById("featureList");
+    document.getElementById(
+        "featureList"
+    );
 
 const quantity =
-    document.getElementById("quantity");
+    document.getElementById(
+        "quantity"
+    );
 
 const cartMessage =
-    document.getElementById("cartMessage");
-
-const cartCount =
-    document.getElementById("cartCount");
+    document.getElementById(
+        "cartMessage"
+    );
 
 const relatedGrid =
-    document.getElementById("relatedGrid");
+    document.getElementById(
+        "relatedGrid"
+    );
 
 const whatsappBtn =
-    document.getElementById("whatsappBtn");
+    document.getElementById(
+        "whatsappBtn"
+    );
 
 
 /* =========================================================
@@ -2252,8 +2222,28 @@ const whatsappBtn =
 
 function formatPrice(price){
 
-    return "₹" + price.toLocaleString("en-IN");
+    return "₹" +
+        Number(price)
+            .toLocaleString("en-IN");
 
+}
+
+
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
+
+function escapeHTML(value){
+
+    const div =
+        document.createElement(
+            "div"
+        );
+
+    div.textContent =
+        String(value);
+
+    return div.innerHTML;
 }
 
 
@@ -2268,21 +2258,47 @@ function loadProduct(){
         document.title =
             "Product Not Found | 50 Mirars";
 
+        productBrand.textContent =
+            "Sunglasses";
+
         productName.textContent =
             "Product Not Found";
 
-        productDescription.textContent =
-            "The requested sunglasses product could not be found.";
+        productIdElement.textContent =
+            rawProductId
+                ? "Product ID: " + rawProductId
+                : "No Product ID Provided";
 
         productPrice.textContent =
             "";
+
+        productDescription.textContent =
+            "The requested sunglasses product could not be found. Please return to the Sunglasses section and select a product again.";
+
+        featureList.innerHTML = "";
+
+        productMedia.innerHTML = `
+
+            <div
+                style="
+                    text-align:center;
+                    padding:40px;
+                    font-weight:bold;
+                    color:#555;
+                "
+            >
+                Product could not be found.
+            </div>
+
+        `;
 
         return;
     }
 
 
     document.title =
-        product.name + " | 50 Mirars";
+        product.name +
+        " | 50 Mirars";
 
 
     productBrand.textContent =
@@ -2295,11 +2311,14 @@ function loadProduct(){
 
     productIdElement.textContent =
         "Product ID: SUN-" +
-        String(product.id).padStart(3,"0");
+        String(product.id)
+            .padStart(3,"0");
 
 
     productPrice.textContent =
-        formatPrice(product.price);
+        formatPrice(
+            product.price
+        );
 
 
     /* =====================================================
@@ -2317,11 +2336,12 @@ function loadProduct(){
             >
 
                 <source
-                    src="${product.file}"
+                    src="${encodeURI(product.file)}"
                     type="video/mp4"
                 >
 
-                Your browser does not support video playback.
+                Your browser does not support
+                video playback.
 
             </video>
 
@@ -2334,8 +2354,8 @@ function loadProduct(){
         productMedia.innerHTML = `
 
             <img
-                src="${product.file}"
-                alt="${product.name}"
+                src="${encodeURI(product.file)}"
+                alt="${escapeHTML(product.name)}"
             >
 
         `;
@@ -2364,7 +2384,7 @@ function loadProduct(){
         </li>
 
         <li>
-            Distinctive ${product.brand} styling
+            Distinctive ${escapeHTML(product.brand)} styling
         </li>
 
         <li>
@@ -2389,17 +2409,19 @@ function loadProduct(){
     const whatsappText =
         "Hello 50 Mirars, I am interested in " +
         product.name +
-        " (₹" +
-        product.price.toLocaleString("en-IN") +
+        " (" +
+        formatPrice(product.price) +
         "). Please share more details.";
 
     whatsappBtn.href =
         "https://wa.me/918209989013?text=" +
-        encodeURIComponent(whatsappText);
+        encodeURIComponent(
+            whatsappText
+        );
 
 
     /* =====================================================
-       RELATED PRODUCTS
+       RELATED
     ===================================================== */
 
     loadRelatedProducts();
@@ -2415,29 +2437,34 @@ function loadRelatedProducts(){
 
     if(!product){
 
+        relatedGrid.innerHTML =
+            "";
+
         return;
     }
 
 
     let related =
         sunglasses.filter(
-            item => item.id !== product.id
+            item =>
+                item.id !==
+                product.id
         );
 
 
-    /*
-       Prefer products from same brand.
-    */
-
     const sameBrand =
         related.filter(
-            item => item.brand === product.brand
+            item =>
+                item.brand ===
+                product.brand
         );
 
 
     const differentBrand =
         related.filter(
-            item => item.brand !== product.brand
+            item =>
+                item.brand !==
+                product.brand
         );
 
 
@@ -2449,79 +2476,91 @@ function loadRelatedProducts(){
 
 
     relatedGrid.innerHTML =
-        related.map(item => {
+        related
+            .map(
+                item => {
 
-            let mediaHTML = "";
-
-            if(item.media === "video"){
-
-                mediaHTML = `
-
-                    <video
-                        muted
-                        playsinline
-                        preload="metadata"
-                    >
-
-                        <source
-                            src="${item.file}"
-                            type="video/mp4"
-                        >
-
-                    </video>
-
-                `;
-
-            }
-
-            else{
-
-                mediaHTML = `
-
-                    <img
-                        src="${item.file}"
-                        alt="${item.name}"
-                    >
-
-                `;
-
-            }
+                    let mediaHTML =
+                        "";
 
 
-            return `
+                    if(
+                        item.media ===
+                        "video"
+                    ){
 
-                <div class="related-card">
+                        mediaHTML = `
 
-                    <div class="related-media">
+                            <video
+                                muted
+                                playsinline
+                                preload="metadata"
+                            >
 
-                        ${mediaHTML}
+                                <source
+                                    src="${encodeURI(item.file)}"
+                                    type="video/mp4"
+                                >
 
-                    </div>
+                            </video>
 
-                    <div class="related-info">
+                        `;
 
-                        <h3>
-                            ${item.name}
-                        </h3>
+                    }
 
-                        <div class="related-price">
-                            ${formatPrice(item.price)}
+                    else{
+
+                        mediaHTML = `
+
+                            <img
+                                src="${encodeURI(item.file)}"
+                                alt="${escapeHTML(item.name)}"
+                            >
+
+                        `;
+
+                    }
+
+
+                    return `
+
+                        <div class="related-card">
+
+                            <div class="related-media">
+
+                                ${mediaHTML}
+
+                            </div>
+
+
+                            <div class="related-info">
+
+                                <h3>
+                                    ${escapeHTML(item.name)}
+                                </h3>
+
+
+                                <div class="related-price">
+                                    ${formatPrice(item.price)}
+                                </div>
+
+
+                                <a
+                                    href="product-detailssunglasses.html?id=${item.id}"
+                                    class="related-btn"
+                                >
+                                    View Details
+                                </a>
+
+                            </div>
+
                         </div>
 
-                        <a
-                            href="product-detailssunglasses.html?id=${item.id}"
-                            class="related-btn"
-                        >
-                            View Details
-                        </a>
+                    `;
 
-                    </div>
-
-                </div>
-
-            `;
-
-        }).join("");
+                }
+            )
+            .join("");
 
 }
 
@@ -2535,15 +2574,23 @@ function getCart(){
     try{
 
         const stored =
-            localStorage.getItem("cart");
+            localStorage.getItem(
+                "cart"
+            );
+
 
         if(!stored){
 
             return [];
+
         }
 
+
         const parsed =
-            JSON.parse(stored);
+            JSON.parse(
+                stored
+            );
+
 
         return Array.isArray(parsed)
             ? parsed
@@ -2580,28 +2627,97 @@ function saveCart(cart){
 
 
 /* =========================================================
-   UPDATE CART COUNT
+   CREATE CART ITEM
 ========================================================= */
 
-function updateCartCount(){
+function createCartItem(
+    selectedQuantity
+){
 
-    const cart =
-        getCart();
+    return {
+
+        id:
+            "sunglasses-" +
+            product.id,
+
+        productId:
+            product.id,
+
+        name:
+            product.name,
+
+        price:
+            product.price,
+
+        quantity:
+            selectedQuantity,
+
+        image:
+            product.media === "image"
+                ? product.file
+                : "",
+
+        media:
+            product.media,
+
+        video:
+            product.media === "video"
+                ? product.file
+                : "",
+
+        category:
+            "Sunglasses",
+
+        brand:
+            product.brand
+
+    };
+
+}
 
 
-    let count = 0;
+/* =========================================================
+   GET SELECTED QUANTITY
+========================================================= */
+
+function getSelectedQuantity(){
+
+    let value =
+        Number(
+            quantity.value
+        );
 
 
-    cart.forEach(item => {
+    if(!Number.isFinite(value)){
 
-        count +=
-            Number(item.quantity) || 0;
+        value = 1;
 
-    });
+    }
 
 
-    cartCount.textContent =
-        count;
+    value =
+        Math.floor(value);
+
+
+    if(value < 1){
+
+        value = 1;
+
+    }
+
+
+    if(value > 10){
+
+        value = 10;
+
+    }
+
+
+    quantity.value =
+        value;
+
+
+    return value;
 
 }
 
@@ -2615,31 +2731,17 @@ function addToCart(){
     if(!product){
 
         return;
+
     }
 
 
     const selectedQuantity =
-        Math.max(
-            1,
-            Math.min(
-                10,
-                Number(quantity.value) || 1
-            )
-        );
+        getSelectedQuantity();
 
 
-    quantity.value =
-        selectedQuantity;
-
-
-    let cart =
+    const cart =
         getCart();
 
-
-    /*
-       Product ID is deliberately unique
-       for sunglasses.
-    */
 
     const cartProductId =
         "sunglasses-" +
@@ -2657,59 +2759,42 @@ function addToCart(){
     if(existing){
 
         existing.quantity =
-            (Number(existing.quantity) || 0) +
+            (
+                Number(
+                    existing.quantity
+                ) || 0
+            ) +
             selectedQuantity;
 
     }
 
     else{
 
-        cart.push({
-
-            id:cartProductId,
-
-            productId:product.id,
-
-            name:product.name,
-
-            price:product.price,
-
-            quantity:selectedQuantity,
-
-            image:product.media === "image"
-                ? product.file
-                : "",
-
-            media:product.media,
-
-            video:product.media === "video"
-                ? product.file
-                : "",
-
-            category:"Sunglasses",
-
-            brand:product.brand
-
-        });
+        cart.push(
+            createCartItem(
+                selectedQuantity
+            )
+        );
 
     }
 
 
     saveCart(cart);
 
-    updateCartCount();
-
 
     cartMessage.textContent =
         "✓ Added to your cart";
 
 
-    setTimeout(() => {
+    setTimeout(
+        function(){
 
-        cartMessage.textContent =
-            "";
+            cartMessage.textContent =
+                "";
 
-    },3000);
+        },
+        3000
+    );
 
 }
 
@@ -2723,24 +2808,15 @@ function buyNow(){
     if(!product){
 
         return;
+
     }
 
 
     const selectedQuantity =
-        Math.max(
-            1,
-            Math.min(
-                10,
-                Number(quantity.value) || 1
-            )
-        );
+        getSelectedQuantity();
 
 
-    quantity.value =
-        selectedQuantity;
-
-
-    let cart =
+    const cart =
         getCart();
 
 
@@ -2760,45 +2836,28 @@ function buyNow(){
     if(existing){
 
         existing.quantity =
-            (Number(existing.quantity) || 0) +
+            (
+                Number(
+                    existing.quantity
+                ) || 0
+            ) +
             selectedQuantity;
 
     }
 
     else{
 
-        cart.push({
-
-            id:cartProductId,
-
-            productId:product.id,
-
-            name:product.name,
-
-            price:product.price,
-
-            quantity:selectedQuantity,
-
-            image:product.media === "image"
-                ? product.file
-                : "",
-
-            media:product.media,
-
-            video:product.media === "video"
-                ? product.file
-                : "",
-
-            category:"Sunglasses",
-
-            brand:product.brand
-
-        });
+        cart.push(
+            createCartItem(
+                selectedQuantity
+            )
+        );
 
     }
 
 
     saveCart(cart);
+
 
     window.location.href =
         "cart.html";
@@ -2807,24 +2866,28 @@ function buyNow(){
 
 
 /* =========================================================
-   QUANTITY - MINUS
+   MINUS BUTTON
 ========================================================= */
 
 document
-    .getElementById("minusBtn")
+    .getElementById(
+        "minusBtn"
+    )
     .addEventListener(
         "click",
         function(){
 
             let value =
-                Number(quantity.value) || 1;
+                Number(
+                    quantity.value
+                ) || 1;
 
 
-            if(value > 1){
-
-                value--;
-
-            }
+            value =
+                Math.max(
+                    1,
+                    value - 1
+                );
 
 
             quantity.value =
@@ -2835,24 +2898,28 @@ document
 
 
 /* =========================================================
-   QUANTITY - PLUS
+   PLUS BUTTON
 ========================================================= */
 
 document
-    .getElementById("plusBtn")
+    .getElementById(
+        "plusBtn"
+    )
     .addEventListener(
         "click",
         function(){
 
             let value =
-                Number(quantity.value) || 1;
+                Number(
+                    quantity.value
+                ) || 1;
 
 
-            if(value < 10){
-
-                value++;
-
-            }
+            value =
+                Math.min(
+                    10,
+                    value + 1
+                );
 
 
             quantity.value =
@@ -2863,33 +2930,14 @@ document
 
 
 /* =========================================================
-   QUANTITY VALIDATION
+   QUANTITY INPUT
 ========================================================= */
 
 quantity.addEventListener(
     "change",
     function(){
 
-        let value =
-            Number(quantity.value) || 1;
-
-
-        if(value < 1){
-
-            value = 1;
-
-        }
-
-
-        if(value > 10){
-
-            value = 10;
-
-        }
-
-
-        quantity.value =
-            value;
+        getSelectedQuantity();
 
     }
 );
@@ -2900,7 +2948,9 @@ quantity.addEventListener(
 ========================================================= */
 
 document
-    .getElementById("addCartBtn")
+    .getElementById(
+        "addCartBtn"
+    )
     .addEventListener(
         "click",
         addToCart
@@ -2908,7 +2958,9 @@ document
 
 
 document
-    .getElementById("buyNowBtn")
+    .getElementById(
+        "buyNowBtn"
+    )
     .addEventListener(
         "click",
         buyNow
@@ -2920,8 +2972,6 @@ document
 ========================================================= */
 
 loadProduct();
-
-updateCartCount();
 
 </script>
 
