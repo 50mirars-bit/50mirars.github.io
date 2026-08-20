@@ -149,70 +149,269 @@ body{
 
 
 /* =========================================================
-   Limited Editions INTRODUCTION
+   LIMITED EDITIONS INTRODUCTION
 ========================================================= */
 
-.Limited Editions-intro{
-    width:90%;
-
-    max-width:1400px;
-
+.limited-intro{
+    width:100%;
+    max-width:1450px;
     margin:0 auto;
-
+    padding:0 40px 65px;
     text-align:center;
-
-    padding:10px 0 55px;
 }
 
-.Limited Editions-intro h2{
+.limited-intro .page-title{
+    padding:20px 20px 35px;
+}
+
+.limited-intro .page-title h1{
     font-family:
         Georgia,
         "Times New Roman",
         serif;
 
-    font-size:38px;
+    font-size:64px;
+    font-weight:600;
+
+    margin:0 0 20px;
+
+    color:#111;
+
+    letter-spacing:-1px;
+}
+
+.limited-intro .title-line{
+    width:180px;
+    height:2px;
+
+    background:#c9a24d;
+
+    margin:0 auto;
+
+    position:relative;
+}
+
+.limited-intro .title-line::after{
+    content:"";
+
+    width:12px;
+    height:12px;
+
+    background:#c9a24d;
+
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    transform:
+        translate(-50%,-50%)
+        rotate(45deg);
+}
+
+
+/* =========================================================
+   INTRO HEADING
+========================================================= */
+
+.limited-intro > h2{
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:42px;
+    line-height:1.25;
 
     font-weight:600;
 
     color:#171717;
 
-    margin:0 auto 30px;
+    margin:5px auto 38px;
 
     letter-spacing:-0.5px;
 }
 
-.Limited Editions-description{
-    max-width:1350px;
+
+/* =========================================================
+   INTRO DESCRIPTION
+========================================================= */
+
+.limited-description{
+    width:100%;
+    max-width:1320px;
 
     margin:0 auto;
 
     text-align:left;
+
+    padding:0 10px;
 }
 
-.Limited Editions-description p{
-    margin:0 0 24px;
+.limited-description p{
+    margin:0 0 30px;
 
-    font-size:18px;
+    font-size:19px;
 
-    line-height:1.75;
+    line-height:1.85;
 
-    color:#4a4a4a;
+    color:#414141;
 
     font-weight:400;
+
+    letter-spacing:0.15px;
 }
 
-.Limited Editions-description strong{
+.limited-description p:last-child{
+    margin-bottom:0;
+}
+
+
+/* GOLD HIGHLIGHT */
+
+.limited-description strong{
     color:#9b762c;
 
-    font-weight:600;
+    font-weight:700;
 }
 
-.Limited Editions-closing-line{
-    margin-top:40px !important;
 
-    margin-bottom:0 !important;
+/* =========================================================
+   PREMIUM INTRO EFFECT
+========================================================= */
+
+.limited-intro::after{
+    content:"";
+
+    display:block;
+
+    width:100%;
+    max-width:1320px;
+
+    height:1px;
+
+    margin:55px auto 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(201,162,77,0.55),
+            transparent
+        );
 }
 
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:1100px){
+
+    .limited-intro{
+        padding-left:30px;
+        padding-right:30px;
+    }
+
+    .limited-intro .page-title h1{
+        font-size:56px;
+    }
+
+    .limited-intro > h2{
+        font-size:36px;
+    }
+
+    .limited-description p{
+        font-size:18px;
+        line-height:1.8;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:768px){
+
+    .limited-intro{
+        padding:
+            0
+            20px
+            50px;
+    }
+
+    .limited-intro .page-title{
+        padding:
+            15px
+            10px
+            30px;
+    }
+
+    .limited-intro .page-title h1{
+        font-size:42px;
+        line-height:1.2;
+    }
+
+    .limited-intro .title-line{
+        width:130px;
+    }
+
+    .limited-intro > h2{
+        font-size:29px;
+        line-height:1.3;
+
+        margin:
+            0 auto
+            30px;
+    }
+
+    .limited-description{
+        padding:0;
+    }
+
+    .limited-description p{
+        font-size:17px;
+        line-height:1.75;
+
+        margin-bottom:25px;
+    }
+
+    .limited-intro::after{
+        margin-top:40px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media(max-width:450px){
+
+    .limited-intro{
+        padding:
+            0
+            16px
+            45px;
+    }
+
+    .limited-intro .page-title h1{
+        font-size:36px;
+    }
+
+    .limited-intro > h2{
+        font-size:25px;
+    }
+
+    .limited-description p{
+        font-size:16px;
+        line-height:1.7;
+    }
+
+}
 
 /* =========================================================
    PRODUCT GRID
@@ -875,7 +1074,7 @@ body{
 
 
 <!-- =========================================
-     INTRO
+     LIMITED EDITIONS INTRO
 ========================================= -->
 
 <section class="limited-intro">
@@ -890,34 +1089,47 @@ body{
 
     </div>
 
+
     <h2>
         Made for Those Who Choose the Exceptional.
     </h2>
 
+
     <div class="limited-description">
 
         <p>
-            Some pieces are created to be seen. Others are created to be remembered. Our Limited Editions collection brings together distinctive timepieces and accessories chosen for their uncommon character, refined design, and unmistakable presence.
+            Some pieces are created simply to complete a collection.
+            Others are created to become the collection itself. Our
+            <strong>Limited Editions</strong> bring together distinctive
+            watches and sunglasses selected for their uncommon character,
+            refined details, striking designs, and unmistakable presence.
+            Every piece is chosen to offer something beyond the ordinary —
+            something that feels special from the very first moment you see it.
         </p>
 
+
         <p>
-            At <strong>50 Mirars</strong>, we believe exclusivity is not simply about having something few others have. It is about owning a piece that feels genuinely distinctive.
+            At <strong>50 Mirars</strong>, we believe true exclusivity is
+            not only about owning something that is difficult to find.
+            It is about owning a piece that reflects individuality,
+            confidence, and a refined sense of style. These selected
+            timepieces and accessories are made for those who appreciate
+            details, value distinctive design, and prefer pieces that
+            stand apart from conventional collections.
         </p>
 
-        <p>
-            Limited pieces have a different kind of appeal. They become the finishing touch to a signature style, a memorable gift, or a piece that feels unlike anything else in your collection.
-        </p>
 
         <p>
-
-            <strong>
-                Explore the collection and discover designs selected for those who prefer to stand apart from the ordinary.
-            </strong>
-
+            A limited piece carries a different kind of presence. It can
+            become the finishing touch to a signature look, a memorable
+            gift for someone special, or a timeless addition to your
+            personal collection. Explore the <strong>Limited Editions</strong>
+            at 50 Mirars and discover carefully selected designs created
+            for those who do not simply follow what is ordinary — they
+            choose something exceptional.
         </p>
 
     </div>
-
 </section>
 
     <!-- =========================================================
