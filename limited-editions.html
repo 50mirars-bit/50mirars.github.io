@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,7 +35,11 @@ html{
 
 body{
     margin:0;
-    font-family:Arial, Helvetica, sans-serif;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
 
     background:
         radial-gradient(
@@ -50,6 +55,8 @@ body{
         );
 
     color:#222;
+
+    overflow-x:hidden;
 }
 
 
@@ -57,8 +64,12 @@ body{
    BACK TO HOME
 ========================================================= */
 
-.home-container{
-    padding:20px 40px;
+.top-navigation{
+    width:100%;
+
+    padding:
+        20px
+        40px;
 }
 
 .home-btn{
@@ -74,19 +85,33 @@ body{
 
     text-decoration:none;
 
-    padding:12px 25px;
+    padding:
+        12px
+        25px;
+
+    border:
+        1px solid
+        #111;
 
     border-radius:6px;
 
     font-weight:600;
 
-    transition:0.3s ease;
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease;
 }
 
 .home-btn:hover{
     background:#c9a24d;
 
     color:#111;
+
+    border-color:#c9a24d;
+
+    transform:translateY(-2px);
 }
 
 
@@ -97,10 +122,14 @@ body{
 .page-title{
     text-align:center;
 
-    padding:20px 20px 35px;
+    padding:
+        20px
+        20px
+        35px;
 }
 
 .page-title h1{
+
     font-family:
         Georgia,
         "Times New Roman",
@@ -110,13 +139,18 @@ body{
 
     font-weight:600;
 
-    margin:0 0 20px;
+    margin:
+        0
+        0
+        20px;
 
     color:#111;
+
+    letter-spacing:-1px;
 }
 
 .title-line{
-    width:160px;
+    width:180px;
 
     height:2px;
 
@@ -128,6 +162,7 @@ body{
 }
 
 .title-line::after{
+
     content:"";
 
     width:12px;
@@ -153,27 +188,44 @@ body{
 ========================================================= */
 
 .limited-intro{
+
     width:100%;
+
     max-width:1450px;
+
     margin:0 auto;
-    padding:0 40px 65px;
+
+    padding:
+        0
+        40px
+        65px;
+
     text-align:center;
 }
 
 .limited-intro .page-title{
-    padding:20px 20px 35px;
+
+    padding:
+        20px
+        20px
+        35px;
 }
 
 .limited-intro .page-title h1{
+
     font-family:
         Georgia,
         "Times New Roman",
         serif;
 
     font-size:64px;
+
     font-weight:600;
 
-    margin:0 0 20px;
+    margin:
+        0
+        0
+        20px;
 
     color:#111;
 
@@ -181,7 +233,9 @@ body{
 }
 
 .limited-intro .title-line{
+
     width:180px;
+
     height:2px;
 
     background:#c9a24d;
@@ -192,9 +246,11 @@ body{
 }
 
 .limited-intro .title-line::after{
+
     content:"";
 
     width:12px;
+
     height:12px;
 
     background:#c9a24d;
@@ -202,6 +258,7 @@ body{
     position:absolute;
 
     left:50%;
+
     top:50%;
 
     transform:
@@ -215,19 +272,24 @@ body{
 ========================================================= */
 
 .limited-intro > h2{
+
     font-family:
         Georgia,
         "Times New Roman",
         serif;
 
     font-size:42px;
+
     line-height:1.25;
 
     font-weight:600;
 
     color:#171717;
 
-    margin:5px auto 38px;
+    margin:
+        5px
+        auto
+        38px;
 
     letter-spacing:-0.5px;
 }
@@ -238,18 +300,26 @@ body{
 ========================================================= */
 
 .limited-description{
+
     width:100%;
+
     max-width:1320px;
 
     margin:0 auto;
 
     text-align:left;
 
-    padding:0 10px;
+    padding:
+        0
+        10px;
 }
 
 .limited-description p{
-    margin:0 0 30px;
+
+    margin:
+        0
+        0
+        30px;
 
     font-size:19px;
 
@@ -263,13 +333,17 @@ body{
 }
 
 .limited-description p:last-child{
+
     margin-bottom:0;
 }
 
 
-/* GOLD HIGHLIGHT */
+/* =========================================================
+   GOLD HIGHLIGHT
+========================================================= */
 
 .limited-description strong{
+
     color:#9b762c;
 
     font-weight:700;
@@ -277,20 +351,25 @@ body{
 
 
 /* =========================================================
-   PREMIUM INTRO EFFECT
+   PREMIUM INTRO DIVIDER
 ========================================================= */
 
 .limited-intro::after{
+
     content:"";
 
     display:block;
 
     width:100%;
+
     max-width:1320px;
 
     height:1px;
 
-    margin:55px auto 0;
+    margin:
+        55px
+        auto
+        0;
 
     background:
         linear-gradient(
@@ -301,11 +380,13 @@ body{
         );
 }
 
+
 /* =========================================================
    PRODUCT GRID
 ========================================================= */
 
 .product-grid{
+
     display:grid;
 
     grid-template-columns:
@@ -331,6 +412,7 @@ body{
 ========================================================= */
 
 .product-card{
+
     background:#fff;
 
     border-radius:18px;
@@ -340,7 +422,8 @@ body{
     text-align:center;
 
     box-shadow:
-        0 8px 25px rgba(0,0,0,0.08);
+        0 8px 25px
+        rgba(0,0,0,0.08);
 
     transition:
         transform 0.3s ease,
@@ -354,41 +437,60 @@ body{
 }
 
 .product-card:hover{
-    transform:translateY(-5px);
+
+    transform:
+        translateY(-5px);
 
     box-shadow:
-        0 14px 35px rgba(0,0,0,0.13);
+        0 14px 35px
+        rgba(0,0,0,0.13);
 }
 
 
 /* =========================================================
-   PRODUCT MEDIA
+   PRODUCT IMAGE
 ========================================================= */
 
 .product-card > img{
+
     width:100%;
+
     height:350px;
+
     object-fit:cover;
+
     display:block;
 }
 
+
+/* =========================================================
+   PRODUCT VIDEO
+========================================================= */
+
 .product-card > video{
+
     width:100%;
+
     height:350px;
+
     object-fit:cover;
+
     display:block;
+
     background:#000;
 }
 
 
 /* =========================================================
-   PRODUCT IMAGE SLIDER
+   IMAGE SLIDER
 ========================================================= */
 
 .slider{
+
     position:relative;
 
     width:100%;
+
     height:350px;
 
     overflow:hidden;
@@ -397,12 +499,15 @@ body{
 }
 
 .slider .slide{
+
     position:absolute;
 
     top:0;
+
     left:0;
 
     width:100%;
+
     height:100%;
 
     object-fit:cover;
@@ -419,6 +524,7 @@ body{
 }
 
 .slider .slide.active{
+
     opacity:1;
 
     visibility:visible;
@@ -428,27 +534,31 @@ body{
 
 
 /* =========================================================
-   SLIDER BUTTONS
+   SLIDER PREVIOUS / NEXT BUTTONS
 ========================================================= */
 
 .slider .prev,
 .slider .next{
+
     position:absolute;
 
     top:50%;
 
-    transform:translateY(-50%);
+    transform:
+        translateY(-50%);
 
     z-index:5;
 
     width:44px;
+
     height:44px;
 
     border:none;
 
     border-radius:50%;
 
-    background:rgba(17,17,17,0.78);
+    background:
+        rgba(17,17,17,0.82);
 
     color:#fff;
 
@@ -470,21 +580,25 @@ body{
 }
 
 .slider .prev{
+
     left:15px;
 }
 
 .slider .next{
+
     right:15px;
 }
 
 .slider .prev:hover,
 .slider .next:hover{
+
     background:#c9a24d;
 
     color:#111;
 
     box-shadow:
-        0 5px 15px rgba(0,0,0,0.25);
+        0 5px 15px
+        rgba(0,0,0,0.25);
 
     transform:
         translateY(-50%)
@@ -493,16 +607,19 @@ body{
 
 
 /* =========================================================
-   SLIDER IMAGE SHADOW
+   SLIDER BOTTOM SHADOW
 ========================================================= */
 
 .slider::after{
+
     content:"";
 
     position:absolute;
 
     left:0;
+
     right:0;
+
     bottom:0;
 
     height:80px;
@@ -519,16 +636,21 @@ body{
         );
 }
 
+
 /* =========================================================
    PRODUCT NAME
 ========================================================= */
 
 .product-card h3{
+
     font-size:22px;
 
     line-height:1.35;
 
-    margin:25px 15px 10px;
+    margin:
+        25px
+        15px
+        10px;
 
     color:#111;
 
@@ -547,86 +669,252 @@ body{
 ========================================================= */
 
 .price{
+
     color:#c9a24d;
 
     font-weight:bold;
 
     font-size:22px;
 
-    margin:15px 0 20px;
+    margin:
+        15px
+        0
+        20px;
 }
 
 
 /* =========================================================
-   PRODUCT BUTTON
+   PRODUCT BUTTON CONTAINER
 ========================================================= */
 
 .product-buttons{
+
     display:flex;
 
     justify-content:center;
 
     align-items:center;
 
+    width:100%;
+
     margin-top:auto;
 
     padding:
         0
-        15px
+        20px
         30px;
 }
 
 
 /* =========================================================
-   SHOW PRODUCT DETAILS
+   PREMIUM VIEW PRODUCT DETAILS BUTTON
 ========================================================= */
 
-.product-details-btn{
-    display:inline-flex;
+.view-details-btn{
+
+    position:relative;
+
+    display:flex;
 
     align-items:center;
 
     justify-content:center;
 
-    min-height:50px;
-
     width:100%;
 
     max-width:300px;
 
-    padding:13px 25px;
+    min-height:54px;
 
-    background:#111;
+    padding:
+        14px
+        28px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0b0b0b 0%,
+            #1b1b1b 45%,
+            #0b0b0b 100%
+        );
 
     color:#fff;
 
     text-decoration:none;
 
-    border:2px solid #111;
+    border:
+        1px solid
+        #c9a24d;
 
-    border-radius:6px;
+    border-radius:7px;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
 
     font-size:16px;
 
-    font-weight:bold;
+    font-weight:700;
 
-    letter-spacing:0.2px;
+    letter-spacing:0.4px;
+
+    line-height:1.2;
+
+    text-align:center;
+
+    overflow:hidden;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 6px 18px
+        rgba(0,0,0,0.18);
 
     transition:
-        background 0.3s ease,
-        color 0.3s ease,
-        border-color 0.3s ease,
-        transform 0.3s ease;
+        background 0.35s ease,
+        color 0.35s ease,
+        border-color 0.35s ease,
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
 }
 
-.product-details-btn:hover{
-    background:#c9a24d;
+
+/* =========================================================
+   BUTTON INNER BORDER
+========================================================= */
+
+.view-details-btn::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:3px;
+
+    left:3px;
+
+    right:3px;
+
+    bottom:3px;
+
+    border:
+        1px solid
+        rgba(201,162,77,0.22);
+
+    border-radius:5px;
+
+    pointer-events:none;
+
+    transition:
+        border-color 0.35s ease;
+}
+
+
+/* =========================================================
+   BUTTON GOLD SHINE
+========================================================= */
+
+.view-details-btn::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-120%;
+
+    width:65%;
+
+    height:100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(255,255,255,0.08) 35%,
+            rgba(255,255,255,0.42) 50%,
+            rgba(255,255,255,0.08) 65%,
+            transparent 100%
+        );
+
+    transform:
+        skewX(-25deg);
+
+    transition:
+        left 0.7s ease;
+
+    pointer-events:none;
+}
+
+
+/* =========================================================
+   BUTTON HOVER
+========================================================= */
+
+.view-details-btn:hover{
+
+    background:
+        linear-gradient(
+            135deg,
+            #c9a24d 0%,
+            #e5ca83 50%,
+            #c9a24d 100%
+        );
 
     color:#111;
 
-    border-color:#c9a24d;
+    border-color:#b58c38;
 
-    transform:translateY(-2px);
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 12px 28px
+        rgba(0,0,0,0.22),
+        0 0 20px
+        rgba(201,162,77,0.30);
+}
+
+.view-details-btn:hover::before{
+
+    left:140%;
+}
+
+.view-details-btn:hover::after{
+
+    border-color:
+        rgba(17,17,17,0.25);
+}
+
+
+/* =========================================================
+   BUTTON CLICK
+========================================================= */
+
+.view-details-btn:active{
+
+    transform:
+        translateY(-1px);
+
+    box-shadow:
+        0 5px 12px
+        rgba(0,0,0,0.18);
+}
+
+
+/* =========================================================
+   BUTTON FOCUS
+========================================================= */
+
+.view-details-btn:focus-visible{
+
+    outline:
+        2px solid
+        #c9a24d;
+
+    outline-offset:4px;
 }
 
 
@@ -635,6 +923,7 @@ body{
 ========================================================= */
 
 .main-footer{
+
     background:#111;
 
     color:#fff;
@@ -643,6 +932,7 @@ body{
 }
 
 .footer-container{
+
     width:100%;
 
     max-width:1400px;
@@ -661,6 +951,7 @@ body{
 ========================================================= */
 
 .footer-top{
+
     display:grid;
 
     grid-template-columns:
@@ -678,11 +969,16 @@ body{
 }
 
 .footer-top > h2{
-    grid-column:1 / -1;
+
+    grid-column:
+        1 / -1;
 
     text-align:center;
 
-    margin:0 0 10px;
+    margin:
+        0
+        0
+        10px;
 
     font-family:
         Georgia,
@@ -702,6 +998,7 @@ body{
 ========================================================= */
 
 .contact-column{
+
     text-align:left;
 }
 
@@ -709,14 +1006,19 @@ body{
 .whatsapp-column h3,
 .footer-links-column h3,
 .footer-social h3{
+
     color:#c9a24d;
 
     font-size:20px;
 
-    margin:0 0 18px;
+    margin:
+        0
+        0
+        18px;
 }
 
 .contact-column p{
+
     color:#bbb;
 
     font-size:15px;
@@ -725,6 +1027,7 @@ body{
 }
 
 .footer-link{
+
     display:block;
 
     color:#fff;
@@ -733,10 +1036,12 @@ body{
 
     margin-bottom:12px;
 
-    transition:0.3s ease;
+    transition:
+        color 0.3s ease;
 }
 
 .footer-link:hover{
+
     color:#c9a24d;
 }
 
@@ -746,10 +1051,12 @@ body{
 ========================================================= */
 
 .whatsapp-column{
+
     text-align:center;
 }
 
 .whatsapp-title{
+
     display:flex;
 
     align-items:center;
@@ -760,6 +1067,7 @@ body{
 }
 
 .whatsapp-icon{
+
     width:28px !important;
 
     height:28px !important;
@@ -768,6 +1076,7 @@ body{
 }
 
 .whatsapp-button{
+
     display:inline-block;
 
     background:#c9a24d;
@@ -776,19 +1085,28 @@ body{
 
     text-decoration:none;
 
-    padding:13px 30px;
+    padding:
+        13px
+        30px;
 
     border-radius:6px;
 
     font-weight:bold;
 
-    transition:0.3s ease;
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
 }
 
 .whatsapp-button:hover{
+
     background:#fff;
 
     color:#111;
+
+    transform:
+        translateY(-2px);
 }
 
 
@@ -797,6 +1115,7 @@ body{
 ========================================================= */
 
 .footer-middle{
+
     display:grid;
 
     grid-template-columns:
@@ -806,26 +1125,32 @@ body{
 
     gap:50px;
 
-    padding:50px 0;
+    padding:
+        50px
+        0;
 }
 
 .footer-links-column{
+
     display:flex;
 
     flex-direction:column;
 }
 
 .footer-links-column a{
+
     color:#ccc;
 
     text-decoration:none;
 
     margin-bottom:13px;
 
-    transition:0.3s ease;
+    transition:
+        color 0.3s ease;
 }
 
 .footer-links-column a:hover{
+
     color:#c9a24d;
 }
 
@@ -835,16 +1160,19 @@ body{
 ========================================================= */
 
 .footer-social{
+
     text-align:center;
 }
 
 .footer-social p{
+
     color:#bbb;
 
     margin-bottom:15px;
 }
 
 .instagram-button{
+
     display:inline-flex;
 
     align-items:center;
@@ -861,14 +1189,21 @@ body{
 
     border-radius:50%;
 
-    transition:0.3s ease;
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
 }
 
 .instagram-button:hover{
+
     background:#c9a24d;
+
+    transform:
+        translateY(-2px);
 }
 
 .instagram-button img{
+
     width:28px;
 
     height:28px;
@@ -882,16 +1217,20 @@ body{
 ========================================================= */
 
 .footer-bottom{
+
     border-top:
         1px solid
         rgba(255,255,255,0.15);
 
     text-align:center;
 
-    padding:25px 10px;
+    padding:
+        25px
+        10px;
 }
 
 .footer-bottom p{
+
     margin:0;
 
     color:#999;
@@ -909,6 +1248,7 @@ body{
 @media(max-width:1100px){
 
     .product-grid{
+
         grid-template-columns:
             repeat(2,1fr);
 
@@ -926,46 +1266,84 @@ body{
 
 @media(max-width:768px){
 
-    .home-container{
+    .top-navigation{
+
         padding:
             15px
             20px;
     }
 
+
+    .home-btn{
+
+        padding:
+            11px
+            20px;
+
+        font-size:14px;
+    }
+
+
     .page-title{
+
         padding:
             15px
             15px
             30px;
     }
 
+
     .page-title h1{
+
         font-size:42px;
     }
 
-    .title-line{
-        width:120px;
+
+    .limited-intro{
+
+        width:100%;
+
+        padding:
+            0
+            20px
+            40px;
     }
 
-    .limited editions-intro{
-        width:92%;
 
-        padding-bottom:40px;
+    .limited-intro .page-title h1{
+
+        font-size:42px;
     }
 
-    .limited edtions-intro h2{
+
+    .limited-intro > h2{
+
         font-size:28px;
 
         line-height:1.3;
+
+        margin-bottom:30px;
     }
 
-    .limited editions-description p{
+
+    .limited-description{
+
+        padding:0;
+    }
+
+
+    .limited-description p{
+
         font-size:16px;
 
         line-height:1.7;
+
+        margin-bottom:25px;
     }
 
+
     .product-grid{
+
         grid-template-columns:1fr;
 
         padding:
@@ -976,12 +1354,45 @@ body{
         gap:25px;
     }
 
+
     .product-card > img,
     .product-card > video{
+
         height:300px;
     }
 
+
+    .slider{
+
+        height:300px;
+    }
+
+
+    .slider .prev,
+    .slider .next{
+
+        width:40px;
+
+        height:40px;
+
+        font-size:17px;
+    }
+
+
+    .slider .prev{
+
+        left:10px;
+    }
+
+
+    .slider .next{
+
+        right:10px;
+    }
+
+
     .product-card h3{
+
         font-size:20px;
 
         min-height:auto;
@@ -989,237 +1400,23 @@ body{
         margin-top:20px;
     }
 
-    .product-buttons{
-        width:100%;
 
-        padding-left:20px;
+    .price{
 
-        padding-right:20px;
+        font-size:20px;
     }
 
-    .slider{
-    height:300px;
-}
 
-.slider .prev,
-.slider .next{
-    width:40px;
-    height:40px;
+    .product-buttons{
 
-    font-size:17px;
-}
+        width:100%;
 
-.slider .prev{
-    left:10px;
-}
+        padding:
+            0
+            20px
+            25px;
+    }
 
-.slider .next{
-    right:10px;
-}
-
-/* =========================================================
-   PREMIUM VIEW PRODUCT DETAILS BUTTON
-========================================================= */
-
-.view-details-btn{
-    position:relative;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    width:100%;
-
-    max-width:300px;
-
-    min-height:54px;
-
-    padding:14px 28px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #111 0%,
-            #1c1c1c 50%,
-            #111 100%
-        );
-
-    color:#fff;
-
-    text-decoration:none;
-
-    border:1px solid #c9a24d;
-
-    border-radius:8px;
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    font-size:16px;
-
-    font-weight:700;
-
-    letter-spacing:0.4px;
-
-    text-transform:none;
-
-    overflow:hidden;
-
-    box-shadow:
-        0 5px 15px rgba(0,0,0,0.18);
-
-    transition:
-        all 0.35s ease;
-
-    z-index:1;
-}
-
-
-/* =========================================================
-   GOLD SHINE
-========================================================= */
-
-.view-details-btn::before{
-
-    content:"";
-
-    position:absolute;
-
-    top:0;
-
-    left:-130%;
-
-    width:70%;
-
-    height:100%;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,255,255,0.45),
-            transparent
-        );
-
-    transform:skewX(-25deg);
-
-    transition:
-        left 0.65s ease;
-
-    z-index:-1;
-}
-
-
-/* =========================================================
-   GOLD INNER GLOW
-========================================================= */
-
-.view-details-btn::after{
-
-    content:"";
-
-    position:absolute;
-
-    inset:2px;
-
-    border-radius:6px;
-
-    border:1px solid
-        rgba(201,162,77,0.18);
-
-    pointer-events:none;
-
-    transition:
-        border-color 0.35s ease;
-}
-
-
-/* =========================================================
-   HOVER
-========================================================= */
-
-.view-details-btn:hover{
-
-    background:
-        linear-gradient(
-            135deg,
-            #c9a24d 0%,
-            #e0c47a 50%,
-            #c9a24d 100%
-        );
-
-    color:#111;
-
-    border-color:#c9a24d;
-
-    transform:
-        translateY(-4px);
-
-    box-shadow:
-        0 10px 25px
-        rgba(0,0,0,0.22),
-        0 0 18px
-        rgba(201,162,77,0.25);
-}
-
-
-/* =========================================================
-   SHINE ANIMATION
-========================================================= */
-
-.view-details-btn:hover::before{
-
-    left:140%;
-}
-
-
-/* =========================================================
-   INNER BORDER ON HOVER
-========================================================= */
-
-.view-details-btn:hover::after{
-
-    border-color:
-        rgba(17,17,17,0.25);
-}
-
-
-/* =========================================================
-   CLICK EFFECT
-========================================================= */
-
-.view-details-btn:active{
-
-    transform:
-        translateY(-1px);
-
-    box-shadow:
-        0 4px 10px
-        rgba(0,0,0,0.18);
-}
-
-
-/* =========================================================
-   FOCUS
-========================================================= */
-
-.view-details-btn:focus-visible{
-
-    outline:2px solid #c9a24d;
-
-    outline-offset:4px;
-}
-
-
-/* =========================================================
-   MOBILE BUTTON
-========================================================= */
-
-@media(max-width:768px){
 
     .view-details-btn{
 
@@ -1229,14 +1426,52 @@ body{
 
         padding:
             13px
-            22px;
+            20px;
 
         font-size:15px;
+    }
 
-        border-radius:7px;
+
+    .footer-container{
+
+        padding:
+            45px
+            25px
+            0;
+    }
+
+
+    .footer-top{
+
+        grid-template-columns:1fr;
+
+        gap:35px;
+    }
+
+
+    .footer-top > h2{
+
+        font-size:32px;
+    }
+
+
+    .footer-middle{
+
+        grid-template-columns:1fr;
+
+        gap:35px;
+
+        text-align:center;
+    }
+
+
+    .footer-links-column{
+
+        align-items:center;
     }
 
 }
+
 
 /* =========================================================
    SMALL MOBILE
@@ -1245,39 +1480,61 @@ body{
 @media(max-width:450px){
 
     .page-title h1{
+
         font-size:36px;
     }
 
-    .limited editions-intro h2{
+
+    .limited-intro .page-title h1{
+
+        font-size:36px;
+    }
+
+
+    .limited-intro > h2{
+
         font-size:25px;
     }
 
+
     .product-card > img,
     .product-card > video{
+
         height:270px;
     }
 
+
+    .slider{
+
+        height:270px;
+    }
+
+
+    .slider .prev,
+    .slider .next{
+
+        width:36px;
+
+        height:36px;
+
+        font-size:15px;
+    }
+
+
     .product-card h3{
+
         font-size:19px;
     }
 
-    .slider{
-    height:270px;
-}
-
-.slider .prev,
-.slider .next{
-    width:36px;
-    height:36px;
-
-    font-size:15px;
-}
 
     .price{
+
         font-size:20px;
     }
 
+
     .footer-top > h2{
+
         font-size:29px;
     }
 
@@ -1287,26 +1544,32 @@ body{
 
 </head>
 
+
 <body>
 
-<!-- =========================================
+
+<!-- =========================================================
      BACK TO HOME
-========================================= -->
+========================================================= -->
 
 <div class="top-navigation">
 
-    <a href="index.html" class="home-btn">
+    <a
+        href="index.html"
+        class="home-btn"
+    >
         ← Back to Home
     </a>
 
 </div>
 
 
-<!-- =========================================
+<!-- =========================================================
      LIMITED EDITIONS INTRO
-========================================= -->
+========================================================= -->
 
 <section class="limited-intro">
+
 
     <div class="page-title">
 
@@ -1326,7 +1589,9 @@ body{
 
     <div class="limited-description">
 
+
         <p>
+
             Some pieces are created simply to complete a collection.
             Others are created to become the collection itself. Our
             <strong>Limited Editions</strong> bring together distinctive
@@ -1334,10 +1599,12 @@ body{
             refined details, striking designs, and unmistakable presence.
             Every piece is chosen to offer something beyond the ordinary —
             something that feels special from the very first moment you see it.
+
         </p>
 
 
         <p>
+
             At <strong>50 Mirars</strong>, we believe true exclusivity is
             not only about owning something that is difficult to find.
             It is about owning a piece that reflects individuality,
@@ -1345,10 +1612,12 @@ body{
             timepieces and accessories are made for those who appreciate
             details, value distinctive design, and prefer pieces that
             stand apart from conventional collections.
+
         </p>
 
 
         <p>
+
             A limited piece carries a different kind of presence. It can
             become the finishing touch to a signature look, a memorable
             gift for someone special, or a timeless addition to your
@@ -1356,20 +1625,26 @@ body{
             at 50 Mirars and discover carefully selected designs created
             for those who do not simply follow what is ordinary — they
             choose something exceptional.
+
         </p>
 
+
     </div>
+
 </section>
 
-    <!-- =========================================================
+
+
+<!-- =========================================================
      PRODUCT GRID
-    ========================================================= -->
+========================================================= -->
 
 <div class="product-grid">
 
-<!-- =========================================
+
+<!-- =========================================================
      1. SEIKO 5 SPORTS RED BLOOD
-     ========================================= -->
+========================================================= -->
 
 <div class="product-card">
 
@@ -1415,9 +1690,9 @@ body{
 
 
 
-<!-- =========================================
+<!-- =========================================================
      2. SEIKO PRESAGE COCKTAIL
-     ========================================= -->
+========================================================= -->
 
 <div class="product-card">
 
@@ -1463,9 +1738,9 @@ body{
 
 
 
-<!-- =========================================
+<!-- =========================================================
      3. MAYBACH SUNGLASSES 0272
-     ========================================= -->
+========================================================= -->
 
 <div class="product-card">
 
@@ -1511,9 +1786,9 @@ body{
 
 
 
-<!-- =========================================
+<!-- =========================================================
      4. VERSACE VE2298
-     ========================================= -->
+========================================================= -->
 
 <div class="product-card">
 
@@ -1559,9 +1834,9 @@ body{
 
 
 
-<!-- =========================================
+<!-- =========================================================
      5. RAY-BAN WAYFARER REVERSE
-     ========================================= -->
+========================================================= -->
 
 <div class="product-card">
 
@@ -1596,9 +1871,9 @@ body{
 
 
 
-<!-- =========================================
+<!-- =========================================================
      6. BALMAIN PURPLE
-     ========================================= -->
+========================================================= -->
 
 <div class="product-card">
 
@@ -1633,9 +1908,9 @@ body{
 
 
 
-<!-- =========================================
+<!-- =========================================================
      7. SEIKO PEPSI EDITION
-     ========================================= -->
+========================================================= -->
 
 <div class="product-card">
 
@@ -1670,9 +1945,9 @@ body{
 
 
 
-<!-- =========================================
+<!-- =========================================================
      8. GUCCI DIAMOND CUT
-     ========================================= -->
+========================================================= -->
 
 <div class="product-card">
 
@@ -1705,215 +1980,367 @@ body{
 
 </div>
 
-    <!-- =========================================
+
+
+<!-- =========================================================
      9. TISSOT GENTLEMAN POWERMATIC 80
-     ========================================= -->
+========================================================= -->
 
 <div class="product-card">
 
     <div class="slider">
 
-        <img src="Tissot Gentelman Powermatic 80.jpeg"
-             class="slide active"
-             alt="Tissot Gentleman Powermatic 80">
 
-        <img src="Tissot Gentelman Powermatic 80 2.jpeg"
-             class="slide"
-             alt="Tissot Gentleman Powermatic 80">
+        <img
+            src="Tissot Gentelman Powermatic 80.jpeg"
+            class="slide active"
+            alt="Tissot Gentleman Powermatic 80"
+        >
 
-        <button class="prev" type="button">❮</button>
-        <button class="next" type="button">❯</button>
+
+        <img
+            src="Tissot Gentelman Powermatic 80 2.jpeg"
+            class="slide"
+            alt="Tissot Gentleman Powermatic 80"
+        >
+
+
+        <button
+            class="prev"
+            type="button"
+            aria-label="Previous image"
+        >
+            ❮
+        </button>
+
+
+        <button
+            class="next"
+            type="button"
+            aria-label="Next image"
+        >
+            ❯
+        </button>
+
 
     </div>
 
-    <h3>Tissot Gentleman Powermatic 80</h3>
 
-    <div class="price">₹6,000</div>
+    <h3>
+        Tissot Gentleman Powermatic 80
+    </h3>
+
+
+    <div class="price">
+        ₹6,000
+    </div>
+
 
     <div class="product-buttons">
-        <a href="product-detailslimited-editions.html?id=9"
-           class="view-details-btn">
+
+        <a
+            href="product-detailslimited-editions.html?id=9"
+            class="view-details-btn"
+        >
             View Product Details
         </a>
+
     </div>
 
 </div>
 
 
 
-<!-- =========================================
+<!-- =========================================================
      10. MAYBACH THE MAGIC I BLUE
-     ========================================= -->
+========================================================= -->
 
 <div class="product-card">
 
-    <img src="Maybach The Magic I Blue Sunglasses.jpeg"
-         alt="Maybach The Magic I Blue Sunglasses">
+    <img
+        src="Maybach The Magic I Blue Sunglasses.jpeg"
+        alt="Maybach The Magic I Blue Sunglasses"
+    >
 
-    <h3>Maybach The Magic I Blue Sunglasses</h3>
 
-    <div class="price">₹2,500</div>
+    <h3>
+        Maybach The Magic I Blue Sunglasses
+    </h3>
+
+
+    <div class="price">
+        ₹2,500
+    </div>
+
 
     <div class="product-buttons">
-        <a href="product-detailslimited-editions.html?id=10"
-           class="view-details-btn">
+
+        <a
+            href="product-detailslimited-editions.html?id=10"
+            class="view-details-btn"
+        >
             View Product Details
         </a>
+
     </div>
 
 </div>
 
 
 
-<!-- =========================================
+<!-- =========================================================
      11. CASIO EDIFICE ECB-2000DD
-     ========================================= -->
+========================================================= -->
 
 <div class="product-card">
 
-    <img src="Casio Edifice ECB-2000DD.jpeg"
-         alt="Casio Edifice ECB-2000DD">
+    <img
+        src="Casio Edifice ECB-2000DD.jpeg"
+        alt="Casio Edifice ECB-2000DD"
+    >
 
-    <h3>Casio Edifice ECB-2000DD</h3>
 
-    <div class="price">₹6,000</div>
+    <h3>
+        Casio Edifice ECB-2000DD
+    </h3>
+
+
+    <div class="price">
+        ₹6,000
+    </div>
+
 
     <div class="product-buttons">
-        <a href="product-detailslimited-editions.html?id=11"
-           class="view-details-btn">
+
+        <a
+            href="product-detailslimited-editions.html?id=11"
+            class="view-details-btn"
+        >
             View Product Details
         </a>
+
     </div>
 
 </div>
 
 
 
-<!-- =========================================
+<!-- =========================================================
      12. SEIKO DATEJUST MOD
-     ========================================= -->
+========================================================= -->
 
 <div class="product-card">
 
-    <video width="100%" height="350" controls playsinline>
-        <source src="Seiko Datejust Mod.mp4" type="video/mp4">
+    <video
+        width="100%"
+        height="350"
+        controls
+        playsinline
+    >
+
+        <source
+            src="Seiko Datejust Mod.mp4"
+            type="video/mp4"
+        >
+
     </video>
 
-    <h3>Seiko Datejust Mod</h3>
 
-    <div class="price">₹5,000</div>
+    <h3>
+        Seiko Datejust Mod
+    </h3>
+
+
+    <div class="price">
+        ₹5,000
+    </div>
+
 
     <div class="product-buttons">
-        <a href="product-detailslimited-editions.html?id=12"
-           class="view-details-btn">
+
+        <a
+            href="product-detailslimited-editions.html?id=12"
+            class="view-details-btn"
+        >
             View Product Details
         </a>
+
     </div>
 
 </div>
 
 
 
-<!-- =========================================
+<!-- =========================================================
      13. SEIKO MOD
-     ========================================= -->
+========================================================= -->
 
 <div class="product-card">
 
-    <img src="Seiko Mod .jpeg"
-         alt="Seiko Mod">
+    <img
+        src="Seiko Mod .jpeg"
+        alt="Seiko Mod"
+    >
 
-    <h3>Seiko Mod</h3>
 
-    <div class="price">₹5,000</div>
+    <h3>
+        Seiko Mod
+    </h3>
+
+
+    <div class="price">
+        ₹5,000
+    </div>
+
 
     <div class="product-buttons">
-        <a href="product-detailslimited-editions.html?id=13"
-           class="view-details-btn">
+
+        <a
+            href="product-detailslimited-editions.html?id=13"
+            class="view-details-btn"
+        >
             View Product Details
         </a>
+
     </div>
 
 </div>
 
 
 
-<!-- =========================================
+<!-- =========================================================
      14. MAYBACH FA-812
-     ========================================= -->
+========================================================= -->
 
 <div class="product-card">
 
-    <video width="100%" height="350" controls playsinline>
-        <source src="Maybach FA-812.mp4" type="video/mp4">
+    <video
+        width="100%"
+        height="350"
+        controls
+        playsinline
+    >
+
+        <source
+            src="Maybach FA-812.mp4"
+            type="video/mp4"
+        >
+
     </video>
 
-    <h3>Maybach FA-812</h3>
 
-    <div class="price">₹2,500</div>
+    <h3>
+        Maybach FA-812
+    </h3>
+
+
+    <div class="price">
+        ₹2,500
+    </div>
+
 
     <div class="product-buttons">
-        <a href="product-detailslimited-editions.html?id=14"
-           class="view-details-btn">
+
+        <a
+            href="product-detailslimited-editions.html?id=14"
+            class="view-details-btn"
+        >
             View Product Details
         </a>
+
     </div>
 
 </div>
 
 
 
-<!-- =========================================
+<!-- =========================================================
      15. SEIKO PROSPEX DIVER
-     ========================================= -->
+========================================================= -->
 
 <div class="product-card">
 
-    <video width="100%" height="350" controls playsinline>
-        <source src="Seiko Prospex Diver .mp4" type="video/mp4">
+    <video
+        width="100%"
+        height="350"
+        controls
+        playsinline
+    >
+
+        <source
+            src="Seiko Prospex Diver .mp4"
+            type="video/mp4"
+        >
+
     </video>
 
-    <h3>Seiko Prospex Diver</h3>
 
-    <div class="price">₹4,000</div>
+    <h3>
+        Seiko Prospex Diver
+    </h3>
+
+
+    <div class="price">
+        ₹4,000
+    </div>
+
 
     <div class="product-buttons">
-        <a href="product-detailslimited-editions.html?id=15"
-           class="view-details-btn">
+
+        <a
+            href="product-detailslimited-editions.html?id=15"
+            class="view-details-btn"
+        >
             View Product Details
         </a>
+
     </div>
 
 </div>
 
 
 
-<!-- =========================================
+<!-- =========================================================
      16. BALMAIN GREEN
-     ========================================= -->
+========================================================= -->
 
 <div class="product-card">
 
-    <img src="Balmain Paris 7020 Green Shade Sungalsses.jpeg"
-         alt="Balmain Paris 7020 Green Shade Sunglasses">
+    <img
+        src="Balmain Paris 7020 Green Shade Sungalsses.jpeg"
+        alt="Balmain Paris 7020 Green Shade Sunglasses"
+    >
 
-    <h3>Balmain Paris 7020 Green Shade Sunglasses</h3>
 
-    <div class="price">₹2,500</div>
+    <h3>
+        Balmain Paris 7020 Green Shade Sunglasses
+    </h3>
+
+
+    <div class="price">
+        ₹2,500
+    </div>
+
 
     <div class="product-buttons">
-        <a href="product-detailslimited-editions.html?id=16"
-           class="view-details-btn">
+
+        <a
+            href="product-detailslimited-editions.html?id=16"
+            class="view-details-btn"
+        >
             View Product Details
         </a>
+
     </div>
 
 </div>
+
 
 </div>
 <!-- END PRODUCT GRID -->
 
-    
+
+
 <!-- =========================================================
      FOOTER
 ========================================================= -->
@@ -1922,47 +2349,83 @@ body{
 
     <div class="footer-container">
 
-        <!-- FOOTER TOP -->
+
+        <!-- =====================================================
+             FOOTER TOP
+        ====================================================== -->
 
         <div class="footer-top">
 
-            <h2>Contact Us</h2>
+            <h2>
+                Contact Us
+            </h2>
+
 
             <!-- CUSTOMERS -->
 
             <div class="contact-column">
 
-                <h3>For Customers:</h3>
+                <h3>
+                    For Customers:
+                </h3>
 
-                <a href="mailto:50mirars@gmail.com" class="footer-link">
+
+                <a
+                    href="mailto:50mirars@gmail.com"
+                    class="footer-link"
+                >
                     50mirars@gmail.com
                 </a>
 
-                <a href="tel:+918209989013" class="footer-link">
+
+                <a
+                    href="tel:+918209989013"
+                    class="footer-link"
+                >
                     82099 89013
                 </a>
 
-                <p>09:00 - 21:30 | Monday to Sunday</p>
+
+                <p>
+                    09:00 - 21:30 | Monday to Sunday
+                </p>
 
             </div>
+
+
 
             <!-- SALES / WATCH SERVICE -->
 
             <div class="contact-column">
 
-                <h3>For Sales/Watch Service:</h3>
+                <h3>
+                    For Sales/Watch Service:
+                </h3>
 
-                <a href="mailto:50mirars@gmail.com" class="footer-link">
+
+                <a
+                    href="mailto:50mirars@gmail.com"
+                    class="footer-link"
+                >
                     50mirars@gmail.com
                 </a>
 
-                <a href="tel:+918209989013" class="footer-link">
+
+                <a
+                    href="tel:+918209989013"
+                    class="footer-link"
+                >
                     82099 89013
                 </a>
 
-                <p>09:00 - 21:30 | Monday to Sunday</p>
+
+                <p>
+                    09:00 - 21:30 | Monday to Sunday
+                </p>
 
             </div>
+
+
 
             <!-- WHATSAPP -->
 
@@ -1972,60 +2435,101 @@ body{
 
                     View Products on WhatsApp
 
-                    <img src="whatsapplogo.png"
-                         alt="WhatsApp"
-                         class="whatsapp-icon">
+                    <img
+                        src="whatsapplogo.png"
+                        alt="WhatsApp"
+                        class="whatsapp-icon"
+                    >
 
                 </h3>
 
-                <a href="https://wa.me/918209989013"
-                   target="_blank"
-                   rel="noopener"
-                   class="whatsapp-button">
 
+                <a
+                    href="https://wa.me/918209989013"
+                    target="_blank"
+                    rel="noopener"
+                    class="whatsapp-button"
+                >
                     View Products
-
                 </a>
 
             </div>
 
         </div>
 
-        <!-- FOOTER MIDDLE -->
+
+
+        <!-- =====================================================
+             FOOTER MIDDLE
+        ====================================================== -->
 
         <div class="footer-middle">
 
-            <div class="footer-links-column">
-
-                <h3>Know 50 Mirars</h3>
-
-                <a href="about.html">About Us</a>
-                <a href="faq.html">FAQ</a>
-
-            </div>
 
             <div class="footer-links-column">
 
-                <h3>Terms &amp; Conditions</h3>
+                <h3>
+                    Know 50 Mirars
+                </h3>
 
-                <a href="terms.html">Terms &amp; Conditions</a>
-                <a href="privacypolicy.html">Privacy Policy</a>
+
+                <a href="about.html">
+                    About Us
+                </a>
+
+
+                <a href="faq.html">
+                    FAQ
+                </a>
 
             </div>
+
+
+
+            <div class="footer-links-column">
+
+                <h3>
+                    Terms &amp; Conditions
+                </h3>
+
+
+                <a href="terms.html">
+                    Terms &amp; Conditions
+                </a>
+
+
+                <a href="privacypolicy.html">
+                    Privacy Policy
+                </a>
+
+            </div>
+
+
 
             <div class="footer-social">
 
-                <h3>50 Mirars</h3>
+                <h3>
+                    50 Mirars
+                </h3>
 
-                <p>Follow Us On</p>
 
-                <a href="https://instagram.com/50mirars"
-                   target="_blank"
-                   rel="noopener"
-                   class="instagram-button"
-                   aria-label="Follow 50 Mirars on Instagram">
+                <p>
+                    Follow Us On
+                </p>
 
-                    <img src="instagramimage.webp" alt="Instagram">
+
+                <a
+                    href="https://instagram.com/50mirars"
+                    target="_blank"
+                    rel="noopener"
+                    class="instagram-button"
+                    aria-label="Follow 50 Mirars on Instagram"
+                >
+
+                    <img
+                        src="instagramimage.webp"
+                        alt="Instagram"
+                    >
 
                 </a>
 
@@ -2033,77 +2537,124 @@ body{
 
         </div>
 
-        <!-- COPYRIGHT -->
+
+
+        <!-- =====================================================
+             COPYRIGHT
+        ====================================================== -->
 
         <div class="footer-bottom">
 
             <p>
-                © 2026 50 Mirars - The Watch &amp; Sunglasses Store.
+
+                © 2026 50 Mirars -
+                The Watch &amp; Sunglasses Store.
                 All Rights Reserved.
+
             </p>
 
         </div>
+
 
     </div>
 
 </footer>
 
-<!-- =========================================
+
+
+<!-- =========================================================
      SLIDER JAVASCRIPT
-========================================= -->
+========================================================= -->
 
 <script>
 
-document.querySelectorAll('.slider').forEach(slider => {
+document
+    .querySelectorAll('.slider')
+    .forEach(function(slider){
 
-    const slides = slider.querySelectorAll('.slide');
-    const nextButton = slider.querySelector('.next');
-    const prevButton = slider.querySelector('.prev');
+        const slides =
+            slider.querySelectorAll('.slide');
 
-    if(slides.length <= 1){
-        return;
-    }
+        const nextButton =
+            slider.querySelector('.next');
 
-    let currentSlide = 0;
-
-
-    function showSlide(index){
-
-        slides.forEach(slide => {
-            slide.classList.remove('active');
-        });
-
-        slides[index].classList.add('active');
-    }
+        const prevButton =
+            slider.querySelector('.prev');
 
 
-    nextButton.addEventListener('click', function(){
+        if(
+            slides.length === 0 ||
+            !nextButton ||
+            !prevButton
+        ){
 
-        currentSlide++;
+            return;
 
-        if(currentSlide >= slides.length){
-            currentSlide = 0;
         }
 
-        showSlide(currentSlide);
 
-    });
+        if(slides.length === 1){
 
+            nextButton.style.display = 'none';
 
-    prevButton.addEventListener('click', function(){
+            prevButton.style.display = 'none';
 
-        currentSlide--;
+            return;
 
-        if(currentSlide < 0){
-            currentSlide = slides.length - 1;
         }
 
-        showSlide(currentSlide);
+
+        let currentSlide = 0;
+
+
+        function showSlide(index){
+
+            slides.forEach(function(slide){
+
+                slide.classList.remove('active');
+
+            });
+
+
+            slides[index].classList.add('active');
+
+        }
+
+
+        nextButton.addEventListener(
+            'click',
+            function(){
+
+                currentSlide =
+                    (currentSlide + 1)
+                    % slides.length;
+
+                showSlide(currentSlide);
+
+            }
+        );
+
+
+        prevButton.addEventListener(
+            'click',
+            function(){
+
+                currentSlide =
+                    (currentSlide - 1 + slides.length)
+                    % slides.length;
+
+                showSlide(currentSlide);
+
+            }
+        );
+
 
     });
-
-});
 
 </script>
+
+
 </body>
+
 </html>
+```
