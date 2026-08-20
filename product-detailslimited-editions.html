@@ -307,6 +307,49 @@ body{
 
 
 /* =========================================================
+   OUT OF STOCK MEDIA BADGE
+========================================================= */
+
+.media-out-of-stock{
+    position:absolute;
+
+    top:25px;
+
+    right:25px;
+
+    z-index:5;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:10px 18px;
+
+    background:
+        rgba(17,17,17,0.94);
+
+    color:#fff;
+
+    border:1px solid #c9a24d;
+
+    border-radius:30px;
+
+    font-size:12px;
+
+    font-weight:800;
+
+    letter-spacing:1.5px;
+
+    text-transform:uppercase;
+
+    box-shadow:
+        0 6px 18px rgba(0,0,0,0.18);
+}
+
+
+/* =========================================================
    PRODUCT INFORMATION
 ========================================================= */
 
@@ -435,6 +478,10 @@ body{
 /* =========================================================
    QUANTITY
 ========================================================= */
+
+.quantity-section{
+    display:block;
+}
 
 .quantity-title{
     font-size:14px;
@@ -616,6 +663,91 @@ body{
 
 
 /* =========================================================
+   PREMIUM OUT OF STOCK AREA
+========================================================= */
+
+.out-of-stock-section{
+    display:none;
+
+    width:100%;
+
+    margin-top:5px;
+}
+
+.out-of-stock-section.active{
+    display:block;
+}
+
+.out-of-stock-label{
+    width:100%;
+
+    min-height:58px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #111 0%,
+            #1c1c1c 50%,
+            #111 100%
+        );
+
+    color:#fff;
+
+    border:
+        1px solid
+        #c9a24d;
+
+    border-radius:7px;
+
+    font-size:16px;
+
+    font-weight:800;
+
+    letter-spacing:1.2px;
+
+    text-transform:uppercase;
+
+    box-shadow:
+        0 7px 20px
+        rgba(0,0,0,0.14);
+}
+
+.out-of-stock-label span{
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:9px;
+}
+
+.out-of-stock-label span::before{
+    content:"";
+
+    width:9px;
+
+    height:9px;
+
+    border-radius:50%;
+
+    background:#c9a24d;
+
+    box-shadow:
+        0 0 0 4px
+        rgba(201,162,77,0.12);
+}
+
+
+/* =========================================================
    CART MESSAGE
 ========================================================= */
 
@@ -660,68 +792,106 @@ body{
     line-height:1.6;
 }
 
-  /* =========================================================
+
+/* =========================================================
    RELATED PRODUCTS
 ========================================================= */
 
 .related-section{
     width:100%;
+
     max-width:1400px;
+
     margin:0 auto;
-    padding:20px 40px 80px;
+
+    padding:
+        20px
+        40px
+        80px;
 }
 
 .related-heading{
     text-align:center;
+
     margin-bottom:40px;
 }
 
 .related-heading h2{
     margin:0 0 12px;
-    font-family:Georgia,"Times New Roman",serif;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
     font-size:38px;
+
     color:#111;
 }
 
 .related-heading p{
     margin:0;
+
     color:#666;
+
     font-size:16px;
 }
 
 .related-grid{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+
+    grid-template-columns:
+        repeat(4,1fr);
+
     gap:25px;
 }
 
 .related-card{
     background:#fff;
+
     border-radius:15px;
+
     overflow:hidden;
-    box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+    box-shadow:
+        0 8px 25px
+        rgba(0,0,0,.08);
+
     transition:.3s ease;
 }
 
 .related-card:hover{
     transform:translateY(-5px);
-    box-shadow:0 14px 35px rgba(0,0,0,.13);
+
+    box-shadow:
+        0 14px 35px
+        rgba(0,0,0,.13);
 }
 
 .related-media{
     width:100%;
+
     height:260px;
+
     background:#f5f5f5;
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
+
     overflow:hidden;
+
+    position:relative;
 }
 
 .related-media img,
 .related-media video{
     width:100%;
+
     height:100%;
+
     object-fit:contain;
 }
 
@@ -731,41 +901,100 @@ body{
 
 .related-info{
     padding:20px;
+
     text-align:center;
 }
 
 .related-info h3{
     margin:0 0 12px;
+
     font-size:17px;
+
     line-height:1.4;
+
     min-height:48px;
+
     color:#111;
 }
 
 .related-price{
     color:#c9a24d;
+
     font-size:18px;
+
     font-weight:bold;
+
     margin-bottom:15px;
 }
 
 .related-btn{
     display:inline-flex;
+
     align-items:center;
+
     justify-content:center;
+
     width:100%;
+
     min-height:45px;
+
     background:#111;
+
     color:#fff;
+
     text-decoration:none;
+
     border-radius:5px;
+
     font-weight:bold;
+
     transition:.3s ease;
 }
 
 .related-btn:hover{
     background:#c9a24d;
+
     color:#111;
+}
+
+
+/* =========================================================
+   RELATED OUT OF STOCK
+========================================================= */
+
+.related-out-of-stock{
+    width:100%;
+
+    min-height:45px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #111,
+            #222
+        );
+
+    color:#fff;
+
+    border:
+        1px solid
+        #c9a24d;
+
+    border-radius:5px;
+
+    font-size:13px;
+
+    font-weight:800;
+
+    letter-spacing:1px;
+
+    text-transform:uppercase;
 }
 
 
@@ -775,31 +1004,56 @@ body{
 
 .main-footer{
     background:#111;
+
     color:#fff;
+
     margin-top:20px;
 }
 
 .footer-container{
     width:100%;
+
     max-width:1400px;
+
     margin:0 auto;
-    padding:60px 50px 0;
+
+    padding:
+        60px
+        50px
+        0;
 }
 
 .footer-top{
     display:grid;
-    grid-template-columns:1fr 1fr 1fr;
+
+    grid-template-columns:
+        1fr
+        1fr
+        1fr;
+
     gap:50px;
+
     padding-bottom:50px;
-    border-bottom:1px solid rgba(255,255,255,.15);
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.15);
 }
 
 .footer-top>h2{
     grid-column:1/-1;
+
     text-align:center;
+
     margin:0 0 10px;
-    font-family:Georgia,"Times New Roman",serif;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
     font-size:38px;
+
     color:#c9a24d;
 }
 
@@ -808,21 +1062,29 @@ body{
 .footer-links-column h3,
 .footer-social h3{
     color:#c9a24d;
+
     font-size:20px;
+
     margin:0 0 18px;
 }
 
 .contact-column p{
     color:#bbb;
+
     font-size:15px;
+
     line-height:1.6;
 }
 
 .footer-link{
     display:block;
+
     color:#fff;
+
     text-decoration:none;
+
     margin-bottom:12px;
+
     transition:.3s ease;
 }
 
@@ -836,25 +1098,37 @@ body{
 
 .whatsapp-title{
     display:flex;
+
     align-items:center;
+
     justify-content:center;
+
     gap:10px;
 }
 
 .whatsapp-icon{
     width:28px!important;
+
     height:28px!important;
+
     object-fit:contain!important;
 }
 
 .whatsapp-button{
     display:inline-block;
+
     background:#c9a24d;
+
     color:#111;
+
     text-decoration:none;
+
     padding:13px 30px;
+
     border-radius:6px;
+
     font-weight:bold;
+
     transition:.3s ease;
 }
 
@@ -864,20 +1138,30 @@ body{
 
 .footer-middle{
     display:grid;
-    grid-template-columns:1fr 1fr 1fr;
+
+    grid-template-columns:
+        1fr
+        1fr
+        1fr;
+
     gap:50px;
+
     padding:50px 0;
 }
 
 .footer-links-column{
     display:flex;
+
     flex-direction:column;
 }
 
 .footer-links-column a{
     color:#ccc;
+
     text-decoration:none;
+
     margin-bottom:13px;
+
     transition:.3s ease;
 }
 
@@ -891,17 +1175,27 @@ body{
 
 .footer-social p{
     color:#bbb;
+
     margin-bottom:15px;
 }
 
 .instagram-button{
     display:inline-flex;
+
     align-items:center;
+
     justify-content:center;
+
     width:50px;
+
     height:50px;
-    border:1px solid #c9a24d;
+
+    border:
+        1px solid
+        #c9a24d;
+
     border-radius:50%;
+
     transition:.3s ease;
 }
 
@@ -911,20 +1205,29 @@ body{
 
 .instagram-button img{
     width:28px;
+
     height:28px;
+
     object-fit:contain;
 }
 
 .footer-bottom{
-    border-top:1px solid rgba(255,255,255,.15);
+    border-top:
+        1px solid
+        rgba(255,255,255,.15);
+
     text-align:center;
+
     padding:25px 10px;
 }
 
 .footer-bottom p{
     margin:0;
+
     color:#999;
+
     font-size:14px;
+
     line-height:1.6;
 }
 
@@ -935,136 +1238,197 @@ body{
 
 @media(max-width:1100px){
 
-.product-detail-card{
-grid-template-columns:1fr;
+    .product-detail-card{
+        grid-template-columns:1fr;
+    }
+
+    .product-media-area{
+        min-height:550px;
+    }
+
+    .product-media-wrapper{
+        height:500px;
+    }
+
+    .related-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
 }
 
-.product-media-area{
-min-height:550px;
-}
-
-.product-media-wrapper{
-height:500px;
-}
-
-.related-grid{
-grid-template-columns:repeat(2,1fr);
-}
-
-}
 
 @media(max-width:768px){
 
-.top-bar{
-padding:20px 25px;
+    .top-bar{
+        padding:
+            20px
+            25px;
+    }
+
+    .brand-logo{
+        font-size:22px;
+
+        letter-spacing:3px;
+    }
+
+    .back-btn{
+        font-size:14px;
+    }
+
+    .page-header{
+        padding:
+            20px
+            15px
+            30px;
+    }
+
+    .page-header h1{
+        font-size:40px;
+    }
+
+    .product-detail-section{
+        padding:
+            10px
+            15px
+            50px;
+    }
+
+    .product-media-area{
+        min-height:400px;
+
+        padding:25px;
+    }
+
+    .product-media-wrapper{
+        height:360px;
+    }
+
+    .media-out-of-stock{
+        top:15px;
+
+        right:15px;
+
+        padding:
+            8px
+            13px;
+
+        font-size:10px;
+    }
+
+    .product-info{
+        padding:
+            40px
+            25px;
+    }
+
+    .product-name{
+        font-size:34px;
+    }
+
+    .product-price{
+        font-size:28px;
+    }
+
+    .action-buttons{
+        grid-template-columns:1fr;
+    }
+
+    .related-section{
+        padding:
+            20px
+            15px
+            60px;
+    }
+
+    .related-grid{
+        grid-template-columns:1fr;
+    }
+
+    .footer-container{
+        padding:
+            45px
+            25px
+            0;
+    }
+
+    .footer-top{
+        grid-template-columns:1fr;
+
+        gap:35px;
+    }
+
+    .footer-middle{
+        grid-template-columns:1fr;
+
+        gap:35px;
+
+        text-align:center;
+    }
+
+    .footer-links-column{
+        align-items:center;
+    }
+
 }
 
-.brand-logo{
-font-size:22px;
-letter-spacing:3px;
-}
-
-.back-btn{
-font-size:14px;
-}
-
-.page-header{
-padding:20px 15px 30px;
-}
-
-.page-header h1{
-font-size:40px;
-}
-
-.product-detail-section{
-padding:10px 15px 50px;
-}
-
-.product-media-area{
-min-height:400px;
-padding:25px;
-}
-
-.product-media-wrapper{
-height:360px;
-}
-
-.product-info{
-padding:40px 25px;
-}
-
-.product-name{
-font-size:34px;
-}
-
-.product-price{
-font-size:28px;
-}
-
-.action-buttons{
-grid-template-columns:1fr;
-}
-
-.related-section{
-padding:20px 15px 60px;
-}
-
-.related-grid{
-grid-template-columns:1fr;
-}
-
-.footer-container{
-padding:45px 25px 0;
-}
-
-.footer-top{
-grid-template-columns:1fr;
-gap:35px;
-}
-
-.footer-middle{
-grid-template-columns:1fr;
-gap:35px;
-text-align:center;
-}
-
-.footer-links-column{
-align-items:center;
-}
-
-}
 
 @media(max-width:450px){
 
-.brand-logo{
-font-size:18px;
-letter-spacing:2px;
+    .brand-logo{
+        font-size:18px;
+
+        letter-spacing:2px;
+    }
+
+    .page-header h1{
+        font-size:34px;
+    }
+
+    .product-media-wrapper{
+        height:300px;
+    }
+
+    .product-info{
+        padding:
+            30px
+            20px;
+    }
+
+    .product-name{
+        font-size:29px;
+    }
+
+    .product-description{
+        font-size:15px;
+    }
+
+    .related-heading h2{
+        font-size:30px;
+    }
+
+    .out-of-stock-label{
+        min-height:54px;
+
+        font-size:14px;
+
+        letter-spacing:1px;
+    }
+
 }
 
-.page-header h1{
-font-size:34px;
-}
 
-.product-media-wrapper{
-height:300px;
-}
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
 
-.product-info{
-padding:30px 20px;
-}
+button:focus-visible,
+a:focus-visible{
+    outline:
+        2px solid
+        #c9a24d;
 
-.product-name{
-font-size:29px;
-}
-
-.product-description{
-font-size:15px;
-}
-
-.related-heading h2{
-font-size:30px;
-}
-
+    outline-offset:4px;
 }
 
 </style>
@@ -1080,13 +1444,16 @@ font-size:30px;
 
 <div class="top-bar">
 
-<div class="brand-logo">
-50 MIRARS
-</div>
+    <div class="brand-logo">
+        50 MIRARS
+    </div>
 
-<a href="limited-editions.html" class="back-btn">
-← Back to Limited Editions
-</a>
+    <a
+        href="limited-editions.html"
+        class="back-btn"
+    >
+        ← Back to Limited Editions
+    </a>
 
 </div>
 
@@ -1097,9 +1464,11 @@ font-size:30px;
 
 <header class="page-header">
 
-<h1>Limited Editions</h1>
+    <h1>
+        Limited Editions
+    </h1>
 
-<div class="title-line"></div>
+    <div class="title-line"></div>
 
 </header>
 
@@ -1110,114 +1479,234 @@ font-size:30px;
 
 <section class="product-detail-section">
 
-<div class="product-detail-card">
-
-<div class="product-media-area">
-
-<div class="media-badge" id="mediaBadge">
-50 MIRARS
-</div>
-
-<div class="product-media-wrapper" id="productMedia"></div>
-
-</div>
+    <div class="product-detail-card">
 
 
-<div class="product-info">
+        <!-- =================================================
+             PRODUCT MEDIA
+        ================================================== -->
 
-<div class="product-brand" id="productBrand">
-Limited Edition
-</div>
+        <div class="product-media-area">
 
-<h2 class="product-name" id="productName">
-Loading Product...
-</h2>
+            <div
+                class="media-badge"
+                id="mediaBadge"
+            >
+                50 MIRARS
+            </div>
 
-<div class="product-id" id="productId">
-Product ID
-</div>
 
-<div class="product-price" id="productPrice">
-₹0
-</div>
+            <!-- OUT OF STOCK BADGE -->
 
-<div class="divider"></div>
+            <div
+                class="media-out-of-stock"
+                id="mediaOutOfStock"
+                style="display:none;"
+            >
+                OUT OF STOCK
+            </div>
 
-<p class="product-description" id="productDescription">
-Loading product information...
-</p>
 
-<ul class="feature-list" id="featureList"></ul>
+            <div
+                class="product-media-wrapper"
+                id="productMedia"
+            ></div>
 
-<div class="quantity-title">
-Quantity
-</div>
+        </div>
 
-<div class="quantity-box">
 
-<button type="button" id="minusBtn">−</button>
+        <!-- =================================================
+             PRODUCT INFORMATION
+        ================================================== -->
 
-<input
-type="number"
-id="quantity"
-value="1"
-min="1"
-max="10">
+        <div class="product-info">
 
-<button type="button" id="plusBtn">+</button>
+            <div
+                class="product-brand"
+                id="productBrand"
+            >
+                Limited Edition
+            </div>
 
-</div>
 
-<div class="action-buttons">
+            <h2
+                class="product-name"
+                id="productName"
+            >
+                Loading Product...
+            </h2>
 
-<button
-type="button"
-class="add-cart-btn"
-id="addCartBtn">
-Add to Cart
-</button>
 
-<button
-type="button"
-class="buy-now-btn"
-id="buyNowBtn">
-Buy Now
-</button>
+            <div
+                class="product-id"
+                id="productId"
+            >
+                Product ID
+            </div>
 
-</div>
 
-<a
-href="#"
-target="_blank"
-class="whatsapp-product-btn"
-id="whatsappBtn">
+            <div
+                class="product-price"
+                id="productPrice"
+            >
+                ₹0
+            </div>
 
-<img
-src="whatsapplogo.png"
-alt="WhatsApp">
 
-Enquire on WhatsApp
+            <div class="divider"></div>
 
-</a>
 
-<div class="cart-message" id="cartMessage"></div>
+            <p
+                class="product-description"
+                id="productDescription"
+            >
+                Loading product information...
+            </p>
 
-<div class="delivery-info">
 
-<strong>Delivery Information</strong>
+            <ul
+                class="feature-list"
+                id="featureList"
+            ></ul>
 
-<p>
-Full payment is required before delivery.
-Delivery availability and estimated delivery
-time may vary depending on your location.
-Contact 50 Mirars for assistance.
-</p>
 
-</div>
+            <!-- =================================================
+                 NORMAL PURCHASE SECTION
+            ================================================== -->
 
-</div>
+            <div
+                class="purchase-section"
+                id="purchaseSection"
+            >
 
-</div>
+                <div class="quantity-title">
+                    Quantity
+                </div>
+
+
+                <div class="quantity-box">
+
+                    <button
+                        type="button"
+                        id="minusBtn"
+                    >
+                        −
+                    </button>
+
+
+                    <input
+                        type="number"
+                        id="quantity"
+                        value="1"
+                        min="1"
+                        max="10"
+                    >
+
+
+                    <button
+                        type="button"
+                        id="plusBtn"
+                    >
+                        +
+                    </button>
+
+                </div>
+
+
+                <div class="action-buttons">
+
+                    <button
+                        type="button"
+                        class="add-cart-btn"
+                        id="addCartBtn"
+                    >
+                        Add to Cart
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="buy-now-btn"
+                        id="buyNowBtn"
+                    >
+                        Buy Now
+                    </button>
+
+                </div>
+
+
+                <a
+                    href="#"
+                    target="_blank"
+                    rel="noopener"
+                    class="whatsapp-product-btn"
+                    id="whatsappBtn"
+                >
+
+                    <img
+                        src="whatsapplogo.png"
+                        alt="WhatsApp"
+                    >
+
+                    Enquire on WhatsApp
+
+                </a>
+
+            </div>
+
+
+            <!-- =================================================
+                 OUT OF STOCK SECTION
+            ================================================== -->
+
+            <div
+                class="out-of-stock-section"
+                id="outOfStockSection"
+            >
+
+                <div class="out-of-stock-label">
+
+                    <span>
+                        Out of Stock
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 CART MESSAGE
+            ================================================== -->
+
+            <div
+                class="cart-message"
+                id="cartMessage"
+            ></div>
+
+
+            <!-- =================================================
+                 DELIVERY
+            ================================================== -->
+
+            <div class="delivery-info">
+
+                <strong>
+                    Delivery Information
+                </strong>
+
+                <p>
+                    Full payment is required before delivery.
+                    Delivery availability and estimated delivery
+                    time may vary depending on your location.
+                    Contact 50 Mirars for assistance.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 
@@ -1228,18 +1717,24 @@ Contact 50 Mirars for assistance.
 
 <section class="related-section">
 
-<div class="related-heading">
+    <div class="related-heading">
 
-<h2>You May Also Like</h2>
+        <h2>
+            You May Also Like
+        </h2>
 
-<p>
-Explore more Limited Edition pieces from the
-50 Mirars collection.
-</p>
+        <p>
+            Explore more Limited Edition pieces from the
+            50 Mirars collection.
+        </p>
 
-</div>
+    </div>
 
-<div class="related-grid" id="relatedGrid"></div>
+
+    <div
+        class="related-grid"
+        id="relatedGrid"
+    ></div>
 
 </section>
 
@@ -1250,121 +1745,188 @@ Explore more Limited Edition pieces from the
 
 <footer class="main-footer">
 
-<div class="footer-container">
+    <div class="footer-container">
 
-<div class="footer-top">
 
-<h2>Contact Us</h2>
+        <!-- FOOTER TOP -->
 
-<div class="contact-column">
+        <div class="footer-top">
 
-<h3>For Customers:</h3>
+            <h2>
+                Contact Us
+            </h2>
 
-<a href="mailto:50mirars@gmail.com" class="footer-link">
-50mirars@gmail.com
-</a>
 
-<a href="tel:+918209989013" class="footer-link">
-82099 89013
-</a>
+            <!-- CUSTOMERS -->
 
-<p>09:00 - 21:30 | Monday to Sunday</p>
+            <div class="contact-column">
 
-</div>
+                <h3>
+                    For Customers:
+                </h3>
 
-<div class="contact-column">
+                <a
+                    href="mailto:50mirars@gmail.com"
+                    class="footer-link"
+                >
+                    50mirars@gmail.com
+                </a>
 
-<h3>For Sales/Watch Service:</h3>
+                <a
+                    href="tel:+918209989013"
+                    class="footer-link"
+                >
+                    82099 89013
+                </a>
 
-<a href="mailto:50mirars@gmail.com" class="footer-link">
-50mirars@gmail.com
-</a>
+                <p>
+                    09:00 - 21:30 | Monday to Sunday
+                </p>
 
-<a href="tel:+918209989013" class="footer-link">
-82099 89013
-</a>
+            </div>
 
-<p>09:00 - 21:30 | Monday to Sunday</p>
 
-</div>
+            <!-- SALES / WATCH SERVICE -->
 
-<div class="whatsapp-column">
+            <div class="contact-column">
 
-<h3 class="whatsapp-title">
+                <h3>
+                    For Sales/Watch Service:
+                </h3>
 
-<span>View Products on WhatsApp</span>
+                <a
+                    href="mailto:50mirars@gmail.com"
+                    class="footer-link"
+                >
+                    50mirars@gmail.com
+                </a>
 
-<img
-src="whatsapplogo.png"
-alt="WhatsApp"
-class="whatsapp-icon">
+                <a
+                    href="tel:+918209989013"
+                    class="footer-link"
+                >
+                    82099 89013
+                </a>
 
-</h3>
+                <p>
+                    09:00 - 21:30 | Monday to Sunday
+                </p>
 
-<a
-href="https://wa.me/918209989013"
-target="_blank"
-class="whatsapp-button">
-View Products
-</a>
+            </div>
 
-</div>
 
-</div>
+            <!-- WHATSAPP -->
 
-<div class="footer-middle">
+            <div class="whatsapp-column">
 
-<div class="footer-links-column">
+                <h3 class="whatsapp-title">
 
-<h3>Know 50 Mirars</h3>
+                    <span>
+                        View Products on WhatsApp
+                    </span>
 
-<a href="about.html">About Us</a>
+                    <img
+                        src="whatsapplogo.png"
+                        alt="WhatsApp"
+                        class="whatsapp-icon"
+                    >
 
-<a href="faq.html">FAQ</a>
+                </h3>
 
-</div>
+                <a
+                    href="https://wa.me/918209989013"
+                    target="_blank"
+                    rel="noopener"
+                    class="whatsapp-button"
+                >
+                    View Products
+                </a>
 
-<div class="footer-links-column">
+            </div>
 
-<h3>Terms & Conditions</h3>
+        </div>
 
-<a href="terms.html">Terms & Conditions</a>
 
-<a href="privacypolicy.html">Privacy Policy</a>
+        <!-- FOOTER MIDDLE -->
 
-</div>
+        <div class="footer-middle">
 
-<div class="footer-social">
 
-<h3>50 Mirars</h3>
+            <div class="footer-links-column">
 
-<p>Follow Us On</p>
+                <h3>
+                    Know 50 Mirars
+                </h3>
 
-<a
-href="https://instagram.com/50mirars"
-target="_blank"
-class="instagram-button">
+                <a href="about.html">
+                    About Us
+                </a>
 
-<img
-src="instagramimage.webp"
-alt="Instagram">
+                <a href="faq.html">
+                    FAQ
+                </a>
 
-</a>
+            </div>
 
-</div>
 
-</div>
+            <div class="footer-links-column">
 
-<div class="footer-bottom">
+                <h3>
+                    Terms &amp; Conditions
+                </h3>
 
-<p>
-© 2026 50 Mirars - The Watch & Sunglasses Store.
-All Rights Reserved.
-</p>
+                <a href="terms.html">
+                    Terms &amp; Conditions
+                </a>
 
-</div>
+                <a href="privacypolicy.html">
+                    Privacy Policy
+                </a>
 
-</div>
+            </div>
+
+
+            <div class="footer-social">
+
+                <h3>
+                    50 Mirars
+                </h3>
+
+                <p>
+                    Follow Us On
+                </p>
+
+                <a
+                    href="https://instagram.com/50mirars"
+                    target="_blank"
+                    rel="noopener"
+                    class="instagram-button"
+                >
+
+                    <img
+                        src="instagramimage.webp"
+                        alt="Instagram"
+                    >
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- COPYRIGHT -->
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 50 Mirars - The Watch &amp; Sunglasses Store.
+                All Rights Reserved.
+            </p>
+
+        </div>
+
+    </div>
 
 </footer>
 
@@ -1376,149 +1938,177 @@ All Rights Reserved.
 ========================================================= */
 
 const limitedEditions = [
-  {
-id:1,
-name:"Seiko 5 Sports Red Blood",
-price:4500,
-media:"video",
-file:"Seiko 5 Sports Red Blood.mp4",
-brand:"Seiko"
-},
 
-{
-id:2,
-name:"Seiko Presage Cocktail SRPG23J1",
-price:4000,
-media:"video",
-file:"Seiko Presage Cocktail SRPG23J1.mp4",
-brand:"Seiko"
-},
+    {
+        id:1,
+        name:"Seiko 5 Sports Red Blood",
+        price:4500,
+        media:"video",
+        file:"Seiko 5 Sports Red Blood.mp4",
+        brand:"Seiko"
+    },
 
-{
-id:3,
-name:"MayBach Sunglasses 0272",
-price:2500,
-media:"video",
-file:"MayBach Sunglasses 0272.mp4",
-brand:"Maybach"
-},
 
-{
-id:4,
-name:"Versace VE2298",
-price:2500,
-media:"video",
-file:"Versace VE2298.mp4",
-brand:"Versace"
-},
+    {
+        id:2,
+        name:"Seiko Presage Cocktail SRPG23J1",
+        price:4000,
+        media:"video",
+        file:"Seiko Presage Cocktail SRPG23J1.mp4",
+        brand:"Seiko"
+    },
 
-{
-id:5,
-name:"Ray-Ban Wayfarer Reverse Sunglasses",
-price:2500,
-media:"image",
-file:"Ray-Ban Wayfarer Reverse Sunglasses.jpeg",
-brand:"Ray-Ban"
-},
 
-{
-id:6,
-name:"Balmain Paris 7020 Purple Shade Sunglasses",
-price:2500,
-media:"image",
-file:"Balmain Paris 7020 Purpule Shade Sungalsses.jpeg",
-brand:"Balmain Paris"
-},
+    {
+        id:3,
+        name:"MayBach Sunglasses 0272",
+        price:2500,
+        media:"video",
+        file:"MayBach Sunglasses 0272.mp4",
+        brand:"Maybach"
+    },
 
-{
-id:7,
-name:"Seiko Pepsi Edition",
-price:6000,
-media:"image",
-file:"Seiko Pepsi Edition.jpeg",
-brand:"Seiko"
-},
 
-{
-id:8,
-name:"Gucci Diamond Cut Sunglasses",
-price:2500,
-media:"image",
-file:"Gucci diamond cut sunglasses.jpeg",
-brand:"Gucci"
-},
+    {
+        id:4,
+        name:"Versace VE2298",
+        price:2500,
+        media:"video",
+        file:"Versace VE2298.mp4",
+        brand:"Versace"
+    },
 
-{
-id:9,
-name:"Tissot Gentleman Powermatic 80",
-price:6000,
-media:"image",
-file:"Tissot Gentelman Powermatic 80.jpeg",
-brand:"Tissot"
-},
 
-{
-id:10,
-name:"Maybach The Magic I Blue Sunglasses",
-price:2500,
-media:"image",
-file:"Maybach The Magic I Blue Sunglasses.jpeg",
-brand:"Maybach"
-},
+    {
+        id:5,
+        name:"Ray-Ban Wayfarer Reverse Sunglasses",
+        price:2500,
+        media:"image",
+        file:"Ray-Ban Wayfarer Reverse Sunglasses.jpeg",
+        brand:"Ray-Ban"
+    },
 
-{
-id:11,
-name:"Casio Edifice ECB-2000DD",
-price:6000,
-media:"image",
-file:"Casio Edifice ECB-2000DD.jpeg",
-brand:"Casio"
-},
 
-{
-id:12,
-name:"Seiko Datejust Mod",
-price:5000,
-media:"video",
-file:"Seiko Datejust Mod.mp4",
-brand:"Seiko"
-},
+    /* =====================================================
+       PRODUCT 6 — OUT OF STOCK
+    ====================================================== */
 
-{
-id:13,
-name:"Seiko Mod",
-price:5000,
-media:"image",
-file:"Seiko Mod .jpeg",
-brand:"Seiko"
-},
+    {
+        id:6,
+        name:"Balmain Paris 7020 Purple Shade Sunglasses",
+        price:2500,
+        media:"image",
+        file:"Balmain Paris 7020 Purpule Shade Sungalsses.jpeg",
+        brand:"Balmain Paris",
 
-{
-id:14,
-name:"Maybach FA-812",
-price:2500,
-media:"video",
-file:"Maybach FA-812.mp4",
-brand:"Maybach"
-},
+        outOfStock:true
+    },
 
-{
-id:15,
-name:"Seiko Prospex Diver",
-price:4000,
-media:"video",
-file:"Seiko Prospex Diver .mp4",
-brand:"Seiko"
-},
 
-{
-id:16,
-name:"Balmain Paris 7020 Green Shade Sunglasses",
-price:2500,
-media:"image",
-file:"Balmain Paris 7020 Green Shade Sungalsses.jpeg",
-brand:"Balmain Paris"
-}
+    {
+        id:7,
+        name:"Seiko Pepsi Edition",
+        price:6000,
+        media:"image",
+        file:"Seiko Pepsi Edition.jpeg",
+        brand:"Seiko"
+    },
+
+
+    {
+        id:8,
+        name:"Gucci Diamond Cut Sunglasses",
+        price:2500,
+        media:"image",
+        file:"Gucci diamond cut sunglasses.jpeg",
+        brand:"Gucci"
+    },
+
+
+    {
+        id:9,
+        name:"Tissot Gentleman Powermatic 80",
+        price:6000,
+        media:"image",
+        file:"Tissot Gentelman Powermatic 80.jpeg",
+        brand:"Tissot"
+    },
+
+
+    {
+        id:10,
+        name:"Maybach The Magic I Blue Sunglasses",
+        price:2500,
+        media:"image",
+        file:"Maybach The Magic I Blue Sunglasses.jpeg",
+        brand:"Maybach"
+    },
+
+
+    {
+        id:11,
+        name:"Casio Edifice ECB-2000DD",
+        price:6000,
+        media:"image",
+        file:"Casio Edifice ECB-2000DD.jpeg",
+        brand:"Casio"
+    },
+
+
+    {
+        id:12,
+        name:"Seiko Datejust Mod",
+        price:5000,
+        media:"video",
+        file:"Seiko Datejust Mod.mp4",
+        brand:"Seiko"
+    },
+
+
+    {
+        id:13,
+        name:"Seiko Mod",
+        price:5000,
+        media:"image",
+        file:"Seiko Mod .jpeg",
+        brand:"Seiko"
+    },
+
+
+    {
+        id:14,
+        name:"Maybach FA-812",
+        price:2500,
+        media:"video",
+        file:"Maybach FA-812.mp4",
+        brand:"Maybach"
+    },
+
+
+    {
+        id:15,
+        name:"Seiko Prospex Diver",
+        price:4000,
+        media:"video",
+        file:"Seiko Prospex Diver .mp4",
+        brand:"Seiko"
+    },
+
+
+    /* =====================================================
+       PRODUCT 16 — OUT OF STOCK
+    ====================================================== */
+
+    {
+        id:16,
+        name:"Balmain Paris 7020 Green Shade Sunglasses",
+        price:2500,
+        media:"image",
+        file:"Balmain Paris 7020 Green Shade Sungalsses.jpeg",
+        brand:"Balmain Paris",
+
+        outOfStock:true
+    }
 
 ];
 
@@ -1527,29 +2117,100 @@ brand:"Balmain Paris"
    GET PRODUCT ID
 ========================================================= */
 
-const params=new URLSearchParams(window.location.search);
-const rawProductId=params.get("id");
-const productId=Number.parseInt(rawProductId,10);
+const params =
+    new URLSearchParams(
+        window.location.search
+    );
 
-const product=
-limitedEditions.find(item=>Number(item.id)===productId);
+const rawProductId =
+    params.get("id");
+
+const productId =
+    Number.parseInt(
+        rawProductId,
+        10
+    );
+
+const product =
+    limitedEditions.find(
+        item =>
+            Number(item.id) === productId
+    );
 
 
 /* =========================================================
    ELEMENTS
 ========================================================= */
 
-const productMedia=document.getElementById("productMedia");
-const productBrand=document.getElementById("productBrand");
-const productName=document.getElementById("productName");
-const productIdElement=document.getElementById("productId");
-const productPrice=document.getElementById("productPrice");
-const productDescription=document.getElementById("productDescription");
-const featureList=document.getElementById("featureList");
-const quantity=document.getElementById("quantity");
-const cartMessage=document.getElementById("cartMessage");
-const relatedGrid=document.getElementById("relatedGrid");
-const whatsappBtn=document.getElementById("whatsappBtn");
+const productMedia =
+    document.getElementById(
+        "productMedia"
+    );
+
+const productBrand =
+    document.getElementById(
+        "productBrand"
+    );
+
+const productName =
+    document.getElementById(
+        "productName"
+    );
+
+const productIdElement =
+    document.getElementById(
+        "productId"
+    );
+
+const productPrice =
+    document.getElementById(
+        "productPrice"
+    );
+
+const productDescription =
+    document.getElementById(
+        "productDescription"
+    );
+
+const featureList =
+    document.getElementById(
+        "featureList"
+    );
+
+const quantity =
+    document.getElementById(
+        "quantity"
+    );
+
+const cartMessage =
+    document.getElementById(
+        "cartMessage"
+    );
+
+const relatedGrid =
+    document.getElementById(
+        "relatedGrid"
+    );
+
+const whatsappBtn =
+    document.getElementById(
+        "whatsappBtn"
+    );
+
+const purchaseSection =
+    document.getElementById(
+        "purchaseSection"
+    );
+
+const outOfStockSection =
+    document.getElementById(
+        "outOfStockSection"
+    );
+
+const mediaOutOfStock =
+    document.getElementById(
+        "mediaOutOfStock"
+    );
 
 
 /* =========================================================
@@ -1557,13 +2218,24 @@ const whatsappBtn=document.getElementById("whatsappBtn");
 ========================================================= */
 
 function formatPrice(price){
-return "₹"+Number(price).toLocaleString("en-IN");
+
+    return "₹" +
+        Number(price)
+        .toLocaleString("en-IN");
+
 }
 
+
 function escapeHTML(value){
-const div=document.createElement("div");
-div.textContent=String(value);
-return div.innerHTML;
+
+    const div =
+        document.createElement("div");
+
+    div.textContent =
+        String(value);
+
+    return div.innerHTML;
+
 }
 
 
@@ -1573,149 +2245,266 @@ return div.innerHTML;
 
 function loadProduct(){
 
-if(!product){
+    if(!product){
 
-document.title="Product Not Found | 50 Mirars";
-
-productBrand.textContent="Limited Editions";
-
-productName.textContent="Product Not Found";
-
-productIdElement.textContent=
-rawProductId
-? "Product ID: "+rawProductId
-: "No Product ID Provided";
-
-productPrice.textContent="";
-
-productDescription.textContent=
-"The requested Limited Edition product could not be found. Please return to the Limited Editions collection and select a product again.";
-
-featureList.innerHTML="";
-
-productMedia.innerHTML=`
-
-<div
-style="
-text-align:center;
-padding:40px;
-font-weight:bold;
-color:#555;
-">
-
-Product could not be found.
-
-</div>
-
-`;
-
-return;
-
-}
+        document.title =
+            "Product Not Found | 50 Mirars";
 
 
-document.title=product.name+" | 50 Mirars";
-
-productBrand.textContent=product.brand;
-
-productName.textContent=product.name;
-
-productIdElement.textContent=
-"Product ID: LTD-"+
-String(product.id).padStart(3,"0");
-
-productPrice.textContent=formatPrice(product.price);
+        productBrand.textContent =
+            "Limited Editions";
 
 
-/* =====================================================
-   MEDIA
-===================================================== */
-
-if(product.media==="video"){
-
-productMedia.innerHTML=`
-
-<video
-controls
-playsinline
-preload="metadata">
-
-<source
-src="${encodeURI(product.file)}"
-type="video/mp4">
-
-Your browser does not support
-video playback.
-
-</video>
-
-`;
-
-}
-
-else{
-
-productMedia.innerHTML=`
-
-<img
-src="${encodeURI(product.file)}"
-alt="${escapeHTML(product.name)}">
-
-`;
-
-}
+        productName.textContent =
+            "Product Not Found";
 
 
-/* =====================================================
-   DESCRIPTION
-===================================================== */
-
-productDescription.textContent=
-"Discover the exclusive character of the "+
-product.name+
-" from the 50 Mirars Limited Editions Collection. Carefully selected for collectors and enthusiasts, this premium piece combines standout styling, distinctive craftsmanship, and a luxury-inspired presence. Whether you're adding it to your collection or making it your signature piece, this Limited Edition model is designed to stand apart.";
+        productIdElement.textContent =
+            rawProductId
+            ? "Product ID: " + rawProductId
+            : "No Product ID Provided";
 
 
-/* =====================================================
-   FEATURES
-===================================================== */
-
-featureList.innerHTML=`
-
-<li>Exclusive Limited Edition collection</li>
-
-<li>Premium-inspired craftsmanship</li>
-
-<li>Distinctive ${escapeHTML(product.brand)} styling</li>
-
-<li>Selected by 50 Mirars</li>
-
-<li>Premium presentation and packaging</li>
-
-`;
+        productPrice.textContent =
+            "";
 
 
-/* =====================================================
-   WHATSAPP
-===================================================== */
-
-const whatsappText=
-"Hello 50 Mirars, I am interested in the Limited Edition "+
-product.name+
-" ("+
-formatPrice(product.price)+
-"). Please share more details.";
-
-whatsappBtn.href=
-"https://wa.me/918209989013?text="+
-encodeURIComponent(whatsappText);
+        productDescription.textContent =
+            "The requested Limited Edition product could not be found. Please return to the Limited Editions collection and select a product again.";
 
 
-/* =====================================================
-   RELATED PRODUCTS
-===================================================== */
+        featureList.innerHTML =
+            "";
 
-loadRelatedProducts();
+
+        productMedia.innerHTML = `
+
+            <div
+                style="
+                    text-align:center;
+                    padding:40px;
+                    font-weight:bold;
+                    color:#555;
+                "
+            >
+                Product could not be found.
+            </div>
+
+        `;
+
+
+        purchaseSection.style.display =
+            "none";
+
+
+        return;
+
+    }
+
+
+    /* =====================================================
+       BASIC PRODUCT INFORMATION
+    ====================================================== */
+
+    document.title =
+        product.name +
+        " | 50 Mirars";
+
+
+    productBrand.textContent =
+        product.brand;
+
+
+    productName.textContent =
+        product.name;
+
+
+    productIdElement.textContent =
+        "Product ID: LTD-" +
+        String(product.id)
+        .padStart(3,"0");
+
+
+    productPrice.textContent =
+        formatPrice(
+            product.price
+        );
+
+
+    /* =====================================================
+       MEDIA
+    ====================================================== */
+
+    if(product.media === "video"){
+
+        productMedia.innerHTML = `
+
+            <video
+                controls
+                playsinline
+                preload="metadata"
+            >
+
+                <source
+                    src="${encodeURI(product.file)}"
+                    type="video/mp4"
+                >
+
+                Your browser does not support
+                video playback.
+
+            </video>
+
+        `;
+
+    }
+
+    else{
+
+        productMedia.innerHTML = `
+
+            <img
+                src="${encodeURI(product.file)}"
+                alt="${escapeHTML(product.name)}"
+            >
+
+        `;
+
+    }
+
+
+    /* =====================================================
+       DESCRIPTION
+    ====================================================== */
+
+    productDescription.textContent =
+        "Discover the exclusive character of the " +
+        product.name +
+        " from the 50 Mirars Limited Editions Collection. Carefully selected for collectors and enthusiasts, this premium piece combines standout styling, distinctive craftsmanship, and a luxury-inspired presence. Whether you're adding it to your collection or making it your signature piece, this Limited Edition model is designed to stand apart.";
+
+
+    /* =====================================================
+       FEATURES
+    ====================================================== */
+
+    featureList.innerHTML = `
+
+        <li>
+            Exclusive Limited Edition collection
+        </li>
+
+        <li>
+            Premium-inspired craftsmanship
+        </li>
+
+        <li>
+            Distinctive
+            ${escapeHTML(product.brand)}
+            styling
+        </li>
+
+        <li>
+            Selected by 50 Mirars
+        </li>
+
+        <li>
+            Premium presentation and packaging
+        </li>
+
+    `;
+
+
+    /* =====================================================
+       OUT OF STOCK CHECK
+    ====================================================== */
+
+    if(product.outOfStock === true){
+
+        /* ---------------------------------------------
+           SHOW OUT OF STOCK
+        --------------------------------------------- */
+
+        purchaseSection.style.display =
+            "none";
+
+
+        outOfStockSection.classList.add(
+            "active"
+        );
+
+
+        mediaOutOfStock.style.display =
+            "flex";
+
+
+        /* ---------------------------------------------
+           REMOVE WHATSAPP LINK
+        --------------------------------------------- */
+
+        whatsappBtn.removeAttribute(
+            "href"
+        );
+
+
+        whatsappBtn.style.display =
+            "none";
+
+
+        /* ---------------------------------------------
+           UPDATE PAGE TITLE
+        --------------------------------------------- */
+
+        document.title =
+            product.name +
+            " - Out of Stock | 50 Mirars";
+
+    }
+
+    else{
+
+        /* ---------------------------------------------
+           NORMAL PRODUCT
+        --------------------------------------------- */
+
+        purchaseSection.style.display =
+            "block";
+
+
+        outOfStockSection.classList.remove(
+            "active"
+        );
+
+
+        mediaOutOfStock.style.display =
+            "none";
+
+
+        /* ---------------------------------------------
+           WHATSAPP
+        --------------------------------------------- */
+
+        const whatsappText =
+            "Hello 50 Mirars, I am interested in the Limited Edition " +
+            product.name +
+            " (" +
+            formatPrice(product.price) +
+            "). Please share more details.";
+
+
+        whatsappBtn.href =
+            "https://wa.me/918209989013?text=" +
+            encodeURIComponent(
+                whatsappText
+            );
+
+    }
+
+
+    /* =====================================================
+       RELATED PRODUCTS
+    ====================================================== */
+
+    loadRelatedProducts();
 
 }
 
@@ -1726,100 +2515,168 @@ loadRelatedProducts();
 
 function loadRelatedProducts(){
 
-if(!product){
-relatedGrid.innerHTML="";
-return;
+    if(!product){
+
+        relatedGrid.innerHTML =
+            "";
+
+        return;
+
+    }
+
+
+    let related =
+        limitedEditions.filter(
+            item =>
+                item.id !== product.id
+        );
+
+
+    const sameBrand =
+        related.filter(
+            item =>
+                item.brand === product.brand
+        );
+
+
+    const differentBrand =
+        related.filter(
+            item =>
+                item.brand !== product.brand
+        );
+
+
+    related = [
+        ...sameBrand,
+        ...differentBrand
+    ].slice(0,4);
+
+
+    relatedGrid.innerHTML =
+        related.map(
+            item => {
+
+                let mediaHTML = "";
+
+
+                /* -----------------------------------------
+                   VIDEO
+                ------------------------------------------ */
+
+                if(item.media === "video"){
+
+                    mediaHTML = `
+
+                        <video
+                            muted
+                            playsinline
+                            preload="metadata"
+                        >
+
+                            <source
+                                src="${encodeURI(item.file)}"
+                                type="video/mp4"
+                            >
+
+                        </video>
+
+                    `;
+
+                }
+
+                /* -----------------------------------------
+                   IMAGE
+                ------------------------------------------ */
+
+                else{
+
+                    mediaHTML = `
+
+                        <img
+                            src="${encodeURI(item.file)}"
+                            alt="${escapeHTML(item.name)}"
+                        >
+
+                    `;
+
+                }
+
+
+                /* -----------------------------------------
+                   OUT OF STOCK RELATED PRODUCT
+                ------------------------------------------ */
+
+                let actionHTML = "";
+
+
+                if(item.outOfStock === true){
+
+                    actionHTML = `
+
+                        <div class="related-out-of-stock">
+                            Out of Stock
+                        </div>
+
+                    `;
+
+                }
+
+                else{
+
+                    actionHTML = `
+
+                        <a
+                            href="product-detailslimited-editions.html?id=${item.id}"
+                            class="related-btn"
+                        >
+                            View Details
+                        </a>
+
+                    `;
+
+                }
+
+
+                return `
+
+                    <div class="related-card">
+
+                        <div class="related-media">
+
+                            ${mediaHTML}
+
+                        </div>
+
+
+                        <div class="related-info">
+
+                            <h3>
+                                ${escapeHTML(item.name)}
+                            </h3>
+
+
+                            <div class="related-price">
+
+                                ${formatPrice(item.price)}
+
+                            </div>
+
+
+                            ${actionHTML}
+
+                        </div>
+
+                    </div>
+
+                `;
+
+            }
+        ).join("");
+
 }
 
-let related=
-limitedEditions.filter(item=>item.id!==product.id);
 
-const sameBrand=
-related.filter(item=>item.brand===product.brand);
-
-const differentBrand=
-related.filter(item=>item.brand!==product.brand);
-
-related=[
-...sameBrand,
-...differentBrand
-].slice(0,4);
-
-relatedGrid.innerHTML=
-related.map(item=>{
-
-let mediaHTML="";
-
-if(item.media==="video"){
-
-mediaHTML=`
-
-<video
-muted
-playsinline
-preload="metadata">
-
-<source
-src="${encodeURI(item.file)}"
-type="video/mp4">
-
-</video>
-
-`;
-
-}
-
-else{
-
-mediaHTML=`
-
-<img
-src="${encodeURI(item.file)}"
-alt="${escapeHTML(item.name)}">
-
-`;
-
-}
-
-return `
-
-<div class="related-card">
-
-<div class="related-media">
-
-${mediaHTML}
-
-</div>
-
-<div class="related-info">
-
-<h3>${escapeHTML(item.name)}</h3>
-
-<div class="related-price">
-
-${formatPrice(item.price)}
-
-</div>
-
-<a
-href="product-detailslimited-editions.html?id=${item.id}"
-class="related-btn">
-
-View Details
-
-</a>
-
-</div>
-
-</div>
-
-`;
-
-}).join("");
-
-}
-
-  /* =========================================================
+/* =========================================================
    GET CART
 ========================================================= */
 
@@ -1828,7 +2685,10 @@ function getCart(){
     try{
 
         const stored =
-            localStorage.getItem("cart");
+            localStorage.getItem(
+                "cart"
+            );
+
 
         if(!stored){
 
@@ -1836,8 +2696,10 @@ function getCart(){
 
         }
 
+
         const parsed =
             JSON.parse(stored);
+
 
         return Array.isArray(parsed)
             ? parsed
@@ -1877,12 +2739,15 @@ function saveCart(cart){
    CREATE CART ITEM
 ========================================================= */
 
-function createCartItem(selectedQuantity){
+function createCartItem(
+    selectedQuantity
+){
 
-    return{
+    return {
 
         id:
-            "limited-"+product.id,
+            "limited-" +
+            product.id,
 
         productId:
             product.id,
@@ -1897,17 +2762,17 @@ function createCartItem(selectedQuantity){
             selectedQuantity,
 
         image:
-            product.media==="image"
-                ? product.file
-                : "",
+            product.media === "image"
+            ? product.file
+            : "",
 
         media:
             product.media,
 
         video:
-            product.media==="video"
-                ? product.file
-                : "",
+            product.media === "video"
+            ? product.file
+            : "",
 
         category:
             "Limited Editions",
@@ -1927,29 +2792,39 @@ function createCartItem(selectedQuantity){
 function getSelectedQuantity(){
 
     let value =
-        Number(quantity.value);
+        Number(
+            quantity.value
+        );
+
 
     if(!Number.isFinite(value)){
 
-        value=1;
+        value = 1;
 
     }
 
-    value=Math.floor(value);
 
-    if(value<1){
+    value =
+        Math.floor(value);
 
-        value=1;
 
-    }
+    if(value < 1){
 
-    if(value>10){
-
-        value=10;
+        value = 1;
 
     }
 
-    quantity.value=value;
+
+    if(value > 10){
+
+        value = 10;
+
+    }
+
+
+    quantity.value =
+        value;
+
 
     return value;
 
@@ -1962,55 +2837,81 @@ function getSelectedQuantity(){
 
 function addToCart(){
 
-    if(!product){
+    /* ---------------------------------------------
+       SAFETY CHECK
+       OUT OF STOCK PRODUCTS CAN NEVER BE ADDED
+    ---------------------------------------------- */
+
+    if(
+        !product ||
+        product.outOfStock === true
+    ){
 
         return;
 
     }
 
+
     const selectedQuantity =
         getSelectedQuantity();
+
 
     const cart =
         getCart();
 
+
     const cartProductId =
-        "limited-"+product.id;
+        "limited-" +
+        product.id;
+
 
     const existing =
         cart.find(
             item =>
-                String(item.id)===
+                String(item.id) ===
                 String(cartProductId)
         );
+
 
     if(existing){
 
         existing.quantity =
             (
-                Number(existing.quantity)||0
-            )+selectedQuantity;
+                Number(
+                    existing.quantity
+                ) || 0
+            ) +
+            selectedQuantity;
 
     }
 
     else{
 
         cart.push(
-            createCartItem(selectedQuantity)
+            createCartItem(
+                selectedQuantity
+            )
         );
 
     }
 
+
     saveCart(cart);
+
 
     cartMessage.textContent =
         "✓ Added to your cart";
 
-    setTimeout(function(){
 
-        cartMessage.textContent="";
+    setTimeout(
+        function(){
 
-    },3000);
+            cartMessage.textContent =
+                "";
+
+        },
+        3000
+    );
 
 }
 
@@ -2021,48 +2922,70 @@ function addToCart(){
 
 function buyNow(){
 
-    if(!product){
+    /* ---------------------------------------------
+       SAFETY CHECK
+       OUT OF STOCK PRODUCTS CAN NEVER BE PURCHASED
+    ---------------------------------------------- */
+
+    if(
+        !product ||
+        product.outOfStock === true
+    ){
 
         return;
 
     }
 
+
     const selectedQuantity =
         getSelectedQuantity();
+
 
     const cart =
         getCart();
 
+
     const cartProductId =
-        "limited-"+product.id;
+        "limited-" +
+        product.id;
+
 
     const existing =
         cart.find(
             item =>
-                String(item.id)===
+                String(item.id) ===
                 String(cartProductId)
         );
+
 
     if(existing){
 
         existing.quantity =
             (
-                Number(existing.quantity)||0
-            )+selectedQuantity;
+                Number(
+                    existing.quantity
+                ) || 0
+            ) +
+            selectedQuantity;
 
     }
 
     else{
 
         cart.push(
-            createCartItem(selectedQuantity)
+            createCartItem(
+                selectedQuantity
+            )
         );
 
     }
 
+
     saveCart(cart);
 
-    window.location.href="cart.html";
+
+    window.location.href =
+        "cart.html";
 
 }
 
@@ -2072,32 +2995,80 @@ function buyNow(){
 ========================================================= */
 
 document
-.getElementById("minusBtn")
-.addEventListener("click",function(){
+    .getElementById(
+        "minusBtn"
+    )
+    .addEventListener(
+        "click",
+        function(){
 
-    let value =
-        Number(quantity.value)||1;
+            if(
+                !product ||
+                product.outOfStock === true
+            ){
 
-    value =
-        Math.max(1,value-1);
+                return;
 
-    quantity.value=value;
+            }
 
-});
+
+            let value =
+                Number(
+                    quantity.value
+                ) || 1;
+
+
+            value =
+                Math.max(
+                    1,
+                    value - 1
+                );
+
+
+            quantity.value =
+                value;
+
+        }
+    );
+
 
 document
-.getElementById("plusBtn")
-.addEventListener("click",function(){
+    .getElementById(
+        "plusBtn"
+    )
+    .addEventListener(
+        "click",
+        function(){
 
-    let value =
-        Number(quantity.value)||1;
+            if(
+                !product ||
+                product.outOfStock === true
+            ){
 
-    value =
-        Math.min(10,value+1);
+                return;
 
-    quantity.value=value;
+            }
 
-});
+
+            let value =
+                Number(
+                    quantity.value
+                ) || 1;
+
+
+            value =
+                Math.min(
+                    10,
+                    value + 1
+                );
+
+
+            quantity.value =
+                value;
+
+        }
+    );
+
 
 quantity.addEventListener(
     "change",
@@ -2110,18 +3081,23 @@ quantity.addEventListener(
 ========================================================= */
 
 document
-.getElementById("addCartBtn")
-.addEventListener(
-    "click",
-    addToCart
-);
+    .getElementById(
+        "addCartBtn"
+    )
+    .addEventListener(
+        "click",
+        addToCart
+    );
+
 
 document
-.getElementById("buyNowBtn")
-.addEventListener(
-    "click",
-    buyNow
-);
+    .getElementById(
+        "buyNowBtn"
+    )
+    .addEventListener(
+        "click",
+        buyNow
+    );
 
 
 /* =========================================================
@@ -2132,6 +3108,7 @@ loadProduct();
 
 </script>
 
+
 </body>
-  
+
 </html>
