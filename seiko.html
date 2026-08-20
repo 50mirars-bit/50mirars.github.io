@@ -17,37 +17,41 @@
 
 <meta
     name="description"
-    content="Explore the premium Seiko collection at 50 Mirars."
+    content="Explore the Seiko Collection at 50 Mirars — refined, stylish and timeless watch designs."
 >
 
 <title>Seiko Collection | 50 Mirars</title>
 
+
 <style>
 
 /* =========================================================
-   GLOBAL
+   GLOBAL RESET
 ========================================================= */
 
-*{
-    box-sizing:border-box;
+* {
+    box-sizing: border-box;
 }
 
-html{
-    scroll-behavior:smooth;
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
 
-body{
-    margin:0;
+body {
 
     font-family:
         Arial,
-        Helvetica,
         sans-serif;
 
     background:
         radial-gradient(
             circle at 50% 15%,
-            rgba(201,162,77,0.10),
+            rgba(201, 162, 77, 0.10),
             transparent 28%
         ),
         linear-gradient(
@@ -57,333 +61,1361 @@ body{
             #f8f5ed 100%
         );
 
-    color:#222;
+    color: #222;
 }
 
 img,
-video{
-    display:block;
-    max-width:100%;
+video {
+    display: block;
+    max-width: 100%;
 }
+
 
 /* =========================================================
    BACK TO HOME
 ========================================================= */
 
-.home-container{
-    padding:20px 40px;
+.home-wrapper {
+
+    width: 100%;
+
+    padding: 20px;
 }
 
-.home-btn{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    background:#111;
-    color:#fff;
-    text-decoration:none;
-    padding:12px 25px;
-    border-radius:6px;
-    font-weight:600;
-    transition:0.3s ease;
+.home-btn {
+
+    display: inline-block;
+
+    background: #111;
+
+    color: #fff;
+
+    text-decoration: none;
+
+    padding: 12px 25px;
+
+    border-radius: 6px;
+
+    font-weight: 600;
+
+    transition: 0.3s ease;
 }
 
-.home-btn:hover{
-    background:#c9a24d;
-    color:#111;
+.home-btn:hover {
+
+    background: #c9a24d;
+
+    color: #111;
 }
+
 
 /* =========================================================
    PAGE TITLE
 ========================================================= */
 
-.page-title{
-    text-align:center;
-    padding:20px 20px 35px;
+.page-title {
+
+    width: 100%;
+
+    text-align: center;
+
+    padding:
+        30px
+        20px
+        40px;
 }
 
-.page-title h1{
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
+.page-title h1 {
 
-    font-size:64px;
-    font-weight:600;
-    margin:0 0 20px;
-    color:#111;
+    font-size: 64px;
+
+    margin:
+        0
+        0
+        20px;
+
+    color: #111;
+
+    line-height: 1.1;
+
+    word-break: break-word;
+
+    font-weight: 700;
 }
 
-.title-line{
-    width:160px;
-    height:2px;
-    background:#c9a24d;
-    margin:0 auto;
-    position:relative;
+.title-line {
+
+    width: 160px;
+
+    max-width: 80%;
+
+    height: 2px;
+
+    background: #c9a24d;
+
+    margin: 0 auto;
+
+    position: relative;
 }
 
-.title-line::after{
-    content:"";
-    width:12px;
-    height:12px;
-    background:#c9a24d;
-    position:absolute;
-    left:50%;
-    top:50%;
+.title-line::after {
+
+    content: "";
+
+    width: 12px;
+
+    height: 12px;
+
+    background: #c9a24d;
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 50%;
+
     transform:
-        translate(-50%,-50%)
+        translate(-50%, -50%)
         rotate(45deg);
 }
 
-/* =========================================================
-   INTRODUCTION
-========================================================= */
-
-.seiko-intro{
-    width:90%;
-    max-width:1400px;
-    margin:0 auto;
-    text-align:center;
-    padding:10px 0 55px;
-}
-
-.seiko-intro h2{
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size:38px;
-    font-weight:600;
-    color:#171717;
-    margin:0 auto 30px;
-}
-
-.seiko-description{
-    max-width:1350px;
-    margin:0 auto;
-    text-align:left;
-}
-
-.seiko-description p{
-    margin:0 0 24px;
-    font-size:18px;
-    line-height:1.75;
-    color:#4a4a4a;
-}
-
-.seiko-description strong{
-    color:#9b762c;
-}
 
 /* =========================================================
-   PRODUCTS
+   PRODUCTS SECTION
 ========================================================= */
 
-.product-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:35px;
-    width:100%;
-    max-width:1400px;
-    margin:0 auto;
-    padding:20px 40px 80px;
+.products-section {
+
+    width: 100%;
+
+    max-width: 1400px;
+
+    margin: 0 auto;
+
+    padding:
+        0
+        30px
+        70px;
 }
 
-.product-card{
-    background:#fff;
-    border-radius:18px;
-    overflow:hidden;
-    text-align:center;
-    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+.products-grid {
+
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            minmax(0, 1fr)
+        );
+
+    gap: 30px;
+}
+
+
+/* =========================================================
+   PRODUCT CARD
+========================================================= */
+
+.product-card {
+
+    width: 100%;
+
+    min-width: 0;
+
+    background: #ffffff;
+
+    border:
+        1px solid
+        rgba(
+            0,
+            0,
+            0,
+            0.07
+        );
+
+    padding: 18px;
+
+    box-shadow:
+        0
+        10px
+        30px
+        rgba(
+            0,
+            0,
+            0,
+            0.06
+        );
+
+    overflow: hidden;
+
     transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-    display:flex;
-    flex-direction:column;
+        transform
+        0.3s
+        ease,
+        box-shadow
+        0.3s
+        ease;
 }
 
-.product-card:hover{
-    transform:translateY(-5px);
-    box-shadow:0 14px 35px rgba(0,0,0,0.13);
+.product-card:hover {
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0
+        16px
+        35px
+        rgba(
+            0,
+            0,
+            0,
+            0.10
+        );
 }
 
-.product-media,
-.slider{
-    width:100%;
-    height:350px;
-    background:#f4f4f4;
-    overflow:hidden;
-    position:relative;
+
+/* =========================================================
+   PRODUCT MEDIA
+========================================================= */
+
+.product-media {
+
+    width: 100%;
+
+    height: 350px;
+
+    background: #f4f4f4;
+
+    overflow: hidden;
+
+    position: relative;
 }
 
 .product-media img,
-.product-media video,
-.slider .slide{
-    width:100%;
-    height:100%;
-    object-fit:cover;
+.product-media video {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
 }
 
-.slider .slide{
-    display:none;
+
+/* =========================================================
+   PRODUCT TEXT
+========================================================= */
+
+.product-card h3 {
+
+    margin:
+        18px
+        0
+        8px;
+
+    color: #111;
+
+    font-size: 18px;
+
+    line-height: 1.35;
+
+    font-weight: 700;
 }
 
-.slider .slide.active{
-    display:block;
+.price {
+
+    margin:
+        0
+        0
+        16px;
+
+    color: #111;
+
+    font-size: 18px;
+
+    font-weight: 700;
 }
 
-.slider .prev,
-.slider .next{
-    position:absolute;
-    top:50%;
-    transform:translateY(-50%);
-    width:42px;
-    height:42px;
-    border:none;
-    border-radius:50%;
-    background:rgba(0,0,0,0.65);
-    color:#fff;
-    cursor:pointer;
-    font-size:18px;
-}
-
-.slider .prev{left:12px;}
-.slider .next{right:12px;}
-
-.slider .prev:hover,
-.slider .next:hover{
-    background:#c9a24d;
-    color:#111;
-}
-
-.product-card h3{
-    font-size:22px;
-    line-height:1.35;
-    margin:25px 15px 10px;
-    color:#111;
-    min-height:60px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-.price{
-    color:#c9a24d;
-    font-weight:bold;
-    font-size:22px;
-    margin:15px 0 20px;
-}
 
 /* =========================================================
    PRODUCT BUTTONS
 ========================================================= */
 
-.product-buttons{
+.product-buttons {
 
-    width:100%;
+    width: 100%;
 
-    margin-top:8px;
+    display: grid;
 
+    grid-template-columns:
+        1fr
+        1fr;
+
+    gap: 10px;
 }
 
-.details-btn{
+.enquire-btn,
+.add-to-cart-btn {
 
-    width:100%;
+    min-height: 46px;
 
-    min-height:50px;
+    width: 100%;
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    padding:
+        11px
+        12px;
 
-    background:#111;
-    color:#fff;
+    display: inline-flex;
 
-    text-decoration:none;
+    align-items: center;
 
-    font-size:15px;
-    font-weight:700;
-    letter-spacing:0.3px;
+    justify-content: center;
 
-    border:2px solid #111;
-    border-radius:6px;
+    text-align: center;
 
-    transition:all 0.3s ease;
+    text-decoration: none;
 
+    font-size: 14px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        0.3s
+        ease;
 }
 
-.details-btn:hover{
 
-    background:#c9a24d;
-    border-color:#c9a24d;
-    color:#111;
+/* ENQUIRE */
 
-    transform:translateY(-2px);
+.enquire-btn {
 
+    background: #111;
+
+    color: #fff;
+
+    border:
+        1px solid
+        #111;
 }
 
-.details-btn:active{
+.enquire-btn:hover {
 
-    transform:translateY(0);
+    background: #c9a24d;
 
+    border-color: #c9a24d;
+
+    color: #111;
 }
-    
+
+
+/* ADD TO CART */
+
+.add-to-cart-btn {
+
+    background: #fff;
+
+    color: #111;
+
+    border:
+        1px solid
+        #111;
+}
+
+.add-to-cart-btn:hover {
+
+    background: #111;
+
+    color: #fff;
+}
+
+
 /* =========================================================
-   RESPONSIVE
+   PRODUCT IMAGE SLIDER
 ========================================================= */
 
-@media(max-width:1100px){
+.slider {
 
-    .product-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
+    width: 100%;
 
+    height: 350px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background: #f4f4f4;
 }
 
-@media(max-width:768px){
+.slider .slide {
 
-    .home-container{
-        padding:15px 20px;
-    }
+    display: none;
 
-    .page-title h1{
-        font-size:42px;
-    }
+    width: 100%;
 
-    .seiko-intro h2{
-        font-size:28px;
-    }
+    height: 100%;
 
-    .seiko-description p{
-        font-size:16px;
-    }
-
-    .product-grid{
-        grid-template-columns:1fr;
-        padding:15px 20px 60px;
-    }
-
-    .details-btn{
-
-    min-height:48px;
-
-    font-size:14px;
-
+    object-fit: cover;
 }
 
+.slider .slide.active {
+
+    display: block;
+}
+
+.slider .prev,
+.slider .next {
+
+    position: absolute;
+
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    width: 42px;
+
+    height: 42px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background:
+        rgba(
+            0,
+            0,
+            0,
+            0.65
+        );
+
+    color: #fff;
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+    z-index: 5;
+
+    transition:
+        0.3s
+        ease;
+}
+
+.slider .prev {
+
+    left: 12px;
+}
+
+.slider .next {
+
+    right: 12px;
+}
+
+.slider .prev:hover,
+.slider .next:hover {
+
+    background: #c9a24d;
+
+    color: #111;
+}
+
+
+/* =========================================================
+   SEIKO INFORMATION SECTION
+========================================================= */
+
+.seiko-info-section {
+
+    width: 100%;
+
+    max-width: 1400px;
+
+    margin:
+        0
+        auto
+        70px;
+
+    padding:
+        35px
+        60px
+        55px;
+
+    background: #fff;
+
+    color: #111;
+
+    overflow: hidden;
+}
+
+.seiko-info-grid {
+
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            minmax(0, 1fr)
+        );
+
+    gap: 55px;
+
+    align-items: start;
+}
+
+.seiko-info-column {
+
+    min-width: 0;
+
+    width: 100%;
+
+    overflow-wrap: break-word;
+}
+
+
+/* =========================================================
+   INFORMATION HEADINGS
+========================================================= */
+
+.seiko-info-section h2 {
+
+    margin:
+        0
+        0
+        18px;
+
+    font-size: 16px;
+
+    line-height: 1.45;
+
+    font-weight: 600;
+}
+
+.seiko-info-section h3 {
+
+    margin:
+        28px
+        0
+        17px;
+
+    font-size: 16px;
+
+    line-height: 1.45;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   INFORMATION TEXT
+========================================================= */
+
+.seiko-info-section p {
+
+    margin:
+        0
+        0
+        24px;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    font-weight: 400;
+
+    overflow-wrap: break-word;
+
+    word-wrap: break-word;
+}
+
+
+/* =========================================================
+   FAQ
+========================================================= */
+
+.seiko-faq {
+
+    margin-top: 0;
+
+    width: 100%;
+}
+
+.seiko-faq-item {
+
+    margin-bottom: 20px;
+
+    width: 100%;
+}
+
+.seiko-faq-question {
+
+    margin:
+        0
+        0
+        3px !important;
+
+    font-size:
+        13px !important;
+
+    line-height:
+        1.5 !important;
+
+    font-weight:
+        600 !important;
+}
+
+.seiko-faq-answer {
+
+    margin:
+        0 !important;
+
+    font-size:
+        13px !important;
+
+    line-height:
+        1.6 !important;
+
+    font-weight:
+        400 !important;
+}
+
+
+/* =========================================================
+   CONCLUSION
+========================================================= */
+
+.seiko-conclusion {
+
+    width: 100%;
+
+    margin-top: 40px;
+
+    padding-top: 5px;
+
+    overflow-wrap: break-word;
+}
+
+.seiko-conclusion h2 {
+
+    margin:
+        0
+        0
+        18px;
+
+    font-size: 16px;
+
+    line-height: 1.45;
+
+    font-weight: 600;
+}
+
+.seiko-conclusion p {
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    margin: 0;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.main-footer {
+
+    width: 100%;
+
+    background: #080808;
+
+    color: #ffffff;
+
+    padding:
+        70px
+        7%
+        25px;
+
+    border-top:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.08
+        );
+
+    overflow: hidden;
+}
+
+.footer-container {
+
+    width: 100%;
+
+    max-width: 1400px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   FOOTER TOP
+========================================================= */
+
+.footer-top {
+
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            minmax(0, 1fr)
+        );
+
+    column-gap: 70px;
+
+    row-gap: 40px;
+
+    align-items: start;
+}
+
+.footer-top > h2 {
+
+    grid-column:
+        1 / -1;
+
+    margin:
+        0
+        0
+        10px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 42px;
+
+    font-weight: 500;
+
+    line-height: 1.2;
+
+    color: #ffffff;
+
+    text-align: center;
+}
+
+.contact-column,
+.whatsapp-column {
+
+    min-width: 0;
+
+    width: 100%;
+
+    text-align: center;
+}
+
+.contact-column h3,
+.whatsapp-column h3 {
+
+    margin:
+        0
+        0
+        22px;
+
+    color: #ffffff;
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    line-height: 1.35;
+}
+
+.contact-column p {
+
+    margin:
+        12px
+        0
+        0;
+
+    color: #bdbdbd;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+}
+
+.footer-link {
+
+    display: block;
+
+    width: fit-content;
+
+    max-width: 100%;
+
+    margin:
+        0
+        auto
+        8px;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 16px;
+
+    line-height: 1.6;
+
+    overflow-wrap: break-word;
+
+    transition:
+        color
+        0.3s
+        ease;
+}
+
+.footer-link:hover {
+
+    color: #c9a24d;
+}
+
+
+/* =========================================================
+   WHATSAPP
+========================================================= */
+
+.whatsapp-title {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    flex-wrap: wrap;
+}
+
+.whatsapp-icon {
+
+    width: 28px;
+
+    height: 28px;
+
+    object-fit: contain;
+
+    display: inline-block;
+
+    flex-shrink: 0;
+}
+
+.whatsapp-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-width: 205px;
+
+    min-height: 60px;
+
+    max-width: 100%;
+
+    padding:
+        13px
+        30px;
+
+    background: #ffffff;
+
+    color: #111111;
+
+    text-decoration: none;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.2px;
+
+    border:
+        1px solid
+        #ffffff;
+
+    transition:
+        all
+        0.3s
+        ease;
+}
+
+.whatsapp-button:hover {
+
+    background: #c9a24d;
+
+    border-color: #c9a24d;
+
+    color: #ffffff;
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =========================================================
+   FOOTER MIDDLE
+========================================================= */
+
+.footer-middle {
+
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            minmax(0, 1fr)
+        );
+
+    gap: 50px;
+
+    margin-top: 65px;
+
+    padding-top: 45px;
+
+    border-top:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.10
+        );
+}
+
+.footer-links-column,
+.footer-social {
+
+    min-width: 0;
+
+    width: 100%;
+
+    text-align: center;
+}
+
+.footer-links-column h3,
+.footer-social h3 {
+
+    margin:
+        0
+        0
+        20px;
+
+    color: #ffffff;
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    line-height: 1.35;
+}
+
+.footer-links-column a {
+
+    display: block;
+
+    width: fit-content;
+
+    max-width: 100%;
+
+    margin:
+        0
+        auto
+        14px;
+
+    color: #d7d7d7;
+
+    text-decoration: none;
+
+    font-size: 15px;
+
+    line-height: 1.5;
+
+    transition:
+        color
+        0.3s
+        ease;
+}
+
+.footer-links-column a:hover {
+
+    color: #c9a24d;
+}
+
+.footer-social p {
+
+    margin:
+        0
+        0
+        14px;
+
+    color: #d7d7d7;
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   INSTAGRAM
+========================================================= */
+
+.instagram-button {
+
+    width: 58px;
+
+    height: 58px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.65
+        );
+
+    border-radius: 9px;
+
+    text-decoration: none;
+
+    transition:
+        all
+        0.3s
+        ease;
+}
+
+.instagram-button:hover {
+
+    border-color: #c9a24d;
+
+    transform:
+        translateY(-2px);
+}
+
+.instagram-button img {
+
+    width: 32px;
+
+    height: 32px;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+
+/* =========================================================
+   COPYRIGHT
+========================================================= */
+
+.footer-bottom {
+
+    width: 100%;
+
+    margin-top: 50px;
+
+    padding-top: 20px;
+
+    border-top:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.10
+        );
+}
+
+.footer-bottom p {
+
+    margin: 0;
+
+    color: #aaaaaa;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    text-align: center;
+
+    overflow-wrap: break-word;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .products-grid {
+
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(0, 1fr)
+            );
+    }
+
+    .seiko-info-grid {
+
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(0, 1fr)
+            );
+
+        gap: 35px;
+    }
+
+    .footer-top {
+
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(0, 1fr)
+            );
+
+        column-gap: 35px;
+    }
+
+    .footer-top > h2 {
+
+        grid-column:
+            1 / -1;
+    }
+
+    .footer-middle {
+
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(0, 1fr)
+            );
+
+        gap: 35px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .home-wrapper {
+
+        padding: 15px;
+    }
+
+    .page-title {
+
+        padding:
+            25px
+            15px
+            35px;
+    }
+
+    .page-title h1 {
+
+        font-size: 48px;
+    }
+
+
+    /* PRODUCTS */
+
+    .products-section {
+
+        padding:
+            0
+            15px
+            50px;
+    }
+
+    .products-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 22px;
+    }
+
+    .product-card {
+
+        padding: 14px;
+    }
+
+    .product-media,
+    .slider {
+
+        height: 350px;
+    }
+
+    .product-buttons {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    /* INFORMATION */
+
+    .seiko-info-section {
+
+        width: 100%;
+
+        margin-bottom: 45px;
+
+        padding:
+            30px
+            20px
+            45px;
+    }
+
+    .seiko-info-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 5px;
+    }
+
+    .seiko-info-section h2,
+    .seiko-info-section h3 {
+
+        font-size: 16px;
+    }
+
+    .seiko-info-section p,
+    .seiko-faq-question,
+    .seiko-faq-answer,
+    .seiko-conclusion p {
+
+        font-size: 13px !important;
+    }
+
+
+    /* FOOTER */
+
+    .main-footer {
+
+        padding:
+            55px
+            20px
+            25px;
+    }
+
+    .footer-top {
+
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+    }
+
+    .footer-top > h2 {
+
+        grid-column: auto;
+
+        font-size: 34px;
+
+        margin-bottom: 5px;
+    }
+
+    .footer-middle {
+
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+
+        margin-top: 50px;
+
+        padding-top: 35px;
+    }
+
+    .footer-bottom {
+
+        margin-top: 40px;
+    }
+}
+
+
+/* =========================================================
+   EXTRA SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .page-title h1 {
+
+        font-size: 42px;
+    }
+
+    .home-btn {
+
+        padding:
+            10px
+            18px;
+
+        font-size: 14px;
+    }
+
+    .product-media,
+    .slider {
+
+        height: 300px;
+    }
+
+    .whatsapp-button {
+
+        width: 100%;
+
+        min-width: 0;
+    }
+
+    .footer-top > h2 {
+
+        font-size: 30px;
+    }
 }
 
 </style>
 
 </head>
 
+
 <body>
+
 
 <!-- =========================================================
      BACK TO HOME
 ========================================================= -->
 
-<div class="home-container">
+<div class="home-wrapper">
 
     <a
         href="index.html"
@@ -394,768 +1426,1517 @@ video{
 
 </div>
 
+
 <!-- =========================================================
-     INTRODUCTION
+     PAGE TITLE
 ========================================================= -->
 
-<section class="seiko-intro">
+<div class="page-title">
 
-    <div class="page-title">
+    <h1>
+        Seiko
+    </h1>
 
-        <h1>Seiko</h1>
+    <div class="title-line"></div>
 
-        <div class="title-line"></div>
+</div>
 
-    </div>
-
-    <h2>
-        Precision, Character & Timeless Watchmaking
-    </h2>
-
-    <div class="seiko-description">
-
-        <p>
-            Seiko has earned worldwide recognition for creating watches that combine timeless design with practical craftsmanship. From elegant dress watches to bold sports-inspired models, Seiko timepieces have become a favorite among enthusiasts who appreciate refined styling and dependable everyday wear.
-        </p>
-
-        <p>
-            At <strong>50 Mirars</strong>, our Seiko collection brings together carefully selected designs that reflect classic proportions, distinctive dials, premium finishes, and versatile styling. Whether you're looking for a sophisticated Presage-inspired look, a sporty GMT, or a bold diver-style watch, this collection offers something for every personality.
-        </p>
-
-        <p>
-            Explore a collection where timeless aesthetics meet modern confidence, and discover the Seiko-inspired watch that complements your style.
-        </p>
-
-    </div>
-
-</section>
 
 <!-- =========================================================
      PRODUCTS
 ========================================================= -->
 
-<div class="product-grid">
+<main class="products-section">
 
-    <!-- 1 -->
+    <div class="products-grid">
 
-    <div class="product-card">
-
-        <div class="product-media">
-
-            <video controls playsinline preload="metadata">
-
-                <source src="Seiko 5 Sports Red Blood.mp4" type="video/mp4">
-
-            </video>
-
-        </div>
-
-        <h3>Seiko 5 Sports Red Blood</h3>
-
-        <div class="price">₹4,500</div>
-
-        <div class="product-buttons">
-
-            <a href="product-detailsseiko.html?id=1" class="product-details-btn">
-                Show Product Details
-            </a>
-
-        </div>
-
-    </div>
-
-    <!-- 2 -->
-
-    <div class="product-card">
-
-        <div class="product-media">
-
-            <img src="Seiko Presage SRPE15.jpeg" alt="Seiko Presage SRPE15">
-
-        </div>
-
-        <h3>Seiko Presage SRPE15</h3>
-
-        <div class="price">₹5,500</div>
-
-        <div class="product-buttons">
-
-            <a href="product-detailsseiko.html?id=2" class="product-details-btn">
-                Show Product Details
-            </a>
-
-        </div>
-
-    </div>
-
-    <!-- 3 -->
-
-    <div class="product-card">
-
-        <div class="product-media">
-
-            <img src="Seiko 5 Sports GMT SSK035K1.jpeg" alt="Seiko 5 Sports GMT SSK035K1">
-
-        </div>
-
-        <h3>Seiko 5 Sports GMT SSK035K1</h3>
-
-        <div class="price">₹4,000</div>
-
-        <div class="product-buttons">
-
-            <a href="product-detailsseiko.html?id=3" class="product-details-btn">
-                Show Product Details
-            </a>
-
-        </div>
-
-    </div>
-
-    <!-- 4 -->
-
-    <div class="product-card">
-
-        <div class="product-media">
-
-            <img src="Seiko 5 Sports Quartz GMT SSK035K1.jpeg" alt="Seiko 5 Sports Quartz GMT SSK035K1">
-
-        </div>
-
-        <h3>Seiko 5 Sports Quartz GMT SSK035K1</h3>
-
-        <div class="price">₹3,500</div>
-
-        <div class="product-buttons">
-
-            <a href="product-detailsseiko.html?id=4" class="product-details-btn">
-                Show Product Details
-            </a>
-
-        </div>
-
-    </div>
-
-    <!-- 5 -->
-
-    <div class="product-card">
-
-        <div class="product-media">
-
-            <img src="Seiko Prospex Speedtimer SPB513.jpeg" alt="Seiko Prospex Speedtimer SPB513">
-
-        </div>
-
-        <h3>Seiko Prospex Speedtimer SPB513</h3>
-
-        <div class="price">₹3,500</div>
-
-        <div class="product-buttons">
-
-            <a href="product-detailsseiko.html?id=5" class="product-details-btn">
-                Show Product Details
-            </a>
-
-        </div>
-
-    </div>
-
-    <!-- 6 -->
-
-    <div class="product-card">
-
-        <div class="product-media">
-
-            <video controls playsinline preload="metadata">
-
-                <source src="Seiko 5 Sports Group.mp4" type="video/mp4">
-
-            </video>
-
-        </div>
-
-        <h3>Seiko 5 Sports Group</h3>
-
-        <div class="price">₹4,000</div>
-
-        <div class="product-buttons">
-
-            <a href="product-detailsseiko.html?id=6" class="product-details-btn">
-                Show Product Details
-            </a>
-
-        </div>
-
-    </div>
 
         <!-- =================================================
-         7. SEIKO PRESAGE COCKTAIL SRPG23J1
-    ================================================== -->
+             1. SEIKO 5 SPORTS RED BLOOD
+        ================================================== -->
 
-    <div class="product-card">
+        <div class="product-card">
 
-        <div class="product-media">
+            <div class="product-media">
 
-            <video
-                controls
-                playsinline
-                preload="metadata"
-            >
-
-                <source
-                    src="Seiko Presage Cocktail SRPG23J1.mp4"
-                    type="video/mp4"
+                <video
+                    controls
+                    playsinline
+                    preload="metadata"
                 >
 
-            </video>
+                    <source
+                        src="Seiko 5 Sports Red Blood.mp4"
+                        type="video/mp4"
+                    >
 
-        </div>
+                    Your browser does not support video playback.
 
-        <h3>Seiko Presage Cocktail SRPG23J1</h3>
+                </video>
 
-        <div class="price">₹4,000</div>
+            </div>
 
-        <div class="product-buttons">
+            <h3>
+                Seiko 5 Sports Red Blood
+            </h3>
 
-            <a
-                href="product-detailsseiko.html?id=7"
-                class="product-details-btn"
-            >
-                Show Product Details
-            </a>
+            <div class="price">
+                ₹4,500
+            </div>
 
-        </div>
+            <div class="product-buttons">
 
-    </div>
-
-
-    <!-- =================================================
-         8. SEIKO MOD WATCHES
-    ================================================== -->
-
-    <div class="product-card">
-
-        <div class="product-media">
-
-            <img
-                src="Seiko Mod Watches.jpeg"
-                alt="Seiko Mod Watches"
-            >
-
-        </div>
-
-        <h3>Seiko Mod Watches</h3>
-
-        <div class="price">₹5,500</div>
-
-        <div class="product-buttons">
-
-            <a
-                href="product-detailsseiko.html?id=8"
-                class="product-details-btn"
-            >
-                Show Product Details
-            </a>
-
-        </div>
-
-    </div>
-
-
-    <!-- =================================================
-         9. SEIKO BLUE MOON SSA347J1
-    ================================================== -->
-
-    <div class="product-card">
-
-        <div class="product-media">
-
-            <img
-                src="Seiko Blue Moon SSA347J1.jpeg"
-                alt="Seiko Blue Moon SSA347J1"
-            >
-
-        </div>
-
-        <h3>Seiko Blue Moon SSA347J1</h3>
-
-        <div class="price">₹6,000</div>
-
-        <div class="product-buttons">
-
-            <a
-                href="product-detailsseiko.html?id=9"
-                class="product-details-btn"
-            >
-                Show Product Details
-            </a>
-
-        </div>
-
-    </div>
-
-
-    <!-- =================================================
-         10. SEIKO MOD
-    ================================================== -->
-
-    <div class="product-card">
-
-        <div class="product-media">
-
-            <img
-                src="Seiko Mod .jpeg"
-                alt="Seiko Mod"
-            >
-
-        </div>
-
-        <h3>Seiko Mod</h3>
-
-        <div class="price">₹5,000</div>
-
-        <div class="product-buttons">
-
-            <a
-                href="product-detailsseiko.html?id=10"
-                class="product-details-btn"
-            >
-                Show Product Details
-            </a>
-
-        </div>
-
-    </div>
-
-
-    <!-- =================================================
-         11. SEIKO MOD YACHT-MASTER ROSE GOLD
-    ================================================== -->
-
-    <div class="product-card">
-
-        <div class="product-media">
-
-            <video
-                controls
-                playsinline
-                preload="metadata"
-            >
-
-                <source
-                    src="Seiko Mod Yatch-Master Rose Gold.mp4"
-                    type="video/mp4"
+                <a
+                    class="enquire-btn"
+                    href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Seiko%205%20Sports%20Red%20Blood.%20Please%20share%20availability%20and%20details."
+                    target="_blank"
+                    rel="noopener"
                 >
+                    Enquire Now
+                </a>
 
-            </video>
+                <button
+                    class="add-to-cart-btn"
+                    type="button"
+                    data-name="Seiko 5 Sports Red Blood"
+                    data-price="4500"
+                >
+                    Add to Cart
+                </button>
 
-        </div>
-
-        <h3>Seiko Mod Yatch-Master Rose Gold</h3>
-
-        <div class="price">₹5,000</div>
-
-        <div class="product-buttons">
-
-            <a
-                href="product-detailsseiko.html?id=11"
-                class="product-details-btn"
-            >
-                Show Product Details
-            </a>
+            </div>
 
         </div>
 
-    </div>
-
-
-    <!-- =================================================
-         12. SEIKO PEPSI EDITION
-    ================================================== -->
-
-    <div class="product-card">
-
-        <div class="product-media">
-
-            <img
-                src="Seiko Pepsi Edition.jpeg"
-                alt="Seiko Pepsi Edition"
-            >
-
-        </div>
-
-        <h3>Seiko Pepsi Edition</h3>
-
-        <div class="price">₹6,000</div>
-
-        <div class="product-buttons">
-
-            <a
-                href="product-detailsseiko.html?id=12"
-                class="product-details-btn"
-            >
-                Show Product Details
-            </a>
-
-        </div>
-
-    </div>
 
         <!-- =================================================
-         13. SEIKO MOD WATCHES VIDEO
-    ================================================== -->
+             2. SEIKO PRESAGE SRPE15
+        ================================================== -->
 
-    <div class="product-card">
+        <div class="product-card">
 
-        <div class="product-media">
+            <div class="product-media">
 
-            <video controls playsinline preload="metadata">
+                <img
+                    src="Seiko Presage SRPE15.jpeg"
+                    alt="Seiko Presage SRPE15"
+                    loading="lazy"
+                >
 
-                <source src="Seiko Mod Watches Video.mp4" type="video/mp4">
+            </div>
 
-            </video>
+            <h3>
+                Seiko Presage SRPE15
+            </h3>
+
+            <div class="price">
+                ₹5,500
+            </div>
+
+            <div class="product-buttons">
+
+                <a
+                    class="enquire-btn"
+                    href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Seiko%20Presage%20SRPE15.%20Please%20share%20availability%20and%20details."
+                    target="_blank"
+                    rel="noopener"
+                >
+                    Enquire Now
+                </a>
+
+                <button
+                    class="add-to-cart-btn"
+                    type="button"
+                    data-name="Seiko Presage SRPE15"
+                    data-price="5500"
+                >
+                    Add to Cart
+                </button>
+
+            </div>
 
         </div>
 
-        <h3>Seiko Mod Watches</h3>
 
-        <div class="price">₹4,500</div>
+        <!-- =================================================
+             3. SEIKO 5 SPORTS GMT
+        ================================================== -->
 
-        <div class="product-buttons">
+        <div class="product-card">
 
-            <a href="product-detailsseiko.html?id=13" class="product-details-btn">
-                Show Product Details
-            </a>
+            <div class="product-media">
+
+                <img
+                    src="Seiko 5 Sports GMT SSK035K1.jpeg"
+                    alt="Seiko 5 Sports GMT SSK035K1"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <h3>
+                Seiko 5 Sports GMT SSK035K1
+            </h3>
+
+            <div class="price">
+                ₹4,000
+            </div>
+
+            <div class="product-buttons">
+
+                <a
+                    class="enquire-btn"
+                    href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Seiko%205%20Sports%20GMT%20SSK035K1"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    Enquire Now
+                </a>
+
+                <button
+                    class="add-to-cart-btn"
+                    type="button"
+                    data-name="Seiko 5 Sports GMT SSK035K1"
+                    data-price="4000"
+                >
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             4. SEIKO 5 SPORTS QUARTZ GMT
+        ================================================== -->
+
+        <div class="product-card">
+
+            <div class="product-media">
+
+                <img
+                    src="Seiko 5 Sports Quartz GMT SSK035K1.jpeg"
+                    alt="Seiko 5 Sports Quartz GMT SSK035K1"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <h3>
+                Seiko 5 Sports Quartz GMT SSK035K1
+            </h3>
+
+            <div class="price">
+                ₹3,500
+            </div>
+
+            <div class="product-buttons">
+
+                <a
+                    class="enquire-btn"
+                    href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Seiko%205%20Sports%20Quartz%20GMT%20SSK035K1"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    Enquire Now
+                </a>
+
+                <button
+                    class="add-to-cart-btn"
+                    type="button"
+                    data-name="Seiko 5 Sports Quartz GMT SSK035K1"
+                    data-price="3500"
+                >
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             5. SEIKO PROSPEX SPEEDTIMER
+        ================================================== -->
+
+        <div class="product-card">
+
+            <div class="product-media">
+
+                <img
+                    src="Seiko Prospex Speedtimer SPB513.jpeg"
+                    alt="Seiko Prospex Speedtimer SPB513"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <h3>
+                Seiko Prospex Speedtimer SPB513
+            </h3>
+
+            <div class="price">
+                ₹3,500
+            </div>
+
+            <div class="product-buttons">
+
+                <a
+                    class="enquire-btn"
+                    href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Seiko%20Prospex%20Speedtimer%20SPB513"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    Enquire Now
+                </a>
+
+                <button
+                    class="add-to-cart-btn"
+                    type="button"
+                    data-name="Seiko Prospex Speedtimer SPB513"
+                    data-price="3500"
+                >
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             6. SEIKO 5 SPORTS GROUP
+        ================================================== -->
+
+        <div class="product-card">
+
+            <div class="product-media">
+
+                <video
+                    controls
+                    playsinline
+                    preload="metadata"
+                >
+
+                    <source
+                        src="Seiko 5 Sports Group.mp4"
+                        type="video/mp4"
+                    >
+
+                </video>
+
+            </div>
+
+            <h3>
+                Seiko 5 Sports Group
+            </h3>
+
+            <div class="price">
+                ₹4,000
+            </div>
+
+            <div class="product-buttons">
+
+                <a
+                    class="enquire-btn"
+                    href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Seiko%205%20Sports%20Group"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    Enquire Now
+                </a>
+
+                <button
+                    class="add-to-cart-btn"
+                    type="button"
+                    data-name="Seiko 5 Sports Group"
+                    data-price="4000"
+                >
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             7. SEIKO PRESAGE COCKTAIL SRPG23J1
+        ================================================== -->
+
+        <div class="product-card">
+
+            <div class="product-media">
+
+                <video
+                    controls
+                    playsinline
+                    preload="metadata"
+                >
+
+                    <source
+                        src="Seiko Presage Cocktail SRPG23J1.mp4"
+                        type="video/mp4"
+                    >
+
+                </video>
+
+            </div>
+
+            <h3>
+                Seiko Presage Cocktail SRPG23J1
+            </h3>
+
+            <div class="price">
+                ₹4,000
+            </div>
+
+            <div class="product-buttons">
+
+                <a
+                    class="enquire-btn"
+                    href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Seiko%20Presage%20Cocktail%20SRPG23J1"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    Enquire Now
+                </a>
+
+                <button
+                    class="add-to-cart-btn"
+                    type="button"
+                    data-name="Seiko Presage Cocktail SRPG23J1"
+                    data-price="4000"
+                >
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             8. SEIKO MOD WATCHES
+        ================================================== -->
+
+        <div class="product-card">
+
+            <div class="product-media">
+
+                <img
+                    src="Seiko Mod Watches.jpeg"
+                    alt="Seiko Mod Watches"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <h3>
+                Seiko Mod Watches
+            </h3>
+
+            <div class="price">
+                ₹5,500
+            </div>
+
+            <div class="product-buttons">
+
+                <a
+                    class="enquire-btn"
+                    href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Seiko%20Mod%20Watches.%20Please%20share%20availability%20and%20details."
+                    target="_blank"
+                    rel="noopener"
+                >
+                    Enquire Now
+                </a>
+
+                <button
+                    class="add-to-cart-btn"
+                    type="button"
+                    data-name="Seiko Mod Watches"
+                    data-price="5500"
+                >
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             9. SEIKO BLUE MOON
+        ================================================== -->
+
+        <div class="product-card">
+
+            <div class="product-media">
+
+                <img
+                    src="Seiko Blue Moon SSA347J1.jpeg"
+                    alt="Seiko Blue Moon SSA347J1"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <h3>
+                Seiko Blue Moon SSA347J1
+            </h3>
+
+            <div class="price">
+                ₹6,000
+            </div>
+
+            <div class="product-buttons">
+
+                <a
+                    class="enquire-btn"
+                    href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Seiko%20Blue%20Moon%20SSA347J1."
+                    target="_blank"
+                    rel="noopener"
+                >
+                    Enquire Now
+                </a>
+
+                <button
+                    class="add-to-cart-btn"
+                    type="button"
+                    data-name="Seiko Blue Moon SSA347J1"
+                    data-price="6000"
+                >
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             10. SEIKO MOD
+        ================================================== -->
+
+        <div class="product-card">
+
+            <div class="product-media">
+
+                <img
+                    src="Seiko Mod .jpeg"
+                    alt="Seiko Mod"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <h3>
+                Seiko Mod
+            </h3>
+
+            <div class="price">
+                ₹5,000
+            </div>
+
+            <div class="product-buttons">
+
+                <a
+                    class="enquire-btn"
+                    href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Seiko%20Mod."
+                    target="_blank"
+                    rel="noopener"
+                >
+                    Enquire Now
+                </a>
+
+                <button
+                    class="add-to-cart-btn"
+                    type="button"
+                    data-name="Seiko Mod"
+                    data-price="5000"
+                >
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             11. SEIKO MOD YACHT-MASTER ROSE GOLD
+        ================================================== -->
+
+        <div class="product-card">
+
+            <div class="product-media">
+
+                <video
+                    controls
+                    playsinline
+                    preload="metadata"
+                >
+
+                    <source
+                        src="Seiko Mod Yatch-Master Rose Gold.mp4"
+                        type="video/mp4"
+                    >
+
+                </video>
+
+            </div>
+
+            <h3>
+                Seiko Mod Yatch-Master Rose Gold
+            </h3>
+
+            <div class="price">
+                ₹5,000
+            </div>
+
+            <div class="product-buttons">
+
+                <a
+                    class="enquire-btn"
+                    href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Seiko%20Mod%20Yatch-Master%20Rose%20Gold"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    Enquire Now
+                </a>
+
+                <button
+                    class="add-to-cart-btn"
+                    type="button"
+                    data-name="Seiko Mod Yatch-Master Rose Gold"
+                    data-price="5000"
+                >
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             12. SEIKO PEPSI EDITION
+        ================================================== -->
+
+        <div class="product-card">
+
+            <div class="product-media">
+
+                <img
+                    src="Seiko Pepsi Edition.jpeg"
+                    alt="Seiko Pepsi Edition"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <h3>
+                Seiko Pepsi Edition
+            </h3>
+
+            <div class="price">
+                ₹6,000
+            </div>
+
+            <div class="product-buttons">
+
+                <a
+                    class="enquire-btn"
+                    href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Seiko%20Pepsi%20Edition."
+                    target="_blank"
+                    rel="noopener"
+                >
+                    Enquire Now
+                </a>
+
+                <button
+                    class="add-to-cart-btn"
+                    type="button"
+                    data-name="Seiko Pepsi Edition"
+                    data-price="6000"
+                >
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             13. SEIKO MOD WATCHES VIDEO
+        ================================================== -->
+
+        <div class="product-card">
+
+            <div class="product-media">
+
+                <video
+                    controls
+                    playsinline
+                    preload="metadata"
+                >
+
+                    <source
+                        src="Seiko Mod Watches Video.mp4"
+                        type="video/mp4"
+                    >
+
+                </video>
+
+            </div>
+
+            <h3>
+                Seiko Mod Watches
+            </h3>
+
+            <div class="price">
+                ₹4,500
+            </div>
+
+            <div class="product-buttons">
+
+                <a
+                    class="enquire-btn"
+                    href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Seiko%20Mod%20Watches"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    Enquire Now
+                </a>
+
+                <button
+                    class="add-to-cart-btn"
+                    type="button"
+                    data-name="Seiko Mod Watches"
+                    data-price="4500"
+                >
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             14. SEIKO DATEJUST MOD
+        ================================================== -->
+
+        <div class="product-card">
+
+            <div class="product-media">
+
+                <video
+                    controls
+                    playsinline
+                    preload="metadata"
+                >
+
+                    <source
+                        src="Seiko Datejust Mod.mp4"
+                        type="video/mp4"
+                    >
+
+                </video>
+
+            </div>
+
+            <h3>
+                Seiko Datejust Mod
+            </h3>
+
+            <div class="price">
+                ₹5,000
+            </div>
+
+            <div class="product-buttons">
+
+                <a
+                    class="enquire-btn"
+                    href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Seiko%20Datejust%20Mod"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    Enquire Now
+                </a>
+
+                <button
+                    class="add-to-cart-btn"
+                    type="button"
+                    data-name="Seiko Datejust Mod"
+                    data-price="5000"
+                >
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             15. SEIKO PRESAGE COCKTAIL TIME SLIDER
+        ================================================== -->
+
+        <div class="product-card">
+
+            <div
+                class="slider"
+                data-slider
+            >
+
+                <img
+                    src="Seiko Presage Cocktail Time.jpeg"
+                    class="slide active"
+                    alt="Seiko Presage Cocktail Time"
+                    loading="lazy"
+                >
+
+                <img
+                    src="Seiko Presage Cocktail Time 2.jpeg"
+                    class="slide"
+                    alt="Seiko Presage Cocktail Time 2"
+                    loading="lazy"
+                >
+
+                <img
+                    src="Seiko Presage Cocktail Time 3.jpeg"
+                    class="slide"
+                    alt="Seiko Presage Cocktail Time 3"
+                    loading="lazy"
+                >
+
+                <img
+                    src="Seiko Presage Cocktail Time 4.jpeg"
+                    class="slide"
+                    alt="Seiko Presage Cocktail Time 4"
+                    loading="lazy"
+                >
+
+                <img
+                    src="Seiko Presage Cocktail Time 5.jpeg"
+                    class="slide"
+                    alt="Seiko Presage Cocktail Time 5"
+                    loading="lazy"
+                >
+
+                <img
+                    src="Seiko Presage Cocktail Time 6.jpeg"
+                    class="slide"
+                    alt="Seiko Presage Cocktail Time 6"
+                    loading="lazy"
+                >
+
+                <button
+                    class="prev"
+                    type="button"
+                    aria-label="Previous image"
+                >
+                    ❮
+                </button>
+
+                <button
+                    class="next"
+                    type="button"
+                    aria-label="Next image"
+                >
+                    ❯
+                </button>
+
+            </div>
+
+            <h3>
+                Seiko Presage Cocktail Time
+            </h3>
+
+            <div class="price">
+                ₹4,500
+            </div>
+
+            <div class="product-buttons">
+
+                <a
+                    class="enquire-btn"
+                    href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Seiko%20Presage%20Cocktail%20Time."
+                    target="_blank"
+                    rel="noopener"
+                >
+                    Enquire Now
+                </a>
+
+                <button
+                    class="add-to-cart-btn"
+                    type="button"
+                    data-name="Seiko Presage Cocktail Time"
+                    data-price="4500"
+                >
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             16. SEIKO PROSPEX DIVER
+        ================================================== -->
+
+        <div class="product-card">
+
+            <div class="product-media">
+
+                <video
+                    controls
+                    playsinline
+                    preload="metadata"
+                >
+
+                    <source
+                        src="Seiko Prospex Diver .mp4"
+                        type="video/mp4"
+                    >
+
+                </video>
+
+            </div>
+
+            <h3>
+                Seiko Prospex Diver
+            </h3>
+
+            <div class="price">
+                ₹4,000
+            </div>
+
+            <div class="product-buttons">
+
+                <a
+                    class="enquire-btn"
+                    href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Seiko%20Prospex%20Diver"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    Enquire Now
+                </a>
+
+                <button
+                    class="add-to-cart-btn"
+                    type="button"
+                    data-name="Seiko Prospex Diver"
+                    data-price="4000"
+                >
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             17. SEIKO SRPL64 SLIDER
+        ================================================== -->
+
+        <div class="product-card">
+
+            <div
+                class="slider"
+                data-slider
+            >
+
+                <img
+                    src="Seiko SRPL64.jpeg"
+                    class="slide active"
+                    alt="Seiko SRPL64"
+                    loading="lazy"
+                >
+
+                <img
+                    src="Seiko SRPL64 1.jpeg"
+                    class="slide"
+                    alt="Seiko SRPL64 2"
+                    loading="lazy"
+                >
+
+                <img
+                    src="Seiko SRPL64 2.jpeg"
+                    class="slide"
+                    alt="Seiko SRPL64 3"
+                    loading="lazy"
+                >
+
+                <img
+                    src="Seiko SRPL64 3.jpeg"
+                    class="slide"
+                    alt="Seiko SRPL64 4"
+                    loading="lazy"
+                >
+
+                <img
+                    src="Seiko SRPL64 4.jpeg"
+                    class="slide"
+                    alt="Seiko SRPL64 5"
+                    loading="lazy"
+                >
+
+                <img
+                    src="Seiko SRPL64 5.jpeg"
+                    class="slide"
+                    alt="Seiko SRPL64 6"
+                    loading="lazy"
+                >
+
+                <img
+                    src="Seiko SRPL64 6.jpeg"
+                    class="slide"
+                    alt="Seiko SRPL64 7"
+                    loading="lazy"
+                >
+
+                <button
+                    class="prev"
+                    type="button"
+                    aria-label="Previous image"
+                >
+                    ❮
+                </button>
+
+                <button
+                    class="next"
+                    type="button"
+                    aria-label="Next image"
+                >
+                    ❯
+                </button>
+
+            </div>
+
+            <h3>
+                Seiko SRPL64
+            </h3>
+
+            <div class="price">
+                ₹4,500
+            </div>
+
+            <div class="product-buttons">
+
+                <a
+                    class="enquire-btn"
+                    href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Seiko%20SRPL64."
+                    target="_blank"
+                    rel="noopener"
+                >
+                    Enquire Now
+                </a>
+
+                <button
+                    class="add-to-cart-btn"
+                    type="button"
+                    data-name="Seiko SRPL64"
+                    data-price="4500"
+                >
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             18. KING SEIKO VANAC SLA087
+        ================================================== -->
+
+        <div class="product-card">
+
+            <div class="product-media">
+
+                <img
+                    src="King Seiko Vanac SLA087.jpeg"
+                    alt="King Seiko Vanac SLA087"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <h3>
+                King Seiko Vanac SLA087
+            </h3>
+
+            <div class="price">
+                ₹5,500
+            </div>
+
+            <div class="product-buttons">
+
+                <a
+                    class="enquire-btn"
+                    href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20King%20Seiko%20Vanac%20SLA087.%20Please%20share%20availability%20and%20details."
+                    target="_blank"
+                    rel="noopener"
+                >
+                    Enquire Now
+                </a>
+
+                <button
+                    class="add-to-cart-btn"
+                    type="button"
+                    data-name="King Seiko Vanac SLA087"
+                    data-price="5500"
+                >
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             19. SEIKO 1736 BLUE
+        ================================================== -->
+
+        <div class="product-card">
+
+            <div class="product-media">
+
+                <img
+                    src="Seiko 1736 Automatic Blue Watch.jpeg"
+                    alt="Seiko 1736 Automatic Blue Watch"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <h3>
+                Seiko 1736 Automatic Blue Watch
+            </h3>
+
+            <div class="price">
+                ₹5,500
+            </div>
+
+            <div class="product-buttons">
+
+                <a
+                    class="enquire-btn"
+                    href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Seiko%201736%20Automatic%20Blue%20Watch.%20Please%20share%20availability%20and%20details."
+                    target="_blank"
+                    rel="noopener"
+                >
+                    Enquire Now
+                </a>
+
+                <button
+                    class="add-to-cart-btn"
+                    type="button"
+                    data-name="Seiko 1736 Automatic Blue Watch"
+                    data-price="5500"
+                >
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             20. SEIKO 1736 GREEN
+        ================================================== -->
+
+        <div class="product-card">
+
+            <div class="product-media">
+
+                <img
+                    src="Seiko 1736 Automatic Green Watch.jpeg"
+                    alt="Seiko 1736 Automatic Green Watch"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <h3>
+                Seiko 1736 Automatic Green Watch
+            </h3>
+
+            <div class="price">
+                ₹5,500
+            </div>
+
+            <div class="product-buttons">
+
+                <a
+                    class="enquire-btn"
+                    href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Seiko%201736%20Automatic%20Green%20Watch.%20Please%20share%20availability%20and%20details."
+                    target="_blank"
+                    rel="noopener"
+                >
+                    Enquire Now
+                </a>
+
+                <button
+                    class="add-to-cart-btn"
+                    type="button"
+                    data-name="Seiko 1736 Automatic Green Watch"
+                    data-price="5500"
+                >
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             21. SEIKO SKX GMT SSK019
+        ================================================== -->
+
+        <div class="product-card">
+
+            <div class="product-media">
+
+                <img
+                    src="Seiko SKX GMT SSK019.jpeg"
+                    alt="Seiko SKX GMT SSK019"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <h3>
+                Seiko SKX GMT SSK019
+            </h3>
+
+            <div class="price">
+                ₹8,000
+            </div>
+
+            <div class="product-buttons">
+
+                <a
+                    class="enquire-btn"
+                    href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Seiko%20SKX%20GMT%20SSK019.%20Please%20share%20availability%20and%20details."
+                    target="_blank"
+                    rel="noopener"
+                >
+                    Enquire Now
+                </a>
+
+                <button
+                    class="add-to-cart-btn"
+                    type="button"
+                    data-name="Seiko SKX GMT SSK019"
+                    data-price="8000"
+                >
+                    Add to Cart
+                </button>
+
+            </div>
 
         </div>
 
     </div>
 
-    <!-- =================================================
-         14. SEIKO DATEJUST MOD
-    ================================================== -->
+</main>
 
-    <div class="product-card">
-
-        <div class="product-media">
-
-            <video controls playsinline preload="metadata">
-
-                <source src="Seiko Datejust Mod.mp4" type="video/mp4">
-
-            </video>
-
-        </div>
-
-        <h3>Seiko Datejust Mod</h3>
-
-        <div class="price">₹5,000</div>
-
-        <div class="product-buttons">
-
-            <a href="product-detailsseiko.html?id=14" class="product-details-btn">
-                Show Product Details
-            </a>
-
-        </div>
-
-    </div>
-
-    <!-- =================================================
-         15. SEIKO PRESAGE COCKTAIL TIME
-    ================================================== -->
-
-    <div class="product-card">
-
-        <div class="slider" data-slider>
-
-            <img src="Seiko Presage Cocktail Time.jpeg" class="slide active" alt="Seiko Presage Cocktail Time">
-
-            <img src="Seiko Presage Cocktail Time 2.jpeg" class="slide" alt="Seiko Presage Cocktail Time 2">
-
-            <img src="Seiko Presage Cocktail Time 3.jpeg" class="slide" alt="Seiko Presage Cocktail Time 3">
-
-            <img src="Seiko Presage Cocktail Time 4.jpeg" class="slide" alt="Seiko Presage Cocktail Time 4">
-
-            <img src="Seiko Presage Cocktail Time 5.jpeg" class="slide" alt="Seiko Presage Cocktail Time 5">
-
-            <img src="Seiko Presage Cocktail Time 6.jpeg" class="slide" alt="Seiko Presage Cocktail Time 6">
-
-            <button class="prev" type="button">❮</button>
-
-            <button class="next" type="button">❯</button>
-
-        </div>
-
-        <h3>Seiko Presage Cocktail Time</h3>
-
-        <div class="price">₹4,500</div>
-
-        <div class="product-buttons">
-
-            <a href="product-detailsseiko.html?id=15" class="product-details-btn">
-                Show Product Details
-            </a>
-
-        </div>
-
-    </div>
-
-    <!-- =================================================
-         16. SEIKO PROSPEX DIVER
-    ================================================== -->
-
-    <div class="product-card">
-
-        <div class="product-media">
-
-            <video controls playsinline preload="metadata">
-
-                <source src="Seiko Prospex Diver .mp4" type="video/mp4">
-
-            </video>
-
-        </div>
-
-        <h3>Seiko Prospex Diver</h3>
-
-        <div class="price">₹4,000</div>
-
-        <div class="product-buttons">
-
-            <a href="product-detailsseiko.html?id=16" class="product-details-btn">
-                Show Product Details
-            </a>
-
-        </div>
-
-    </div>
-
-    <!-- =================================================
-         17. SEIKO SRPL64
-    ================================================== -->
-
-    <div class="product-card">
-
-        <div class="slider" data-slider>
-
-            <img src="Seiko SRPL64.jpeg" class="slide active" alt="Seiko SRPL64">
-
-            <img src="Seiko SRPL64 1.jpeg" class="slide" alt="Seiko SRPL64 2">
-
-            <img src="Seiko SRPL64 2.jpeg" class="slide" alt="Seiko SRPL64 3">
-
-            <img src="Seiko SRPL64 3.jpeg" class="slide" alt="Seiko SRPL64 4">
-
-            <img src="Seiko SRPL64 4.jpeg" class="slide" alt="Seiko SRPL64 5">
-
-            <img src="Seiko SRPL64 5.jpeg" class="slide" alt="Seiko SRPL64 6">
-
-            <img src="Seiko SRPL64 6.jpeg" class="slide" alt="Seiko SRPL64 7">
-
-            <button class="prev" type="button">❮</button>
-
-            <button class="next" type="button">❯</button>
-
-        </div>
-
-        <h3>Seiko SRPL64</h3>
-
-        <div class="price">₹4,500</div>
-
-        <div class="product-buttons">
-
-            <a href="product-detailsseiko.html?id=17" class="product-details-btn">
-                Show Product Details
-            </a>
-
-        </div>
-
-    </div>
-
-    <!-- =================================================
-         18. KING SEIKO VANAC SLA087
-    ================================================== -->
-
-    <div class="product-card">
-
-        <div class="product-media">
-
-            <img src="King Seiko Vanac SLA087.jpeg" alt="King Seiko Vanac SLA087">
-
-        </div>
-
-        <h3>King Seiko Vanac SLA087</h3>
-
-        <div class="price">₹5,500</div>
-
-        <div class="product-buttons">
-
-            <a href="product-detailsseiko.html?id=18" class="product-details-btn">
-                Show Product Details
-            </a>
-
-        </div>
-
-    </div>
-
-    <!-- =================================================
-         19. SEIKO 1736 AUTOMATIC BLUE
-    ================================================== -->
-
-    <div class="product-card">
-
-        <div class="product-media">
-
-            <img src="Seiko 1736 Automatic Blue Watch.jpeg" alt="Seiko 1736 Automatic Blue Watch">
-
-        </div>
-
-        <h3>Seiko 1736 Automatic Blue Watch</h3>
-
-        <div class="price">₹5,500</div>
-
-        <div class="product-buttons">
-
-            <a href="product-detailsseiko.html?id=19" class="product-details-btn">
-                Show Product Details
-            </a>
-
-        </div>
-
-    </div>
-
-    <!-- =================================================
-         20. SEIKO 1736 AUTOMATIC GREEN
-    ================================================== -->
-
-    <div class="product-card">
-
-        <div class="product-media">
-
-            <img src="Seiko 1736 Automatic Green Watch.jpeg" alt="Seiko 1736 Automatic Green Watch">
-
-        </div>
-
-        <h3>Seiko 1736 Automatic Green Watch</h3>
-
-        <div class="price">₹5,500</div>
-
-        <div class="product-buttons">
-
-            <a href="product-detailsseiko.html?id=20" class="product-details-btn">
-                Show Product Details
-            </a>
-
-        </div>
-
-    </div>
-
-    <!-- =================================================
-         21. SEIKO SKX GMT SSK019
-    ================================================== -->
-
-    <div class="product-card">
-
-        <div class="product-media">
-
-            <img src="Seiko SKX GMT SSK019.jpeg" alt="Seiko SKX GMT SSK019">
-
-        </div>
-
-        <h3>Seiko SKX GMT SSK019</h3>
-
-        <div class="price">₹8,000</div>
-
-        <div class="product-buttons">
-
-            <a href="product-detailsseiko.html?id=21" class="product-details-btn">
-                Show Product Details
-            </a>
-
-        </div>
-
-    </div>
-
-</div>
 
 <!-- =========================================================
-     SEIKO INFORMATION
+     SEIKO INFORMATION SECTION
 ========================================================= -->
 
-<section class="seiko-intro">
+<section class="seiko-info-section">
 
-    <div class="seiko-description">
+    <div class="seiko-info-grid">
 
-        <h2 style="text-align:center;">
-            A Legacy of Precision with Seiko Watches
-        </h2>
 
-        <p>
-            Seiko watches are admired for their distinctive designs, practical functionality, and strong connection with traditional watchmaking. From elegant everyday timepieces to bold sports-inspired designs, Seiko-inspired watches combine timeless styling with confident presence, making them a popular choice for customers who appreciate refined craftsmanship.
-        </p>
+        <!-- COLUMN 1 -->
 
-        <p>
-            Every watch in our Seiko collection has been selected with attention to its overall design, dial details, bracelet finish, proportions, and versatility. Whether you're drawn to classic Presage-inspired elegance, GMT styling, or diver-inspired confidence, each design offers its own unique character.
-        </p>
+        <div class="seiko-info-column">
 
-        <h2 style="text-align:center; margin-top:50px;">
-            Why Choose a Seiko-Inspired Watch?
-        </h2>
+            <h2>
+                A LEGACY OF PRECISION WITH SEIKO WATCHES
+            </h2>
 
-        <p>
-            Seiko-inspired watches offer timeless aesthetics that suit both everyday wear and special occasions. Their balanced proportions, refined detailing, and versatile styling allow them to complement different personalities while maintaining a confident, sophisticated appearance.
-        </p>
+            <p>
+                Seiko watches are known for their distinctive
+                designs, practical functionality, and strong
+                connection with traditional watchmaking.
+                Seiko-inspired timepieces combine timeless
+                styling with a confident and refined presence,
+                making them a popular choice for customers who
+                appreciate sophisticated watches.
+            </p>
 
-        <h2 style="text-align:center; margin-top:50px;">
-            Caring for Your Watch
-        </h2>
 
-        <p>
-            Keep your watch clean, avoid unnecessary impacts, protect it from excessive moisture when appropriate, and handle it with care to help preserve its appearance and finish over time.
-        </p>
+            <h3>
+                INTRODUCTION: THE WORLD OF SEIKO
+            </h3>
 
-        <h2 style="text-align:center; margin-top:50px;">
-            Frequently Asked Questions
-        </h2>
+            <p>
+                A Seiko-inspired watch brings together classic
+                watch aesthetics, practical design, and modern
+                styling. From elegant everyday watches to bold
+                sporty timepieces, different designs can suit
+                a variety of personalities, outfits, and
+                occasions.
+            </p>
 
-        <div style="max-width:900px;margin:30px auto 0;">
 
-            <p><strong>1. Why are Seiko watches so popular?</strong></p>
+            <h3>
+                SEIKO HISTORY AND HERITAGE
+            </h3>
 
-            <p>They are appreciated for their distinctive designs, practical styling, and strong watchmaking heritage.</p>
-
-            <p><strong>2. What styles are available?</strong></p>
-
-            <p>Our collection includes classic watches, sporty designs, GMT-inspired models, diver-inspired styles, and elegant Presage-inspired designs.</p>
-
-            <p><strong>3. Are these suitable for everyday wear?</strong></p>
-
-            <p>Yes. Many designs are suitable for daily wear as well as formal occasions.</p>
-
-            <p><strong>4. How should I care for my watch?</strong></p>
-
-            <p>Keep it clean, handle it carefully, and avoid unnecessary impacts and harsh conditions.</p>
-
-            <p><strong>5. Where can I shop Seiko-inspired watches?</strong></p>
-
-            <p>Explore the complete Seiko Collection at <strong>50 Mirars</strong> to find a design that suits your style.</p>
+            <p>
+                Seiko has developed a recognizable identity
+                within the world of watches through its
+                distinctive designs, dependable watchmaking
+                tradition, and wide variety of timepieces.
+                Its influence can be seen across classic,
+                sporty, and contemporary watch styles.
+            </p>
 
         </div>
 
-        <h2 style="text-align:center; margin-top:50px;">
-            Timeless Design. Everyday Confidence.
+
+        <!-- COLUMN 2 -->
+
+        <div class="seiko-info-column">
+
+            <h3>
+                SEIKO WATCHES FOR MEN: CONFIDENCE AND STYLE
+            </h3>
+
+            <p>
+                Seiko-inspired watches for men offer a strong
+                combination of style, functionality, and
+                presence. Popular designs can include
+                chronograph-inspired watches, classic
+                timepieces, sporty designs, and bold statement
+                styles. These watches can complement both
+                everyday outfits and special occasions.
+            </p>
+
+
+            <h3>
+                SEIKO WATCHES FOR WOMEN: ELEGANCE AND VERSATILITY
+            </h3>
+
+            <p>
+                Seiko-inspired watches for women can feature
+                refined proportions, elegant finishes, and
+                sophisticated detailing. Their versatile
+                appearance makes them suitable for everyday
+                outfits, formal occasions, celebrations, and
+                special events.
+            </p>
+
+
+            <h3>
+                SEIKO DESIGN AND CRAFTSMANSHIP
+            </h3>
+
+            <p>
+                Every timepiece in our collection is selected
+                with attention to its overall design, detailing,
+                and finish. Elements such as the dial, case,
+                markers, bezel, and bracelet work together to
+                create a distinctive and refined appearance.
+            </p>
+
+
+            <h3>
+                FROM CLASSIC TO SPORTY: SEIKO HAS YOU COVERED
+            </h3>
+
+            <p>
+                Choose from elegant classic designs, sporty
+                styles, chronograph-inspired looks, and
+                statement timepieces. The Seiko collection
+                offers a variety of designs created to
+                complement different personalities and
+                occasions.
+            </p>
+
+        </div>
+
+
+        <!-- COLUMN 3 -->
+
+        <div class="seiko-info-column">
+
+            <h3>
+                CARING FOR YOUR SEIKO-INSPIRED WATCH
+            </h3>
+
+            <p>
+                Keep your watch clean and handle it carefully
+                to maintain its appearance. Avoid unnecessary
+                impacts, moisture exposure, and extreme
+                conditions. Proper care can help your
+                timepiece maintain its appearance for longer.
+            </p>
+
+
+            <h3>
+                SHOP SEIKO-INSPIRED WATCHES AT 50 MIRARS
+            </h3>
+
+            <p>
+                Explore the Seiko collection at
+                <strong>50 Mirars</strong> and discover
+                distinctive watch designs created for customers
+                who appreciate refined and timeless style.
+                Choose from different designs, finishes, and
+                price options to find a timepiece that matches
+                your personality and style.
+            </p>
+
+
+            <h3>
+                FAQs
+            </h3>
+
+
+            <div class="seiko-faq">
+
+
+                <div class="seiko-faq-item">
+
+                    <p class="seiko-faq-question">
+                        1. Why are Seiko watches so popular?
+                    </p>
+
+                    <p class="seiko-faq-answer">
+                        Their distinctive designs, practical
+                        styling, strong watchmaking heritage,
+                        and wide range of designs make them
+                        popular among watch enthusiasts.
+                    </p>
+
+                </div>
+
+
+                <div class="seiko-faq-item">
+
+                    <p class="seiko-faq-question">
+                        2. What Seiko-inspired styles are available?
+                    </p>
+
+                    <p class="seiko-faq-answer">
+                        Seiko-inspired collections can include
+                        classic watches, sporty designs,
+                        chronograph-inspired styles, everyday
+                        watches, and statement timepieces.
+                    </p>
+
+                </div>
+
+
+                <div class="seiko-faq-item">
+
+                    <p class="seiko-faq-question">
+                        3. Are Seiko-inspired watches available for women?
+                    </p>
+
+                    <p class="seiko-faq-answer">
+                        Yes. Selected designs feature elegant
+                        proportions and refined finishes that
+                        can complement women's styles.
+                    </p>
+
+                </div>
+
+
+                <div class="seiko-faq-item">
+
+                    <p class="seiko-faq-question">
+                        4. Are these watches suitable for everyday wear?
+                    </p>
+
+                    <p class="seiko-faq-answer">
+                        Yes. Many designs can be suitable for
+                        everyday use as well as formal events
+                        and special occasions.
+                    </p>
+
+                </div>
+
+
+                <div class="seiko-faq-item">
+
+                    <p class="seiko-faq-question">
+                        5. How should I care for my watch?
+                    </p>
+
+                    <p class="seiko-faq-answer">
+                        Keep it clean, handle it carefully,
+                        and avoid unnecessary impacts, moisture,
+                        and harsh conditions.
+                    </p>
+
+                </div>
+
+
+                <div class="seiko-faq-item">
+
+                    <p class="seiko-faq-question">
+                        6. Where can I shop Seiko-inspired watches?
+                    </p>
+
+                    <p class="seiko-faq-answer">
+                        Explore the Seiko collection available
+                        at 50 Mirars to find a distinctive style
+                        that suits you.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- CONCLUSION -->
+
+    <div class="seiko-conclusion">
+
+        <h2>
+            CONCLUSION: TIMELESS DESIGN, EVERYDAY CONFIDENCE
         </h2>
 
         <p>
-            Whether you prefer a classic dress watch, a sporty GMT, or a bold statement timepiece, the Seiko collection at 50 Mirars offers designs that bring confidence, elegance, and timeless character to every moment.
+            Seiko-inspired watches bring together timeless
+            design, refined detailing, practical styling, and
+            a distinctive sense of presence. Whether you
+            prefer a classic timepiece, sporty design,
+            chronograph-inspired look, or statement watch,
+            the Seiko collection at 50 Mirars offers options
+            for different tastes and occasions. Choose a
+            timepiece that adds confidence, elegance, and
+            sophistication to every moment.
         </p>
 
     </div>
 
 </section>
 
-    <!-- =========================================================
+
+<!-- =========================================================
      FOOTER
 ========================================================= -->
 
@@ -1163,47 +2944,71 @@ video{
 
     <div class="footer-container">
 
-        <!-- FOOTER TOP -->
 
         <div class="footer-top">
 
-            <h2>Contact Us</h2>
+            <h2>
+                Contact Us
+            </h2>
+
 
             <!-- CUSTOMERS -->
 
             <div class="contact-column">
 
-                <h3>For Customers:</h3>
+                <h3>
+                    For Customers:
+                </h3>
 
-                <a href="mailto:50mirars@gmail.com" class="footer-link">
+                <a
+                    href="mailto:50mirars@gmail.com"
+                    class="footer-link"
+                >
                     50mirars@gmail.com
                 </a>
 
-                <a href="tel:+918209989013" class="footer-link">
+                <a
+                    href="tel:+918209989013"
+                    class="footer-link"
+                >
                     82099 89013
                 </a>
 
-                <p>09:00 - 21:30 | Monday to Sunday</p>
+                <p>
+                    09:00 - 21:30 | Monday to Sunday
+                </p>
 
             </div>
 
-            <!-- SALES -->
+
+            <!-- SALES / WATCH SERVICE -->
 
             <div class="contact-column">
 
-                <h3>For Sales/Watch Service:</h3>
+                <h3>
+                    For Sales/Watch Service:
+                </h3>
 
-                <a href="mailto:50mirars@gmail.com" class="footer-link">
+                <a
+                    href="mailto:50mirars@gmail.com"
+                    class="footer-link"
+                >
                     50mirars@gmail.com
                 </a>
 
-                <a href="tel:+918209989013" class="footer-link">
+                <a
+                    href="tel:+918209989013"
+                    class="footer-link"
+                >
                     82099 89013
                 </a>
 
-                <p>09:00 - 21:30 | Monday to Sunday</p>
+                <p>
+                    09:00 - 21:30 | Monday to Sunday
+                </p>
 
             </div>
+
 
             <!-- WHATSAPP -->
 
@@ -1211,7 +3016,7 @@ video{
 
                 <h3 class="whatsapp-title">
 
-                    <span>View Products on WhatsApp</span>
+                    View Products on WhatsApp
 
                     <img
                         src="whatsapplogo.png"
@@ -1234,35 +3039,61 @@ video{
 
         </div>
 
+
         <!-- FOOTER MIDDLE -->
 
         <div class="footer-middle">
 
-            <div class="footer-links-column">
 
-                <h3>Know 50 Mirars</h3>
-
-                <a href="about.html">About Us</a>
-
-                <a href="faq.html">FAQ</a>
-
-            </div>
+            <!-- KNOW 50 MIRARS -->
 
             <div class="footer-links-column">
 
-                <h3>Terms &amp; Conditions</h3>
+                <h3>
+                    Know 50 Mirars
+                </h3>
 
-                <a href="terms.html">Terms &amp; Conditions</a>
+                <a href="about.html">
+                    About Us
+                </a>
 
-                <a href="privacypolicy.html">Privacy Policy</a>
+                <a href="faq.html">
+                    FAQ
+                </a>
 
             </div>
+
+
+            <!-- TERMS -->
+
+            <div class="footer-links-column">
+
+                <h3>
+                    Terms &amp; Conditions
+                </h3>
+
+                <a href="terms.html">
+                    Terms &amp; Conditions
+                </a>
+
+                <a href="privacypolicy.html">
+                    Privacy Policy
+                </a>
+
+            </div>
+
+
+            <!-- INSTAGRAM -->
 
             <div class="footer-social">
 
-                <h3>50 Mirars</h3>
+                <h3>
+                    50 Mirars
+                </h3>
 
-                <p>Follow Us On</p>
+                <p>
+                    Follow Us On
+                </p>
 
                 <a
                     href="https://instagram.com/50mirars"
@@ -1283,6 +3114,7 @@ video{
 
         </div>
 
+
         <!-- COPYRIGHT -->
 
         <div class="footer-bottom">
@@ -1298,63 +3130,171 @@ video{
 
 </footer>
 
+
 <!-- =========================================================
-     IMAGE SLIDER JAVASCRIPT
+     JAVASCRIPT
+     
+     IMPORTANT:
+     There is NO cart icon or cart section at the
+     top-right of this page.
 ========================================================= -->
 
 <script>
 
+
+/* =========================================================
+   PRODUCT IMAGE SLIDERS
+========================================================= */
+
 document
     .querySelectorAll("[data-slider]")
-    .forEach(function(slider){
+    .forEach(function(slider) {
 
         const slides =
             slider.querySelectorAll(".slide");
 
-        const prev =
+        const prevButton =
             slider.querySelector(".prev");
 
-        const next =
+        const nextButton =
             slider.querySelector(".next");
 
-        if(slides.length <= 1){
 
-            if(prev) prev.style.display = "none";
-            if(next) next.style.display = "none";
+        if (slides.length <= 1) {
+
+            if (prevButton) {
+                prevButton.style.display = "none";
+            }
+
+            if (nextButton) {
+                nextButton.style.display = "none";
+            }
 
             return;
         }
 
-        let index = 0;
 
-        function showSlide(i){
+        let currentIndex = 0;
 
-            slides.forEach(function(slide,n){
+
+        function showSlide(index) {
+
+            slides.forEach(function(
+                slide,
+                i
+            ) {
 
                 slide.classList.toggle(
                     "active",
-                    n===i
+                    i === index
                 );
 
             });
 
         }
 
-        prev.addEventListener("click",function(){
 
-            index =
-                (index-1+slides.length)%slides.length;
+        prevButton.addEventListener(
+            "click",
+            function() {
 
-            showSlide(index);
+                currentIndex =
+                    (
+                        currentIndex -
+                        1 +
+                        slides.length
+                    ) %
+                    slides.length;
 
-        });
+                showSlide(currentIndex);
 
-        next.addEventListener("click",function(){
+            }
+        );
 
-            index =
-                (index+1)%slides.length;
 
-            showSlide(index);
+        nextButton.addEventListener(
+            "click",
+            function() {
+
+                currentIndex =
+                    (
+                        currentIndex +
+                        1
+                    ) %
+                    slides.length;
+
+                showSlide(currentIndex);
+
+            }
+        );
+
+    });
+
+</script>
+
+    
+/* =========================================================
+   Add To Cart
+========================================================= */
+
+<script>
+
+document
+    .querySelectorAll(".add-to-cart-btn, .add-to-cart")
+    .forEach(function(button) {
+
+        button.addEventListener("click", function() {
+
+            const name =
+                button.dataset.name || "";
+
+            const price =
+                button.dataset.price || "0";
+
+            const image =
+                button.dataset.image || "";
+
+
+            /* -------------------------------------------------
+               GET EXISTING CART
+            ------------------------------------------------- */
+
+            let cart =
+                JSON.parse(
+                    localStorage.getItem("cart")
+                ) || [];
+
+
+            /* -------------------------------------------------
+               ADD PRODUCT
+            ------------------------------------------------- */
+
+            cart.push({
+
+                name: name,
+
+                price: price,
+
+                image: image
+
+            });
+
+
+            /* -------------------------------------------------
+               SAVE CART
+            ------------------------------------------------- */
+
+            localStorage.setItem(
+                "cart",
+                JSON.stringify(cart)
+            );
+
+
+            /* -------------------------------------------------
+               REDIRECT TO CART
+            ------------------------------------------------- */
+
+            window.location.href = "cart.html";
 
         });
 
@@ -1362,6 +3302,10 @@ document
 
 </script>
 
+
+</script>
+
+
 </body>
-    
+
 </html>
