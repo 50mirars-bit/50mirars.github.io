@@ -65,11 +65,6 @@ body {
    REMOVE TOP-RIGHT CART
 ========================================================= */
 
-/*
-   This Omega page does not use a shopping-cart icon
-   or cart button in the top-right corner.
-*/
-
 .cart,
 .cart-icon,
 .cart-button,
@@ -414,6 +409,10 @@ body {
     background: #c9a24d;
 
     color: #111;
+
+    transform:
+        translateY(-50%)
+        scale(1.05);
 }
 
 
@@ -459,46 +458,31 @@ body {
 
 
 /* =========================================================
-   PRODUCT BUTTONS
+   PRODUCT BUTTON AREA
 ========================================================= */
 
 .product-buttons {
 
+    width: 100%;
+
     display: flex;
 
-    align-items: stretch;
+    align-items: center;
 
     justify-content: center;
 
-    gap: 10px;
+    margin:
+        10px 0 5px;
 
-    width: 100%;
+    padding: 0;
 }
 
-.enquire-btn,
-.add-to-cart-btn {
 
-    flex: 1;
+/* =========================================================
+   VIEW PRODUCT DETAILS BUTTON
+========================================================= */
 
-    min-width: 0;
-
-    min-height: 48px;
-
-    padding:
-        12px 10px;
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    font-size: 14px;
-
-    font-weight: 700;
-
-    cursor: pointer;
-
-    text-decoration: none;
+.view-details-btn {
 
     display: inline-flex;
 
@@ -506,57 +490,52 @@ body {
 
     justify-content: center;
 
-    transition:
-        all 0.3s ease;
-}
+    width: 100%;
 
+    max-width: 240px;
 
-/* =========================================================
-   ENQUIRE BUTTON
-========================================================= */
+    min-height: 48px;
 
-.enquire-btn {
+    padding:
+        11px 22px;
 
     background: #111;
 
     color: #ffffff;
 
     border:
-        1px solid #111;
+        1px solid
+        #111;
+
+    text-decoration: none;
+
+    border-radius: 6px;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease;
 }
 
-.enquire-btn:hover {
+.view-details-btn:hover {
 
     background: #c9a24d;
 
+    color: #111;
+
     border-color: #c9a24d;
-
-    color: #111;
-
-    transform:
-        translateY(-2px);
-}
-
-
-/* =========================================================
-   ADD TO CART BUTTON
-========================================================= */
-
-.add-to-cart-btn {
-
-    background: #ffffff;
-
-    color: #111;
-
-    border:
-        1px solid #111;
-}
-
-.add-to-cart-btn:hover {
-
-    background: #111;
-
-    color: #ffffff;
 
     transform:
         translateY(-2px);
@@ -947,7 +926,8 @@ body {
     letter-spacing: 0.2px;
 
     border:
-        1px solid #ffffff;
+        1px solid
+        #ffffff;
 
     transition:
         all 0.3s ease;
@@ -1246,17 +1226,22 @@ body {
 
     .product-buttons {
 
-        flex-direction: column;
+        width: 100%;
 
-        gap: 9px;
+        justify-content: center;
+
+        padding: 0;
     }
 
-    .enquire-btn,
-    .add-to-cart-btn {
+    .view-details-btn {
 
         width: 100%;
 
-        flex: none;
+        max-width: 260px;
+
+        min-height: 46px;
+
+        font-size: 15px;
     }
 
     .omega-info-section {
@@ -1293,7 +1278,9 @@ body {
     }
 
 
-    /* FOOTER MOBILE */
+    /* =====================================================
+       FOOTER MOBILE
+    ===================================================== */
 
     .main-footer {
 
@@ -1369,6 +1356,13 @@ body {
         font-size: 14px;
     }
 
+    .view-details-btn {
+
+        width: 100%;
+
+        max-width: 100%;
+    }
+
     .whatsapp-button {
 
         width: 100%;
@@ -1412,7 +1406,9 @@ body {
 
 <div class="page-title">
 
-    <h1>Omega</h1>
+    <h1>
+        Omega
+    </h1>
 
     <div class="title-line"></div>
 
@@ -1429,7 +1425,7 @@ body {
 
 
         <!-- =================================================
-             OMEGA SPEEDMASTER SNOOPY
+             1. OMEGA SPEEDMASTER SNOOPY
         ================================================== -->
 
         <div class="product-card">
@@ -1440,12 +1436,14 @@ body {
                 playsinline
                 preload="metadata"
             >
+
                 <source
                     src="Omega Speedmaster Snoopy.mp4"
                     type="video/mp4"
                 >
 
                 Your browser does not support video.
+
             </video>
 
             <h3>
@@ -1459,22 +1457,11 @@ body {
             <div class="product-buttons">
 
                 <a
-                    class="enquire-btn"
-                    href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Omega%20Speedmaster%20Snoopy"
-                    target="_blank"
-                    rel="noopener"
+                    href="product-detailsomega.html?id=1"
+                    class="view-details-btn"
                 >
-                    Enquire Now
+                    View Product Details
                 </a>
-
-                <button
-                    class="add-to-cart-btn"
-                    data-name="Omega Speedmaster Snoopy"
-                    data-price="5000"
-                    type="button"
-                >
-                    Add to Cart
-                </button>
 
             </div>
 
@@ -1482,7 +1469,7 @@ body {
 
 
         <!-- =================================================
-             OMEGA SPEEDMASTER JAMES BOND
+             2. OMEGA SPEEDMASTER JAMES BOND
         ================================================== -->
 
         <div class="product-card">
@@ -1493,12 +1480,14 @@ body {
                 playsinline
                 preload="metadata"
             >
+
                 <source
                     src="Omega Speedmaster James Bond.mp4"
                     type="video/mp4"
                 >
 
                 Your browser does not support video.
+
             </video>
 
             <h3>
@@ -1512,22 +1501,11 @@ body {
             <div class="product-buttons">
 
                 <a
-                    class="enquire-btn"
-                    href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Omega%20Speedmaster%20James%20Bond"
-                    target="_blank"
-                    rel="noopener"
+                    href="product-detailsomega.html?id=2"
+                    class="view-details-btn"
                 >
-                    Enquire Now
+                    View Product Details
                 </a>
-
-                <button
-                    class="add-to-cart-btn"
-                    data-name="Omega Speedmaster James Bond"
-                    data-price="4000"
-                    type="button"
-                >
-                    Add to Cart
-                </button>
 
             </div>
 
@@ -1535,7 +1513,7 @@ body {
 
 
         <!-- =================================================
-             OMEGA SEAMASTER DIVER
+             3. OMEGA SEAMASTER DIVER
         ================================================== -->
 
         <div class="product-card">
@@ -1546,12 +1524,14 @@ body {
                 playsinline
                 preload="metadata"
             >
+
                 <source
                     src="Omega Seamaster Diver 300M Co-Axial Master.mp4"
                     type="video/mp4"
                 >
 
                 Your browser does not support video.
+
             </video>
 
             <h3>
@@ -1565,22 +1545,11 @@ body {
             <div class="product-buttons">
 
                 <a
-                    class="enquire-btn"
-                    href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Omega%20Seamaster%20Diver%20300M%20Co-Axial%20Master"
-                    target="_blank"
-                    rel="noopener"
+                    href="product-detailsomega.html?id=3"
+                    class="view-details-btn"
                 >
-                    Enquire Now
+                    View Product Details
                 </a>
-
-                <button
-                    class="add-to-cart-btn"
-                    data-name="Omega Seamaster Diver 300M Co-Axial Master"
-                    data-price="3500"
-                    type="button"
-                >
-                    Add to Cart
-                </button>
 
             </div>
 
@@ -1588,7 +1557,7 @@ body {
 
 
         <!-- =================================================
-             OMEGA X SWATCH MOON'S WATCH
+             4. OMEGA X SWATCH MOON'S WATCH
         ================================================== -->
 
         <div class="product-card">
@@ -1695,22 +1664,11 @@ body {
             <div class="product-buttons">
 
                 <a
-                    class="enquire-btn"
-                    href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Omega%20X%20Swatch%20Moon's%20Watch."
-                    target="_blank"
-                    rel="noopener"
+                    href="product-detailsomega.html?id=4"
+                    class="view-details-btn"
                 >
-                    Enquire Now
+                    View Product Details
                 </a>
-
-                <button
-                    class="add-to-cart-btn"
-                    data-name="Omega X Swatch Moon's Watch"
-                    data-price="4000"
-                    type="button"
-                >
-                    Add to Cart
-                </button>
 
             </div>
 
@@ -1718,7 +1676,7 @@ body {
 
 
         <!-- =================================================
-             OMEGA CONSTELLATION COUPLE WATCH
+             5. OMEGA CONSTELLATION COUPLE WATCH
         ================================================== -->
 
         <div class="product-card">
@@ -1739,22 +1697,11 @@ body {
             <div class="product-buttons">
 
                 <a
-                    class="enquire-btn"
-                    href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Omega%20Constellation%20Couple%20Watch."
-                    target="_blank"
-                    rel="noopener"
+                    href="product-detailsomega.html?id=5"
+                    class="view-details-btn"
                 >
-                    Enquire Now
+                    View Product Details
                 </a>
-
-                <button
-                    class="add-to-cart-btn"
-                    data-name="Omega Constellation Couple Watch"
-                    data-price="4500"
-                    type="button"
-                >
-                    Add to Cart
-                </button>
 
             </div>
 
@@ -1765,12 +1712,12 @@ body {
 
 </section>
 
-
-<!-- =========================================================
+    <!-- =========================================================
      OMEGA INFORMATION SECTION
 ========================================================= -->
 
 <section class="omega-info-section">
+
 
     <div class="omega-info-grid">
 
@@ -1781,9 +1728,11 @@ body {
 
         <div class="omega-info-column">
 
+
             <h2>
                 A LEGACY OF EXCELLENCE WITH OMEGA WATCHES
             </h2>
+
 
             <p>
                 Omega watches represent timeless design,
@@ -1800,6 +1749,7 @@ body {
                 INTRODUCTION: THE WORLD OF OMEGA
             </h3>
 
+
             <p>
                 An Omega-inspired watch combines classic
                 watchmaking aesthetics with a modern and
@@ -1814,6 +1764,7 @@ body {
                 OMEGA HISTORY AND HERITAGE
             </h3>
 
+
             <p>
                 Omega has established a strong presence in
                 the world of watchmaking through distinctive
@@ -1824,7 +1775,9 @@ body {
                 watch enthusiasts around the world.
             </p>
 
+
         </div>
+
 
 
         <!-- =================================================
@@ -1833,9 +1786,11 @@ body {
 
         <div class="omega-info-column">
 
+
             <h3>
                 OMEGA WATCHES FOR MEN: POWER AND STYLE
             </h3>
+
 
             <p>
                 Omega-inspired watches for men offer a
@@ -1852,6 +1807,7 @@ body {
                 OMEGA WATCHES FOR WOMEN: ELEGANCE AND SOPHISTICATION
             </h3>
 
+
             <p>
                 Omega-inspired watches for women feature
                 elegant proportions, refined finishes, and
@@ -1866,6 +1822,7 @@ body {
                 OMEGA CRAFTSMANSHIP AND PRECISION
             </h3>
 
+
             <p>
                 Every timepiece in our collection is selected
                 for its design, detailing, and overall finish.
@@ -1879,6 +1836,7 @@ body {
                 FROM CLASSIC TO SPORTY: OMEGA HAS YOU COVERED
             </h3>
 
+
             <p>
                 Choose from elegant classic designs, bold
                 chronograph styles, sporty diver-inspired
@@ -1888,7 +1846,9 @@ body {
                 occasions.
             </p>
 
+
         </div>
+
 
 
         <!-- =================================================
@@ -1897,9 +1857,11 @@ body {
 
         <div class="omega-info-column">
 
+
             <h3>
                 CARING FOR YOUR OMEGA-INSPIRED WATCH
             </h3>
+
 
             <p>
                 Keep your watch clean and handle it carefully
@@ -1913,6 +1875,7 @@ body {
             <h3>
                 SHOP OMEGA-INSPIRED WATCHES AT 50 MIRARS
             </h3>
+
 
             <p>
                 Explore the Omega collection at
@@ -1949,6 +1912,7 @@ body {
                 </div>
 
 
+
                 <div class="omega-faq-item">
 
                     <p class="omega-faq-question">
@@ -1963,6 +1927,7 @@ body {
                     </p>
 
                 </div>
+
 
 
                 <div class="omega-faq-item">
@@ -1980,6 +1945,7 @@ body {
                 </div>
 
 
+
                 <div class="omega-faq-item">
 
                     <p class="omega-faq-question">
@@ -1995,6 +1961,7 @@ body {
                 </div>
 
 
+
                 <div class="omega-faq-item">
 
                     <p class="omega-faq-question">
@@ -2008,6 +1975,7 @@ body {
                     </p>
 
                 </div>
+
 
 
                 <div class="omega-faq-item">
@@ -2027,9 +1995,12 @@ body {
 
             </div>
 
+
         </div>
 
+
     </div>
+
 
 
     <!-- =====================================================
@@ -2038,9 +2009,11 @@ body {
 
     <div class="omega-conclusion">
 
+
         <h2>
             CONCLUSION: TIMELESS DESIGN, REFINED PRESENCE
         </h2>
+
 
         <p>
             Omega-inspired watches bring together timeless
@@ -2054,12 +2027,12 @@ body {
             every moment.
         </p>
 
+
     </div>
 
 </section>
 
-
-<!-- =========================================================
+    <!-- =========================================================
      FOOTER
 ========================================================= -->
 
@@ -2079,7 +2052,9 @@ body {
             </h2>
 
 
-            <!-- CUSTOMERS -->
+            <!-- =================================================
+                 CUSTOMERS
+            ================================================== -->
 
             <div class="contact-column">
 
@@ -2087,12 +2062,14 @@ body {
                     For Customers:
                 </h3>
 
+
                 <a
                     href="mailto:50mirars@gmail.com"
                     class="footer-link"
                 >
                     50mirars@gmail.com
                 </a>
+
 
                 <a
                     href="tel:+918209989013"
@@ -2101,6 +2078,7 @@ body {
                     82099 89013
                 </a>
 
+
                 <p>
                     09:00 - 21:30 | Monday to Sunday
                 </p>
@@ -2108,7 +2086,10 @@ body {
             </div>
 
 
-            <!-- SALES / WATCH SERVICE -->
+
+            <!-- =================================================
+                 SALES / WATCH SERVICE
+            ================================================== -->
 
             <div class="contact-column">
 
@@ -2116,12 +2097,14 @@ body {
                     For Sales/Watch Service:
                 </h3>
 
+
                 <a
                     href="mailto:50mirars@gmail.com"
                     class="footer-link"
                 >
                     50mirars@gmail.com
                 </a>
+
 
                 <a
                     href="tel:+918209989013"
@@ -2130,6 +2113,7 @@ body {
                     82099 89013
                 </a>
 
+
                 <p>
                     09:00 - 21:30 | Monday to Sunday
                 </p>
@@ -2137,7 +2121,10 @@ body {
             </div>
 
 
-            <!-- WHATSAPP -->
+
+            <!-- =================================================
+                 WHATSAPP
+            ================================================== -->
 
             <div class="whatsapp-column">
 
@@ -2153,6 +2140,7 @@ body {
 
                 </h3>
 
+
                 <a
                     href="https://wa.me/918209989013"
                     target="_blank"
@@ -2167,6 +2155,7 @@ body {
         </div>
 
 
+
         <!-- =================================================
              FOOTER MIDDLE
         ================================================== -->
@@ -2174,7 +2163,9 @@ body {
         <div class="footer-middle">
 
 
-            <!-- KNOW 50 MIRARS -->
+            <!-- =================================================
+                 KNOW 50 MIRARS
+            ================================================== -->
 
             <div class="footer-links-column">
 
@@ -2182,9 +2173,11 @@ body {
                     Know 50 Mirars
                 </h3>
 
+
                 <a href="about.html">
                     About Us
                 </a>
+
 
                 <a href="faq.html">
                     FAQ
@@ -2193,7 +2186,10 @@ body {
             </div>
 
 
-            <!-- TERMS -->
+
+            <!-- =================================================
+                 TERMS
+            ================================================== -->
 
             <div class="footer-links-column">
 
@@ -2201,9 +2197,11 @@ body {
                     Terms &amp; Conditions
                 </h3>
 
+
                 <a href="terms.html">
                     Terms &amp; Conditions
                 </a>
+
 
                 <a href="privacypolicy.html">
                     Privacy Policy
@@ -2212,7 +2210,10 @@ body {
             </div>
 
 
-            <!-- INSTAGRAM -->
+
+            <!-- =================================================
+                 INSTAGRAM
+            ================================================== -->
 
             <div class="footer-social">
 
@@ -2220,9 +2221,11 @@ body {
                     50 Mirars
                 </h3>
 
+
                 <p>
                     Follow Us On
                 </p>
+
 
                 <a
                     href="https://instagram.com/50mirars"
@@ -2241,7 +2244,9 @@ body {
 
             </div>
 
+
         </div>
+
 
 
         <!-- =================================================
@@ -2257,9 +2262,11 @@ body {
 
         </div>
 
+
     </div>
 
 </footer>
+
 
 
 <!-- =========================================================
@@ -2268,129 +2275,149 @@ body {
 
 <script>
 
+
 /* =========================================================
    OMEGA PRODUCT IMAGE SLIDER
 ========================================================= */
 
-document.querySelectorAll("[data-slider]").forEach(function (slider) {
-
-    const slides =
-        slider.querySelectorAll(".slide");
-
-    const prevButton =
-        slider.querySelector(".prev");
-
-    const nextButton =
-        slider.querySelector(".next");
-
-    let currentSlide = 0;
+document
+    .querySelectorAll("[data-slider]")
+    .forEach(function (slider) {
 
 
-    function showSlide(index) {
+        const slides =
+            slider.querySelectorAll(".slide");
 
-        if (!slides.length) {
-            return;
+
+        const prevButton =
+            slider.querySelector(".prev");
+
+
+        const nextButton =
+            slider.querySelector(".next");
+
+
+        let currentSlide = 0;
+
+
+
+        /* =====================================================
+           SHOW SLIDE
+        ===================================================== */
+
+        function showSlide(index) {
+
+
+            if (!slides.length) {
+
+                return;
+
+            }
+
+
+            slides.forEach(function (slide) {
+
+                slide.classList.remove("active");
+
+            });
+
+
+            currentSlide =
+                (index + slides.length) %
+                slides.length;
+
+
+            slides[currentSlide]
+                .classList.add("active");
+
         }
 
-        slides.forEach(function (slide) {
-
-            slide.classList.remove("active");
-
-        });
-
-        currentSlide =
-            (index + slides.length) %
-            slides.length;
-
-        slides[currentSlide]
-            .classList.add("active");
-    }
 
 
-    if (prevButton) {
+        /* =====================================================
+           PREVIOUS BUTTON
+        ===================================================== */
 
-        prevButton.addEventListener(
-            "click",
-            function () {
+        if (prevButton) {
 
-                showSlide(currentSlide - 1);
+            prevButton.addEventListener(
+                "click",
+                function () {
 
-            }
-        );
+                    showSlide(
+                        currentSlide - 1
+                    );
 
-    }
+                }
+            );
+
+        }
 
 
-    if (nextButton) {
 
-        nextButton.addEventListener(
-            "click",
-            function () {
+        /* =====================================================
+           NEXT BUTTON
+        ===================================================== */
 
-                showSlide(currentSlide + 1);
+        if (nextButton) {
 
-            }
-        );
+            nextButton.addEventListener(
+                "click",
+                function () {
 
-    }
+                    showSlide(
+                        currentSlide + 1
+                    );
 
-});
+                }
+            );
+
+        }
+
+
+    });
+
 
 
 /* =========================================================
-   ADD TO CART
+   VIEW PRODUCT DETAILS
 ========================================================= */
 
 /*
-   The product Add to Cart buttons remain available.
+   The Omega product cards now use only
+   "View Product Details".
 
-   This event is intentionally kept simple so it does not
-   create or display a top-right cart on this Omega page.
+   The links directly open:
 
-   If your main website already has a global cart system,
-   its existing cart script can still handle these buttons.
+   product-detailsomega.html?id=1
+   product-detailsomega.html?id=2
+   product-detailsomega.html?id=3
+   product-detailsomega.html?id=4
+   product-detailsomega.html?id=5
+
+   No Add to Cart JavaScript is required.
 */
 
+
+/* =========================================================
+   PREVENT SLIDER BUTTONS FROM SUBMITTING
+========================================================= */
+
 document
-    .querySelectorAll(".add-to-cart-btn")
+    .querySelectorAll(".prev, .next")
     .forEach(function (button) {
 
         button.addEventListener(
             "click",
-            function () {
+            function (event) {
 
-                const productName =
-                    button.dataset.name;
-
-                const productPrice =
-                    button.dataset.price;
-
-                /*
-                   If your existing website has a global
-                   cart function, use it here.
-
-                   Example:
-
-                   addToCart(
-                       productName,
-                       productPrice
-                   );
-                */
-
-                button.textContent =
-                    "Added ✓";
-
-                setTimeout(function () {
-
-                    button.textContent =
-                        "Add to Cart";
-
-                }, 1500);
+                event.preventDefault();
 
             }
         );
 
     });
+
 
 </script>
 
