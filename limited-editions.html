@@ -362,36 +362,162 @@ body{
 
 
 /* =========================================================
-   PRODUCT IMAGE
+   PRODUCT MEDIA
 ========================================================= */
 
 .product-card > img{
     width:100%;
-
     height:350px;
-
     object-fit:cover;
-
     display:block;
+}
+
+.product-card > video{
+    width:100%;
+    height:350px;
+    object-fit:cover;
+    display:block;
+    background:#000;
 }
 
 
 /* =========================================================
-   PRODUCT VIDEO
+   PRODUCT IMAGE SLIDER
 ========================================================= */
 
-.product-card > video{
-    width:100%;
+.slider{
+    position:relative;
 
+    width:100%;
     height:350px;
+
+    overflow:hidden;
+
+    background:#111;
+}
+
+.slider .slide{
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
 
     object-fit:cover;
 
     display:block;
 
-    background:#000;
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:
+        opacity 0.45s ease,
+        visibility 0.45s ease;
 }
 
+.slider .slide.active{
+    opacity:1;
+
+    visibility:visible;
+
+    z-index:1;
+}
+
+
+/* =========================================================
+   SLIDER BUTTONS
+========================================================= */
+
+.slider .prev,
+.slider .next{
+    position:absolute;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    z-index:5;
+
+    width:44px;
+    height:44px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:rgba(17,17,17,0.78);
+
+    color:#fff;
+
+    font-size:20px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    cursor:pointer;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.slider .prev{
+    left:15px;
+}
+
+.slider .next{
+    right:15px;
+}
+
+.slider .prev:hover,
+.slider .next:hover{
+    background:#c9a24d;
+
+    color:#111;
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,0.25);
+
+    transform:
+        translateY(-50%)
+        scale(1.08);
+}
+
+
+/* =========================================================
+   SLIDER IMAGE SHADOW
+========================================================= */
+
+.slider::after{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    right:0;
+    bottom:0;
+
+    height:80px;
+
+    z-index:2;
+
+    pointer-events:none;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,0.18),
+            transparent
+        );
+}
 
 /* =========================================================
    PRODUCT NAME
@@ -871,6 +997,34 @@ body{
         padding-right:20px;
     }
 
+    .slider{
+    height:300px;
+}
+
+.slider .prev,
+.slider .next{
+    width:40px;
+    height:40px;
+
+    font-size:17px;
+}
+
+.slider .prev{
+    left:10px;
+}
+
+.slider .next{
+    right:10px;
+}
+
+.view-details-btn{
+    max-width:100%;
+
+    min-height:50px;
+
+    font-size:15px;
+}
+
     .product-details-btn{
         width:100%;
 
@@ -931,6 +1085,18 @@ body{
     .product-card h3{
         font-size:19px;
     }
+
+    .slider{
+    height:270px;
+}
+
+.slider .prev,
+.slider .next{
+    width:36px;
+    height:36px;
+
+    font-size:15px;
+}
 
     .price{
         font-size:20px;
@@ -1716,30 +1882,53 @@ body{
 document.querySelectorAll('.slider').forEach(slider => {
 
     const slides = slider.querySelectorAll('.slide');
-    const next = slider.querySelector('.next');
-    const prev = slider.querySelector('.prev');
+    const nextButton = slider.querySelector('.next');
+    const prevButton = slider.querySelector('.prev');
 
-    let current = 0;
+    if(slides.length <= 1){
+        return;
+    }
 
-    next.addEventListener('click', () => {
+    let currentSlide = 0;
 
-        slides[current].classList.remove('active');
-        current = (current + 1) % slides.length;
-        slides[current].classList.add('active');
+
+    function showSlide(index){
+
+        slides.forEach(slide => {
+            slide.classList.remove('active');
+        });
+
+        slides[index].classList.add('active');
+    }
+
+
+    nextButton.addEventListener('click', function(){
+
+        currentSlide++;
+
+        if(currentSlide >= slides.length){
+            currentSlide = 0;
+        }
+
+        showSlide(currentSlide);
 
     });
 
-    prev.addEventListener('click', () => {
 
-        slides[current].classList.remove('active');
-        current = (current - 1 + slides.length) % slides.length;
-        slides[current].classList.add('active');
+    prevButton.addEventListener('click', function(){
+
+        currentSlide--;
+
+        if(currentSlide < 0){
+            currentSlide = slides.length - 1;
+        }
+
+        showSlide(currentSlide);
 
     });
 
 });
 
 </script>
-
 </body>
 </html>
