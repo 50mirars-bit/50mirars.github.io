@@ -5,10 +5,14 @@
 
 <meta charset="UTF-8">
 
-    
 <meta
     name="viewport"
     content="width=1005"
+>
+
+<meta
+    name="description"
+    content="Explore the Tissot watch collection at 50 Mirars."
 >
 
 <title>Tissot Collection | 50 Mirars</title>
@@ -29,11 +33,15 @@
 html{
     width:100%;
     overflow-x:hidden;
+    scroll-behavior:smooth;
 }
 
 body{
     margin:0;
-    font-family:Arial,sans-serif;
+
+    font-family:
+        Arial,
+        sans-serif;
 
     background:
         radial-gradient(
@@ -58,25 +66,36 @@ body{
    BACK TO HOME BUTTON
 ========================================================= */
 
+.home-wrapper{
+    width:100%;
+
+    padding:
+        20px 40px;
+}
+
 .home-btn{
     display:inline-block;
 
     background:#111;
-    color:white;
+
+    color:#fff;
 
     text-decoration:none;
 
-    padding:12px 25px;
+    padding:
+        12px 25px;
 
     border-radius:6px;
 
     font-weight:600;
 
-    transition:0.3s;
+    transition:
+        all 0.3s ease;
 }
 
 .home-btn:hover{
     background:#c9a24d;
+
     color:#111;
 }
 
@@ -88,19 +107,31 @@ body{
 .page-title{
     text-align:center;
 
-    padding:30px 20px 35px;
+    padding:
+        25px 20px 40px;
 }
 
 .page-title h1{
-    margin:0 0 20px;
+    margin:
+        0 0 20px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 
     font-size:64px;
 
+    font-weight:500;
+
     color:#111;
+
+    letter-spacing:1px;
 }
 
 .title-line{
     width:160px;
+
     height:2px;
 
     background:#c9a24d;
@@ -114,6 +145,7 @@ body{
     content:"";
 
     width:12px;
+
     height:12px;
 
     background:#c9a24d;
@@ -121,6 +153,7 @@ body{
     position:absolute;
 
     left:50%;
+
     top:50%;
 
     transform:
@@ -135,13 +168,15 @@ body{
 
 .tissot-intro{
     width:90%;
+
     max-width:1400px;
 
     margin:0 auto;
 
     text-align:center;
 
-    padding:10px 0 55px;
+    padding:
+        0 0 40px;
 }
 
 .tissot-intro h2{
@@ -156,7 +191,8 @@ body{
 
     color:#171717;
 
-    margin:0 auto 30px;
+    margin:
+        0 auto 30px;
 
     letter-spacing:-0.5px;
 }
@@ -170,7 +206,8 @@ body{
 }
 
 .tissot-description p{
-    margin:0 0 24px;
+    margin:
+        0 0 24px;
 
     font-size:18px;
 
@@ -198,6 +235,8 @@ body{
 
     gap:35px;
 
+    width:100%;
+
     max-width:1400px;
 
     margin:0 auto;
@@ -212,7 +251,7 @@ body{
 ========================================================= */
 
 .product-card{
-    background:white;
+    background:#fff;
 
     border-radius:18px;
 
@@ -224,13 +263,20 @@ body{
         0 8px 25px
         rgba(0,0,0,0.08);
 
-    transition:0.3s;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 
     min-width:0;
 }
 
 .product-card:hover{
-    transform:translateY(-5px);
+    transform:
+        translateY(-5px);
+
+    box-shadow:
+        0 15px 35px
+        rgba(0,0,0,0.12);
 }
 
 
@@ -250,7 +296,7 @@ body{
 
 
 /* =========================================================
-   SLIDER
+   PRODUCT SLIDER
 ========================================================= */
 
 .slider{
@@ -261,6 +307,8 @@ body{
     height:350px;
 
     overflow:hidden;
+
+    background:#f5f5f5;
 }
 
 .slider img{
@@ -287,12 +335,13 @@ body{
 
     top:50%;
 
-    transform:translateY(-50%);
+    transform:
+        translateY(-50%);
 
     background:
         rgba(0,0,0,0.55);
 
-    color:white;
+    color:#fff;
 
     border:none;
 
@@ -315,6 +364,9 @@ body{
     align-items:center;
 
     justify-content:center;
+
+    transition:
+        all 0.3s ease;
 }
 
 .slider button:hover{
@@ -359,12 +411,13 @@ body{
 
     font-size:22px;
 
-    margin:15px 0;
+    margin:
+        15px 0 20px;
 }
 
 
 /* =========================================================
-   PRODUCT BUTTONS
+   PRODUCT BUTTON AREA
 ========================================================= */
 
 .product-buttons{
@@ -374,64 +427,39 @@ body{
 
     align-items:center;
 
-    flex-wrap:wrap;
-
-    gap:10px;
-
     margin:
         0 15px 35px;
 }
 
 
 /* =========================================================
-   ENQUIRE BUTTON
+   VIEW PRODUCT DETAILS BUTTON
 ========================================================= */
 
-.enquire-btn{
-    display:inline-block;
+.view-details-btn{
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    width:auto;
+
+    min-width:220px;
 
     padding:
-        12px 30px;
+        13px 28px;
 
-    background:#c9a24d;
-
-    color:white;
-
-    text-decoration:none;
-
-    border-radius:6px;
-
-    font-weight:bold;
-
-    border:2px solid #c9a24d;
-
-    transition:0.3s;
-}
-
-.enquire-btn:hover{
     background:#111;
 
-    border-color:#111;
+    color:#fff;
 
-    color:white;
-}
-
-
-/* =========================================================
-   ADD TO CART
-========================================================= */
-
-.add-to-cart-btn{
-    background:#fff;
-
-    color:#111;
-
-    border:2px solid #111;
-
-    padding:
-        12px 30px;
+    border:
+        2px solid #111;
 
     border-radius:6px;
+
+    text-decoration:none;
 
     font-size:16px;
 
@@ -439,15 +467,19 @@ body{
 
     cursor:pointer;
 
-    transition:0.3s;
+    transition:
+        all 0.3s ease;
 }
 
-.add-to-cart-btn:hover{
+.view-details-btn:hover{
     background:#c9a24d;
 
-    color:#fff;
-
     border-color:#c9a24d;
+
+    color:#111;
+
+    transform:
+        translateY(-2px);
 }
 
 
@@ -460,7 +492,8 @@ body{
 
     max-width:1400px;
 
-    margin:45px auto 0;
+    margin:
+        45px auto 0;
 
     padding:
         35px 60px 55px;
@@ -499,7 +532,8 @@ body{
 ========================================================= */
 
 .tissot-info-section h2{
-    margin:0 0 18px;
+    margin:
+        0 0 18px;
 
     font-size:16px;
 
@@ -779,9 +813,11 @@ body{
 
     font-weight:700;
 
-    border:1px solid #fff;
+    border:
+        1px solid #fff;
 
-    transition:all 0.3s ease;
+    transition:
+        all 0.3s ease;
 }
 
 .whatsapp-button:hover{
@@ -791,7 +827,8 @@ body{
 
     color:#fff;
 
-    transform:translateY(-2px);
+    transform:
+        translateY(-2px);
 }
 
 
@@ -894,13 +931,15 @@ body{
 
     text-decoration:none;
 
-    transition:all 0.3s ease;
+    transition:
+        all 0.3s ease;
 }
 
 .instagram-button:hover{
     border-color:#c9a24d;
 
-    transform:translateY(-2px);
+    transform:
+        translateY(-2px);
 }
 
 .instagram-button img{
@@ -968,6 +1007,7 @@ body{
         grid-template-columns:
             repeat(2,minmax(0,1fr));
     }
+
 }
 
 
@@ -976,6 +1016,11 @@ body{
 ========================================================= */
 
 @media(max-width:768px){
+
+    .home-wrapper{
+        padding:
+            20px;
+    }
 
     .page-title{
         padding:
@@ -1009,14 +1054,19 @@ body{
     }
 
     .product-buttons{
-        flex-direction:column;
-    }
-
-    .enquire-btn,
-    .add-to-cart-btn{
         width:100%;
 
-        max-width:280px;
+        margin:
+            0 0 30px;
+
+        padding:
+            0 15px;
+    }
+
+    .view-details-btn{
+        width:100%;
+
+        max-width:300px;
     }
 
     .tissot-intro{
@@ -1068,6 +1118,7 @@ body{
 
         padding-top:35px;
     }
+
 }
 
 
@@ -1083,6 +1134,7 @@ body{
 
     .product-grid{
         padding-left:15px;
+
         padding-right:15px;
     }
 
@@ -1094,10 +1146,18 @@ body{
 
     .slider button{
         width:38px;
+
         height:38px;
 
         padding:8px;
     }
+
+    .view-details-btn{
+        min-width:0;
+
+        width:100%;
+    }
+
 }
 
 </style>
@@ -1112,7 +1172,7 @@ body{
      BACK TO HOME
 ========================================================= -->
 
-<div style="padding:20px 40px;">
+<div class="home-wrapper">
 
     <a
         href="index.html"
@@ -1125,15 +1185,16 @@ body{
 
 
 <!-- =========================================================
-     TISSOT INTRODUCTION
+     TISSOT TITLE
 ========================================================= -->
 
 <section class="tissot-intro">
 
-
     <div class="page-title">
 
-        <h1>Tissot</h1>
+        <h1>
+            Tissot
+        </h1>
 
         <div class="title-line"></div>
 
@@ -1171,19 +1232,11 @@ body{
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Tissot%20T-Race%20Chronograph%20Watch.%20Please%20share%20availability%20and%20details."
+            href="tissot-product-details.html?id=1"
+            class="view-details-btn"
         >
-            Enquire Now
+            View Product Details
         </a>
-
-        <button
-            class="add-to-cart-btn"
-            data-name="Tissot T-Race Chronograph Watch"
-            data-price="3500"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -1212,19 +1265,11 @@ body{
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Tissot%20Carson.%20Please%20share%20availability%20and%20details."
+            href="tissot-product-details.html?id=2"
+            class="view-details-btn"
         >
-            Enquire Now
+            View Product Details
         </a>
-
-        <button
-            class="add-to-cart-btn"
-            data-name="Tissot Carson"
-            data-price="4500"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -1236,49 +1281,160 @@ body{
 ========================================================= -->
 
 <div class="product-card">
-  <div class="slider">
-    <img src="Tissot Gentelman Powermatic 80.jpeg" class="slide active" alt="Tissot Gentleman Powermatic 80">
-    <img src="Tissot Gentelman Powermatic 80 2.jpeg" class="slide" alt="Tissot Gentleman Powermatic 80">
-    <button class="prev">❮</button>
-    <button class="next">❯</button>
-  </div>
-  <h3>Tissot Gentleman Powermatic 80</h3>
-  <div class="price">₹6,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn"
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Tissot%20Gentleman%20Powermatic%2080.%20Please%20share%20availability%20and%20details.">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="Tissot Gentleman Powermatic 80" data-price="6000">Add to Cart</button>
-  </div>
+
+    <div class="slider">
+
+        <img
+            src="Tissot Gentelman Powermatic 80.jpeg"
+            class="slide active"
+            alt="Tissot Gentleman Powermatic 80"
+        >
+
+        <img
+            src="Tissot Gentelman Powermatic 80 2.jpeg"
+            class="slide"
+            alt="Tissot Gentleman Powermatic 80"
+        >
+
+        <button
+            class="prev"
+            type="button"
+            aria-label="Previous image"
+        >
+            ❮
+        </button>
+
+        <button
+            class="next"
+            type="button"
+            aria-label="Next image"
+        >
+            ❯
+        </button>
+
+    </div>
+
+    <h3>
+        Tissot Gentleman Powermatic 80
+    </h3>
+
+    <div class="price">
+        ₹6,000
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            href="tissot-product-details.html?id=3"
+            class="view-details-btn"
+        >
+            View Product Details
+        </a>
+
+    </div>
+
 </div>
+
 
 <!-- =========================================================
      4. TISSOT PRX
 ========================================================= -->
 
 <div class="product-card">
-  <div class="slider">
-    <img src="Tissot PRX 1.jpeg" class="slide active">
-    <img src="Tissot PRX 2.jpeg" class="slide">
-    <img src="Tissot PRX 3.jpeg" class="slide">
-    <img src="Tissot PRX 4.jpeg" class="slide">
-    <img src="Tissot PRX 5.jpeg" class="slide">
-    <img src="Tissot PRX 6.jpeg" class="slide">
-    <img src="Tissot PRX 7.jpeg" class="slide">
-    <img src="Tissot PRX 8.jpeg" class="slide">
-    <img src="Tissot PRX 9.jpeg" class="slide">
-    <button class="prev">❮</button>
-    <button class="next">❯</button>
-  </div>
-  <h3>Tissot PRX</h3>
-  <div class="price">₹4,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn"
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Tissot%20PRX.">Enquire Now</a>
-    <!-- ✅ Use ₹ in data-price -->
-    <button class="add-to-cart-btn" data-name="Tissot PRX" data-price="₹4000">Add to Cart</button>
-  </div>
+
+    <div class="slider">
+
+        <img
+            src="Tissot PRX 1.jpeg"
+            class="slide active"
+            alt="Tissot PRX"
+        >
+
+        <img
+            src="Tissot PRX 2.jpeg"
+            class="slide"
+            alt="Tissot PRX"
+        >
+
+        <img
+            src="Tissot PRX 3.jpeg"
+            class="slide"
+            alt="Tissot PRX"
+        >
+
+        <img
+            src="Tissot PRX 4.jpeg"
+            class="slide"
+            alt="Tissot PRX"
+        >
+
+        <img
+            src="Tissot PRX 5.jpeg"
+            class="slide"
+            alt="Tissot PRX"
+        >
+
+        <img
+            src="Tissot PRX 6.jpeg"
+            class="slide"
+            alt="Tissot PRX"
+        >
+
+        <img
+            src="Tissot PRX 7.jpeg"
+            class="slide"
+            alt="Tissot PRX"
+        >
+
+        <img
+            src="Tissot PRX 8.jpeg"
+            class="slide"
+            alt="Tissot PRX"
+        >
+
+        <img
+            src="Tissot PRX 9.jpeg"
+            class="slide"
+            alt="Tissot PRX"
+        >
+
+        <button
+            class="prev"
+            type="button"
+            aria-label="Previous image"
+        >
+            ❮
+        </button>
+
+        <button
+            class="next"
+            type="button"
+            aria-label="Next image"
+        >
+            ❯
+        </button>
+
+    </div>
+
+    <h3>
+        Tissot PRX
+    </h3>
+
+    <div class="price">
+        ₹4,000
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            href="tissot-product-details.html?id=4"
+            class="view-details-btn"
+        >
+            View Product Details
+        </a>
+
+    </div>
+
 </div>
 
 
@@ -1287,24 +1443,72 @@ body{
 ========================================================= -->
 
 <div class="product-card">
-  <div class="slider">
-    <img src="Tissot PRX Band 1.jpeg" class="slide active" alt="Tissot PRX Band">
-    <img src="Tissot PRX Band 2.jpeg" class="slide" alt="Tissot PRX Band">
-    <img src="Tissot PRX Band 3.jpeg" class="slide" alt="Tissot PRX Band">
-    <img src="Tissot PRX Band 4.jpeg" class="slide" alt="Tissot PRX Band">
-    <button class="prev">❮</button>
-    <button class="next">❯</button>
-  </div>
-  <h3>Tissot PRX Band</h3>
-  <div class="price">₹4,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" 
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Tissot%20PRX%20Band.%20Please%20share%20availability%20and%20details.">
-       Enquire Now
-    </a>
-    <button class="add-to-cart-btn" data-name="Tissot PRX Band" data-price="4500">Add to Cart</button>
-  </div>
+
+    <div class="slider">
+
+        <img
+            src="Tissot PRX Band 1.jpeg"
+            class="slide active"
+            alt="Tissot PRX Band"
+        >
+
+        <img
+            src="Tissot PRX Band 2.jpeg"
+            class="slide"
+            alt="Tissot PRX Band"
+        >
+
+        <img
+            src="Tissot PRX Band 3.jpeg"
+            class="slide"
+            alt="Tissot PRX Band"
+        >
+
+        <img
+            src="Tissot PRX Band 4.jpeg"
+            class="slide"
+            alt="Tissot PRX Band"
+        >
+
+        <button
+            class="prev"
+            type="button"
+            aria-label="Previous image"
+        >
+            ❮
+        </button>
+
+        <button
+            class="next"
+            type="button"
+            aria-label="Next image"
+        >
+            ❯
+        </button>
+
+    </div>
+
+    <h3>
+        Tissot PRX Band
+    </h3>
+
+    <div class="price">
+        ₹4,500
+    </div>
+
+    <div class="product-buttons">
+
+        <a
+            href="tissot-product-details.html?id=5"
+            class="view-details-btn"
+        >
+            View Product Details
+        </a>
+
+    </div>
+
 </div>
+
 
 <!-- =========================================================
      6. TISSOT GENTEL COUPLE WATCH
@@ -1328,19 +1532,11 @@ body{
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Tissot%20Gentel%20Couple%20Watch.%20Please%20share%20availability%20and%20details."
+            href="tissot-product-details.html?id=6"
+            class="view-details-btn"
         >
-            Enquire Now
+            View Product Details
         </a>
-
-        <button
-            class="add-to-cart-btn"
-            data-name="Tissot Gentel Couple Watch"
-            data-price="5000"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -1356,11 +1552,12 @@ body{
 
 <section class="tissot-info-section">
 
-
 <div class="tissot-info-grid">
 
 
-<!-- COLUMN 1 -->
+<!-- =====================================================
+     COLUMN 1
+===================================================== -->
 
 <div class="tissot-info-column">
 
@@ -1406,7 +1603,9 @@ body{
 </div>
 
 
-<!-- COLUMN 2 -->
+<!-- =====================================================
+     COLUMN 2
+===================================================== -->
 
 <div class="tissot-info-column">
 
@@ -1462,7 +1661,9 @@ body{
 </div>
 
 
-<!-- COLUMN 3 -->
+<!-- =====================================================
+     COLUMN 3
+===================================================== -->
 
 <div class="tissot-info-column">
 
@@ -1591,7 +1792,9 @@ body{
 </div>
 
 
-<!-- CONCLUSION -->
+<!-- =========================================================
+     CONCLUSION
+========================================================= -->
 
 <div class="tissot-conclusion">
 
@@ -1804,117 +2007,81 @@ body{
 
 
 /* =========================================================
-   SLIDER
-   Same working structure as your Couple Watches page
-========================================================= */
-
-document.querySelectorAll('.slider').forEach(slider => {
-
-    const slides =
-        slider.querySelectorAll('.slide');
-
-    if(slides.length === 0){
-        return;
-    }
-
-    let current = 0;
-
-
-    const nextButton =
-        slider.querySelector('.next');
-
-    const prevButton =
-        slider.querySelector('.prev');
-
-
-    if(nextButton){
-
-        nextButton.addEventListener('click', () => {
-
-            slides[current]
-                .classList
-                .remove('active');
-
-            current =
-                (current + 1) %
-                slides.length;
-
-            slides[current]
-                .classList
-                .add('active');
-
-        });
-
-    }
-
-
-    if(prevButton){
-
-        prevButton.addEventListener('click', () => {
-
-            slides[current]
-                .classList
-                .remove('active');
-
-            current =
-                (current - 1 + slides.length) %
-                slides.length;
-
-            slides[current]
-                .classList
-                .add('active');
-
-        });
-
-    }
-
-});
-
-
-/* =========================================================
-   ADD TO CART
+   PRODUCT IMAGE SLIDERS
 ========================================================= */
 
 document
-    .querySelectorAll(
-        ".add-to-cart-btn, .add-to-cart"
-    )
-    .forEach(button => {
+    .querySelectorAll(".slider")
+    .forEach(slider => {
 
-        button.addEventListener("click", () => {
+        const slides =
+            slider.querySelectorAll(".slide");
 
-            const name =
-                button.dataset.name;
-
-            const price =
-                button.dataset.price;
+        if(slides.length === 0){
+            return;
+        }
 
 
-            let cart =
-                JSON.parse(
-                    localStorage.getItem("cart")
-                ) || [];
+        let current = 0;
 
 
-            cart.push({
+        const nextButton =
+            slider.querySelector(".next");
 
-                name:name,
+        const prevButton =
+            slider.querySelector(".prev");
 
-                price:price
+
+        function showSlide(index){
+
+            slides.forEach(slide => {
+
+                slide.classList.remove("active");
 
             });
 
 
-            localStorage.setItem(
-                "cart",
-                JSON.stringify(cart)
+            slides[index]
+                .classList
+                .add("active");
+
+        }
+
+
+        if(nextButton){
+
+            nextButton.addEventListener(
+                "click",
+                function(){
+
+                    current =
+                        (current + 1) %
+                        slides.length;
+
+                    showSlide(current);
+
+                }
             );
 
+        }
 
-            window.location.href =
-                "cart.html";
 
-        });
+        if(prevButton){
+
+            prevButton.addEventListener(
+                "click",
+                function(){
+
+                    current =
+                        (current - 1 + slides.length) %
+                        slides.length;
+
+                    showSlide(current);
+
+                }
+            );
+
+        }
 
     });
 
