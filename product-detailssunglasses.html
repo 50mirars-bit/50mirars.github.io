@@ -307,6 +307,38 @@ body{
 
 
 /* =========================================================
+   OUT OF STOCK BADGE
+========================================================= */
+
+.out-of-stock-badge{
+    position:absolute;
+
+    top:25px;
+
+    right:25px;
+
+    background:#b00020;
+
+    color:#fff;
+
+    padding:10px 18px;
+
+    border-radius:30px;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+    letter-spacing:1px;
+
+    z-index:10;
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,0.18);
+}
+
+
+/* =========================================================
    PRODUCT INFORMATION
 ========================================================= */
 
@@ -369,6 +401,10 @@ body{
     font-weight:bold;
 
     margin-bottom:28px;
+}
+
+.product-price.out-of-stock-price{
+    color:#888;
 }
 
 .divider{
@@ -505,6 +541,17 @@ body{
 
 
 /* =========================================================
+   DISABLED QUANTITY
+========================================================= */
+
+.quantity-box.disabled{
+    opacity:0.55;
+
+    pointer-events:none;
+}
+
+
+/* =========================================================
    ACTION BUTTONS
 ========================================================= */
 
@@ -563,6 +610,33 @@ body{
     color:#111;
 
     border-color:#c9a24d;
+}
+
+
+/* =========================================================
+   DISABLED ACTION BUTTONS
+========================================================= */
+
+.add-cart-btn:disabled,
+.buy-now-btn:disabled{
+    background:#e5e5e5;
+
+    color:#888;
+
+    border-color:#ccc;
+
+    cursor:not-allowed;
+
+    opacity:1;
+}
+
+.add-cart-btn:disabled:hover,
+.buy-now-btn:disabled:hover{
+    background:#e5e5e5;
+
+    color:#888;
+
+    border-color:#ccc;
 }
 
 
@@ -629,6 +703,10 @@ body{
     font-weight:bold;
 
     margin-top:10px;
+}
+
+.cart-message.stock-message{
+    color:#b00020;
 }
 
 
@@ -750,6 +828,8 @@ body{
     justify-content:center;
 
     overflow:hidden;
+
+    position:relative;
 }
 
 .related-media img,
@@ -764,6 +844,36 @@ body{
 .related-media video{
     background:#111;
 }
+
+
+/* =========================================================
+   RELATED OUT OF STOCK BADGE
+========================================================= */
+
+.related-stock-badge{
+    position:absolute;
+
+    top:12px;
+
+    right:12px;
+
+    z-index:5;
+
+    background:#b00020;
+
+    color:#fff;
+
+    padding:7px 11px;
+
+    border-radius:20px;
+
+    font-size:11px;
+
+    font-weight:bold;
+
+    letter-spacing:0.7px;
+}
+
 
 .related-info{
     padding:20px;
@@ -791,6 +901,10 @@ body{
     font-weight:bold;
 
     margin-bottom:15px;
+}
+
+.related-price.out-of-stock{
+    color:#888;
 }
 
 .related-btn{
@@ -821,6 +935,16 @@ body{
     background:#c9a24d;
 
     color:#111;
+}
+
+.related-btn.out-of-stock{
+    background:#e5e5e5;
+
+    color:#888;
+
+    cursor:not-allowed;
+
+    pointer-events:none;
 }
 
 
@@ -1251,6 +1375,16 @@ body{
         font-size:30px;
     }
 
+    .out-of-stock-badge{
+        top:15px;
+
+        right:15px;
+
+        padding:8px 12px;
+
+        font-size:11px;
+    }
+
 }
 
 </style>
@@ -1312,6 +1446,14 @@ body{
                 id="mediaBadge"
             >
                 50 MIRARS
+            </div>
+
+            <div
+                class="out-of-stock-badge"
+                id="outOfStockBadge"
+                style="display:none;"
+            >
+                OUT OF STOCK
             </div>
 
             <div
@@ -1380,7 +1522,10 @@ body{
             </div>
 
 
-            <div class="quantity-box">
+            <div
+                class="quantity-box"
+                id="quantityBox"
+            >
 
                 <button
                     type="button"
@@ -1696,7 +1841,8 @@ const sunglasses = [
         price:2500,
         media:"image",
         file:"Balmain Paris 7020 Purpule Shade Sungalsses.jpeg",
-        brand:"Balmain Paris"
+        brand:"Balmain Paris",
+        outOfStock:true
     },
 
     {
@@ -1705,7 +1851,8 @@ const sunglasses = [
         price:2500,
         media:"video",
         file:"Cartier CT06010.mp4",
-        brand:"Cartier"
+        brand:"Cartier",
+        outOfStock:false
     },
 
     {
@@ -1714,7 +1861,8 @@ const sunglasses = [
         price:2500,
         media:"video",
         file:"Cartier C Decor.mp4",
-        brand:"Cartier"
+        brand:"Cartier",
+        outOfStock:false
     },
 
     {
@@ -1723,7 +1871,8 @@ const sunglasses = [
         price:2500,
         media:"video",
         file:"Ray-Ban Original Wayfarer.mp4",
-        brand:"Ray-Ban"
+        brand:"Ray-Ban",
+        outOfStock:false
     },
 
     {
@@ -1732,7 +1881,8 @@ const sunglasses = [
         price:2500,
         media:"video",
         file:"Calvin Klein Sunglasses.mp4",
-        brand:"Calvin Klein"
+        brand:"Calvin Klein",
+        outOfStock:false
     },
 
     {
@@ -1741,7 +1891,8 @@ const sunglasses = [
         price:2500,
         media:"image",
         file:"Cartier C Decor CT0550S.jpeg",
-        brand:"Cartier"
+        brand:"Cartier",
+        outOfStock:false
     },
 
     {
@@ -1750,7 +1901,8 @@ const sunglasses = [
         price:2500,
         media:"video",
         file:"LOEWE Sunglasses 2583.mp4",
-        brand:"LOEWE"
+        brand:"LOEWE",
+        outOfStock:false
     },
 
     {
@@ -1759,7 +1911,8 @@ const sunglasses = [
         price:2500,
         media:"image",
         file:"Cartier Rimeless 0550S Sunglasses.jpeg",
-        brand:"Cartier"
+        brand:"Cartier",
+        outOfStock:false
     },
 
     {
@@ -1768,7 +1921,8 @@ const sunglasses = [
         price:2500,
         media:"video",
         file:"Maybach 1030.mp4",
-        brand:"Maybach"
+        brand:"Maybach",
+        outOfStock:false
     },
 
     {
@@ -1777,7 +1931,8 @@ const sunglasses = [
         price:16000,
         media:"video",
         file:"Ray-Ban Meta Gen-2.mp4",
-        brand:"Ray-Ban"
+        brand:"Ray-Ban",
+        outOfStock:false
     },
 
     {
@@ -1786,7 +1941,8 @@ const sunglasses = [
         price:2500,
         media:"video",
         file:"MayBach Sunglasses 0272.mp4",
-        brand:"Maybach"
+        brand:"Maybach",
+        outOfStock:false
     },
 
     {
@@ -1795,7 +1951,8 @@ const sunglasses = [
         price:2500,
         media:"image",
         file:"Balmain Paris 7020 Green Shade Sungalsses.jpeg",
-        brand:"Balmain Paris"
+        brand:"Balmain Paris",
+        outOfStock:true
     },
 
     {
@@ -1804,7 +1961,8 @@ const sunglasses = [
         price:2500,
         media:"image",
         file:"Gucci diamond cut sunglasses.jpeg",
-        brand:"Gucci"
+        brand:"Gucci",
+        outOfStock:false
     },
 
     {
@@ -1813,7 +1971,8 @@ const sunglasses = [
         price:2500,
         media:"video",
         file:"Maybach FA-812.mp4",
-        brand:"Maybach"
+        brand:"Maybach",
+        outOfStock:false
     },
 
     {
@@ -1822,7 +1981,8 @@ const sunglasses = [
         price:2500,
         media:"image",
         file:"MayBach (MB147).jpeg",
-        brand:"Maybach"
+        brand:"Maybach",
+        outOfStock:false
     },
 
     {
@@ -1831,7 +1991,8 @@ const sunglasses = [
         price:3000,
         media:"image",
         file:"MayBach Karan Aujla Edition Sunglasses front.jpeg",
-        brand:"Maybach"
+        brand:"Maybach",
+        outOfStock:false
     },
 
     {
@@ -1840,7 +2001,8 @@ const sunglasses = [
         price:2500,
         media:"video",
         file:"Maybach 98522.mp4",
-        brand:"Maybach"
+        brand:"Maybach",
+        outOfStock:false
     },
 
     {
@@ -1849,7 +2011,8 @@ const sunglasses = [
         price:2500,
         media:"video",
         file:"Ray-Ban X A$AP RB3928.mp4",
-        brand:"Ray-Ban"
+        brand:"Ray-Ban",
+        outOfStock:false
     },
 
     {
@@ -1858,7 +2021,8 @@ const sunglasses = [
         price:2500,
         media:"image",
         file:"Panthere de Cartier .jpeg",
-        brand:"Cartier"
+        brand:"Cartier",
+        outOfStock:false
     },
 
     {
@@ -1867,7 +2031,8 @@ const sunglasses = [
         price:2500,
         media:"image",
         file:"Premiere de Cartier Malmaison .jpeg",
-        brand:"Cartier"
+        brand:"Cartier",
+        outOfStock:false
     },
 
     {
@@ -1876,7 +2041,8 @@ const sunglasses = [
         price:2500,
         media:"image",
         file:"Marc Jacob Round Sunglasses.jpeg",
-        brand:"Marc Jacobs"
+        brand:"Marc Jacobs",
+        outOfStock:false
     },
 
     {
@@ -1885,7 +2051,8 @@ const sunglasses = [
         price:2500,
         media:"image",
         file:"Cartier Round Sunglasses.jpeg",
-        brand:"Cartier"
+        brand:"Cartier",
+        outOfStock:false
     },
 
     {
@@ -1894,7 +2061,8 @@ const sunglasses = [
         price:2500,
         media:"video",
         file:"Maybach M011.mp4",
-        brand:"Maybach"
+        brand:"Maybach",
+        outOfStock:false
     },
 
     {
@@ -1903,7 +2071,8 @@ const sunglasses = [
         price:2500,
         media:"image",
         file:"RayBan Round Sunglasses.jpeg",
-        brand:"Ray-Ban"
+        brand:"Ray-Ban",
+        outOfStock:false
     },
 
     {
@@ -1912,7 +2081,8 @@ const sunglasses = [
         price:2500,
         media:"image",
         file:"Cartier C Decor CT0622S.jpeg",
-        brand:"Cartier"
+        brand:"Cartier",
+        outOfStock:false
     },
 
     {
@@ -1921,7 +2091,8 @@ const sunglasses = [
         price:2500,
         media:"image",
         file:"MayBach Sunglasses 2735.jpeg",
-        brand:"Maybach"
+        brand:"Maybach",
+        outOfStock:false
     },
 
     {
@@ -1930,7 +2101,8 @@ const sunglasses = [
         price:2500,
         media:"image",
         file:"MayBach Sunglasses 5029.jpeg",
-        brand:"Maybach"
+        brand:"Maybach",
+        outOfStock:false
     },
 
     {
@@ -1939,7 +2111,8 @@ const sunglasses = [
         price:3000,
         media:"image",
         file:"Cartier Aqua Green Karan Aujla Edition.jpeg",
-        brand:"Cartier"
+        brand:"Cartier",
+        outOfStock:false
     },
 
     {
@@ -1948,7 +2121,8 @@ const sunglasses = [
         price:2500,
         media:"image",
         file:"Cartier CT0468S.jpeg",
-        brand:"Cartier"
+        brand:"Cartier",
+        outOfStock:false
     },
 
     {
@@ -1957,7 +2131,8 @@ const sunglasses = [
         price:2500,
         media:"image",
         file:"MayBach The Magic Sunglasses.jpeg",
-        brand:"Maybach"
+        brand:"Maybach",
+        outOfStock:false
     },
 
     {
@@ -1966,7 +2141,8 @@ const sunglasses = [
         price:2500,
         media:"image",
         file:"Cartier CT0550S.jpeg",
-        brand:"Cartier"
+        brand:"Cartier",
+        outOfStock:false
     },
 
     {
@@ -1975,7 +2151,8 @@ const sunglasses = [
         price:2500,
         media:"image",
         file:"MayBach Rimless Sunglasses.jpeg",
-        brand:"Maybach"
+        brand:"Maybach",
+        outOfStock:false
     },
 
     {
@@ -1984,7 +2161,8 @@ const sunglasses = [
         price:2500,
         media:"image",
         file:"MayBach Sunglasses MGWEUM10.jpeg",
-        brand:"Maybach"
+        brand:"Maybach",
+        outOfStock:false
     },
 
     {
@@ -1993,7 +2171,8 @@ const sunglasses = [
         price:2500,
         media:"image",
         file:"Voyage Unisex Sunglasses.jpeg",
-        brand:"Voyage"
+        brand:"Voyage",
+        outOfStock:false
     },
 
     {
@@ -2002,7 +2181,8 @@ const sunglasses = [
         price:2500,
         media:"image",
         file:"Roman Kings Milano Sunglasses.jpeg",
-        brand:"Roman Kings"
+        brand:"Roman Kings",
+        outOfStock:false
     },
 
     {
@@ -2011,7 +2191,8 @@ const sunglasses = [
         price:2500,
         media:"video",
         file:"Versace VE2298.mp4",
-        brand:"Versace"
+        brand:"Versace",
+        outOfStock:false
     },
 
     {
@@ -2020,7 +2201,8 @@ const sunglasses = [
         price:2500,
         media:"image",
         file:"Ray-Ban Wayfarer Reverse Sunglasses.jpeg",
-        brand:"Ray-Ban"
+        brand:"Ray-Ban",
+        outOfStock:false
     },
 
     {
@@ -2029,7 +2211,8 @@ const sunglasses = [
         price:2500,
         media:"image",
         file:"Cartier Rimless Sunglasses.jpeg",
-        brand:"Cartier"
+        brand:"Cartier",
+        outOfStock:false
     },
 
     {
@@ -2038,7 +2221,8 @@ const sunglasses = [
         price:2500,
         media:"image",
         file:"Cartier Sunglasses 1021.jpeg",
-        brand:"Cartier"
+        brand:"Cartier",
+        outOfStock:false
     },
 
     {
@@ -2047,7 +2231,8 @@ const sunglasses = [
         price:2500,
         media:"image",
         file:"Cartier CT0503S.jpeg",
-        brand:"Cartier"
+        brand:"Cartier",
+        outOfStock:false
     },
 
     {
@@ -2056,7 +2241,8 @@ const sunglasses = [
         price:3000,
         media:"image",
         file:"Maybach 1015 Gold Pink Sunglasses.jpeg",
-        brand:"Maybach"
+        brand:"Maybach",
+        outOfStock:false
     },
 
     {
@@ -2065,7 +2251,8 @@ const sunglasses = [
         price:2500,
         media:"image",
         file:"Maybach The Character II Sunglasses.jpeg",
-        brand:"Maybach"
+        brand:"Maybach",
+        outOfStock:false
     },
 
     {
@@ -2074,7 +2261,8 @@ const sunglasses = [
         price:2500,
         media:"image",
         file:"Cartier Santos Sunglasses.jpeg",
-        brand:"Cartier"
+        brand:"Cartier",
+        outOfStock:false
     },
 
     {
@@ -2083,7 +2271,8 @@ const sunglasses = [
         price:2500,
         media:"image",
         file:"Maybach 1016 Sunglasses.jpeg",
-        brand:"Maybach"
+        brand:"Maybach",
+        outOfStock:false
     },
 
     {
@@ -2092,7 +2281,8 @@ const sunglasses = [
         price:2500,
         media:"image",
         file:"Versace VE2298 Sunglasses.jpeg",
-        brand:"Versace"
+        brand:"Versace",
+        outOfStock:false
     },
 
     {
@@ -2101,7 +2291,8 @@ const sunglasses = [
         price:2500,
         media:"image",
         file:"Maybach The Magic I Sunglasses.jpeg",
-        brand:"Maybach"
+        brand:"Maybach",
+        outOfStock:false
     },
 
     {
@@ -2110,7 +2301,8 @@ const sunglasses = [
         price:2500,
         media:"image",
         file:"Maybach The Magic I Blue Sunglasses.jpeg",
-        brand:"Maybach"
+        brand:"Maybach",
+        outOfStock:false
     },
 
     {
@@ -2119,7 +2311,8 @@ const sunglasses = [
         price:2500,
         media:"image",
         file:"Cartier Sky Blue Jaguar Sunglasses.jpeg",
-        brand:"Cartier"
+        brand:"Cartier",
+        outOfStock:false
     }
 
 ];
@@ -2200,6 +2393,11 @@ const quantity =
         "quantity"
     );
 
+const quantityBox =
+    document.getElementById(
+        "quantityBox"
+    );
+
 const cartMessage =
     document.getElementById(
         "cartMessage"
@@ -2213,6 +2411,21 @@ const relatedGrid =
 const whatsappBtn =
     document.getElementById(
         "whatsappBtn"
+    );
+
+const outOfStockBadge =
+    document.getElementById(
+        "outOfStockBadge"
+    );
+
+const addCartBtn =
+    document.getElementById(
+        "addCartBtn"
+    );
+
+const buyNowBtn =
+    document.getElementById(
+        "buyNowBtn"
     );
 
 
@@ -2248,6 +2461,71 @@ function escapeHTML(value){
 
 
 /* =========================================================
+   SHOW OUT OF STOCK STATE
+========================================================= */
+
+function setOutOfStockState(){
+
+    outOfStockBadge.style.display =
+        "block";
+
+
+    productPrice.classList.add(
+        "out-of-stock-price"
+    );
+
+
+    quantityBox.classList.add(
+        "disabled"
+    );
+
+
+    quantity.disabled =
+        true;
+
+
+    document
+        .getElementById(
+            "minusBtn"
+        )
+        .disabled =
+        true;
+
+
+    document
+        .getElementById(
+            "plusBtn"
+        )
+        .disabled =
+        true;
+
+
+    addCartBtn.disabled =
+        true;
+
+
+    buyNowBtn.disabled =
+        true;
+
+
+    addCartBtn.textContent =
+        "Out of Stock";
+
+
+    buyNowBtn.textContent =
+        "Out of Stock";
+
+
+    cartMessage.classList.add(
+        "stock-message"
+    );
+
+    cartMessage.textContent =
+        "This product is currently out of stock.";
+}
+
+
+/* =========================================================
    LOAD PRODUCT
 ========================================================= */
 
@@ -2275,7 +2553,8 @@ function loadProduct(){
         productDescription.textContent =
             "The requested sunglasses product could not be found. Please return to the Sunglasses section and select a product again.";
 
-        featureList.innerHTML = "";
+        featureList.innerHTML =
+            "";
 
         productMedia.innerHTML = `
 
@@ -2421,6 +2700,17 @@ function loadProduct(){
 
 
     /* =====================================================
+       OUT OF STOCK
+    ===================================================== */
+
+    if(product.outOfStock){
+
+        setOutOfStockState();
+
+    }
+
+
+    /* =====================================================
        RELATED
     ===================================================== */
 
@@ -2441,6 +2731,7 @@ function loadRelatedProducts(){
             "";
 
         return;
+
     }
 
 
@@ -2522,6 +2813,37 @@ function loadRelatedProducts(){
                     }
 
 
+                    const stockBadge =
+                        item.outOfStock
+                            ? `
+                                <div class="related-stock-badge">
+                                    OUT OF STOCK
+                                </div>
+                              `
+                            : "";
+
+
+                    const button =
+                        item.outOfStock
+
+                            ? `
+                                <div
+                                    class="related-btn out-of-stock"
+                                >
+                                    Out of Stock
+                                </div>
+                              `
+
+                            : `
+                                <a
+                                    href="product-detailssunglasses.html?id=${item.id}"
+                                    class="related-btn"
+                                >
+                                    View Details
+                                </a>
+                              `;
+
+
                     return `
 
                         <div class="related-card">
@@ -2529,6 +2851,8 @@ function loadRelatedProducts(){
                             <div class="related-media">
 
                                 ${mediaHTML}
+
+                                ${stockBadge}
 
                             </div>
 
@@ -2540,17 +2864,19 @@ function loadRelatedProducts(){
                                 </h3>
 
 
-                                <div class="related-price">
+                                <div
+                                    class="
+                                        related-price
+                                        ${item.outOfStock
+                                            ? "out-of-stock"
+                                            : ""}
+                                    "
+                                >
                                     ${formatPrice(item.price)}
                                 </div>
 
 
-                                <a
-                                    href="product-detailssunglasses.html?id=${item.id}"
-                                    class="related-btn"
-                                >
-                                    View Details
-                                </a>
+                                ${button}
 
                             </div>
 
@@ -2735,6 +3061,20 @@ function addToCart(){
     }
 
 
+    if(product.outOfStock){
+
+        cartMessage.classList.add(
+            "stock-message"
+        );
+
+        cartMessage.textContent =
+            "This product is currently out of stock.";
+
+        return;
+
+    }
+
+
     const selectedQuantity =
         getSelectedQuantity();
 
@@ -2782,6 +3122,11 @@ function addToCart(){
     saveCart(cart);
 
 
+    cartMessage.classList.remove(
+        "stock-message"
+    );
+
+
     cartMessage.textContent =
         "✓ Added to your cart";
 
@@ -2806,6 +3151,20 @@ function addToCart(){
 function buyNow(){
 
     if(!product){
+
+        return;
+
+    }
+
+
+    if(product.outOfStock){
+
+        cartMessage.classList.add(
+            "stock-message"
+        );
+
+        cartMessage.textContent =
+            "This product is currently out of stock.";
 
         return;
 
@@ -2877,6 +3236,16 @@ document
         "click",
         function(){
 
+            if(
+                product &&
+                product.outOfStock
+            ){
+
+                return;
+
+            }
+
+
             let value =
                 Number(
                     quantity.value
@@ -2909,6 +3278,16 @@ document
         "click",
         function(){
 
+            if(
+                product &&
+                product.outOfStock
+            ){
+
+                return;
+
+            }
+
+
             let value =
                 Number(
                     quantity.value
@@ -2937,6 +3316,19 @@ quantity.addEventListener(
     "change",
     function(){
 
+        if(
+            product &&
+            product.outOfStock
+        ){
+
+            quantity.value =
+                1;
+
+            return;
+
+        }
+
+
         getSelectedQuantity();
 
     }
@@ -2947,24 +3339,16 @@ quantity.addEventListener(
    BUTTON EVENTS
 ========================================================= */
 
-document
-    .getElementById(
-        "addCartBtn"
-    )
-    .addEventListener(
-        "click",
-        addToCart
-    );
+addCartBtn.addEventListener(
+    "click",
+    addToCart
+);
 
 
-document
-    .getElementById(
-        "buyNowBtn"
-    )
-    .addEventListener(
-        "click",
-        buyNow
-    );
+buyNowBtn.addEventListener(
+    "click",
+    buyNow
+);
 
 
 /* =========================================================
