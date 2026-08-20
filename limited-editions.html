@@ -1017,51 +1017,226 @@ body{
     right:10px;
 }
 
+/* =========================================================
+   PREMIUM VIEW PRODUCT DETAILS BUTTON
+========================================================= */
+
 .view-details-btn{
-    max-width:100%;
+    position:relative;
 
-    min-height:50px;
+    display:flex;
 
-    font-size:15px;
+    align-items:center;
+
+    justify-content:center;
+
+    width:100%;
+
+    max-width:300px;
+
+    min-height:54px;
+
+    padding:14px 28px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #111 0%,
+            #1c1c1c 50%,
+            #111 100%
+        );
+
+    color:#fff;
+
+    text-decoration:none;
+
+    border:1px solid #c9a24d;
+
+    border-radius:8px;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    letter-spacing:0.4px;
+
+    text-transform:none;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,0.18);
+
+    transition:
+        all 0.35s ease;
+
+    z-index:1;
 }
 
-    .product-details-btn{
-        width:100%;
 
-        max-width:300px;
-    }
+/* =========================================================
+   GOLD SHINE
+========================================================= */
 
-    .footer-container{
+.view-details-btn::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-130%;
+
+    width:70%;
+
+    height:100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.45),
+            transparent
+        );
+
+    transform:skewX(-25deg);
+
+    transition:
+        left 0.65s ease;
+
+    z-index:-1;
+}
+
+
+/* =========================================================
+   GOLD INNER GLOW
+========================================================= */
+
+.view-details-btn::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:2px;
+
+    border-radius:6px;
+
+    border:1px solid
+        rgba(201,162,77,0.18);
+
+    pointer-events:none;
+
+    transition:
+        border-color 0.35s ease;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.view-details-btn:hover{
+
+    background:
+        linear-gradient(
+            135deg,
+            #c9a24d 0%,
+            #e0c47a 50%,
+            #c9a24d 100%
+        );
+
+    color:#111;
+
+    border-color:#c9a24d;
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(0,0,0,0.22),
+        0 0 18px
+        rgba(201,162,77,0.25);
+}
+
+
+/* =========================================================
+   SHINE ANIMATION
+========================================================= */
+
+.view-details-btn:hover::before{
+
+    left:140%;
+}
+
+
+/* =========================================================
+   INNER BORDER ON HOVER
+========================================================= */
+
+.view-details-btn:hover::after{
+
+    border-color:
+        rgba(17,17,17,0.25);
+}
+
+
+/* =========================================================
+   CLICK EFFECT
+========================================================= */
+
+.view-details-btn:active{
+
+    transform:
+        translateY(-1px);
+
+    box-shadow:
+        0 4px 10px
+        rgba(0,0,0,0.18);
+}
+
+
+/* =========================================================
+   FOCUS
+========================================================= */
+
+.view-details-btn:focus-visible{
+
+    outline:2px solid #c9a24d;
+
+    outline-offset:4px;
+}
+
+
+/* =========================================================
+   MOBILE BUTTON
+========================================================= */
+
+@media(max-width:768px){
+
+    .view-details-btn{
+
+        max-width:100%;
+
+        min-height:52px;
+
         padding:
-            45px
-            25px
-            0;
-    }
+            13px
+            22px;
 
-    .footer-top{
-        grid-template-columns:1fr;
+        font-size:15px;
 
-        gap:35px;
-    }
-
-    .footer-top > h2{
-        font-size:32px;
-    }
-
-    .footer-middle{
-        grid-template-columns:1fr;
-
-        gap:35px;
-
-        text-align:center;
-    }
-
-    .footer-links-column{
-        align-items:center;
+        border-radius:7px;
     }
 
 }
-
 
 /* =========================================================
    SMALL MOBILE
