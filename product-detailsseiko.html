@@ -1,0 +1,1833 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=1250"
+>
+
+<meta
+    name="description"
+    content="Premium Seiko watch product details at 50 Mirars."
+>
+
+<title>Seiko Product Details | 50 Mirars</title>
+
+<style>
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color:#222;
+
+    background:
+        radial-gradient(
+            circle at 50% 10%,
+            rgba(201,162,77,0.12),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #f7f3e9 0%,
+            #eee8d9 50%,
+            #f8f5ed 100%
+        );
+}
+
+/* =========================================================
+   TOP HEADER
+========================================================= */
+
+.top-bar{
+    width:100%;
+    padding:25px 80px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#fff;
+    border-bottom:1px solid #e5e5e5;
+}
+
+.brand-logo{
+    font-size:28px;
+    font-weight:700;
+    letter-spacing:4px;
+    color:#111;
+}
+
+.back-btn{
+    text-decoration:none;
+    color:#111;
+    font-weight:600;
+    transition:0.3s ease;
+}
+
+.back-btn:hover{
+    color:#c9a24d;
+}
+
+/* =========================================================
+   PAGE HEADER
+========================================================= */
+
+.page-header{
+    text-align:center;
+    padding:25px 20px 40px;
+}
+
+.page-header h1{
+    margin:0 0 18px;
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:54px;
+    font-weight:600;
+}
+
+.title-line{
+    width:150px;
+    height:2px;
+    background:#c9a24d;
+    margin:auto;
+    position:relative;
+}
+
+.title-line::after{
+    content:"";
+    position:absolute;
+    width:11px;
+    height:11px;
+    background:#c9a24d;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%) rotate(45deg);
+}
+
+/* =========================================================
+   PRODUCT DETAIL
+========================================================= */
+
+.product-detail-section{
+    width:100%;
+    max-width:1400px;
+    margin:0 auto;
+    padding:10px 40px 80px;
+}
+
+.product-detail-card{
+    background:#fff;
+    border-radius:22px;
+    overflow:hidden;
+    box-shadow:0 15px 50px rgba(0,0,0,0.10);
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    min-height:650px;
+}
+
+/* =========================================================
+   MEDIA
+========================================================= */
+
+.product-media-area{
+    background:linear-gradient(145deg,#f8f5ed,#e9e3d3);
+    min-height:650px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:40px;
+    position:relative;
+}
+
+.product-media-wrapper{
+    width:100%;
+    max-width:650px;
+    height:570px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#fff;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 8px 30px rgba(0,0,0,0.08);
+}
+
+.product-media-wrapper img,
+.product-media-wrapper video{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+}
+
+.product-media-wrapper video{
+    background:#111;
+}
+
+.media-badge{
+    position:absolute;
+    top:25px;
+    left:25px;
+    background:#111;
+    color:#c9a24d;
+    padding:9px 15px;
+    border-radius:30px;
+    font-size:13px;
+    font-weight:bold;
+}
+
+.out-of-stock-badge{
+    position:absolute;
+    top:25px;
+    right:25px;
+    background:#b00020;
+    color:#fff;
+    padding:10px 18px;
+    border-radius:30px;
+    font-size:13px;
+    font-weight:bold;
+    display:none;
+}
+
+/* =========================================================
+   PRODUCT INFO
+========================================================= */
+
+.product-info{
+    padding:60px 55px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.product-brand{
+    color:#9b762c;
+    font-size:14px;
+    font-weight:bold;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    margin-bottom:15px;
+}
+
+.product-name{
+    margin:0 0 18px;
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:43px;
+    font-weight:600;
+    line-height:1.15;
+}
+
+.product-id{
+    color:#777;
+    font-size:14px;
+    margin-bottom:25px;
+}
+
+.product-price{
+    color:#c9a24d;
+    font-size:32px;
+    font-weight:bold;
+    margin-bottom:28px;
+}
+
+.product-price.out-of-stock-price{
+    color:#888;
+}
+
+.divider{
+    width:100%;
+    height:1px;
+    background:#ddd;
+    margin-bottom:28px;
+}
+
+.product-description{
+    color:#555;
+    font-size:17px;
+    line-height:1.75;
+    margin-bottom:30px;
+}
+
+.feature-list{
+    list-style:none;
+    padding:0;
+    margin:0 0 30px;
+}
+
+.feature-list li{
+    margin-bottom:12px;
+    display:flex;
+    gap:10px;
+    align-items:center;
+}
+
+.feature-list li::before{
+    content:"◆";
+    color:#c9a24d;
+    font-size:9px;
+}
+
+/* =========================================================
+   QUANTITY
+========================================================= */
+
+.quantity-title{
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.quantity-box{
+    display:flex;
+    width:max-content;
+    border:1px solid #ccc;
+    border-radius:6px;
+    overflow:hidden;
+    margin-bottom:25px;
+}
+
+.quantity-box button{
+    width:42px;
+    border:0;
+    background:#f4f4f4;
+    font-size:20px;
+    cursor:pointer;
+}
+
+.quantity-box input{
+    width:55px;
+    border:0;
+    border-left:1px solid #ddd;
+    border-right:1px solid #ddd;
+    text-align:center;
+    font-weight:bold;
+}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.action-buttons{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    margin-bottom:15px;
+}
+
+.add-cart-btn,
+.buy-now-btn{
+    min-height:54px;
+    border-radius:6px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.add-cart-btn{
+    background:#fff;
+    border:2px solid #111;
+}
+
+.add-cart-btn:hover{
+    background:#111;
+    color:#fff;
+}
+
+.buy-now-btn{
+    background:#111;
+    color:#fff;
+    border:2px solid #111;
+}
+
+.buy-now-btn:hover{
+    background:#c9a24d;
+    color:#111;
+    border-color:#c9a24d;
+}
+
+/* =========================================================
+   WHATSAPP
+========================================================= */
+
+.whatsapp-product-btn{
+    width:100%;
+    min-height:52px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    background:#c9a24d;
+    color:#111;
+    text-decoration:none;
+    border-radius:6px;
+    font-weight:bold;
+}
+
+.whatsapp-product-btn img{
+    width:25px;
+}
+
+/* =========================================================
+   RELATED PRODUCTS
+========================================================= */
+
+.related-section{
+    width:100%;
+    max-width:1400px;
+    margin:0 auto;
+    padding:20px 40px 80px;
+}
+
+.related-heading{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.related-heading h2{
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:38px;
+    margin-bottom:12px;
+}
+
+.related-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+.related-card{
+    background:#fff;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+}
+
+.related-media{
+    height:260px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#f5f5f5;
+}
+
+.related-media img,
+.related-media video{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+}
+
+.related-info{
+    padding:20px;
+    text-align:center;
+}
+
+.related-btn{
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    width:100%;
+    min-height:45px;
+    background:#111;
+    color:#fff;
+    text-decoration:none;
+    border-radius:5px;
+}
+
+.related-btn:hover{
+    background:#c9a24d;
+    color:#111;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.main-footer{
+    background:#111;
+    color:#fff;
+    margin-top:20px;
+}
+
+.footer-container{
+    width:100%;
+    max-width:1400px;
+    margin:auto;
+    padding:60px 50px 0;
+}
+
+.footer-top{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:50px;
+    padding-bottom:50px;
+    border-bottom:1px solid rgba(255,255,255,0.15);
+}
+
+.footer-top>h2{
+    grid-column:1/-1;
+    text-align:center;
+    color:#c9a24d;
+    font-family:Georgia,"Times New Roman",serif;
+}
+
+.footer-link{
+    display:block;
+    color:#fff;
+    text-decoration:none;
+    margin-bottom:12px;
+}
+
+.footer-link:hover{
+    color:#c9a24d;
+}
+
+.whatsapp-button{
+    display:inline-block;
+    background:#c9a24d;
+    color:#111;
+    padding:13px 30px;
+    text-decoration:none;
+    border-radius:6px;
+    font-weight:bold;
+}
+
+.footer-middle{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:50px;
+    padding:50px 0;
+}
+
+.footer-bottom{
+    border-top:1px solid rgba(255,255,255,0.15);
+    text-align:center;
+    padding:25px;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1100px){
+
+.product-detail-card{
+grid-template-columns:1fr;
+}
+
+.related-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media(max-width:768px){
+
+.top-bar{
+padding:20px;
+}
+
+.page-header h1{
+font-size:40px;
+}
+
+.product-detail-section{
+padding:10px 15px 50px;
+}
+
+.product-info{
+padding:35px 25px;
+}
+
+.action-buttons{
+grid-template-columns:1fr;
+}
+
+.related-grid{
+grid-template-columns:1fr;
+}
+
+.footer-container{
+padding:45px 25px 0;
+}
+
+.footer-top,
+.footer-middle{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- =========================================================
+     TOP HEADER
+========================================================= -->
+
+<div class="top-bar">
+
+    <div class="brand-logo">50 MIRARS</div>
+
+    <a href="seiko.html" class="back-btn">
+        ← Back to Seiko
+    </a>
+
+</div>
+
+<!-- =========================================================
+     PAGE HEADER
+========================================================= -->
+
+<header class="page-header">
+
+    <h1>Seiko</h1>
+
+    <div class="title-line"></div>
+
+</header>
+
+<!-- =========================================================
+     PRODUCT DETAIL
+========================================================= -->
+
+<section class="product-detail-section">
+
+    <div class="product-detail-card">
+
+        <div class="product-media-area">
+
+            <div class="media-badge">50 MIRARS</div>
+
+            <div id="outOfStockBadge" class="out-of-stock-badge">
+                OUT OF STOCK
+            </div>
+
+            <div id="productMedia" class="product-media-wrapper"></div>
+
+        </div>
+
+        <div class="product-info">
+
+            <div id="productBrand" class="product-brand">Seiko</div>
+
+            <h2 id="productName" class="product-name">
+                Loading Product...
+            </h2>
+
+            <div id="productId" class="product-id"></div>
+
+            <div id="productPrice" class="product-price">₹0</div>
+
+            <div class="divider"></div>
+
+            <p id="productDescription" class="product-description"></p>
+
+            <ul id="featureList" class="feature-list"></ul>
+
+            <div class="quantity-title">Quantity</div>
+
+            <div id="quantityBox" class="quantity-box">
+
+                <button id="minusBtn">−</button>
+
+                <input id="quantity" type="number" value="1" min="1" max="10">
+
+                <button id="plusBtn">+</button>
+
+            </div>
+
+            <div class="action-buttons">
+
+                <button id="addCartBtn" class="add-cart-btn">
+                    Add to Cart
+                </button>
+
+                <button id="buyNowBtn" class="buy-now-btn">
+                    Buy Now
+                </button>
+
+            </div>
+
+            <a id="whatsappBtn" class="whatsapp-product-btn" href="#" target="_blank">
+
+                <img src="whatsapplogo.png" alt="WhatsApp">
+
+                Enquire on WhatsApp
+
+            </a>
+
+            <div id="cartMessage" class="cart-message"></div>
+
+            <div class="delivery-info">
+
+                <strong>Delivery Information</strong>
+
+                <p>
+                    Full payment is required before delivery.
+                    Delivery availability may vary depending on your location.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+     RELATED PRODUCTS
+========================================================= -->
+
+<section class="related-section">
+
+    <div class="related-heading">
+
+        <h2>You May Also Like</h2>
+
+        <p>Explore more Seiko watches from the 50 Mirars collection.</p>
+
+    </div>
+
+    <div id="relatedGrid" class="related-grid"></div>
+
+</section>
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="main-footer">
+
+    <div class="footer-container">
+
+        <div class="footer-top">
+
+            <h2>Contact Us</h2>
+
+            <div class="contact-column">
+
+                <h3>For Customers:</h3>
+
+                <a href="mailto:50mirars@gmail.com" class="footer-link">50mirars@gmail.com</a>
+
+                <a href="tel:+918209989013" class="footer-link">82099 89013</a>
+
+                <p>09:00 - 21:30 | Monday to Sunday</p>
+
+            </div>
+
+            <div class="contact-column">
+
+                <h3>For Sales/Watch Service:</h3>
+
+                <a href="mailto:50mirars@gmail.com" class="footer-link">50mirars@gmail.com</a>
+
+                <a href="tel:+918209989013" class="footer-link">82099 89013</a>
+
+                <p>09:00 - 21:30 | Monday to Sunday</p>
+
+            </div>
+
+            <div class="whatsapp-column">
+
+                <h3>View Products on WhatsApp</h3>
+
+                <a href="https://wa.me/918209989013" class="whatsapp-button" target="_blank">
+                    View Products
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="footer-middle">
+
+            <div>
+
+                <h3>Know 50 Mirars</h3>
+
+                <a href="about.html" class="footer-link">About Us</a>
+
+                <a href="faq.html" class="footer-link">FAQ</a>
+
+            </div>
+
+            <div>
+
+                <h3>Terms & Conditions</h3>
+
+                <a href="terms.html" class="footer-link">Terms & Conditions</a>
+
+                <a href="privacypolicy.html" class="footer-link">Privacy Policy</a>
+
+            </div>
+
+            <div>
+
+                <h3>50 Mirars</h3>
+
+                <p>Follow Us On Instagram</p>
+
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+
+            <p>© 2026 50 Mirars - The Watch & Sunglasses Store.</p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+<script>
+
+/* =========================================================
+   SEIKO DATABASE
+========================================================= */
+
+const seiko = [
+
+{
+id:1,
+name:"Seiko 5 Sports Red Blood",
+price:4500,
+media:"video",
+file:"Seiko 5 Sports Red Blood.mp4",
+brand:"Seiko",
+outOfStock:false
+},
+
+{
+id:2,
+name:"Seiko Presage SRPE15",
+price:5500,
+media:"image",
+file:"Seiko Presage SRPE15.jpeg",
+brand:"Seiko",
+outOfStock:false
+},
+
+{
+id:3,
+name:"Seiko 5 Sports GMT SSK035K1",
+price:4000,
+media:"image",
+file:"Seiko 5 Sports GMT SSK035K1.jpeg",
+brand:"Seiko",
+outOfStock:false
+},
+
+{
+id:4,
+name:"Seiko 5 Sports Quartz GMT SSK035K1",
+price:3500,
+media:"image",
+file:"Seiko 5 Sports Quartz GMT SSK035K1.jpeg",
+brand:"Seiko",
+outOfStock:false
+},
+
+{
+id:5,
+name:"Seiko Prospex Speedtimer SPB513",
+price:3500,
+media:"image",
+file:"Seiko Prospex Speedtimer SPB513.jpeg",
+brand:"Seiko",
+outOfStock:false
+},
+
+{
+id:6,
+name:"Seiko 5 Sports Group",
+price:4000,
+media:"video",
+file:"Seiko 5 Sports Group.mp4",
+brand:"Seiko",
+outOfStock:false
+},
+
+{
+id:7,
+name:"Seiko Presage Cocktail SRPG23J1",
+price:4000,
+media:"video",
+file:"Seiko Presage Cocktail SRPG23J1.mp4",
+brand:"Seiko",
+outOfStock:false
+},
+
+{
+id:8,
+name:"Seiko Mod Watches",
+price:5500,
+media:"image",
+file:"Seiko Mod Watches.jpeg",
+brand:"Seiko",
+outOfStock:false
+},
+
+{
+id:9,
+name:"Seiko Blue Moon SSA347J1",
+price:6000,
+media:"image",
+file:"Seiko Blue Moon SSA347J1.jpeg",
+brand:"Seiko",
+outOfStock:false
+},
+
+{
+id:10,
+name:"Seiko Mod",
+price:5000,
+media:"image",
+file:"Seiko Mod .jpeg",
+brand:"Seiko",
+outOfStock:false
+},
+
+{
+id:11,
+name:"Seiko Mod Yacht-Master Rose Gold",
+price:5000,
+media:"video",
+file:"Seiko Mod Yatch-Master Rose Gold.mp4",
+brand:"Seiko",
+outOfStock:false
+},
+
+{
+id:12,
+name:"Seiko Pepsi Edition",
+price:6000,
+media:"image",
+file:"Seiko Pepsi Edition.jpeg",
+brand:"Seiko",
+outOfStock:false
+},
+
+{
+id:13,
+name:"Seiko Mod Watches",
+price:4500,
+media:"video",
+file:"Seiko Mod Watches Video.mp4",
+brand:"Seiko",
+outOfStock:false
+},
+
+{
+id:14,
+name:"Seiko Datejust Mod",
+price:5000,
+media:"video",
+file:"Seiko Datejust Mod.mp4",
+brand:"Seiko",
+outOfStock:false
+},
+
+{
+id:15,
+name:"Seiko Presage Cocktail Time",
+price:4500,
+media:"image",
+file:"Seiko Presage Cocktail Time.jpeg",
+brand:"Seiko",
+outOfStock:false
+},
+
+{
+id:16,
+name:"Seiko Prospex Diver",
+price:4000,
+media:"video",
+file:"Seiko Prospex Diver .mp4",
+brand:"Seiko",
+outOfStock:false
+},
+
+{
+id:17,
+name:"Seiko SRPL64",
+price:4500,
+media:"image",
+file:"Seiko SRPL64.jpeg",
+brand:"Seiko",
+outOfStock:false
+},
+
+{
+id:18,
+name:"King Seiko Vanac SLA087",
+price:5500,
+media:"image",
+file:"King Seiko Vanac SLA087.jpeg",
+brand:"King Seiko",
+outOfStock:false
+},
+
+{
+id:19,
+name:"Seiko 1736 Automatic Blue Watch",
+price:5500,
+media:"image",
+file:"Seiko 1736 Automatic Blue Watch.jpeg",
+brand:"Seiko",
+outOfStock:false
+},
+
+{
+id:20,
+name:"Seiko 1736 Automatic Green Watch",
+price:5500,
+media:"image",
+file:"Seiko 1736 Automatic Green Watch.jpeg",
+brand:"Seiko",
+outOfStock:false
+},
+
+{
+id:21,
+name:"Seiko SKX GMT SSK019",
+price:8000,
+media:"image",
+file:"Seiko SKX GMT SSK019.jpeg",
+brand:"Seiko",
+outOfStock:false
+}
+
+];
+
+
+/* =========================================================
+   GET PRODUCT ID
+========================================================= */
+
+const params=new URLSearchParams(window.location.search);
+const rawProductId=params.get("id");
+const productId=Number.parseInt(rawProductId,10);
+
+const product=seiko.find(item=>Number(item.id)===productId);
+
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const productMedia=document.getElementById("productMedia");
+const productBrand=document.getElementById("productBrand");
+const productName=document.getElementById("productName");
+const productIdElement=document.getElementById("productId");
+const productPrice=document.getElementById("productPrice");
+const productDescription=document.getElementById("productDescription");
+const featureList=document.getElementById("featureList");
+const quantity=document.getElementById("quantity");
+const quantityBox=document.getElementById("quantityBox");
+const cartMessage=document.getElementById("cartMessage");
+const relatedGrid=document.getElementById("relatedGrid");
+const whatsappBtn=document.getElementById("whatsappBtn");
+const outOfStockBadge=document.getElementById("outOfStockBadge");
+const addCartBtn=document.getElementById("addCartBtn");
+const buyNowBtn=document.getElementById("buyNowBtn");
+
+
+/* =========================================================
+   HELPERS
+========================================================= */
+
+function formatPrice(price){
+return "₹"+Number(price).toLocaleString("en-IN");
+}
+
+function escapeHTML(value){
+const div=document.createElement("div");
+div.textContent=String(value);
+return div.innerHTML;
+}
+
+function setOutOfStockState(){
+
+outOfStockBadge.style.display="block";
+productPrice.classList.add("out-of-stock-price");
+quantityBox.classList.add("disabled");
+quantity.disabled=true;
+
+document.getElementById("minusBtn").disabled=true;
+document.getElementById("plusBtn").disabled=true;
+
+addCartBtn.disabled=true;
+buyNowBtn.disabled=true;
+
+addCartBtn.textContent="Out of Stock";
+buyNowBtn.textContent="Out of Stock";
+
+cartMessage.classList.add("stock-message");
+cartMessage.textContent="This product is currently out of stock.";
+
+}
+
+
+/* =========================================================
+   LOAD PRODUCT
+========================================================= */
+
+function loadProduct(){
+
+if(!product){
+
+document.title="Product Not Found | 50 Mirars";
+
+productBrand.textContent="Seiko";
+productName.textContent="Product Not Found";
+
+productIdElement.textContent=
+rawProductId
+? "Product ID: "+rawProductId
+: "No Product ID Provided";
+
+productPrice.textContent="";
+
+productDescription.textContent=
+"The requested Seiko product could not be found. Please return to the Seiko section and select a product again.";
+
+featureList.innerHTML="";
+
+productMedia.innerHTML=`
+<div style="text-align:center;padding:40px;font-weight:bold;color:#555;">
+Product could not be found.
+</div>`;
+
+return;
+
+}
+
+document.title=product.name+" | 50 Mirars";
+
+productBrand.textContent=product.brand;
+productName.textContent=product.name;
+
+productIdElement.textContent=
+"Product ID: SEK-"+String(product.id).padStart(3,"0");
+
+productPrice.textContent=formatPrice(product.price);
+
+
+/* MEDIA */
+
+if(product.media==="video"){
+
+productMedia.innerHTML=`
+<video controls playsinline preload="metadata">
+<source src="${encodeURI(product.file)}" type="video/mp4">
+Your browser does not support video playback.
+</video>`;
+
+}
+
+else{
+
+productMedia.innerHTML=`
+<img src="${encodeURI(product.file)}" alt="${escapeHTML(product.name)}">`;
+
+}
+
+
+/* DESCRIPTION */
+
+productDescription.textContent=
+"Discover the distinctive character of the "+product.name+" at 50 Mirars. Inspired by Seiko's timeless watchmaking heritage, this watch combines refined styling, everyday versatility, and premium presentation, making it an excellent choice for both casual and special occasions.";
+
+
+/* FEATURES */
+
+featureList.innerHTML=`
+
+<li>Premium-inspired Seiko watch design</li>
+
+<li>Distinctive ${escapeHTML(product.brand)} styling</li>
+
+<li>Suitable for everyday and occasion wear</li>
+
+<li>Carefully selected by 50 Mirars</li>
+
+<li>Premium presentation and packaging</li>
+
+`;
+
+
+/* WHATSAPP */
+
+const whatsappText=
+"Hello 50 Mirars, I am interested in "+product.name+" ("+formatPrice(product.price)+"). Please share more details.";
+
+whatsappBtn.href=
+"https://wa.me/918209989013?text="+encodeURIComponent(whatsappText);
+
+
+/* STOCK */
+
+if(product.outOfStock){
+setOutOfStockState();
+}
+
+loadRelatedProducts();
+
+}
+
+
+/* =========================================================
+   RELATED PRODUCTS
+========================================================= */
+
+function loadRelatedProducts(){
+
+if(!product){
+relatedGrid.innerHTML="";
+return;
+}
+
+const related=seiko
+.filter(item=>item.id!==product.id)
+.slice(0,4);
+
+relatedGrid.innerHTML=
+related.map(item=>{
+
+const mediaHTML=item.media==="video"
+? `<video muted playsinline preload="metadata">
+<source src="${encodeURI(item.file)}" type="video/mp4">
+</video>`
+: `<img src="${encodeURI(item.file)}" alt="${escapeHTML(item.name)}">`;
+
+return `
+
+<div class="related-card">
+
+<div class="related-media">
+${mediaHTML}
+</div>
+
+<div class="related-info">
+
+<h3>${escapeHTML(item.name)}</h3>
+
+<div class="related-price">${formatPrice(item.price)}</div>
+
+<a href="productdetailsseiko.html?id=${item.id}" class="related-btn">
+View Details
+</a>
+
+</div>
+
+</div>
+
+`;
+
+}).join("");
+
+}
+
+
+/* =========================================================
+   CART
+========================================================= */
+
+function getCart(){
+
+try{
+
+const stored=localStorage.getItem("cart");
+
+if(!stored){
+return [];
+}
+
+const parsed=JSON.parse(stored);
+
+return Array.isArray(parsed)
+? parsed
+: [];
+
+}
+
+catch{
+
+return [];
+
+}
+
+}
+
+function saveCart(cart){
+
+localStorage.setItem("cart",JSON.stringify(cart));
+
+}
+
+function createCartItem(selectedQuantity){
+
+return{
+
+id:"seiko-"+product.id,
+
+productId:product.id,
+
+name:product.name,
+
+price:product.price,
+
+quantity:selectedQuantity,
+
+image:product.media==="image"?product.file:"",
+
+media:product.media,
+
+video:product.media==="video"?product.file:"",
+
+category:"Seiko",
+
+brand:product.brand
+
+};
+
+}
+
+function getSelectedQuantity(){
+
+let value=Number(quantity.value);
+
+if(!Number.isFinite(value)){
+value=1;
+}
+
+value=Math.floor(value);
+
+if(value<1){
+value=1;
+}
+
+if(value>10){
+value=10;
+}
+
+quantity.value=value;
+
+return value;
+
+}
+
+
+/* =========================================================
+   ADD TO CART
+========================================================= */
+
+function addToCart(){
+
+if(!product)return;
+
+if(product.outOfStock){
+
+cartMessage.classList.add("stock-message");
+cartMessage.textContent="This product is currently out of stock.";
+
+return;
+
+}
+
+const selectedQuantity=getSelectedQuantity();
+
+const cart=getCart();
+
+const cartProductId="seiko-"+product.id;
+
+const existing=
+cart.find(item=>String(item.id)===String(cartProductId));
+
+if(existing){
+
+existing.quantity=
+(Number(existing.quantity)||0)+selectedQuantity;
+
+}
+
+else{
+
+cart.push(createCartItem(selectedQuantity));
+
+}
+
+saveCart(cart);
+
+cartMessage.classList.remove("stock-message");
+cartMessage.textContent="✓ Added to your cart";
+
+setTimeout(()=>{
+cartMessage.textContent="";
+},3000);
+
+}
+
+
+/* =========================================================
+   BUY NOW
+========================================================= */
+
+function buyNow(){
+
+if(!product)return;
+
+if(product.outOfStock){
+
+cartMessage.classList.add("stock-message");
+cartMessage.textContent="This product is currently out of stock.";
+
+return;
+
+}
+
+const selectedQuantity=getSelectedQuantity();
+
+const cart=getCart();
+
+const cartProductId="seiko-"+product.id;
+
+const existing=
+cart.find(item=>String(item.id)===String(cartProductId));
+
+if(existing){
+
+existing.quantity=
+(Number(existing.quantity)||0)+selectedQuantity;
+
+}
+
+else{
+
+cart.push(createCartItem(selectedQuantity));
+
+}
+
+saveCart(cart);
+
+window.location.href="cart.html";
+
+}
+
+
+/* =========================================================
+   QUANTITY CONTROLS
+========================================================= */
+
+document.getElementById("minusBtn").addEventListener("click",function(){
+
+if(product&&product.outOfStock)return;
+
+quantity.value=Math.max(1,(Number(quantity.value)||1)-1);
+
+});
+
+document.getElementById("plusBtn").addEventListener("click",function(){
+
+if(product&&product.outOfStock)return;
+
+quantity.value=Math.min(10,(Number(quantity.value)||1)+1);
+
+});
+
+quantity.addEventListener("change",function(){
+
+if(product&&product.outOfStock){
+
+quantity.value=1;
+return;
+
+}
+
+getSelectedQuantity();
+
+});
+
+
+/* =========================================================
+   BUTTON EVENTS
+========================================================= */
+
+addCartBtn.addEventListener("click",addToCart);
+buyNowBtn.addEventListener("click",buyNow);
+
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+loadProduct();
+
+/* =========================================================
+   RELATED PRODUCTS
+========================================================= */
+
+function loadRelatedProducts(){
+
+    if(!product){
+        relatedGrid.innerHTML="";
+        return;
+    }
+
+    const related=seiko
+        .filter(item=>item.id!==product.id)
+        .slice(0,4);
+
+    relatedGrid.innerHTML=
+        related.map(item=>{
+
+            const mediaHTML=item.media==="video"
+
+                ? `<video muted playsinline preload="metadata">
+                        <source src="${encodeURI(item.file)}" type="video/mp4">
+                   </video>`
+
+                : `<img src="${encodeURI(item.file)}" alt="${escapeHTML(item.name)}">`;
+
+            return `
+
+            <div class="related-card">
+
+                <div class="related-media">
+                    ${mediaHTML}
+                </div>
+
+                <div class="related-info">
+
+                    <h3>${escapeHTML(item.name)}</h3>
+
+                    <div class="related-price">
+                        ${formatPrice(item.price)}
+                    </div>
+
+                    <a
+                        href="productdetailsseiko.html?id=${item.id}"
+                        class="related-btn"
+                    >
+                        View Details
+                    </a>
+
+                </div>
+
+            </div>
+
+            `;
+
+        }).join("");
+
+}
+
+
+/* =========================================================
+   GET CART
+========================================================= */
+
+function getCart(){
+
+    try{
+
+        const stored=localStorage.getItem("cart");
+
+        if(!stored){
+            return [];
+        }
+
+        const parsed=JSON.parse(stored);
+
+        return Array.isArray(parsed)
+            ? parsed
+            : [];
+
+    }
+
+    catch{
+
+        return [];
+
+    }
+
+}
+
+
+/* =========================================================
+   SAVE CART
+========================================================= */
+
+function saveCart(cart){
+
+    localStorage.setItem(
+        "cart",
+        JSON.stringify(cart)
+    );
+
+}
+
+
+/* =========================================================
+   CREATE CART ITEM
+========================================================= */
+
+function createCartItem(selectedQuantity){
+
+    return{
+
+        id:"seiko-"+product.id,
+
+        productId:product.id,
+
+        name:product.name,
+
+        price:product.price,
+
+        quantity:selectedQuantity,
+
+        image:product.media==="image"
+            ? product.file
+            : "",
+
+        media:product.media,
+
+        video:product.media==="video"
+            ? product.file
+            : "",
+
+        category:"Seiko",
+
+        brand:product.brand
+
+    };
+
+}
+
+
+/* =========================================================
+   GET SELECTED QUANTITY
+========================================================= */
+
+function getSelectedQuantity(){
+
+    let value=Number(quantity.value);
+
+    if(!Number.isFinite(value)){
+        value=1;
+    }
+
+    value=Math.floor(value);
+
+    if(value<1){
+        value=1;
+    }
+
+    if(value>10){
+        value=10;
+    }
+
+    quantity.value=value;
+
+    return value;
+
+}
+
+
+/* =========================================================
+   ADD TO CART
+========================================================= */
+
+function addToCart(){
+
+    if(!product){
+        return;
+    }
+
+    if(product.outOfStock){
+
+        cartMessage.classList.add("stock-message");
+        cartMessage.textContent="This product is currently out of stock.";
+
+        return;
+
+    }
+
+    const selectedQuantity=getSelectedQuantity();
+
+    const cart=getCart();
+
+    const cartProductId="seiko-"+product.id;
+
+    const existing=cart.find(
+        item=>String(item.id)===String(cartProductId)
+    );
+
+    if(existing){
+
+        existing.quantity=
+            (Number(existing.quantity)||0)+selectedQuantity;
+
+    }
+
+    else{
+
+        cart.push(createCartItem(selectedQuantity));
+
+    }
+
+    saveCart(cart);
+
+    cartMessage.classList.remove("stock-message");
+    cartMessage.textContent="✓ Added to your cart";
+
+    setTimeout(function(){
+
+        cartMessage.textContent="";
+
+    },3000);
+
+}
+
+
+/* =========================================================
+   BUY NOW
+========================================================= */
+
+function buyNow(){
+
+    if(!product){
+        return;
+    }
+
+    if(product.outOfStock){
+
+        cartMessage.classList.add("stock-message");
+        cartMessage.textContent="This product is currently out of stock.";
+
+        return;
+
+    }
+
+    const selectedQuantity=getSelectedQuantity();
+
+    const cart=getCart();
+
+    const cartProductId="seiko-"+product.id;
+
+    const existing=cart.find(
+        item=>String(item.id)===String(cartProductId)
+    );
+
+    if(existing){
+
+        existing.quantity=
+            (Number(existing.quantity)||0)+selectedQuantity;
+
+    }
+
+    else{
+
+        cart.push(createCartItem(selectedQuantity));
+
+    }
+
+    saveCart(cart);
+
+    window.location.href="cart.html";
+
+}
+
+
+/* =========================================================
+   QUANTITY CONTROLS
+========================================================= */
+
+document
+    .getElementById("minusBtn")
+    .addEventListener("click",function(){
+
+        if(product&&product.outOfStock){
+            return;
+        }
+
+        quantity.value=Math.max(
+            1,
+            (Number(quantity.value)||1)-1
+        );
+
+    });
+
+
+document
+    .getElementById("plusBtn")
+    .addEventListener("click",function(){
+
+        if(product&&product.outOfStock){
+            return;
+        }
+
+        quantity.value=Math.min(
+            10,
+            (Number(quantity.value)||1)+1
+        );
+
+    });
+
+
+quantity.addEventListener("change",function(){
+
+    if(product&&product.outOfStock){
+
+        quantity.value=1;
+        return;
+
+    }
+
+    getSelectedQuantity();
+
+});
+
+
+/* =========================================================
+   BUTTON EVENTS
+========================================================= */
+
+addCartBtn.addEventListener("click",addToCart);
+buyNowBtn.addEventListener("click",buyNow);
+
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+loadProduct();
+
+</script>
+
+</body>
+
+</html>
