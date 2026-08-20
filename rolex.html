@@ -10,7 +10,13 @@
     content="width=1110"
 >
 
+<meta
+    name="description"
+    content="Explore the Rolex Collection at 50 Mirars featuring luxury-inspired Rolex watches and couple watches."
+>
+
 <title>Rolex Collection | 50 Mirars</title>
+
 
 <style>
 
@@ -31,8 +37,15 @@ body {
     overflow-x: hidden;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    font-family: Arial, sans-serif;
+
+    font-family:
+        Arial,
+        sans-serif;
 
     background:
         radial-gradient(
@@ -56,30 +69,44 @@ body {
 ========================================================= */
 
 .home-wrapper {
+
     width: 100%;
+
     padding: 20px;
 }
 
 .home-btn {
+
     display: inline-block;
 
     background: #111;
+
     color: #fff;
 
     text-decoration: none;
 
-    padding: 12px 25px;
+    padding:
+        12px
+        25px;
 
     border-radius: 6px;
 
     font-weight: 600;
 
-    transition: 0.3s ease;
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
 }
 
 .home-btn:hover {
+
     background: #c9a24d;
+
     color: #111;
+
+    transform:
+        translateY(-2px);
 }
 
 
@@ -88,27 +115,43 @@ body {
 ========================================================= */
 
 .page-title {
+
     width: 100%;
     max-width: 100%;
 
     text-align: center;
 
-    padding: 30px 20px 40px;
+    padding:
+        30px
+        20px
+        40px;
 }
 
 .page-title h1 {
+
     font-size: 64px;
 
-    margin: 0 0 20px;
+    margin:
+        0
+        0
+        20px;
 
     color: #111;
 
     line-height: 1.1;
 
     word-break: break-word;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-weight: 600;
 }
 
 .title-line {
+
     width: 160px;
     max-width: 80%;
 
@@ -122,9 +165,11 @@ body {
 }
 
 .title-line::after {
+
     content: "";
 
     width: 12px;
+
     height: 12px;
 
     background: #c9a24d;
@@ -132,6 +177,7 @@ body {
     position: absolute;
 
     left: 50%;
+
     top: 50%;
 
     transform:
@@ -145,15 +191,22 @@ body {
 ========================================================= */
 
 .products-grid {
+
     width: 90%;
     max-width: 1400px;
 
-    margin: 0 auto 70px;
+    margin:
+        0
+        auto
+        70px;
 
     display: grid;
 
     grid-template-columns:
-        repeat(3, minmax(0, 1fr));
+        repeat(
+            3,
+            minmax(0, 1fr)
+        );
 
     gap: 35px;
 }
@@ -164,7 +217,9 @@ body {
 ========================================================= */
 
 .product-card {
+
     width: 100%;
+
     min-width: 0;
 
     background: #fff;
@@ -178,11 +233,32 @@ body {
     box-shadow:
         0 8px 25px
         rgba(0, 0, 0, 0.08);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
+
+.product-card:hover {
+
+    transform:
+        translateY(-5px);
+
+    box-shadow:
+        0 15px 35px
+        rgba(0, 0, 0, 0.13);
+}
+
+
+/* =========================================================
+   PRODUCT MEDIA
+========================================================= */
 
 .product-card > img,
 .product-card > video {
+
     width: 100%;
+
     max-width: 100%;
 
     height: 350px;
@@ -200,13 +276,23 @@ body {
 ========================================================= */
 
 .product-card h3 {
-    margin: 20px 10px 10px;
+
+    margin:
+        20px
+        10px
+        10px;
 
     line-height: 1.4;
 
     word-break: break-word;
 
     min-height: 45px;
+
+    font-size: 19px;
+
+    color: #111;
+
+    font-weight: 600;
 }
 
 
@@ -215,21 +301,26 @@ body {
 ========================================================= */
 
 .price {
+
     color: #c9a24d;
 
     font-size: 22px;
 
     font-weight: bold;
 
-    margin: 10px 0;
+    margin:
+        10px
+        0
+        15px;
 }
 
 
 /* =========================================================
-   PRODUCT BUTTONS
+   PRODUCT BUTTON AREA
 ========================================================= */
 
 .product-buttons {
+
     width: 100%;
 
     display: flex;
@@ -238,72 +329,77 @@ body {
 
     align-items: center;
 
-    gap: 10px;
-
     margin-top: 10px;
 
-    margin-bottom: 20px;
+    margin-bottom: 22px;
 
-    padding: 0 10px;
-
-    flex-wrap: wrap;
-}
-
-.enquire-btn,
-.add-to-cart-btn {
-    padding: 10px 20px;
-
-    border: 1px solid #111;
-
-    cursor: pointer;
-
-    text-decoration: none;
-
-    font-weight: 600;
-
-    border-radius: 6px;
-
-    font-size: 16px;
-
-    transition: 0.3s;
-
-    font-family: Arial, sans-serif;
+    padding:
+        0
+        15px;
 }
 
 
 /* =========================================================
-   ENQUIRE BUTTON
+   VIEW PRODUCT DETAILS BUTTON
 ========================================================= */
 
-.enquire-btn {
+.view-details-btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 100%;
+
+    max-width: 240px;
+
+    min-height: 48px;
+
+    padding:
+        11px
+        22px;
+
     background: #111;
 
     color: #fff;
+
+    border:
+        1px solid
+        #111;
+
+    text-decoration: none;
+
+    border-radius: 6px;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease;
 }
 
-.enquire-btn:hover {
+.view-details-btn:hover {
+
     background: #c9a24d;
 
     color: #111;
-}
-
-
-/* =========================================================
-   ADD TO CART BUTTON
-========================================================= */
-
-.add-to-cart-btn {
-    background: #fff;
-
-    color: #111;
-}
-
-.add-to-cart-btn:hover {
-    background: #c9a24d;
-
-    color: #fff;
 
     border-color: #c9a24d;
+
+    transform:
+        translateY(-2px);
 }
 
 
@@ -312,9 +408,11 @@ body {
 ========================================================= */
 
 .slider {
+
     position: relative;
 
     width: 100%;
+
     height: 350px;
 
     overflow: hidden;
@@ -323,12 +421,15 @@ body {
 }
 
 .slider .slide {
+
     position: absolute;
 
     top: 0;
+
     left: 0;
 
     width: 100%;
+
     height: 350px;
 
     object-fit: cover;
@@ -336,10 +437,12 @@ body {
     display: none;
 
     margin: 0;
+
     padding: 0;
 }
 
 .slider .slide.active {
+
     display: block;
 }
 
@@ -350,21 +453,26 @@ body {
 
 .slider .prev,
 .slider .next {
+
     position: absolute;
 
     top: 50%;
 
-    transform: translateY(-50%);
+    transform:
+        translateY(-50%);
 
     width: 45px;
+
     height: 45px;
 
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
-    background: rgba(0, 0, 0, 0.60);
+    background:
+        rgba(0, 0, 0, 0.60);
 
     color: #fff;
 
@@ -380,19 +488,23 @@ body {
 
     transition:
         background 0.3s ease,
+        color 0.3s ease,
         transform 0.3s ease;
 }
 
 .slider .prev {
+
     left: 12px;
 }
 
 .slider .next {
+
     right: 12px;
 }
 
 .slider .prev:hover,
 .slider .next:hover {
+
     background: #c9a24d;
 
     color: #111;
@@ -408,12 +520,20 @@ body {
 ========================================================= */
 
 .rolex-info-section {
+
     width: 100%;
+
     max-width: 1400px;
 
-    margin: 45px auto 0;
+    margin:
+        45px
+        auto
+        0;
 
-    padding: 35px 60px 55px;
+    padding:
+        35px
+        60px
+        55px;
 
     background: #fff;
 
@@ -428,12 +548,16 @@ body {
 ========================================================= */
 
 .rolex-info-grid {
+
     width: 100%;
 
     display: grid;
 
     grid-template-columns:
-        repeat(3, minmax(0, 1fr));
+        repeat(
+            3,
+            minmax(0, 1fr)
+        );
 
     gap: 55px;
 
@@ -441,6 +565,7 @@ body {
 }
 
 .rolex-info-column {
+
     min-width: 0;
 
     width: 100%;
@@ -450,11 +575,15 @@ body {
 
 
 /* =========================================================
-   HEADINGS
+   INFORMATION HEADINGS
 ========================================================= */
 
 .rolex-info-section h2 {
-    margin: 0 0 18px;
+
+    margin:
+        0
+        0
+        18px;
 
     font-size: 16px;
 
@@ -466,7 +595,11 @@ body {
 }
 
 .rolex-info-section h3 {
-    margin: 28px 0 17px;
+
+    margin:
+        28px
+        0
+        17px;
 
     font-size: 16px;
 
@@ -479,11 +612,15 @@ body {
 
 
 /* =========================================================
-   TEXT
+   INFORMATION TEXT
 ========================================================= */
 
 .rolex-info-section p {
-    margin: 0 0 24px;
+
+    margin:
+        0
+        0
+        24px;
 
     font-size: 13px;
 
@@ -502,19 +639,25 @@ body {
 ========================================================= */
 
 .rolex-faq {
+
     margin-top: 0;
 
     width: 100%;
 }
 
 .rolex-faq-item {
+
     margin-bottom: 20px;
 
     width: 100%;
 }
 
 .rolex-faq-question {
-    margin: 0 0 3px !important;
+
+    margin:
+        0
+        0
+        3px !important;
 
     font-size: 13px !important;
 
@@ -524,6 +667,7 @@ body {
 }
 
 .rolex-faq-answer {
+
     margin: 0 !important;
 
     font-size: 13px !important;
@@ -539,6 +683,7 @@ body {
 ========================================================= */
 
 .rolex-conclusion {
+
     width: 100%;
 
     margin-top: 40px;
@@ -549,7 +694,11 @@ body {
 }
 
 .rolex-conclusion h2 {
-    margin: 0 0 18px;
+
+    margin:
+        0
+        0
+        18px;
 
     font-size: 16px;
 
@@ -559,6 +708,7 @@ body {
 }
 
 .rolex-conclusion p {
+
     font-size: 13px;
 
     line-height: 1.6;
@@ -568,18 +718,23 @@ body {
 
 
 /* =========================================================
-   CONTACT US FOOTER
+   FOOTER
 ========================================================= */
 
 .main-footer {
+
     width: 100%;
+
     max-width: 100%;
 
     background: #080808;
 
     color: #ffffff;
 
-    padding: 70px 7% 25px;
+    padding:
+        70px
+        7%
+        25px;
 
     border-top:
         1px solid
@@ -589,7 +744,9 @@ body {
 }
 
 .footer-container {
+
     width: 100%;
+
     max-width: 1400px;
 
     margin: 0 auto;
@@ -601,12 +758,16 @@ body {
 ========================================================= */
 
 .footer-top {
+
     width: 100%;
 
     display: grid;
 
     grid-template-columns:
-        repeat(3, minmax(0, 1fr));
+        repeat(
+            3,
+            minmax(0, 1fr)
+        );
 
     column-gap: 70px;
 
@@ -616,9 +777,13 @@ body {
 }
 
 .footer-top > h2 {
+
     grid-column: 1 / -1;
 
-    margin: 0 0 10px;
+    margin:
+        0
+        0
+        10px;
 
     font-family:
         Georgia,
@@ -638,6 +803,7 @@ body {
 
 .contact-column,
 .whatsapp-column {
+
     min-width: 0;
 
     width: 100%;
@@ -647,7 +813,11 @@ body {
 
 .contact-column h3,
 .whatsapp-column h3 {
-    margin: 0 0 22px;
+
+    margin:
+        0
+        0
+        22px;
 
     color: #ffffff;
 
@@ -659,7 +829,11 @@ body {
 }
 
 .contact-column p {
-    margin: 12px 0 0;
+
+    margin:
+        12px
+        0
+        0;
 
     color: #bdbdbd;
 
@@ -669,13 +843,17 @@ body {
 }
 
 .footer-link {
+
     display: block;
 
     width: fit-content;
 
     max-width: 100%;
 
-    margin: 0 auto 8px;
+    margin:
+        0
+        auto
+        8px;
 
     color: #ffffff;
 
@@ -687,10 +865,12 @@ body {
 
     overflow-wrap: break-word;
 
-    transition: color 0.3s ease;
+    transition:
+        color 0.3s ease;
 }
 
 .footer-link:hover {
+
     color: #c9a24d;
 }
 
@@ -700,6 +880,7 @@ body {
 ========================================================= */
 
 .whatsapp-title {
+
     display: flex;
 
     align-items: center;
@@ -712,6 +893,7 @@ body {
 }
 
 .whatsapp-icon {
+
     width: 28px;
 
     height: 28px;
@@ -724,6 +906,7 @@ body {
 }
 
 .whatsapp-button {
+
     display: inline-flex;
 
     align-items: center;
@@ -736,7 +919,9 @@ body {
 
     max-width: 100%;
 
-    padding: 13px 30px;
+    padding:
+        13px
+        30px;
 
     background: #ffffff;
 
@@ -750,19 +935,24 @@ body {
 
     letter-spacing: 0.2px;
 
-    border: 1px solid #ffffff;
+    border:
+        1px solid
+        #ffffff;
 
-    transition: all 0.3s ease;
+    transition:
+        all 0.3s ease;
 }
 
 .whatsapp-button:hover {
+
     background: #c9a24d;
 
     border-color: #c9a24d;
 
     color: #ffffff;
 
-    transform: translateY(-2px);
+    transform:
+        translateY(-2px);
 }
 
 
@@ -771,12 +961,16 @@ body {
 ========================================================= */
 
 .footer-middle {
+
     width: 100%;
 
     display: grid;
 
     grid-template-columns:
-        repeat(3, minmax(0, 1fr));
+        repeat(
+            3,
+            minmax(0, 1fr)
+        );
 
     gap: 50px;
 
@@ -791,6 +985,7 @@ body {
 
 .footer-links-column,
 .footer-social {
+
     min-width: 0;
 
     width: 100%;
@@ -800,7 +995,11 @@ body {
 
 .footer-links-column h3,
 .footer-social h3 {
-    margin: 0 0 20px;
+
+    margin:
+        0
+        0
+        20px;
 
     color: #ffffff;
 
@@ -812,13 +1011,17 @@ body {
 }
 
 .footer-links-column a {
+
     display: block;
 
     width: fit-content;
 
     max-width: 100%;
 
-    margin: 0 auto 14px;
+    margin:
+        0
+        auto
+        14px;
 
     color: #d7d7d7;
 
@@ -828,15 +1031,21 @@ body {
 
     line-height: 1.5;
 
-    transition: color 0.3s ease;
+    transition:
+        color 0.3s ease;
 }
 
 .footer-links-column a:hover {
+
     color: #c9a24d;
 }
 
 .footer-social p {
-    margin: 0 0 14px;
+
+    margin:
+        0
+        0
+        14px;
 
     color: #d7d7d7;
 
@@ -849,6 +1058,7 @@ body {
 ========================================================= */
 
 .instagram-button {
+
     width: 58px;
 
     height: 58px;
@@ -867,16 +1077,20 @@ body {
 
     text-decoration: none;
 
-    transition: all 0.3s ease;
+    transition:
+        all 0.3s ease;
 }
 
 .instagram-button:hover {
+
     border-color: #c9a24d;
 
-    transform: translateY(-2px);
+    transform:
+        translateY(-2px);
 }
 
 .instagram-button img {
+
     width: 32px;
 
     height: 32px;
@@ -892,6 +1106,7 @@ body {
 ========================================================= */
 
 .footer-bottom {
+
     width: 100%;
 
     margin-top: 50px;
@@ -904,6 +1119,7 @@ body {
 }
 
 .footer-bottom p {
+
     margin: 0;
 
     color: #aaaaaa;
@@ -925,33 +1141,50 @@ body {
 @media (max-width: 1000px) {
 
     .products-grid {
+
         grid-template-columns:
-            repeat(2, minmax(0, 1fr));
+            repeat(
+                2,
+                minmax(0, 1fr)
+            );
 
         gap: 25px;
     }
 
     .rolex-info-grid {
+
         grid-template-columns:
-            repeat(2, minmax(0, 1fr));
+            repeat(
+                2,
+                minmax(0, 1fr)
+            );
 
         gap: 35px;
     }
 
     .footer-top {
+
         grid-template-columns:
-            repeat(2, minmax(0, 1fr));
+            repeat(
+                2,
+                minmax(0, 1fr)
+            );
 
         column-gap: 35px;
     }
 
     .footer-top > h2 {
+
         grid-column: 1 / -1;
     }
 
     .footer-middle {
+
         grid-template-columns:
-            repeat(2, minmax(0, 1fr));
+            repeat(
+                2,
+                minmax(0, 1fr)
+            );
 
         gap: 35px;
     }
@@ -965,10 +1198,12 @@ body {
 @media (max-width: 700px) {
 
     .home-wrapper {
+
         padding: 15px;
     }
 
     .page-title {
+
         padding:
             25px
             15px
@@ -976,13 +1211,19 @@ body {
     }
 
     .page-title h1 {
+
         font-size: 48px;
     }
 
     .products-grid {
-        width: calc(100% - 30px);
+
+        width:
+            calc(
+                100% - 30px
+            );
 
         margin-left: 15px;
+
         margin-right: 15px;
 
         grid-template-columns: 1fr;
@@ -992,37 +1233,48 @@ body {
 
     .product-card > img,
     .product-card > video {
+
         height: 300px;
     }
 
     .slider {
+
         height: 300px;
     }
 
     .slider .slide {
+
         height: 300px;
     }
 
     .product-buttons {
-        padding: 0 15px;
+
+        padding:
+            0
+            15px;
     }
 
-    .enquire-btn,
-    .add-to-cart-btn {
-        padding: 10px 15px;
+    .view-details-btn {
+
+        max-width: 260px;
+
+        min-height: 46px;
 
         font-size: 15px;
     }
 
     .slider .prev,
     .slider .next {
+
         width: 40px;
+
         height: 40px;
 
         font-size: 18px;
     }
 
     .rolex-info-section {
+
         width: 100%;
 
         margin-top: 30px;
@@ -1034,6 +1286,7 @@ body {
     }
 
     .rolex-info-grid {
+
         grid-template-columns: 1fr;
 
         gap: 5px;
@@ -1041,6 +1294,7 @@ body {
 
     .rolex-info-section h2,
     .rolex-info-section h3 {
+
         font-size: 16px;
     }
 
@@ -1048,13 +1302,17 @@ body {
     .rolex-faq-question,
     .rolex-faq-answer,
     .rolex-conclusion p {
+
         font-size: 13px !important;
     }
 
 
-    /* FOOTER MOBILE */
+    /* =====================================================
+       FOOTER MOBILE
+    ===================================================== */
 
     .main-footer {
+
         padding:
             55px
             20px
@@ -1062,12 +1320,14 @@ body {
     }
 
     .footer-top {
+
         grid-template-columns: 1fr;
 
         gap: 40px;
     }
 
     .footer-top > h2 {
+
         grid-column: auto;
 
         font-size: 34px;
@@ -1077,10 +1337,12 @@ body {
 
     .contact-column,
     .whatsapp-column {
+
         width: 100%;
     }
 
     .footer-middle {
+
         grid-template-columns: 1fr;
 
         gap: 35px;
@@ -1091,6 +1353,7 @@ body {
     }
 
     .footer-bottom {
+
         margin-top: 40px;
     }
 }
@@ -1103,10 +1366,12 @@ body {
 @media (max-width: 400px) {
 
     .page-title h1 {
+
         font-size: 42px;
     }
 
     .home-btn {
+
         padding:
             10px
             18px;
@@ -1114,26 +1379,22 @@ body {
         font-size: 14px;
     }
 
-    .product-buttons {
-        flex-direction: column;
+    .view-details-btn {
 
-        align-items: stretch;
-    }
-
-    .enquire-btn,
-    .add-to-cart-btn {
         width: 100%;
 
-        text-align: center;
+        max-width: 100%;
     }
 
     .whatsapp-button {
+
         width: 100%;
 
         min-width: 0;
     }
 
     .footer-top > h2 {
+
         font-size: 30px;
     }
 }
@@ -1168,7 +1429,9 @@ body {
 
 <div class="page-title">
 
-    <h1>Rolex</h1>
+    <h1>
+        Rolex
+    </h1>
 
     <div class="title-line"></div>
 
@@ -1188,38 +1451,37 @@ body {
 
 <div class="product-card">
 
-    <video controls playsinline preload="metadata">
+    <video
+        controls
+        playsinline
+        preload="metadata"
+    >
+
         <source
             src="Rolex Pheonix Watch.mp4"
             type="video/mp4"
         >
+
         Your browser does not support video playback.
+
     </video>
 
-    <h3>Rolex Pheonix Watch</h3>
+    <h3>
+        Rolex Pheonix Watch
+    </h3>
 
-    <div class="price">₹4,000</div>
+    <div class="price">
+        ₹4,000
+    </div>
 
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Pheonix%20Watch.%20Please%20share%20availability%20and%20details."
-            target="_blank"
-            rel="noopener"
+            href="product-detailsrolex.html?id=1"
+            class="view-details-btn"
         >
-            Enquire Now
+            View Product Details
         </a>
-
-        <button
-            type="button"
-            class="add-to-cart-btn"
-            data-name="Rolex Pheonix Watch"
-            data-price="4000"
-            data-image="Rolex Pheonix Watch.mp4"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -1232,7 +1494,11 @@ body {
 
 <div class="product-card">
 
-    <video controls playsinline preload="metadata">
+    <video
+        controls
+        playsinline
+        preload="metadata"
+    >
 
         <source
             src="Rolex Daytona 116578SACO.mp4"
@@ -1241,30 +1507,22 @@ body {
 
     </video>
 
-    <h3>Rolex Daytona 116578SACO</h3>
+    <h3>
+        Rolex Daytona 116578SACO
+    </h3>
 
-    <div class="price">₹3,500</div>
+    <div class="price">
+        ₹3,500
+    </div>
 
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Rolex%20Daytona%20116578SACO"
-            target="_blank"
-            rel="noopener"
+            href="product-detailsrolex.html?id=2"
+            class="view-details-btn"
         >
-            Enquire Now
+            View Product Details
         </a>
-
-        <button
-            type="button"
-            class="add-to-cart-btn"
-            data-name="Rolex Daytona 116578SACO"
-            data-price="3500"
-            data-image="Rolex Daytona 116578SACO.mp4"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -1277,7 +1535,11 @@ body {
 
 <div class="product-card">
 
-    <video controls playsinline preload="metadata">
+    <video
+        controls
+        playsinline
+        preload="metadata"
+    >
 
         <source
             src="Rolex Datejust 41 Wimbledon Dial.mp4"
@@ -1286,30 +1548,22 @@ body {
 
     </video>
 
-    <h3>Rolex Datejust 41 Wimbledon Dial</h3>
+    <h3>
+        Rolex Datejust 41 Wimbledon Dial
+    </h3>
 
-    <div class="price">₹3,500</div>
+    <div class="price">
+        ₹3,500
+    </div>
 
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Rolex%20Datejust%2041%20Wimbledon%20Dial"
-            target="_blank"
-            rel="noopener"
+            href="product-detailsrolex.html?id=3"
+            class="view-details-btn"
         >
-            Enquire Now
+            View Product Details
         </a>
-
-        <button
-            type="button"
-            class="add-to-cart-btn"
-            data-name="Rolex Datejust 41 Wimbledon Dial"
-            data-price="3500"
-            data-image="Rolex Datejust 41 Wimbledon Dial.mp4"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -1322,7 +1576,11 @@ body {
 
 <div class="product-card">
 
-    <video controls playsinline preload="metadata">
+    <video
+        controls
+        playsinline
+        preload="metadata"
+    >
 
         <source
             src="Rolex Cosmograph Daytona John Mayer 116508.mp4"
@@ -1331,30 +1589,22 @@ body {
 
     </video>
 
-    <h3>Rolex Cosmograph Daytona John Mayer 116508</h3>
+    <h3>
+        Rolex Cosmograph Daytona John Mayer 116508
+    </h3>
 
-    <div class="price">₹3,500</div>
+    <div class="price">
+        ₹3,500
+    </div>
 
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Rolex%20Cosmograph%20Daytona%20John%20Mayer%20116508"
-            target="_blank"
-            rel="noopener"
+            href="product-detailsrolex.html?id=4"
+            class="view-details-btn"
         >
-            Enquire Now
+            View Product Details
         </a>
-
-        <button
-            type="button"
-            class="add-to-cart-btn"
-            data-name="Rolex Cosmograph Daytona John Mayer 116508"
-            data-price="3500"
-            data-image="Rolex Cosmograph Daytona John Mayer 116508.mp4"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -1373,30 +1623,22 @@ body {
         loading="lazy"
     >
 
-    <h3>Rolex Yatch-Master 42</h3>
+    <h3>
+        Rolex Yatch-Master 42
+    </h3>
 
-    <div class="price">₹5,000</div>
+    <div class="price">
+        ₹5,000
+    </div>
 
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Yatch-Master%2042."
-            target="_blank"
-            rel="noopener"
+            href="product-detailsrolex.html?id=5"
+            class="view-details-btn"
         >
-            Enquire Now
+            View Product Details
         </a>
-
-        <button
-            type="button"
-            class="add-to-cart-btn"
-            data-name="Rolex Yatch-Master 42"
-            data-price="5000"
-            data-image="Rolex Yatch-Master 42.jpeg"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -1409,7 +1651,11 @@ body {
 
 <div class="product-card">
 
-    <video controls playsinline preload="metadata">
+    <video
+        controls
+        playsinline
+        preload="metadata"
+    >
 
         <source
             src="Rolex GMT-Master II Root Beer .mp4"
@@ -1418,30 +1664,22 @@ body {
 
     </video>
 
-    <h3>Rolex GMT-Master II Root Beer</h3>
+    <h3>
+        Rolex GMT-Master II Root Beer
+    </h3>
 
-    <div class="price">₹3,500</div>
+    <div class="price">
+        ₹3,500
+    </div>
 
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Rolex%20GMT-Master%20II%20Root%20Beer"
-            target="_blank"
-            rel="noopener"
+            href="product-detailsrolex.html?id=6"
+            class="view-details-btn"
         >
-            Enquire Now
+            View Product Details
         </a>
-
-        <button
-            type="button"
-            class="add-to-cart-btn"
-            data-name="Rolex GMT-Master II Root Beer"
-            data-price="3500"
-            data-image="Rolex GMT-Master II Root Beer .mp4"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -1460,30 +1698,22 @@ body {
         loading="lazy"
     >
 
-    <h3>Rolex Cosmograph</h3>
+    <h3>
+        Rolex Cosmograph
+    </h3>
 
-    <div class="price">₹5,000</div>
+    <div class="price">
+        ₹5,000
+    </div>
 
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Cosmograph."
-            target="_blank"
-            rel="noopener"
+            href="product-detailsrolex.html?id=7"
+            class="view-details-btn"
         >
-            Enquire Now
+            View Product Details
         </a>
-
-        <button
-            type="button"
-            class="add-to-cart-btn"
-            data-name="Rolex Cosmograph"
-            data-price="5000"
-            data-image="Rolex Cosmograph .jpeg"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -1502,30 +1732,22 @@ body {
         loading="lazy"
     >
 
-    <h3>Rolex Cosmograph Daytona Green</h3>
+    <h3>
+        Rolex Cosmograph Daytona Green
+    </h3>
 
-    <div class="price">₹5,000</div>
+    <div class="price">
+        ₹5,000
+    </div>
 
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Cosmograph%20Daytona%20Green."
-            target="_blank"
-            rel="noopener"
+            href="product-detailsrolex.html?id=8"
+            class="view-details-btn"
         >
-            Enquire Now
+            View Product Details
         </a>
-
-        <button
-            type="button"
-            class="add-to-cart-btn"
-            data-name="Rolex Cosmograph Daytona Green"
-            data-price="5000"
-            data-image="Rolex Cosmograph Dayona Green.jpeg"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -1544,30 +1766,22 @@ body {
         loading="lazy"
     >
 
-    <h3>Rolex Cosmograph Daytona John Walker</h3>
+    <h3>
+        Rolex Cosmograph Daytona John Walker
+    </h3>
 
-    <div class="price">₹5,000</div>
+    <div class="price">
+        ₹5,000
+    </div>
 
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Cosmograph%20Daytona%20John%20Walker."
-            target="_blank"
-            rel="noopener"
+            href="product-detailsrolex.html?id=9"
+            class="view-details-btn"
         >
-            Enquire Now
+            View Product Details
         </a>
-
-        <button
-            type="button"
-            class="add-to-cart-btn"
-            data-name="Rolex Cosmograph Daytona John Walker"
-            data-price="5000"
-            data-image="Rolex Cosmograph Daytona John Walker.jpeg"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -1586,30 +1800,22 @@ body {
         loading="lazy"
     >
 
-    <h3>Rolex Daytona Rainbow</h3>
+    <h3>
+        Rolex Daytona Rainbow
+    </h3>
 
-    <div class="price">₹5,000</div>
+    <div class="price">
+        ₹5,000
+    </div>
 
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Daytona%20Rainbow."
-            target="_blank"
-            rel="noopener"
+            href="product-detailsrolex.html?id=10"
+            class="view-details-btn"
         >
-            Enquire Now
+            View Product Details
         </a>
-
-        <button
-            type="button"
-            class="add-to-cart-btn"
-            data-name="Rolex Daytona Rainbow"
-            data-price="5000"
-            data-image="Rolex Daytona Rainbow.jpeg"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -1628,30 +1834,22 @@ body {
         loading="lazy"
     >
 
-    <h3>Rolex Submarine Date Just Silver-Gold</h3>
+    <h3>
+        Rolex Submarine Date Just Silver-Gold
+    </h3>
 
-    <div class="price">₹5,000</div>
+    <div class="price">
+        ₹5,000
+    </div>
 
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Submarine%20Date%20Just%20Silver-Gold.%20Please%20share%20availability%20and%20details."
-            target="_blank"
-            rel="noopener"
+            href="product-detailsrolex.html?id=11"
+            class="view-details-btn"
         >
-            Enquire Now
+            View Product Details
         </a>
-
-        <button
-            type="button"
-            class="add-to-cart-btn"
-            data-name="Rolex Submarine Date Just Silver-Gold"
-            data-price="5000"
-            data-image="Rolex Submarine Date Just Silver-Gold.jpeg"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -1670,30 +1868,22 @@ body {
         loading="lazy"
     >
 
-    <h3>Rolex Submarine Date Just Silver</h3>
+    <h3>
+        Rolex Submarine Date Just Silver
+    </h3>
 
-    <div class="price">₹5,000</div>
+    <div class="price">
+        ₹5,000
+    </div>
 
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Submarine%20Date%20Just%20Silver.%20Please%20share%20availability%20and%20details."
-            target="_blank"
-            rel="noopener"
+            href="product-detailsrolex.html?id=12"
+            class="view-details-btn"
         >
-            Enquire Now
+            View Product Details
         </a>
-
-        <button
-            type="button"
-            class="add-to-cart-btn"
-            data-name="Rolex Submarine Date Just Silver"
-            data-price="5000"
-            data-image="Rolex Submarine Date Just Silver.jpeg"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -1712,30 +1902,22 @@ body {
         loading="lazy"
     >
 
-    <h3>Rolex Submarine Date Just Gold</h3>
+    <h3>
+        Rolex Submarine Date Just Gold
+    </h3>
 
-    <div class="price">₹5,000</div>
+    <div class="price">
+        ₹5,000
+    </div>
 
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Submarine%20Date%20Just%20Gold.%20Please%20share%20availability%20and%20details."
-            target="_blank"
-            rel="noopener"
+            href="product-detailsrolex.html?id=13"
+            class="view-details-btn"
         >
-            Enquire Now
+            View Product Details
         </a>
-
-        <button
-            type="button"
-            class="add-to-cart-btn"
-            data-name="Rolex Submarine Date Just Gold"
-            data-price="5000"
-            data-image="Rolex Submarine Date Just Gold.jpeg"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -1754,30 +1936,22 @@ body {
         loading="lazy"
     >
 
-    <h3>Rolex Eye of The Tiger</h3>
+    <h3>
+        Rolex Eye of The Tiger
+    </h3>
 
-    <div class="price">₹4,000</div>
+    <div class="price">
+        ₹4,000
+    </div>
 
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Eye%20of%20The%20Tiger.%20Please%20share%20availability%20and%20details."
-            target="_blank"
-            rel="noopener"
+            href="product-detailsrolex.html?id=14"
+            class="view-details-btn"
         >
-            Enquire Now
+            View Product Details
         </a>
-
-        <button
-            type="button"
-            class="add-to-cart-btn"
-            data-name="Rolex Eye of The Tiger"
-            data-price="4000"
-            data-image="Rolex Eye of The Tiger.jpeg"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -1796,30 +1970,22 @@ body {
         loading="lazy"
     >
 
-    <h3>Rolex Sky-Dweller</h3>
+    <h3>
+        Rolex Sky-Dweller
+    </h3>
 
-    <div class="price">₹5,000</div>
+    <div class="price">
+        ₹5,000
+    </div>
 
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Sky-Dweller.%20Please%20share%20availability%20and%20details."
-            target="_blank"
-            rel="noopener"
+            href="product-detailsrolex.html?id=15"
+            class="view-details-btn"
         >
-            Enquire Now
+            View Product Details
         </a>
-
-        <button
-            type="button"
-            class="add-to-cart-btn"
-            data-name="Rolex Sky-Dweller"
-            data-price="5000"
-            data-image="Rolex Sky-Dweller.jpeg"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -1838,30 +2004,22 @@ body {
         loading="lazy"
     >
 
-    <h3>Rolex Submarine Blue</h3>
+    <h3>
+        Rolex Submarine Blue
+    </h3>
 
-    <div class="price">₹5,000</div>
+    <div class="price">
+        ₹5,000
+    </div>
 
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Submarine%20Blue.%20Please%20share%20availability%20and%20details."
-            target="_blank"
-            rel="noopener"
+            href="product-detailsrolex.html?id=16"
+            class="view-details-btn"
         >
-            Enquire Now
+            View Product Details
         </a>
-
-        <button
-            type="button"
-            class="add-to-cart-btn"
-            data-name="Rolex Submarine Blue"
-            data-price="5000"
-            data-image="Rolex Sumbarine Blue.jpeg"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -1880,30 +2038,22 @@ body {
         loading="lazy"
     >
 
-    <h3>Rolex GMT-Master II Simple Dial</h3>
+    <h3>
+        Rolex GMT-Master II Simple Dial
+    </h3>
 
-    <div class="price">₹6,000</div>
+    <div class="price">
+        ₹6,000
+    </div>
 
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20GMT-Master%20II%20Simple%20Dial.%20Please%20share%20availability%20and%20details."
-            target="_blank"
-            rel="noopener"
+            href="product-detailsrolex.html?id=17"
+            class="view-details-btn"
         >
-            Enquire Now
+            View Product Details
         </a>
-
-        <button
-            type="button"
-            class="add-to-cart-btn"
-            data-name="Rolex GMT-Master II Simple Dial"
-            data-price="6000"
-            data-image="Rolex GMT-Master II Simple Dial.jpeg"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -1922,30 +2072,22 @@ body {
         loading="lazy"
     >
 
-    <h3>Rolex GMT-Master II</h3>
+    <h3>
+        Rolex GMT-Master II
+    </h3>
 
-    <div class="price">₹6,000</div>
+    <div class="price">
+        ₹6,000
+    </div>
 
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20GMT-Master%20II.%20Please%20share%20availability%20and%20details."
-            target="_blank"
-            rel="noopener"
+            href="product-detailsrolex.html?id=18"
+            class="view-details-btn"
         >
-            Enquire Now
+            View Product Details
         </a>
-
-        <button
-            type="button"
-            class="add-to-cart-btn"
-            data-name="Rolex GMT-Master II"
-            data-price="6000"
-            data-image="Rolex GMT-Master II.jpeg"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -1964,30 +2106,22 @@ body {
         loading="lazy"
     >
 
-    <h3>Rolex Generc Iced-Out</h3>
+    <h3>
+        Rolex Generc Iced-Out
+    </h3>
 
-    <div class="price">₹5,000</div>
+    <div class="price">
+        ₹5,000
+    </div>
 
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Generc%20Iced-Out.%20Please%20share%20availability%20and%20details."
-            target="_blank"
-            rel="noopener"
+            href="product-detailsrolex.html?id=19"
+            class="view-details-btn"
         >
-            Enquire Now
+            View Product Details
         </a>
-
-        <button
-            type="button"
-            class="add-to-cart-btn"
-            data-name="Rolex Generc Iced-Out"
-            data-price="5000"
-            data-image="Rolex Generc Iced-Out.jpeg"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -2006,30 +2140,22 @@ body {
         loading="lazy"
     >
 
-    <h3>Rolex Oyster Perpetual Day-Date</h3>
+    <h3>
+        Rolex Oyster Perpetual Day-Date
+    </h3>
 
-    <div class="price">₹5,500</div>
+    <div class="price">
+        ₹5,500
+    </div>
 
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Oyster%20Perpetual%20Day-Date.%20Please%20share%20availability%20and%20details."
-            target="_blank"
-            rel="noopener"
+            href="product-detailsrolex.html?id=20"
+            class="view-details-btn"
         >
-            Enquire Now
+            View Product Details
         </a>
-
-        <button
-            type="button"
-            class="add-to-cart-btn"
-            data-name="Rolex Oyster Perpetual Day-Date"
-            data-price="5500"
-            data-image="Rolex Oyster Perpetual Day-Date.jpeg"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -2048,30 +2174,22 @@ body {
         loading="lazy"
     >
 
-    <h3>Rolex Submarine Black</h3>
+    <h3>
+        Rolex Submarine Black
+    </h3>
 
-    <div class="price">₹5,000</div>
+    <div class="price">
+        ₹5,000
+    </div>
 
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Submarine%20Black.%20Please%20share%20availability%20and%20details."
-            target="_blank"
-            rel="noopener"
+            href="product-detailsrolex.html?id=21"
+            class="view-details-btn"
         >
-            Enquire Now
+            View Product Details
         </a>
-
-        <button
-            type="button"
-            class="add-to-cart-btn"
-            data-name="Rolex Submarine Black"
-            data-price="5000"
-            data-image="Rolex Submarine Black.jpeg"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -2084,7 +2202,11 @@ body {
 
 <div class="product-card">
 
-    <video controls playsinline preload="metadata">
+    <video
+        controls
+        playsinline
+        preload="metadata"
+    >
 
         <source
             src="Rolex All Black Couple Watch.mp4"
@@ -2093,30 +2215,22 @@ body {
 
     </video>
 
-    <h3>Rolex All Black Couple Watch</h3>
+    <h3>
+        Rolex All Black Couple Watch
+    </h3>
 
-    <div class="price">₹4,000</div>
+    <div class="price">
+        ₹4,000
+    </div>
 
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Rolex%20All%20Black%20Couple%20Watch"
-            target="_blank"
-            rel="noopener"
+            href="product-detailsrolex.html?id=22"
+            class="view-details-btn"
         >
-            Enquire Now
+            View Product Details
         </a>
-
-        <button
-            type="button"
-            class="add-to-cart-btn"
-            data-name="Rolex All Black Couple Watch"
-            data-price="4000"
-            data-image="Rolex All Black Couple Watch.mp4"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -2135,30 +2249,22 @@ body {
         loading="lazy"
     >
 
-    <h3>Rolex Automatic Couple Watch</h3>
+    <h3>
+        Rolex Automatic Couple Watch
+    </h3>
 
-    <div class="price">₹5,000</div>
+    <div class="price">
+        ₹5,000
+    </div>
 
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Automatic%20Couple%20Watch."
-            target="_blank"
-            rel="noopener"
+            href="product-detailsrolex.html?id=23"
+            class="view-details-btn"
         >
-            Enquire Now
+            View Product Details
         </a>
-
-        <button
-            type="button"
-            class="add-to-cart-btn"
-            data-name="Rolex Automatic Couple Watch"
-            data-price="5000"
-            data-image="Rolex Automatic Couple Watch.jpeg"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -2177,30 +2283,22 @@ body {
         loading="lazy"
     >
 
-    <h3>Rolex Sky-Dweller Couple Watch</h3>
+    <h3>
+        Rolex Sky-Dweller Couple Watch
+    </h3>
 
-    <div class="price">₹5,000</div>
+    <div class="price">
+        ₹5,000
+    </div>
 
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Sky-Dewller%20Couple%20Watch."
-            target="_blank"
-            rel="noopener"
+            href="product-detailsrolex.html?id=24"
+            class="view-details-btn"
         >
-            Enquire Now
+            View Product Details
         </a>
-
-        <button
-            type="button"
-            class="add-to-cart-btn"
-            data-name="Rolex Sky-Dweller Couple Watch"
-            data-price="5000"
-            data-image="Rolex Sky-Dewller Couple Watch.jpeg"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -2219,30 +2317,22 @@ body {
         loading="lazy"
     >
 
-    <h3>Rolex Submarine Green</h3>
+    <h3>
+        Rolex Submarine Green
+    </h3>
 
-    <div class="price">₹5,000</div>
+    <div class="price">
+        ₹5,000
+    </div>
 
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Submarine%20Green.%20Please%20share%20availability%20and%20details."
-            target="_blank"
-            rel="noopener"
+            href="product-detailsrolex.html?id=25"
+            class="view-details-btn"
         >
-            Enquire Now
+            View Product Details
         </a>
-
-        <button
-            type="button"
-            class="add-to-cart-btn"
-            data-name="Rolex Submarine Green"
-            data-price="5000"
-            data-image="Rolex Submarine Green.jpeg"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -2251,7 +2341,6 @@ body {
 
 <!-- =====================================================
      26. ROLEX DAY-DATE COUPLE WATCH
-     FIXED SLIDER
 ====================================================== -->
 
 <div class="product-card">
@@ -2324,6 +2413,7 @@ body {
             alt="Rolex Day-Date Couple Watch"
         >
 
+
         <button
             type="button"
             class="prev"
@@ -2354,23 +2444,11 @@ body {
     <div class="product-buttons">
 
         <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Day-Date%20Couple%20Watch."
-            target="_blank"
-            rel="noopener"
+            href="product-detailsrolex.html?id=26"
+            class="view-details-btn"
         >
-            Enquire Now
+            View Product Details
         </a>
-
-        <button
-            type="button"
-            class="add-to-cart-btn"
-            data-name="Rolex Day-Date Couple Watch"
-            data-price="5500"
-            data-image="Rolex Day-Date Couple Watch.jpeg"
-        >
-            Add to Cart
-        </button>
 
     </div>
 
@@ -2389,7 +2467,9 @@ body {
     <div class="rolex-info-grid">
 
 
-        <!-- COLUMN 1 -->
+        <!-- =================================================
+             COLUMN 1
+        ================================================== -->
 
         <div class="rolex-info-column">
 
@@ -2406,6 +2486,7 @@ body {
                 elegance and distinctive design.
             </p>
 
+
             <h3>
                 INTRODUCTION: THE WORLD OF ROLEX
             </h3>
@@ -2417,6 +2498,7 @@ body {
                 pieces, different designs offer something for
                 every personality and occasion.
             </p>
+
 
             <h3>
                 ROLEX HISTORY AND HERITAGE
@@ -2433,7 +2515,9 @@ body {
         </div>
 
 
-        <!-- COLUMN 2 -->
+        <!-- =================================================
+             COLUMN 2
+        ================================================== -->
 
         <div class="rolex-info-column">
 
@@ -2450,6 +2534,7 @@ body {
                 occasions.
             </p>
 
+
             <h3>
                 ROLEX WATCHES FOR WOMEN: ELEGANCE AND SOPHISTICATION
             </h3>
@@ -2462,6 +2547,7 @@ body {
                 outfits, formal occasions, and special events.
             </p>
 
+
             <h3>
                 ROLEX CRAFTSMANSHIP AND PRECISION
             </h3>
@@ -2473,6 +2559,7 @@ body {
                 bezel, each element contributes to a premium
                 and distinctive appearance.
             </p>
+
 
             <h3>
                 FROM CLASSIC TO STATEMENT: ROLEX HAS YOU COVERED
@@ -2489,7 +2576,9 @@ body {
         </div>
 
 
-        <!-- COLUMN 3 -->
+        <!-- =================================================
+             COLUMN 3
+        ================================================== -->
 
         <div class="rolex-info-column">
 
@@ -2505,6 +2594,7 @@ body {
                 timepiece looking its best for longer.
             </p>
 
+
             <h3>
                 SHOP ROLEX-INSPIRED WATCHES AT 50 MIRARS
             </h3>
@@ -2518,9 +2608,11 @@ body {
                 to find a timepiece that matches your style.
             </p>
 
+
             <h3>
                 FAQs
             </h3>
+
 
             <div class="rolex-faq">
 
@@ -2612,7 +2704,6 @@ body {
 
                 </div>
 
-
             </div>
 
         </div>
@@ -2620,7 +2711,9 @@ body {
     </div>
 
 
-    <!-- CONCLUSION -->
+    <!-- =====================================================
+         CONCLUSION
+    ====================================================== -->
 
     <div class="rolex-conclusion">
 
@@ -2652,7 +2745,9 @@ body {
     <div class="footer-container">
 
 
-        <!-- FOOTER TOP -->
+        <!-- =================================================
+             FOOTER TOP
+        ================================================== -->
 
         <div class="footer-top">
 
@@ -2749,7 +2844,9 @@ body {
         </div>
 
 
-        <!-- FOOTER MIDDLE -->
+        <!-- =================================================
+             FOOTER MIDDLE
+        ================================================== -->
 
         <div class="footer-middle">
 
@@ -2824,7 +2921,9 @@ body {
         </div>
 
 
-        <!-- COPYRIGHT -->
+        <!-- =================================================
+             COPYRIGHT
+        ================================================== -->
 
         <div class="footer-bottom">
 
@@ -2846,199 +2945,168 @@ body {
 
 <script>
 
-document.querySelectorAll(".slider").forEach(function(slider) {
-
-    const slides = slider.querySelectorAll(".slide");
-
-    const nextButton = slider.querySelector(".next");
-
-    const prevButton = slider.querySelector(".prev");
-
-    let currentSlide = 0;
-
-    let autoSlideTimer;
-
-
-    /* ---------------------------------------------------------
-       SHOW SLIDE
-    --------------------------------------------------------- */
-
-    function showSlide(index) {
-
-        slides.forEach(function(slide) {
-
-            slide.classList.remove("active");
-
-        });
-
-        slides[index].classList.add("active");
-
-    }
-
-
-    /* ---------------------------------------------------------
-       NEXT SLIDE
-    --------------------------------------------------------- */
-
-    function nextSlide() {
-
-        currentSlide++;
-
-        if (currentSlide >= slides.length) {
-
-            currentSlide = 0;
-
-        }
-
-        showSlide(currentSlide);
-
-    }
-
-
-    /* ---------------------------------------------------------
-       PREVIOUS SLIDE
-    --------------------------------------------------------- */
-
-    function previousSlide() {
-
-        currentSlide--;
-
-        if (currentSlide < 0) {
-
-            currentSlide = slides.length - 1;
-
-        }
-
-        showSlide(currentSlide);
-
-    }
-
-
-    /* ---------------------------------------------------------
-       RESET 15 SECOND TIMER
-    --------------------------------------------------------- */
-
-    function startAutoSlide() {
-
-        clearInterval(autoSlideTimer);
-
-        autoSlideTimer = setInterval(function() {
-
-            nextSlide();
-
-        }, 15000);
-
-    }
-
-
-    /* ---------------------------------------------------------
-       NEXT BUTTON
-    --------------------------------------------------------- */
-
-    nextButton.addEventListener("click", function(event) {
-
-        event.preventDefault();
-
-        nextSlide();
-
-        startAutoSlide();
-
-    });
-
-
-    /* ---------------------------------------------------------
-       PREVIOUS BUTTON
-    --------------------------------------------------------- */
-
-    prevButton.addEventListener("click", function(event) {
-
-        event.preventDefault();
-
-        previousSlide();
-
-        startAutoSlide();
-
-    });
-
-
-    /* ---------------------------------------------------------
-       START AUTOMATIC SLIDER
-    --------------------------------------------------------- */
-
-    showSlide(currentSlide);
-
-    startAutoSlide();
-
-});
-
-
-</script>
-
-
-<!-- =========================================================
-     ADD TO CART JAVASCRIPT
-========================================================= -->
-
-<script>
-
 document
-    .querySelectorAll(".add-to-cart-btn, .add-to-cart")
-    .forEach(function(button) {
-
-        button.addEventListener("click", function() {
-
-            const name =
-                button.dataset.name || "";
-
-            const price =
-                button.dataset.price || "0";
-
-            const image =
-                button.dataset.image || "";
+    .querySelectorAll(".slider")
+    .forEach(function(slider) {
 
 
-            /* -------------------------------------------------
-               GET EXISTING CART
-            ------------------------------------------------- */
+        const slides =
+            slider.querySelectorAll(".slide");
 
-            let cart =
-                JSON.parse(
-                    localStorage.getItem("cart")
-                ) || [];
+        const nextButton =
+            slider.querySelector(".next");
+
+        const prevButton =
+            slider.querySelector(".prev");
 
 
-            /* -------------------------------------------------
-               ADD PRODUCT
-            ------------------------------------------------- */
+        let currentSlide = 0;
 
-            cart.push({
+        let autoSlideTimer;
 
-                name: name,
 
-                price: price,
+        /* =====================================================
+           SHOW SLIDE
+        ===================================================== */
 
-                image: image
+        function showSlide(index) {
+
+            slides.forEach(function(slide) {
+
+                slide.classList.remove("active");
 
             });
 
 
-            /* -------------------------------------------------
-               SAVE CART
-            ------------------------------------------------- */
+            if (slides[index]) {
 
-            localStorage.setItem(
-                "cart",
-                JSON.stringify(cart)
+                slides[index]
+                    .classList
+                    .add("active");
+
+            }
+
+        }
+
+
+        /* =====================================================
+           NEXT SLIDE
+        ===================================================== */
+
+        function nextSlide() {
+
+            currentSlide++;
+
+            if (
+                currentSlide >=
+                slides.length
+            ) {
+
+                currentSlide = 0;
+
+            }
+
+            showSlide(currentSlide);
+
+        }
+
+
+        /* =====================================================
+           PREVIOUS SLIDE
+        ===================================================== */
+
+        function previousSlide() {
+
+            currentSlide--;
+
+            if (currentSlide < 0) {
+
+                currentSlide =
+                    slides.length - 1;
+
+            }
+
+            showSlide(currentSlide);
+
+        }
+
+
+        /* =====================================================
+           START AUTO SLIDE
+           15 SECONDS
+        ===================================================== */
+
+        function startAutoSlide() {
+
+            clearInterval(
+                autoSlideTimer
             );
 
 
-            /* -------------------------------------------------
-               REDIRECT TO CART
-            ------------------------------------------------- */
+            autoSlideTimer =
+                setInterval(
+                    function() {
 
-            window.location.href = "cart.html";
+                        nextSlide();
 
-        });
+                    },
+                    15000
+                );
+
+        }
+
+
+        /* =====================================================
+           NEXT BUTTON
+        ===================================================== */
+
+        if (nextButton) {
+
+            nextButton.addEventListener(
+                "click",
+                function(event) {
+
+                    event.preventDefault();
+
+                    nextSlide();
+
+                    startAutoSlide();
+
+                }
+            );
+
+        }
+
+
+        /* =====================================================
+           PREVIOUS BUTTON
+        ===================================================== */
+
+        if (prevButton) {
+
+            prevButton.addEventListener(
+                "click",
+                function(event) {
+
+                    event.preventDefault();
+
+                    previousSlide();
+
+                    startAutoSlide();
+
+                }
+            );
+
+        }
+
+
+        /* =====================================================
+           INITIALISE
+        ===================================================== */
+
+        showSlide(currentSlide);
+
+        startAutoSlide();
 
     });
 
