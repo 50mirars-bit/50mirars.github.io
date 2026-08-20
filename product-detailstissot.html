@@ -2032,7 +2032,7 @@ const tissot = [
     ====================================================== */
 
     {
-        id:1,
+        id: 1,
 
         name:
             "Tissot T-Race Chronograph Watch",
@@ -2055,7 +2055,7 @@ const tissot = [
         description:
             "Discover the distinctive character of the Tissot T-Race Chronograph Watch at 50 Mirars. Featuring a bold sporty-inspired appearance and a refined chronograph-style design, this timepiece is selected for customers who appreciate a confident and sophisticated wrist presence.",
 
-        features:[
+        features: [
             "Premium-inspired Tissot T-Race design",
             "Sporty chronograph-style appearance",
             "Bold and distinctive wrist presence",
@@ -2070,7 +2070,7 @@ const tissot = [
     ====================================================== */
 
     {
-        id:2,
+        id: 2,
 
         name:
             "Tissot Carson",
@@ -2093,7 +2093,7 @@ const tissot = [
         description:
             "Discover the elegant character of the Tissot Carson at 50 Mirars. Designed with a refined and timeless appearance, this Tissot-inspired watch offers a sophisticated look that works beautifully with both formal and everyday styling.",
 
-        features:[
+        features: [
             "Premium-inspired Tissot Carson design",
             "Elegant and timeless styling",
             "Refined wrist appearance",
@@ -2108,7 +2108,7 @@ const tissot = [
     ====================================================== */
 
     {
-        id:3,
+        id: 3,
 
         name:
             "Tissot Gentleman Powermatic 80",
@@ -2119,7 +2119,7 @@ const tissot = [
         media:
             "gallery",
 
-        files:[
+        files: [
             "Tissot Gentelman Powermatic 80.jpeg",
             "Tissot Gentelman Powermatic 80 2.jpeg"
         ],
@@ -2133,7 +2133,7 @@ const tissot = [
         description:
             "Discover the refined character of the Tissot Gentleman Powermatic 80 at 50 Mirars. With its sophisticated gentleman-inspired styling and premium-looking presence, this watch is selected for customers who prefer a polished and versatile design.",
 
-        features:[
+        features: [
             "Premium-inspired Tissot Gentleman design",
             "Sophisticated Powermatic 80-inspired styling",
             "Clean and versatile appearance",
@@ -2148,7 +2148,7 @@ const tissot = [
     ====================================================== */
 
     {
-        id:4,
+        id: 4,
 
         name:
             "Tissot PRX",
@@ -2159,7 +2159,7 @@ const tissot = [
         media:
             "gallery",
 
-        files:[
+        files: [
             "Tissot PRX 1.jpeg",
             "Tissot PRX 2.jpeg",
             "Tissot PRX 3.jpeg",
@@ -2180,7 +2180,7 @@ const tissot = [
         description:
             "Discover the distinctive character of the Tissot PRX at 50 Mirars. Its sleek integrated-bracelet-inspired appearance gives the watch a modern and sophisticated presence, making it a versatile choice for customers who appreciate contemporary luxury styling.",
 
-        features:[
+        features: [
             "Premium-inspired Tissot PRX design",
             "Modern integrated-bracelet-inspired appearance",
             "Sleek and sophisticated styling",
@@ -2195,7 +2195,7 @@ const tissot = [
     ====================================================== */
 
     {
-        id:5,
+        id: 5,
 
         name:
             "Tissot PRX Band",
@@ -2206,7 +2206,7 @@ const tissot = [
         media:
             "gallery",
 
-        files:[
+        files: [
             "Tissot PRX Band 1.jpeg",
             "Tissot PRX Band 2.jpeg",
             "Tissot PRX Band 3.jpeg",
@@ -2222,7 +2222,7 @@ const tissot = [
         description:
             "Discover the stylish character of the Tissot PRX Band at 50 Mirars. Designed around the distinctive PRX-inspired aesthetic, this timepiece combines a modern profile with a refined bracelet-style appearance for a confident wrist presence.",
 
-        features:[
+        features: [
             "Premium-inspired Tissot PRX Band design",
             "Distinctive bracelet-style appearance",
             "Modern and refined silhouette",
@@ -2237,7 +2237,7 @@ const tissot = [
     ====================================================== */
 
     {
-        id:6,
+        id: 6,
 
         name:
             "Tissot Gentel Couple Watch",
@@ -2260,7 +2260,7 @@ const tissot = [
         description:
             "Discover the elegant Tissot Gentel Couple Watch at 50 Mirars. Created with a coordinated couple-watch aesthetic, this set offers a refined and sophisticated look for partners who want a matching timepiece style.",
 
-        features:[
+        features: [
             "Premium-inspired Tissot couple-watch design",
             "Coordinated matching-watch appearance",
             "Elegant and sophisticated styling",
@@ -2281,10 +2281,8 @@ const params =
         window.location.search
     );
 
-
 const rawProductId =
     params.get("id");
-
 
 const productId =
     Number.parseInt(
@@ -2406,11 +2404,10 @@ let currentGalleryIndex = 0;
    FORMAT PRICE
 ========================================================= */
 
-function formatPrice(price){
+function formatPrice(price) {
 
     return "₹" +
-        Number(price)
-            .toLocaleString("en-IN");
+        Number(price).toLocaleString("en-IN");
 
 }
 
@@ -2419,17 +2416,16 @@ function formatPrice(price){
    ESCAPE HTML
 ========================================================= */
 
-function escapeHTML(value){
+function escapeHTML(value) {
 
     const div =
-        document.createElement(
-            "div"
-        );
+        document.createElement("div");
 
     div.textContent =
         String(value);
 
     return div.innerHTML;
+
 }
 
 
@@ -2437,16 +2433,13 @@ function escapeHTML(value){
    GET PRODUCT FILES
 ========================================================= */
 
-function getProductFiles(item){
+function getProductFiles(item) {
 
-    if(!item){
-
+    if (!item) {
         return [];
-
     }
 
-
-    if(item.media === "gallery"){
+    if (item.media === "gallery") {
 
         return Array.isArray(item.files)
             ? item.files
@@ -2454,8 +2447,7 @@ function getProductFiles(item){
 
     }
 
-
-    if(item.file){
+    if (item.file) {
 
         return [
             item.file
@@ -2463,30 +2455,25 @@ function getProductFiles(item){
 
     }
 
-
     return [];
 
 }
 
 
 /* =========================================================
-   RENDER SINGLE MEDIA
+   RENDER GALLERY
 ========================================================= */
 
-function renderSingleMedia(){
+function renderGallery() {
 
-    if(!product){
-
+    if (!product) {
         return;
-
     }
-
 
     const files =
         getProductFiles(product);
 
-
-    if(!files.length){
+    if (!files.length) {
 
         productMedia.innerHTML = `
 
@@ -2502,49 +2489,6 @@ function renderSingleMedia(){
             </div>
 
         `;
-
-        return;
-
-    }
-
-
-    const file =
-        files[0];
-
-
-    productMedia.innerHTML = `
-
-        <img
-            class="gallery-image"
-            src="${encodeURI(file)}"
-            alt="${escapeHTML(product.name)}"
-        >
-
-    `;
-
-}
-
-
-/* =========================================================
-   RENDER GALLERY
-========================================================= */
-
-function renderGallery(){
-
-    if(!product){
-
-        return;
-
-    }
-
-
-    const files =
-        getProductFiles(product);
-
-
-    if(!files.length){
-
-        renderSingleMedia();
 
         return;
 
@@ -2609,29 +2553,24 @@ function renderGallery(){
                         ${files.length}
                     </div>
 
-                  `
+                `
                 : ""
         }
 
     `;
 
 
-    if(isGallery){
+    if (isGallery) {
 
         document
-            .getElementById(
-                "galleryPrev"
-            )
+            .getElementById("galleryPrev")
             .addEventListener(
                 "click",
                 previousGalleryImage
             );
 
-
         document
-            .getElementById(
-                "galleryNext"
-            )
+            .getElementById("galleryNext")
             .addEventListener(
                 "click",
                 nextGalleryImage
@@ -2646,25 +2585,18 @@ function renderGallery(){
    PREVIOUS GALLERY IMAGE
 ========================================================= */
 
-function previousGalleryImage(){
+function previousGalleryImage() {
 
-    if(!product){
-
+    if (!product) {
         return;
-
     }
-
 
     const files =
         getProductFiles(product);
 
-
-    if(files.length <= 1){
-
+    if (files.length <= 1) {
         return;
-
     }
-
 
     currentGalleryIndex =
         (
@@ -2673,7 +2605,6 @@ function previousGalleryImage(){
             files.length
         ) %
         files.length;
-
 
     renderGallery();
 
@@ -2684,25 +2615,18 @@ function previousGalleryImage(){
    NEXT GALLERY IMAGE
 ========================================================= */
 
-function nextGalleryImage(){
+function nextGalleryImage() {
 
-    if(!product){
-
+    if (!product) {
         return;
-
     }
-
 
     const files =
         getProductFiles(product);
 
-
-    if(files.length <= 1){
-
+    if (files.length <= 1) {
         return;
-
     }
-
 
     currentGalleryIndex =
         (
@@ -2710,7 +2634,6 @@ function nextGalleryImage(){
             1
         ) %
         files.length;
-
 
     renderGallery();
 
@@ -2723,29 +2646,21 @@ function nextGalleryImage(){
 
 document.addEventListener(
     "keydown",
-    function(event){
+    function(event) {
 
-        if(
+        if (
             !product ||
             product.media !== "gallery"
-        ){
-
+        ) {
             return;
-
         }
 
-
-        if(event.key === "ArrowLeft"){
-
+        if (event.key === "ArrowLeft") {
             previousGalleryImage();
-
         }
 
-
-        if(event.key === "ArrowRight"){
-
+        if (event.key === "ArrowRight") {
             nextGalleryImage();
-
         }
 
     }
@@ -2758,134 +2673,106 @@ document.addEventListener(
 
 let touchStartX = 0;
 
-let touchEndX = 0;
-
-
 productMedia.addEventListener(
     "touchstart",
-    function(event){
+    function(event) {
 
-        if(
+        if (
             !product ||
             product.media !== "gallery"
-        ){
-
+        ) {
             return;
-
         }
-
 
         touchStartX =
             event.changedTouches[0].screenX;
 
     },
     {
-        passive:true
+        passive: true
     }
 );
 
 
 productMedia.addEventListener(
     "touchend",
-    function(event){
+    function(event) {
 
-        if(
+        if (
             !product ||
             product.media !== "gallery"
-        ){
-
+        ) {
             return;
-
         }
 
-
-        touchEndX =
+        const touchEndX =
             event.changedTouches[0].screenX;
-
 
         const difference =
             touchEndX -
             touchStartX;
 
-
-        if(Math.abs(difference) < 40){
-
+        if (
+            Math.abs(difference) < 40
+        ) {
             return;
-
         }
 
-
-        if(difference > 0){
-
+        if (difference > 0) {
             previousGalleryImage();
-
         }
-
-        else{
-
+        else {
             nextGalleryImage();
-
         }
 
     },
     {
-        passive:true
+        passive: true
     }
 );
 
 
 /* =========================================================
-   SHOW OUT OF STOCK STATE
+   OUT OF STOCK STATE
 ========================================================= */
 
-function setOutOfStockState(){
+function setOutOfStockState() {
 
     outOfStockBadge.style.display =
         "block";
-
 
     productPrice.classList.add(
         "out-of-stock-price"
     );
 
-
     quantityBox.classList.add(
         "disabled"
     );
 
-
     quantity.disabled =
         true;
-
 
     minusBtn.disabled =
         true;
 
-
     plusBtn.disabled =
         true;
-
 
     addCartBtn.disabled =
         true;
 
-
     buyNowBtn.disabled =
         true;
-
 
     addCartBtn.textContent =
         "Out of Stock";
 
-
     buyNowBtn.textContent =
         "Out of Stock";
-
 
     cartMessage.classList.add(
         "stock-message"
     );
-
 
     cartMessage.textContent =
         "This product is currently out of stock.";
@@ -2897,39 +2784,32 @@ function setOutOfStockState(){
    LOAD PRODUCT
 ========================================================= */
 
-function loadProduct(){
+function loadProduct() {
 
-    if(!product){
+    if (!product) {
 
         document.title =
             "Product Not Found | 50 Mirars";
 
-
         productBrand.textContent =
             "Tissot";
 
-
         productName.textContent =
             "Product Not Found";
-
 
         productIdElement.textContent =
             rawProductId
                 ? "Product ID: " + rawProductId
                 : "No Product ID Provided";
 
-
         productPrice.textContent =
             "";
-
 
         productDescription.textContent =
             "The requested Tissot product could not be found. Please return to the Tissot section and select a product again.";
 
-
         featureList.innerHTML =
             "";
-
 
         productMedia.innerHTML = `
 
@@ -2946,19 +2826,15 @@ function loadProduct(){
 
         `;
 
-
         addCartBtn.disabled =
             true;
-
 
         buyNowBtn.disabled =
             true;
 
-
         quantityBox.classList.add(
             "disabled"
         );
-
 
         return;
 
@@ -2980,11 +2856,10 @@ function loadProduct(){
 
     productIdElement.textContent =
         "Product ID: TISSOT-" +
-        String(product.id)
-            .padStart(
-                3,
-                "0"
-            );
+        String(product.id).padStart(
+            3,
+            "0"
+        );
 
 
     productPrice.textContent =
@@ -2999,7 +2874,6 @@ function loadProduct(){
 
     currentGalleryIndex =
         0;
-
 
     renderGallery();
 
@@ -3053,7 +2927,7 @@ function loadProduct(){
        OUT OF STOCK
     ====================================================== */
 
-    if(product.outOfStock){
+    if (product.outOfStock) {
 
         setOutOfStockState();
 
@@ -3061,7 +2935,7 @@ function loadProduct(){
 
 
     /* =====================================================
-       RELATED
+       RELATED PRODUCTS
     ====================================================== */
 
     loadRelatedProducts();
@@ -3070,16 +2944,15 @@ function loadProduct(){
 
 
 /* =========================================================
-   GET RELATED IMAGE
+   GET RELATED MEDIA
 ========================================================= */
 
-function getRelatedMedia(item){
+function getRelatedMedia(item) {
 
     const files =
         getProductFiles(item);
 
-
-    if(!files.length){
+    if (!files.length) {
 
         return `
 
@@ -3096,15 +2969,10 @@ function getRelatedMedia(item){
 
     }
 
-
-    const firstFile =
-        files[0];
-
-
     return `
 
         <img
-            src="${encodeURI(firstFile)}"
+            src="${encodeURI(files[0])}"
             alt="${escapeHTML(item.name)}"
         >
 
@@ -3117,9 +2985,9 @@ function getRelatedMedia(item){
    RELATED PRODUCTS
 ========================================================= */
 
-function loadRelatedProducts(){
+function loadRelatedProducts() {
 
-    if(!product){
+    if (!product) {
 
         relatedGrid.innerHTML =
             "";
@@ -3129,38 +2997,17 @@ function loadRelatedProducts(){
     }
 
 
-    let related =
-        tissot.filter(
-            item =>
-                item.id !==
-                product.id
-        );
-
-
-    const sameBrand =
-        related.filter(
-            item =>
-                item.brand ===
-                product.brand
-        );
-
-
-    const differentBrand =
-        related.filter(
-            item =>
-                item.brand !==
-                product.brand
-        );
-
-
-    related =
-        [
-            ...sameBrand,
-            ...differentBrand
-        ].slice(
-            0,
-            4
-        );
+    const related =
+        tissot
+            .filter(
+                item =>
+                    item.id !==
+                    product.id
+            )
+            .slice(
+                0,
+                4
+            );
 
 
     relatedGrid.innerHTML =
@@ -3169,9 +3016,7 @@ function loadRelatedProducts(){
                 item => {
 
                     const mediaHTML =
-                        getRelatedMedia(
-                            item
-                        );
+                        getRelatedMedia(item);
 
 
                     const stockBadge =
@@ -3184,7 +3029,7 @@ function loadRelatedProducts(){
                                     OUT OF STOCK
                                 </div>
 
-                              `
+                            `
                             : "";
 
 
@@ -3202,20 +3047,18 @@ function loadRelatedProducts(){
                                     Out of Stock
                                 </div>
 
-                              `
+                            `
 
                             : `
 
                                 <a
-                                    href="
-                                        product-detailstissot.html?id=${item.id}
-                                    "
+                                    href="product-detailstissot.html?id=${item.id}"
                                     class="related-btn"
                                 >
                                     View Details
                                 </a>
 
-                              `;
+                            `;
 
 
                     return `
@@ -3277,28 +3120,23 @@ function loadRelatedProducts(){
    GET CART
 ========================================================= */
 
-function getCart(){
+function getCart() {
 
-    try{
+    try {
 
         const stored =
             localStorage.getItem(
                 "cart"
             );
 
-
-        if(!stored){
-
+        if (!stored) {
             return [];
-
         }
-
 
         const parsed =
             JSON.parse(
                 stored
             );
-
 
         return Array.isArray(parsed)
             ? parsed
@@ -3306,13 +3144,12 @@ function getCart(){
 
     }
 
-    catch(error){
+    catch (error) {
 
         console.error(
             "Cart loading error:",
             error
         );
-
 
         return [];
 
@@ -3325,7 +3162,7 @@ function getCart(){
    SAVE CART
 ========================================================= */
 
-function saveCart(cart){
+function saveCart(cart) {
 
     localStorage.setItem(
         "cart",
@@ -3341,7 +3178,7 @@ function saveCart(cart){
 
 function createCartItem(
     selectedQuantity
-){
+) {
 
     const firstImage =
         getProductFiles(
@@ -3393,7 +3230,7 @@ function createCartItem(
    GET SELECTED QUANTITY
 ========================================================= */
 
-function getSelectedQuantity(){
+function getSelectedQuantity() {
 
     let value =
         Number(
@@ -3401,11 +3238,8 @@ function getSelectedQuantity(){
         );
 
 
-    if(!Number.isFinite(value)){
-
-        value =
-            1;
-
+    if (!Number.isFinite(value)) {
+        value = 1;
     }
 
 
@@ -3415,20 +3249,14 @@ function getSelectedQuantity(){
         );
 
 
-    if(value < 1){
-
-        value =
-            1;
-
-    }
-
-
-    if(value > 10){
-
-        value =
-            10;
-
-    }
+    value =
+        Math.max(
+            1,
+            Math.min(
+                10,
+                value
+            )
+        );
 
 
     quantity.value =
@@ -3444,25 +3272,21 @@ function getSelectedQuantity(){
    ADD TO CART
 ========================================================= */
 
-function addToCart(){
+function addToCart() {
 
-    if(!product){
-
+    if (!product) {
         return;
-
     }
 
 
-    if(product.outOfStock){
+    if (product.outOfStock) {
 
         cartMessage.classList.add(
             "stock-message"
         );
 
-
         cartMessage.textContent =
             "This product is currently out of stock.";
-
 
         return;
 
@@ -3490,7 +3314,7 @@ function addToCart(){
         );
 
 
-    if(existing){
+    if (existing) {
 
         existing.quantity =
             (
@@ -3502,7 +3326,7 @@ function addToCart(){
 
     }
 
-    else{
+    else {
 
         cart.push(
             createCartItem(
@@ -3513,9 +3337,7 @@ function addToCart(){
     }
 
 
-    saveCart(
-        cart
-    );
+    saveCart(cart);
 
 
     cartMessage.classList.remove(
@@ -3528,7 +3350,7 @@ function addToCart(){
 
 
     setTimeout(
-        function(){
+        function() {
 
             cartMessage.textContent =
                 "";
@@ -3544,25 +3366,21 @@ function addToCart(){
    BUY NOW
 ========================================================= */
 
-function buyNow(){
+function buyNow() {
 
-    if(!product){
-
+    if (!product) {
         return;
-
     }
 
 
-    if(product.outOfStock){
+    if (product.outOfStock) {
 
         cartMessage.classList.add(
             "stock-message"
         );
 
-
         cartMessage.textContent =
             "This product is currently out of stock.";
-
 
         return;
 
@@ -3590,7 +3408,7 @@ function buyNow(){
         );
 
 
-    if(existing){
+    if (existing) {
 
         existing.quantity =
             (
@@ -3602,7 +3420,7 @@ function buyNow(){
 
     }
 
-    else{
+    else {
 
         cart.push(
             createCartItem(
@@ -3613,9 +3431,7 @@ function buyNow(){
     }
 
 
-    saveCart(
-        cart
-    );
+    saveCart(cart);
 
 
     window.location.href =
@@ -3630,15 +3446,13 @@ function buyNow(){
 
 minusBtn.addEventListener(
     "click",
-    function(){
+    function() {
 
-        if(
+        if (
             product &&
             product.outOfStock
-        ){
-
+        ) {
             return;
-
         }
 
 
@@ -3668,15 +3482,13 @@ minusBtn.addEventListener(
 
 plusBtn.addEventListener(
     "click",
-    function(){
+    function() {
 
-        if(
+        if (
             product &&
             product.outOfStock
-        ){
-
+        ) {
             return;
-
         }
 
 
@@ -3706,12 +3518,12 @@ plusBtn.addEventListener(
 
 quantity.addEventListener(
     "change",
-    function(){
+    function() {
 
-        if(
+        if (
             product &&
             product.outOfStock
-        ){
+        ) {
 
             quantity.value =
                 1;
@@ -3719,7 +3531,6 @@ quantity.addEventListener(
             return;
 
         }
-
 
         getSelectedQuantity();
 
@@ -3750,7 +3561,6 @@ buyNowBtn.addEventListener(
 loadProduct();
 
 </script>
-
 
 </body>
 
