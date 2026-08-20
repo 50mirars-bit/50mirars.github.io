@@ -384,6 +384,69 @@ body{
 
 
 /* =========================================================
+   PRODUCT DETAIL SLIDER
+========================================================= */
+
+.detail-slider{
+
+    position:relative;
+
+    width:100%;
+    height:100%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+}
+
+.detail-slider img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:contain;
+
+}
+
+.detail-prev,
+.detail-next{
+
+    position:absolute;
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:44px;
+    height:44px;
+
+    border:none;
+    border-radius:50%;
+
+    background:rgba(0,0,0,.65);
+
+    color:#fff;
+
+    font-size:20px;
+    cursor:pointer;
+
+    transition:.3s ease;
+
+}
+
+.detail-prev{left:15px;}
+
+.detail-next{right:15px;}
+
+.detail-prev:hover,
+.detail-next:hover{
+
+    background:#c9a24d;
+    color:#111;
+
+}
+
+/* =========================================================
    DELIVERY
 ========================================================= */
 
@@ -980,15 +1043,22 @@ outOfStock:false
 },
 
 {
-id:15,
-name:"Seiko Presage Cocktail Time",
-price:4500,
-media:"image",
-file:"Seiko Presage Cocktail Time.jpeg",
-brand:"Seiko",
-outOfStock:false
+    id:15,
+    name:"Seiko Presage Cocktail Time",
+    price:4500,
+    media:"gallery",
+    files:[
+        "Seiko Presage Cocktail Time.jpeg",
+        "Seiko Presage Cocktail Time 2.jpeg",
+        "Seiko Presage Cocktail Time 3.jpeg",
+        "Seiko Presage Cocktail Time 4.jpeg",
+        "Seiko Presage Cocktail Time 5.jpeg",
+        "Seiko Presage Cocktail Time 6.jpeg"
+    ],
+    brand:"Seiko",
+    outOfStock:false
 },
-
+    
 {
 id:16,
 name:"Seiko Prospex Diver",
@@ -1000,13 +1070,21 @@ outOfStock:false
 },
 
 {
-id:17,
-name:"Seiko SRPL64",
-price:4500,
-media:"image",
-file:"Seiko SRPL64.jpeg",
-brand:"Seiko",
-outOfStock:false
+    id:17,
+    name:"Seiko SRPL64",
+    price:4500,
+    media:"gallery",
+    files:[
+        "Seiko SRPL64.jpeg",
+        "Seiko SRPL64 1.jpeg",
+        "Seiko SRPL64 2.jpeg",
+        "Seiko SRPL64 3.jpeg",
+        "Seiko SRPL64 4.jpeg",
+        "Seiko SRPL64 5.jpeg",
+        "Seiko SRPL64 6.jpeg"
+    ],
+    brand:"Seiko",
+    outOfStock:false
 },
 
 {
@@ -1169,22 +1247,67 @@ productPrice.textContent=formatPrice(product.price);
 
 if(product.media==="video"){
 
-productMedia.innerHTML=`
-<video controls playsinline preload="metadata">
-<source src="${encodeURI(product.file)}" type="video/mp4">
-Your browser does not support video playback.
-</video>`;
+    productMedia.innerHTML=`
+        <video controls playsinline preload="metadata">
+            <source src="${encodeURI(product.file)}" type="video/mp4">
+            Your browser does not support video playback.
+        </video>`;
+
+}
+
+else if(product.media==="gallery"){
+
+    productMedia.innerHTML=`
+
+        <div class="detail-slider">
+
+            <button class="detail-prev">❮</button>
+
+            <img
+                id="detailSliderImage"
+                src="${encodeURI(product.files[0])}"
+                alt="${escapeHTML(product.name)}"
+            >
+
+            <button class="detail-next">❯</button>
+
+        </div>
+
+    `;
+
+    let current=0;
+
+    const image=document.getElementById("detailSliderImage");
+
+    productMedia.querySelector(".detail-prev").onclick=function(){
+
+        current=(current-1+product.files.length)%product.files.length;
+
+        image.src=encodeURI(product.files[current]);
+
+    };
+
+    productMedia.querySelector(".detail-next").onclick=function(){
+
+        current=(current+1)%product.files.length;
+
+        image.src=encodeURI(product.files[current]);
+
+    };
 
 }
 
 else{
 
-productMedia.innerHTML=`
-<img src="${encodeURI(product.file)}" alt="${escapeHTML(product.name)}">`;
+    productMedia.innerHTML=`
+        <img
+            src="${encodeURI(product.file)}"
+            alt="${escapeHTML(product.name)}"
+        >`;
 
 }
 
-
+    
 /* DESCRIPTION */
 
 productDescription.textContent=
