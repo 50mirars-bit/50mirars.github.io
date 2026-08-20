@@ -266,6 +266,8 @@ body{
 
     box-shadow:
         0 8px 30px rgba(0,0,0,0.08);
+
+    position:relative;
 }
 
 .product-media-wrapper img,
@@ -282,6 +284,132 @@ body{
 .product-media-wrapper video{
     background:#111;
 }
+
+
+/* =========================================================
+   MEDIA GALLERY
+========================================================= */
+
+.gallery-image{
+    width:100%;
+
+    height:100%;
+
+    object-fit:contain;
+
+    display:block;
+}
+
+.gallery-video{
+    width:100%;
+
+    height:100%;
+
+    object-fit:contain;
+
+    background:#111;
+
+    display:block;
+}
+
+
+/* =========================================================
+   GALLERY NAVIGATION
+========================================================= */
+
+.gallery-prev,
+.gallery-next{
+    position:absolute;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:48px;
+
+    height:48px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:
+        rgba(17,17,17,0.82);
+
+    color:#fff;
+
+    font-size:25px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    cursor:pointer;
+
+    z-index:20;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+.gallery-prev{
+    left:18px;
+}
+
+.gallery-next{
+    right:18px;
+}
+
+.gallery-prev:hover,
+.gallery-next:hover{
+    background:#c9a24d;
+
+    color:#111;
+
+    transform:
+        translateY(-50%)
+        scale(1.05);
+}
+
+
+/* =========================================================
+   GALLERY COUNTER
+========================================================= */
+
+.gallery-counter{
+    position:absolute;
+
+    bottom:18px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    background:
+        rgba(17,17,17,0.82);
+
+    color:#fff;
+
+    padding:7px 15px;
+
+    border-radius:20px;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+    letter-spacing:0.5px;
+
+    z-index:20;
+}
+
+
+/* =========================================================
+   MEDIA BADGE
+========================================================= */
 
 .media-badge{
     position:absolute;
@@ -303,6 +431,8 @@ body{
     font-weight:bold;
 
     letter-spacing:0.5px;
+
+    z-index:30;
 }
 
 
@@ -331,7 +461,7 @@ body{
 
     letter-spacing:1px;
 
-    z-index:10;
+    z-index:40;
 
     box-shadow:
         0 5px 15px rgba(0,0,0,0.18);
@@ -1260,6 +1390,23 @@ body{
         height:360px;
     }
 
+    .gallery-prev,
+    .gallery-next{
+        width:42px;
+
+        height:42px;
+
+        font-size:21px;
+    }
+
+    .gallery-prev{
+        left:10px;
+    }
+
+    .gallery-next{
+        right:10px;
+    }
+
     .product-info{
         padding:
             40px
@@ -1357,6 +1504,23 @@ body{
         height:300px;
     }
 
+    .gallery-prev,
+    .gallery-next{
+        width:38px;
+
+        height:38px;
+
+        font-size:19px;
+    }
+
+    .gallery-counter{
+        bottom:10px;
+
+        padding:6px 12px;
+
+        font-size:11px;
+    }
+
     .product-info{
         padding:
             30px
@@ -1381,6 +1545,16 @@ body{
         right:15px;
 
         padding:8px 12px;
+
+        font-size:11px;
+    }
+
+    .media-badge{
+        top:15px;
+
+        left:15px;
+
+        padding:7px 11px;
 
         font-size:11px;
     }
@@ -1439,6 +1613,10 @@ body{
     <div class="product-detail-card">
 
 
+        <!-- =================================================
+             PRODUCT MEDIA
+        ================================================== -->
+
         <div class="product-media-area">
 
             <div
@@ -1448,6 +1626,7 @@ body{
                 50 MIRARS
             </div>
 
+
             <div
                 class="out-of-stock-badge"
                 id="outOfStockBadge"
@@ -1455,6 +1634,7 @@ body{
             >
                 OUT OF STOCK
             </div>
+
 
             <div
                 class="product-media-wrapper"
@@ -1464,6 +1644,10 @@ body{
 
         </div>
 
+
+        <!-- =================================================
+             PRODUCT INFORMATION
+        ================================================== -->
 
         <div class="product-info">
 
@@ -1530,9 +1714,11 @@ body{
                 <button
                     type="button"
                     id="minusBtn"
+                    aria-label="Decrease quantity"
                 >
                     −
                 </button>
+
 
                 <input
                     type="number"
@@ -1540,11 +1726,14 @@ body{
                     value="1"
                     min="1"
                     max="10"
+                    aria-label="Quantity"
                 >
+
 
                 <button
                     type="button"
                     id="plusBtn"
+                    aria-label="Increase quantity"
                 >
                     +
                 </button>
@@ -1638,6 +1827,7 @@ body{
         </p>
 
     </div>
+
 
     <div
         class="related-grid"
@@ -1733,6 +1923,7 @@ body{
 
                 </h3>
 
+
                 <a
                     href="https://wa.me/918209989013"
                     target="_blank"
@@ -1793,6 +1984,7 @@ body{
                     Follow Us On
                 </p>
 
+
                 <a
                     href="https://instagram.com/50mirars"
                     target="_blank"
@@ -1835,16 +2027,34 @@ body{
 
 const tissot = [
 
+    /* =====================================================
+       1. TISSOT T-RACE CHRONOGRAPH
+    ====================================================== */
+
     {
         id:1,
-        name:"Tissot T-Race Chronograph Watch",
-        price:3500,
-        media:"image",
-        file:"Tissot T-Race Chronograph Watch.jpeg",
-        brand:"Tissot",
-        outOfStock:false,
+
+        name:
+            "Tissot T-Race Chronograph Watch",
+
+        price:
+            3500,
+
+        media:
+            "image",
+
+        file:
+            "Tissot T-Race Chronograph Watch.jpeg",
+
+        brand:
+            "Tissot",
+
+        outOfStock:
+            false,
+
         description:
             "Discover the distinctive character of the Tissot T-Race Chronograph Watch at 50 Mirars. Featuring a bold sporty-inspired appearance and a refined chronograph-style design, this timepiece is selected for customers who appreciate a confident and sophisticated wrist presence.",
+
         features:[
             "Premium-inspired Tissot T-Race design",
             "Sporty chronograph-style appearance",
@@ -1855,16 +2065,34 @@ const tissot = [
     },
 
 
+    /* =====================================================
+       2. TISSOT CARSON
+    ====================================================== */
+
     {
         id:2,
-        name:"Tissot Carson",
-        price:4500,
-        media:"image",
-        file:"Tissot Carson.jpeg",
-        brand:"Tissot",
-        outOfStock:false,
+
+        name:
+            "Tissot Carson",
+
+        price:
+            4500,
+
+        media:
+            "image",
+
+        file:
+            "Tissot Carson.jpeg",
+
+        brand:
+            "Tissot",
+
+        outOfStock:
+            false,
+
         description:
             "Discover the elegant character of the Tissot Carson at 50 Mirars. Designed with a refined and timeless appearance, this Tissot-inspired watch offers a sophisticated look that works beautifully with both formal and everyday styling.",
+
         features:[
             "Premium-inspired Tissot Carson design",
             "Elegant and timeless styling",
@@ -1875,16 +2103,34 @@ const tissot = [
     },
 
 
+    /* =====================================================
+       3. TISSOT GENTLEMAN POWERMATIC 80
+    ====================================================== */
+
     {
         id:3,
-        name:"Tissot Gentleman Powermatic 80",
-        price:6000,
-        media:"image",
-        file:"Tissot Gentelman Powermatic 80.jpeg",
-        brand:"Tissot",
-        outOfStock:false,
+
+        name:
+            "Tissot Gentleman Powermatic 80",
+
+        price:
+            6000,
+
+        media:
+            "image",
+
+        file:
+            "Tissot Gentelman Powermatic 80.jpeg",
+
+        brand:
+            "Tissot",
+
+        outOfStock:
+            false,
+
         description:
             "Discover the refined character of the Tissot Gentleman Powermatic 80 at 50 Mirars. With its sophisticated gentleman-inspired styling and premium-looking presence, this watch is selected for customers who prefer a polished and versatile design.",
+
         features:[
             "Premium-inspired Tissot Gentleman design",
             "Sophisticated Powermatic 80-inspired styling",
@@ -1895,16 +2141,43 @@ const tissot = [
     },
 
 
+    /* =====================================================
+       4. TISSOT PRX
+    ====================================================== */
+
     {
         id:4,
-        name:"Tissot PRX",
-        price:4000,
-        media:"image",
-        file:"Tissot PRX 1.jpeg",
-        brand:"Tissot",
-        outOfStock:false,
+
+        name:
+            "Tissot PRX",
+
+        price:
+            4000,
+
+        media:
+            "gallery",
+
+        files:[
+            "Tissot PRX 1.jpeg",
+            "Tissot PRX 2.jpeg",
+            "Tissot PRX 3.jpeg",
+            "Tissot PRX 4.jpeg",
+            "Tissot PRX 5.jpeg",
+            "Tissot PRX 6.jpeg",
+            "Tissot PRX 7.jpeg",
+            "Tissot PRX 8.jpeg",
+            "Tissot PRX 9.jpeg"
+        ],
+
+        brand:
+            "Tissot",
+
+        outOfStock:
+            false,
+
         description:
             "Discover the distinctive character of the Tissot PRX at 50 Mirars. Its sleek integrated-bracelet-inspired appearance gives the watch a modern and sophisticated presence, making it a versatile choice for customers who appreciate contemporary luxury styling.",
+
         features:[
             "Premium-inspired Tissot PRX design",
             "Modern integrated-bracelet-inspired appearance",
@@ -1915,16 +2188,38 @@ const tissot = [
     },
 
 
+    /* =====================================================
+       5. TISSOT PRX BAND
+    ====================================================== */
+
     {
         id:5,
-        name:"Tissot PRX Band",
-        price:4500,
-        media:"image",
-        file:"Tissot PRX Band 1.jpeg",
-        brand:"Tissot",
-        outOfStock:false,
+
+        name:
+            "Tissot PRX Band",
+
+        price:
+            4500,
+
+        media:
+            "gallery",
+
+        files:[
+            "Tissot PRX Band 1.jpeg",
+            "Tissot PRX Band 2.jpeg",
+            "Tissot PRX Band 3.jpeg",
+            "Tissot PRX Band 4.jpeg"
+        ],
+
+        brand:
+            "Tissot",
+
+        outOfStock:
+            false,
+
         description:
             "Discover the stylish character of the Tissot PRX Band at 50 Mirars. Designed around the distinctive PRX-inspired aesthetic, this timepiece combines a modern profile with a refined bracelet-style appearance for a confident wrist presence.",
+
         features:[
             "Premium-inspired Tissot PRX Band design",
             "Distinctive bracelet-style appearance",
@@ -1935,16 +2230,34 @@ const tissot = [
     },
 
 
+    /* =====================================================
+       6. TISSOT GENTEL COUPLE WATCH
+    ====================================================== */
+
     {
         id:6,
-        name:"Tissot Gentel Couple Watch",
-        price:5000,
-        media:"image",
-        file:"Tissot Gentel Couple Watch.jpeg",
-        brand:"Tissot",
-        outOfStock:false,
+
+        name:
+            "Tissot Gentel Couple Watch",
+
+        price:
+            5000,
+
+        media:
+            "image",
+
+        file:
+            "Tissot Gentel Couple Watch.jpeg",
+
+        brand:
+            "Tissot",
+
+        outOfStock:
+            false,
+
         description:
             "Discover the elegant Tissot Gentel Couple Watch at 50 Mirars. Created with a coordinated couple-watch aesthetic, this set offers a refined and sophisticated look for partners who want a matching timepiece style.",
+
         features:[
             "Premium-inspired Tissot couple-watch design",
             "Coordinated matching-watch appearance",
@@ -1958,7 +2271,7 @@ const tissot = [
 
 
 /* =========================================================
-   GET PRODUCT ID
+   GET PRODUCT ID FROM URL
 ========================================================= */
 
 const params =
@@ -1966,8 +2279,10 @@ const params =
         window.location.search
     );
 
+
 const rawProductId =
     params.get("id");
+
 
 const productId =
     Number.parseInt(
@@ -2067,6 +2382,23 @@ const buyNowBtn =
         "buyNowBtn"
     );
 
+const minusBtn =
+    document.getElementById(
+        "minusBtn"
+    );
+
+const plusBtn =
+    document.getElementById(
+        "plusBtn"
+    );
+
+
+/* =========================================================
+   GALLERY STATE
+========================================================= */
+
+let currentGalleryIndex = 0;
+
 
 /* =========================================================
    FORMAT PRICE
@@ -2100,6 +2432,407 @@ function escapeHTML(value){
 
 
 /* =========================================================
+   GET PRODUCT FILES
+========================================================= */
+
+function getProductFiles(item){
+
+    if(!item){
+
+        return [];
+
+    }
+
+
+    if(item.media === "gallery"){
+
+        return Array.isArray(item.files)
+            ? item.files
+            : [];
+
+    }
+
+
+    if(item.file){
+
+        return [
+            item.file
+        ];
+
+    }
+
+
+    return [];
+
+}
+
+
+/* =========================================================
+   RENDER SINGLE MEDIA
+========================================================= */
+
+function renderSingleMedia(){
+
+    if(!product){
+
+        return;
+
+    }
+
+
+    const files =
+        getProductFiles(product);
+
+
+    if(!files.length){
+
+        productMedia.innerHTML = `
+
+            <div
+                style="
+                    text-align:center;
+                    padding:40px;
+                    font-weight:bold;
+                    color:#555;
+                "
+            >
+                Product image is unavailable.
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    const file =
+        files[0];
+
+
+    productMedia.innerHTML = `
+
+        <img
+            class="gallery-image"
+            src="${encodeURI(file)}"
+            alt="${escapeHTML(product.name)}"
+        >
+
+    `;
+
+}
+
+
+/* =========================================================
+   RENDER GALLERY
+========================================================= */
+
+function renderGallery(){
+
+    if(!product){
+
+        return;
+
+    }
+
+
+    const files =
+        getProductFiles(product);
+
+
+    if(!files.length){
+
+        renderSingleMedia();
+
+        return;
+
+    }
+
+
+    currentGalleryIndex =
+        Math.max(
+            0,
+            Math.min(
+                currentGalleryIndex,
+                files.length - 1
+            )
+        );
+
+
+    const currentFile =
+        files[currentGalleryIndex];
+
+
+    const isGallery =
+        product.media === "gallery" &&
+        files.length > 1;
+
+
+    productMedia.innerHTML = `
+
+        <img
+            class="gallery-image"
+            src="${encodeURI(currentFile)}"
+            alt="${escapeHTML(product.name)}"
+        >
+
+        ${
+            isGallery
+                ? `
+
+                    <button
+                        type="button"
+                        class="gallery-prev"
+                        id="galleryPrev"
+                        aria-label="Previous image"
+                    >
+                        ❮
+                    </button>
+
+                    <button
+                        type="button"
+                        class="gallery-next"
+                        id="galleryNext"
+                        aria-label="Next image"
+                    >
+                        ❯
+                    </button>
+
+                    <div
+                        class="gallery-counter"
+                        id="galleryCounter"
+                    >
+                        ${currentGalleryIndex + 1}
+                        /
+                        ${files.length}
+                    </div>
+
+                  `
+                : ""
+        }
+
+    `;
+
+
+    if(isGallery){
+
+        document
+            .getElementById(
+                "galleryPrev"
+            )
+            .addEventListener(
+                "click",
+                previousGalleryImage
+            );
+
+
+        document
+            .getElementById(
+                "galleryNext"
+            )
+            .addEventListener(
+                "click",
+                nextGalleryImage
+            );
+
+    }
+
+}
+
+
+/* =========================================================
+   PREVIOUS GALLERY IMAGE
+========================================================= */
+
+function previousGalleryImage(){
+
+    if(!product){
+
+        return;
+
+    }
+
+
+    const files =
+        getProductFiles(product);
+
+
+    if(files.length <= 1){
+
+        return;
+
+    }
+
+
+    currentGalleryIndex =
+        (
+            currentGalleryIndex -
+            1 +
+            files.length
+        ) %
+        files.length;
+
+
+    renderGallery();
+
+}
+
+
+/* =========================================================
+   NEXT GALLERY IMAGE
+========================================================= */
+
+function nextGalleryImage(){
+
+    if(!product){
+
+        return;
+
+    }
+
+
+    const files =
+        getProductFiles(product);
+
+
+    if(files.length <= 1){
+
+        return;
+
+    }
+
+
+    currentGalleryIndex =
+        (
+            currentGalleryIndex +
+            1
+        ) %
+        files.length;
+
+
+    renderGallery();
+
+}
+
+
+/* =========================================================
+   KEYBOARD GALLERY CONTROL
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(
+            !product ||
+            product.media !== "gallery"
+        ){
+
+            return;
+
+        }
+
+
+        if(event.key === "ArrowLeft"){
+
+            previousGalleryImage();
+
+        }
+
+
+        if(event.key === "ArrowRight"){
+
+            nextGalleryImage();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   TOUCH SWIPE GALLERY
+========================================================= */
+
+let touchStartX = 0;
+
+let touchEndX = 0;
+
+
+productMedia.addEventListener(
+    "touchstart",
+    function(event){
+
+        if(
+            !product ||
+            product.media !== "gallery"
+        ){
+
+            return;
+
+        }
+
+
+        touchStartX =
+            event.changedTouches[0].screenX;
+
+    },
+    {
+        passive:true
+    }
+);
+
+
+productMedia.addEventListener(
+    "touchend",
+    function(event){
+
+        if(
+            !product ||
+            product.media !== "gallery"
+        ){
+
+            return;
+
+        }
+
+
+        touchEndX =
+            event.changedTouches[0].screenX;
+
+
+        const difference =
+            touchEndX -
+            touchStartX;
+
+
+        if(Math.abs(difference) < 40){
+
+            return;
+
+        }
+
+
+        if(difference > 0){
+
+            previousGalleryImage();
+
+        }
+
+        else{
+
+            nextGalleryImage();
+
+        }
+
+    },
+    {
+        passive:true
+    }
+);
+
+
+/* =========================================================
    SHOW OUT OF STOCK STATE
 ========================================================= */
 
@@ -2123,19 +2856,11 @@ function setOutOfStockState(){
         true;
 
 
-    document
-        .getElementById(
-            "minusBtn"
-        )
-        .disabled =
+    minusBtn.disabled =
         true;
 
 
-    document
-        .getElementById(
-            "plusBtn"
-        )
-        .disabled =
+    plusBtn.disabled =
         true;
 
 
@@ -2159,8 +2884,10 @@ function setOutOfStockState(){
         "stock-message"
     );
 
+
     cartMessage.textContent =
         "This product is currently out of stock.";
+
 }
 
 
@@ -2175,25 +2902,32 @@ function loadProduct(){
         document.title =
             "Product Not Found | 50 Mirars";
 
+
         productBrand.textContent =
             "Tissot";
 
+
         productName.textContent =
             "Product Not Found";
+
 
         productIdElement.textContent =
             rawProductId
                 ? "Product ID: " + rawProductId
                 : "No Product ID Provided";
 
+
         productPrice.textContent =
             "";
+
 
         productDescription.textContent =
             "The requested Tissot product could not be found. Please return to the Tissot section and select a product again.";
 
+
         featureList.innerHTML =
             "";
+
 
         productMedia.innerHTML = `
 
@@ -2210,7 +2944,22 @@ function loadProduct(){
 
         `;
 
+
+        addCartBtn.disabled =
+            true;
+
+
+        buyNowBtn.disabled =
+            true;
+
+
+        quantityBox.classList.add(
+            "disabled"
+        );
+
+
         return;
+
     }
 
 
@@ -2230,7 +2979,10 @@ function loadProduct(){
     productIdElement.textContent =
         "Product ID: TISSOT-" +
         String(product.id)
-            .padStart(3,"0");
+            .padStart(
+                3,
+                "0"
+            );
 
 
     productPrice.textContent =
@@ -2241,49 +2993,18 @@ function loadProduct(){
 
     /* =====================================================
        MEDIA
-    ===================================================== */
+    ====================================================== */
 
-    if(product.media === "video"){
+    currentGalleryIndex =
+        0;
 
-        productMedia.innerHTML = `
 
-            <video
-                controls
-                playsinline
-                preload="metadata"
-            >
-
-                <source
-                    src="${encodeURI(product.file)}"
-                    type="video/mp4"
-                >
-
-                Your browser does not support
-                video playback.
-
-            </video>
-
-        `;
-
-    }
-
-    else{
-
-        productMedia.innerHTML = `
-
-            <img
-                src="${encodeURI(product.file)}"
-                alt="${escapeHTML(product.name)}"
-            >
-
-        `;
-
-    }
+    renderGallery();
 
 
     /* =====================================================
        DESCRIPTION
-    ===================================================== */
+    ====================================================== */
 
     productDescription.textContent =
         product.description;
@@ -2291,7 +3012,7 @@ function loadProduct(){
 
     /* =====================================================
        FEATURES
-    ===================================================== */
+    ====================================================== */
 
     featureList.innerHTML =
         product.features
@@ -2309,7 +3030,7 @@ function loadProduct(){
 
     /* =====================================================
        WHATSAPP
-    ===================================================== */
+    ====================================================== */
 
     const whatsappText =
         "Hello 50 Mirars, I am interested in " +
@@ -2317,6 +3038,7 @@ function loadProduct(){
         " (" +
         formatPrice(product.price) +
         "). Please share more details.";
+
 
     whatsappBtn.href =
         "https://wa.me/918209989013?text=" +
@@ -2327,7 +3049,7 @@ function loadProduct(){
 
     /* =====================================================
        OUT OF STOCK
-    ===================================================== */
+    ====================================================== */
 
     if(product.outOfStock){
 
@@ -2338,9 +3060,53 @@ function loadProduct(){
 
     /* =====================================================
        RELATED
-    ===================================================== */
+    ====================================================== */
 
     loadRelatedProducts();
+
+}
+
+
+/* =========================================================
+   GET RELATED IMAGE
+========================================================= */
+
+function getRelatedMedia(item){
+
+    const files =
+        getProductFiles(item);
+
+
+    if(!files.length){
+
+        return `
+
+            <div
+                style="
+                    color:#777;
+                    font-size:14px;
+                "
+            >
+                Image unavailable
+            </div>
+
+        `;
+
+    }
+
+
+    const firstFile =
+        files[0];
+
+
+    return `
+
+        <img
+            src="${encodeURI(firstFile)}"
+            alt="${escapeHTML(item.name)}"
+        >
+
+    `;
 
 }
 
@@ -2389,7 +3155,10 @@ function loadRelatedProducts(){
         [
             ...sameBrand,
             ...differentBrand
-        ].slice(0,4);
+        ].slice(
+            0,
+            4
+        );
 
 
     relatedGrid.innerHTML =
@@ -2397,54 +3166,22 @@ function loadRelatedProducts(){
             .map(
                 item => {
 
-                    let mediaHTML =
-                        "";
-
-
-                    if(
-                        item.media ===
-                        "video"
-                    ){
-
-                        mediaHTML = `
-
-                            <video
-                                muted
-                                playsinline
-                                preload="metadata"
-                            >
-
-                                <source
-                                    src="${encodeURI(item.file)}"
-                                    type="video/mp4"
-                                >
-
-                            </video>
-
-                        `;
-
-                    }
-
-                    else{
-
-                        mediaHTML = `
-
-                            <img
-                                src="${encodeURI(item.file)}"
-                                alt="${escapeHTML(item.name)}"
-                            >
-
-                        `;
-
-                    }
+                    const mediaHTML =
+                        getRelatedMedia(
+                            item
+                        );
 
 
                     const stockBadge =
                         item.outOfStock
                             ? `
-                                <div class="related-stock-badge">
+
+                                <div
+                                    class="related-stock-badge"
+                                >
                                     OUT OF STOCK
                                 </div>
+
                               `
                             : "";
 
@@ -2453,28 +3190,41 @@ function loadRelatedProducts(){
                         item.outOfStock
 
                             ? `
+
                                 <div
-                                    class="related-btn out-of-stock"
+                                    class="
+                                        related-btn
+                                        out-of-stock
+                                    "
                                 >
                                     Out of Stock
                                 </div>
+
                               `
 
                             : `
+
                                 <a
-                                    href="product-detailstissot.html?id=${item.id}"
+                                    href="
+                                        product-detailstissot.html?id=${item.id}
+                                    "
                                     class="related-btn"
                                 >
                                     View Details
                                 </a>
+
                               `;
 
 
                     return `
 
-                        <div class="related-card">
+                        <div
+                            class="related-card"
+                        >
 
-                            <div class="related-media">
+                            <div
+                                class="related-media"
+                            >
 
                                 ${mediaHTML}
 
@@ -2483,7 +3233,9 @@ function loadRelatedProducts(){
                             </div>
 
 
-                            <div class="related-info">
+                            <div
+                                class="related-info"
+                            >
 
                                 <h3>
                                     ${escapeHTML(item.name)}
@@ -2493,9 +3245,11 @@ function loadRelatedProducts(){
                                 <div
                                     class="
                                         related-price
-                                        ${item.outOfStock
-                                            ? "out-of-stock"
-                                            : ""}
+                                        ${
+                                            item.outOfStock
+                                                ? "out-of-stock"
+                                                : ""
+                                        }
                                     "
                                 >
                                     ${formatPrice(item.price)}
@@ -2557,6 +3311,7 @@ function getCart(){
             error
         );
 
+
         return [];
 
     }
@@ -2586,6 +3341,12 @@ function createCartItem(
     selectedQuantity
 ){
 
+    const firstImage =
+        getProductFiles(
+            product
+        )[0] || "";
+
+
     return {
 
         id:
@@ -2605,9 +3366,7 @@ function createCartItem(
             selectedQuantity,
 
         image:
-            product.media === "image"
-                ? product.file
-                : "",
+            firstImage,
 
         media:
             product.media,
@@ -2642,25 +3401,30 @@ function getSelectedQuantity(){
 
     if(!Number.isFinite(value)){
 
-        value = 1;
+        value =
+            1;
 
     }
 
 
     value =
-        Math.floor(value);
+        Math.floor(
+            value
+        );
 
 
     if(value < 1){
 
-        value = 1;
+        value =
+            1;
 
     }
 
 
     if(value > 10){
 
-        value = 10;
+        value =
+            10;
 
     }
 
@@ -2693,8 +3457,10 @@ function addToCart(){
             "stock-message"
         );
 
+
         cartMessage.textContent =
             "This product is currently out of stock.";
+
 
         return;
 
@@ -2745,7 +3511,9 @@ function addToCart(){
     }
 
 
-    saveCart(cart);
+    saveCart(
+        cart
+    );
 
 
     cartMessage.classList.remove(
@@ -2789,8 +3557,10 @@ function buyNow(){
             "stock-message"
         );
 
+
         cartMessage.textContent =
             "This product is currently out of stock.";
+
 
         return;
 
@@ -2841,7 +3611,9 @@ function buyNow(){
     }
 
 
-    saveCart(cart);
+    saveCart(
+        cart
+    );
 
 
     window.location.href =
@@ -2854,84 +3626,76 @@ function buyNow(){
    MINUS BUTTON
 ========================================================= */
 
-document
-    .getElementById(
-        "minusBtn"
-    )
-    .addEventListener(
-        "click",
-        function(){
+minusBtn.addEventListener(
+    "click",
+    function(){
 
-            if(
-                product &&
-                product.outOfStock
-            ){
+        if(
+            product &&
+            product.outOfStock
+        ){
 
-                return;
-
-            }
-
-
-            let value =
-                Number(
-                    quantity.value
-                ) || 1;
-
-
-            value =
-                Math.max(
-                    1,
-                    value - 1
-                );
-
-
-            quantity.value =
-                value;
+            return;
 
         }
-    );
+
+
+        let value =
+            Number(
+                quantity.value
+            ) || 1;
+
+
+        value =
+            Math.max(
+                1,
+                value - 1
+            );
+
+
+        quantity.value =
+            value;
+
+    }
+);
 
 
 /* =========================================================
    PLUS BUTTON
 ========================================================= */
 
-document
-    .getElementById(
-        "plusBtn"
-    )
-    .addEventListener(
-        "click",
-        function(){
+plusBtn.addEventListener(
+    "click",
+    function(){
 
-            if(
-                product &&
-                product.outOfStock
-            ){
+        if(
+            product &&
+            product.outOfStock
+        ){
 
-                return;
-
-            }
-
-
-            let value =
-                Number(
-                    quantity.value
-                ) || 1;
-
-
-            value =
-                Math.min(
-                    10,
-                    value + 1
-                );
-
-
-            quantity.value =
-                value;
+            return;
 
         }
-    );
+
+
+        let value =
+            Number(
+                quantity.value
+            ) || 1;
+
+
+        value =
+            Math.min(
+                10,
+                value + 1
+            );
+
+
+        quantity.value =
+            value;
+
+    }
+);
 
 
 /* =========================================================
