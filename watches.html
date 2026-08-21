@@ -1,27 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" 
-content="width=1050">
-<title>Watches Collection | 50 Mirars</title>
+
+<meta
+    name="viewport"
+    content="width=1150"
+>
+
+<meta
+    name="description"
+    content="Explore the premium watches collection at 50 Mirars."
+>
+
+<title>Watches | 50 Mirars</title>
 
 <style>
 
-    *{
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+*{
     box-sizing:border-box;
 }
 
-html,
-body{
-    width:100%;
-    max-width:100%;
-    overflow-x:hidden;
+html{
+    scroll-behavior:smooth;
 }
 
 body{
     margin:0;
-    font-family:Arial,sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
+
     background:
         radial-gradient(
             circle at 50% 15%,
@@ -34,261 +47,123 @@ body{
             #eee8d9 50%,
             #f8f5ed 100%
         );
+
     color:#222;
 }
 
-.home-btn{
-    display:inline-block;
-    background:#111;
-    color:white;
-    text-decoration:none;
-    padding:12px 25px;
-    border-radius:6px;
-    font-weight:600;
+
+/* =========================================================
+   BACK TO HOME
+========================================================= */
+
+.home-container{
+    padding:20px 40px;
 }
+
+.home-btn{
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:#111;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    padding:12px 25px;
+
+    border-radius:6px;
+
+    font-weight:600;
+
+    transition:0.3s ease;
+}
+
+.home-btn:hover{
+    background:#c9a24d;
+
+    color:#111;
+}
+
+
+/* =========================================================
+   PAGE TITLE
+========================================================= */
 
 .page-title{
     text-align:center;
-    padding:30px 20px 35px;
+
+    padding:20px 20px 35px;
 }
-    
+
 .page-title h1{
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
     font-size:64px;
-    margin-bottom:20px;
+
+    font-weight:600;
+
+    margin:0 0 20px;
+
     color:#111;
 }
 
 .title-line{
     width:160px;
+
     height:2px;
+
     background:#c9a24d;
+
     margin:0 auto;
+
     position:relative;
 }
 
 .title-line::after{
     content:"";
+
     width:12px;
+
     height:12px;
+
     background:#c9a24d;
+
     position:absolute;
+
     left:50%;
+
     top:50%;
-    transform:translate(-50%,-50%) rotate(45deg);
+
+    transform:
+        translate(-50%,-50%)
+        rotate(45deg);
 }
 
-/* =========================================
-   LUXURY WATCH INTRODUCTION
-   ========================================= */
+
+/* =========================================================
+   WATCH INTRODUCTION
+========================================================= */
 
 .watch-intro{
     width:90%;
+
     max-width:1400px;
+
     margin:0 auto;
+
     text-align:center;
+
     padding:10px 0 55px;
 }
 
 .watch-intro h2{
-    font-family:Georgia, "Times New Roman", serif;
-    font-size:38px;
-    font-weight:600;
-    color:#171717;
-    margin:0 auto 30px;
-    letter-spacing:-0.5px;
-}
-
-.watch-description{
-    max-width:1350px;
-    margin:0 auto;
-    text-align:left;
-}
-
-.watch-description p{
-    margin:0 0 24px;
-    font-size:18px;
-    line-height:1.75;
-    color:#4a4a4a;
-    font-weight:400;
-}
-
-.watch-description strong{
-    color:#9b762c;
-    font-weight:600;
-}
-    
-.products-grid{
-    width:90%;
-    max-width:1400px;
-    margin:0 auto 100px;
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:35px;
-}
-    
-.product-card{
-    background:white;
-    border-radius:15px;
-    overflow:hidden;
-    text-align:center;
-    box-shadow:0 8px 25px rgba(0,0,0,0.08);
-}
-
-.product-card img{
-    width:100%;
-    height:350px;
-    object-fit:cover;
-}
-
-.product-card h3{
-    margin-top:20px;
-}
-
-.price{
-    color:#c9a24d;
-    font-size:22px;
-    font-weight:bold;
-}
-
-/* =========================================================
-   PRODUCT DETAILS BUTTON
-========================================================= */
-
-.product-buttons{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:10px;
-    margin:18px 0 22px;
-}
-
-.show-details-btn{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-
-    background:#111;
-    color:#fff;
-
-    border:1px solid #111;
-
-    padding:12px 28px;
-
-    border-radius:6px;
-
-    font-size:16px;
-    font-weight:600;
-
-    text-decoration:none;
-
-    cursor:pointer;
-
-    transition:
-        background 0.3s ease,
-        color 0.3s ease,
-        border-color 0.3s ease,
-        transform 0.2s ease;
-}
-
-.show-details-btn:hover{
-    background:#c9a24d;
-    color:#111;
-    border-color:#c9a24d;
-
-    transform:translateY(-2px);
-}
-
-.show-details-btn:active{
-    transform:translateY(0);
-}
-   
-.slider{
-    position:relative;
-}
-
-.slide{
-    width:100%;
-    height:350px;
-    object-fit:cover;
-    display:none;
-}
-
-.slide.active{
-    display:block;
-}
-
-.prev,
-.next{
-    position:absolute;
-    top:50%;
-    transform:translateY(-50%);
-    background:rgba(0,0,0,0.6);
-    color:white;
-    border:none;
-    cursor:pointer;
-    padding:12px 16px;
-    font-size:22px;
-    border-radius:50%;
-}
-
-.prev{
-    left:10px;
-}
-
-.next{
-    right:10px;
-}
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-.main-footer{
-    background:#111;
-
-    color:#fff;
-
-    margin-top:40px;
-}
-
-.footer-container{
-    width:100%;
-
-    max-width:1400px;
-
-    margin:0 auto;
-
-    padding:60px 50px 0;
-}
-
-
-/* =========================================================
-   FOOTER TOP
-========================================================= */
-
-.footer-top{
-    display:grid;
-
-    grid-template-columns:
-        1fr
-        1fr
-        1fr;
-
-    gap:50px;
-
-    padding-bottom:50px;
-
-    border-bottom:
-        1px solid rgba(255,255,255,0.15);
-}
-
-.footer-top > h2{
-    grid-column:1 / -1;
-
-    text-align:center;
-
-    margin:0 0 10px;
-
     font-family:
         Georgia,
         "Times New Roman",
@@ -298,16 +173,290 @@ body{
 
     font-weight:600;
 
-    color:#c9a24d;
+    color:#171717;
+
+    margin:0 auto 30px;
+
+    letter-spacing:-0.5px;
+}
+
+.watch-description{
+    max-width:1350px;
+
+    margin:0 auto;
+
+    text-align:left;
+}
+
+.watch-description p{
+    margin:0 0 24px;
+
+    font-size:18px;
+
+    line-height:1.75;
+
+    color:#4a4a4a;
+
+    font-weight:400;
+}
+
+.watch-description strong{
+    color:#9b762c;
+
+    font-weight:600;
+}
+
+.watch-closing-line{
+    margin-top:40px !important;
+
+    margin-bottom:0 !important;
 }
 
 
 /* =========================================================
-   FOOTER CONTACT
+   PRODUCT GRID
 ========================================================= */
 
-.contact-column{
-    text-align:left;
+.product-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:35px;
+
+    width:100%;
+
+    max-width:1400px;
+
+    margin:0 auto;
+
+    padding:
+        20px
+        40px
+        80px;
+}
+
+
+/* =========================================================
+   PRODUCT CARD
+========================================================= */
+
+.product-card{
+    background:#fff;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    text-align:center;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.08);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+    display:flex;
+
+    flex-direction:column;
+}
+
+.product-card:hover{
+    transform:translateY(-5px);
+
+    box-shadow:
+        0 14px 35px rgba(0,0,0,0.13);
+}
+
+
+/* =========================================================
+   IMAGES & VIDEOS
+========================================================= */
+
+.product-card > img,
+.product-card > video,
+.slide{
+    width:100%;
+    height:350px;
+    object-fit:cover;
+    display:block;
+}
+
+.slide{
+    display:none;
+}
+
+.slide.active{
+    display:block;
+}
+
+
+/* =========================================================
+   SLIDER
+========================================================= */
+
+.slider{
+    position:relative;
+}
+
+.prev,
+.next{
+    position:absolute;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    background:rgba(0,0,0,0.6);
+
+    color:#fff;
+
+    border:none;
+
+    cursor:pointer;
+
+    padding:12px 16px;
+
+    font-size:22px;
+
+    border-radius:50%;
+}
+
+.prev{left:10px;}
+.next{right:10px;}
+
+
+/* =========================================================
+   PRODUCT NAME
+========================================================= */
+
+.product-card h3{
+    font-size:22px;
+
+    line-height:1.35;
+
+    margin:25px 15px 10px;
+
+    color:#111;
+
+    min-height:60px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+}
+
+
+/* =========================================================
+   PRICE
+========================================================= */
+
+.price{
+    color:#c9a24d;
+
+    font-weight:bold;
+
+    font-size:22px;
+
+    margin:15px 0 20px;
+}
+
+
+/* =========================================================
+   PRODUCT BUTTON
+========================================================= */
+
+.product-buttons{
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    margin-top:auto;
+
+    padding:
+        0
+        15px
+        30px;
+}
+
+.product-details-btn{
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    min-height:50px;
+
+    width:100%;
+
+    max-width:300px;
+
+    padding:13px 25px;
+
+    background:#111;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    border:2px solid #111;
+
+    border-radius:6px;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    transition:.3s;
+}
+
+.product-details-btn:hover{
+    background:#c9a24d;
+
+    color:#111;
+
+    border-color:#c9a24d;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.main-footer{
+    background:#111;
+    color:#fff;
+    margin-top:40px;
+}
+
+.footer-container{
+    width:100%;
+    max-width:1400px;
+    margin:0 auto;
+    padding:60px 50px 0;
+}
+
+.footer-top{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:50px;
+    padding-bottom:50px;
+    border-bottom:1px solid rgba(255,255,255,.15);
+}
+
+.footer-top>h2{
+    grid-column:1/-1;
+    text-align:center;
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:38px;
+    color:#c9a24d;
 }
 
 .contact-column h3,
@@ -315,40 +464,18 @@ body{
 .footer-links-column h3,
 .footer-social h3{
     color:#c9a24d;
-
-    font-size:20px;
-
-    margin:0 0 18px;
-}
-
-.contact-column p{
-    color:#bbb;
-
-    font-size:15px;
-
-    line-height:1.6;
 }
 
 .footer-link{
     display:block;
-
     color:#fff;
-
     text-decoration:none;
-
     margin-bottom:12px;
-
-    transition:0.3s ease;
 }
 
 .footer-link:hover{
     color:#c9a24d;
 }
-
-
-/* =========================================================
-   WHATSAPP
-========================================================= */
 
 .whatsapp-column{
     text-align:center;
@@ -356,196 +483,122 @@ body{
 
 .whatsapp-title{
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
     gap:10px;
 }
 
 .whatsapp-icon{
-    width:28px !important;
-
-    height:28px !important;
-
-    object-fit:contain !important;
+    width:28px;
+    height:28px;
 }
 
 .whatsapp-button{
     display:inline-block;
-
     background:#c9a24d;
-
     color:#111;
-
     text-decoration:none;
-
     padding:13px 30px;
-
     border-radius:6px;
-
     font-weight:bold;
-
-    transition:0.3s ease;
 }
-
-.whatsapp-button:hover{
-    background:#fff;
-
-    color:#111;
-}
-
-
-/* =========================================================
-   FOOTER MIDDLE
-========================================================= */
 
 .footer-middle{
     display:grid;
-
-    grid-template-columns:
-        1fr
-        1fr
-        1fr;
-
+    grid-template-columns:1fr 1fr 1fr;
     gap:50px;
-
     padding:50px 0;
 }
 
 .footer-links-column{
     display:flex;
-
     flex-direction:column;
 }
 
 .footer-links-column a{
     color:#ccc;
-
     text-decoration:none;
-
     margin-bottom:13px;
-
-    transition:0.3s ease;
 }
 
 .footer-links-column a:hover{
     color:#c9a24d;
 }
 
-
-/* =========================================================
-   INSTAGRAM
-========================================================= */
-
 .footer-social{
     text-align:center;
 }
 
-.footer-social p{
-    color:#bbb;
-
-    margin-bottom:15px;
-}
-
 .instagram-button{
     display:inline-flex;
-
-    align-items:center;
-
-    justify-content:center;
-
     width:50px;
-
     height:50px;
-
+    align-items:center;
+    justify-content:center;
     border:1px solid #c9a24d;
-
     border-radius:50%;
-
-    transition:0.3s ease;
-}
-
-.instagram-button:hover{
-    background:#c9a24d;
 }
 
 .instagram-button img{
     width:28px;
-
     height:28px;
+}
 
-    object-fit:contain;
+.footer-bottom{
+    border-top:1px solid rgba(255,255,255,.15);
+    text-align:center;
+    padding:25px 10px;
+    color:#999;
 }
 
 
 /* =========================================================
-   COPYRIGHT
+   RESPONSIVE
 ========================================================= */
 
-.footer-bottom{
-    border-top:
-        1px solid rgba(255,255,255,0.15);
+@media(max-width:1100px){
 
-    text-align:center;
-
-    padding:25px 10px;
-}
-
-.footer-bottom p{
-    margin:0;
-
-    color:#999;
-
-    font-size:14px;
-
-    line-height:1.6;
-}
-
-    
-
-@media(max-width:1000px){
-
-.products-grid{
-    grid-template-columns:repeat(2,1fr);
+.product-grid{
+grid-template-columns:repeat(2,1fr);
+padding:20px 25px 80px;
 }
 
 }
 
-@media(max-width:700px){
+@media(max-width:768px){
 
-    .products-grid{
-        grid-template-columns:1fr;
-    }
-
-    .slide,
-    .product-card img{
-        height:300px;
-    }
-
-    .enquire-btn{
-        width:85%;
-        display:block;
-        margin:15px auto;
-    }
-
+.product-grid{
+grid-template-columns:1fr;
+padding:20px;
 }
 
+.product-card>img,
+.product-card>video,
+.slide{
+height:300px;
+}
+
+.footer-top,
+.footer-middle{
+grid-template-columns:1fr;
+text-align:center;
+}
+
+.footer-links-column{
+align-items:center;
+}
+
+}
 
 </style>
-    
+
 </head>
 
 <body>
 
-<div style="padding:20px;">
+<div class="home-container">
     <a href="index.html" class="home-btn">← Back to Home</a>
 </div>
-
-<!-- =========================================
-     WATCHES INTRODUCTION
-     ========================================= -->
 
 <section class="watch-intro">
 
@@ -559,89 +612,40 @@ body{
     <div class="watch-description">
 
         <p>
-            A watch is more than an accessory worn around the wrist. It is a reflection
-            of personality, taste, and the attention one gives to the finer details of
-            everyday life. From the character of the dial and the proportions of the
-            case to the finish of the bracelet and the smallest elements of its design,
-            every detail contributes to the identity of a timepiece. A well-chosen watch
-            can quietly elevate an outfit, add confidence to a formal look, or become
-            the defining detail of an everyday style. It does not simply tell you the
-            time — it becomes part of how you present yourself to the world.
+            A watch is more than an accessory worn around the wrist. It is a reflection of personality, taste, and the attention one gives to the finer details of everyday life.
         </p>
 
         <p>
-            At <strong>50 Mirars</strong>, we believe that choosing a watch should be
-            about more than following what is currently trending. It is about discovering
-            a timepiece that feels right for you. Our collection brings together a
-            carefully selected range of distinctive watches, from sophisticated and
-            understated designs to bold chronographs and statement-making timepieces.
-            Each piece has been selected with an appreciation for design, presence,
-            versatility, and the timeless appeal of a great watch. Whether you are
-            looking for something refined for special occasions, a bold companion for
-            everyday wear, or a distinctive piece that naturally draws attention, our
-            collection offers something for every style and personality.
+            At <strong>50 Mirars</strong>, we believe that choosing a watch should be about discovering a timepiece that feels right for you.
         </p>
 
         <p>
-    A truly memorable watch has a quality that goes beyond its appearance.
-    It becomes familiar on the wrist, complements different moments, and
-    develops its own place in your personal style. That is why we look beyond
-    simply how a watch looks — we consider the details, proportions, finishes,
-    colours, and overall character that make each piece distinctive. From
-    classic silhouettes to contemporary designs, our collection is created
-    for those who appreciate watches that feel intentional rather than ordinary.
-</p>
+            Our collection brings together refined classics, bold chronographs, and statement-making timepieces designed to suit different personalities and occasions.
+        </p>
 
-<p class="watch-closing-line">
-    <strong>
-        Discover a timepiece that doesn't simply keep time, but becomes a part of yours.
-    </strong>
-</p>
-        
+        <p class="watch-closing-line">
+            <strong>
+                Discover a timepiece that doesn't simply keep time, but becomes a part of yours.
+            </strong>
+        </p>
+
     </div>
 
 </section>
-    
-    
-<!-- Products will go here -->
 
-<div class="products-grid">
+<div class="product-grid">
 
-<!-- Tissot T-Race Chronograph Watch -->
+<!-- 1 -->
+
 <div class="product-card">
 
-    <!-- CLICKABLE PRODUCT IMAGE AREA -->
-    <div
-        class="slider product-image-click"
-        onclick="openProductDetails('tissot-t-race')"
-        style="cursor:pointer;"
-    >
+    <div class="slider">
 
-        <img
-            src="Tissot T-Race Chronograph Watch.jpeg"
-            class="slide active"
-            alt="Tissot T-Race Chronograph Watch"
-        >
+        <img src="Tissot T-Race Chronograph Watch.jpeg" class="slide active" alt="Tissot T-Race Chronograph Watch">
+        <img src="Tissot T-Race Chronograph Watch 2.jpeg" class="slide" alt="Tissot T-Race Chronograph Watch">
 
-        <img
-            src="Tissot T-Race Chronograph Watch 2.jpeg"
-            class="slide"
-            alt="Tissot T-Race Chronograph Watch"
-        >
-
-        <button
-            class="prev"
-            onclick="event.stopPropagation();"
-        >
-            ❮
-        </button>
-
-        <button
-            class="next"
-            onclick="event.stopPropagation();"
-        >
-            ❯
-        </button>
+        <button class="prev">❮</button>
+        <button class="next">❯</button>
 
     </div>
 
@@ -650,32 +654,21 @@ body{
     <div class="price">₹3,500</div>
 
     <div class="product-buttons">
-
-        <a
-            href="product-details.html?id=1"
-            class="view-details-btn"
-        >
-            View Product Details
+        <a href="product-details.html?id=1" class="product-details-btn">
+            Show Product Details
         </a>
-
     </div>
 
 </div>
-   
-<!-- Rolex Pheonix Watch -->
+
+<!-- 2 -->
+
 <div class="product-card">
 
-    <video
-        width="100%"
-        height="350"
-        controls
-        playsinline
-    >
-        <source
-            src="Rolex Pheonix Watch.mp4"
-            type="video/mp4"
-        >
-        Your browser does not support video playback.
+    <video controls playsinline preload="metadata">
+
+        <source src="Rolex Pheonix Watch.mp4" type="video/mp4">
+
     </video>
 
     <h3>Rolex Pheonix Watch</h3>
@@ -683,46 +676,24 @@ body{
     <div class="price">₹4,000</div>
 
     <div class="product-buttons">
-
-        <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Pheonix%20Watch.%20Please%20share%20availability%20and%20details."
-            target="_blank"
-        >
-            Enquire Now
+        <a href="product-details.html?id=2" class="product-details-btn">
+            Show Product Details
         </a>
-
-        <button
-            class="add-to-cart-btn"
-            data-name="Rolex Pheonix Watch"
-            data-price="4000"
-        >
-            Add to Cart
-        </button>
-
     </div>
 
 </div>
 
-<!-- Versace Dominus Watch -->
+<!-- 3 -->
+
 <div class="product-card">
 
     <div class="slider">
 
-        <img
-            src="Versace Dominus Skeleton Watch 3.jpeg"
-            class="slide active"
-            alt="Versace Dominus Watch"
-        >
+        <img src="Versace Dominus Skeleton Watch 3.jpeg" class="slide active" alt="Versace Dominus Watch">
+        <img src="Versace Dominus Skeleton Watch4.jpeg" class="slide" alt="Versace Dominus Watch">
 
-        <img
-            src="Versace Dominus Skeleton Watch4.jpeg"
-            class="slide"
-            alt="Versace Dominus Watch"
-        >
-
-        <button class="prev" type="button">❮</button>
-        <button class="next" type="button">❯</button>
+        <button class="prev">❮</button>
+        <button class="next">❯</button>
 
     </div>
 
@@ -731,51 +702,49 @@ body{
     <div class="price">₹4,000</div>
 
     <div class="product-buttons">
-
-        <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars%2C%20I%20am%20interested%20in%20Versace%20Dominus%20Watch.%20Please%20share%20availability%20and%20details"
-            target="_blank"
-        >
-            Enquire Now
+        <a href="product-details.html?id=3" class="product-details-btn">
+            Show Product Details
         </a>
-
-        <button
-            class="add-to-cart-btn"
-            data-name="Versace Dominus Watch"
-            data-price="4000"
-        >
-            Add to Cart
-        </button>
-
     </div>
 
 </div>
-    
-<!-- Rolex Daytona 116578SACO -->
+
+<!-- 4 -->
+
 <div class="product-card">
-  <video width="100%" height="350" controls>
-    <source src="Rolex Daytona 116578SACO.mp4" type="video/mp4">
-  </video>
-  <h3>Rolex Daytona 116578SACO</h3>
-  <div class="price">₹3,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Rolex%20Daytona%20116578SACO">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Rolex Daytona 116578SACO" data-price="3500">Add to Cart</button>
-  </div>
+
+    <video controls playsinline preload="metadata">
+
+        <source src="Rolex Daytona 116578SACO.mp4" type="video/mp4">
+
+    </video>
+
+    <h3>Rolex Daytona 116578SACO</h3>
+
+    <div class="price">₹3,500</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=4" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
 </div>
 
-<!-- Tommy Hilfiger Clark -->
+<!-- 5 -->
+
 <div class="product-card">
 
     <div class="slider">
-        <img src="Tommy Hilfiger Clark.jpeg" class="slide active">
-        <img src="Tommy Hilfiger Clark 2.jpeg" class="slide">
-        <img src="Tommy Hilfiger Clark 3.jpeg" class="slide">
-        <img src="Tommy Hilfiger Clark 4.jpeg" class="slide">
+
+        <img src="Tommy Hilfiger Clark.jpeg" class="slide active" alt="Tommy Hilfiger Clark">
+        <img src="Tommy Hilfiger Clark 2.jpeg" class="slide" alt="Tommy Hilfiger Clark">
+        <img src="Tommy Hilfiger Clark 3.jpeg" class="slide" alt="Tommy Hilfiger Clark">
+        <img src="Tommy Hilfiger Clark 4.jpeg" class="slide" alt="Tommy Hilfiger Clark">
 
         <button class="prev">❮</button>
         <button class="next">❯</button>
+
     </div>
 
     <h3>Tommy Hilfiger Clark</h3>
@@ -783,52 +752,46 @@ body{
     <div class="price">₹3,500</div>
 
     <div class="product-buttons">
-
-        <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Tommy%20Hilfiger%20Clark.%20Please%20share%20availability%20and%20details"
-            target="_blank"
-        >
-            Enquire Now
+        <a href="product-details.html?id=5" class="product-details-btn">
+            Show Product Details
         </a>
-
-        <button
-            class="add-to-cart-btn"
-            data-name="Tommy Hilfiger Clark"
-            data-price="3500"
-        >
-            Add to Cart
-        </button>
-
     </div>
 
 </div>
 
-<!-- Omega Speedmaster James Bond -->
+<!-- 6 -->
+
 <div class="product-card">
-  <video width="100%" height="350" controls>
-    <source src="Omega Speedmaster James Bond.mp4" type="video/mp4">
-  </video>
-  <h3>Omega Speedmaster James Bond</h3>
-  <div class="price">₹4,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" 
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Omega%20Speedmaster%20James%20Bond">Enquire Now</a>
-    <button class="add-to-cart-btn" 
-            data-name="Omega Speedmaster James Bond" 
-            data-price="4000">Add to Cart</button>
-  </div>
+
+    <video controls playsinline preload="metadata">
+        <source src="Omega Speedmaster James Bond.mp4" type="video/mp4">
+    </video>
+
+    <h3>Omega Speedmaster James Bond</h3>
+
+    <div class="price">₹4,000</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=6" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
 </div>
 
-<!-- Versace Hellenyium Chrono Watch -->
+
+<!-- 7 -->
+
 <div class="product-card">
 
     <div class="slider">
-        <img src="Versace Hellenyium Chrono Watch.jpeg" class="slide active">
-        <img src="Versace Hellenyium Chrono Watch 2.jpeg" class="slide">
+
+        <img src="Versace Hellenyium Chrono Watch.jpeg" class="slide active" alt="Versace Hellenyium Chrono Watch">
+        <img src="Versace Hellenyium Chrono Watch 2.jpeg" class="slide" alt="Versace Hellenyium Chrono Watch">
 
         <button class="prev">❮</button>
         <button class="next">❯</button>
+
     </div>
 
     <h3>Versace Hellenyium Chrono Watch</h3>
@@ -836,41 +799,20 @@ body{
     <div class="price">₹4,000</div>
 
     <div class="product-buttons">
-
-        <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Versace%20Hellenyium%20Chrono%20Watch.%20Please%20share%20availability%20and%20details"
-            target="_blank"
-        >
-            Enquire Now
+        <a href="product-details.html?id=7" class="product-details-btn">
+            Show Product Details
         </a>
-
-        <button
-            class="add-to-cart-btn"
-            data-name="Versace Hellenyium Chrono Watch"
-            data-price="4000"
-        >
-            Add to Cart
-        </button>
-
     </div>
 
 </div>
 
-<!-- Tommy Hilfiger Legend Series -->
+
+<!-- 8 -->
+
 <div class="product-card">
 
-    <video
-        width="100%"
-        height="350"
-        controls
-        playsinline
-    >
-        <source
-            src="Tommy Hilfiger Legend Series.mp4"
-            type="video/mp4"
-        >
-        Your browser does not support video playback.
+    <video controls playsinline preload="metadata">
+        <source src="Tommy Hilfiger Legend Series.mp4" type="video/mp4">
     </video>
 
     <h3>Tommy Hilfiger Legend Series</h3>
@@ -878,42 +820,20 @@ body{
     <div class="price">₹4,000</div>
 
     <div class="product-buttons">
-
-        <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Tommy%20Hilfiger%20Legend%20Series.%20Please%20share%20availability%20and%20details"
-            target="_blank"
-        >
-            Enquire Now
+        <a href="product-details.html?id=8" class="product-details-btn">
+            Show Product Details
         </a>
-
-        <button
-            class="add-to-cart-btn"
-            data-name="Tommy Hilfiger Legend Series"
-            data-price="4000"
-        >
-            Add to Cart
-        </button>
-
     </div>
 
 </div>
 
 
-<!-- Tommy Hilfiger Dual Tone Watch TH1781644 -->
+<!-- 9 -->
+
 <div class="product-card">
 
-    <video
-        width="100%"
-        height="350"
-        controls
-        playsinline
-    >
-        <source
-            src="Tommy Hilfiger Dual Tone Watch TH1781644.mp4"
-            type="video/mp4"
-        >
-        Your browser does not support video playback.
+    <video controls playsinline preload="metadata">
+        <source src="Tommy Hilfiger Dual Tone Watch TH1781644.mp4" type="video/mp4">
     </video>
 
     <h3>Tommy Hilfiger Dual Tone Watch TH1781644</h3>
@@ -921,36 +841,26 @@ body{
     <div class="price">₹3,500</div>
 
     <div class="product-buttons">
-
-        <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Tommy%20Hilfiger%20Dual%20Tone%20Watch%20TH1781644.%20Please%20share%20availability%20and%20details"
-            target="_blank"
-        >
-            Enquire Now
+        <a href="product-details.html?id=9" class="product-details-btn">
+            Show Product Details
         </a>
-
-        <button
-            class="add-to-cart-btn"
-            data-name="Tommy Hilfiger Dual Tone Watch TH1781644"
-            data-price="3500"
-        >
-            Add to Cart
-        </button>
-
     </div>
 
 </div>
 
-<!-- Versace Tonneau Skeleton Watch -->
+
+<!-- 10 -->
+
 <div class="product-card">
 
     <div class="slider">
-        <img src="Versace Tonneau Skeleton Watch.jpeg" class="slide active">
-        <img src="Versace Tonneau Skeleton Watch 2.jpeg" class="slide">
+
+        <img src="Versace Tonneau Skeleton Watch.jpeg" class="slide active" alt="Versace Tonneau Skeleton Watch">
+        <img src="Versace Tonneau Skeleton Watch 2.jpeg" class="slide" alt="Versace Tonneau Skeleton Watch">
 
         <button class="prev">❮</button>
         <button class="next">❯</button>
+
     </div>
 
     <h3>Versace Tonneau Skeleton Watch</h3>
@@ -958,42 +868,20 @@ body{
     <div class="price">₹4,000</div>
 
     <div class="product-buttons">
-
-        <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Versace%20Tonneau%20Skeleton%20Watch.%20Please%20share%20availability%20and%20details"
-            target="_blank"
-        >
-            Enquire Now
+        <a href="product-details.html?id=10" class="product-details-btn">
+            Show Product Details
         </a>
-
-        <button
-            class="add-to-cart-btn"
-            data-name="Versace Tonneau Skeleton Watch"
-            data-price="4000"
-        >
-            Add to Cart
-        </button>
-
     </div>
 
 </div>
 
 
-<!-- Seiko 5 Sports Red Blood -->
+<!-- 11 -->
+
 <div class="product-card">
 
-    <video
-        width="100%"
-        height="350"
-        controls
-        playsinline
-    >
-        <source
-            src="Seiko 5 Sports Red Blood.mp4"
-            type="video/mp4"
-        >
-        Your browser does not support video playback.
+    <video controls playsinline preload="metadata">
+        <source src="Seiko 5 Sports Red Blood.mp4" type="video/mp4">
     </video>
 
     <h3>Seiko 5 Sports Red Blood</h3>
@@ -1001,73 +889,62 @@ body{
     <div class="price">₹4,500</div>
 
     <div class="product-buttons">
-
-        <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Seiko%205%20Sports%20Red%20Blood.%20Please%20share%20availability%20and%20details."
-            target="_blank"
-        >
-            Enquire Now
+        <a href="product-details.html?id=11" class="product-details-btn">
+            Show Product Details
         </a>
-
-        <button
-            class="add-to-cart-btn"
-            data-name="Seiko 5 Sports Red Blood"
-            data-price="4500"
-        >
-            Add to Cart
-        </button>
-
     </div>
 
 </div>
-    
-<!-- Omega Seamaster Diver 300M Co-Axial Master -->
+
+
+<!-- 12 -->
+
 <div class="product-card">
-  <video width="100%" height="350" controls>
-    <source src="Omega Seamaster Diver 300M Co-Axial Master.mp4" type="video/mp4">
-  </video>
-  <h3>Omega Seamaster Diver 300M Co-Axial Master</h3>
-  <div class="price">₹3,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" 
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Omega%20Seamaster%20Diver%20300M%20Co-Axial%20Master">Enquire Now</a>
-    <button class="add-to-cart-btn" 
-            data-name="Omega Seamaster Diver 300M Co-Axial Master" 
-            data-price="3500">Add to Cart</button>
-  </div>
+
+    <video controls playsinline preload="metadata">
+        <source src="Omega Seamaster Diver 300M Co-Axial Master.mp4" type="video/mp4">
+    </video>
+
+    <h3>Omega Seamaster Diver 300M Co-Axial Master</h3>
+
+    <div class="price">₹3,500</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=12" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
 </div>
 
-<!-- Casio Edifice EFR-539SG-1AUDF -->
+
+<!-- 13 -->
+
 <div class="product-card">
-  <video width="100%" height="350" controls>
-    <source src="Casio Edifice EFR-539SG-1AUDF.mp4" type="video/mp4">
-  </video>
-  <h3>Casio Edifice EFR-539SG-1AUDF</h3>
-  <div class="price">₹3,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" 
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Casio%20Edifice%20EFR-539SG-1AUDF">Enquire Now</a>
-    <button class="add-to-cart-btn" 
-            data-name="Casio Edifice EFR-539SG-1AUDF" 
-            data-price="3000">Add to Cart</button>
-  </div>
+
+    <video controls playsinline preload="metadata">
+        <source src="Casio Edifice EFR-539SG-1AUDF.mp4" type="video/mp4">
+    </video>
+
+    <h3>Casio Edifice EFR-539SG-1AUDF</h3>
+
+    <div class="price">₹3,000</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=13" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
 </div>
 
-<!-- Tommy Hilfiger Model 1792196 -->
+
+<!-- 14 -->
+
 <div class="product-card">
 
-    <video
-        width="100%"
-        height="350"
-        controls
-        playsinline
-    >
-        <source
-            src="Tommy Hilfiger Model 1792196.mp4"
-            type="video/mp4"
-        >
-        Your browser does not support video playback.
+    <video controls playsinline preload="metadata">
+        <source src="Tommy Hilfiger Model 1792196.mp4" type="video/mp4">
     </video>
 
     <h3>Tommy Hilfiger Model 1792196</h3>
@@ -1075,804 +952,1249 @@ body{
     <div class="price">₹4,000</div>
 
     <div class="product-buttons">
-
-        <a
-            class="enquire-btn"
-            href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Tommy%20Hilfiger%20Model%201792196.%20Please%20share%20availability%20and%20details."
-            target="_blank"
-        >
-            Enquire Now
+        <a href="product-details.html?id=14" class="product-details-btn">
+            Show Product Details
         </a>
-
-        <button
-            class="add-to-cart-btn"
-            data-name="Tommy Hilfiger Model 1792196"
-            data-price="4000"
-        >
-            Add to Cart
-        </button>
-
     </div>
 
 </div>
 
-<!-- Rolex Datejust 41 Wimbledon Dial -->
-<div class="product-card">
-  <video width="100%" height="350" controls>
-    <source src="Rolex Datejust 41 Wimbledon Dial.mp4" type="video/mp4">
-  </video>
-  <h3>Rolex Datejust 41 Wimbledon Dial</h3>
-  <div class="price">₹3,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Rolex%20Datejust%2041%20Wimbledon%20Dial">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Rolex Datejust 41 Wimbledon Dial" data-price="3500">Add to Cart</button>
-  </div>
-</div>
 
-<!-- Rolex Cosmograph Daytona John Mayer 116508 -->
-<div class="product-card">
-  <video width="100%" height="350" controls>
-    <source src="Rolex Cosmograph Daytona John Mayer 116508.mp4" type="video/mp4">
-  </video>
-  <h3>Rolex Cosmograph Daytona John Mayer 116508</h3>
-  <div class="price">₹3,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Rolex%20Cosmograph%20Daytona%20John%20Mayer%20116508">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Rolex Cosmograph Daytona John Mayer 116508" data-price="3500">Add to Cart</button>
-  </div>
-</div>
+<!-- 15 -->
 
 <div class="product-card">
-  <video width="100%" height="350" controls>
-    <source src="Breitling Navitimer .mp4" type="video/mp4">
-  </video>
-  <h3>Breitling Navitimer</h3>
-  <div class="price">₹6,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Breitling%20Navitimer">Enquire Now</a>
-    <!-- ✅ Important: price should include the ₹ symbol -->
-    <button class="add-to-cart-btn" 
-            data-name="Breitling Navitimer" 
-            data-price="₹6000">
-      Add to Cart
-    </button>
-  </div>
-</div>
 
-<!-- Tommy Hilfiger Henry Skeleton Automatic Watch -->
-<div class="product-card">
-  <video width="100%" height="350" controls>
-    <source src="Tommy Hilfiger Henry Skeleton Automatic Watch.mp4" type="video/mp4">
-  </video>
-  <h3>Tommy Hilfiger Henry Skeleton Automatic Watch</h3>
-  <div class="price">₹4,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Tommy%20Hilfiger%20Henry%20Skeleton%20Automatic%20Watch">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Tommy Hilfiger Henry Skeleton Automatic Watch" data-price="4000">Add to Cart</button>
-  </div>
-</div>
+    <video controls playsinline preload="metadata">
+        <source src="Rolex Datejust 41 Wimbledon Dial.mp4" type="video/mp4">
+    </video>
 
-<!-- Guess Camden Multifunction GW1051G2 -->
-<div class="product-card">
-  <div class="slider">
-    <img src="Guess Camden Multifunction GW1051G2 1.jpeg" class="slide active">
-    <img src="Guess Camden Multifunction GW1051G2.jpeg" class="slide">
-    <button class="prev">❮</button>
-    <button class="next">❯</button>
-  </div>
-  <h3>Guess Camden Multifunction GW1051G2</h3>
-  <div class="price">₹3,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Guess%20Camden%20Multifunction%20GW1051G2.">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Guess Camden Multifunction GW1051G2" data-price="3500">Add to Cart</button>
-  </div>
-</div>
-    
-<div class="product-card">
-  <img src="Seiko Presage SRPE15.jpeg" alt="Seiko Presage SRPE15">
-  <h3>Seiko Presage SRPE15</h3>
-  <div class="price">₹5,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Seiko%20Presage%20SRPE15.%20Please%20share%20availability%20and%20details.">Enquire Now</a>
-     <!-- ✅ Important: price should include the ₹ symbol -->
-    <button class="add-to-cart-btn" 
-            data-name="Seiko Presage SRPE15" 
-            data-price="₹5,500">
-      Add to Cart
-    </button>
-  </div>
-</div>
+    <h3>Rolex Datejust 41 Wimbledon Dial</h3>
 
-<!-- Tommy Hilfiger Baker Watch -->
-<div class="product-card">
-  <video width="100%" height="350" controls>
-    <source src="Tommy Hilfiger Baker Watch.mp4" type="video/mp4">
-  </video>
-  <h3>Tommy Hilfiger Baker Watch</h3>
-  <div class="price">₹3,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Tommy%20Hilfiger%20Baker%20Watch">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Tommy Hilfiger Baker Watch" data-price="3500">Add to Cart</button>
-  </div>
-</div>
+    <div class="price">₹3,500</div>
 
-<!-- Seiko 5 Sports GMT -->
-<div class="product-card">
-  <img src="Seiko 5 Sports GMT SSK035K1.jpeg" alt="Seiko 5 Sports GMT SSK035K1">
-  <h3>Seiko 5 Sports GMT SSK035K1</h3>
-  <div class="price">₹4,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Seiko%205%20Sports%20GMT%20SSK035K1">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Seiko 5 Sports GMT SSK035K1" data-price="4000">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Seiko 5 Sports Quartz GMT -->
-<div class="product-card">
-  <img src="Seiko 5 Sports Quartz GMT SSK035K1.jpeg" alt="Seiko 5 Sports Quartz GMT SSK035K1">
-  <h3>Seiko 5 Sports Quartz GMT SSK035K1</h3>
-  <div class="price">₹3,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Seiko%205%20Sports%20Quartz%20GMT%20SSK035K1">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Seiko 5 Sports Quartz GMT SSK035K1" data-price="3500">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Seiko Prospex Speedtimer -->
-<div class="product-card">
-  <img src="Seiko Prospex Speedtimer SPB513.jpeg" alt="Seiko Prospex Speedtimer SPB513">
-  <h3>Seiko Prospex Speedtimer SPB513</h3>
-  <div class="price">₹3,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Seiko%20Prospex%20Speedtimer%20SPB513">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Seiko Prospex Speedtimer SPB513" data-price="3500">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Seiko 5 Sports Group -->
-<div class="product-card">
-  <video width="100%" height="350" controls>
-    <source src="Seiko 5 Sports Group.mp4" type="video/mp4">
-  </video>
-  <h3>Seiko 5 Sports Group</h3>
-  <div class="price">₹4,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Seiko%205%20Sports%20Group">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Seiko 5 Sports Group" data-price="4000">Add to Cart</button>
-  </div>
-</div>
-    
-<div class="product-card">
-  <video width="100%" height="350" controls>
-    <source src="Seiko Presage Cocktail SRPG23J1.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-  <h3>Seiko Presage Cocktail SRPG23J1</h3>
-  <div class="price">₹4,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Seiko%20Presage%20Cocktail%20SRPG23J1">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Seiko Presage Cocktail SRPG23J1" data-price="4000">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Armani Exchange Automatic Skeleton -->
-<div class="product-card">
-  <img src="Armani Exchange Automatic Skeleton.jpeg" alt="Armani Exchange Automatic Skeleton">
-  <h3>Armani Exchange Automatic Skeleton</h3>
-  <div class="price">₹4,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Armani%20Exchange%20Automatic%20Skeleton">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Armani Exchange Automatic Skeleton" data-price="4000">Add to Cart</button>
-  </div>
-</div>
-
-<div class="product-card">
-  <video width="100%" height="350" controls>
-    <source src="Tudor Pelagos 39.mp4" type="video/mp4">
-  </video>
-  <h3>Tudor Pelagos 39</h3>
-  <div class="price">₹5,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Tudor%20Pelagos%2039">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Tudor Pelagos 39" data-price="5000">Add to Cart</button>
-  </div>
-</div>
-
-<div class="product-card">
-  <img src="Seiko Mod Watches.jpeg" alt="Seiko Mod Watches">
-  <h3>Seiko Mod Watches</h3>
-  <div class="price">₹5,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Seiko%20Mod%20Watches.%20Please%20share%20availability%20and%20details.">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Seiko Mod Watches" data-price="5500">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Guess Arc Champagne -->
-<div class="product-card">
-  <img src="Guess Arc Champagne.jpeg" alt="Guess Arc Champagne">
-  <h3>Guess Arc Champagne</h3>
-  <div class="price">₹4,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Guess%20Arc%20Champagne">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Guess Arc Champagne" data-price="4000">Add to Cart</button>
-  </div>
-</div>
-    
-<div class="product-card">
-  <img src="Rolex Yatch-Master 42.jpeg" alt="Rolex Yatch-Master 42">
-  <h3>Rolex Yatch-Master 42</h3>
-  <div class="price">₹5,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Yatch-Master%2042.">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Rolex Yatch-Master 42" data-price="5000">Add to Cart</button>
-  </div>
-</div>
-
-<div class="product-card">
-  <img src="Seiko Blue Moon SSA347J1.jpeg" alt="Seiko Blue Moon SSA347J1">
-  <h3>Seiko Blue Moon SSA347J1</h3>
-  <div class="price">₹6,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Seiko%20Blue%20Moon%20SSA347J1.">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Seiko Blue Moon SSA347J1" data-price="6000">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Seiko Mod -->
-<div class="product-card">
-  <img src="Seiko Mod .jpeg" alt="Seiko Mod">
-  <h3>Seiko Mod</h3>
-  <div class="price">₹5,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Seiko%20Mod.">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Seiko Mod" data-price="5000">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Rolex GMT-Master II Root Beer -->
-<div class="product-card">
-  <video width="100%" height="350" controls>
-    <source src="Rolex GMT-Master II Root Beer .mp4" type="video/mp4">
-  </video>
-  <h3>Rolex GMT-Master II Root Beer</h3>
-  <div class="price">₹3,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Rolex%20GMT-Master%20II%20Root%20Beer">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Rolex GMT-Master II Root Beer" data-price="3500">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Seiko Mod Yatch-Master Rose Gold -->
-<div class="product-card">
-  <video width="100%" height="350" controls>
-    <source src="Seiko Mod Yatch-Master Rose Gold.mp4" type="video/mp4">
-  </video>
-  <h3>Seiko Mod Yatch-Master Rose Gold</h3>
-  <div class="price">₹5,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Seiko%20Mod%20Yatch-Master%20Rose%20Gold">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Seiko Mod Yatch-Master Rose Gold" data-price="5000">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Guess Waygene -->
-<div class="product-card">
-  <img src="Guess Waygene.jpeg" alt="Guess Waygene">
-  <h3>Guess Waygene</h3>
-  <div class="price">₹3,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Guess%20Waygene">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Guess Waygene" data-price="3500">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Seiko Pepsi Edition -->
-<div class="product-card">
-  <img src="Seiko Pepsi Edition.jpeg" alt="Seiko Pepsi Edition">
-  <h3>Seiko Pepsi Edition</h3>
-  <div class="price">₹6,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Seiko%20Pepsi%20Edition.">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Seiko Pepsi Edition" data-price="6000">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Cartier 21L 71-6-151 -->
-<div class="product-card">
-  <video width="100%" height="350" controls>
-    <source src="Cartier 21L 71-6-151.mp4" type="video/mp4">
-  </video>
-  <h3>Cartier 21L 71-6-151</h3>
-  <div class="price">₹6,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Cartier%2021L%2071-6-151">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Cartier 21L 71-6-151" data-price="6000">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Swatch X Audemars Piguet Royal Pop -->
-<div class="product-card">
-  <img src="Swatch X Audemars Piguet Royal Pop.jpeg" alt="Swatch X Audemars Piguet Royal Pop">
-  <h3>Swatch X Audemars Piguet Royal Pop</h3>
-  <div class="price">₹4,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Swatch%20X%20Audemars%20Piguet%20Royal%20Pop.">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Swatch X Audemars Piguet Royal Pop" data-price="4000">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Seiko Mod Watches -->
-<div class="product-card">
-  <video width="100%" height="350" controls>
-    <source src="Seiko Mod Watches Video.mp4" type="video/mp4">
-  </video>
-  <h3>Seiko Mod Watches</h3>
-  <div class="price">₹4,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Seiko%20Mod%20Watches">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Seiko Mod Watches" data-price="4500">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Tag Heuer Grand Carrera CR7 -->
-<div class="product-card">
-  <img src="Tag Heuer Grand Carrera CR7 .jpeg" alt="Tag Heuer Grand Carrera CR7">
-  <h3>Tag Heuer Grand Carrera CR7</h3>
-  <div class="price">₹4,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Tag%20Heuer%20Grand%20Carrera%20CR7.">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Tag Heuer Grand Carrera CR7" data-price="4000">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Audemars Piguet Royal Oak -->
-<div class="product-card">
-  <div class="slider">
-    <img src="Audemars Piguet Royal Oak 1.jpeg" class="slide active">
-    <img src="Audemars Piguet Royal Oak 2.jpeg" class="slide">
-    <img src="Audemars Piguet Royal Oak 3.jpeg" class="slide">
-    <button class="prev">❮</button>
-    <button class="next">❯</button>
-  </div>
-  <h3>Audemars Piguet Royal Oak</h3>
-  <div class="price">₹6,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Audemars%20Piguet%20Royal%20Oak.">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Audemars Piguet Royal Oak" data-price="6000">Add to Cart</button>
-  </div>
-</div>
-
-    <!-- Bannon Automatic Analog (ME3207) -->
-<div class="product-card">
-  <img src="Bannon Automatic Analog (ME3207).jpeg" alt="Bannon Automatic Analog (ME3207)">
-  <h3>Bannon Automatic Analog (ME3207)</h3>
-  <div class="price">₹4,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Bannon%20Automatic%20Analog%20(ME3207).">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Bannon Automatic Analog (ME3207)" data-price="4500">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Armani Exchange Hampton AX2418 -->
-<div class="product-card">
-  <img src="Armani Exchange Hampton AX2418.jpeg" alt="Armani Exchange Hampton AX2418">
-  <h3>Armani Exchange Hampton AX2418</h3>
-  <div class="price">₹4,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Armani%20Exchange%20Hampton%20AX2418.">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Armani Exchange Hampton AX2418" data-price="4500">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Seiko Datejust Mod -->
-<div class="product-card">
-  <video width="100%" height="350" controls>
-    <source src="Seiko Datejust Mod.mp4" type="video/mp4">
-  </video>
-  <h3>Seiko Datejust Mod</h3>
-  <div class="price">₹5,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Seiko%20Datejust%20Mod">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Seiko Datejust Mod" data-price="5000">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Casio G-Shock -->
-<div class="product-card">
-  <div class="slider">
-    <img src="Casio G-Shock 1.jpeg" class="slide active">
-    <img src="Casio G-Shock 2.jpeg" class="slide">
-    <img src="Casio G-Shock 3.jpeg" class="slide">
-    <img src="Casio G-Shock 4.jpeg" class="slide">
-    <button class="prev">❮</button>
-    <button class="next">❯</button>
-  </div>
-  <h3>Casio G-Shock</h3>
-  <div class="price">₹4,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Casio%20G-Shock.">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Casio G-Shock" data-price="4000">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Tommy Hilfiger TW001863-001 -->
-<div class="product-card">
-  <img src="Tommy Hilfiger TW001863-001.jpeg" alt="Tommy Hilfiger TW001863-001">
-  <h3>Tommy Hilfiger TW001863-001</h3>
-  <div class="price">₹4,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Tommy%20Hilfiger%20TW001863-001.">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Tommy Hilfiger TW001863-001" data-price="4000">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Jacob & Co CR7 Watch -->
-<div class="product-card">
-  <div class="slider">
-    <img src="Jacob & Co CR7 Watch.jpeg" class="slide active">
-    <img src="Jacob & Co CR7 Watch 2.jpeg" class="slide">
-    <img src="Jacob & Co CR7 Watch 3.jpeg" class="slide">
-    <button class="prev">❮</button>
-    <button class="next">❯</button>
-  </div>
-  <h3>Jacob & Co CR7 Watch</h3>
-  <div class="price">₹4,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Jacob%20%26%20Co%20CR7%20Watch.">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Jacob & Co CR7 Watch" data-price="4000">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Omega X Swatch Moon's Watch -->
-<div class="product-card">
-  <div class="slider">
-    <img src="Omega X Swatch Moon's Watch.jpeg" class="slide active">
-    <img src="Omega X Swatch Moon's Watch 2.jpeg" class="slide">
-    <img src="Omega X Swatch Moon's Watch 3.jpeg" class="slide">
-    <img src="Omega X Swatch Moon's Watch 4.jpeg" class="slide">
-    <img src="Omega X Swatch Moon's Watch 5.jpeg" class="slide">
-    <img src="Omega X Swatch Moon's Watch 6.jpeg" class="slide">
-    <img src="Omega X Swatch Moon's Watch 7.jpeg" class="slide">
-    <img src="Omega X Swatch Moon's Watch 8.jpeg" class="slide">
-    <img src="Omega X Swatch Moon's Watch 9.jpeg" class="slide">
-    <img src="Omega X Swatch Moon's Watch 10.jpeg" class="slide">
-    <img src="Omega X Swatch Moon's Watch 11.jpeg" class="slide">
-    <button class="prev">❮</button>
-    <button class="next">❯</button>
-  </div>
-  <h3>Omega X Swatch Moon's Watch</h3>
-  <div class="price">₹4,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Omega%20X%20Swatch%20Moon's%20Watch.">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Omega X Swatch Moon's Watch" data-price="4000">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Casio Edifice ECB-2000DD -->
-<div class="product-card">
-  <img src="Casio Edifice ECB-2000DD.jpeg" alt="Casio Edifice ECB-2000DD">
-  <h3>Casio Edifice ECB-2000DD</h3>
-  <div class="price">₹6,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn" href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Casio%20Edifice%20ECB-2000DD.">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Casio Edifice ECB-2000DD" data-price="6000">Add to Cart</button>
-  </div>
-</div>
-    
-<!-- Emporio Armani Luigi AR1808 -->
-<div class="product-card">
-  <img src="Emporio Armani Luigi AR1808.jpeg" alt="Emporio Armani Luigi AR1808">
-  <h3>Emporio Armani Luigi AR1808</h3>
-  <div class="price">₹4,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn"
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Emporio%20Armani%20Luigi%20AR1808.">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Emporio Armani Luigi AR1808" data-price="4500">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Patek Philippe Nautilus Chain -->
-<div class="product-card">
-  <div class="slider">
-    <img src="Patek Philippe Nautilus Chain 1.jpeg" class="slide active">
-    <img src="Patek Philippe Nautilus Chain 2.jpeg" class="slide">
-    <img src="Patek Philippe Nautilus Chain 3.jpeg" class="slide">
-    <button class="prev">❮</button>
-    <button class="next">❯</button>
-  </div>
-  <h3>Patek Philippe Nautilus Chain</h3>
-  <div class="price">₹6,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn"
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Patek%20Philippe%20Nautilus%20Chain.">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Patek Philippe Nautilus Chain" data-price="6500">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Longiness Master Collection -->
-<div class="product-card">
-  <img src="Longiness Master Collection.jpeg" alt="Longiness Master Collection">
-  <h3>Longiness Master Collection</h3>
-  <div class="price">₹4,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn"
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Longiness%20Master%20Collection.">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Longiness Master Collection" data-price="4000">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Patek Philippe Nautilus Band -->
-<div class="product-card">
-  <div class="slider">
-    <img src="Patek Philippe Nautilus Band.jpeg" class="slide active">
-    <img src="Patek Philippe Nautilus Band 2.jpeg" class="slide">
-    <button class="prev">❮</button>
-    <button class="next">❯</button>
-  </div>
-  <h3>Patek Philippe Nautilus Band</h3>
-  <div class="price">₹5,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn"
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Patek%20Philippe%20Nautilus%20Band.">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Patek Philippe Nautilus Band" data-price="5000">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Maserati R8853100027 Competizione Plain -->
-<div class="product-card">
-  <img src="Maserati R8853100027 Competizione Plain.jpeg" alt="Maserati R8853100027 Competizione Plain">
-  <h3>Maserati R8853100027 Competizione Plain</h3>
-  <div class="price">₹5,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn"
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Maserati%20R8853100027%20Competizione%20Plain.">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Maserati R8853100027 Competizione Plain" data-price="5000">Add to Cart</button>
-  </div>
-</div>
-    
-<!-- Emporio Armani BSF954 -->
-<div class="product-card">
-  <img src="Emporio Armani BSF954.jpeg" alt="Emporio Armani BSF954">
-  <h3>Emporio Armani BSF954</h3>
-  <div class="price">₹4,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn"
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Emporio%20Armani%20BSF954.">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Emporio Armani BSF954" data-price="4000">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Seiko Presage Cocktail Time -->
-<div class="product-card">
-  <div class="slider">
-    <img src="Seiko Presage Cocktail Time.jpeg" class="slide active">
-    <img src="Seiko Presage Cocktail Time 2.jpeg" class="slide">
-    <img src="Seiko Presage Cocktail Time 3.jpeg" class="slide">
-    <img src="Seiko Presage Cocktail Time 4.jpeg" class="slide">
-    <img src="Seiko Presage Cocktail Time 5.jpeg" class="slide">
-    <img src="Seiko Presage Cocktail Time 6.jpeg" class="slide">
-    <button class="prev">❮</button>
-    <button class="next">❯</button>
-  </div>
-  <h3>Seiko Presage Cocktail Time</h3>
-  <div class="price">₹4,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn"
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Seiko%20Presage%20Cocktail%20Time.">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Seiko Presage Cocktail Time" data-price="4500">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Seiko Prospex Diver -->
-<div class="product-card">
-  <video width="100%" height="350" controls>
-    <source src="Seiko Prospex Diver .mp4" type="video/mp4">
-  </video>
-  <h3>Seiko Prospex Diver</h3>
-  <div class="price">₹4,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn"
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hi%20I%20am%20interested%20in%20Seiko%20Prospex%20Diver">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Seiko Prospex Diver" data-price="4000">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Emporio Armani Ceramica -->
-<div class="product-card">
-  <img src="Emporio Armani Ceramica.jpeg" alt="Emporio Armani Ceramica">
-  <h3>Emporio Armani Ceramica</h3>
-  <div class="price">₹4,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn"
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Emporio%20Armani%20Ceramica.">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Emporio Armani Ceramica" data-price="4000">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Seiko SRPL64 -->
-<div class="product-card">
-  <div class="slider">
-    <img src="Seiko SRPL64.jpeg" class="slide active">
-    <img src="Seiko SRPL64 1.jpeg" class="slide">
-    <img src="Seiko SRPL64 2.jpeg" class="slide">
-    <img src="Seiko SRPL64 3.jpeg" class="slide">
-    <img src="Seiko SRPL64 4.jpeg" class="slide">
-    <img src="Seiko SRPL64 5.jpeg" class="slide">
-    <img src="Seiko SRPL64 6.jpeg" class="slide">
-    <button class="prev">❮</button>
-    <button class="next">❯</button>
-  </div>
-  <h3>Seiko SRPL64</h3>
-  <div class="price">₹4,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn"
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Seiko%20SRPL64.">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Seiko SRPL64" data-price="4500">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Rolex Cosmograph -->
-<div class="product-card">
-  <img src="Rolex Cosmograph .jpeg" alt="Rolex Cosmograph">
-  <h3>Rolex Cosmograph</h3>
-  <div class="price">₹5,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn"
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Cosmograph.">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Rolex Cosmograph" data-price="5000">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Emporio Armani Luigi AR187 -->
-<div class="product-card">
-  <img src="Emporio Armani Luigi AR187.jpeg" alt="Emporio Armani Luigi AR187">
-  <h3>Emporio Armani Luigi AR187</h3>
-  <div class="price">₹4,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn"
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Emporio%20Armani%20Luigi%20AR187.">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Emporio Armani Luigi AR187" data-price="4000">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Rolex Cosmograph Daytona Green -->
-<div class="product-card">
-  <img src="Rolex Cosmograph Dayona Green.jpeg" alt="Rolex Cosmograph Daytona Green">
-  <h3>Rolex Cosmograph Daytona Green</h3>
-  <div class="price">₹5,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn"
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Cosmograph%20Daytona%20Green.">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Rolex Cosmograph Daytona Green" data-price="5000">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Tissot Carson -->
-<div class="product-card">
-  <div class="slider">
-    <img src="Tissot Carson.jpeg" class="slide active">
-    <img src="Tissot Carson 2.jpeg" class="slide">
-    <button class="prev">❮</button>
-    <button class="next">❯</button>
-  </div>
-  <h3>Tissot Carson</h3>
-  <div class="price">₹4,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn"
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Tissot%20Carson.">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Tissot Carson" data-price="4500">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Rolex Cosmograph Daytona John Walker -->
-<div class="product-card">
-  <img src="Rolex Cosmograph Daytona John Walker.jpeg" alt="Rolex Cosmograph Daytona John Walker">
-  <h3>Rolex Cosmograph Daytona John Walker</h3>
-  <div class="price">₹5,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn"
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Cosmograph%20Daytona%20John%20Walker.">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Rolex Cosmograph Daytona John Walker" data-price="5000">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Rolex Daytona Rainbow -->
-<div class="product-card">
-  <img src="Rolex Daytona Rainbow.jpeg" alt="Rolex Daytona Rainbow">
-  <h3>Rolex Daytona Rainbow</h3>
-  <div class="price">₹5,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn"
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Rolex%20Daytona%20Rainbow.">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Rolex Daytona Rainbow" data-price="5000">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Tissot Gentleman Powermatic 80 -->
-<div class="product-card">
-  <div class="slider">
-    <img src="Tissot Gentelman Powermatic 80.jpeg" class="slide active">
-    <img src="Tissot Gentelman Powermatic 80 2.jpeg" class="slide">
-    <button class="prev">❮</button>
-    <button class="next">❯</button>
-  </div>
-  <h3>Tissot Gentleman Powermatic 80</h3>
-  <div class="price">₹5,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn"
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Tissot%20Gentleman%20Powermatic%2080.">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Tissot Gentleman Powermatic 80" data-price="5000">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Tommy Hilfiger Automatic Skeleton Watch -->
-<div class="product-card">
-  <div class="slider">
-    <img src="Tommy Hilfiger Automatic Skeleton Watch 1.jpeg" class="slide active">
-    <img src="Tommy Hilfiger Automatic Skeleton Watch 2.jpeg" class="slide">
-    <img src="Tommy Hilfiger Automatic Skeleton Watch 3.jpeg" class="slide">
-    <button class="prev">❮</button>
-    <button class="next">❯</button>
-  </div>
-  <h3>Tommy Hilfiger Automatic Skeleton Watch</h3>
-  <div class="price">₹4,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn"
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Tommy%20Hilfiger%20Automatic%20Skeleton%20Watch.">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Tommy Hilfiger Automatic Skeleton Watch" data-price="4500">Add to Cart</button>
-  </div>
-</div>
-    
-<!-- Casio Edifice EFR-539SG-1AVUDF -->
-<div class="product-card">
-  <div class="slider">
-    <img src="Casio Edifice EFR-539SG-1AVUDF 1.jpeg" class="slide active">
-    <img src="Casio Edifice EFR-539SG-1AVUDF 2.jpeg" class="slide">
-    <img src="Casio Edifice EFR-539SG-1AVUDF 3.jpeg" class="slide">
-    <img src="Casio Edifice EFR-539SG-1AVUDF 4.jpeg" class="slide">
-    <img src="Casio Edifice EFR-539SG-1AVUDF 5.jpeg" class="slide">
-    <img src="Casio Edifice EFR-539SG-1AVUDF 6.jpeg" class="slide">
-    <button class="prev">❮</button>
-    <button class="next">❯</button>
-  </div>
-  <h3>Casio Edifice EFR-539SG-1AVUDF</h3>
-  <div class="price">₹3,500</div>
-  <div class="product-buttons">
-    <a class="enquire-btn"
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Casio%20Edifice%20EFR-539SG-1AVUDF.">Enquire Now</a>
-    <button class="add-to-cart-btn" data-name="Casio Edifice EFR-539SG-1AVUDF" data-price="3500">Add to Cart</button>
-  </div>
-</div>
-
-<!-- Tissot PRX -->
-<div class="product-card">
-  <div class="slider">
-    <img src="Tissot PRX 1.jpeg" class="slide active">
-    <img src="Tissot PRX 2.jpeg" class="slide">
-    <img src="Tissot PRX 3.jpeg" class="slide">
-    <img src="Tissot PRX 4.jpeg" class="slide">
-    <img src="Tissot PRX 5.jpeg" class="slide">
-    <img src="Tissot PRX 6.jpeg" class="slide">
-    <img src="Tissot PRX 7.jpeg" class="slide">
-    <img src="Tissot PRX 8.jpeg" class="slide">
-    <img src="Tissot PRX 9.jpeg" class="slide">
-    <button class="prev">❮</button>
-    <button class="next">❯</button>
-  </div>
-  <h3>Tissot PRX</h3>
-  <div class="price">₹4,000</div>
-  <div class="product-buttons">
-    <a class="enquire-btn"
-       href="https://api.whatsapp.com/send?phone=918209989013&text=Hello%2050%20Mirars,%20I%20am%20interested%20in%20Tissot%20PRX.">Enquire Now</a>
-    <!-- ✅ Use ₹ in data-price -->
-    <button class="add-to-cart-btn" data-name="Tissot PRX" data-price="₹4000">Add to Cart</button>
-  </div>
-</div>
-
+    <div class="product-buttons">
+        <a href="product-details.html?id=15" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
 
 </div>
 
+
+<!-- 16 -->
+
+<div class="product-card">
+
+    <video controls playsinline preload="metadata">
+        <source src="Rolex Cosmograph Daytona John Mayer 116508.mp4" type="video/mp4">
+    </video>
+
+    <h3>Rolex Cosmograph Daytona John Mayer 116508</h3>
+
+    <div class="price">₹3,500</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=16" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
+</div>
+
+
+<!-- 17 -->
+
+<div class="product-card">
+
+    <video controls playsinline preload="metadata">
+        <source src="Breitling Navitimer.mp4" type="video/mp4">
+    </video>
+
+    <h3>Breitling Navitimer</h3>
+
+    <div class="price">₹6,000</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=17" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
+</div>
+
+
+<!-- 18 -->
+
+<div class="product-card">
+
+    <video controls playsinline preload="metadata">
+        <source src="Tommy Hilfiger Henry Skeleton Automatic Watch.mp4" type="video/mp4">
+    </video>
+
+    <h3>Tommy Hilfiger Henry Skeleton Automatic Watch</h3>
+
+    <div class="price">₹4,000</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=18" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
+</div>
+
+
+<!-- 19 -->
+
+<div class="product-card">
+
+    <div class="slider">
+
+        <img src="Guess Camden Multifunction GW1051G2 1.jpeg" class="slide active" alt="Guess Camden Multifunction GW1051G2">
+        <img src="Guess Camden Multifunction GW1051G2.jpeg" class="slide" alt="Guess Camden Multifunction GW1051G2">
+
+        <button class="prev">❮</button>
+        <button class="next">❯</button>
+
+    </div>
+
+    <h3>Guess Camden Multifunction GW1051G2</h3>
+
+    <div class="price">₹3,500</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=19" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
+</div>
+
+
+<!-- 20 -->
+
+<div class="product-card">
+
+    <img src="Seiko Presage SRPE15.jpeg" alt="Seiko Presage SRPE15">
+
+    <h3>Seiko Presage SRPE15</h3>
+
+    <div class="price">₹5,500</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=20" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
+</div>
+
+   <!-- 21 -->
+
+<div class="product-card">
+
+    <video controls playsinline preload="metadata">
+        <source src="Tommy Hilfiger Baker Watch.mp4" type="video/mp4">
+    </video>
+
+    <h3>Tommy Hilfiger Baker Watch</h3>
+
+    <div class="price">₹3,500</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=21" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
+</div>
+
+
+<!-- 22 -->
+
+<div class="product-card">
+
+    <img src="Seiko 5 Sports GMT SSK035K1.jpeg" alt="Seiko 5 Sports GMT SSK035K1">
+
+    <h3>Seiko 5 Sports GMT SSK035K1</h3>
+
+    <div class="price">₹4,000</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=22" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
+</div>
+
+
+<!-- 23 -->
+
+<div class="product-card">
+
+    <img src="Seiko 5 Sports Quartz GMT SSK035K1.jpeg" alt="Seiko 5 Sports Quartz GMT SSK035K1">
+
+    <h3>Seiko 5 Sports Quartz GMT SSK035K1</h3>
+
+    <div class="price">₹3,500</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=23" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
+</div>
+
+
+<!-- 24 -->
+
+<div class="product-card">
+
+    <img src="Seiko Prospex Speedtimer SPB513.jpeg" alt="Seiko Prospex Speedtimer SPB513">
+
+    <h3>Seiko Prospex Speedtimer SPB513</h3>
+
+    <div class="price">₹3,500</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=24" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
+</div>
+
+
+<!-- 25 -->
+
+<div class="product-card">
+
+    <video controls playsinline preload="metadata">
+        <source src="Seiko 5 Sports Group.mp4" type="video/mp4">
+    </video>
+
+    <h3>Seiko 5 Sports Group</h3>
+
+    <div class="price">₹4,000</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=25" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
+</div>
+
+
+<!-- 26 -->
+
+<div class="product-card">
+
+    <video controls playsinline preload="metadata">
+        <source src="Seiko Presage Cocktail SRPG23J1.mp4" type="video/mp4">
+    </video>
+
+    <h3>Seiko Presage Cocktail SRPG23J1</h3>
+
+    <div class="price">₹4,000</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=26" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
+</div>
+
+
+<!-- 27 -->
+
+<div class="product-card">
+
+    <img src="Armani Exchange Automatic Skeleton.jpeg" alt="Armani Exchange Automatic Skeleton">
+
+    <h3>Armani Exchange Automatic Skeleton</h3>
+
+    <div class="price">₹4,000</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=27" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
+</div>
+
+
+<!-- 28 -->
+
+<div class="product-card">
+
+    <video controls playsinline preload="metadata">
+        <source src="Tudor Pelagos 39.mp4" type="video/mp4">
+    </video>
+
+    <h3>Tudor Pelagos 39</h3>
+
+    <div class="price">₹5,000</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=28" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
+</div>
+
+
+<!-- 29 -->
+
+<div class="product-card">
+
+    <img src="Seiko Mod Watches.jpeg" alt="Seiko Mod Watches">
+
+    <h3>Seiko Mod Watches</h3>
+
+    <div class="price">₹5,500</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=29" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
+</div>
+
+
+<!-- 30 -->
+
+<div class="product-card">
+
+    <img src="Guess Arc Champagne.jpeg" alt="Guess Arc Champagne">
+
+    <h3>Guess Arc Champagne</h3>
+
+    <div class="price">₹4,000</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=30" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
+</div>
+
+
+<!-- 31 -->
+
+<div class="product-card">
+
+    <img src="Rolex Yatch-Master 42.jpeg" alt="Rolex Yatch-Master 42">
+
+    <h3>Rolex Yatch-Master 42</h3>
+
+    <div class="price">₹5,000</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=31" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
+</div>
+
+
+<!-- 32 -->
+
+<div class="product-card">
+
+    <img src="Seiko Blue Moon SSA347J1.jpeg" alt="Seiko Blue Moon SSA347J1">
+
+    <h3>Seiko Blue Moon SSA347J1</h3>
+
+    <div class="price">₹6,000</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=32" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
+</div>
+
+
+<!-- 33 -->
+
+<div class="product-card">
+
+    <img src="Seiko Mod.jpeg" alt="Seiko Mod">
+
+    <h3>Seiko Mod</h3>
+
+    <div class="price">₹5,000</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=33" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
+</div>
+
+
+<!-- 34 -->
+
+<div class="product-card">
+
+    <video controls playsinline preload="metadata">
+        <source src="Rolex GMT-Master II Root Beer.mp4" type="video/mp4">
+    </video>
+
+    <h3>Rolex GMT-Master II Root Beer</h3>
+
+    <div class="price">₹3,500</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=34" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
+</div>
+
+
+<!-- 35 -->
+
+<div class="product-card">
+
+    <video controls playsinline preload="metadata">
+        <source src="Seiko Mod Yatch-Master Rose Gold.mp4" type="video/mp4">
+    </video>
+
+    <h3>Seiko Mod Yatch-Master Rose Gold</h3>
+
+    <div class="price">₹5,000</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=35" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
+</div>
+
+   <!-- 36 -->
+
+<div class="product-card">
+
+    <img src="Guess Waygene.jpeg" alt="Guess Waygene">
+
+    <h3>Guess Waygene</h3>
+
+    <div class="price">₹3,500</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=36" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
+</div>
+
+
+<!-- 37 -->
+
+<div class="product-card">
+
+    <img src="Seiko Pepsi Edition.jpeg" alt="Seiko Pepsi Edition">
+
+    <h3>Seiko Pepsi Edition</h3>
+
+    <div class="price">₹6,000</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=37" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
+</div>
+
+
+<!-- 38 -->
+
+<div class="product-card">
+
+    <video controls playsinline preload="metadata">
+        <source src="Cartier 21L 71-6-151.mp4" type="video/mp4">
+    </video>
+
+    <h3>Cartier 21L 71-6-151</h3>
+
+    <div class="price">₹6,000</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=38" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
+</div>
+
+
+<!-- 39 -->
+
+<div class="product-card">
+
+    <img src="Swatch X Audemars Piguet Royal Pop.jpeg" alt="Swatch X Audemars Piguet Royal Pop">
+
+    <h3>Swatch X Audemars Piguet Royal Pop</h3>
+
+    <div class="price">₹4,000</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=39" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
+</div>
+
+
+<!-- 40 -->
+
+<div class="product-card">
+
+    <video controls playsinline preload="metadata">
+        <source src="Seiko Mod Watches Video.mp4" type="video/mp4">
+    </video>
+
+    <h3>Seiko Mod Watches</h3>
+
+    <div class="price">₹4,500</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=40" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
+</div>
+
+
+<!-- 41 -->
+
+<div class="product-card">
+
+    <img src="Tag Heuer Grand Carrera CR7.jpeg" alt="Tag Heuer Grand Carrera CR7">
+
+    <h3>Tag Heuer Grand Carrera CR7</h3>
+
+    <div class="price">₹4,000</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=41" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
+</div>
+
+
+<!-- 42 -->
+
+<div class="product-card">
+
+    <div class="slider">
+
+        <img src="Audemars Piguet Royal Oak 1.jpeg" class="slide active" alt="Audemars Piguet Royal Oak">
+        <img src="Audemars Piguet Royal Oak 2.jpeg" class="slide" alt="Audemars Piguet Royal Oak">
+        <img src="Audemars Piguet Royal Oak 3.jpeg" class="slide" alt="Audemars Piguet Royal Oak">
+
+        <button class="prev">❮</button>
+        <button class="next">❯</button>
+
+    </div>
+
+    <h3>Audemars Piguet Royal Oak</h3>
+
+    <div class="price">₹6,000</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=42" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
+</div>
+
+
+<!-- 43 -->
+
+<div class="product-card">
+
+    <img src="Bannon Automatic Analog (ME3207).jpeg" alt="Bannon Automatic Analog (ME3207)">
+
+    <h3>Bannon Automatic Analog (ME3207)</h3>
+
+    <div class="price">₹4,500</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=43" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
+</div>
+
+
+<!-- 44 -->
+
+<div class="product-card">
+
+    <img src="Armani Exchange Hampton AX2418.jpeg" alt="Armani Exchange Hampton AX2418">
+
+    <h3>Armani Exchange Hampton AX2418</h3>
+
+    <div class="price">₹4,500</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=44" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
+</div>
+
+
+<!-- 45 -->
+
+<div class="product-card">
+
+    <video controls playsinline preload="metadata">
+        <source src="Seiko Datejust Mod.mp4" type="video/mp4">
+    </video>
+
+    <h3>Seiko Datejust Mod</h3>
+
+    <div class="price">₹5,000</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=45" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
+</div>
+
+
+<!-- 46 -->
+
+<div class="product-card">
+
+    <div class="slider">
+
+        <img src="Casio G-Shock 1.jpeg" class="slide active" alt="Casio G-Shock">
+        <img src="Casio G-Shock 2.jpeg" class="slide" alt="Casio G-Shock">
+        <img src="Casio G-Shock 3.jpeg" class="slide" alt="Casio G-Shock">
+        <img src="Casio G-Shock 4.jpeg" class="slide" alt="Casio G-Shock">
+
+        <button class="prev">❮</button>
+        <button class="next">❯</button>
+
+    </div>
+
+    <h3>Casio G-Shock</h3>
+
+    <div class="price">₹4,000</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=46" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
+</div>
+
+
+<!-- 47 -->
+
+<div class="product-card">
+
+    <img src="Tommy Hilfiger TW001863-001.jpeg" alt="Tommy Hilfiger TW001863-001">
+
+    <h3>Tommy Hilfiger TW001863-001</h3>
+
+    <div class="price">₹4,000</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=47" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
+</div>
+
+
+<!-- 48 -->
+
+<div class="product-card">
+
+    <div class="slider">
+
+        <img src="Jacob & Co CR7 Watch.jpeg" class="slide active" alt="Jacob & Co CR7 Watch">
+        <img src="Jacob & Co CR7 Watch 2.jpeg" class="slide" alt="Jacob & Co CR7 Watch">
+        <img src="Jacob & Co CR7 Watch 3.jpeg" class="slide" alt="Jacob & Co CR7 Watch">
+
+        <button class="prev">❮</button>
+        <button class="next">❯</button>
+
+    </div>
+
+    <h3>Jacob & Co CR7 Watch</h3>
+
+    <div class="price">₹4,000</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=48" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
+</div>
+
+
+<!-- 49 -->
+
+<div class="product-card">
+
+    <div class="slider">
+
+        <img src="Omega X Swatch Moon's Watch.jpeg" class="slide active" alt="Omega X Swatch Moon's Watch">
+        <img src="Omega X Swatch Moon's Watch 2.jpeg" class="slide" alt="Omega X Swatch Moon's Watch">
+        <img src="Omega X Swatch Moon's Watch 3.jpeg" class="slide" alt="Omega X Swatch Moon's Watch">
+        <img src="Omega X Swatch Moon's Watch 4.jpeg" class="slide" alt="Omega X Swatch Moon's Watch">
+        <img src="Omega X Swatch Moon's Watch 5.jpeg" class="slide" alt="Omega X Swatch Moon's Watch">
+        <img src="Omega X Swatch Moon's Watch 6.jpeg" class="slide" alt="Omega X Swatch Moon's Watch">
+        <img src="Omega X Swatch Moon's Watch 7.jpeg" class="slide" alt="Omega X Swatch Moon's Watch">
+        <img src="Omega X Swatch Moon's Watch 8.jpeg" class="slide" alt="Omega X Swatch Moon's Watch">
+        <img src="Omega X Swatch Moon's Watch 9.jpeg" class="slide" alt="Omega X Swatch Moon's Watch">
+        <img src="Omega X Swatch Moon's Watch 10.jpeg" class="slide" alt="Omega X Swatch Moon's Watch">
+        <img src="Omega X Swatch Moon's Watch 11.jpeg" class="slide" alt="Omega X Swatch Moon's Watch">
+
+        <button class="prev">❮</button>
+        <button class="next">❯</button>
+
+    </div>
+
+    <h3>Omega X Swatch Moon's Watch</h3>
+
+    <div class="price">₹4,000</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=49" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
+</div>
+
+
+<!-- 50 -->
+
+<div class="product-card">
+
+    <img src="Casio Edifice ECB-2000DD.jpeg" alt="Casio Edifice ECB-2000DD">
+
+    <h3>Casio Edifice ECB-2000DD</h3>
+
+    <div class="price">₹6,000</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=50" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
+</div>
+
+   <!-- 51 -->
+
+<div class="product-card">
+
+    <img src="Emporio Armani Luigi AR1808.jpeg" alt="Emporio Armani Luigi AR1808">
+
+    <h3>Emporio Armani Luigi AR1808</h3>
+
+    <div class="price">₹4,500</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=51" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
+</div>
+
+
+<!-- 52 -->
+
+<div class="product-card">
+
+    <div class="slider">
+
+        <img src="Patek Philippe Nautilus Chain 1.jpeg" class="slide active" alt="Patek Philippe Nautilus Chain">
+        <img src="Patek Philippe Nautilus Chain 2.jpeg" class="slide" alt="Patek Philippe Nautilus Chain">
+        <img src="Patek Philippe Nautilus Chain 3.jpeg" class="slide" alt="Patek Philippe Nautilus Chain">
+
+        <button class="prev">❮</button>
+        <button class="next">❯</button>
+
+    </div>
+
+    <h3>Patek Philippe Nautilus Chain</h3>
+
+    <div class="price">₹6,500</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=52" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
+</div>
+
+
+<!-- 53 -->
+
+<div class="product-card">
+
+    <img src="Longiness Master Collection.jpeg" alt="Longiness Master Collection">
+
+    <h3>Longiness Master Collection</h3>
+
+    <div class="price">₹4,000</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=53" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
+</div>
+
+
+<!-- 54 -->
+
+<div class="product-card">
+
+    <div class="slider">
+
+        <img src="Patek Philippe Nautilus Band.jpeg" class="slide active" alt="Patek Philippe Nautilus Band">
+        <img src="Patek Philippe Nautilus Band 2.jpeg" class="slide" alt="Patek Philippe Nautilus Band">
+
+        <button class="prev">❮</button>
+        <button class="next">❯</button>
+
+    </div>
+
+    <h3>Patek Philippe Nautilus Band</h3>
+
+    <div class="price">₹5,000</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=54" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
+</div>
+
+
+<!-- 55 -->
+
+<div class="product-card">
+
+    <img src="Maserati R8853100027 Competizione Plain.jpeg" alt="Maserati R8853100027 Competizione Plain">
+
+    <h3>Maserati R8853100027 Competizione Plain</h3>
+
+    <div class="price">₹5,000</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=55" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
+</div>
+
+
+<!-- 56 -->
+
+<div class="product-card">
+
+    <img src="Emporio Armani BSF954.jpeg" alt="Emporio Armani BSF954">
+
+    <h3>Emporio Armani BSF954</h3>
+
+    <div class="price">₹4,000</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=56" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
+</div>
+
+
+<!-- 57 -->
+
+<div class="product-card">
+
+    <div class="slider">
+
+        <img src="Seiko Presage Cocktail Time.jpeg" class="slide active" alt="Seiko Presage Cocktail Time">
+        <img src="Seiko Presage Cocktail Time 2.jpeg" class="slide" alt="Seiko Presage Cocktail Time">
+        <img src="Seiko Presage Cocktail Time 3.jpeg" class="slide" alt="Seiko Presage Cocktail Time">
+        <img src="Seiko Presage Cocktail Time 4.jpeg" class="slide" alt="Seiko Presage Cocktail Time">
+        <img src="Seiko Presage Cocktail Time 5.jpeg" class="slide" alt="Seiko Presage Cocktail Time">
+        <img src="Seiko Presage Cocktail Time 6.jpeg" class="slide" alt="Seiko Presage Cocktail Time">
+
+        <button class="prev">❮</button>
+        <button class="next">❯</button>
+
+    </div>
+
+    <h3>Seiko Presage Cocktail Time</h3>
+
+    <div class="price">₹4,500</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=57" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
+</div>
+
+
+<!-- 58 -->
+
+<div class="product-card">
+
+    <video controls playsinline preload="metadata">
+        <source src="Seiko Prospex Diver.mp4" type="video/mp4">
+    </video>
+
+    <h3>Seiko Prospex Diver</h3>
+
+    <div class="price">₹4,000</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=58" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
+</div>
+
+
+<!-- 59 -->
+
+<div class="product-card">
+
+    <img src="Emporio Armani Ceramica.jpeg" alt="Emporio Armani Ceramica">
+
+    <h3>Emporio Armani Ceramica</h3>
+
+    <div class="price">₹4,000</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=59" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
+</div>
+
+
+<!-- 60 -->
+
+<div class="product-card">
+
+    <div class="slider">
+
+        <img src="Seiko SRPL64.jpeg" class="slide active" alt="Seiko SRPL64">
+        <img src="Seiko SRPL64 1.jpeg" class="slide" alt="Seiko SRPL64">
+        <img src="Seiko SRPL64 2.jpeg" class="slide" alt="Seiko SRPL64">
+        <img src="Seiko SRPL64 3.jpeg" class="slide" alt="Seiko SRPL64">
+        <img src="Seiko SRPL64 4.jpeg" class="slide" alt="Seiko SRPL64">
+        <img src="Seiko SRPL64 5.jpeg" class="slide" alt="Seiko SRPL64">
+        <img src="Seiko SRPL64 6.jpeg" class="slide" alt="Seiko SRPL64">
+
+        <button class="prev">❮</button>
+        <button class="next">❯</button>
+
+    </div>
+
+    <h3>Seiko SRPL64</h3>
+
+    <div class="price">₹4,500</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=60" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
+</div>
+
+
+<!-- 61 -->
+
+<div class="product-card">
+
+    <img src="Rolex Cosmograph.jpeg" alt="Rolex Cosmograph">
+
+    <h3>Rolex Cosmograph</h3>
+
+    <div class="price">₹5,000</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=61" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
+</div>
+
+
+<!-- 62 -->
+
+<div class="product-card">
+
+    <img src="Emporio Armani Luigi AR187.jpeg" alt="Emporio Armani Luigi AR187">
+
+    <h3>Emporio Armani Luigi AR187</h3>
+
+    <div class="price">₹4,000</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=62" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
+</div>
+
+
+<!-- 63 -->
+
+<div class="product-card">
+
+    <img src="Rolex Cosmograph Dayona Green.jpeg" alt="Rolex Cosmograph Daytona Green">
+
+    <h3>Rolex Cosmograph Daytona Green</h3>
+
+    <div class="price">₹5,000</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=63" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
+</div>
+
+
+<!-- 64 -->
+
+<div class="product-card">
+
+    <div class="slider">
+
+        <img src="Tissot Carson.jpeg" class="slide active" alt="Tissot Carson">
+        <img src="Tissot Carson 2.jpeg" class="slide" alt="Tissot Carson">
+
+        <button class="prev">❮</button>
+        <button class="next">❯</button>
+
+    </div>
+
+    <h3>Tissot Carson</h3>
+
+    <div class="price">₹4,500</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=64" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
+</div>
+
+
+<!-- 65 -->
+
+<div class="product-card">
+
+    <img src="Rolex Cosmograph Daytona John Walker.jpeg" alt="Rolex Cosmograph Daytona John Walker">
+
+    <h3>Rolex Cosmograph Daytona John Walker</h3>
+
+    <div class="price">₹5,000</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=65" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
+</div>
+
+   <!-- 66 -->
+
+<div class="product-card">
+
+    <img src="Rolex Daytona Rainbow.jpeg" alt="Rolex Daytona Rainbow">
+
+    <h3>Rolex Daytona Rainbow</h3>
+
+    <div class="price">₹5,000</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=66" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
+</div>
+
+
+<!-- 67 -->
+
+<div class="product-card">
+
+    <div class="slider">
+
+        <img src="Tissot Gentelman Powermatic 80.jpeg" class="slide active" alt="Tissot Gentleman Powermatic 80">
+        <img src="Tissot Gentelman Powermatic 80 2.jpeg" class="slide" alt="Tissot Gentleman Powermatic 80">
+
+        <button class="prev">❮</button>
+        <button class="next">❯</button>
+
+    </div>
+
+    <h3>Tissot Gentleman Powermatic 80</h3>
+
+    <div class="price">₹5,000</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=67" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
+</div>
+
+
+<!-- 68 -->
+
+<div class="product-card">
+
+    <div class="slider">
+
+        <img src="Tommy Hilfiger Automatic Skeleton Watch 1.jpeg" class="slide active" alt="Tommy Hilfiger Automatic Skeleton Watch">
+        <img src="Tommy Hilfiger Automatic Skeleton Watch 2.jpeg" class="slide" alt="Tommy Hilfiger Automatic Skeleton Watch">
+        <img src="Tommy Hilfiger Automatic Skeleton Watch 3.jpeg" class="slide" alt="Tommy Hilfiger Automatic Skeleton Watch">
+
+        <button class="prev">❮</button>
+        <button class="next">❯</button>
+
+    </div>
+
+    <h3>Tommy Hilfiger Automatic Skeleton Watch</h3>
+
+    <div class="price">₹4,500</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=68" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
+</div>
+
+
+<!-- 69 -->
+
+<div class="product-card">
+
+    <div class="slider">
+
+        <img src="Casio Edifice EFR-539SG-1AVUDF 1.jpeg" class="slide active" alt="Casio Edifice EFR-539SG-1AVUDF">
+        <img src="Casio Edifice EFR-539SG-1AVUDF 2.jpeg" class="slide" alt="Casio Edifice EFR-539SG-1AVUDF">
+        <img src="Casio Edifice EFR-539SG-1AVUDF 3.jpeg" class="slide" alt="Casio Edifice EFR-539SG-1AVUDF">
+        <img src="Casio Edifice EFR-539SG-1AVUDF 4.jpeg" class="slide" alt="Casio Edifice EFR-539SG-1AVUDF">
+        <img src="Casio Edifice EFR-539SG-1AVUDF 5.jpeg" class="slide" alt="Casio Edifice EFR-539SG-1AVUDF">
+        <img src="Casio Edifice EFR-539SG-1AVUDF 6.jpeg" class="slide" alt="Casio Edifice EFR-539SG-1AVUDF">
+
+        <button class="prev">❮</button>
+        <button class="next">❯</button>
+
+    </div>
+
+    <h3>Casio Edifice EFR-539SG-1AVUDF</h3>
+
+    <div class="price">₹3,500</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=69" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
+</div>
+
+
+<!-- 70 -->
+
+<div class="product-card">
+
+    <div class="slider">
+
+        <img src="Tissot PRX 1.jpeg" class="slide active" alt="Tissot PRX">
+        <img src="Tissot PRX 2.jpeg" class="slide" alt="Tissot PRX">
+        <img src="Tissot PRX 3.jpeg" class="slide" alt="Tissot PRX">
+        <img src="Tissot PRX 4.jpeg" class="slide" alt="Tissot PRX">
+        <img src="Tissot PRX 5.jpeg" class="slide" alt="Tissot PRX">
+        <img src="Tissot PRX 6.jpeg" class="slide" alt="Tissot PRX">
+        <img src="Tissot PRX 7.jpeg" class="slide" alt="Tissot PRX">
+        <img src="Tissot PRX 8.jpeg" class="slide" alt="Tissot PRX">
+        <img src="Tissot PRX 9.jpeg" class="slide" alt="Tissot PRX">
+
+        <button class="prev">❮</button>
+        <button class="next">❯</button>
+
+    </div>
+
+    <h3>Tissot PRX</h3>
+
+    <div class="price">₹4,000</div>
+
+    <div class="product-buttons">
+        <a href="product-details.html?id=70" class="product-details-btn">
+            Show Product Details
+        </a>
+    </div>
+
+</div>
+
+</div>
 
 <!-- =========================================================
      FOOTER
@@ -1880,87 +2202,49 @@ body{
 
 <footer class="main-footer">
 
-
     <div class="footer-container">
-
-
-        <!-- FOOTER TOP -->
 
         <div class="footer-top">
 
-
-            <h2>
-                Contact Us
-            </h2>
-
-
-            <!-- CUSTOMERS -->
+            <h2>Contact Us</h2>
 
             <div class="contact-column">
 
-                <h3>
-                    For Customers:
-                </h3>
+                <h3>For Customers:</h3>
 
-                <a
-                    href="mailto:50mirars@gmail.com"
-                    class="footer-link"
-                >
+                <a href="mailto:50mirars@gmail.com" class="footer-link">
                     50mirars@gmail.com
                 </a>
 
-                <a
-                    href="tel:+918209989013"
-                    class="footer-link"
-                >
+                <a href="tel:+918209989013" class="footer-link">
                     82099 89013
                 </a>
 
-                <p>
-                    09:00 - 21:30 | Monday to Sunday
-                </p>
+                <p>09:00 - 21:30 | Monday to Sunday</p>
 
             </div>
-
-
-            <!-- SALES / WATCH SERVICE -->
 
             <div class="contact-column">
 
-                <h3>
-                    For Sales/Watch Service:
-                </h3>
+                <h3>For Sales/Watch Service:</h3>
 
-                <a
-                    href="mailto:50mirars@gmail.com"
-                    class="footer-link"
-                >
+                <a href="mailto:50mirars@gmail.com" class="footer-link">
                     50mirars@gmail.com
                 </a>
 
-                <a
-                    href="tel:+918209989013"
-                    class="footer-link"
-                >
+                <a href="tel:+918209989013" class="footer-link">
                     82099 89013
                 </a>
 
-                <p>
-                    09:00 - 21:30 | Monday to Sunday
-                </p>
+                <p>09:00 - 21:30 | Monday to Sunday</p>
 
             </div>
-
-
-            <!-- WHATSAPP -->
 
             <div class="whatsapp-column">
 
                 <h3 class="whatsapp-title">
 
-                    <span>
-                        View Products on WhatsApp
-                    </span>
+                    <span>View Products on WhatsApp</span>
 
                     <img
                         src="whatsapplogo.png"
@@ -1969,7 +2253,6 @@ body{
                     >
 
                 </h3>
-
 
                 <a
                     href="https://wa.me/918209989013"
@@ -1982,65 +2265,35 @@ body{
 
             </div>
 
-
         </div>
-
-
-        <!-- FOOTER MIDDLE -->
 
         <div class="footer-middle">
 
-
-            <!-- KNOW 50 MIRARS -->
-
             <div class="footer-links-column">
 
-                <h3>
-                    Know 50 Mirars
-                </h3>
+                <h3>Know 50 Mirars</h3>
 
-                <a href="about.html">
-                    About Us
-                </a>
+                <a href="about.html">About Us</a>
 
-                <a href="faq.html">
-                    FAQ
-                </a>
+                <a href="faq.html">FAQ</a>
 
             </div>
 
-
-            <!-- TERMS -->
-
             <div class="footer-links-column">
 
-                <h3>
-                    Terms &amp; Conditions
-                </h3>
+                <h3>Terms &amp; Conditions</h3>
 
-                <a href="terms.html">
-                    Terms &amp; Conditions
-                </a>
+                <a href="terms.html">Terms &amp; Conditions</a>
 
-                <a href="privacypolicy.html">
-                    Privacy Policy
-                </a>
+                <a href="privacypolicy.html">Privacy Policy</a>
 
             </div>
-
-
-            <!-- INSTAGRAM -->
 
             <div class="footer-social">
 
-                <h3>
-                    50 Mirars
-                </h3>
+                <h3>50 Mirars</h3>
 
-                <p>
-                    Follow Us On
-                </p>
-
+                <p>Follow Us On</p>
 
                 <a
                     href="https://instagram.com/50mirars"
@@ -2059,11 +2312,7 @@ body{
 
             </div>
 
-
         </div>
-
-
-        <!-- COPYRIGHT -->
 
         <div class="footer-bottom">
 
@@ -2074,22 +2323,11 @@ body{
 
         </div>
 
-
     </div>
 
 </footer>
 
-
-
-
 <script>
-
-/* =========================================================
-   50 MIRARS
-   WATCHES COLLECTION
-   PRODUCT SLIDER + PRODUCT DETAILS
-========================================================= */
-
 
 /* =========================================================
    PRODUCT IMAGE SLIDERS
@@ -2102,16 +2340,9 @@ document.querySelectorAll(".slider").forEach(function(slider){
     const nextButton = slider.querySelector(".next");
     const prevButton = slider.querySelector(".prev");
 
-    if(!slides.length){
-        return;
-    }
+    if(!slides.length) return;
 
     let current = 0;
-
-
-    /* ---------------------------------------------
-       SHOW SLIDE
-    --------------------------------------------- */
 
     function showSlide(index){
 
@@ -2122,30 +2353,19 @@ document.querySelectorAll(".slider").forEach(function(slider){
         slides[index].classList.add("active");
     }
 
-
-    /* ---------------------------------------------
-       NEXT
-    --------------------------------------------- */
-
     if(nextButton){
 
         nextButton.addEventListener("click", function(event){
 
             event.stopPropagation();
 
-            current =
-                (current + 1) % slides.length;
+            current = (current + 1) % slides.length;
 
             showSlide(current);
 
         });
 
     }
-
-
-    /* ---------------------------------------------
-       PREVIOUS
-    --------------------------------------------- */
 
     if(prevButton){
 
@@ -2153,9 +2373,7 @@ document.querySelectorAll(".slider").forEach(function(slider){
 
             event.stopPropagation();
 
-            current =
-                (current - 1 + slides.length)
-                % slides.length;
+            current = (current - 1 + slides.length) % slides.length;
 
             showSlide(current);
 
@@ -2165,359 +2383,8 @@ document.querySelectorAll(".slider").forEach(function(slider){
 
 });
 
-
-/* =========================================================
-   AUTOMATIC PRODUCT DETAILS SYSTEM
-========================================================= */
-
-document.addEventListener("DOMContentLoaded", function(){
-
-
-    /* ---------------------------------------------
-       GET ALL PRODUCT CARDS
-    --------------------------------------------- */
-
-    const productCards =
-        document.querySelectorAll(".product-card");
-
-
-    productCards.forEach(function(card){
-
-
-        /* =============================================
-           GET PRODUCT NAME
-        ============================================= */
-
-        const titleElement =
-            card.querySelector("h3");
-
-        if(!titleElement){
-            return;
-        }
-
-        const productName =
-            titleElement.textContent.trim();
-
-
-        /* =============================================
-           GET PRODUCT PRICE
-        ============================================= */
-
-        const priceElement =
-            card.querySelector(".price");
-
-        let productPrice = "";
-
-        if(priceElement){
-
-            productPrice =
-                priceElement.textContent.trim();
-
-        }
-
-
-        /* =============================================
-           CREATE PRODUCT ID
-        ============================================= */
-
-        const productId = productName
-            .toLowerCase()
-            .trim()
-            .replace(/&/g, "and")
-            .replace(/[^a-z0-9]+/g, "-")
-            .replace(/^-+|-+$/g, "");
-
-
-        /* =============================================
-           GET ALL PRODUCT IMAGES
-        ============================================= */
-
-        const images = [];
-
-
-        card.querySelectorAll("img").forEach(function(img){
-
-            const src =
-                img.getAttribute("src");
-
-
-            if(
-                src &&
-                !src.includes("whatsapplogo") &&
-                !src.includes("instagramimage")
-            ){
-
-                images.push(src);
-
-            }
-
-        });
-
-
-        /* =============================================
-           GET PRODUCT VIDEO
-        ============================================= */
-
-        let video = "";
-
-
-        const videoElement =
-            card.querySelector("video");
-
-
-        if(videoElement){
-
-            const source =
-                videoElement.querySelector("source");
-
-
-            if(source){
-
-                video =
-                    source.getAttribute("src") || "";
-
-            }
-
-        }
-
-
-        /* =============================================
-           CREATE PRODUCT DATA
-        ============================================= */
-
-        const productData = {
-
-            id: productId,
-
-            name: productName,
-
-            price: productPrice,
-
-            images: images,
-
-            video: video
-
-        };
-
-
-        /* =============================================
-           REMOVE OLD BUTTONS
-           ENQUIRE + ADD TO CART
-        ============================================= */
-
-        const oldButtons =
-            card.querySelector(".product-buttons");
-
-
-        if(oldButtons){
-
-            oldButtons.innerHTML = "";
-
-        }
-
-
-        /* =============================================
-           CREATE SHOW PRODUCT DETAILS BUTTON
-        ============================================= */
-
-        const buttonsContainer =
-            card.querySelector(".product-buttons");
-
-
-        if(!buttonsContainer){
-            return;
-        }
-
-
-        const detailsButton =
-            document.createElement("button");
-
-
-        detailsButton.type = "button";
-
-        detailsButton.className =
-            "show-details-btn";
-
-        detailsButton.textContent =
-            "Show Product Details";
-
-
-        /* =============================================
-           BUTTON CLICK
-        ============================================= */
-
-        detailsButton.addEventListener(
-            "click",
-            function(event){
-
-                event.preventDefault();
-
-                event.stopPropagation();
-
-
-                /* -------------------------------------
-                   SAVE PRODUCT INFORMATION
-                ------------------------------------- */
-
-                localStorage.setItem(
-                    "selectedProduct",
-                    JSON.stringify(productData)
-                );
-
-
-                /* -------------------------------------
-                   REDIRECT TO PRODUCT DETAILS PAGE
-                ------------------------------------- */
-
-                window.location.href =
-                    "product-details.html?id=" +
-                    encodeURIComponent(productId);
-
-            }
-        );
-
-
-        buttonsContainer.appendChild(
-            detailsButton
-        );
-
-
-        /* =============================================
-           FIND PRODUCT MEDIA
-        ============================================= */
-
-        const slider =
-            card.querySelector(".slider");
-
-
-        const directImage =
-            card.querySelector(":scope > img");
-
-
-        const directVideo =
-            card.querySelector(":scope > video");
-
-
-        /* =============================================
-           SLIDER CLICK
-        ============================================= */
-
-        if(slider){
-
-            slider.style.cursor = "pointer";
-
-
-            slider.addEventListener(
-                "click",
-                function(event){
-
-                    /* Do nothing if arrow was clicked */
-
-                    if(
-                        event.target.closest(".prev") ||
-                        event.target.closest(".next")
-                    ){
-
-                        return;
-
-                    }
-
-
-                    openProduct(
-                        productData
-                    );
-
-                }
-            );
-
-        }
-
-
-        /* =============================================
-           NORMAL IMAGE CLICK
-        ============================================= */
-
-        if(directImage){
-
-            directImage.style.cursor =
-                "pointer";
-
-
-            directImage.addEventListener(
-                "click",
-                function(event){
-
-                    event.stopPropagation();
-
-                    openProduct(
-                        productData
-                    );
-
-                }
-            );
-
-        }
-
-
-        /* =============================================
-           VIDEO DOUBLE CLICK
-        ============================================= */
-
-        if(directVideo){
-
-            directVideo.style.cursor =
-                "pointer";
-
-
-            directVideo.addEventListener(
-                "dblclick",
-                function(event){
-
-                    event.stopPropagation();
-
-                    openProduct(
-                        productData
-                    );
-
-                }
-            );
-
-        }
-
-
-    });
-
-
-    /* =================================================
-       OPEN PRODUCT DETAILS
-    ================================================= */
-
-    function openProduct(product){
-
-        /* ---------------------------------------------
-           SAVE SELECTED PRODUCT
-        --------------------------------------------- */
-
-        localStorage.setItem(
-            "selectedProduct",
-            JSON.stringify(product)
-        );
-
-
-        /* ---------------------------------------------
-           REDIRECT
-        --------------------------------------------- */
-
-        window.location.href =
-            "product-details.html?id=" +
-            encodeURIComponent(product.id);
-
-    }
-
-
-});
-
 </script>
-   
+
 </body>
+
 </html>
