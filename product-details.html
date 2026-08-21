@@ -7,15 +7,16 @@
 
 <meta
     name="viewport"
-    content="width=1250"
+    content="width=device-width, initial-scale=1.0"
 >
 
 <meta
     name="description"
-    content="Premium Watches product details at 50 Mirars."
+    content="Explore premium watches at 50 Mirars."
 >
 
 <title>Product Details | 50 Mirars</title>
+
 
 <style>
 
@@ -33,496 +34,367 @@ html{
 
 body{
     margin:0;
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    color:#222;
-
+    font-family:Arial, Helvetica, sans-serif;
     background:
         radial-gradient(
-            circle at 50% 10%,
-            rgba(201,162,77,0.12),
-            transparent 30%
+            circle at 50% 0%,
+            rgba(210,180,120,0.12),
+            transparent 35%
         ),
-        linear-gradient(
-            135deg,
-            #f7f3e9 0%,
-            #eee8d9 50%,
-            #f8f5ed 100%
-        );
+        #f7f4ef;
+    color:#111;
+}
+
+a{
+    text-decoration:none;
+}
+
+button{
+    font-family:inherit;
+}
+
+img,
+video{
+    max-width:100%;
 }
 
 
 /* =========================================================
-   TOP HEADER
+   HEADER
 ========================================================= */
 
-.top-bar{
+.header{
     width:100%;
-
-    padding:25px 80px;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    background:#fff;
-
-    border-bottom:1px solid #e5e5e5;
+    background:#111;
+    color:#fff;
+    position:relative;
+    z-index:1000;
+    box-shadow:0 3px 15px rgba(0,0,0,0.15);
 }
 
-.brand-logo{
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
+.header-inner{
+    width:94%;
+    max-width:1400px;
+    margin:auto;
 
-    font-size:28px;
+    min-height:78px;
 
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:30px;
+}
+
+.logo{
+    color:#fff;
+    font-size:25px;
     font-weight:700;
+    letter-spacing:3px;
+    white-space:nowrap;
+}
 
-    letter-spacing:4px;
+.logo span{
+    color:#c9a45d;
+}
 
+.nav{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:28px;
+}
+
+.nav a{
+    color:#fff;
+    font-size:14px;
+    letter-spacing:0.5px;
+    transition:0.3s ease;
+}
+
+.nav a:hover{
+    color:#d4af6a;
+}
+
+
+/* =========================================================
+   OFFER BAR
+========================================================= */
+
+.offer-bar{
+    width:100%;
+    background:#c9a45d;
     color:#111;
+    overflow:hidden;
+    white-space:nowrap;
+}
 
-    line-height:1;
+.offer-track{
+    display:inline-block;
+    padding:10px 0;
+    min-width:100%;
+    animation:offerMove 22s linear infinite;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:1px;
+}
+
+@keyframes offerMove{
+
+    0%{
+        transform:translateX(100%);
+    }
+
+    100%{
+        transform:translateX(-100%);
+    }
+
+}
+
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
+.back-section{
+    width:94%;
+    max-width:1400px;
+    margin:28px auto 0;
 }
 
 .back-btn{
     display:inline-flex;
-
     align-items:center;
-
-    justify-content:center;
-
-    background:transparent;
+    gap:8px;
 
     color:#111;
+    background:#fff;
 
-    text-decoration:none;
+    border:1px solid #d6c6a7;
+    padding:11px 18px;
 
-    border:none;
+    font-size:13px;
+    font-weight:700;
 
-    font-size:16px;
-
-    font-weight:600;
-
-    transition:
-        color 0.3s ease;
+    transition:0.3s ease;
 }
 
 .back-btn:hover{
-    color:#c9a24d;
+    background:#111;
+    color:#fff;
+    border-color:#111;
 }
 
 
 /* =========================================================
-   PAGE HEADER
+   MAIN PRODUCT SECTION
 ========================================================= */
 
-.page-header{
-    text-align:center;
-
-    padding:
-        25px
-        20px
-        40px;
-}
-
-.page-header h1{
-    margin:0 0 18px;
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size:54px;
-
-    font-weight:600;
-
-    color:#111;
-}
-
-.title-line{
-    width:150px;
-
-    height:2px;
-
-    background:#c9a24d;
-
-    margin:auto;
-
-    position:relative;
-}
-
-.title-line::after{
-    content:"";
-
-    position:absolute;
-
-    width:11px;
-
-    height:11px;
-
-    background:#c9a24d;
-
-    left:50%;
-
-    top:50%;
-
-    transform:
-        translate(-50%,-50%)
-        rotate(45deg);
-}
-
-
-/* =========================================================
-   PRODUCT SECTION
-========================================================= */
-
-.product-detail-section{
-    width:100%;
-
+.product-page{
+    width:94%;
     max-width:1400px;
-
-    margin:0 auto;
-
-    padding:
-        10px
-        40px
-        80px;
+    margin:30px auto 80px;
 }
 
-.product-detail-card{
+.product-container{
+    display:grid;
+    grid-template-columns:
+        minmax(0,1.05fr)
+        minmax(0,0.95fr);
+
+    gap:60px;
+
     background:#fff;
 
-    border-radius:22px;
+    padding:42px;
 
-    overflow:hidden;
+    border:1px solid rgba(180,150,100,0.25);
 
     box-shadow:
-        0 15px 50px rgba(0,0,0,0.10);
-
-    display:grid;
-
-    grid-template-columns:
-        1fr
-        1fr;
-
-    min-height:650px;
+        0 18px 50px rgba(0,0,0,0.07);
 }
 
 
 /* =========================================================
-   MEDIA
+   PRODUCT MEDIA
 ========================================================= */
 
-.product-media-area{
+.product-media{
+    min-width:0;
+}
+
+.main-media{
+    width:100%;
+    min-height:550px;
+
     background:
-        linear-gradient(
-            145deg,
-            #f8f5ed,
-            #e9e3d3
+        radial-gradient(
+            circle,
+            #ffffff 0%,
+            #f3f0eb 100%
         );
 
-    min-height:650px;
+    border:1px solid #e4ddd2;
 
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
-    padding:40px;
 
     position:relative;
-}
-
-.product-media-wrapper{
-    width:100%;
-
-    max-width:650px;
-
-    height:570px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    background:#fff;
-
-    border-radius:18px;
-
     overflow:hidden;
-
-    box-shadow:
-        0 8px 30px rgba(0,0,0,0.08);
-
-    position:relative;
 }
 
-.product-media-wrapper img,
-.product-media-wrapper video{
+.main-media img,
+.main-media video{
     width:100%;
-
-    height:100%;
-
+    height:550px;
     object-fit:contain;
-
-    display:block;
-}
-
-.product-media-wrapper video{
-    background:#111;
-}
-
-.media-badge{
-    position:absolute;
-
-    top:25px;
-
-    left:25px;
-
-    background:#111;
-
-    color:#c9a24d;
-
-    padding:9px 15px;
-
-    border-radius:30px;
-
-    font-size:13px;
-
-    font-weight:bold;
-
-    letter-spacing:0.5px;
-
-    z-index:10;
-}
-
-
-/* =========================================================
-   DETAIL IMAGE GALLERY
-========================================================= */
-
-.detail-gallery{
-    width:100%;
-
-    height:100%;
-
-    position:relative;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    overflow:hidden;
-
-    background:#fff;
-}
-
-.detail-gallery img{
-    width:100%;
-
-    height:100%;
-
-    object-fit:contain;
-
     display:none;
 }
 
-.detail-gallery img.active{
+.main-media img.active,
+.main-media video.active{
     display:block;
 }
 
-.gallery-prev,
-.gallery-next{
+
+/* =========================================================
+   MEDIA ARROWS
+========================================================= */
+
+.media-arrow{
     position:absolute;
 
     top:50%;
-
     transform:translateY(-50%);
 
-    width:46px;
-
-    height:46px;
+    width:42px;
+    height:42px;
 
     border:none;
-
     border-radius:50%;
 
-    background:rgba(17,17,17,0.85);
-
+    background:rgba(17,17,17,0.82);
     color:#fff;
-
-    font-size:22px;
 
     cursor:pointer;
 
+    font-size:18px;
+
+    display:none;
+
+    align-items:center;
+    justify-content:center;
+
     z-index:5;
 
-    transition:
-        background 0.3s ease,
-        transform 0.3s ease;
+    transition:0.3s ease;
 }
 
-.gallery-prev{
+.media-arrow:hover{
+    background:#c9a45d;
+    color:#111;
+}
+
+.media-arrow.prev{
     left:15px;
 }
 
-.gallery-next{
+.media-arrow.next{
     right:15px;
 }
 
-.gallery-prev:hover,
-.gallery-next:hover{
-    background:#c9a24d;
-
-    color:#111;
-}
-
-.gallery-counter{
-    position:absolute;
-
-    bottom:15px;
-
-    left:50%;
-
-    transform:translateX(-50%);
-
-    background:rgba(17,17,17,0.80);
-
-    color:#fff;
-
-    padding:7px 14px;
-
-    border-radius:20px;
-
-    font-size:12px;
-
-    font-weight:bold;
-
-    z-index:5;
-}
-
 
 /* =========================================================
-   OUT OF STOCK BADGE
+   THUMBNAILS
 ========================================================= */
 
-.out-of-stock-badge{
-    position:absolute;
+.thumbnail-container{
+    margin-top:16px;
 
-    top:25px;
+    display:flex;
+    gap:10px;
 
-    right:25px;
+    overflow-x:auto;
 
-    background:#b00020;
+    padding-bottom:5px;
+}
 
-    color:#fff;
+.thumbnail{
+    width:78px;
+    height:78px;
 
-    padding:10px 18px;
+    flex:0 0 78px;
 
-    border-radius:30px;
+    border:2px solid transparent;
 
-    font-size:13px;
+    background:#f5f2ed;
 
-    font-weight:bold;
+    cursor:pointer;
 
-    letter-spacing:1px;
+    overflow:hidden;
 
-    z-index:10;
+    transition:0.3s ease;
+}
 
-    box-shadow:
-        0 5px 15px rgba(0,0,0,0.18);
+.thumbnail.active{
+    border-color:#c9a45d;
+}
+
+.thumbnail img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
 }
 
 
 /* =========================================================
-   PRODUCT INFORMATION
+   PRODUCT INFO
 ========================================================= */
 
 .product-info{
-    padding:
-        60px
-        55px;
-
     display:flex;
-
     flex-direction:column;
-
-    justify-content:center;
+    justify-content:flex-start;
 }
 
-.product-brand{
-    color:#9b762c;
+.product-category{
+    color:#b18a45;
 
-    font-size:14px;
-
-    font-weight:bold;
-
-    text-transform:uppercase;
+    font-size:12px;
+    font-weight:700;
 
     letter-spacing:2px;
 
-    margin-bottom:15px;
+    text-transform:uppercase;
+
+    margin-bottom:13px;
 }
 
-.product-name{
+.product-title{
+    font-size:38px;
+    line-height:1.18;
+
     margin:0 0 18px;
 
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size:43px;
-
-    line-height:1.15;
+    font-weight:700;
 
     color:#111;
-
-    font-weight:600;
 }
 
-.product-id{
-    color:#777;
+.product-price{
+    font-size:29px;
+    font-weight:700;
 
-    font-size:14px;
+    color:#111;
 
     margin-bottom:25px;
 }
 
-.product-price{
-    color:#c9a24d;
+.price-line{
+    width:70px;
+    height:2px;
 
-    font-size:32px;
-
-    font-weight:bold;
-
-    margin-bottom:28px;
-}
-
-.product-price.out-of-stock-price{
-    color:#888;
-}
-
-.divider{
-    width:100%;
-
-    height:1px;
-
-    background:#ddd;
+    background:#c9a45d;
 
     margin-bottom:28px;
 }
@@ -535,46 +407,46 @@ body{
 .product-description{
     color:#555;
 
-    font-size:17px;
+    font-size:15px;
 
-    line-height:1.75;
+    line-height:1.8;
 
-    margin:0 0 30px;
+    margin-bottom:28px;
 }
 
 
 /* =========================================================
-   FEATURES
+   PRODUCT INFORMATION
 ========================================================= */
 
-.feature-list{
-    margin:0 0 30px;
+.product-information{
+    border-top:1px solid #e5e0d8;
+    border-bottom:1px solid #e5e0d8;
 
-    padding:0;
+    padding:20px 0;
 
-    list-style:none;
+    margin-bottom:25px;
 }
 
-.feature-list li{
-    margin-bottom:12px;
-
-    color:#444;
-
-    font-size:15px;
-
+.info-row{
     display:flex;
 
-    align-items:center;
+    justify-content:space-between;
 
-    gap:10px;
+    gap:20px;
+
+    padding:9px 0;
+
+    font-size:14px;
 }
 
-.feature-list li::before{
-    content:"◆";
+.info-row span:first-child{
+    color:#777;
+}
 
-    color:#c9a24d;
-
-    font-size:9px;
+.info-row span:last-child{
+    font-weight:600;
+    text-align:right;
 }
 
 
@@ -584,12 +456,9 @@ body{
 
 .quantity-title{
     font-size:14px;
-
-    font-weight:bold;
+    font-weight:700;
 
     margin-bottom:10px;
-
-    color:#333;
 }
 
 .quantity-box{
@@ -601,63 +470,36 @@ body{
 
     border:1px solid #ccc;
 
-    border-radius:6px;
-
-    overflow:hidden;
-
-    margin-bottom:25px;
+    margin-bottom:20px;
 }
 
 .quantity-box button{
     width:42px;
-
     height:42px;
 
-    border:0;
+    border:none;
 
-    background:#f4f4f4;
-
-    font-size:20px;
+    background:#f5f3ef;
 
     cursor:pointer;
 
-    transition:
-        background 0.2s ease;
-}
-
-.quantity-box button:hover{
-    background:#c9a24d;
+    font-size:19px;
 }
 
 .quantity-box input{
     width:55px;
-
     height:42px;
 
-    border:0;
+    border:none;
 
     border-left:1px solid #ddd;
-
     border-right:1px solid #ddd;
 
     text-align:center;
 
-    font-size:16px;
-
-    font-weight:bold;
+    font-size:15px;
 
     outline:none;
-}
-
-
-/* =========================================================
-   DISABLED QUANTITY
-========================================================= */
-
-.quantity-box.disabled{
-    opacity:0.55;
-
-    pointer-events:none;
 }
 
 
@@ -666,184 +508,99 @@ body{
 ========================================================= */
 
 .action-buttons{
-    display:grid;
-
-    grid-template-columns:
-        1fr
-        1fr;
-
+    display:flex;
+    flex-direction:column;
     gap:12px;
 
-    margin-bottom:15px;
+    margin-bottom:18px;
 }
 
-.add-cart-btn,
-.buy-now-btn{
-    min-height:54px;
+.action-btn{
+    width:100%;
 
-    border-radius:6px;
+    min-height:52px;
 
-    font-size:16px;
-
-    font-weight:bold;
+    border:none;
 
     cursor:pointer;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:14px;
+    font-weight:700;
+
+    letter-spacing:0.5px;
 
     transition:0.3s ease;
 }
 
 .add-cart-btn{
-    background:#fff;
-
-    color:#111;
-
-    border:2px solid #111;
+    background:#111;
+    color:#fff;
 }
 
 .add-cart-btn:hover{
-    background:#111;
-
-    color:#fff;
+    background:#c9a45d;
+    color:#111;
 }
 
 .buy-now-btn{
-    background:#111;
-
-    color:#fff;
-
-    border:2px solid #111;
+    background:#c9a45d;
+    color:#111;
 }
 
 .buy-now-btn:hover{
-    background:#c9a24d;
-
-    color:#111;
-
-    border-color:#c9a24d;
-}
-
-
-/* =========================================================
-   DISABLED ACTION BUTTONS
-========================================================= */
-
-.add-cart-btn:disabled,
-.buy-now-btn:disabled{
-    background:#e5e5e5;
-
-    color:#888;
-
-    border-color:#ccc;
-
-    cursor:not-allowed;
-
-    opacity:1;
-}
-
-.add-cart-btn:disabled:hover,
-.buy-now-btn:disabled:hover{
-    background:#e5e5e5;
-
-    color:#888;
-
-    border-color:#ccc;
-}
-
-
-/* =========================================================
-   WHATSAPP
-========================================================= */
-
-.whatsapp-product-btn{
-    width:100%;
-
-    min-height:52px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:10px;
-
-    background:#c9a24d;
-
-    color:#111;
-
-    text-decoration:none;
-
-    border-radius:6px;
-
-    font-weight:bold;
-
-    border:2px solid #c9a24d;
-
-    transition:0.3s ease;
-}
-
-.whatsapp-product-btn:hover{
     background:#111;
-
     color:#fff;
-
-    border-color:#111;
 }
 
-.whatsapp-product-btn img{
-    width:25px;
-
-    height:25px;
-
-    object-fit:contain;
-}
-
-
-/* =========================================================
-   CART MESSAGE
-========================================================= */
-
-.cart-message{
-    min-height:24px;
-
-    color:#2d8a43;
-
-    font-size:14px;
-
-    font-weight:bold;
-
-    margin-top:10px;
-}
-
-.cart-message.stock-message{
-    color:#b00020;
-}
-
-
-/* =========================================================
-   DELIVERY
-========================================================= */
-
-.delivery-info{
-    margin-top:25px;
-
-    padding-top:20px;
-
-    border-top:1px solid #ddd;
-}
-
-.delivery-info strong{
+.whatsapp-btn{
+    background:#fff;
     color:#111;
 
-    font-size:16px;
+    border:1px solid #111;
 }
 
-.delivery-info p{
-    margin:10px 0 0;
+.whatsapp-btn:hover{
+    background:#111;
+    color:#fff;
+}
 
-    color:#666;
 
-    font-size:14px;
+/* =========================================================
+   STOCK
+========================================================= */
+
+.stock-message{
+    font-size:13px;
+    color:#555;
+
+    margin-top:5px;
+}
+
+
+/* =========================================================
+   TRUST BOX
+========================================================= */
+
+.trust-box{
+    margin-top:20px;
+
+    padding:17px;
+
+    background:#f7f4ef;
+
+    border-left:3px solid #c9a45d;
+}
+
+.trust-box p{
+    margin:5px 0;
+
+    font-size:12px;
+
+    color:#555;
 
     line-height:1.6;
 }
@@ -854,206 +611,127 @@ body{
 ========================================================= */
 
 .related-section{
-    width:100%;
-
+    width:94%;
     max-width:1400px;
 
-    margin:0 auto;
-
-    padding:
-        20px
-        40px
-        80px;
+    margin:0 auto 80px;
 }
 
-.related-heading{
+.section-heading{
     text-align:center;
 
-    margin-bottom:40px;
+    margin-bottom:35px;
 }
 
-.related-heading h2{
-    margin:0 0 12px;
+.section-heading small{
+    display:block;
 
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
+    color:#b18a45;
 
-    font-size:38px;
+    font-size:12px;
 
-    color:#111;
+    letter-spacing:3px;
+
+    font-weight:700;
+
+    margin-bottom:10px;
 }
 
-.related-heading p{
+.section-heading h2{
     margin:0;
 
-    color:#666;
-
-    font-size:16px;
+    font-size:30px;
 }
+
+
+/* =========================================================
+   RELATED GRID
+========================================================= */
 
 .related-grid{
     display:grid;
 
     grid-template-columns:
-        repeat(4,1fr);
+        repeat(4, minmax(0,1fr));
 
-    gap:25px;
+    gap:22px;
 }
 
 .related-card{
     background:#fff;
 
-    border-radius:15px;
+    border:1px solid #e3ddd3;
 
-    overflow:hidden;
+    padding:15px;
 
-    box-shadow:
-        0 8px 25px rgba(0,0,0,0.08);
-
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
+    transition:0.3s ease;
 }
 
 .related-card:hover{
     transform:translateY(-5px);
 
     box-shadow:
-        0 14px 35px rgba(0,0,0,0.13);
+        0 12px 30px rgba(0,0,0,0.08);
 }
 
-.related-media{
+.related-image{
     width:100%;
+    height:270px;
 
-    height:260px;
-
-    background:#f5f5f5;
+    background:#f5f2ed;
 
     display:flex;
-
     align-items:center;
-
     justify-content:center;
 
     overflow:hidden;
 
-    position:relative;
+    margin-bottom:15px;
 }
 
-.related-media img,
-.related-media video{
+.related-image img,
+.related-image video{
     width:100%;
-
     height:100%;
 
     object-fit:contain;
 }
 
-.related-media video{
-    background:#111;
-}
-
-
-/* =========================================================
-   RELATED OUT OF STOCK BADGE
-========================================================= */
-
-.related-stock-badge{
-    position:absolute;
-
-    top:12px;
-
-    right:12px;
-
-    z-index:5;
-
-    background:#b00020;
-
-    color:#fff;
-
-    padding:7px 11px;
-
-    border-radius:20px;
-
-    font-size:11px;
-
-    font-weight:bold;
-
-    letter-spacing:0.7px;
-}
-
-.related-info{
-    padding:20px;
-
-    text-align:center;
-}
-
-.related-info h3{
-    margin:0 0 12px;
-
-    font-size:17px;
+.related-card h3{
+    font-size:15px;
 
     line-height:1.4;
 
-    min-height:48px;
-
-    color:#111;
+    margin:0 0 8px;
 }
 
 .related-price{
-    color:#c9a24d;
+    font-size:16px;
 
-    font-size:18px;
+    font-weight:700;
 
-    font-weight:bold;
-
-    margin-bottom:15px;
-}
-
-.related-price.out-of-stock{
-    color:#888;
+    margin-bottom:13px;
 }
 
 .related-btn{
-    display:inline-flex;
+    display:block;
 
-    align-items:center;
+    text-align:center;
 
-    justify-content:center;
-
-    width:100%;
-
-    min-height:45px;
+    padding:10px;
 
     background:#111;
 
     color:#fff;
 
-    text-decoration:none;
+    font-size:12px;
 
-    border-radius:5px;
-
-    font-weight:bold;
-
-    transition:0.3s ease;
+    font-weight:700;
 }
 
 .related-btn:hover{
-    background:#c9a24d;
-
+    background:#c9a45d;
     color:#111;
-}
-
-.related-btn.out-of-stock{
-    background:#e5e5e5;
-
-    color:#888;
-
-    cursor:not-allowed;
-
-    pointer-events:none;
 }
 
 
@@ -1061,317 +739,201 @@ body{
    FOOTER
 ========================================================= */
 
-.main-footer{
+.footer{
     background:#111;
 
     color:#fff;
 
-    margin-top:20px;
+    padding:55px 6% 25px;
 }
 
 .footer-container{
-    width:100%;
-
     max-width:1400px;
 
-    margin:0 auto;
+    margin:auto;
 
-    padding:
-        60px
-        50px
-        0;
-}
-
-.footer-top{
     display:grid;
 
     grid-template-columns:
-        1fr
-        1fr
-        1fr;
+        repeat(4, minmax(0,1fr));
 
-    gap:50px;
-
-    padding-bottom:50px;
-
-    border-bottom:
-        1px solid
-        rgba(255,255,255,0.15);
+    gap:35px;
 }
 
-.footer-top > h2{
-    grid-column:1 / -1;
+.footer-column h3{
+    margin-top:0;
 
-    text-align:center;
-
-    margin:0 0 10px;
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size:38px;
-
-    color:#c9a24d;
-}
-
-.contact-column h3,
-.whatsapp-column h3,
-.footer-links-column h3,
-.footer-social h3{
-    color:#c9a24d;
-
-    font-size:20px;
-
-    margin:0 0 18px;
-}
-
-.contact-column p{
-    color:#bbb;
+    color:#c9a45d;
 
     font-size:15px;
 
-    line-height:1.6;
+    letter-spacing:1px;
 }
 
-.footer-link{
-    display:block;
-
-    color:#fff;
-
-    text-decoration:none;
-
-    margin-bottom:12px;
-
-    transition:0.3s ease;
-}
-
-.footer-link:hover{
-    color:#c9a24d;
-}
-
-.whatsapp-column{
-    text-align:center;
-}
-
-.whatsapp-title{
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:10px;
-}
-
-.whatsapp-icon{
-    width:28px !important;
-
-    height:28px !important;
-
-    object-fit:contain !important;
-}
-
-.whatsapp-button{
-    display:inline-block;
-
-    background:#c9a24d;
-
-    color:#111;
-
-    text-decoration:none;
-
-    padding:13px 30px;
-
-    border-radius:6px;
-
-    font-weight:bold;
-
-    transition:0.3s ease;
-}
-
-.whatsapp-button:hover{
-    background:#fff;
-
-    color:#111;
-}
-
-.footer-middle{
-    display:grid;
-
-    grid-template-columns:
-        1fr
-        1fr
-        1fr;
-
-    gap:50px;
-
-    padding:50px 0;
-}
-
-.footer-links-column{
-    display:flex;
-
-    flex-direction:column;
-}
-
-.footer-links-column a{
-    color:#ccc;
-
-    text-decoration:none;
-
-    margin-bottom:13px;
-
-    transition:0.3s ease;
-}
-
-.footer-links-column a:hover{
-    color:#c9a24d;
-}
-
-.footer-social{
-    text-align:center;
-}
-
-.footer-social p{
+.footer-column p{
     color:#bbb;
 
-    margin-bottom:15px;
+    font-size:13px;
+
+    line-height:1.8;
 }
 
-.instagram-button{
-    display:inline-flex;
+.footer-column a{
+    display:block;
 
-    align-items:center;
+    color:#bbb;
 
-    justify-content:center;
+    font-size:13px;
 
-    width:50px;
-
-    height:50px;
-
-    border:1px solid #c9a24d;
-
-    border-radius:50%;
+    margin:10px 0;
 
     transition:0.3s ease;
 }
 
-.instagram-button:hover{
-    background:#c9a24d;
-}
-
-.instagram-button img{
-    width:28px;
-
-    height:28px;
-
-    object-fit:contain;
+.footer-column a:hover{
+    color:#c9a45d;
 }
 
 .footer-bottom{
-    border-top:1px solid rgba(255,255,255,0.15);
+    max-width:1400px;
+
+    margin:40px auto 0;
+
+    padding-top:20px;
+
+    border-top:1px solid #333;
 
     text-align:center;
 
-    padding:25px 10px;
-}
+    color:#888;
 
-.footer-bottom p{
-    margin:0;
-
-    color:#999;
-
-    font-size:14px;
-
-    line-height:1.6;
+    font-size:12px;
 }
 
 
 /* =========================================================
-   TABLET
+   NOT FOUND
 ========================================================= */
 
-@media(max-width:1100px){
+.not-found{
+    width:94%;
+    max-width:800px;
 
-    .product-detail-card{
+    margin:100px auto;
+
+    text-align:center;
+
+    background:#fff;
+
+    padding:60px 30px;
+
+    border:1px solid #ddd;
+}
+
+.not-found h2{
+    margin-top:0;
+}
+
+.not-found a{
+    display:inline-block;
+
+    margin-top:20px;
+
+    background:#111;
+
+    color:#fff;
+
+    padding:12px 25px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1000px){
+
+    .product-container{
         grid-template-columns:1fr;
+
+        gap:35px;
+
+        padding:25px;
     }
 
-    .product-media-area{
-        min-height:550px;
+    .main-media{
+        min-height:500px;
     }
 
-    .product-media-wrapper{
+    .main-media img,
+    .main-media video{
         height:500px;
     }
 
     .related-grid{
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+    }
+
+    .footer-container{
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
     }
 
 }
 
 
-/* =========================================================
-   MOBILE
-========================================================= */
+@media(max-width:700px){
 
-@media(max-width:768px){
+    .header-inner{
+        flex-direction:column;
 
-    .top-bar{
-        padding:20px 25px;
+        justify-content:center;
+
+        padding:17px 0;
+
+        gap:15px;
     }
 
-    .brand-logo{
-        font-size:22px;
-        letter-spacing:3px;
+    .nav{
+        gap:15px;
+
+        flex-wrap:wrap;
     }
 
-    .back-btn{
-        font-size:14px;
+    .nav a{
+        font-size:12px;
     }
 
-    .page-header{
-        padding:20px 15px 30px;
+    .back-section{
+        margin-top:18px;
     }
 
-    .page-header h1{
-        font-size:40px;
+    .product-page{
+        margin-top:20px;
     }
 
-    .product-detail-section{
-        padding:10px 15px 50px;
+    .product-container{
+        padding:17px;
+
+        gap:25px;
     }
 
-    .product-media-area{
-        min-height:400px;
-        padding:25px;
+    .main-media{
+        min-height:390px;
     }
 
-    .product-media-wrapper{
-        height:360px;
+    .main-media img,
+    .main-media video{
+        height:390px;
     }
 
-    .product-info{
-        padding:40px 25px;
-    }
-
-    .product-name{
-        font-size:34px;
-    }
-
-    .product-price{
+    .product-title{
         font-size:28px;
     }
 
-    .action-buttons{
-        grid-template-columns:1fr;
-    }
-
-    .related-section{
-        padding:20px 15px 60px;
+    .product-price{
+        font-size:24px;
     }
 
     .related-grid{
@@ -1379,334 +941,167 @@ body{
     }
 
     .footer-container{
-        padding:45px 25px 0;
-    }
-
-    .footer-top{
         grid-template-columns:1fr;
-        gap:35px;
     }
 
-    .footer-top > h2{
-        font-size:32px;
+}
+
+
+@media(max-width:450px){
+
+    .logo{
+        font-size:21px;
     }
 
-    .footer-middle{
-        grid-template-columns:1fr;
-        gap:35px;
-        text-align:center;
+    .offer-track{
+        font-size:11px;
     }
 
-    .footer-links-column{
-        align-items:center;
+    .main-media{
+        min-height:330px;
     }
 
-    .gallery-prev,
-    .gallery-next{
-        width:40px;
-        height:40px;
-        font-size:18px;
+    .main-media img,
+    .main-media video{
+        height:330px;
+    }
+
+    .product-title{
+        font-size:25px;
+    }
+
+    .product-container{
+        padding:13px;
+    }
+
+    .info-row{
+        font-size:13px;
     }
 
 }
 
 
 /* =========================================================
-   SMALL MOBILE
+   TOAST
 ========================================================= */
 
-@media(max-width:450px){
+.toast{
+    position:fixed;
 
-    .top-bar{
-        padding:18px 15px;
-    }
+    bottom:25px;
+    left:50%;
 
-    .brand-logo{
-        font-size:18px;
-        letter-spacing:2px;
-    }
+    transform:translateX(-50%) translateY(100px);
 
-    .back-btn{
-        font-size:13px;
-    }
+    background:#111;
+    color:#fff;
 
-    .page-header h1{
-        font-size:34px;
-    }
+    padding:14px 22px;
 
-    .product-media-area{
-        min-height:330px;
-        padding:15px;
-    }
+    font-size:13px;
 
-    .product-media-wrapper{
-        height:300px;
-    }
+    z-index:9999;
 
-    .product-info{
-        padding:30px 20px;
-    }
+    opacity:0;
 
-    .product-name{
-        font-size:29px;
-    }
+    transition:0.35s ease;
 
-    .product-description{
-        font-size:15px;
-    }
+    box-shadow:0 8px 30px rgba(0,0,0,0.25);
+}
 
-    .related-heading h2{
-        font-size:30px;
-    }
+.toast.show{
+    opacity:1;
 
-    .out-of-stock-badge{
-        top:15px;
-        right:15px;
-        padding:8px 12px;
-        font-size:11px;
-    }
-
-    .gallery-prev{
-        left:8px;
-    }
-
-    .gallery-next{
-        right:8px;
-    }
-
+    transform:
+        translateX(-50%)
+        translateY(0);
 }
 
 </style>
 
 </head>
 
-    <body>
+
+<body>
 
 
 <!-- =========================================================
-     TOP HEADER
+     HEADER
 ========================================================= -->
 
-<div class="top-bar">
+<header class="header">
 
-    <div class="brand-logo">
-        50 MIRARS
+    <div class="header-inner">
+
+        <a href="index.html" class="logo">
+            50 <span>MIRARS</span>
+        </a>
+
+        <nav class="nav">
+
+            <a href="index.html">Home</a>
+
+            <a href="watches.html">Watches</a>
+
+            <a href="sunglasses.html">Sunglasses</a>
+
+            <a href="about.html">About Us</a>
+
+            <a href="faq.html">FAQ</a>
+
+            <a href="cart.html">Cart</a>
+
+        </nav>
+
     </div>
 
-    <a
-        href="watches.html"
-        class="back-btn"
-    >
+</header>
+
+
+<!-- =========================================================
+     OFFER BAR
+========================================================= -->
+
+<div class="offer-bar">
+
+    <div class="offer-track">
+
+        ✦ A Touch of Luxury Awaits — Premium Watches •
+        Timeless Designs • 50 Mirars ✦
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     BACK
+========================================================= -->
+
+<div class="back-section">
+
+    <a href="watches.html" class="back-btn">
+
         ← Back to Watches
+
     </a>
 
 </div>
 
 
 <!-- =========================================================
-     PAGE HEADER
+     PRODUCT PAGE
 ========================================================= -->
 
-<header class="page-header">
+<main class="product-page">
 
-    <h1>
-        Watches
-    </h1>
+    <div id="productContainer">
 
-    <div class="title-line"></div>
-
-</header>
-
-
-<!-- =========================================================
-     PRODUCT DETAIL
-========================================================= -->
-
-<section class="product-detail-section">
-
-    <div class="product-detail-card">
-
-
-        <div class="product-media-area">
-
-            <div
-                class="media-badge"
-                id="mediaBadge"
-            >
-                50 MIRARS
-            </div>
-
-            <div
-                class="out-of-stock-badge"
-                id="outOfStockBadge"
-                style="display:none;"
-            >
-                OUT OF STOCK
-            </div>
-
-            <div
-                class="product-media-wrapper"
-                id="productMedia"
-            >
-            </div>
-
-        </div>
-
-
-        <div class="product-info">
-
-            <div
-                class="product-brand"
-                id="productBrand"
-            >
-                Watches
-            </div>
-
-
-            <h2
-                class="product-name"
-                id="productName"
-            >
-                Loading Product...
-            </h2>
-
-
-            <div
-                class="product-id"
-                id="productId"
-            >
-                Product ID
-            </div>
-
-
-            <div
-                class="product-price"
-                id="productPrice"
-            >
-                ₹0
-            </div>
-
-
-            <div class="divider"></div>
-
-
-            <p
-                class="product-description"
-                id="productDescription"
-            >
-                Loading product information...
-            </p>
-
-
-            <ul
-                class="feature-list"
-                id="featureList"
-            >
-            </ul>
-
-
-            <div class="quantity-title">
-                Quantity
-            </div>
-
-
-            <div
-                class="quantity-box"
-                id="quantityBox"
-            >
-
-                <button
-                    type="button"
-                    id="minusBtn"
-                >
-                    −
-                </button>
-
-                <input
-                    type="number"
-                    id="quantity"
-                    value="1"
-                    min="1"
-                    max="10"
-                >
-
-                <button
-                    type="button"
-                    id="plusBtn"
-                >
-                    +
-                </button>
-
-            </div>
-
-
-            <div class="action-buttons">
-
-                <button
-                    type="button"
-                    class="add-cart-btn"
-                    id="addCartBtn"
-                >
-                    Add to Cart
-                </button>
-
-
-                <button
-                    type="button"
-                    class="buy-now-btn"
-                    id="buyNowBtn"
-                >
-                    Buy Now
-                </button>
-
-            </div>
-
-
-            <a
-                href="#"
-                target="_blank"
-                rel="noopener"
-                class="whatsapp-product-btn"
-                id="whatsappBtn"
-            >
-
-                <img
-                    src="whatsapplogo.png"
-                    alt="WhatsApp"
-                >
-
-                Enquire on WhatsApp
-
-            </a>
-
-
-            <div
-                class="cart-message"
-                id="cartMessage"
-            >
-            </div>
-
-
-            <div class="delivery-info">
-
-                <strong>
-                    Delivery Information
-                </strong>
-
-                <p>
-                    Full payment is required before delivery.
-                    Delivery availability and estimated delivery
-                    time may vary depending on your location.
-                    Contact 50 Mirars for assistance.
-                </p>
-
-            </div>
-
-        </div>
+        <!-- Product generated by JavaScript -->
 
     </div>
 
-</section>
+</main>
 
 
 <!-- =========================================================
@@ -1715,23 +1110,18 @@ body{
 
 <section class="related-section">
 
-    <div class="related-heading">
+    <div class="section-heading">
 
-        <h2>
-            You May Also Like
-        </h2>
+        <small>50 MIRARS COLLECTION</small>
 
-        <p>
-            Explore more premium watches from the 50 Mirars collection.
-        </p>
+        <h2>You May Also Like</h2>
 
     </div>
 
     <div
         class="related-grid"
-        id="relatedGrid"
-    >
-    </div>
+        id="relatedProducts"
+    ></div>
 
 </section>
 
@@ -1740,313 +1130,945 @@ body{
      FOOTER
 ========================================================= -->
 
-<footer class="main-footer">
+<footer class="footer">
 
     <div class="footer-container">
 
-        <div class="footer-top">
+        <div class="footer-column">
 
-            <h2>
-                Contact Us
-            </h2>
-
-
-            <div class="contact-column">
-
-                <h3>
-                    For Customers:
-                </h3>
-
-                <a
-                    href="mailto:50mirars@gmail.com"
-                    class="footer-link"
-                >
-                    50mirars@gmail.com
-                </a>
-
-                <a
-                    href="tel:+918209989013"
-                    class="footer-link"
-                >
-                    82099 89013
-                </a>
-
-                <p>
-                    09:00 - 21:30 | Monday to Sunday
-                </p>
-
-            </div>
-
-
-            <div class="contact-column">
-
-                <h3>
-                    For Sales/Watch Service:
-                </h3>
-
-                <a
-                    href="mailto:50mirars@gmail.com"
-                    class="footer-link"
-                >
-                    50mirars@gmail.com
-                </a>
-
-                <a
-                    href="tel:+918209989013"
-                    class="footer-link"
-                >
-                    82099 89013
-                </a>
-
-                <p>
-                    09:00 - 21:30 | Monday to Sunday
-                </p>
-
-            </div>
-
-
-            <div class="whatsapp-column">
-
-                <h3 class="whatsapp-title">
-
-                    <span>
-                        View Products on WhatsApp
-                    </span>
-
-                    <img
-                        src="whatsapplogo.png"
-                        alt="WhatsApp"
-                        class="whatsapp-icon"
-                    >
-
-                </h3>
-
-                <a
-                    href="https://wa.me/918209989013"
-                    target="_blank"
-                    rel="noopener"
-                    class="whatsapp-button"
-                >
-                    View Products
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <div class="footer-middle">
-
-            <div class="footer-links-column">
-
-                <h3>
-                    Know 50 Mirars
-                </h3>
-
-                <a href="about.html">
-                    About Us
-                </a>
-
-                <a href="faq.html">
-                    FAQ
-                </a>
-
-            </div>
-
-
-            <div class="footer-links-column">
-
-                <h3>
-                    Terms &amp; Conditions
-                </h3>
-
-                <a href="terms.html">
-                    Terms &amp; Conditions
-                </a>
-
-                <a href="privacypolicy.html">
-                    Privacy Policy
-                </a>
-
-            </div>
-
-
-            <div class="footer-social">
-
-                <h3>
-                    50 Mirars
-                </h3>
-
-                <p>
-                    Follow Us On
-                </p>
-
-                <a
-                    href="https://instagram.com/50mirars"
-                    target="_blank"
-                    rel="noopener"
-                    class="instagram-button"
-                    aria-label="Follow 50 Mirars on Instagram"
-                >
-
-                    <img
-                        src="instagramimage.webp"
-                        alt="Instagram"
-                    >
-
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <div class="footer-bottom">
+            <h3>50 MIRARS</h3>
 
             <p>
-                © 2026 50 Mirars - The Watch &amp; Sunglasses Store.
-                All Rights Reserved.
+                Discover timeless watches and premium
+                sunglasses curated for those who
+                appreciate refined style.
             </p>
 
         </div>
+
+
+        <div class="footer-column">
+
+            <h3>Contact Us</h3>
+
+            <p>
+                For product enquiries, orders and
+                assistance, connect with us directly.
+            </p>
+
+            <a
+                href="https://wa.me/919XXXXXXXXX"
+                target="_blank"
+            >
+                WhatsApp
+            </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>Know 50 Mirars</h3>
+
+            <a href="about.html">
+                About Us
+            </a>
+
+            <a href="faq.html">
+                FAQ
+            </a>
+
+            <a href="terms.html">
+                Terms & Conditions
+            </a>
+
+            <a href="privacyPolicy.html">
+                Privacy Policy
+            </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>Explore</h3>
+
+            <a href="watches.html">
+                Watches
+            </a>
+
+            <a href="sunglasses.html">
+                Sunglasses
+            </a>
+
+            <a href="cart.html">
+                My Cart
+            </a>
+
+            <a
+                href="https://www.instagram.com/"
+                target="_blank"
+            >
+                Instagram
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        © 2026 50 Mirars. All Rights Reserved.
 
     </div>
 
 </footer>
 
 
+<!-- =========================================================
+     TOAST
+========================================================= -->
+
+<div
+    class="toast"
+    id="toast"
+></div>
+
+
 <script>
 
-    /* =========================================================
-   WATCHES DATABASE
+/* =========================================================
+   PRODUCT DATABASE
 ========================================================= */
 
-const watches = [
+const products = [
 
-    {
-        id:1,
-        name:"Tissot T-Race Chronograph Watch",
-        price:3500,
-        media:"gallery",
-        files:[ 
-            "Tissot T-Race Chronograph Watch.jpeg",
-            "Tissot T-Race Chronograph Watch 2.jpeg"
-                
-        brand:"Watches",
-        outOfStock:false
-    },
+/* 1 */
+{
+    id:1,
+    name:"Tissot T-Race Chronograph Watch",
+    price:3500,
+    type:"images",
+    media:[
+        "Tissot T-Race Chronograph Watch.jpeg",
+        "Tissot T-Race Chronograph Watch 2.jpeg"
+    ]
+},
 
-    {
-        id:2,
-        name:"Rolex Pheonix Watch",
-        price:4000,
-        media:"video",
-        file:"Rolex Pheonix Watch.mp4"
-        brand:"Watches",
-        outOfStock:false
-    },
+/* 2 */
+{
+    id:2,
+    name:"Rolex Pheonix Watch",
+    price:4000,
+    type:"video",
+    media:[
+        "Rolex Pheonix Watch.mp4"
+    ]
+},
 
-    {
-        id:3,
-        name:"Versace Dominus Watch",
-        price:4000,
-        media:"gallery",
-        files :[ 
-            "Versace Dominus Skeleton Watch 3.jpeg",
-            "Versace Dominus Skeleton Watch4.jpeg"
-        brand:"Watches",
-        outOfStock:false
-    },
+/* 3 */
+{
+    id:3,
+    name:"Versace Dominus Watch",
+    price:4000,
+    type:"images",
+    media:[
+        "Versace Dominus Skeleton Watch 3.jpeg",
+        "Versace Dominus Skeleton Watch4.jpeg"
+    ]
+},
 
-    {
-        id:4,
-        name:"Tommy Hilfiger Clark",
-        price:3500,
-        media:"gallery",
-        files:[
-            "Tommy Hilfiger Clark.jpeg",
-            "Tommy Hilfiger Clark 2.jpeg"
-        ],
-        file:"Tommy Hilfiger Clark.jpeg",
-        brand:"Watches",
-        outOfStock:false
-    },
+/* 4 */
+{
+    id:4,
+    name:"Rolex Daytona 116578SACO",
+    price:3500,
+    type:"video",
+    media:[
+        "Rolex Daytona 116578SACO.mp4"
+    ]
+},
 
-    {
-        id:5,
-        name:"Versace Hellenyium Chrono Watch",
-        price:4000,
-        media:"gallery",
-        files:[
-            "Versace Hellenyium Chrono Watch.jpeg",
-            "Versace Hellenyium Chrono Watch 2.jpeg"
-        ],
-        file:"Versace Hellenyium Chrono Watch.jpeg",
-        brand:"Watches",
-        outOfStock:false
-    },
+/* 5 */
+{
+    id:5,
+    name:"Tommy Hilfiger Clark",
+    price:3500,
+    type:"images",
+    media:[
+        "Tommy Hilfiger Clark.jpeg",
+        "Tommy Hilfiger Clark 2.jpeg",
+        "Tommy Hilfiger Clark 3.jpeg",
+        "Tommy Hilfiger Clark 4.jpeg"
+    ]
+},
 
-    {
-        id:6,
-        name:"Tommy Hilfiger Legend Series",
-        price:4000,
-        media:"video",
-        file:"Tommy Hilfiger Legend Series.mp4",
-        brand:"Watches",
-        outOfStock:false
-    },
+/* 6 */
+{
+    id:6,
+    name:"Omega Speedmaster James Bond",
+    price:4000,
+    type:"video",
+    media:[
+        "Omega Speedmaster James Bond.mp4"
+    ]
+},
 
-    {
-        id:7,
-        name:"Tommy Hilfiger Dual Tone Watch TH1781644",
-        price:3500,
-        media:"video",
-        file:"Tommy Hilfiger Dual Tone Watch TH1781644.mp4",
-        brand:"Watches",
-        outOfStock:false
-    },
+/* 7 */
+{
+    id:7,
+    name:"Versace Hellenyium Chrono Watch",
+    price:4000,
+    type:"images",
+    media:[
+        "Versace Hellenyium Chrono Watch.jpeg",
+        "Versace Hellenyium Chrono Watch 2.jpeg"
+    ]
+},
 
-    {
-        id:8,
-        name:"Versace Tonneau Skeleton Watch",
-        price:4000,
-        media:"gallery",
-        files:[
-            "Versace Tonneau Skeleton Watch.jpeg",
-            "Versace Tonneau Skeleton Watch 2.jpeg"
-        ],
-        file:"Versace Tonneau Skeleton Watch.jpeg",
-        brand:"Watches",
-        outOfStock:false
-    },
+/* 8 */
+{
+    id:8,
+    name:"Tommy Hilfiger Legend Series",
+    price:4000,
+    type:"video",
+    media:[
+        "Tommy Hilfiger Legend Series.mp4"
+    ]
+},
 
-    {
-        id:9,
-        name:"Guess Camden Multifunction GW1051G2",
-        price:4000,
-        media:"gallery",
-        files:[
-            "Guess Camden Multifunction GW1051G2.jpeg",
-            "Guess Camden Multifunction GW1051G2 2.jpeg"
-        ],
-        file:"Guess Camden Multifunction GW1051G2.jpeg",
-        brand:"Watches",
-        outOfStock:false
-    },
+/* 9 */
+{
+    id:9,
+    name:"Tommy Hilfiger Dual Tone Watch TH1781644",
+    price:3500,
+    type:"video",
+    media:[
+        "Tommy Hilfiger Dual Tone Watch TH1781644.mp4"
+    ]
+},
 
-    {
-        id:10,
-        name:"Seiko Presage SRPE15",
-        price:4000,
-        media:"gallery",
-        files:[
-            "Seiko Presage SRPE15.jpeg",
-            "Seiko Presage SRPE15 2.jpeg"
-        ],
-        file:"Seiko Presage SRPE15.jpeg",
-        brand:"Watches",
-        outOfStock:false
-    }
+/* 10 */
+{
+    id:10,
+    name:"Versace Tonneau Skeleton Watch",
+    price:4000,
+    type:"images",
+    media:[
+        "Versace Tonneau Skeleton Watch.jpeg",
+        "Versace Tonneau Skeleton Watch 2.jpeg"
+    ]
+},
+
+/* 11 */
+{
+    id:11,
+    name:"Seiko 5 Sports Red Blood",
+    price:4500,
+    type:"video",
+    media:[
+        "Seiko 5 Sports Red Blood.mp4"
+    ]
+},
+
+/* 12 */
+{
+    id:12,
+    name:"Omega Seamaster Diver 300M Co-Axial Master",
+    price:3500,
+    type:"video",
+    media:[
+        "Omega Seamaster Diver 300M Co-Axial Master.mp4"
+    ]
+},
+
+/* 13 */
+{
+    id:13,
+    name:"Casio Edifice EFR-539SG-1AUDF",
+    price:3000,
+    type:"video",
+    media:[
+        "Casio Edifice EFR-539SG-1AUDF.mp4"
+    ]
+},
+
+/* 14 */
+{
+    id:14,
+    name:"Tommy Hilfiger Model 1792196",
+    price:4000,
+    type:"video",
+    media:[
+        "Tommy Hilfiger Model 1792196.mp4"
+    ]
+},
+
+/* 15 */
+{
+    id:15,
+    name:"Rolex Datejust 41 Wimbledon Dial",
+    price:3500,
+    type:"video",
+    media:[
+        "Rolex Datejust 41 Wimbledon Dial.mp4"
+    ]
+},
+
+/* 16 */
+{
+    id:16,
+    name:"Rolex Cosmograph Daytona John Mayer 116508",
+    price:3500,
+    type:"video",
+    media:[
+        "Rolex Cosmograph Daytona John Mayer 116508.mp4"
+    ]
+},
+
+/* 17 */
+{
+    id:17,
+    name:"Breitling Navitimer",
+    price:6000,
+    type:"video",
+    media:[
+        "Breitling Navitimer.mp4"
+    ]
+},
+
+/* 18 */
+{
+    id:18,
+    name:"Tommy Hilfiger Henry Skeleton Automatic Watch",
+    price:4000,
+    type:"video",
+    media:[
+        "Tommy Hilfiger Henry Skeleton Automatic Watch.mp4"
+    ]
+},
+
+/* 19 */
+{
+    id:19,
+    name:"Guess Camden Multifunction GW1051G2",
+    price:3500,
+    type:"images",
+    media:[
+        "Guess Camden Multifunction GW1051G2 1.jpeg",
+        "Guess Camden Multifunction GW1051G2.jpeg"
+    ]
+},
+
+/* 20 */
+{
+    id:20,
+    name:"Seiko Presage SRPE15",
+    price:5500,
+    type:"images",
+    media:[
+        "Seiko Presage SRPE15.jpeg"
+    ]
+},
+
+/* 21 */
+{
+    id:21,
+    name:"Tommy Hilfiger Baker Watch",
+    price:3500,
+    type:"video",
+    media:[
+        "Tommy Hilfiger Baker Watch.mp4"
+    ]
+},
+
+/* 22 */
+{
+    id:22,
+    name:"Seiko 5 Sports GMT SSK035K1",
+    price:4000,
+    type:"images",
+    media:[
+        "Seiko 5 Sports GMT SSK035K1.jpeg"
+    ]
+},
+
+/* 23 */
+{
+    id:23,
+    name:"Seiko 5 Sports Quartz GMT SSK035K1",
+    price:3500,
+    type:"images",
+    media:[
+        "Seiko 5 Sports Quartz GMT SSK035K1.jpeg"
+    ]
+},
+
+/* 24 */
+{
+    id:24,
+    name:"Seiko Prospex Speedtimer SPB513",
+    price:3500,
+    type:"images",
+    media:[
+        "Seiko Prospex Speedtimer SPB513.jpeg"
+    ]
+},
+
+/* 25 */
+{
+    id:25,
+    name:"Seiko 5 Sports Group",
+    price:4000,
+    type:"video",
+    media:[
+        "Seiko 5 Sports Group.mp4"
+    ]
+},
+
+/* 26 */
+{
+    id:26,
+    name:"Seiko Presage Cocktail SRPG23J1",
+    price:4000,
+    type:"video",
+    media:[
+        "Seiko Presage Cocktail SRPG23J1.mp4"
+    ]
+},
+
+/* 27 */
+{
+    id:27,
+    name:"Armani Exchange Automatic Skeleton",
+    price:4000,
+    type:"images",
+    media:[
+        "Armani Exchange Automatic Skeleton.jpeg"
+    ]
+},
+
+/* 28 */
+{
+    id:28,
+    name:"Tudor Pelagos 39",
+    price:5000,
+    type:"video",
+    media:[
+        "Tudor Pelagos 39.mp4"
+    ]
+},
+
+/* 29 */
+{
+    id:29,
+    name:"Seiko Mod Watches",
+    price:5500,
+    type:"images",
+    media:[
+        "Seiko Mod Watches.jpeg"
+    ]
+},
+
+/* 30 */
+{
+    id:30,
+    name:"Guess Arc Champagne",
+    price:4000,
+    type:"images",
+    media:[
+        "Guess Arc Champagne.jpeg"
+    ]
+},
+
+/* 31 */
+{
+    id:31,
+    name:"Rolex Yatch-Master 42",
+    price:5000,
+    type:"images",
+    media:[
+        "Rolex Yatch-Master 42.jpeg"
+    ]
+},
+
+/* 32 */
+{
+    id:32,
+    name:"Seiko Blue Moon SSA347J1",
+    price:6000,
+    type:"images",
+    media:[
+        "Seiko Blue Moon SSA347J1.jpeg"
+    ]
+},
+
+/* 33 */
+{
+    id:33,
+    name:"Seiko Mod",
+    price:5000,
+    type:"images",
+    media:[
+        "Seiko Mod.jpeg"
+    ]
+},
+
+/* 34 */
+{
+    id:34,
+    name:"Rolex GMT-Master II Root Beer",
+    price:3500,
+    type:"video",
+    media:[
+        "Rolex GMT-Master II Root Beer.mp4"
+    ]
+},
+
+/* 35 */
+{
+    id:35,
+    name:"Seiko Mod Yatch-Master Rose Gold",
+    price:5000,
+    type:"video",
+    media:[
+        "Seiko Mod Yatch-Master Rose Gold.mp4"
+    ]
+},
+
+/* 36 */
+{
+    id:36,
+    name:"Guess Waygene",
+    price:3500,
+    type:"images",
+    media:[
+        "Guess Waygene.jpeg"
+    ]
+},
+
+/* 37 */
+{
+    id:37,
+    name:"Seiko Pepsi Edition",
+    price:6000,
+    type:"images",
+    media:[
+        "Seiko Pepsi Edition.jpeg"
+    ]
+},
+
+/* 38 */
+{
+    id:38,
+    name:"Cartier 21L 71-6-151",
+    price:6000,
+    type:"video",
+    media:[
+        "Cartier 21L 71-6-151.mp4"
+    ]
+},
+
+/* 39 */
+{
+    id:39,
+    name:"Swatch X Audemars Piguet Royal Pop",
+    price:4000,
+    type:"images",
+    media:[
+        "Swatch X Audemars Piguet Royal Pop.jpeg"
+    ]
+},
+
+/* 40 */
+{
+    id:40,
+    name:"Seiko Mod Watches",
+    price:4500,
+    type:"video",
+    media:[
+        "Seiko Mod Watches Video.mp4"
+    ]
+},
+
+/* 41 */
+{
+    id:41,
+    name:"Tag Heuer Grand Carrera CR7",
+    price:4000,
+    type:"images",
+    media:[
+        "Tag Heuer Grand Carrera CR7.jpeg"
+    ]
+},
+
+/* 42 */
+{
+    id:42,
+    name:"Audemars Piguet Royal Oak",
+    price:6000,
+    type:"images",
+    media:[
+        "Audemars Piguet Royal Oak 1.jpeg",
+        "Audemars Piguet Royal Oak 2.jpeg",
+        "Audemars Piguet Royal Oak 3.jpeg"
+    ]
+},
+
+/* 43 */
+{
+    id:43,
+    name:"Bannon Automatic Analog (ME3207)",
+    price:4500,
+    type:"images",
+    media:[
+        "Bannon Automatic Analog (ME3207).jpeg"
+    ]
+},
+
+/* 44 */
+{
+    id:44,
+    name:"Armani Exchange Hampton AX2418",
+    price:4500,
+    type:"images",
+    media:[
+        "Armani Exchange Hampton AX2418.jpeg"
+    ]
+},
+
+/* 45 */
+{
+    id:45,
+    name:"Seiko Datejust Mod",
+    price:5000,
+    type:"video",
+    media:[
+        "Seiko Datejust Mod.mp4"
+    ]
+},
+
+/* 46 */
+{
+    id:46,
+    name:"Casio G-Shock",
+    price:4000,
+    type:"images",
+    media:[
+        "Casio G-Shock 1.jpeg",
+        "Casio G-Shock 2.jpeg",
+        "Casio G-Shock 3.jpeg",
+        "Casio G-Shock 4.jpeg"
+    ]
+},
+
+/* 47 */
+{
+    id:47,
+    name:"Tommy Hilfiger TW001863-001",
+    price:4000,
+    type:"images",
+    media:[
+        "Tommy Hilfiger TW001863-001.jpeg"
+    ]
+},
+
+/* 48 */
+{
+    id:48,
+    name:"Jacob & Co CR7 Watch",
+    price:4000,
+    type:"images",
+    media:[
+        "Jacob & Co CR7 Watch.jpeg",
+        "Jacob & Co CR7 Watch 2.jpeg",
+        "Jacob & Co CR7 Watch 3.jpeg"
+    ]
+},
+
+/* 49 */
+{
+    id:49,
+    name:"Omega X Swatch Moon's Watch",
+    price:4000,
+    type:"images",
+    media:[
+        "Omega X Swatch Moon's Watch.jpeg",
+        "Omega X Swatch Moon's Watch 2.jpeg",
+        "Omega X Swatch Moon's Watch 3.jpeg",
+        "Omega X Swatch Moon's Watch 4.jpeg",
+        "Omega X Swatch Moon's Watch 5.jpeg",
+        "Omega X Swatch Moon's Watch 6.jpeg",
+        "Omega X Swatch Moon's Watch 7.jpeg",
+        "Omega X Swatch Moon's Watch 8.jpeg",
+        "Omega X Swatch Moon's Watch 9.jpeg",
+        "Omega X Swatch Moon's Watch 10.jpeg",
+        "Omega X Swatch Moon's Watch 11.jpeg"
+    ]
+},
+
+/* 50 */
+{
+    id:50,
+    name:"Casio Edifice ECB-2000DD",
+    price:6000,
+    type:"images",
+    media:[
+        "Casio Edifice ECB-2000DD.jpeg"
+    ]
+},
+
+/* 51 */
+{
+    id:51,
+    name:"Emporio Armani Luigi AR1808",
+    price:4500,
+    type:"images",
+    media:[
+        "Emporio Armani Luigi AR1808.jpeg"
+    ]
+},
+
+/* 52 */
+{
+    id:52,
+    name:"Patek Philippe Nautilus Chain",
+    price:6500,
+    type:"images",
+    media:[
+        "Patek Philippe Nautilus Chain 1.jpeg",
+        "Patek Philippe Nautilus Chain 2.jpeg",
+        "Patek Philippe Nautilus Chain 3.jpeg"
+    ]
+},
+
+/* 53 */
+{
+    id:53,
+    name:"Longiness Master Collection",
+    price:4000,
+    type:"images",
+    media:[
+        "Longiness Master Collection.jpeg"
+    ]
+},
+
+/* 54 */
+{
+    id:54,
+    name:"Patek Philippe Nautilus Band",
+    price:5000,
+    type:"images",
+    media:[
+        "Patek Philippe Nautilus Band.jpeg",
+        "Patek Philippe Nautilus Band 2.jpeg"
+    ]
+},
+
+/* 55 */
+{
+    id:55,
+    name:"Maserati R8853100027 Competizione Plain",
+    price:5000,
+    type:"images",
+    media:[
+        "Maserati R8853100027 Competizione Plain.jpeg"
+    ]
+},
+
+/* 56 */
+{
+    id:56,
+    name:"Emporio Armani BSF954",
+    price:4000,
+    type:"images",
+    media:[
+        "Emporio Armani BSF954.jpeg"
+    ]
+},
+
+/* 57 */
+{
+    id:57,
+    name:"Seiko Presage Cocktail Time",
+    price:4500,
+    type:"images",
+    media:[
+        "Seiko Presage Cocktail Time.jpeg",
+        "Seiko Presage Cocktail Time 2.jpeg",
+        "Seiko Presage Cocktail Time 3.jpeg",
+        "Seiko Presage Cocktail Time 4.jpeg",
+        "Seiko Presage Cocktail Time 5.jpeg",
+        "Seiko Presage Cocktail Time 6.jpeg"
+    ]
+},
+
+/* 58 */
+{
+    id:58,
+    name:"Seiko Prospex Diver",
+    price:4000,
+    type:"video",
+    media:[
+        "Seiko Prospex Diver.mp4"
+    ]
+},
+
+/* 59 */
+{
+    id:59,
+    name:"Emporio Armani Ceramica",
+    price:4000,
+    type:"images",
+    media:[
+        "Emporio Armani Ceramica.jpeg"
+    ]
+},
+
+/* 60 */
+{
+    id:60,
+    name:"Seiko SRPL64",
+    price:4500,
+    type:"images",
+    media:[
+        "Seiko SRPL64.jpeg",
+        "Seiko SRPL64 1.jpeg",
+        "Seiko SRPL64 2.jpeg",
+        "Seiko SRPL64 3.jpeg",
+        "Seiko SRPL64 4.jpeg",
+        "Seiko SRPL64 5.jpeg",
+        "Seiko SRPL64 6.jpeg"
+    ]
+},
+
+/* 61 */
+{
+    id:61,
+    name:"Rolex Cosmograph",
+    price:5000,
+    type:"images",
+    media:[
+        "Rolex Cosmograph.jpeg"
+    ]
+},
+
+/* 62 */
+{
+    id:62,
+    name:"Emporio Armani Luigi AR187",
+    price:4000,
+    type:"images",
+    media:[
+        "Emporio Armani Luigi AR187.jpeg"
+    ]
+},
+
+/* 63 */
+{
+    id:63,
+    name:"Rolex Cosmograph Daytona Green",
+    price:5000,
+    type:"images",
+    media:[
+        "Rolex Cosmograph Dayona Green.jpeg"
+    ]
+},
+
+/* 64 */
+{
+    id:64,
+    name:"Tissot Carson",
+    price:4500,
+    type:"images",
+    media:[
+        "Tissot Carson.jpeg",
+        "Tissot Carson 2.jpeg"
+    ]
+},
+
+/* 65 */
+{
+    id:65,
+    name:"Rolex Cosmograph Daytona John Walker",
+    price:5000,
+    type:"images",
+    media:[
+        "Rolex Cosmograph Daytona John Walker.jpeg"
+    ]
+},
+
+/* 66 */
+{
+    id:66,
+    name:"Rolex Daytona Rainbow",
+    price:5000,
+    type:"images",
+    media:[
+        "Rolex Daytona Rainbow.jpeg"
+    ]
+},
+
+/* 67 */
+{
+    id:67,
+    name:"Tissot Gentleman Powermatic 80",
+    price:5000,
+    type:"images",
+    media:[
+        "Tissot Gentelman Powermatic 80.jpeg",
+        "Tissot Gentelman Powermatic 80 2.jpeg"
+    ]
+},
+
+/* 68 */
+{
+    id:68,
+    name:"Tommy Hilfiger Automatic Skeleton Watch",
+    price:4500,
+    type:"images",
+    media:[
+        "Tommy Hilfiger Automatic Skeleton Watch 1.jpeg",
+        "Tommy Hilfiger Automatic Skeleton Watch 2.jpeg",
+        "Tommy Hilfiger Automatic Skeleton Watch 3.jpeg"
+    ]
+},
+
+/* 69 */
+{
+    id:69,
+    name:"Casio Edifice EFR-539SG-1AVUDF",
+    price:3500,
+    type:"images",
+    media:[
+        "Casio Edifice EFR-539SG-1AVUDF 1.jpeg",
+        "Casio Edifice EFR-539SG-1AVUDF 2.jpeg",
+        "Casio Edifice EFR-539SG-1AVUDF 3.jpeg",
+        "Casio Edifice EFR-539SG-1AVUDF 4.jpeg",
+        "Casio Edifice EFR-539SG-1AVUDF 5.jpeg",
+        "Casio Edifice EFR-539SG-1AVUDF 6.jpeg"
+    ]
+},
+
+/* 70 */
+{
+    id:70,
+    name:"Tissot PRX",
+    price:4000,
+    type:"images",
+    media:[
+        "Tissot PRX 1.jpeg",
+        "Tissot PRX 2.jpeg",
+        "Tissot PRX 3.jpeg",
+        "Tissot PRX 4.jpeg",
+        "Tissot PRX 5.jpeg",
+        "Tissot PRX 6.jpeg",
+        "Tissot PRX 7.jpeg",
+        "Tissot PRX 8.jpeg",
+        "Tissot PRX 9.jpeg"
+    ]
+}
 
 ];
 
@@ -2055,118 +2077,22 @@ const watches = [
    GET PRODUCT ID
 ========================================================= */
 
-const params =
-    new URLSearchParams(
-        window.location.search
-    );
-
-const rawProductId =
-    params.get("id");
+const urlParams =
+    new URLSearchParams(window.location.search);
 
 const productId =
-    Number.parseInt(
-        rawProductId,
-        10
-    );
-
-
-/* =========================================================
-   FIND PRODUCT
-========================================================= */
+    Number(urlParams.get("id"));
 
 const product =
-    watches.find(
-        item =>
-            Number(item.id) ===
-            productId
-    );
+    products.find(item => item.id === productId);
 
 
 /* =========================================================
-   ELEMENTS
+   PRODUCT CONTAINER
 ========================================================= */
 
-const productMedia =
-    document.getElementById(
-        "productMedia"
-    );
-
-const productBrand =
-    document.getElementById(
-        "productBrand"
-    );
-
-const productName =
-    document.getElementById(
-        "productName"
-    );
-
-const productIdElement =
-    document.getElementById(
-        "productId"
-    );
-
-const productPrice =
-    document.getElementById(
-        "productPrice"
-    );
-
-const productDescription =
-    document.getElementById(
-        "productDescription"
-    );
-
-const featureList =
-    document.getElementById(
-        "featureList"
-    );
-
-const quantity =
-    document.getElementById(
-        "quantity"
-    );
-
-const quantityBox =
-    document.getElementById(
-        "quantityBox"
-    );
-
-const cartMessage =
-    document.getElementById(
-        "cartMessage"
-    );
-
-const relatedGrid =
-    document.getElementById(
-        "relatedGrid"
-    );
-
-const whatsappBtn =
-    document.getElementById(
-        "whatsappBtn"
-    );
-
-const outOfStockBadge =
-    document.getElementById(
-        "outOfStockBadge"
-    );
-
-const addCartBtn =
-    document.getElementById(
-        "addCartBtn"
-    );
-
-const buyNowBtn =
-    document.getElementById(
-        "buyNowBtn"
-    );
-
-
-/* =========================================================
-   GALLERY VARIABLES
-========================================================= */
-
-let galleryIndex = 0;
+const productContainer =
+    document.getElementById("productContainer");
 
 
 /* =========================================================
@@ -2176,611 +2102,591 @@ let galleryIndex = 0;
 function formatPrice(price){
 
     return "₹" +
-        Number(price)
-            .toLocaleString("en-IN");
+        price.toLocaleString("en-IN");
 
 }
 
 
 /* =========================================================
-   ESCAPE HTML
+   CREATE PRODUCT
 ========================================================= */
 
-function escapeHTML(value){
+function renderProduct(){
 
-    const div =
-        document.createElement(
-            "div"
-        );
+    if(!product){
 
-    div.textContent =
-        String(value);
+        productContainer.innerHTML = `
 
-    return div.innerHTML;
-}
+            <div class="not-found">
 
+                <h2>Product Not Found</h2>
 
-/* =========================================================
-   SHOW OUT OF STOCK STATE
-========================================================= */
+                <p>
+                    The product you are looking for
+                    could not be found.
+                </p>
 
-function setOutOfStockState(){
+                <a href="watches.html">
+                    Back to Watches
+                </a>
 
-    outOfStockBadge.style.display =
-        "block";
+            </div>
 
-    productPrice.classList.add(
-        "out-of-stock-price"
-    );
+        `;
 
-    quantityBox.classList.add(
-        "disabled"
-    );
-
-    quantity.disabled =
-        true;
-
-    document
-        .getElementById(
-            "minusBtn"
-        )
-        .disabled =
-        true;
-
-    document
-        .getElementById(
-            "plusBtn"
-        )
-        .disabled =
-        true;
-
-    addCartBtn.disabled =
-        true;
-
-    buyNowBtn.disabled =
-        true;
-
-    addCartBtn.textContent =
-        "Out of Stock";
-
-    buyNowBtn.textContent =
-        "Out of Stock";
-
-    cartMessage.classList.add(
-        "stock-message"
-    );
-
-    cartMessage.textContent =
-        "This product is currently out of stock.";
-
-}
+        return;
+    }
 
 
-/* =========================================================
-   LOAD GALLERY
-========================================================= */
+    document.title =
+        product.name + " | 50 Mirars";
 
-function loadGallery(){
 
-    galleryIndex = 0;
+    let mediaHTML = "";
+    let thumbnailsHTML = "";
 
-    const galleryImages =
-        product.files || [];
 
-    productMedia.innerHTML = `
+    product.media.forEach(
+        (file,index) => {
 
-        <div
-            class="detail-gallery"
-            id="detailGallery"
-        >
+            const active =
+                index === 0
+                    ? "active"
+                    : "";
 
-            ${galleryImages
-                .map(
-                    (file,index) => `
 
-                        <img
-                            src="${encodeURI(file)}"
-                            alt="${escapeHTML(product.name)} - Image ${index + 1}"
-                            class="${index === 0 ? "active" : ""}"
+            if(product.type === "video"){
+
+                mediaHTML += `
+
+                    <video
+                        class="${active}"
+                        controls
+                        playsinline
+                        preload="metadata"
+                    >
+
+                        <source
+                            src="${file}"
+                            type="video/mp4"
                         >
 
-                    `
-                )
-                .join("")
+                        Your browser does not
+                        support video.
+
+                    </video>
+
+                `;
+
+
+                thumbnailsHTML += `
+
+                    <div
+                        class="thumbnail ${active}"
+                        onclick="changeMedia(${index})"
+                    >
+
+                        <div
+                            style="
+                            width:100%;
+                            height:100%;
+                            display:flex;
+                            align-items:center;
+                            justify-content:center;
+                            font-size:25px;
+                            "
+                        >
+                            ▶
+                        </div>
+
+                    </div>
+
+                `;
+
+            }else{
+
+                mediaHTML += `
+
+                    <img
+                        src="${file}"
+                        class="${active}"
+                        alt="${product.name}"
+                    >
+
+                `;
+
+
+                thumbnailsHTML += `
+
+                    <div
+                        class="thumbnail ${active}"
+                        onclick="changeMedia(${index})"
+                    >
+
+                        <img
+                            src="${file}"
+                            alt="${product.name}"
+                        >
+
+                    </div>
+
+                `;
+
             }
 
-            <button
-                type="button"
-                class="gallery-prev"
-                id="galleryPrev"
-            >
-                ❮
-            </button>
+        }
+    );
 
-            <button
-                type="button"
-                class="gallery-next"
-                id="galleryNext"
-            >
-                ❯
-            </button>
 
-            <div
-                class="gallery-counter"
-                id="galleryCounter"
-            >
-                1 / ${galleryImages.length}
+    const arrows =
+        product.media.length > 1
+            ? `
+                <button
+                    class="media-arrow prev"
+                    onclick="previousMedia()"
+                    style="display:flex;"
+                >
+                    ❮
+                </button>
+
+                <button
+                    class="media-arrow next"
+                    onclick="nextMedia()"
+                    style="display:flex;"
+                >
+                    ❯
+                </button>
+              `
+            : "";
+
+
+    productContainer.innerHTML = `
+
+        <div class="product-container">
+
+
+            <!-- MEDIA -->
+
+            <div class="product-media">
+
+                <div class="main-media">
+
+                    ${mediaHTML}
+
+                    ${arrows}
+
+                </div>
+
+
+                <div class="thumbnail-container">
+
+                    ${thumbnailsHTML}
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT INFORMATION -->
+
+            <div class="product-info">
+
+                <div class="product-category">
+
+                    Premium Watch
+
+                </div>
+
+
+                <h1 class="product-title">
+
+                    ${product.name}
+
+                </h1>
+
+
+                <div class="product-price">
+
+                    ${formatPrice(product.price)}
+
+                </div>
+
+
+                <div class="price-line"></div>
+
+
+                <p class="product-description">
+
+                    Elevate your collection with the
+                    ${product.name}.
+                    Designed for those who appreciate
+                    refined style, premium detailing
+                    and timeless watch aesthetics.
+
+                    <br><br>
+
+                    A sophisticated choice for everyday
+                    wear, special occasions and those
+                    moments where your personal style
+                    deserves to stand out.
+
+                </p>
+
+
+                <div class="product-information">
+
+                    <div class="info-row">
+
+                        <span>
+                            Product
+                        </span>
+
+                        <span>
+                            ${product.name}
+                        </span>
+
+                    </div>
+
+
+                    <div class="info-row">
+
+                        <span>
+                            Category
+                        </span>
+
+                        <span>
+                            Watches
+                        </span>
+
+                    </div>
+
+
+                    <div class="info-row">
+
+                        <span>
+                            Product ID
+                        </span>
+
+                        <span>
+                            #${product.id}
+                        </span>
+
+                    </div>
+
+
+                    <div class="info-row">
+
+                        <span>
+                            Availability
+                        </span>
+
+                        <span>
+                            In Stock
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="quantity-title">
+
+                    Quantity
+
+                </div>
+
+
+                <div class="quantity-box">
+
+                    <button
+                        type="button"
+                        onclick="changeQuantity(-1)"
+                    >
+                        −
+                    </button>
+
+                    <input
+                        type="number"
+                        id="quantity"
+                        value="1"
+                        min="1"
+                        max="10"
+                    >
+
+                    <button
+                        type="button"
+                        onclick="changeQuantity(1)"
+                    >
+                        +
+                    </button>
+
+                </div>
+
+
+                <div class="action-buttons">
+
+
+                    <button
+                        class="action-btn add-cart-btn"
+                        onclick="addToCart()"
+                    >
+
+                        Add to Cart
+
+                    </button>
+
+
+                    <button
+                        class="action-btn buy-now-btn"
+                        onclick="buyNow()"
+                    >
+
+                        Buy Now
+
+                    </button>
+
+
+                    <button
+                        class="action-btn whatsapp-btn"
+                        onclick="whatsappEnquiry()"
+                    >
+
+                        Enquire on WhatsApp
+
+                    </button>
+
+
+                </div>
+
+
+                <div class="stock-message">
+
+                    ✓ Available for order
+
+                </div>
+
+
+                <div class="trust-box">
+
+                    <p>
+                        ✓ Premium watch collection
+                    </p>
+
+                    <p>
+                        ✓ Secure ordering experience
+                    </p>
+
+                    <p>
+                        ✓ Customer support available
+                    </p>
+
+                </div>
+
             </div>
 
         </div>
 
     `;
 
-    const images =
-        document.querySelectorAll(
-            "#detailGallery img"
-        );
+}
 
-    const counter =
-        document.getElementById(
-            "galleryCounter"
-        );
 
-    function showGalleryImage(index){
+/* =========================================================
+   MEDIA SLIDER
+========================================================= */
 
-        if(index < 0){
+let currentMedia = 0;
 
-            index =
-                images.length - 1;
 
-        }
+function getMediaElements(){
 
-        if(index >= images.length){
+    return document.querySelectorAll(
+        ".main-media > img, .main-media > video"
+    );
 
-            index = 0;
+}
 
-        }
 
-        galleryIndex =
-            index;
+function getThumbnails(){
 
-        images.forEach(
-            image =>
-                image.classList.remove(
-                    "active"
-                )
-        );
+    return document.querySelectorAll(
+        ".thumbnail"
+    );
 
-        images[galleryIndex]
-            .classList.add(
-                "active"
+}
+
+
+function changeMedia(index){
+
+    const media =
+        getMediaElements();
+
+    const thumbs =
+        getThumbnails();
+
+
+    if(!media.length){
+        return;
+    }
+
+
+    currentMedia = index;
+
+
+    media.forEach(
+        (item,i) => {
+
+            item.classList.toggle(
+                "active",
+                i === index
             );
 
-        counter.textContent =
-            (galleryIndex + 1) +
-            " / " +
-            images.length;
+            if(
+                item.tagName === "VIDEO"
+                &&
+                i !== index
+            ){
 
-    }
-
-    document
-        .getElementById(
-            "galleryPrev"
-        )
-        .addEventListener(
-            "click",
-            function(){
-
-                showGalleryImage(
-                    galleryIndex - 1
-                );
+                item.pause();
 
             }
-        );
-
-    document
-        .getElementById(
-            "galleryNext"
-        )
-        .addEventListener(
-            "click",
-            function(){
-
-                showGalleryImage(
-                    galleryIndex + 1
-                );
-
-            }
-        );
-
-}
-
-
-/* =========================================================
-   LOAD PRODUCT
-========================================================= */
-
-function loadProduct(){
-
-    if(!product){
-
-        document.title =
-            "Product Not Found | 50 Mirars";
-
-        productBrand.textContent =
-            "Watches";
-
-        productName.textContent =
-            "Product Not Found";
-
-        productIdElement.textContent =
-            rawProductId
-                ? "Product ID: " + rawProductId
-                : "No Product ID Provided";
-
-        productPrice.textContent =
-            "";
-
-        productDescription.textContent =
-            "The requested watch could not be found. Please return to the Watches section and select a product again.";
-
-        featureList.innerHTML =
-            "";
-
-        productMedia.innerHTML = `
-            <div style="text-align:center;padding:40px;font-weight:bold;color:#555;">
-                Product could not be found.
-            </div>
-        `;
-
-        return;
-
-    }
-
-    document.title =
-        product.name +
-        " | 50 Mirars";
-
-    productBrand.textContent =
-        product.brand;
-
-    productName.textContent =
-        product.name;
-
-    productIdElement.textContent =
-        "Product ID: WATCH-" +
-        String(product.id)
-            .padStart(3,"0");
-
-    productPrice.textContent =
-        formatPrice(
-            product.price
-        );
-
-    if(product.media === "video"){
-
-        productMedia.innerHTML = `
-            <video controls playsinline preload="metadata">
-                <source src="${encodeURI(product.file)}" type="video/mp4">
-                Your browser does not support video playback.
-            </video>
-        `;
-
-    }
-
-    else if(product.media === "gallery"){
-
-        loadGallery();
-
-    }
-
-    else{
-
-        productMedia.innerHTML = `
-            <img src="${encodeURI(product.file)}"
-                 alt="${escapeHTML(product.name)}">
-        `;
-
-    }
-
-    productDescription.textContent =
-        "Discover the distinctive character of the " +
-        product.name +
-        " at 50 Mirars. Carefully selected from our premium Watches collection, this luxury-inspired timepiece combines refined styling, elegant craftsmanship, and a bold presence for customers who appreciate standout watches.";
-
-    featureList.innerHTML = `
-
-        <li>Premium-inspired luxury watch design</li>
-
-        <li>Distinctive styling and elegant finish</li>
-
-        <li>Suitable for everyday and occasion wear</li>
-
-        <li>Carefully selected by 50 Mirars</li>
-
-        <li>Premium presentation and packaging</li>
-
-    `;
-
-    const whatsappText =
-        "Hello 50 Mirars, I am interested in " +
-        product.name +
-        " (" +
-        formatPrice(product.price) +
-        "). Please share more details.";
-
-    whatsappBtn.href =
-        "https://wa.me/918209989013?text=" +
-        encodeURIComponent(
-            whatsappText
-        );
-
-    if(product.outOfStock){
-
-        setOutOfStockState();
-
-    }
-
-    loadRelatedProducts();
-
-}
-
-    /* =========================================================
-   RELATED PRODUCTS
-========================================================= */
-
-function loadRelatedProducts(){
-
-    if(!product){
-
-        relatedGrid.innerHTML = "";
-
-        return;
-
-    }
-
-    let related =
-        watches.filter(
-            item =>
-                item.id !==
-                product.id
-        );
-
-    related =
-        related.slice(0,4);
-
-    relatedGrid.innerHTML =
-        related.map(item => {
-
-            let mediaHTML = "";
-
-            if(item.media === "video"){
-
-                mediaHTML = `
-                    <video muted playsinline preload="metadata">
-                        <source src="${encodeURI(item.file)}" type="video/mp4">
-                    </video>
-                `;
-
-            }else{
-
-                const image =
-                    item.media === "gallery"
-                        ? item.files[0]
-                        : item.file;
-
-                mediaHTML = `
-                    <img src="${encodeURI(image)}"
-                         alt="${escapeHTML(item.name)}">
-                `;
-
-            }
-
-            const stockBadge =
-                item.outOfStock
-                    ? `
-                        <div class="related-stock-badge">
-                            OUT OF STOCK
-                        </div>
-                      `
-                    : "";
-
-            const button =
-                item.outOfStock
-
-                    ? `
-                        <div class="related-btn out-of-stock">
-                            Out of Stock
-                        </div>
-                      `
-
-                    : `
-                        <a
-                            href="product-details.html?id=${item.id}"
-                            class="related-btn"
-                        >
-                            View Details
-                        </a>
-                      `;
-
-            return `
-
-                <div class="related-card">
-
-                    <div class="related-media">
-
-                        ${mediaHTML}
-
-                        ${stockBadge}
-
-                    </div>
-
-                    <div class="related-info">
-
-                        <h3>
-                            ${escapeHTML(item.name)}
-                        </h3>
-
-                        <div
-                            class="
-                                related-price
-                                ${item.outOfStock ? "out-of-stock" : ""}
-                            "
-                        >
-                            ${formatPrice(item.price)}
-                        </div>
-
-                        ${button}
-
-                    </div>
-
-                </div>
-
-            `;
-
-        }).join("");
-
-}
-
-
-/* =========================================================
-   GET CART
-========================================================= */
-
-function getCart(){
-
-    try{
-
-        const stored =
-            localStorage.getItem("cart");
-
-        if(!stored){
-
-            return [];
 
         }
+    );
 
-        const parsed =
-            JSON.parse(stored);
 
-        return Array.isArray(parsed)
-            ? parsed
-            : [];
+    thumbs.forEach(
+        (item,i) => {
 
+            item.classList.toggle(
+                "active",
+                i === index
+            );
+
+        }
+    );
+
+}
+
+
+function nextMedia(){
+
+    const media =
+        getMediaElements();
+
+    if(!media.length){
+        return;
     }
 
-    catch(error){
 
-        console.error(
-            "Cart loading error:",
-            error
-        );
+    currentMedia =
+        (currentMedia + 1)
+        % media.length;
 
-        return [];
 
+    changeMedia(currentMedia);
+
+}
+
+
+function previousMedia(){
+
+    const media =
+        getMediaElements();
+
+    if(!media.length){
+        return;
     }
+
+
+    currentMedia =
+        (currentMedia - 1 + media.length)
+        % media.length;
+
+
+    changeMedia(currentMedia);
 
 }
 
 
 /* =========================================================
-   SAVE CART
+   QUANTITY
 ========================================================= */
 
-function saveCart(cart){
+function changeQuantity(amount){
 
-    localStorage.setItem(
-        "cart",
-        JSON.stringify(cart)
+    const input =
+        document.getElementById("quantity");
+
+    if(!input){
+        return;
+    }
+
+
+    let quantity =
+        Number(input.value) || 1;
+
+
+    quantity += amount;
+
+
+    if(quantity < 1){
+        quantity = 1;
+    }
+
+    if(quantity > 10){
+        quantity = 10;
+    }
+
+
+    input.value = quantity;
+
+}
+
+
+/* =========================================================
+   GET QUANTITY
+========================================================= */
+
+function getQuantity(){
+
+    const input =
+        document.getElementById("quantity");
+
+    return Math.max(
+        1,
+        Math.min(
+            10,
+            Number(input.value) || 1
+        )
     );
 
 }
 
 
 /* =========================================================
-   CREATE CART ITEM
+   TOAST
 ========================================================= */
 
-function createCartItem(selectedQuantity){
+function showToast(message){
 
-    return{
-
-        id:
-            "watch-" +
-            product.id,
-
-        productId:
-            product.id,
-
-        name:
-            product.name,
-
-        price:
-            product.price,
-
-        quantity:
-            selectedQuantity,
-
-        image:
-            product.media === "image"
-                ? product.file
-                : product.media === "gallery"
-                    ? product.files[0]
-                    : "",
-
-        media:
-            product.media,
-
-        video:
-            product.media === "video"
-                ? product.file
-                : "",
-
-        category:
-            "Watches",
-
-        brand:
-            product.brand
-
-    };
-
-}
+    const toast =
+        document.getElementById("toast");
 
 
-/* =========================================================
-   GET SELECTED QUANTITY
-========================================================= */
+    toast.textContent = message;
 
-function getSelectedQuantity(){
+    toast.classList.add("show");
 
-    let value =
-        Number(quantity.value);
 
-    if(!Number.isFinite(value)){
+    setTimeout(
+        () => {
 
-        value = 1;
+            toast.classList.remove("show");
 
-    }
-
-    value =
-        Math.floor(value);
-
-    if(value < 1){
-
-        value = 1;
-
-    }
-
-    if(value > 10){
-
-        value = 10;
-
-    }
-
-    quantity.value =
-        value;
-
-    return value;
+        },
+        2500
+    );
 
 }
 
@@ -2792,72 +2698,65 @@ function getSelectedQuantity(){
 function addToCart(){
 
     if(!product){
-
         return;
-
     }
 
-    if(product.outOfStock){
 
-        cartMessage.classList.add("stock-message");
+    const quantity =
+        getQuantity();
 
-        cartMessage.textContent =
-            "This product is currently out of stock.";
 
-        return;
+    let cart =
+        JSON.parse(
+            localStorage.getItem("cart")
+        ) || [];
 
-    }
-
-    const selectedQuantity =
-        getSelectedQuantity();
-
-    const cart =
-        getCart();
-
-    const cartProductId =
-        "watch-" +
-        product.id;
 
     const existing =
         cart.find(
             item =>
                 String(item.id) ===
-                String(cartProductId)
+                String(product.id)
         );
+
 
     if(existing){
 
         existing.quantity =
-            (
-                Number(existing.quantity) || 0
-            ) +
-            selectedQuantity;
+            Number(existing.quantity || 0)
+            + quantity;
+
+    }else{
+
+        cart.push({
+
+            id:product.id,
+
+            name:product.name,
+
+            price:product.price,
+
+            quantity:quantity,
+
+            image:
+                product.media[0],
+
+            category:"Watches"
+
+        });
 
     }
 
-    else{
 
-        cart.push(
-            createCartItem(selectedQuantity)
-        );
+    localStorage.setItem(
+        "cart",
+        JSON.stringify(cart)
+    );
 
-    }
 
-    saveCart(cart);
-
-    cartMessage.classList.remove("stock-message");
-
-    cartMessage.textContent =
-        "✓ Added to your cart";
-
-    setTimeout(
-        function(){
-
-            cartMessage.textContent =
-                "";
-
-        },
-        3000
+    showToast(
+        product.name +
+        " added to cart."
     );
 
 }
@@ -2870,58 +2769,37 @@ function addToCart(){
 function buyNow(){
 
     if(!product){
-
         return;
-
     }
 
-    if(product.outOfStock){
 
-        cartMessage.classList.add("stock-message");
+    const quantity =
+        getQuantity();
 
-        cartMessage.textContent =
-            "This product is currently out of stock.";
 
-        return;
+    const item = {
 
-    }
+        id:product.id,
 
-    const selectedQuantity =
-        getSelectedQuantity();
+        name:product.name,
 
-    const cart =
-        getCart();
+        price:product.price,
 
-    const cartProductId =
-        "watch-" +
-        product.id;
+        quantity:quantity,
 
-    const existing =
-        cart.find(
-            item =>
-                String(item.id) ===
-                String(cartProductId)
-        );
+        image:
+            product.media[0],
 
-    if(existing){
+        category:"Watches"
 
-        existing.quantity =
-            (
-                Number(existing.quantity) || 0
-            ) +
-            selectedQuantity;
+    };
 
-    }
 
-    else{
+    localStorage.setItem(
+        "cart",
+        JSON.stringify([item])
+    );
 
-        cart.push(
-            createCartItem(selectedQuantity)
-        );
-
-    }
-
-    saveCart(cart);
 
     window.location.href =
         "cart.html";
@@ -2930,113 +2808,214 @@ function buyNow(){
 
 
 /* =========================================================
-   MINUS BUTTON
+   WHATSAPP ENQUIRY
 ========================================================= */
 
-document
-    .getElementById("minusBtn")
-    .addEventListener(
-        "click",
-        function(){
+function whatsappEnquiry(){
 
-            if(product && product.outOfStock){
-
-                return;
-
-            }
-
-            let value =
-                Number(quantity.value) || 1;
-
-            value =
-                Math.max(
-                    1,
-                    value - 1
-                );
-
-            quantity.value =
-                value;
-
-        }
-    );
-
-
-/* =========================================================
-   PLUS BUTTON
-========================================================= */
-
-document
-    .getElementById("plusBtn")
-    .addEventListener(
-        "click",
-        function(){
-
-            if(product && product.outOfStock){
-
-                return;
-
-            }
-
-            let value =
-                Number(quantity.value) || 1;
-
-            value =
-                Math.min(
-                    10,
-                    value + 1
-                );
-
-            quantity.value =
-                value;
-
-        }
-    );
-
-
-/* =========================================================
-   QUANTITY INPUT
-========================================================= */
-
-quantity.addEventListener(
-    "change",
-    function(){
-
-        if(product && product.outOfStock){
-
-            quantity.value = 1;
-
-            return;
-
-        }
-
-        getSelectedQuantity();
-
+    if(!product){
+        return;
     }
-);
+
+
+    const quantity =
+        getQuantity();
+
+
+    /*
+       IMPORTANT:
+       Replace the number below with your
+       actual WhatsApp business number.
+
+       Country code India = 91
+       Do NOT use + or spaces.
+    */
+
+    const phone =
+        "919XXXXXXXXX";
+
+
+    const message =
+        `Hello 50 Mirars,
+
+I am interested in this watch:
+
+Product: ${product.name}
+Product ID: #${product.id}
+Price: ${formatPrice(product.price)}
+Quantity: ${quantity}
+
+Please share more details.`;
+
+
+    const url =
+        "https://wa.me/" +
+        phone +
+        "?text=" +
+        encodeURIComponent(message);
+
+
+    window.open(
+        url,
+        "_blank"
+    );
+
+}
 
 
 /* =========================================================
-   BUTTON EVENTS
+   RELATED PRODUCTS
 ========================================================= */
 
-addCartBtn.addEventListener(
-    "click",
-    addToCart
-);
+function renderRelatedProducts(){
 
-buyNowBtn.addEventListener(
-    "click",
-    buyNow
-);
+    if(!product){
+        return;
+    }
+
+
+    const relatedContainer =
+        document.getElementById(
+            "relatedProducts"
+        );
+
+
+    let related =
+        products
+        .filter(item => item.id !== product.id)
+        .sort(
+            () => Math.random() - 0.5
+        )
+        .slice(0,4);
+
+
+    relatedContainer.innerHTML =
+        related.map(
+            item => {
+
+                const firstMedia =
+                    item.media[0];
+
+
+                let mediaHTML = "";
+
+
+                if(item.type === "video"){
+
+                    mediaHTML = `
+
+                        <video
+                            src="${firstMedia}"
+                            muted
+                            playsinline
+                            preload="metadata"
+                        ></video>
+
+                    `;
+
+                }else{
+
+                    mediaHTML = `
+
+                        <img
+                            src="${firstMedia}"
+                            alt="${item.name}"
+                        >
+
+                    `;
+
+                }
+
+
+                return `
+
+                    <div class="related-card">
+
+                        <div class="related-image">
+
+                            ${mediaHTML}
+
+                        </div>
+
+
+                        <h3>
+
+                            ${item.name}
+
+                        </h3>
+
+
+                        <div class="related-price">
+
+                            ${formatPrice(item.price)}
+
+                        </div>
+
+
+                        <a
+                            href="product-details.html?id=${item.id}"
+                            class="related-btn"
+                        >
+
+                            View Product Details
+
+                        </a>
+
+                    </div>
+
+                `;
+
+            }
+        ).join("");
+
+}
 
 
 /* =========================================================
    INITIALIZE
 ========================================================= */
 
-loadProduct();
+renderProduct();
+
+renderRelatedProducts();
+
+
+/* =========================================================
+   ENTER KEY / QUANTITY VALIDATION
+========================================================= */
+
+document.addEventListener(
+    "input",
+    function(event){
+
+        if(
+            event.target.id ===
+            "quantity"
+        ){
+
+            let value =
+                Number(event.target.value) || 1;
+
+
+            if(value < 1){
+                value = 1;
+            }
+
+            if(value > 10){
+                value = 10;
+            }
+
+
+            event.target.value =
+                value;
+
+        }
+
+    }
+);
 
 </script>
+
 
 </body>
 
