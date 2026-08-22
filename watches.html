@@ -95,44 +95,365 @@ body{
     top:50%;
     transform:translate(-50%,-50%) rotate(45deg);
 }
+   
 
 /* =========================================================
-   INTRO
+   PREMIUM WATCHES INTRODUCTION
+   50 MIRARS — LUXURY EDITORIAL STYLE
 ========================================================= */
 
-.watch-intro {
-
+.watches-intro {
+    position: relative;
     width: 100%;
 
-    margin-top: 40px;
+    padding: 110px 30px 105px;
 
-    padding-top: 5px;
+    background:
+        radial-gradient(
+            ellipse at top center,
+            rgba(191, 157, 91, 0.13) 0%,
+            rgba(191, 157, 91, 0.05) 28%,
+            transparent 60%
+        ),
+        linear-gradient(
+            180deg,
+            #fcfaf5 0%,
+            #f7f3ea 50%,
+            #fcfaf6 100%
+        );
 
-    overflow-wrap: break-word;
+    overflow: hidden;
 }
 
-.watch-intro h2 {
 
-    margin:
-        0
-        0
-        18px;
+/* =========================================================
+   SUBTLE DECORATIVE CIRCLES
+========================================================= */
+
+.watches-intro::before {
+    content: "";
+
+    position: absolute;
+
+    top: 40px;
+    left: -180px;
+
+    width: 520px;
+    height: 520px;
+
+    border: 1px solid rgba(157, 125, 67, 0.10);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+
+.watches-intro::after {
+    content: "";
+
+    position: absolute;
+
+    right: -220px;
+    bottom: -250px;
+
+    width: 620px;
+    height: 620px;
+
+    border: 1px solid rgba(157, 125, 67, 0.08);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.watches-intro-container {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 1180px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   SECTION HEADING
+========================================================= */
+
+.watches-intro-heading {
+    max-width: 850px;
+
+    margin: 0 auto 80px;
+
+    text-align: center;
+}
+
+
+.watches-intro-heading span {
+    display: block;
+
+    margin-bottom: 16px;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    letter-spacing: 6px;
+
+    text-transform: uppercase;
+
+    color: #9b7a3f;
+}
+
+
+.watches-intro-heading h2 {
+    margin: 0;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: clamp(38px, 5vw, 62px);
+
+    font-weight: 400;
+
+    line-height: 1.12;
+
+    letter-spacing: -0.5px;
+
+    color: #191919;
+}
+
+
+/* =========================================================
+   GOLD DECORATIVE LINE
+========================================================= */
+
+.watches-intro-line {
+    position: relative;
+
+    width: 90px;
+
+    height: 1px;
+
+    margin: 30px auto 0;
+
+    background: #aa8749;
+}
+
+
+.watches-intro-line::before,
+.watches-intro-line::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 50%;
+
+    width: 5px;
+    height: 5px;
+
+    transform:
+        translateY(-50%)
+        rotate(45deg);
+
+    background: #aa8749;
+}
+
+
+.watches-intro-line::before {
+    left: -3px;
+}
+
+
+.watches-intro-line::after {
+    right: -3px;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.watches-intro-content {
+    max-width: 1050px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   INDIVIDUAL PARAGRAPH
+========================================================= */
+
+.watches-intro-paragraph {
+
+    position: relative;
+
+    padding: 0 0 58px;
+
+    margin-bottom: 58px;
+
+    border-bottom:
+        1px solid
+        rgba(92, 75, 45, 0.14);
+
+    transition:
+        border-color 0.35s ease;
+}
+
+
+.watches-intro-paragraph:last-child {
+
+    padding-bottom: 0;
+
+    margin-bottom: 0;
+
+    border-bottom: none;
+}
+
+
+/* =========================================================
+   PARAGRAPH HEADING
+========================================================= */
+
+.watches-intro-paragraph h3 {
+
+    position: relative;
+
+    margin: 0 0 22px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 27px;
+
+    font-weight: 400;
+
+    line-height: 1.35;
+
+    letter-spacing: 0.2px;
+
+    color: #222;
+}
+
+
+/* Elegant gold line */
+
+.watches-intro-paragraph h3::before {
+
+    content: "";
+
+    display: inline-block;
+
+    width: 26px;
+
+    height: 1px;
+
+    margin-right: 14px;
+
+    vertical-align: middle;
+
+    background: #ad8848;
+}
+
+
+/* =========================================================
+   PARAGRAPH TEXT
+========================================================= */
+
+.watches-intro-paragraph p {
+
+    max-width: 1000px;
+
+    margin: 0;
+
+    font-family:
+        "Helvetica Neue",
+        Arial,
+        sans-serif;
 
     font-size: 16px;
 
-    line-height: 1.45;
+    font-weight: 400;
+
+    line-height: 2.05;
+
+    letter-spacing: 0.15px;
+
+    color: #55514b;
+
+    text-align: justify;
+}
+
+
+/* =========================================================
+   BRAND EMPHASIS
+========================================================= */
+
+.watches-intro-paragraph p strong {
+
+    color: #24221f;
 
     font-weight: 600;
 }
 
-.watch-inro p {
 
-    font-size: 13px;
+/* =========================================================
+   EDITORIAL DROP CAP
+========================================================= */
 
-    line-height: 1.6;
+.watches-intro-paragraph:first-child p::first-letter {
 
-    margin: 0;
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 54px;
+
+    font-weight: 500;
+
+    line-height: 0.8;
+
+    float: left;
+
+    margin:
+        7px
+        9px
+        0
+        0;
+
+    color: #a37e3f;
 }
+
+
+/* =========================================================
+   SUBTLE HOVER
+========================================================= */
+
+.watches-intro-paragraph:hover {
+
+    border-bottom-color:
+        rgba(163, 126, 63, 0.30);
+}
+
 
 /* =========================================================
    GRID
@@ -569,63 +890,148 @@ height:300px;
         <div class="title-line"></div>
     </div>
 
-    <h1>More Than Time. A Statement of Style.</h1>
+    <!-- INTRODUCTION CONTENT -->
 
-    <div class="watch-description">
-
-       <p>
-            Time is more than a way to measure moments—it's a reflection of personality, ambition,
-            and style. At <strong>50 Mirars</strong>, we've curated a premium collection of watches
-            that combines timeless craftsmanship with modern elegance, ensuring that every piece
-            makes a lasting impression. Whether you're dressing for a business meeting, celebrating
-            a special occasion, or simply upgrading your everyday look, our collection is designed
-            to complement every lifestyle with sophistication and confidence. Every watch in our
-            collection is chosen to deliver the perfect balance of luxury, comfort, and exceptional
-            design, allowing you to wear confidence on your wrist every single day.
-        </p>
-
-        <p>
-            Our carefully selected range features iconic designs inspired by some of the world's
-            most admired watchmakers, offering styles that suit every taste without compromising on
-            quality or elegance. From bold chronographs and classic stainless-steel timepieces to
-            minimalist dials and statement luxury watches, each collection has been handpicked to
-            provide an experience that feels exclusive and refined. Every detail—from polished
-            finishes and premium straps to precision-inspired aesthetics—reflects our commitment to
-            bringing you watches that stand out wherever life takes you.
-        </p>
-
-        <p>
-            At <strong>50 Mirars</strong>, we believe luxury should be accessible without losing its
-            premium appeal. That's why our collection offers exceptional value while maintaining the
-            elegant appearance and high-quality craftsmanship that watch enthusiasts appreciate.
-            Every timepiece is presented with attention to detail, ensuring you receive a product
-            that looks as impressive in person as it does in our collection. Whether you're building
-            your first watch collection or adding another masterpiece to an existing one, you'll
-            discover designs that leave a memorable impression with every glance.
-        </p>
-
-        <p>
-            A great watch doesn't simply complete an outfit—it tells a story about the person wearing
-            it. It's the finishing touch that transforms confidence into presence and everyday moments
-            into unforgettable memories. Our diverse collection includes versatile everyday watches,
-            premium business classics, luxury-inspired statement pieces, and elegant designs that
-            seamlessly transition from casual afternoons to formal evenings. No matter your style,
-            you'll find a watch that feels uniquely yours while elevating every occasion with
-            effortless sophistication.
-        </p>
-
-        <p>
-            When you choose <strong>50 Mirars</strong>, you're choosing more than a watch—you're
-            choosing a commitment to style, quality, and customer satisfaction. We continuously update
-            our collection with fresh arrivals and sought-after designs, ensuring there's always
-            something new to discover. Explore our premium range, experience the confidence that comes
-            with wearing a remarkable timepiece, and find the watch that perfectly represents your
-            personality. Because true luxury isn't just about keeping time—it's about making every
-            moment unforgettable with <strong>50 Mirars</strong>.
-        </p>
+        <div class="watches-intro-content">
 
 
-    </div>
+            <!-- PARAGRAPH 1 -->
+
+            <div class="watches-intro-paragraph">
+
+                <h3>The Timeless Language of Luxury</h3>
+
+                <p>
+                    A watch is more than an instrument that tells time—it is a reflection
+                    of character, ambition, taste, and individuality. At
+                    <strong>50 Mirars</strong>, we bring together a carefully selected
+                    collection of watches for those who believe that the smallest details
+                    can make the strongest impression. From refined designs inspired by
+                    timeless elegance to bold contemporary styles created to command
+                    attention, every watch has its own personality and presence. A
+                    beautifully chosen timepiece can become part of your identity,
+                    accompanying you through important milestones, everyday achievements,
+                    celebrations, business occasions, and unforgettable moments. Whether
+                    you are searching for something sophisticated and understated or a
+                    statement piece that immediately captures attention, our collection is
+                    designed to give you the freedom to discover a watch that feels
+                    uniquely yours. At 50 Mirars, we believe that wearing a watch is not
+                    simply about keeping track of time—it is about making every moment
+                    count while carrying a sense of confidence and sophistication
+                    wherever you go.
+                </p>
+
+            </div>
+
+
+            <!-- PARAGRAPH 2 -->
+
+            <div class="watches-intro-paragraph">
+
+                <h3>Crafted for Those Who Appreciate Distinction</h3>
+
+                <p>
+                    True style is rarely about following what everyone else is wearing;
+                    it is about understanding what represents you. Our watch collection is
+                    curated for individuals who appreciate distinctive design, refined
+                    aesthetics, and the timeless confidence that a well-chosen timepiece
+                    can bring. Every dial, case, strap, finish, and detail contributes to
+                    the character of a watch, creating an accessory that can transform an
+                    entire appearance with remarkable simplicity. Whether your preference
+                    leans toward classic elegance, modern minimalism, bold chronographs,
+                    sophisticated metallic finishes, or striking statement designs,
+                    <strong>50 Mirars</strong> offers a diverse selection to complement
+                    different personalities and occasions. A watch can quietly complete
+                    a formal outfit, add sophistication to everyday clothing, or become
+                    the centrepiece of a carefully considered look. Whatever your style
+                    may be, the right timepiece has the ability to feel personal,
+                    distinctive, and effortlessly refined.
+                </p>
+
+            </div>
+
+
+            <!-- PARAGRAPH 3 -->
+
+            <div class="watches-intro-paragraph">
+
+                <h3>Every Moment Deserves Its Own Timepiece</h3>
+
+                <p>
+                    Life is measured in moments, and every important moment deserves to
+                    be remembered. From the first step toward a new ambition to the
+                    celebration of a personal achievement, from important meetings to
+                    spontaneous journeys, a watch can become a silent companion through
+                    the experiences that shape your story. At <strong>50 Mirars</strong>,
+                    our collection is designed to offer timepieces for every side of your
+                    lifestyle. Choose a refined watch when you want understated
+                    sophistication, a bold chronograph when you want a stronger presence,
+                    or a contemporary design when your style calls for something modern
+                    and distinctive. Whether it becomes your everyday companion or is
+                    reserved for occasions that deserve something special, a great watch
+                    carries more than a time display—it carries memories, confidence, and
+                    a sense of personal style. Because while time never stops moving
+                    forward, the right watch can become a lasting reminder of the moments
+                    that mattered along the way.
+                </p>
+
+            </div>
+
+
+            <!-- PARAGRAPH 4 -->
+
+            <div class="watches-intro-paragraph">
+
+                <h3>Where Precision Meets Personality</h3>
+
+                <p>
+                    The beauty of a remarkable watch lies in the balance between its
+                    design and the personality of the person wearing it. At
+                    <strong>50 Mirars</strong>, we celebrate timepieces that combine
+                    visual character with the refined details that make a design memorable.
+                    Elegant dials, sophisticated cases, distinctive indices, carefully
+                    selected finishes, and thoughtfully designed straps come together to
+                    create watches that feel considered from every angle. Some designs
+                    speak through subtle elegance, while others make their presence known
+                    through bold proportions, striking colours, or distinctive detailing.
+                    This diversity allows you to move beyond simply choosing a watch and
+                    instead discover a timepiece that complements the way you dress, the
+                    occasions you attend, and the impression you want to create. Whether
+                    placed beneath a tailored cuff, paired with casual essentials, or worn
+                    as the finishing touch to an evening look, the right watch brings an
+                    unmistakable sense of completeness to your style.
+                </p>
+
+            </div>
+
+
+            <!-- PARAGRAPH 5 -->
+
+            <div class="watches-intro-paragraph">
+
+                <h3>Choose the Timepiece That Becomes Part of Your Story</h3>
+
+                <p>
+                    At <strong>50 Mirars</strong>, we believe that a great watch should
+                    feel like more than another addition to your collection. It should
+                    become something you look forward to wearing, something that
+                    complements your presence, and perhaps even something that carries a
+                    story of its own. Our collection brings together watches for those who
+                    appreciate timeless sophistication, contemporary fashion, distinctive
+                    design, and the confidence that comes from wearing something that feels
+                    right. Explore different styles, discover new designs, and take the
+                    time to find the piece that naturally fits your personality. Whether
+                    you are choosing your first statement watch, searching for an everyday
+                    essential, looking for the perfect gift, or adding another distinctive
+                    timepiece to your collection, your next favourite watch may be waiting
+                    at 50 Mirars. <strong>Discover the collection, choose your style, and
+                    let every moment become part of your story.</strong>
+                </p>
+
+            </div>
+
+
+        </div>
 
 </section>
 
