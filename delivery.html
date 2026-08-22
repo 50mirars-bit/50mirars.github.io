@@ -1420,75 +1420,69 @@ if(!currentUser)return;
 try{
 
 const ref=doc(db,"users",currentUser.uid);
-
 const snap=await getDoc(ref);
 
 if(!snap.exists()){
-
 manualForm.style.display="block";
-
+savedSection.style.display="none";
 return;
-
 }
 
 const data=snap.data();
 
-profileAddress=
-
-data.deliveryAddress||
-
-{
-
-customerName:data.customerName||data.name||currentUser.displayName||"",
-
-phone:data.phone||currentUser.phoneNumber||"",
-
+/* Read address from different possible locations */
+profileAddress={
+customerName:data.customerName||data.fullName||data.name||currentUser.displayName||"",
+phone:data.phone||data.mobile||currentUser.phoneNumber||"",
 email:data.email||currentUser.email||"",
-
-address:data.address||"",
-
-city:data.city||"",
-
-state:data.state||"",
-
-pin:data.pin||""
-
+address:data.address||data.fullAddress||data.completeAddress||data.deliveryAddress?.address||"",
+city:data.city||data.deliveryAddress?.city||"",
+state:data.state||data.deliveryAddress?.state||"",
+pin:data.pin||data.pinCode||data.pincode||data.deliveryAddress?.pin||""
 };
+
+/* If profile.html stored everything inside an address object */
+if(typeof data.address==="object"){
+profileAddress={
+customerName:data.name||currentUser.displayName||"",
+phone:data.phone||"",
+email:data.email||currentUser.email||"",
+address:data.address.address||"",
+city:data.address.city||"",
+state:data.address.state||"",
+pin:data.address.pin||""
+};
+}
 
 if(profileAddress.address){
 
 savedSection.style.display="block";
-
 manualForm.style.display="none";
 
 document.getElementById("saved-address-name").innerText=profileAddress.customerName;
 
-document.getElementById("saved-address-details").innerHTML=`
-
-${escapeHTML(profileAddress.address)}
-
-<br>
-
-${escapeHTML(profileAddress.city)}, ${escapeHTML(profileAddress.state)} - ${escapeHTML(profileAddress.pin)}
-
-`;
+document.getElementById("saved-address-details").innerHTML=
+`${profileAddress.address}<br>${profileAddress.city}, ${profileAddress.state} - ${profileAddress.pin}`;
 
 document.getElementById("saved-address-phone").innerText=`Phone: ${profileAddress.phone}`;
 
 }else{
 
+savedSection.style.display="none";
 manualForm.style.display="block";
 
 }
 
-}catch{
+}catch(error){
 
+console.error(error);
+savedSection.style.display="none";
 manualForm.style.display="block";
 
 }
 
 }
-
+    
 /* =====================================================
    ADDRESS SELECTION
 ===================================================== */
