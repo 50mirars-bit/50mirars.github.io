@@ -7,7 +7,7 @@
 
 <meta
     name="viewport"
-    content="width=1200"
+    content="width=device-width, initial-scale=1.0"
 >
 
 <meta
@@ -24,53 +24,77 @@
 
 <style>
 
-/* =====================================================
-   BASIC
-===================================================== */
+/* =========================================================
+   GLOBAL
+========================================================= */
 
 *{
+    margin:0;
+    padding:0;
     box-sizing:border-box;
 }
 
 html{
-    overflow-x:hidden;
+    scroll-behavior:smooth;
 }
 
 body{
-    margin:0;
     font-family:Arial,Helvetica,sans-serif;
-    background:#f9f9f9;
-    color:#222;
+    background:#f7f7f7;
+    color:#111;
     overflow-x:hidden;
 }
 
-/* =====================================================
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button{
+    cursor:pointer;
+    border:none;
+    font-family:inherit;
+}
+
+/* =========================================================
    HEADER
-===================================================== */
+========================================================= */
 
 header{
     background:#fff;
-    padding:20px 40px;
+    border-bottom:1px solid #e5e5e5;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.header-container{
+    max-width:1400px;
+    margin:auto;
+    padding:18px 5%;
     display:flex;
     align-items:center;
     justify-content:space-between;
-    border-bottom:1px solid #ddd;
+    gap:20px;
 }
 
-header h1{
-    margin:0;
+.logo{
+    height:52px;
+    width:auto;
+}
+
+.page-title{
     font-size:28px;
-    text-align:center;
-    flex:1;
+    font-weight:700;
+    letter-spacing:.5px;
 }
 
 .back-btn{
     background:#111;
     color:#fff;
-    padding:10px 20px;
-    text-decoration:none;
-    border-radius:6px;
-    font-size:15px;
+    padding:12px 22px;
+    border-radius:8px;
+    font-size:14px;
     transition:.3s;
 }
 
@@ -78,357 +102,328 @@ header h1{
     background:#333;
 }
 
-.logo{
-    width:120px;
-    height:auto;
-}
-
-/* =====================================================
-   ACCOUNT STATUS
-===================================================== */
+/* =========================================================
+   ACCOUNT BAR
+========================================================= */
 
 .account-status{
-    width:100%;
     background:#111;
     color:#fff;
-    padding:10px 20px;
     text-align:center;
+    padding:12px 20px;
     font-size:14px;
 }
 
 .account-status a{
-    color:#fff;
-    font-weight:700;
-    margin-left:5px;
+    color:#d4af37;
+    font-weight:bold;
 }
 
-/* =====================================================
-   MAIN PAGE
-===================================================== */
+/* =========================================================
+   MAIN LAYOUT
+========================================================= */
 
-.delivery-page{
-    max-width:1200px;
+.checkout-container{
+    max-width:1400px;
     margin:40px auto;
-    padding:0 20px;
+    padding:0 5%;
+    display:grid;
+    grid-template-columns:1.8fr .9fr;
+    gap:35px;
+}
+
+/* =========================================================
+   LEFT PANEL
+========================================================= */
+
+.checkout-left{
     display:flex;
-    gap:30px;
-    align-items:flex-start;
+    flex-direction:column;
+    gap:25px;
 }
 
-.delivery-left{
-    flex:2;
-}
+/* =========================================================
+   CARD STYLE
+========================================================= */
 
-/* =====================================================
-   ADDRESS SELECTION
-===================================================== */
-
-.saved-address-section{
+.card{
     background:#fff;
-    padding:25px;
-    border-radius:10px;
-    border:1px solid #ddd;
-    box-shadow:0 2px 8px rgba(0,0,0,.08);
-    margin-bottom:25px;
+    border-radius:16px;
+    padding:28px;
+    box-shadow:0 4px 18px rgba(0,0,0,.06);
+    border:1px solid #ececec;
 }
 
-.saved-address-section h2{
-    margin:0 0 8px;
-    font-size:22px;
-}
-
-.saved-address-subtitle{
-    color:#666;
-    font-size:14px;
-    margin-bottom:20px;
-}
-
-.saved-address-card{
-    border:2px solid #ddd;
-    border-radius:10px;
-    padding:18px;
-    cursor:pointer;
-    transition:.3s;
-    display:flex;
-    align-items:flex-start;
-    gap:15px;
-    margin-bottom:15px;
-}
-
-.saved-address-card:hover{
-    border-color:#009688;
-    transform:translateY(-2px);
-}
-
-.saved-address-card.selected{
-    border-color:#009688;
-    background:#f0faf8;
-}
-
-.saved-address-radio{
-    width:20px;
-    height:20px;
-    accent-color:#009688;
-    margin-top:4px;
-}
-
-.saved-address-name{
-    font-size:18px;
-    font-weight:700;
+.card-title{
+    font-size:24px;
     margin-bottom:8px;
 }
 
-.saved-address-details{
-    color:#444;
-    line-height:1.6;
-    font-size:15px;
+.card-subtitle{
+    color:#666;
+    font-size:14px;
+    margin-bottom:24px;
 }
 
-.saved-address-phone{
+/* =========================================================
+   SAVED ADDRESSES
+========================================================= */
+
+.address-list{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+}
+
+.address-card{
+    border:2px solid #ddd;
+    border-radius:14px;
+    padding:18px;
+    display:flex;
+    align-items:flex-start;
+    gap:15px;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.address-card:hover{
+    border-color:#111;
+    transform:translateY(-2px);
+}
+
+.address-card.selected{
+    border-color:#d4af37;
+    background:#fffdf5;
+}
+
+.address-card input[type=radio]{
+    margin-top:4px;
+    accent-color:#d4af37;
+    transform:scale(1.15);
+}
+
+.address-name{
+    font-size:18px;
+    font-weight:700;
+    margin-bottom:6px;
+}
+
+.address-details{
+    color:#555;
+    line-height:1.6;
+    font-size:14px;
+}
+
+.address-phone{
     margin-top:10px;
     font-weight:600;
 }
 
-.saved-address-button{
-    width:100%;
-    margin-top:8px;
-    padding:14px;
-    background:#009688;
+.default-badge{
+    display:inline-block;
+    background:#111;
     color:#fff;
-    border:none;
-    border-radius:6px;
-    font-size:16px;
-    font-weight:600;
+    font-size:11px;
+    padding:4px 9px;
+    border-radius:30px;
+    margin-left:8px;
+}
+
+.add-address-card{
+    border:2px dashed #bbb;
+    border-radius:14px;
+    padding:20px;
     cursor:pointer;
+    transition:.25s;
+}
+
+.add-address-card:hover{
+    border-color:#d4af37;
+    background:#fffdf7;
+}
+
+.add-address-card strong{
+    display:block;
+    margin-bottom:6px;
+}
+
+.use-address-btn{
+    width:100%;
+    margin-top:22px;
+    background:#111;
+    color:#fff;
+    padding:15px;
+    border-radius:10px;
+    font-size:16px;
+    font-weight:bold;
     transition:.3s;
 }
 
-.saved-address-button:hover{
-    background:#00796b;
+.use-address-btn:hover{
+    background:#d4af37;
+    color:#111;
 }
 
-.saved-address-button:disabled{
-    opacity:.6;
-    cursor:wait;
-}
-
-/* =====================================================
+/* =========================================================
    DELIVERY FORM
-===================================================== */
+========================================================= */
 
 .delivery-form{
-    background:#fff;
-    padding:30px;
-    border-radius:10px;
-    border:1px solid #ddd;
-    box-shadow:0 2px 8px rgba(0,0,0,.08);
-    animation:fadeIn .35s ease;
+    display:none;
 }
 
-@keyframes fadeIn{
-
-from{
-    opacity:0;
-    transform:translateY(10px);
-}
-
-to{
-    opacity:1;
-    transform:translateY(0);
-}
-
-}
-
-.delivery-form h2{
-    margin-top:0;
-    margin-bottom:10px;
-    font-size:22px;
-}
-
-.manual-address-note{
-    color:#666;
-    font-size:14px;
-    margin-bottom:25px;
-}
-
-.form-row{
-    display:flex;
-    gap:20px;
+.form-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
 }
 
 .form-group{
-    flex:1;
-    margin-bottom:20px;
+    display:flex;
+    flex-direction:column;
+}
+
+.form-group.full{
+    grid-column:1/-1;
 }
 
 .form-group label{
-    display:block;
-    margin-bottom:7px;
     font-weight:600;
+    margin-bottom:8px;
     font-size:14px;
 }
 
 .form-group input,
 .form-group textarea{
     width:100%;
-    padding:12px;
-    border:1px solid #ccc;
-    border-radius:5px;
-    font-size:14px;
-    font-family:Arial,sans-serif;
+    padding:14px;
+    border:1px solid #d8d8d8;
+    border-radius:10px;
+    font-size:15px;
     outline:none;
+    transition:.25s;
+}
+
+.form-group textarea{
+    resize:vertical;
+    min-height:110px;
 }
 
 .form-group input:focus,
 .form-group textarea:focus{
-    border-color:#009688;
+    border-color:#d4af37;
 }
 
-.form-group textarea{
-    min-height:100px;
-    resize:vertical;
-}
-
-.required{
-    color:#e53935;
-}
-
-.continue-btn{
+.submit-btn{
     width:100%;
-    padding:14px;
-    margin-top:10px;
-    background:#009688;
+    margin-top:24px;
+    background:#111;
     color:#fff;
-    border:none;
-    border-radius:6px;
+    padding:15px;
+    border-radius:10px;
     font-size:16px;
-    font-weight:600;
-    cursor:pointer;
+    font-weight:bold;
     transition:.3s;
 }
 
-.continue-btn:hover{
-    background:#00796b;
+.submit-btn:hover{
+    background:#d4af37;
+    color:#111;
 }
 
-.continue-btn:disabled{
-    opacity:.6;
-    cursor:wait;
-}
-
-/* =====================================================
+/* =========================================================
    MESSAGES
-===================================================== */
+========================================================= */
 
-.error-message,
-.success-message{
+.message{
     display:none;
-    padding:12px;
-    border-radius:5px;
+    padding:14px;
+    border-radius:10px;
     margin-bottom:20px;
     font-size:14px;
 }
 
-.error-message{
-    background:#ffebee;
+.error{
+    background:#ffe8e8;
     color:#c62828;
     border:1px solid #ef9a9a;
 }
 
-.success-message{
-    background:#e8f5e9;
+.success{
+    background:#e8f7eb;
     color:#2e7d32;
     border:1px solid #a5d6a7;
 }
 
-/* =====================================================
+/* =========================================================
    ORDER SUMMARY
-===================================================== */
+========================================================= */
 
 .order-summary{
-    flex:0 0 350px;
     background:#fff;
+    border-radius:16px;
     padding:25px;
-    border-radius:10px;
-    border:1px solid #ddd;
-    box-shadow:0 2px 8px rgba(0,0,0,.08);
+    box-shadow:0 4px 18px rgba(0,0,0,.06);
+    border:1px solid #ececec;
     position:sticky;
-    top:20px;
+    top:100px;
 }
 
 .order-summary h2{
-    margin-top:0;
-    font-size:21px;
-    margin-bottom:20px;
+    margin-bottom:22px;
 }
 
 .product-list{
-    margin-bottom:20px;
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+    margin-bottom:22px;
 }
 
 .product-item{
     display:flex;
     justify-content:space-between;
-    gap:15px;
-    padding:12px 0;
+    gap:12px;
+    padding-bottom:14px;
     border-bottom:1px solid #eee;
+}
+
+.product-name{
     font-size:14px;
+    line-height:1.5;
 }
 
-.product-item-name{
-    flex:1;
-    line-height:1.4;
-}
-
-.product-item-price{
-    font-weight:600;
+.product-price{
+    font-weight:bold;
     white-space:nowrap;
 }
 
-.summary-line{
+.summary-row{
     display:flex;
     justify-content:space-between;
     margin:12px 0;
     font-size:15px;
 }
 
-.discount{
-    color:#008577;
-}
-
-.total-line{
+.summary-total{
     display:flex;
     justify-content:space-between;
-    border-top:1px solid #ddd;
-    padding-top:16px;
-    margin-top:18px;
-    font-size:20px;
+    font-size:22px;
     font-weight:bold;
+    padding-top:18px;
+    border-top:1px solid #ddd;
+    margin-top:18px;
 }
 
-.back-cart{
-    display:block;
-    text-align:center;
-    margin-top:15px;
-    color:#333;
-    text-decoration:none;
-    font-size:14px;
-}
-
-.back-cart:hover{
-    text-decoration:underline;
-}
-
-/* =====================================================
+/* =========================================================
    FOOTER
-===================================================== */
+========================================================= */
 
 .main-footer{
-    width:100%;
     background:#0b0b0b;
     color:#fff;
+    margin-top:70px;
     padding:70px 7% 25px;
-    margin-top:50px;
 }
 
 .footer-container{
@@ -444,9 +439,9 @@ to{
 
 .footer-top>h2{
     grid-column:1/-1;
-    font-family:Georgia,"Times New Roman",serif;
-    font-size:42px;
     text-align:center;
+    font-family:Georgia,serif;
+    font-size:42px;
     margin-bottom:10px;
 }
 
@@ -457,178 +452,111 @@ to{
 
 .contact-column h3,
 .whatsapp-column h3{
-    font-size:20px;
-    margin-bottom:22px;
-}
-
-.contact-column p{
-    color:#bdbdbd;
-    font-size:15px;
-    margin-top:12px;
+    margin-bottom:20px;
 }
 
 .footer-link{
     display:block;
-    width:fit-content;
-    margin:0 auto 8px;
     color:#fff;
-    text-decoration:none;
-    font-size:16px;
+    margin-bottom:10px;
 }
 
 .footer-link:hover{
-    color:#c9a24d;
-}
-
-.whatsapp-title{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:8px;
-}
-
-.whatsapp-icon{
-    width:24px;
-    height:24px;
-    object-fit:contain;
+    color:#d4af37;
 }
 
 .whatsapp-button{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    min-height:50px;
-    padding:13px 30px;
+    display:inline-block;
     background:#fff;
     color:#111;
-    font-weight:700;
-    text-decoration:none;
+    padding:13px 28px;
+    font-weight:bold;
+    margin-top:12px;
 }
 
 .whatsapp-button:hover{
-    background:#c9a24d;
-    color:#fff;
+    background:#d4af37;
 }
 
 .footer-middle{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:50px;
-    margin-top:65px;
-    padding-top:45px;
-    border-top:1px solid rgba(255,255,255,.10);
+    gap:40px;
+    margin-top:55px;
+    padding-top:40px;
+    border-top:1px solid rgba(255,255,255,.1);
 }
 
-.footer-links-column,
+.footer-middle h3{
+    margin-bottom:18px;
+}
+
+.footer-middle a{
+    display:block;
+    margin-bottom:12px;
+    color:#ddd;
+}
+
+.footer-middle a:hover{
+    color:#d4af37;
+}
+
 .footer-social{
     text-align:center;
 }
 
-.footer-links-column h3,
-.footer-social h3{
-    margin-bottom:20px;
-}
-
-.footer-links-column a{
-    display:block;
-    width:fit-content;
-    margin:0 auto 14px;
-    color:#d7d7d7;
-    text-decoration:none;
-}
-
-.footer-links-column a:hover{
-    color:#c9a24d;
-}
-
-.footer-social p{
-    color:#d7d7d7;
-    margin-bottom:14px;
-}
-
 .instagram-button{
-    width:48px;
-    height:48px;
     display:inline-flex;
+    width:50px;
+    height:50px;
+    border:1px solid rgba(255,255,255,.6);
+    border-radius:12px;
     align-items:center;
     justify-content:center;
-    border:1px solid rgba(255,255,255,.7);
-    border-radius:10px;
-}
-
-.instagram-button:hover{
-    border-color:#c9a24d;
 }
 
 .instagram-button img{
-    width:27px;
-    height:27px;
-    object-fit:contain;
+    width:28px;
 }
 
 .footer-bottom{
-    margin-top:50px;
-    padding-top:20px;
-    border-top:1px solid rgba(255,255,255,.10);
     text-align:center;
-}
-
-.footer-bottom p{
+    margin-top:45px;
+    padding-top:20px;
+    border-top:1px solid rgba(255,255,255,.08);
     color:#aaa;
     font-size:13px;
 }
 
-/* =====================================================
+/* =========================================================
    RESPONSIVE
-===================================================== */
+========================================================= */
 
-@media(max-width:900px){
+@media(max-width:1000px){
 
-.delivery-page{
-    flex-direction:column;
+.checkout-container{
+    grid-template-columns:1fr;
 }
 
-.delivery-left,
 .order-summary{
-    width:100%;
-    flex:none;
+    position:static;
 }
 
-.form-row{
-    flex-direction:column;
-    gap:0;
+.form-grid{
+    grid-template-columns:1fr;
 }
 
 }
 
 @media(max-width:768px){
 
-header{
-    padding:15px 20px;
+.header-container{
+    flex-direction:column;
+    text-align:center;
 }
 
-header h1{
-    font-size:23px;
-}
-
-.back-btn{
-    padding:9px 13px;
-    font-size:13px;
-}
-
-.logo{
-    width:90px;
-}
-
-.delivery-page{
-    margin:25px auto;
-    padding:0 12px;
-}
-
-.saved-address-section,
-.delivery-form,
-.order-summary{
-    padding:20px;
+.page-title{
+    font-size:24px;
 }
 
 .footer-top,
@@ -640,216 +568,140 @@ header h1{
     font-size:34px;
 }
 
-.main-footer{
-    padding:55px 18px 20px;
-}
-
 }
 
 </style>
 
 </head>
 
-    <body>
+<body>
 
-<!-- =====================================================
+<!-- =========================================================
      HEADER
-===================================================== -->
+========================================================= -->
 
 <header>
 
-    <a
-        href="cart.html"
-        class="back-btn"
-    >
-        ← Back to Cart
-    </a>
+    <div class="header-container">
 
-    <h1>Delivery Details</h1>
+        <a href="cart.html" class="back-btn">
+            ← Back to Cart
+        </a>
 
-    <img
-        src="logo.jpeg"
-        alt="50 Mirars Logo"
-        class="logo"
-    >
+        <h1 class="page-title">
+            Delivery Details
+        </h1>
+
+        <img
+            src="logo.jpeg"
+            alt="50 Mirars"
+            class="logo"
+        >
+
+    </div>
 
 </header>
 
-<!-- =====================================================
+<!-- =========================================================
      ACCOUNT STATUS
-===================================================== -->
+========================================================= -->
 
-<div
-    id="account-status"
-    class="account-status"
->
+<div id="account-status" class="account-status">
     Checking your account...
 </div>
 
-<!-- =====================================================
-     MAIN PAGE
-===================================================== -->
+<!-- =========================================================
+     CHECKOUT CONTAINER
+========================================================= -->
 
-<section class="delivery-page">
+<div class="checkout-container">
 
-    <div class="delivery-left">
+    <!-- =========================================
+         LEFT SIDE
+    ========================================== -->
 
-        <!-- ==========================================
-             ADDRESS SELECTION
-        =========================================== -->
+    <div class="checkout-left">
+
+        <!-- SAVED ADDRESS SECTION -->
 
         <div
             id="saved-address-section"
-            class="saved-address-section"
+            class="card"
             style="display:none;"
         >
 
-            <h2>Choose Delivery Address</h2>
+            <h2 class="card-title">
+                Select Delivery Address
+            </h2>
 
-            <div class="saved-address-subtitle">
-                Select your saved account address or enter a different delivery address.
+            <p class="card-subtitle">
+                Choose one of your saved addresses or add a new delivery address.
+            </p>
+
+            <div id="address-list" class="address-list">
             </div>
 
-            <!-- Saved Address -->
-
             <div
-                id="saved-address-card"
-                class="saved-address-card selected"
+                id="add-new-address-card"
+                class="add-address-card"
             >
 
-                <input
-                    type="radio"
-                    id="profile-address-radio"
-                    name="address-choice"
-                    class="saved-address-radio"
-                    checked
-                >
+                <strong>+ Add New Address</strong>
 
-                <div>
-
-                    <div
-                        id="saved-address-name"
-                        class="saved-address-name"
-                    ></div>
-
-                    <div
-                        id="saved-address-details"
-                        class="saved-address-details"
-                    ></div>
-
-                    <div
-                        id="saved-address-phone"
-                        class="saved-address-phone"
-                    ></div>
-
-                </div>
-
-            </div>
-
-            <!-- New Address -->
-
-            <div
-                id="new-address-card"
-                class="saved-address-card"
-            >
-
-                <input
-                    type="radio"
-                    id="new-address-radio"
-                    name="address-choice"
-                    class="saved-address-radio"
-                >
-
-                <div>
-
-                    <div class="saved-address-name">
-                        Enter New Address
-                    </div>
-
-                    <div class="saved-address-details">
-                        Use a different delivery address for this order.
-                    </div>
-
-                </div>
+                <span>
+                    Deliver this order to another address.
+                </span>
 
             </div>
 
             <button
-                type="button"
-                id="use-profile-address"
-                class="saved-address-button"
+                id="continue-saved-address"
+                class="use-address-btn"
             >
-                Continue →
+                Continue with Selected Address
             </button>
 
         </div>
 
-        <!-- ==========================================
-             MANUAL DELIVERY FORM
-        =========================================== -->
+        <!-- MANUAL ADDRESS FORM -->
 
         <div
-            id="manual-address-form"
-            class="delivery-form"
+            id="manual-address-section"
+            class="card delivery-form"
         >
 
-            <h2>Enter Delivery Details</h2>
+            <h2 class="card-title">
+                Add New Delivery Address
+            </h2>
 
-            <div class="manual-address-note">
-                Fill your delivery details below.
-            </div>
+            <p class="card-subtitle">
+                Enter the address where you want your order delivered.
+            </p>
 
             <div
                 id="error-message"
-                class="error-message"
+                class="message error"
             ></div>
 
             <div
                 id="success-message"
-                class="success-message"
+                class="message success"
             ></div>
 
             <form id="delivery-form">
 
-                <!-- NAME -->
-
-                <div class="form-group">
-
-                    <label for="customerName">
-
-                        Full Name
-                        <span class="required">*</span>
-
-                    </label>
-
-                    <input
-                        type="text"
-                        id="customerName"
-                        placeholder="Enter your full name"
-                        required
-                    >
-
-                </div>
-
-                <!-- PHONE + EMAIL -->
-
-                <div class="form-row">
+                <div class="form-grid">
 
                     <div class="form-group">
 
-                        <label for="phone">
-
-                            Phone Number
-                            <span class="required">*</span>
-
+                        <label>
+                            Full Name
                         </label>
 
                         <input
-                            type="tel"
-                            id="phone"
-                            placeholder="Enter your phone number"
-                            maxlength="10"
-                            inputmode="numeric"
+                            id="customerName"
+                            type="text"
+                            placeholder="Enter your full name"
                             required
                         >
 
@@ -857,16 +709,86 @@ header h1{
 
                     <div class="form-group">
 
-                        <label for="email">
-
-                            Email Address
-                            <span class="required">*</span>
-
+                        <label>
+                            Mobile Number
                         </label>
 
                         <input
-                            type="email"
+                            id="phone"
+                            type="tel"
+                            maxlength="10"
+                            placeholder="10-digit mobile number"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="form-group full">
+
+                        <label>
+                            Complete Address
+                        </label>
+
+                        <textarea
+                            id="address"
+                            placeholder="House No., Street, Landmark"
+                            required
+                        ></textarea>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>
+                            City
+                        </label>
+
+                        <input
+                            id="city"
+                            type="text"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>
+                            State
+                        </label>
+
+                        <input
+                            id="state"
+                            type="text"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>
+                            PIN Code
+                        </label>
+
+                        <input
+                            id="pin"
+                            type="text"
+                            maxlength="6"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>
+                            Email Address
+                        </label>
+
+                        <input
                             id="email"
+                            type="email"
                             placeholder="Enter your email"
                             required
                         >
@@ -875,97 +797,12 @@ header h1{
 
                 </div>
 
-                <!-- ADDRESS -->
-
-                <div class="form-group">
-
-                    <label for="address">
-
-                        Complete Address
-                        <span class="required">*</span>
-
-                    </label>
-
-                    <textarea
-                        id="address"
-                        placeholder="House/Flat No., Street, Area, Landmark"
-                        required
-                    ></textarea>
-
-                </div>
-
-                <!-- CITY + STATE -->
-
-                <div class="form-row">
-
-                    <div class="form-group">
-
-                        <label for="city">
-
-                            City
-                            <span class="required">*</span>
-
-                        </label>
-
-                        <input
-                            type="text"
-                            id="city"
-                            placeholder="Enter your city"
-                            required
-                        >
-
-                    </div>
-
-                    <div class="form-group">
-
-                        <label for="state">
-
-                            State
-                            <span class="required">*</span>
-
-                        </label>
-
-                        <input
-                            type="text"
-                            id="state"
-                            placeholder="Enter your state"
-                            required
-                        >
-
-                    </div>
-
-                </div>
-
-                <!-- PIN -->
-
-                <div class="form-group">
-
-                    <label for="pin">
-
-                        PIN Code
-                        <span class="required">*</span>
-
-                    </label>
-
-                    <input
-                        type="text"
-                        id="pin"
-                        placeholder="Enter 6-digit PIN code"
-                        maxlength="6"
-                        inputmode="numeric"
-                        required
-                    >
-
-                </div>
-
-                <!-- CONTINUE -->
-
                 <button
                     type="submit"
-                    id="continue-button"
-                    class="continue-btn"
+                    id="continue-payment-btn"
+                    class="submit-btn"
                 >
-                    Continue to Payment →
+                    Save & Continue to Payment
                 </button>
 
             </form>
@@ -974,11 +811,11 @@ header h1{
 
     </div>
 
-    <!-- ==========================================
+    <!-- =========================================
          ORDER SUMMARY
-    =========================================== -->
+    ========================================== -->
 
-    <div class="order-summary">
+    <aside class="order-summary">
 
         <h2>Your Order</h2>
 
@@ -987,52 +824,56 @@ header h1{
             class="product-list"
         ></div>
 
-        <div class="summary-line">
+        <div class="summary-row">
 
             <span>Subtotal</span>
 
-            <span id="subtotal">₹0</span>
+            <strong id="subtotal">
+                ₹0
+            </strong>
 
         </div>
 
-        <div class="summary-line discount">
+        <div class="summary-row">
 
             <span>Discount</span>
 
-            <span id="discount">₹0</span>
+            <strong
+                id="discount"
+                style="color:#0a8f52;"
+            >
+                ₹0
+            </strong>
 
         </div>
 
-        <div class="summary-line">
+        <div class="summary-row">
 
             <span>Shipping</span>
 
-            <span>Free</span>
+            <strong>
+                Free
+            </strong>
 
         </div>
 
-        <div class="total-line">
+        <div class="summary-total">
 
             <span>Total</span>
 
-            <span id="total">₹0</span>
+            <span id="total">
+                ₹0
+            </span>
 
         </div>
 
-        <a
-            href="cart.html"
-            class="back-cart"
-        >
-            ← Edit Cart
-        </a>
+    </aside>
 
-    </div>
+</div>
 
-</section>
-
-<!-- =====================================================
+<!-- =========================================================
      FOOTER
-===================================================== -->
+========================================================= -->
 
 <footer class="main-footer">
 
@@ -1044,7 +885,7 @@ header h1{
 
             <div class="contact-column">
 
-                <h3>For Customers:</h3>
+                <h3>For Customers</h3>
 
                 <a
                     href="mailto:50mirars@gmail.com"
@@ -1057,16 +898,18 @@ header h1{
                     href="tel:+918209989013"
                     class="footer-link"
                 >
-                    82099 89013
+                    +91 82099 89013
                 </a>
 
-                <p>09:00 - 21:30 | Monday to Sunday</p>
+                <p>
+                    09:00 – 21:30 | Monday to Sunday
+                </p>
 
             </div>
 
             <div class="contact-column">
 
-                <h3>For Sales/Watch Service:</h3>
+                <h3>Watch Service</h3>
 
                 <a
                     href="mailto:50mirars@gmail.com"
@@ -1079,34 +922,27 @@ header h1{
                     href="tel:+918209989013"
                     class="footer-link"
                 >
-                    82099 89013
+                    +91 82099 89013
                 </a>
 
-                <p>09:00 - 21:30 | Monday to Sunday</p>
+                <p>
+                    Premium Support for Watches & Sunglasses
+                </p>
 
             </div>
 
             <div class="whatsapp-column">
 
-                <h3 class="whatsapp-title">
-
+                <h3>
                     View Products on WhatsApp
-
-                    <img
-                        src="whatsapplogo.png"
-                        alt="WhatsApp"
-                        class="whatsapp-icon"
-                    >
-
                 </h3>
 
                 <a
                     href="https://wa.me/c/918209989013"
                     target="_blank"
-                    rel="noopener"
                     class="whatsapp-button"
                 >
-                    View Products
+                    View Catalogue
                 </a>
 
             </div>
@@ -1115,7 +951,7 @@ header h1{
 
         <div class="footer-middle">
 
-            <div class="footer-links-column">
+            <div>
 
                 <h3>Know 50 Mirars</h3>
 
@@ -1125,9 +961,9 @@ header h1{
 
             </div>
 
-            <div class="footer-links-column">
+            <div>
 
-                <h3>Terms & Conditions</h3>
+                <h3>Policies</h3>
 
                 <a href="terms.html">Terms & Conditions</a>
 
@@ -1137,16 +973,14 @@ header h1{
 
             <div class="footer-social">
 
-                <h3>50 Mirars</h3>
+                <h3>Follow Us</h3>
 
-                <p>Follow Us On</p>
+                <p>Stay connected with 50 Mirars.</p>
 
                 <a
                     href="https://instagram.com/50mirars"
                     target="_blank"
-                    rel="noopener"
                     class="instagram-button"
-                    aria-label="Follow 50 Mirars on Instagram"
                 >
 
                     <img
@@ -1162,10 +996,7 @@ header h1{
 
         <div class="footer-bottom">
 
-            <p>
-                © 2026 50 Mirars – The Watch & Sunglasses Store.
-                All Rights Reserved.
-            </p>
+            © 2026 50 Mirars – Premium Watches & Sunglasses. All Rights Reserved.
 
         </div>
 
@@ -1173,42 +1004,42 @@ header h1{
 
 </footer>
 
-<!-- =====================================================
+<!-- =========================================================
      FIREBASE + DELIVERY LOGIC
-===================================================== -->
+========================================================= -->
 
 <script type="module">
 
-/* =====================================================
+/* =========================================================
    FIREBASE IMPORTS
-===================================================== */
+========================================================= */
 
 import { initializeApp }
 from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
 
 import {
-    getAuth,
-    onAuthStateChanged
+getAuth,
+onAuthStateChanged
 }
 from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 
 import {
-    getFirestore,
-    doc,
-    getDoc,
-    setDoc,
-    collection,
-    getDocs,
-    serverTimestamp
+getFirestore,
+doc,
+getDoc,
+setDoc,
+collection,
+getDocs,
+addDoc,
+serverTimestamp
 }
 from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
-    
 
-/* =====================================================
+/* =========================================================
    FIREBASE CONFIG
-===================================================== */
+========================================================= */
 
-const firebaseConfig = {
+const firebaseConfig={
 
 apiKey:"AIzaSyD5oZFRZUDnmb2d1_juGTeWAbQcy3gcyjc",
 
@@ -1226,48 +1057,43 @@ measurementId:"G-HXESQZER5L"
 
 };
 
-/* =====================================================
-   INITIALIZE
-===================================================== */
-
 const app=initializeApp(firebaseConfig);
 
 const auth=getAuth(app);
 
 const db=getFirestore(app);
 
-/* =====================================================
+/* =========================================================
    ELEMENTS
-===================================================== */
+========================================================= */
 
 const accountStatus=document.getElementById("account-status");
 
 const savedSection=document.getElementById("saved-address-section");
 
-const savedCard=document.getElementById("saved-address-card");
+const addressList=document.getElementById("address-list");
 
-const newCard=document.getElementById("new-address-card");
+const addNewCard=document.getElementById("add-new-address-card");
 
-const savedRadio=document.getElementById("profile-address-radio");
-
-const newRadio=document.getElementById("new-address-radio");
-
-const manualForm=document.getElementById("manual-address-form");
-
-const continueSaved=document.getElementById("use-profile-address");
+const manualSection=document.getElementById("manual-address-section");
 
 const deliveryForm=document.getElementById("delivery-form");
+
+const continueSaved=document.getElementById("continue-saved-address");
 
 const errorBox=document.getElementById("error-message");
 
 const successBox=document.getElementById("success-message");
 
 let currentUser=null;
-let profileAddress=null;
 
-/* =====================================================
+let selectedAddress=null;
+
+let customerData={};
+
+/* =========================================================
    HELPERS
-===================================================== */
+========================================================= */
 
 function showError(message){
 
@@ -1306,91 +1132,91 @@ return /^[1-9][0-9]{5}$/.test(pin);
 
 }
 
-function escapeHTML(text){
+/* =========================================================
+   LOAD SAVED ADDRESSES
+========================================================= */
 
-const div=document.createElement("div");
+async function loadAddresses(){
 
-div.innerText=text||"";
+addressList.innerHTML="";
 
-return div.innerHTML;
+const customerRef=doc(db,"customers",currentUser.uid);
 
-}
+const customerSnap=await getDoc(customerRef);
 
-/* =====================================================
-   CART
-===================================================== */
+if(customerSnap.exists()){
 
-function getCart(){
-
-let cart=[];
-
-try{
-
-cart=JSON.parse(localStorage.getItem("checkoutCart"))||[];
-
-}catch{}
-
-if(cart.length===0){
-
-try{
-
-cart=JSON.parse(localStorage.getItem("cart"))||[];
-
-}catch{}
+customerData=customerSnap.data();
 
 }
 
-return cart;
+const addressesRef=collection(db,"customers",currentUser.uid,"addresses");
+
+const snapshot=await getDocs(addressesRef);
+
+if(snapshot.empty){
+
+savedSection.style.display="none";
+
+manualSection.style.display="block";
+
+return;
 
 }
 
-function getPrice(item){
+savedSection.style.display="block";
 
-return parseFloat(
-String(item.price||0).replace(/[^0-9.]/g,"")
-)||0;
+manualSection.style.display="none";
 
+let defaultDoc=snapshot.docs.find(
+d=>d.data().isDefault===true
+);
+
+selectedAddress=(defaultDoc||snapshot.docs[0]).data();
+
+snapshot.forEach(docSnap=>{
+
+const data=docSnap.data();
+
+const card=document.createElement("div");
+
+card.className="address-card";
+
+const checked=selectedAddress.address===data.address &&
+selectedAddress.phone===data.phone;
+
+if(checked){
+card.classList.add("selected");
 }
 
-/* =====================================================
-   ORDER SUMMARY
-===================================================== */
+card.innerHTML=`
 
-function loadOrder(){
+<input
+type="radio"
+name="addressChoice"
+${checked?"checked":""}>
 
-const cart=getCart();
+<div>
 
-const list=document.getElementById("product-list");
+<div class="address-name">
 
-list.innerHTML="";
+${data.name}
 
-let subtotal=0;
-
-cart.forEach(item=>{
-
-const qty=Number(item.quantity||1);
-
-const total=getPrice(item)*qty;
-
-subtotal+=total;
-
-list.innerHTML+=`
-
-<div class="product-item">
-
-<div class="product-item-name">
-
-${escapeHTML(item.name)}
-
-<br>
-
-<small>Quantity: ${qty}</small>
+${data.isDefault?'<span class="default-badge">Default</span>':""}
 
 </div>
 
-<div class="product-item-price">
+<div class="address-details">
 
-₹${total.toLocaleString("en-IN")}
+${data.address}<br>
+
+${data.city}, ${data.state} - ${data.pincode}
+
+</div>
+
+<div class="address-phone">
+
+Phone: ${data.phone}
 
 </div>
 
@@ -1398,238 +1224,100 @@ ${escapeHTML(item.name)}
 
 `;
 
-});
+card.onclick=()=>{
 
-const discount=parseFloat(localStorage.getItem("orderDiscount"))||0;
+document.querySelectorAll(".address-card").forEach(c=>{
 
-const finalTotal=Math.max(subtotal-discount,0);
+c.classList.remove("selected");
 
-document.getElementById("subtotal").innerText=`₹${subtotal.toLocaleString("en-IN")}`;
-
-document.getElementById("discount").innerText=`₹${discount.toLocaleString("en-IN")}`;
-
-document.getElementById("total").innerText=`₹${finalTotal.toLocaleString("en-IN")}`;
-
-}
-
-/* =====================================================
-   LOAD PROFILE ADDRESS
-===================================================== */
-
-async function loadProfileAddress(){
-
-if(!currentUser)return;
-
-try{
-
-    /* Load customer profile */
-    const customerRef=doc(db,"customers",currentUser.uid);
-    const customerSnap=await getDoc(customerRef);
-
-    let customerData={};
-
-    if(customerSnap.exists()){
-        customerData=customerSnap.data();
-    }
-
-    /* Load saved addresses */
-    const addressesRef=collection(db,"customers",currentUser.uid,"addresses");
-    const snapshot=await getDocs(addressesRef);
-
-    if(snapshot.empty){
-
-        savedSection.style.display="none";
-        manualForm.style.display="block";
-        return;
-
-    }
-
-    let selectedAddress=null;
-
-    /* First choose default address */
-    snapshot.forEach(docSnap=>{
-
-        const data=docSnap.data();
-
-        if(data.isDefault===true && !selectedAddress){
-
-            selectedAddress=data;
-
-        }
-
-    });
-
-    /* If no default, use first address */
-    if(!selectedAddress){
-
-        selectedAddress=snapshot.docs[0].data();
-
-    }
-
-    profileAddress={
-
-        customerName:selectedAddress.name||customerData.name||currentUser.displayName||"",
-
-        phone:selectedAddress.phone||customerData.phone||"",
-
-        email:customerData.email||currentUser.email||"",
-
-        address:selectedAddress.address||"",
-
-        city:selectedAddress.city||"",
-
-        state:selectedAddress.state||"",
-
-        pin:selectedAddress.pincode||""
-
-    };
-
-    savedSection.style.display="block";
-    manualForm.style.display="none";
-
-    document.getElementById("saved-address-name").innerText=profileAddress.customerName;
-
-    document.getElementById("saved-address-details").innerHTML=
-        `${profileAddress.address}<br>${profileAddress.city}, ${profileAddress.state} - ${profileAddress.pin}`;
-
-    document.getElementById("saved-address-phone").innerText=
-        `Phone: ${profileAddress.phone}`;
-
-}catch(error){
-
-    console.error("Address loading error:",error);
-
-    savedSection.style.display="none";
-    manualForm.style.display="block";
-
-}
-
-}
-    
-/* =====================================================
-   ADDRESS SELECTION
-===================================================== */
-
-savedCard.addEventListener("click",()=>{
-
-savedRadio.checked=true;
-
-savedCard.classList.add("selected");
-
-newCard.classList.remove("selected");
-
-manualForm.style.display="none";
+c.querySelector("input").checked=false;
 
 });
 
-newCard.addEventListener("click",()=>{
+card.classList.add("selected");
 
-newRadio.checked=true;
+card.querySelector("input").checked=true;
 
-newCard.classList.add("selected");
+selectedAddress=data;
 
-savedCard.classList.remove("selected");
+};
 
-manualForm.style.display="block";
-
-});
-
-/* =====================================================
-   SAVE DELIVERY
-===================================================== */
-
-async function saveDelivery(details,fromProfile){
-
-localStorage.setItem("deliveryDetails",JSON.stringify(details));
-
-localStorage.setItem("deliveryAddressSource",fromProfile?"profile":"new");
-
-const cart=getCart();
-
-let subtotal=0;
-
-cart.forEach(item=>{
-
-subtotal+=getPrice(item)*(item.quantity||1);
+addressList.appendChild(card);
 
 });
 
-const discount=parseFloat(localStorage.getItem("orderDiscount"))||0;
-
-const total=Math.max(subtotal-discount,0);
-
-localStorage.setItem("orderSubtotal",subtotal);
-
-localStorage.setItem("orderTotal",total);
-
-if(currentUser){
-
-await setDoc(
-
-doc(db,"customers",currentUser.uid)
-{
-
-deliveryAddress:details,
-
-updatedAt:serverTimestamp()
-
-},
-
-{merge:true}
-
-);
-
 }
 
-}
-
-/* =====================================================
+/* =========================================================
    CONTINUE WITH SAVED ADDRESS
-===================================================== */
+========================================================= */
 
-continueSaved.addEventListener("click",async()=>{
+continueSaved.onclick=()=>{
 
-if(!profileAddress){
+if(!selectedAddress){
 
-showError("No saved address found.");
+showError("Please select a delivery address.");
 
 return;
 
 }
 
-continueSaved.disabled=true;
+const deliveryDetails={
 
-continueSaved.innerText="Saving...";
+customerName:selectedAddress.name,
 
-try{
+phone:selectedAddress.phone,
 
-await saveDelivery(profileAddress,true);
+email:customerData.email||currentUser.email||"",
+
+address:selectedAddress.address,
+
+city:selectedAddress.city,
+
+state:selectedAddress.state,
+
+pin:selectedAddress.pincode
+
+};
+
+localStorage.setItem(
+"deliveryDetails",
+JSON.stringify(deliveryDetails)
+);
 
 window.location.href="payment.html";
 
-}catch{
+};
 
-continueSaved.disabled=false;
+/* =========================================================
+   ADD NEW ADDRESS
+========================================================= */
 
-continueSaved.innerText="Continue →";
+addNewCard.onclick=()=>{
 
-showError("Unable to continue.");
+savedSection.style.display="none";
 
-}
+manualSection.style.display="block";
 
-});
+document.getElementById("customerName").value=customerData.name||currentUser.displayName||"";
 
-/* =====================================================
-   MANUAL FORM
-===================================================== */
+document.getElementById("phone").value=customerData.phone||"";
 
-deliveryForm.addEventListener("submit",async e=>{
+document.getElementById("email").value=customerData.email||currentUser.email||"";
+
+};
+
+/* =========================================================
+   SAVE NEW ADDRESS
+========================================================= */
+
+deliveryForm.addEventListener("submit",async(e)=>{
 
 e.preventDefault();
 
 const details={
 
-customerName:customerName.value.trim(),
+name:customerName.value.trim(),
 
 phone:phone.value.trim(),
 
@@ -1641,85 +1329,127 @@ city:city.value.trim(),
 
 state:state.value.trim(),
 
-pin:pin.value.trim()
+pincode:pin.value.trim()
 
 };
 
 if(!validPhone(details.phone)){
 
-showError("Please enter a valid 10-digit Indian mobile number.");
+showError("Enter a valid 10-digit mobile number.");
 
 return;
 
 }
 
-if(!validPin(details.pin)){
+if(!validPin(details.pincode)){
 
-showError("Please enter a valid 6-digit PIN code.");
+showError("Enter a valid 6-digit PIN Code.");
 
 return;
 
 }
-
-const button=document.getElementById("continue-button");
-
-button.disabled=true;
-
-button.innerText="Saving Address...";
 
 try{
 
-await saveDelivery(details,false);
+const addressesRef=collection(
+db,
+"customers",
+currentUser.uid,
+"addresses"
+);
+
+await addDoc(addressesRef,{
+
+...details,
+
+isDefault:false,
+
+createdAt:serverTimestamp()
+
+});
+
+await setDoc(
+doc(db,"customers",currentUser.uid),
+{
+
+name:details.name,
+
+phone:details.phone,
+
+email:details.email,
+
+updatedAt:serverTimestamp()
+
+},
+{merge:true}
+);
+
+localStorage.setItem("deliveryDetails",JSON.stringify({
+
+customerName:details.name,
+
+phone:details.phone,
+
+email:details.email,
+
+address:details.address,
+
+city:details.city,
+
+state:details.state,
+
+pin:details.pincode
+
+}));
+
+showSuccess("Address saved successfully.");
+
+setTimeout(()=>{
 
 window.location.href="payment.html";
 
-}catch{
+},700);
 
-button.disabled=false;
+}catch(error){
 
-button.innerText="Continue to Payment →";
+console.error(error);
 
-showError("Unable to save delivery details.");
+showError("Unable to save address.");
 
 }
 
 });
 
-/* =====================================================
+/* =========================================================
    AUTH
-===================================================== */
+========================================================= */
 
-onAuthStateChanged(auth,async user=>{
+onAuthStateChanged(auth,async(user)=>{
 
 currentUser=user;
 
 if(user){
 
-accountStatus.innerHTML=
+accountStatus.innerHTML=`
+Signed in as <strong>${user.displayName||user.email}</strong>
+·
+<a href="profile.html">My Account</a>`;
 
-`Signed in as <strong>${escapeHTML(user.displayName||user.email)}</strong> · <a href="profile.html">My Account</a>`;
-
-await loadProfileAddress();
+await loadAddresses();
 
 }else{
 
-accountStatus.innerHTML=
-
-`Please sign in to use your saved address. <a href="profile.html">My Account</a>`;
+accountStatus.innerHTML=`
+Please sign in to use your saved addresses.
+<a href="profile.html">Sign In</a>`;
 
 savedSection.style.display="none";
 
-manualForm.style.display="block";
+manualSection.style.display="block";
 
 }
 
 });
-
-/* =====================================================
-   START
-===================================================== */
-
-loadOrder();
 
 </script>
 
