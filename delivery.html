@@ -1419,65 +1419,85 @@ if(!currentUser)return;
 
 try{
 
-const ref=doc(db,"users",currentUser.uid);
-const snap=await getDoc(ref);
+    /* Load customer profile */
+    const customerRef=doc(db,"customers",currentUser.uid);
+    const customerSnap=await getDoc(customerRef);
 
-if(!snap.exists()){
-manualForm.style.display="block";
-savedSection.style.display="none";
-return;
-}
+    let customerData={};
 
-const data=snap.data();
+    if(customerSnap.exists()){
+        customerData=customerSnap.data();
+    }
 
-/* Read address from different possible locations */
-profileAddress={
-customerName:data.customerName||data.fullName||data.name||currentUser.displayName||"",
-phone:data.phone||data.mobile||currentUser.phoneNumber||"",
-email:data.email||currentUser.email||"",
-address:data.address||data.fullAddress||data.completeAddress||data.deliveryAddress?.address||"",
-city:data.city||data.deliveryAddress?.city||"",
-state:data.state||data.deliveryAddress?.state||"",
-pin:data.pin||data.pinCode||data.pincode||data.deliveryAddress?.pin||""
-};
+    /* Load saved addresses */
+    const addressesRef=collection(db,"customers",currentUser.uid,"addresses");
+    const snapshot=await getDocs(addressesRef);
 
-/* If profile.html stored everything inside an address object */
-if(typeof data.address==="object"){
-profileAddress={
-customerName:data.name||currentUser.displayName||"",
-phone:data.phone||"",
-email:data.email||currentUser.email||"",
-address:data.address.address||"",
-city:data.address.city||"",
-state:data.address.state||"",
-pin:data.address.pin||""
-};
-}
+    if(snapshot.empty){
 
-if(profileAddress.address){
+        savedSection.style.display="none";
+        manualForm.style.display="block";
+        return;
 
-savedSection.style.display="block";
-manualForm.style.display="none";
+    }
 
-document.getElementById("saved-address-name").innerText=profileAddress.customerName;
+    let selectedAddress=null;
 
-document.getElementById("saved-address-details").innerHTML=
-`${profileAddress.address}<br>${profileAddress.city}, ${profileAddress.state} - ${profileAddress.pin}`;
+    /* First choose default address */
+    snapshot.forEach(docSnap=>{
 
-document.getElementById("saved-address-phone").innerText=`Phone: ${profileAddress.phone}`;
+        const data=docSnap.data();
 
-}else{
+        if(data.isDefault===true && !selectedAddress){
 
-savedSection.style.display="none";
-manualForm.style.display="block";
+            selectedAddress=data;
 
-}
+        }
+
+    });
+
+    /* If no default, use first address */
+    if(!selectedAddress){
+
+        selectedAddress=snapshot.docs[0].data();
+
+    }
+
+    profileAddress={
+
+        customerName:selectedAddress.name||customerData.name||currentUser.displayName||"",
+
+        phone:selectedAddress.phone||customerData.phone||"",
+
+        email:customerData.email||currentUser.email||"",
+
+        address:selectedAddress.address||"",
+
+        city:selectedAddress.city||"",
+
+        state:selectedAddress.state||"",
+
+        pin:selectedAddress.pincode||""
+
+    };
+
+    savedSection.style.display="block";
+    manualForm.style.display="none";
+
+    document.getElementById("saved-address-name").innerText=profileAddress.customerName;
+
+    document.getElementById("saved-address-details").innerHTML=
+        `${profileAddress.address}<br>${profileAddress.city}, ${profileAddress.state} - ${profileAddress.pin}`;
+
+    document.getElementById("saved-address-phone").innerText=
+        `Phone: ${profileAddress.phone}`;
 
 }catch(error){
 
-console.error(error);
-savedSection.style.display="none";
-manualForm.style.display="block";
+    console.error("Address loading error:",error);
+
+    savedSection.style.display="none";
+    manualForm.style.display="block";
 
 }
 
