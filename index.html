@@ -1426,248 +1426,275 @@ textarea {
 }
 
 
-/* =====================================================
+/* =========================================================
    FOOTER
-===================================================== */
+========================================================= */
 
-.main-footer {
+.main-footer{
+    background:#111;
 
-    width: 100%;
+    color:#fff;
 
-    background: #0b0b0b;
+    margin-top:40px;
+}
 
-    color: #ffffff;
+.footer-container{
+    width:100%;
+
+    max-width:1400px;
+
+    margin:0 auto;
 
     padding:
-        70px
-        7%
-        25px;
+        60px
+        50px
+        0;
 }
 
-.footer-container {
 
-    max-width: 1400px;
+/* =========================================================
+   FOOTER TOP
+========================================================= */
 
-    margin: auto;
-}
-
-.footer-top {
-
-    display: grid;
+.footer-top{
+    display:grid;
 
     grid-template-columns:
-        repeat(
-            3,
-            1fr
-        );
+        1fr
+        1fr
+        1fr;
 
-    gap: 40px;
+    gap:50px;
+
+    padding-bottom:50px;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,0.15);
 }
 
-.footer-top > h2 {
+.footer-top > h2{
+    grid-column:1 / -1;
 
-    grid-column:
-        1 / -1;
+    text-align:center;
+
+    margin:0 0 10px;
 
     font-family:
         Georgia,
         "Times New Roman",
         serif;
 
-    font-size: 42px;
+    font-size:38px;
 
-    text-align: center;
+    font-weight:600;
 
-    margin-bottom: 10px;
+    color:#c9a24d;
 }
 
-.contact-column,
-.whatsapp-column {
-    text-align: center;
+
+/* =========================================================
+   FOOTER CONTACT
+========================================================= */
+
+.contact-column{
+    text-align:left;
 }
 
 .contact-column h3,
-.whatsapp-column h3 {
+.whatsapp-column h3,
+.footer-links-column h3,
+.footer-social h3{
+    color:#c9a24d;
 
-    font-size: 20px;
+    font-size:20px;
 
-    margin-bottom: 22px;
+    margin:0 0 18px;
 }
 
-.contact-column p {
+.contact-column p{
+    color:#bbb;
 
-    color: #bdbdbd;
+    font-size:15px;
 
-    font-size: 15px;
-
-    margin-top: 12px;
+    line-height:1.6;
 }
 
-.footer-link {
+.footer-link{
+    display:block;
 
-    display: block;
+    color:#fff;
 
-    width: fit-content;
+    text-decoration:none;
 
-    margin:
-        0
-        auto
-        8px;
+    margin-bottom:12px;
 
-    color: #ffffff;
-
-    font-size: 16px;
+    transition:0.3s ease;
 }
 
-.whatsapp-title {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 8px;
+.footer-link:hover{
+    color:#c9a24d;
 }
 
-.whatsapp-icon {
 
-    width: 24px !important;
-    height: 24px !important;
+/* =========================================================
+   WHATSAPP
+========================================================= */
 
-    object-fit: contain;
+.whatsapp-column{
+    text-align:center;
 }
 
-.whatsapp-button {
+.whatsapp-title{
+    display:flex;
 
-    display: inline-flex;
+    align-items:center;
 
-    align-items: center;
-    justify-content: center;
+    justify-content:center;
 
-    min-height: 50px;
-
-    padding:
-        13px
-        30px;
-
-    background: #ffffff;
-
-    color: #111111;
-
-    font-weight: 700;
+    gap:10px;
 }
 
-.footer-middle {
+.whatsapp-icon{
+    width:28px !important;
 
-    display: grid;
+    height:28px !important;
+
+    object-fit:contain !important;
+}
+
+.whatsapp-button{
+    display:inline-block;
+
+    background:#c9a24d;
+
+    color:#111;
+
+    text-decoration:none;
+
+    padding:13px 30px;
+
+    border-radius:6px;
+
+    font-weight:bold;
+
+    transition:0.3s ease;
+}
+
+.whatsapp-button:hover{
+    background:#fff;
+
+    color:#111;
+}
+
+
+/* =========================================================
+   FOOTER MIDDLE
+========================================================= */
+
+.footer-middle{
+    display:grid;
 
     grid-template-columns:
-        repeat(
-            3,
-            1fr
-        );
+        1fr
+        1fr
+        1fr;
 
-    gap: 50px;
+    gap:50px;
 
-    margin-top: 65px;
-
-    padding-top: 45px;
-
-    border-top:
-        1px solid
-        rgba(
-            255,
-            255,
-            255,
-            0.10
-        );
+    padding:50px 0;
 }
 
-.footer-links-column,
-.footer-social {
-    text-align: center;
+.footer-links-column{
+    display:flex;
+
+    flex-direction:column;
 }
 
-.footer-links-column h3,
-.footer-social h3 {
-    margin-bottom: 20px;
+.footer-links-column a{
+    color:#ccc;
+
+    text-decoration:none;
+
+    margin-bottom:13px;
+
+    transition:0.3s ease;
 }
 
-.footer-links-column a {
-
-    display: block;
-
-    width: fit-content;
-
-    margin:
-        0
-        auto
-        14px;
-
-    color: #d7d7d7;
+.footer-links-column a:hover{
+    color:#c9a24d;
 }
 
-.footer-social p {
 
-    color: #d7d7d7;
+/* =========================================================
+   INSTAGRAM
+========================================================= */
 
-    margin-bottom: 14px;
+.footer-social{
+    text-align:center;
 }
 
-.instagram-button {
+.footer-social p{
+    color:#bbb;
 
-    width: 48px;
-    height: 48px;
+    margin-bottom:15px;
+}
 
-    display: inline-flex;
+.instagram-button{
+    display:inline-flex;
 
-    align-items: center;
-    justify-content: center;
+    align-items:center;
+
+    justify-content:center;
+
+    width:50px;
+
+    height:50px;
 
     border:
         1px solid
-        rgba(
-            255,
-            255,
-            255,
-            0.7
-        );
+        #c9a24d;
 
-    border-radius: 10px;
+    border-radius:50%;
+
+    transition:0.3s ease;
 }
 
-.instagram-button img {
-
-    width: 27px;
-    height: 27px;
-
-    object-fit: contain;
+.instagram-button:hover{
+    background:#c9a24d;
 }
 
-.footer-bottom {
+.instagram-button img{
+    width:28px;
 
-    margin-top: 50px;
+    height:28px;
 
-    padding-top: 20px;
+    object-fit:contain;
+}
 
+
+/* =========================================================
+   COPYRIGHT
+========================================================= */
+
+.footer-bottom{
     border-top:
         1px solid
-        rgba(
-            255,
-            255,
-            255,
-            0.10
-        );
+        rgba(255,255,255,0.15);
 
-    text-align: center;
+    text-align:center;
+
+    padding:25px 10px;
 }
 
-.footer-bottom p {
+.footer-bottom p{
+    margin:0;
 
-    color: #aaaaaa;
+    color:#999;
 
-    font-size: 13px;
+    font-size:14px;
+
+    line-height:1.6;
 }
 
 
