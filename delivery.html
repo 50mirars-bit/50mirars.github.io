@@ -1010,6 +1010,341 @@ header{
 
 <script type="module">
 
+
+/* =========================================================
+   YOUR ORDER SECTION
+   READS DATA FROM cart.html
+========================================================= */
+
+function loadYourOrder(){
+
+    const productList =
+        document.getElementById("product-list");
+
+    const subtotalElement =
+        document.getElementById("subtotal");
+
+    const discountElement =
+        document.getElementById("discount");
+
+    const totalElement =
+        document.getElementById("total");
+
+
+    /* =====================================================
+       LOAD CHECKOUT CART
+    ===================================================== */
+
+    let checkoutCart = [];
+
+    try {
+
+        const storedCart =
+            localStorage.getItem("checkoutCart");
+
+        if(storedCart){
+
+            const parsed =
+                JSON.parse(storedCart);
+
+            if(Array.isArray(parsed)){
+
+                checkoutCart = parsed;
+
+            }
+
+        }
+
+    }catch(error){
+
+        console.error(
+            "Unable to read checkout cart:",
+            error
+        );
+
+        checkoutCart = [];
+
+    }
+
+
+    /* =====================================================
+       CLEAR PRODUCT LIST
+    ===================================================== */
+
+    productList.innerHTML = "";
+
+
+    /* =====================================================
+       EMPTY CART
+    ===================================================== */
+
+    if(checkoutCart.length === 0){
+
+        productList.innerHTML = `
+
+            <div
+                style="
+                    padding:20px 0;
+                    text-align:center;
+                    color:#777;
+                    font-size:14px;
+                "
+            >
+                No products found in your order.
+            </div>
+
+        `;
+
+    }
+
+
+    /* =====================================================
+       DISPLAY PRODUCTS
+    ===================================================== */
+
+    checkoutCart.forEach(function(item){
+
+        const name =
+            String(
+                item.name || "Product"
+            );
+
+
+        const price =
+            parseFloat(
+                String(
+                    item.price || "0"
+                ).replace(
+                    /[^0-9.]/g,
+                    ""
+                )
+            ) || 0;
+
+
+        const quantity =
+            Number(
+                item.quantity || 1
+            );
+
+
+        const itemTotal =
+            price * quantity;
+
+
+        const productItem =
+            document.createElement("div");
+
+
+        productItem.className =
+            "product-item";
+
+
+        productItem.innerHTML = `
+
+            <div class="product-name">
+
+                <strong>
+                    ${escapeOrderHTML(name)}
+                </strong>
+
+                <div
+                    style="
+                        color:#777;
+                        font-size:13px;
+                        margin-top:4px;
+                    "
+                >
+                    Quantity: ${quantity}
+                </div>
+
+            </div>
+
+
+            <div class="product-price">
+
+                ₹${itemTotal.toLocaleString("en-IN")}
+
+            </div>
+
+        `;
+
+
+        productList.appendChild(
+            productItem
+        );
+
+    });
+
+
+    /* =====================================================
+       LOAD SAVED TOTALS
+    ===================================================== */
+
+    let subtotal =
+        parseFloat(
+            localStorage.getItem(
+                "orderSubtotal"
+            )
+        ) || 0;
+
+
+    let discount =
+        parseFloat(
+            localStorage.getItem(
+                "orderDiscount"
+            )
+        ) || 0;
+
+
+    let total =
+        parseFloat(
+            localStorage.getItem(
+                "orderTotal"
+            )
+        );
+
+
+    /* =====================================================
+       FALLBACK CALCULATION
+       IF TOTALS ARE MISSING
+    ===================================================== */
+
+    if(
+        !localStorage.getItem("orderSubtotal")
+    ){
+
+        subtotal =
+            checkoutCart.reduce(
+                function(sum,item){
+
+                    const price =
+                        parseFloat(
+                            String(
+                                item.price || "0"
+                            ).replace(
+                                /[^0-9.]/g,
+                                ""
+                            )
+                        ) || 0;
+
+                    const quantity =
+                        Number(
+                            item.quantity || 1
+                        );
+
+                    return sum +
+                        (price * quantity);
+
+                },
+                0
+            );
+
+    }
+
+
+    if(
+        !localStorage.getItem("orderDiscount")
+    ){
+
+        discount = 0;
+
+    }
+
+
+    /* =====================================================
+       ALWAYS KEEP TOTAL CORRECT
+    ===================================================== */
+
+    if(
+        isNaN(total)
+    ){
+
+        total =
+            subtotal -
+            discount;
+
+    }
+
+
+    /* Prevent impossible discount */
+
+    discount =
+        Math.min(
+            discount,
+            subtotal
+        );
+
+
+    total =
+        Math.max(
+            0,
+            subtotal - discount
+        );
+
+
+    /* =====================================================
+       DISPLAY TOTALS
+    ===================================================== */
+
+    subtotalElement.innerText =
+        "₹" +
+        subtotal.toLocaleString("en-IN");
+
+
+    discountElement.innerText =
+        "₹" +
+        discount.toLocaleString("en-IN");
+
+
+    totalElement.innerText =
+        "₹" +
+        total.toLocaleString("en-IN");
+
+}
+
+
+/* =========================================================
+   SAFE HTML FOR PRODUCT NAMES
+========================================================= */
+
+function escapeOrderHTML(value){
+
+    return String(value)
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+
+/* =========================================================
+   LOAD ORDER WHEN DELIVERY PAGE OPENS
+========================================================= */
+
+loadYourOrder();
+
 /* =========================================================
    FIREBASE IMPORTS
 ========================================================= */
