@@ -145,70 +145,377 @@ body{
 
 
 /* =========================================================
-   MOST SELLING INTRODUCTION
-   ========================================================= */
+   PREMIUM MOST SELLING ARTICLES INTRODUCTION
+   50 MIRARS — LUXURY EDITORIAL STYLE
+========================================================= */
 
-.most-selling-intro{
-    width:90%;
+.most-selling-intro {
 
-    max-width:1400px;
+    position: relative;
 
-    margin:0 auto;
+    width: 100%;
 
-    text-align:center;
+    padding: 110px 30px 105px;
 
-    padding:10px 0 55px;
+    background:
+        radial-gradient(
+            ellipse at top center,
+            rgba(191, 157, 91, 0.13) 0%,
+            rgba(191, 157, 91, 0.05) 28%,
+            transparent 60%
+        ),
+        linear-gradient(
+            180deg,
+            #fcfaf5 0%,
+            #f7f3ea 50%,
+            #fcfaf6 100%
+        );
+
+    overflow: hidden;
 }
 
-.most-selling-intro h2{
+
+/* =========================================================
+   SUBTLE DECORATIVE CIRCLES
+========================================================= */
+
+.most-selling-intro::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 40px;
+    left: -180px;
+
+    width: 520px;
+    height: 520px;
+
+    border:
+        1px solid
+        rgba(157, 125, 67, 0.10);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+
+.most-selling-intro::after {
+
+    content: "";
+
+    position: absolute;
+
+    right: -220px;
+    bottom: -250px;
+
+    width: 620px;
+    height: 620px;
+
+    border:
+        1px solid
+        rgba(157, 125, 67, 0.08);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.most-selling-intro-container {
+
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 1180px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   SECTION HEADING
+========================================================= */
+
+.most-selling-intro-heading {
+
+    max-width: 850px;
+
+    margin: 0 auto 80px;
+
+    text-align: center;
+}
+
+
+.most-selling-intro-heading span {
+
+    display: block;
+
+    margin-bottom: 16px;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    letter-spacing: 6px;
+
+    text-transform: uppercase;
+
+    color: #9b7a3f;
+}
+
+
+.most-selling-intro-heading h2 {
+
+    margin: 0;
+
     font-family:
         Georgia,
         "Times New Roman",
         serif;
 
-    font-size:38px;
+    font-size: clamp(38px, 5vw, 62px);
 
-    font-weight:600;
+    font-weight: 400;
 
-    color:#171717;
+    line-height: 1.12;
 
-    margin:0 auto 30px;
+    letter-spacing: -0.5px;
 
-    letter-spacing:-0.5px;
+    color: #191919;
 }
 
-.most-selling-description{
-    max-width:1350px;
 
-    margin:0 auto;
+/* =========================================================
+   GOLD DECORATIVE LINE
+========================================================= */
 
-    text-align:left;
+.most-selling-intro-line {
+
+    position: relative;
+
+    width: 90px;
+
+    height: 1px;
+
+    margin: 30px auto 0;
+
+    background: #aa8749;
 }
 
-.most-selling-description p{
-    margin:0 0 24px;
 
-    font-size:18px;
+.most-selling-intro-line::before,
+.most-selling-intro-line::after {
 
-    line-height:1.75;
+    content: "";
 
-    color:#4a4a4a;
+    position: absolute;
 
-    font-weight:400;
+    top: 50%;
+
+    width: 5px;
+    height: 5px;
+
+    transform:
+        translateY(-50%)
+        rotate(45deg);
+
+    background: #aa8749;
 }
 
-.most-selling-description strong{
-    color:#9b762c;
 
-    font-weight:600;
+.most-selling-intro-line::before {
+    left: -3px;
 }
 
-.most-selling-closing-line{
-    margin-top:40px !important;
 
-    margin-bottom:0 !important;
+.most-selling-intro-line::after {
+    right: -3px;
 }
 
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.most-selling-intro-content {
+
+    max-width: 1050px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   INDIVIDUAL PARAGRAPH
+========================================================= */
+
+.most-selling-intro-paragraph {
+
+    position: relative;
+
+    padding: 0 0 58px;
+
+    margin-bottom: 58px;
+
+    border-bottom:
+        1px solid
+        rgba(92, 75, 45, 0.14);
+
+    transition:
+        border-color 0.35s ease;
+}
+
+
+.most-selling-intro-paragraph:last-child {
+
+    padding-bottom: 0;
+
+    margin-bottom: 0;
+
+    border-bottom: none;
+}
+
+
+/* =========================================================
+   PARAGRAPH HEADING
+========================================================= */
+
+.most-selling-intro-paragraph h3 {
+
+    position: relative;
+
+    margin: 0 0 22px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 27px;
+
+    font-weight: 400;
+
+    line-height: 1.35;
+
+    letter-spacing: 0.2px;
+
+    color: #222;
+}
+
+
+/* Gold editorial line */
+
+.most-selling-intro-paragraph h3::before {
+
+    content: "";
+
+    display: inline-block;
+
+    width: 26px;
+
+    height: 1px;
+
+    margin-right: 14px;
+
+    vertical-align: middle;
+
+    background: #ad8848;
+}
+
+
+/* =========================================================
+   PARAGRAPH TEXT
+========================================================= */
+
+.most-selling-intro-paragraph p {
+
+    max-width: 1000px;
+
+    margin: 0;
+
+    font-family:
+        "Helvetica Neue",
+        Arial,
+        sans-serif;
+
+    font-size: 16px;
+
+    font-weight: 400;
+
+    line-height: 2.05;
+
+    letter-spacing: 0.15px;
+
+    color: #55514b;
+
+    text-align: justify;
+}
+
+
+/* =========================================================
+   BRAND EMPHASIS
+========================================================= */
+
+.most-selling-intro-paragraph p strong {
+
+    color: #24221f;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   EDITORIAL DROP CAP
+========================================================= */
+
+.most-selling-intro-paragraph:first-child p::first-letter {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 54px;
+
+    font-weight: 500;
+
+    line-height: 0.8;
+
+    float: left;
+
+    margin:
+        7px
+        9px
+        0
+        0;
+
+    color: #a37e3f;
+}
+
+
+/* =========================================================
+   SUBTLE HOVER
+========================================================= */
+
+.most-selling-intro-paragraph:hover {
+
+    border-bottom-color:
+        rgba(163, 126, 63, 0.30);
+}
+
+    
 
 /* =========================================================
    PRODUCT GRID
@@ -1040,54 +1347,138 @@ body{
     </div>
 
 
-    <h2>
-        The Pieces Everyone Is Talking About
-    </h2>
+     <!-- INTRODUCTION CONTENT -->
+
+        <div class="most-selling-intro-content">
 
 
-    <div class="most-selling-description">
+            <!-- PARAGRAPH 1 -->
 
-        <p>
-            Some products simply stand out. They become favourites because of the
-            way they look, the way they complement personal style, and the impression
-            they leave long after the first glance. Our most-selling collection brings
-            together the pieces that have captured the attention of our customers —
-            designs that balance distinctive aesthetics, everyday appeal, and the kind
-            of presence that makes them easy to choose and even harder to forget.
-        </p>
+            <div class="most-selling-intro-paragraph">
 
+                <h3>The Pieces Everyone Is Talking About</h3>
 
-        <p>
-            At <strong>50 Mirars</strong>, we believe the most popular pieces are not
-            simply the ones that follow a trend. They are the ones that connect with
-            people. From refined timepieces and statement-making watches to stylish
-            sunglasses and distinctive everyday essentials, this collection represents
-            some of the products our customers have chosen, loved, and returned to.
-            Each article has its own character, whether it is subtle and sophisticated
-            or bold enough to become the centre of attention.
-        </p>
+                <p>
+                    Welcome to the <strong>Most Selling Articles</strong> collection at
+                    50 Mirars, where exceptional style meets the choices that have
+                    captured the attention of our customers. This carefully selected
+                    collection brings together products that stand out for their
+                    distinctive designs, contemporary appeal, timeless character, and
+                    ability to make an impression. Every item featured here represents
+                    the kind of style that naturally draws attention—pieces chosen by
+                    customers who appreciate products that combine personality with
+                    sophistication. From statement-making accessories to refined
+                    everyday essentials, these are the products that continue to inspire
+                    interest and become favourites among those looking for something
+                    memorable. If you are discovering 50 Mirars for the first time or
+                    searching for your next standout addition, this collection offers
+                    an effortless place to begin your journey through some of the most
+                    admired pieces in our selection.
+                </p>
 
-
-        <p>
-            The appeal of a great product often lies in the details. A well-proportioned
-            design, an eye-catching finish, a distinctive silhouette, or simply the way
-            it completes your personal style can turn an ordinary accessory into
-            something memorable. Our best-selling collection is curated to bring those
-            standout pieces together in one place, making it easier to discover what is
-            currently catching the attention of the 50 Mirars community.
-        </p>
+            </div>
 
 
-        <p class="most-selling-closing-line">
+            <!-- PARAGRAPH 2 -->
 
-            <strong>
-                Discover the pieces our customers are choosing — and find the one
-                that becomes your next favourite.
-            </strong>
+            <div class="most-selling-intro-paragraph">
 
-        </p>
+                <h3>Chosen by Customers, Defined by Style</h3>
 
-    </div>
+                <p>
+                    There is something special about discovering a product that already
+                    has a reputation for being a favourite. Our Most Selling Articles
+                    collection is designed to bring those customer-loved choices together
+                    in one carefully presented destination. Each piece offers its own
+                    character, whether through a sophisticated silhouette, a distinctive
+                    finish, an eye-catching design, or the effortless versatility that
+                    makes it easy to wear and enjoy. These are products for individuals
+                    who understand that great style is found in the details and that the
+                    right accessory can completely transform an appearance. Whether your
+                    taste is classic and understated, modern and refined, or bold and
+                    expressive, you will find carefully selected favourites that can
+                    complement your personality and become an unforgettable part of your
+                    collection.
+                </p>
+
+            </div>
+
+
+            <!-- PARAGRAPH 3 -->
+
+            <div class="most-selling-intro-paragraph">
+
+                <h3>Discover What Makes Them Stand Out</h3>
+
+                <p>
+                    Popularity alone does not create lasting appeal—there is usually
+                    something about a remarkable product that makes people stop, look,
+                    and imagine it as part of their own style. Our best-selling selection
+                    brings together pieces that have earned attention because they offer
+                    a compelling combination of design, presence, versatility, and
+                    contemporary appeal. Some make a statement the moment they are seen,
+                    while others reveal their sophistication through subtle details that
+                    become more impressive the longer you look. This collection allows
+                    you to explore products that have already made an impression while
+                    discovering your own reasons to love them. Whether you are searching
+                    for inspiration, looking for a gift, or simply want to explore what
+                    is currently attracting attention at 50 Mirars, these carefully
+                    selected articles provide a refined starting point.
+                </p>
+
+            </div>
+
+
+            <!-- PARAGRAPH 4 -->
+
+            <div class="most-selling-intro-paragraph">
+
+                <h3>Style That Earns a Place in Your Collection</h3>
+
+                <p>
+                    The best accessories are not simply purchased—they become part of
+                    your personal style. They accompany you through everyday moments,
+                    special occasions, celebrations, journeys, and experiences, gradually
+                    becoming pieces that feel uniquely connected to you. At
+                    <strong>50 Mirars</strong>, our Most Selling Articles collection
+                    brings together products with the kind of visual appeal and
+                    versatility that makes them easy to imagine as part of your wardrobe
+                    and lifestyle. Whether you are adding something new to an established
+                    collection or searching for a distinctive first piece, these customer
+                    favourites offer an opportunity to discover designs that can elevate
+                    your appearance with effortless sophistication. Each selection
+                    invites you to explore, compare, and find the piece that feels most
+                    naturally suited to you.
+                </p>
+
+            </div>
+
+
+            <!-- PARAGRAPH 5 -->
+
+            <div class="most-selling-intro-paragraph">
+
+                <h3>Your Next Favourite Could Be Here</h3>
+
+                <p>
+                    Sometimes the perfect product is the one you did not know you were
+                    looking for. That is what makes exploring a collection of customer
+                    favourites so exciting. The <strong>Most Selling Articles</strong>
+                    section at 50 Mirars is created for those moments of discovery—when
+                    a particular design catches your eye, feels right, and becomes
+                    something you can instantly imagine owning. Explore the collection
+                    at your own pace, discover the styles that have captured attention,
+                    and find the pieces that speak to your personal sense of fashion.
+                    Whether you are searching for something sophisticated, distinctive,
+                    contemporary, or simply unforgettable, your next favourite may already
+                    be waiting here. <strong>Explore the most-loved selections from
+                    50 Mirars and discover the pieces that make an impression long after
+                    they are first seen.</strong>
+                </p>
+
+            </div>
+
+        </div>
 
 </section>
 
