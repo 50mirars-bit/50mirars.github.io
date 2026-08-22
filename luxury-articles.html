@@ -155,77 +155,376 @@ body {
 
 
 /* =========================================================
-   LUXURY ARTICLES INTRODUCTION
+   PREMIUM LUXURY ARTICLES INTRODUCTION
+   50 MIRARS — LUXURY EDITORIAL STYLE
 ========================================================= */
 
-.luxury-intro {
+.luxury-articles-intro {
 
-    width: 90%;
+    position: relative;
 
-    max-width: 1200px;
+    width: 100%;
 
-    margin: 0 auto 20px;
+    padding: 110px 30px 105px;
 
-    padding: 0 20px 35px;
+    background:
+        radial-gradient(
+            ellipse at top center,
+            rgba(191, 157, 91, 0.13) 0%,
+            rgba(191, 157, 91, 0.05) 28%,
+            transparent 60%
+        ),
+        linear-gradient(
+            180deg,
+            #fcfaf5 0%,
+            #f7f3ea 50%,
+            #fcfaf6 100%
+        );
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   SUBTLE DECORATIVE CIRCLES
+========================================================= */
+
+.luxury-articles-intro::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 40px;
+    left: -180px;
+
+    width: 520px;
+    height: 520px;
+
+    border:
+        1px solid
+        rgba(157, 125, 67, 0.10);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+
+.luxury-articles-intro::after {
+
+    content: "";
+
+    position: absolute;
+
+    right: -220px;
+    bottom: -250px;
+
+    width: 620px;
+    height: 620px;
+
+    border:
+        1px solid
+        rgba(157, 125, 67, 0.08);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.luxury-articles-intro-container {
+
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 1180px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   SECTION HEADING
+========================================================= */
+
+.luxury-articles-intro-heading {
+
+    max-width: 850px;
+
+    margin: 0 auto 80px;
 
     text-align: center;
 }
 
-.luxury-intro h2 {
 
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size: 34px;
-
-    font-weight: 500;
-
-    color: #111;
-
-    margin: 0 0 25px;
-
-    letter-spacing: 0.5px;
-}
-
-.luxury-intro h2::after {
-
-    content: "";
+.luxury-articles-intro-heading span {
 
     display: block;
 
-    width: 80px;
+    margin-bottom: 16px;
 
-    height: 1px;
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
 
-    background: #c9a24d;
+    font-size: 11px;
 
-    margin: 18px auto 0;
+    font-weight: 600;
+
+    letter-spacing: 6px;
+
+    text-transform: uppercase;
+
+    color: #9b7a3f;
 }
 
-.luxury-intro p {
+
+.luxury-articles-intro-heading h2 {
+
+    margin: 0;
 
     font-family:
         Georgia,
         "Times New Roman",
         serif;
 
-    font-size: 17px;
+    font-size: clamp(38px, 5vw, 62px);
 
-    line-height: 1.9;
+    font-weight: 400;
 
-    color: #444;
+    line-height: 1.12;
 
-    margin: 0 auto 22px;
+    letter-spacing: -0.5px;
+
+    color: #191919;
 }
 
-.luxury-intro strong {
 
-    color: #111;
+/* =========================================================
+   GOLD DECORATIVE LINE
+========================================================= */
+
+.luxury-articles-intro-line {
+
+    position: relative;
+
+    width: 90px;
+
+    height: 1px;
+
+    margin: 30px auto 0;
+
+    background: #aa8749;
+}
+
+
+.luxury-articles-intro-line::before,
+.luxury-articles-intro-line::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 50%;
+
+    width: 5px;
+    height: 5px;
+
+    transform:
+        translateY(-50%)
+        rotate(45deg);
+
+    background: #aa8749;
+}
+
+
+.luxury-articles-intro-line::before {
+    left: -3px;
+}
+
+
+.luxury-articles-intro-line::after {
+    right: -3px;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.luxury-articles-intro-content {
+
+    max-width: 1050px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   INDIVIDUAL PARAGRAPH
+========================================================= */
+
+.luxury-articles-intro-paragraph {
+
+    position: relative;
+
+    padding: 0 0 58px;
+
+    margin-bottom: 58px;
+
+    border-bottom:
+        1px solid
+        rgba(92, 75, 45, 0.14);
+
+    transition:
+        border-color 0.35s ease;
+}
+
+
+.luxury-articles-intro-paragraph:last-child {
+
+    padding-bottom: 0;
+
+    margin-bottom: 0;
+
+    border-bottom: none;
+}
+
+
+/* =========================================================
+   PARAGRAPH HEADING
+========================================================= */
+
+.luxury-articles-intro-paragraph h3 {
+
+    position: relative;
+
+    margin: 0 0 22px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 27px;
+
+    font-weight: 400;
+
+    line-height: 1.35;
+
+    letter-spacing: 0.2px;
+
+    color: #222;
+}
+
+
+/* GOLD EDITORIAL LINE */
+
+.luxury-articles-intro-paragraph h3::before {
+
+    content: "";
+
+    display: inline-block;
+
+    width: 26px;
+
+    height: 1px;
+
+    margin-right: 14px;
+
+    vertical-align: middle;
+
+    background: #ad8848;
+}
+
+
+/* =========================================================
+   PARAGRAPH TEXT
+========================================================= */
+
+.luxury-articles-intro-paragraph p {
+
+    max-width: 1000px;
+
+    margin: 0;
+
+    font-family:
+        "Helvetica Neue",
+        Arial,
+        sans-serif;
+
+    font-size: 16px;
+
+    font-weight: 400;
+
+    line-height: 2.05;
+
+    letter-spacing: 0.15px;
+
+    color: #55514b;
+
+    text-align: justify;
+}
+
+
+/* =========================================================
+   BRAND EMPHASIS
+========================================================= */
+
+.luxury-articles-intro-paragraph p strong {
+
+    color: #24221f;
 
     font-weight: 600;
 }
+
+
+/* =========================================================
+   EDITORIAL DROP CAP
+========================================================= */
+
+.luxury-articles-intro-paragraph:first-child p::first-letter {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 54px;
+
+    font-weight: 500;
+
+    line-height: 0.8;
+
+    float: left;
+
+    margin:
+        7px
+        9px
+        0
+        0;
+
+    color: #a37e3f;
+}
+
+
+/* =========================================================
+   SUBTLE HOVER
+========================================================= */
+
+.luxury-articles-intro-paragraph:hover {
+
+    border-bottom-color:
+        rgba(163, 126, 63, 0.30);
+}
+
 
 
 /* =========================================================
@@ -1132,47 +1431,136 @@ body {
 
 <div class="luxury-intro">
 
-    <h2>
-        Where Luxury Becomes a Statement.
-    </h2>
+    <!-- INTRODUCTION CONTENT -->
 
-    <p>
-        Luxury is not simply about what you wear — it is about the impression it leaves.
-        Our Luxury Articles collection brings together timepieces and accessories chosen
-        for their refined presence, distinctive design, and attention to detail. From
-        elegant watches that command attention without demanding it to sophisticated
-        accessories that complete a carefully considered look, every piece is selected
-        to bring a sense of character and elevated style to the moments that matter.
-    </p>
+        <div class="luxury-articles-intro-content">
 
-    <p>
-        At <strong>50 Mirars</strong>, we believe true luxury lies in the details. The
-        finish of a case, the depth of a dial, the balance of a silhouette, or the subtle
-        presence of a carefully chosen accessory can transform an ordinary look into
-        something remarkably refined. This collection is created for those who appreciate
-        that difference — those who understand that elegance does not need to be loud to
-        be noticed.
-    </p>
 
-    <p>
-        Each article carries its own personality. Some designs are bold and commanding,
-        while others express luxury through restraint, clean lines, and timeless
-        sophistication. Whether you are dressing for an important occasion, elevating
-        your everyday style, or searching for a distinctive piece that reflects your
-        individuality, these selections are designed to complement your presence rather
-        than simply follow a trend.
-    </p>
+            <!-- PARAGRAPH 1 -->
 
-    <p>
-        Explore a collection where
-        <strong>
-            craftsmanship, character, and timeless elegance come together
-        </strong>
-        — because true luxury is not defined by how much it stands out, but by how
-        effortlessly it makes you stand apart.
-    </p>
+            <div class="luxury-articles-intro-paragraph">
 
-</div>
+                <h3>The Art of Refined Luxury</h3>
+
+                <p>
+                    Luxury is more than an appearance—it is a feeling created through
+                    exceptional design, thoughtful details, and the confidence that
+                    comes from choosing something truly distinctive. The
+                    <strong>Luxury Articles</strong> collection at 50 Mirars is created
+                    for those who appreciate the finer side of personal style and
+                    believe that the right accessory can transform an ordinary moment
+                    into something memorable. Every selection in this collection is
+                    presented with an appreciation for elegance, character, and visual
+                    sophistication, bringing together pieces that are designed to make
+                    an impression without relying on excess. From striking watches and
+                    refined accessories to distinctive pieces that elevate your
+                    personal collection, this is a destination for those who prefer
+                    their style to speak with confidence, restraint, and individuality.
+                </p>
+
+            </div>
+
+
+            <!-- PARAGRAPH 2 -->
+
+            <div class="luxury-articles-intro-paragraph">
+
+                <h3>Where Elegance Meets Character</h3>
+
+                <p>
+                    True luxury often reveals itself through the smallest details. A
+                    beautifully considered silhouette, an elegant finish, a distinctive
+                    dial, a sophisticated combination of textures, or a carefully
+                    balanced design can create an impression that lasts far beyond the
+                    first glance. At <strong>50 Mirars</strong>, our Luxury Articles
+                    collection brings together products selected for their ability to
+                    express this sense of refined character. These are pieces for
+                    individuals who understand that personal style is not simply about
+                    following trends—it is about developing an identity that feels
+                    authentic and unmistakably yours. Whether you prefer timeless
+                    sophistication, contemporary elegance, bold statement pieces, or
+                    understated refinement, this collection gives you the opportunity
+                    to discover designs that complement the way you want to be seen.
+                </p>
+
+            </div>
+
+
+            <!-- PARAGRAPH 3 -->
+
+            <div class="luxury-articles-intro-paragraph">
+
+                <h3>Designed to Elevate Every Occasion</h3>
+
+                <p>
+                    The right luxury accessory has the ability to change the character
+                    of an entire appearance. It can add confidence to a formal
+                    ensemble, bring sophistication to an evening look, or introduce a
+                    refined finishing touch to everyday style. Our Luxury Articles
+                    collection is curated with this versatility in mind, offering
+                    pieces that can move naturally between different occasions while
+                    maintaining their distinctive presence. Whether you are preparing
+                    for an important celebration, attending a special gathering,
+                    heading into a professional setting, or simply choosing something
+                    exceptional for yourself, these selections are designed to become
+                    an effortless part of your personal style. Because true elegance
+                    does not belong to one particular occasion—it becomes part of the
+                    way you carry yourself every day.
+                </p>
+
+            </div>
+
+
+            <!-- PARAGRAPH 4 -->
+
+            <div class="luxury-articles-intro-paragraph">
+
+                <h3>A Collection for the Discerning</h3>
+
+                <p>
+                    Luxury is personal. What makes one person stop and admire a design
+                    may be completely different from what captures another person's
+                    attention. That is why the Luxury Articles collection at 50 Mirars
+                    is designed to offer variety within a refined aesthetic. Explore
+                    different shapes, finishes, colours, designs, and personalities to
+                    discover pieces that genuinely resonate with your individual
+                    taste. Whether you are building a collection from the beginning,
+                    adding another statement piece, searching for a sophisticated gift,
+                    or simply exploring premium styles, every selection gives you an
+                    opportunity to discover something that feels special. Take your
+                    time, notice the details, and choose the piece that feels like it
+                    belongs naturally within your own world.
+                </p>
+
+            </div>
+
+
+            <!-- PARAGRAPH 5 -->
+
+            <div class="luxury-articles-intro-paragraph">
+
+                <h3>Define Luxury on Your Own Terms</h3>
+
+                <p>
+                    At <strong>50 Mirars</strong>, we believe that luxury should feel
+                    personal rather than prescribed. It should reflect your confidence,
+                    your taste, your ambitions, and the details that make your style
+                    uniquely yours. Our Luxury Articles collection is an invitation
+                    to explore pieces that go beyond the ordinary and discover
+                    accessories that can become part of your signature look. Whether
+                    you are drawn to classic elegance, contemporary sophistication,
+                    powerful statement designs, or subtle refinement, there is
+                    something here for every expression of elevated style. Explore
+                    the collection, discover the details that speak to you, and choose
+                    pieces that do more than complete an outfit—they become part of
+                    your identity. <strong>Because luxury is not simply what you wear;
+                    it is the way you choose to present yourself to the world.</strong>
+                </p>
+
+            </div>
+
+
+        </div>
 
 
 <!-- =========================================================
