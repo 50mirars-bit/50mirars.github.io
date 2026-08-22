@@ -183,201 +183,376 @@ body{
 
 
 /* =========================================================
-   LIMITED EDITIONS INTRODUCTION
+   PREMIUM LIMITED EDITIONS INTRODUCTION
+   50 MIRARS — LUXURY EDITORIAL STYLE
 ========================================================= */
 
-.limited-intro{
+.limited-editions-intro {
 
-    width:100%;
+    position: relative;
 
-    max-width:1450px;
+    width: 100%;
 
-    margin:0 auto;
-
-    padding:
-        0
-        40px
-        65px;
-
-    text-align:center;
-}
-
-.limited-intro .page-title{
-
-    padding:
-        20px
-        20px
-        35px;
-}
-
-.limited-intro .page-title h1{
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size:64px;
-
-    font-weight:600;
-
-    margin:
-        0
-        0
-        20px;
-
-    color:#111;
-
-    letter-spacing:-1px;
-}
-
-.limited-intro .title-line{
-
-    width:180px;
-
-    height:2px;
-
-    background:#c9a24d;
-
-    margin:0 auto;
-
-    position:relative;
-}
-
-.limited-intro .title-line::after{
-
-    content:"";
-
-    width:12px;
-
-    height:12px;
-
-    background:#c9a24d;
-
-    position:absolute;
-
-    left:50%;
-
-    top:50%;
-
-    transform:
-        translate(-50%,-50%)
-        rotate(45deg);
-}
-
-
-/* =========================================================
-   INTRO HEADING
-========================================================= */
-
-.limited-intro > h2{
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size:42px;
-
-    line-height:1.25;
-
-    font-weight:600;
-
-    color:#171717;
-
-    margin:
-        5px
-        auto
-        38px;
-
-    letter-spacing:-0.5px;
-}
-
-
-/* =========================================================
-   INTRO DESCRIPTION
-========================================================= */
-
-.limited-description{
-
-    width:100%;
-
-    max-width:1320px;
-
-    margin:0 auto;
-
-    text-align:left;
-
-    padding:
-        0
-        10px;
-}
-
-.limited-description p{
-
-    margin:
-        0
-        0
-        30px;
-
-    font-size:19px;
-
-    line-height:1.85;
-
-    color:#414141;
-
-    font-weight:400;
-
-    letter-spacing:0.15px;
-}
-
-.limited-description p:last-child{
-
-    margin-bottom:0;
-}
-
-
-/* =========================================================
-   GOLD HIGHLIGHT
-========================================================= */
-
-.limited-description strong{
-
-    color:#9b762c;
-
-    font-weight:700;
-}
-
-
-/* =========================================================
-   PREMIUM INTRO DIVIDER
-========================================================= */
-
-.limited-intro::after{
-
-    content:"";
-
-    display:block;
-
-    width:100%;
-
-    max-width:1320px;
-
-    height:1px;
-
-    margin:
-        55px
-        auto
-        0;
+    padding: 110px 30px 105px;
 
     background:
+        radial-gradient(
+            ellipse at top center,
+            rgba(191, 157, 91, 0.13) 0%,
+            rgba(191, 157, 91, 0.05) 28%,
+            transparent 60%
+        ),
         linear-gradient(
-            90deg,
-            transparent,
-            rgba(201,162,77,0.55),
-            transparent
+            180deg,
+            #fcfaf5 0%,
+            #f7f3ea 50%,
+            #fcfaf6 100%
         );
+
+    overflow: hidden;
 }
+
+
+/* =========================================================
+   SUBTLE DECORATIVE CIRCLES
+========================================================= */
+
+.limited-editions-intro::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 40px;
+    left: -180px;
+
+    width: 520px;
+    height: 520px;
+
+    border:
+        1px solid
+        rgba(157, 125, 67, 0.10);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+
+.limited-editions-intro::after {
+
+    content: "";
+
+    position: absolute;
+
+    right: -220px;
+    bottom: -250px;
+
+    width: 620px;
+    height: 620px;
+
+    border:
+        1px solid
+        rgba(157, 125, 67, 0.08);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.limited-editions-intro-container {
+
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 1180px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   SECTION HEADING
+========================================================= */
+
+.limited-editions-intro-heading {
+
+    max-width: 850px;
+
+    margin: 0 auto 80px;
+
+    text-align: center;
+}
+
+
+.limited-editions-intro-heading span {
+
+    display: block;
+
+    margin-bottom: 16px;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    letter-spacing: 6px;
+
+    text-transform: uppercase;
+
+    color: #9b7a3f;
+}
+
+
+.limited-editions-intro-heading h2 {
+
+    margin: 0;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: clamp(38px, 5vw, 62px);
+
+    font-weight: 400;
+
+    line-height: 1.12;
+
+    letter-spacing: -0.5px;
+
+    color: #191919;
+}
+
+
+/* =========================================================
+   GOLD DECORATIVE LINE
+========================================================= */
+
+.limited-editions-intro-line {
+
+    position: relative;
+
+    width: 90px;
+
+    height: 1px;
+
+    margin: 30px auto 0;
+
+    background: #aa8749;
+}
+
+
+.limited-editions-intro-line::before,
+.limited-editions-intro-line::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 50%;
+
+    width: 5px;
+    height: 5px;
+
+    transform:
+        translateY(-50%)
+        rotate(45deg);
+
+    background: #aa8749;
+}
+
+
+.limited-editions-intro-line::before {
+    left: -3px;
+}
+
+
+.limited-editions-intro-line::after {
+    right: -3px;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.limited-editions-intro-content {
+
+    max-width: 1050px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   INDIVIDUAL PARAGRAPH
+========================================================= */
+
+.limited-editions-intro-paragraph {
+
+    position: relative;
+
+    padding: 0 0 58px;
+
+    margin-bottom: 58px;
+
+    border-bottom:
+        1px solid
+        rgba(92, 75, 45, 0.14);
+
+    transition:
+        border-color 0.35s ease;
+}
+
+
+.limited-editions-intro-paragraph:last-child {
+
+    padding-bottom: 0;
+
+    margin-bottom: 0;
+
+    border-bottom: none;
+}
+
+
+/* =========================================================
+   PARAGRAPH HEADING
+========================================================= */
+
+.limited-editions-intro-paragraph h3 {
+
+    position: relative;
+
+    margin: 0 0 22px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 27px;
+
+    font-weight: 400;
+
+    line-height: 1.35;
+
+    letter-spacing: 0.2px;
+
+    color: #222;
+}
+
+
+/* Gold editorial line */
+
+.limited-editions-intro-paragraph h3::before {
+
+    content: "";
+
+    display: inline-block;
+
+    width: 26px;
+
+    height: 1px;
+
+    margin-right: 14px;
+
+    vertical-align: middle;
+
+    background: #ad8848;
+}
+
+
+/* =========================================================
+   PARAGRAPH TEXT
+========================================================= */
+
+.limited-editions-intro-paragraph p {
+
+    max-width: 1000px;
+
+    margin: 0;
+
+    font-family:
+        "Helvetica Neue",
+        Arial,
+        sans-serif;
+
+    font-size: 16px;
+
+    font-weight: 400;
+
+    line-height: 2.05;
+
+    letter-spacing: 0.15px;
+
+    color: #55514b;
+
+    text-align: justify;
+}
+
+
+/* =========================================================
+   BRAND EMPHASIS
+========================================================= */
+
+.limited-editions-intro-paragraph p strong {
+
+    color: #24221f;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   EDITORIAL DROP CAP
+========================================================= */
+
+.limited-editions-intro-paragraph:first-child p::first-letter {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 54px;
+
+    font-weight: 500;
+
+    line-height: 0.8;
+
+    float: left;
+
+    margin:
+        7px
+        9px
+        0
+        0;
+
+    color: #a37e3f;
+}
+
+
+/* =========================================================
+   SUBTLE HOVER
+========================================================= */
+
+.limited-editions-intro-paragraph:hover {
+
+    border-bottom-color:
+        rgba(163, 126, 63, 0.30);
+}
+
 
 
 /* =========================================================
@@ -1581,54 +1756,140 @@ body{
     </div>
 
 
-    <h2>
-        Made for Those Who Choose the Exceptional.
-    </h2>
+     <!-- INTRODUCTION CONTENT -->
+
+        <div class="limited-editions-intro-content">
 
 
-    <div class="limited-description">
+            <!-- PARAGRAPH 1 -->
+
+            <div class="limited-editions-intro-paragraph">
+
+                <h3>For Those Who Choose Something Rare</h3>
+
+                <p>
+                    There is a certain distinction in owning something that feels
+                    different from the ordinary. The <strong>Limited Editions</strong>
+                    collection at 50 Mirars is created for those who appreciate
+                    individuality, distinctive design, and the allure of pieces that
+                    stand apart from the everyday. These timepieces are selected for
+                    their ability to create a stronger impression through unique
+                    aesthetics, striking details, sophisticated finishes, and a character
+                    that feels immediately memorable. A limited-edition-inspired
+                    timepiece is not simply another accessory—it can become a defining
+                    part of your personal collection, chosen because it reflects a taste
+                    that refuses to settle for the ordinary. Whether you are drawn to
+                    bold contemporary designs, refined luxury, dramatic dials,
+                    distinctive colour combinations, or statement-making details, this
+                    collection invites you to discover watches that feel different from
+                    the expected and give your style a more individual identity.
+                </p>
+
+            </div>
 
 
-        <p>
+            <!-- PARAGRAPH 2 -->
 
-            Some pieces are created simply to complete a collection.
-            Others are created to become the collection itself. Our
-            <strong>Limited Editions</strong> bring together distinctive
-            watches and sunglasses selected for their uncommon character,
-            refined details, striking designs, and unmistakable presence.
-            Every piece is chosen to offer something beyond the ordinary —
-            something that feels special from the very first moment you see it.
+            <div class="limited-editions-intro-paragraph">
 
-        </p>
+                <h3>Where Exclusivity Meets Design</h3>
 
+                <p>
+                    The appeal of an exceptional timepiece often lies in the details
+                    that make it feel unlike everything else. A distinctive dial, an
+                    unusual combination of finishes, an expressive case, an unexpected
+                    colour, or a carefully considered design element can transform a
+                    watch from a simple accessory into something far more memorable.
+                    At <strong>50 Mirars</strong>, our Limited Editions collection
+                    brings together designs chosen for their distinctive presence and
+                    exclusive character, giving you an opportunity to explore timepieces
+                    that feel considered rather than ordinary. These watches are for
+                    individuals who appreciate fashion with personality and who
+                    understand that true style does not always need to be loud to be
+                    noticed. Sometimes exclusivity is expressed through a subtle detail,
+                    a refined finish, or a design that immediately feels different when
+                    it sits on the wrist.
+                </p>
 
-        <p>
-
-            At <strong>50 Mirars</strong>, we believe true exclusivity is
-            not only about owning something that is difficult to find.
-            It is about owning a piece that reflects individuality,
-            confidence, and a refined sense of style. These selected
-            timepieces and accessories are made for those who appreciate
-            details, value distinctive design, and prefer pieces that
-            stand apart from conventional collections.
-
-        </p>
-
-
-        <p>
-
-            A limited piece carries a different kind of presence. It can
-            become the finishing touch to a signature look, a memorable
-            gift for someone special, or a timeless addition to your
-            personal collection. Explore the <strong>Limited Editions</strong>
-            at 50 Mirars and discover carefully selected designs created
-            for those who do not simply follow what is ordinary — they
-            choose something exceptional.
-
-        </p>
+            </div>
 
 
-    </div>
+            <!-- PARAGRAPH 3 -->
+
+            <div class="limited-editions-intro-paragraph">
+
+                <h3>A Timepiece With Its Own Identity</h3>
+
+                <p>
+                    Every remarkable watch has a personality, but some designs
+                    communicate it more strongly than others. The Limited Editions
+                    collection is designed for those who want their timepiece to become
+                    a conversation piece, a signature accessory, and an extension of
+                    their individual style. These watches invite you to move beyond
+                    conventional choices and explore designs that make a stronger visual
+                    statement while maintaining a sense of sophistication. Whether worn
+                    with formal tailoring, contemporary streetwear, evening attire, or
+                    everyday essentials, a distinctive timepiece can change the character
+                    of an entire look. At 50 Mirars, we believe that your watch should
+                    not simply follow your style—it should help define it, giving you
+                    another way to express confidence, creativity, and individuality.
+                </p>
+
+            </div>
+
+
+            <!-- PARAGRAPH 4 -->
+
+            <div class="limited-editions-intro-paragraph">
+
+                <h3>For Collectors, Enthusiasts, and the Curious</h3>
+
+                <p>
+                    You do not need to consider yourself a traditional collector to
+                    appreciate the excitement of discovering something distinctive.
+                    Sometimes the attraction begins with a design that immediately
+                    catches your eye; sometimes it comes from the desire to own
+                    something different from the usual choices. Our Limited Editions
+                    collection is created for both experienced enthusiasts and those
+                    simply looking for their next extraordinary timepiece. Explore the
+                    intricate details, compare different aesthetics, discover designs
+                    that challenge the ordinary, and take the time to find a watch that
+                    genuinely speaks to you. Each selection offers its own visual story
+                    and personality, creating an experience that is about more than
+                    simply choosing what to wear—it is about discovering a piece that
+                    feels worthy of a place in your collection.
+                </p>
+
+            </div>
+
+
+            <!-- PARAGRAPH 5 -->
+
+            <div class="limited-editions-intro-paragraph">
+
+                <h3>Make Your Style Less Ordinary</h3>
+
+                <p>
+                    At <strong>50 Mirars</strong>, we believe luxury is not always
+                    about having more—it is about choosing better, choosing thoughtfully,
+                    and choosing something that feels distinctly yours. Our Limited
+                    Editions collection brings together timepieces for those who want to
+                    step beyond predictable choices and embrace designs with greater
+                    character and individuality. Whether you are searching for a
+                    statement piece, a memorable gift, a distinctive addition to your
+                    watch collection, or simply something that feels different from
+                    what everyone else is wearing, this collection gives you a place to
+                    begin. Explore the designs, discover the details, and find the
+                    timepiece that feels worthy of your personal story.
+                    <strong>Choose something distinctive. Wear something memorable.
+                    Make your timepiece part of what makes your style unmistakably
+                    yours.</strong>
+                </p>
+
+            </div>
+
+
+        </div>
 
 </section>
 
