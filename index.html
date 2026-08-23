@@ -292,43 +292,40 @@ textarea {
 
 
 .search-container{
-    position:relative;
-    width:420px; /* Slightly wider like the reference */
-    margin-bottom:8px; /* Creates the white gap */
+    width:420px;
+}
+
+.search-box{
+    display:flex;
+    align-items:center;
+    border:1.5px solid #c9a24d;
+    border-radius:30px;
+    overflow:hidden;
+    background:#fff;
+}
+
+.search-box input{
+    flex:1;
+    border:none;
+    outline:none;
+    padding:13px 18px;
+    font-size:15px;
+}
+
+.search-box button{
+    width:52px;
+    height:46px;
+    border:none;
+    background:#fff;
+    cursor:pointer;
+    font-size:20px;
+    color:#555;
+}
+
+.search-box button:hover{
+    color:#c9a24d;
 }
     
-
-#searchInput{
-    width:100%;
-    padding:12px 18px;
-    border-radius:30px;
-    border:1px solid gold;
-    outline:none;
-    font-size:16px;
-}
-
-#searchResults{
-    position:absolute;
-    top:50px;
-    width:100%;
-    background:white;
-    border-radius:10px;
-    display:none;
-    overflow:hidden;
-    box-shadow:0 10px 25px rgba(0,0,0,.2);
-    z-index:999;
-}
-
-.result{
-    padding:12px;
-    cursor:pointer;
-    border-bottom:1px solid #eee;
-}
-
-.result:hover{
-    background:#f5f5f5;
-}
-
 
 /* =====================================================
    HERO SLIDER
@@ -2710,7 +2707,9 @@ textarea {
     </div>
 
     <!-- Bottom Row -->
-    <div class="search-container">
+   <div class="search-container">
+
+    <div class="search-box">
 
         <input
             type="text"
@@ -2718,7 +2717,7 @@ textarea {
             placeholder="Search watches & sunglasses..."
             autocomplete="off">
 
-        <div id="searchResults"></div>
+        <button id="searchBtn" type="button">🔍</button>
 
     </div>
 
@@ -4700,84 +4699,34 @@ document.addEventListener(
 
     
 <script>
+    
+const searchInput=document.getElementById("searchInput");
+const searchBtn=document.getElementById("searchBtn");
 
-const products=[
+function searchProducts(){
 
-{
-name:"Cartier C Decor Sunglasses",
-link:"product-detailssunglasses.html?id=1"
-},
+    const query=searchInput.value.trim();
 
-{
-name:"Cartier CT06010 Sunglasses",
-link:"product-detailssunglasses.html?id=2"
-},
+    if(query==="") return;
 
-{
-name:"Tommy Hilfiger Clark Watch",
-link:"product-detailswatches.html?id=1"
-},
-
-{
-name:"Tommy Hilfiger Dual Tone Watch TH1781644",
-link:"product-detailswatches.html?id=2"
-},
-
-{
-name:"Tissot T-Race Chronograph Watch",
-link:"product-detailswatches.html?id=3"
-},
-
-{
-name:"Armani Exchange Automatic Skeleton Watch",
-link:"product-detailswatches.html?id=4"
-},
-
-{
-name:"Rolex Automatic Couple Watch",
-link:"product-detailscouple-watches.html?id=1"
-}
-
-];
-
-const input=document.getElementById("searchInput");
-const results=document.getElementById("searchResults");
-
-input.addEventListener("input",()=>{
-
-const value=input.value.toLowerCase();
-
-results.innerHTML="";
-
-if(value===""){
-
-results.style.display="none";
-return;
+    window.location.href=
+        "search.html?q="+encodeURIComponent(query);
 
 }
 
-const matches=products.filter(product=>
+searchBtn.addEventListener("click",searchProducts);
 
-product.name.toLowerCase().includes(value)
+searchInput.addEventListener("keydown",function(e){
 
-);
+    if(e.key==="Enter"){
 
-matches.forEach(product=>{
+        searchProducts();
 
-results.innerHTML+=`
-<div class="result" onclick="window.location='${product.link}'">
-${product.name}
-</div>
-`;
+    }
 
 });
-
-results.style.display="block";
-
-});
-
 </script>
-
+    
 </body>
 
 </html>
