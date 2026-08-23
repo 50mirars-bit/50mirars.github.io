@@ -2463,86 +2463,91 @@ function loadProduct(){
 
 
     /* =====================================================
-       PRODUCT MEDIA
-    ===================================================== */
+   PRODUCT MEDIA
+===================================================== */
 
- else{
+if(product.media === "video"){
 
-    const images =
-        product.files ||
-        [product.file];
+    productMedia.innerHTML = `
+        <video controls playsinline preload="metadata">
+            <source src="${encodeURI(product.file)}" type="video/mp4">
+            Your browser does not support video playback.
+        </video>
+    `;
+
+}else{
+
+    const images = product.files || [product.file];
 
     if(images.length === 1){
 
         productMedia.innerHTML = `
+            <img src="${encodeURI(images[0])}" alt="${escapeHTML(product.name)}">
+        `;
+
+   }else{
+
+    let currentSlide = 0;
+
+    productMedia.innerHTML = `
+        <div class="product-slider">
+
             <img
+                id="sliderImage"
+                class="product-slider-image"
                 src="${encodeURI(images[0])}"
                 alt="${escapeHTML(product.name)}"
             >
-        `;
 
-    }else{
+            <button type="button" class="slider-arrow slider-prev" id="sliderPrev">‹</button>
+            <button type="button" class="slider-arrow slider-next" id="sliderNext">›</button>
 
-        let currentSlide = 0;
-
-        productMedia.innerHTML = `
-            <div class="product-slider">
-
-                <img
-                    id="sliderImage"
-                    class="product-slider-image"
-                    src="${encodeURI(images[0])}"
-                    alt="${escapeHTML(product.name)}"
-                >
-
-                <button type="button" class="slider-arrow slider-prev" id="sliderPrev">‹</button>
-                <button type="button" class="slider-arrow slider-next" id="sliderNext">›</button>
-
-                <div class="slider-dots" id="sliderDots">
-                    ${images.map((_,i)=>`
-                        <button class="slider-dot ${i===0?"active":""}" data-slide="${i}"></button>
-                    `).join("")}
-                </div>
-
+            <div class="slider-dots" id="sliderDots">
+                ${images.map((_,i)=>`
+                    <button class="slider-dot ${i===0?"active":""}" data-slide="${i}"></button>
+                `).join("")}
             </div>
-        `;
 
-        const sliderImage = document.getElementById("sliderImage");
-        const sliderDots = document.querySelectorAll(".slider-dot");
+        </div>
+    `;
 
-        function showSlide(index){
-            currentSlide=(index+images.length)%images.length;
-            sliderImage.src=encodeURI(images[currentSlide]);
-            sliderDots.forEach((dot,i)=>dot.classList.toggle("active",i===currentSlide));
-        }
+    const sliderImage = document.getElementById("sliderImage");
+    const sliderDots = document.querySelectorAll(".slider-dot");
 
-        document.getElementById("sliderPrev").onclick=()=>showSlide(currentSlide-1);
-        document.getElementById("sliderNext").onclick=()=>showSlide(currentSlide+1);
-
-        sliderDots.forEach(dot=>{
-            dot.onclick=()=>showSlide(Number(dot.dataset.slide));
-        });
-
-        let startX=0;
-
-        sliderImage.addEventListener("touchstart",e=>{
-            startX=e.changedTouches[0].screenX;
-        },{passive:true});
-
-        sliderImage.addEventListener("touchend",e=>{
-            const endX=e.changedTouches[0].screenX;
-            if(Math.abs(startX-endX)>50){
-                if(startX>endX){
-                    showSlide(currentSlide+1);
-                }else{
-                    showSlide(currentSlide-1);
-                }
-            }
-        },{passive:true});
-
+    function showSlide(index){
+        currentSlide = (index + images.length) % images.length;
+        sliderImage.src = encodeURI(images[currentSlide]);
+        sliderDots.forEach((dot,i)=>
+            dot.classList.toggle("active", i===currentSlide)
+        );
     }
+
+    document.getElementById("sliderPrev").onclick = () => showSlide(currentSlide-1);
+    document.getElementById("sliderNext").onclick = () => showSlide(currentSlide+1);
+
+    sliderDots.forEach(dot=>{
+        dot.onclick = () => showSlide(Number(dot.dataset.slide));
+    });
+
+    let startX = 0;
+
+    sliderImage.addEventListener("touchstart",e=>{
+        startX = e.changedTouches[0].screenX;
+    },{passive:true});
+
+    sliderImage.addEventListener("touchend",e=>{
+        const endX = e.changedTouches[0].screenX;
+        if(Math.abs(startX-endX)>50){
+            if(startX>endX){
+                showSlide(currentSlide+1);
+            }else{
+                showSlide(currentSlide-1);
+            }
+        }
+    },{passive:true});
+
 }
-    
+}    
 
     /* =====================================================
        PRODUCT DESCRIPTION
@@ -2652,7 +2657,7 @@ function loadSimilarProducts(){
                             >
 
                                 <source
-                                    src="${encodeURI(item.file)}"
+                                    src="${encodeURI(item.files ? item.files[0] : item.file)}"
                                     type="video/mp4"
                                 >
 
@@ -2672,7 +2677,7 @@ function loadSimilarProducts(){
                         mediaHTML = `
 
                             <img
-                                src="${encodeURI(item.file)}"
+                                src="${encodeURI(item.files ? item.files[0] : item.file)}"
                                 alt="${escapeHTML(item.name)}"
                             >
 
