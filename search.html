@@ -754,150 +754,227 @@ header h1{
     </div>
 
 </footer>
-
-
-<script src="search-products.js"></script>
+    
 
 <script>
 
-/* =====================================================
-   GET SEARCH TERM
-===================================================== */
+const searchParams = new URLSearchParams(window.location.search);
 
-const searchParams =
-    new URLSearchParams(
-        window.location.search
-    );
+const searchTerm = searchParams.get("q");
 
-const searchTerm =
-    searchParams.get("q");
+const productsGrid = document.getElementById("productsGrid");
+
+const searchTitle = document.getElementById("searchTitle");
+
+const searchDescription = document.getElementById("searchDescription");
 
 
 /* =====================================================
-   ELEMENTS
+   SEARCH FUNCTION
 ===================================================== */
 
-const productsGrid =
-    document.getElementById("productsGrid");
+async function searchAllProducts(){
 
-const searchTitle =
-    document.getElementById("searchTitle");
+    if(!searchTerm){
 
-const searchDescription =
-    document.getElementById("searchDescription");
+        searchTitle.textContent = "Search Results";
+
+        searchDescription.textContent =
+            "Discover products from 50 Mirars.";
+
+        return;
+
+    }
 
 
-/* =====================================================
-   SEARCH PRODUCTS
-===================================================== */
-
-if(searchTerm){
-
-    const searchText =
-        searchTerm
-        .toLowerCase()
-        .trim();
+    const searchText = searchTerm.toLowerCase().trim();
 
 
     searchTitle.textContent =
         `Search Results for "${searchTerm}"`;
 
-
     searchDescription.textContent =
         "Products matching your search";
 
 
-    /* =============================================
-       FIND MATCHING PRODUCTS
-    ============================================= */
+    /* =================================================
+       SECTION PAGES
+    ================================================= */
 
-    const results =
-        searchProducts.filter(product => {
+    const pages = [
 
-            return (
+        "sunglasses.html",
 
-                product.name
-                    .toLowerCase()
-                    .includes(searchText)
+        "watches.html"
 
-                ||
+    ];
 
-                product.brand
-                    .toLowerCase()
-                    .includes(searchText)
 
-                ||
+    let allProducts = [];
 
-                product.category
-                    .toLowerCase()
-                    .includes(searchText)
 
+    /* =================================================
+       READ PRODUCTS FROM EACH PAGE
+    ================================================= */
+
+    for(const page of pages){
+
+        try{
+
+            const response = await fetch(page);
+
+            const html = await response.text();
+
+
+            const parser = new DOMParser();
+
+            const documentPage =
+                parser.parseFromString(
+                    html,
+                    "text/html"
+                );
+
+
+            const cards =
+                documentPage.querySelectorAll(
+                    ".product-card"
+                );
+
+
+            cards.forEach(card => {
+
+                const nameElement =
+                    card.querySelector("h3");
+
+
+                const priceElement =
+                    card.querySelector(".price");
+
+
+                const linkElement =
+                    card.querySelector(
+                        ".product-details-btn"
+                    );
+
+
+                if(!nameElement || !linkElement){
+
+                    return;
+
+                }
+
+
+                const name =
+                    nameElement.textContent.trim();
+
+
+                const price =
+                    priceElement
+                    ? priceElement.textContent.trim()
+                    : "";
+
+
+                let image = "";
+
+
+                const imageElement =
+                    card.querySelector("img");
+
+
+                if(imageElement){
+
+                    image =
+                        imageElement.getAttribute("src");
+
+                }
+
+
+                /* =====================================
+                   FIX IMAGE PATH
+                ===================================== */
+
+                if(image){
+
+                    image =
+                        new URL(
+                            image,
+                            window.location.href
+                        ).href;
+
+                }
+
+
+                /* =====================================
+                   FIX PRODUCT LINK
+                ===================================== */
+
+                let link =
+                    linkElement.getAttribute("href");
+
+
+                if(link){
+
+                    link =
+                        new URL(
+                            link,
+                            window.location.href
+                        ).href;
+
+                }
+
+
+                allProducts.push({
+
+                    name:name,
+
+                    price:price,
+
+                    image:image,
+
+                    link:link
+
+                });
+
+            });
+
+
+        }
+
+        catch(error){
+
+            console.error(
+                "Could not load:",
+                page,
+                error
             );
 
-        });
-
-
-    /* =============================================
-       SHOW PRODUCTS
-    ============================================= */
-
-    if(results.length > 0){
-
-        results.forEach(product => {
-
-            const card =
-                document.createElement("div");
-
-            card.className =
-                "product-card";
-
-
-            card.innerHTML = `
-
-                <img
-                    src="${product.image}"
-                    class="product-image"
-                    alt="${product.name}"
-                >
-
-                <div class="product-info">
-
-                    <div class="product-name">
-                        ${product.name}
-                    </div>
-
-                    <div class="product-brand">
-                        ${product.brand}
-                    </div>
-
-                    <div class="product-price">
-                        ${product.price}
-                    </div>
-
-                    <a
-                        href="${product.link}"
-                        class="view-product"
-                    >
-                        View Product
-                    </a>
-
-                </div>
-
-            `;
-
-
-            productsGrid.appendChild(card);
-
-        });
+        }
 
     }
 
 
-    /* =============================================
-       NO RESULTS
-    ============================================= */
+    /* =================================================
+       SEARCH
+    ================================================= */
 
-    else{
+    const results =
+        allProducts.filter(product => {
+
+            return product.name
+                .toLowerCase()
+                .includes(searchText);
+
+        });
+
+
+    /* =================================================
+       DISPLAY RESULTS
+    ================================================= */
+
+    productsGrid.innerHTML = "";
+
+
+    if(results.length === 0){
 
         productsGrid.innerHTML = `
 
@@ -910,12 +987,95 @@ if(searchTerm){
 
         `;
 
+        return;
+
     }
+
+
+    results.forEach(product => {
+
+        const card =
+            document.createElement("div");
+
+
+        card.className =
+            "product-card";
+
+
+        card.innerHTML = `
+
+            ${
+                product.image
+                ?
+                `
+                <img
+                    src="${product.image}"
+                    class="product-image"
+                    alt="${product.name}"
+                >
+                `
+                :
+                `
+                <div
+                    class="product-image"
+                    style="
+                        display:flex;
+                        align-items:center;
+                        justify-content:center;
+                        color:#777;
+                    "
+                >
+                    50 Mirars
+                </div>
+                `
+            }
+
+
+            <div class="product-info">
+
+                <div class="product-name">
+
+                    ${product.name}
+
+                </div>
+
+
+                <div class="product-price">
+
+                    ${product.price}
+
+                </div>
+
+
+                <a
+                    href="${product.link}"
+                    class="view-product"
+                >
+
+                    View Product
+
+                </a>
+
+            </div>
+
+        `;
+
+
+        productsGrid.appendChild(card);
+
+    });
 
 }
 
-</script>
 
+/* =====================================================
+   START SEARCH
+===================================================== */
+
+searchAllProducts();
+
+</script>
+    
 </body>
 
 </html>
