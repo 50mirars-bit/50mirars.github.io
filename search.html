@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description" content="Search luxury watches and sunglasses at 50 Mirars.">
+
+<title>Search | 50 Mirars</title>
+
+<style>
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:Arial, Helvetica, sans-serif;
+    background:#fff;
+    color:#111;
+
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+img{
+    display:block;
+    max-width:100%;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.search-header{
+
+    background:#fff;
+    border-bottom:1px solid #eee;
+
+    padding:25px 40px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:30px;
+    flex-wrap:wrap;
+
+}
+
+.brand{
+
+    display:flex;
+    align-items:center;
+    gap:18px;
+
+}
+
+.brand img{
+
+    height:60px;
+
+}
+
+.brand-text h1{
+
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:34px;
+    letter-spacing:5px;
+
+}
+
+.brand-text span{
+
+    color:#b38a38;
+    font-size:10px;
+    letter-spacing:3px;
+    font-weight:bold;
+
+}
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
+.back-btn{
+
+    padding:12px 24px;
+
+    border:1px solid #111;
+    border-radius:30px;
+
+    transition:.3s;
+
+}
+
+.back-btn:hover{
+
+    background:#111;
+    color:#fff;
+
+}
+
+/* =========================================================
+   PAGE TITLE
+========================================================= */
+
+.page-title{
+
+    text-align:center;
+    padding:45px 20px 20px;
+
+}
+
+.page-title h2{
+
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:42px;
+    margin-bottom:10px;
+
+}
+
+.page-title p{
+
+    color:#666;
+    font-size:17px;
+
+}
+
+/* =========================================================
+   RESULTS GRID
+========================================================= */
+
+.results-container{
+
+    max-width:1400px;
+    margin:auto;
+
+    padding:30px 40px 80px;
+
+}
+
+.results-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:28px;
+
+}
+
+/* =========================================================
+   PRODUCT CARD
+========================================================= */
+
+.product-card{
+
+    background:#fff;
+
+    border:1px solid #eee;
+    border-radius:16px;
+
+    overflow:hidden;
+
+    transition:.35s;
+
+}
+
+.product-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 18px 35px rgba(0,0,0,.12);
+
+}
+
+.product-card img{
+
+    width:100%;
+    height:280px;
+    object-fit:cover;
+
+}
+
+.product-info{
+
+    padding:20px;
+
+}
+
+.category{
+
+    display:inline-block;
+
+    background:#faf5e6;
+    color:#b38a38;
+
+    padding:6px 12px;
+
+    border-radius:20px;
+
+    font-size:12px;
+    font-weight:bold;
+
+    margin-bottom:12px;
+
+}
+
+.product-info h3{
+
+    font-size:19px;
+    margin-bottom:12px;
+    line-height:1.35;
+
+}
+
+.price{
+
+    font-size:22px;
+    font-weight:bold;
+    color:#111;
+
+    margin-bottom:18px;
+
+}
+
+.view-btn{
+
+    display:block;
+    text-align:center;
+
+    background:#111;
+    color:#fff;
+
+    padding:13px;
+
+    border-radius:8px;
+
+    transition:.3s;
+
+}
+
+.view-btn:hover{
+
+    background:#b38a38;
+
+}
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.no-results{
+
+    text-align:center;
+    padding:80px 20px;
+
+}
+
+.no-results h3{
+
+    font-size:34px;
+    margin-bottom:12px;
+
+}
+
+.no-results p{
+
+    color:#666;
+    font-size:17px;
+
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1200px){
+
+.results-grid{
+
+grid-template-columns:repeat(3,1fr);
+
+}
+
+}
+
+@media(max-width:850px){
+
+.results-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+.search-header{
+
+padding:20px;
+
+}
+
+}
+
+@media(max-width:550px){
+
+.results-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.page-title h2{
+
+font-size:30px;
+
+}
+
+.brand-text h1{
+
+font-size:24px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header class="search-header">
+
+    <div class="brand">
+
+        <img src="logo.jpeg" alt="50 Mirars Logo">
+
+        <div class="brand-text">
+
+            <h1>50 MIRARS</h1>
+
+            <span>WATCHES • SUNGLASSES</span>
+
+        </div>
+
+    </div>
+
+    <a href="index.html" class="back-btn">← Back to Home</a>
+
+</header>
+
+<!-- =========================================================
+     TITLE
+========================================================= -->
+
+<section class="page-title">
+
+    <h2 id="searchTitle">Search Results</h2>
+
+    <p>Discover luxury watches and premium sunglasses.</p>
+
+</section>
+
+<!-- =========================================================
+     RESULTS
+========================================================= -->
+
+<section class="results-container">
+
+    <div class="results-grid" id="resultsGrid"></div>
+
+</section>
+
+<script>
+
+/* =========================================================
+   TEMPORARY PRODUCTS
+   (We'll move these into products.js later.)
+========================================================= */
+
+const products=[
+
+{
+name:"Cartier C Decor Sunglasses",
+brand:"Cartier",
+category:"Sunglasses",
+price:"₹2,500",
+image:"Cartier C Decor Sunglasses.jpeg",
+link:"product-detailssunglasses.html?id=1"
+},
+
+{
+name:"Cartier CT06010 Sunglasses",
+brand:"Cartier",
+category:"Sunglasses",
+price:"₹2,500",
+image:"Cartier CT06010.jpeg",
+link:"product-detailssunglasses.html?id=2"
+},
+
+{
+name:"Tommy Hilfiger Clark Watch",
+brand:"Tommy Hilfiger",
+category:"Watch",
+price:"₹3,500",
+image:"Tommy Hilfiger Clark.jpeg",
+link:"product-detailswatches.html?id=1"
+},
+
+{
+name:"Tissot T-Race Chronograph Watch",
+brand:"Tissot",
+category:"Watch",
+price:"₹3,500",
+image:"Tissot T-Race Chronograph Watch.jpeg",
+link:"product-detailswatches.html?id=3"
+},
+
+{
+name:"Rolex Automatic Couple Watch",
+brand:"Rolex",
+category:"Couple Watch",
+price:"₹5,000",
+image:"Rolex Automatic Couple Watch.jpeg",
+link:"product-detailscouple-watches.html?id=1"
+}
+
+];
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+const params=new URLSearchParams(window.location.search);
+
+const query=params.get("q")||"";
+
+document.getElementById("searchTitle").textContent=`Search results for "${query}"`;
+
+const grid=document.getElementById("resultsGrid");
+
+const results=products.filter(product=>{
+
+const text=(product.name+" "+product.brand+" "+product.category).toLowerCase();
+
+return text.includes(query.toLowerCase());
+
+});
+
+if(results.length===0){
+
+grid.innerHTML=`
+
+<div class="no-results" style="grid-column:1/-1;">
+
+<h3>No Products Found</h3>
+
+<p>Try searching for Rolex, Cartier, Tommy Hilfiger or Tissot.</p>
+
+</div>
+
+`;
+
+}else{
+
+results.forEach(product=>{
+
+grid.innerHTML+=`
+
+<div class="product-card">
+
+<img src="${product.image}" alt="${product.name}">
+
+<div class="product-info">
+
+<span class="category">${product.category}</span>
+
+<h3>${product.name}</h3>
+
+<div class="price">${product.price}</div>
+
+<a href="${product.link}" class="view-btn">View Product</a>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+}
+
+</script>
+
+</body>
+</html>
