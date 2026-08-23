@@ -405,11 +405,12 @@ document.getElementById("searchTitle").textContent=`Search results for "${query}
 
 const grid=document.getElementById("resultsGrid");
 
-const results=products.filter(product=>{
+const results = products.filter(product => {
 
-const text=(product.name+" "+product.brand+" "+product.category).toLowerCase();
+    const searchableText =
+        (product.name + " " + product.brand + " " + product.category).toLowerCase();
 
-return text.includes(query.toLowerCase());
+    return searchableText.includes(query.toLowerCase());
 
 });
 
@@ -445,7 +446,7 @@ grid.innerHTML+=`
 
 <div class="price">${product.price}</div>
 
-<a href="${product.link}" class="view-btn">View Product</a>
+<a href="${product.page}" class="view-btn">View Product</a>
 
 </div>
 
@@ -456,7 +457,7 @@ grid.innerHTML+=`
 });
 
 }
-
+      
 </script>
 
 </body>
