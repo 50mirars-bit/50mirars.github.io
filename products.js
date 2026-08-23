@@ -52,7 +52,7 @@ const products = [
         id:101,
         name:"Tommy Hilfiger Clark Watch",
         brand:"Tommy Hilfiger",
-        category:"Watch",
+        category:"Watches",
         price:"₹3,500",
         image:"Tommy Hilfiger Clark.jpeg",
         link:"product-detailswatches.html?id=1"
@@ -62,7 +62,7 @@ const products = [
         id:102,
         name:"Tommy Hilfiger Dual Tone Watch TH1781644",
         brand:"Tommy Hilfiger",
-        category:"Watch",
+        category:"Watches",
         price:"₹3,500",
         image:"Tommy Hilfiger Dual Tone Watch TH1781644.jpeg",
         link:"product-detailswatches.html?id=2"
@@ -72,7 +72,7 @@ const products = [
         id:103,
         name:"Tissot T-Race Chronograph Watch",
         brand:"Tissot",
-        category:"Watch",
+        category:"Watches",
         price:"₹3,500",
         image:"Tissot T-Race Chronograph Watch.jpeg",
         link:"product-detailswatches.html?id=3"
@@ -82,7 +82,7 @@ const products = [
         id:104,
         name:"Armani Exchange Automatic Skeleton Watch",
         brand:"Armani Exchange",
-        category:"Watch",
+        category:"Watches",
         price:"₹4,000",
         image:"Armani Exchange Automatic Skeleton Watch.jpeg",
         link:"product-detailswatches.html?id=4"
