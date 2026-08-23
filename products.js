@@ -10,7 +10,7 @@ const products = [
         brand:"Cartier",
         category:"Sunglasses",
         price:"₹2,500",
-        image:"Cartier C Decor Sunglasses.jpeg",
+        video:"Cartier C Decor.mp4",
         link:"product-detailssunglasses.html?id=1"
     },
 
@@ -20,7 +20,7 @@ const products = [
         brand:"Cartier",
         category:"Sunglasses",
         price:"₹2,500",
-        image:"Cartier CT06010.jpeg",
+        video:"Cartier CT06010.mp4",
         link:"product-detailssunglasses.html?id=2"
     },
 
