@@ -162,11 +162,25 @@ textarea {
     color: #a7833c;
 }
 
-.header-right {
-    display: flex;
-    justify-content: flex-end;
+.header-right{
+
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end;
+    justify-content:center;
+    gap:10px;
+
 }
 
+.header-icons{
+
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+}
+
+    
 /* =====================================================
      Cart Button
 ===================================================== */
@@ -2670,50 +2684,44 @@ textarea {
     </div>
 
 
-    <div class="search-container">
-
-    <input
-        type="text"
-        id="searchInput"
-        placeholder="Search watches & sunglasses..."
-    >
-
-    <div id="searchResults"></div>
-
-</div>
-
-
    <div class="header-right">
 
-    <!-- CART BUTTON -->
-    <a
-        href="cart.html"
-        class="header-cart"
-        aria-label="Shopping Cart"
-    >
+    <!-- Top Row -->
+    <div class="header-icons">
 
-        <span class="cart-icon">
-            🛒
-        </span>
+        <a href="profile.html"
+           class="header-profile"
+           aria-label="My Profile">
 
-    </a>
+            <span class="profile-icon">👤</span>
 
+        </a>
 
-    <!-- PROFILE BUTTON -->
-    <a
-        href="profile.html"
-        class="header-profile"
-        aria-label="My Profile"
-    >
+        <a href="cart.html"
+           class="header-cart"
+           aria-label="Shopping Cart">
 
-        <span class="profile-icon">
-            👤
-        </span>
+            <span class="cart-icon">🛒</span>
 
-    </a>
+        </a>
+
+    </div>
+
+    <!-- Bottom Row -->
+    <div class="search-container">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search watches & sunglasses..."
+            autocomplete="off">
+
+        <div id="searchResults"></div>
+
+    </div>
 
 </div>
-
+    
 </header>
 
 
