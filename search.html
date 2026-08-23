@@ -237,11 +237,6 @@ header h1{
 <script>
 
 /* =====================================================
-   SEARCH JAVASCRIPT WILL COME HERE
-===================================================== */
-
-
-/* =====================================================
    GET SEARCH TERM
 ===================================================== */
 
@@ -255,20 +250,147 @@ const searchTerm =
 
 
 /* =====================================================
-   SHOW SEARCH TERM
+   ELEMENTS
+===================================================== */
+
+const productsGrid =
+    document.getElementById("productsGrid");
+
+const searchTitle =
+    document.getElementById("searchTitle");
+
+const searchDescription =
+    document.getElementById("searchDescription");
+
+
+/* =====================================================
+   SEARCH PRODUCTS
 ===================================================== */
 
 if(searchTerm){
 
-    document.getElementById(
-        "searchTitle"
-    ).textContent =
+    const searchText =
+        searchTerm
+        .toLowerCase()
+        .trim();
+
+
+    searchTitle.textContent =
         `Search Results for "${searchTerm}"`;
+
+
+    searchDescription.textContent =
+        "Products matching your search";
+
+
+    /* =============================================
+       FIND MATCHING PRODUCTS
+    ============================================= */
+
+    const results =
+        searchProducts.filter(product => {
+
+            return (
+
+                product.name
+                    .toLowerCase()
+                    .includes(searchText)
+
+                ||
+
+                product.brand
+                    .toLowerCase()
+                    .includes(searchText)
+
+                ||
+
+                product.category
+                    .toLowerCase()
+                    .includes(searchText)
+
+            );
+
+        });
+
+
+    /* =============================================
+       SHOW PRODUCTS
+    ============================================= */
+
+    if(results.length > 0){
+
+        results.forEach(product => {
+
+            const card =
+                document.createElement("div");
+
+            card.className =
+                "product-card";
+
+
+            card.innerHTML = `
+
+                <img
+                    src="${product.image}"
+                    class="product-image"
+                    alt="${product.name}"
+                >
+
+                <div class="product-info">
+
+                    <div class="product-name">
+                        ${product.name}
+                    </div>
+
+                    <div class="product-brand">
+                        ${product.brand}
+                    </div>
+
+                    <div class="product-price">
+                        ${product.price}
+                    </div>
+
+                    <a
+                        href="${product.link}"
+                        class="view-product"
+                    >
+                        View Product
+                    </a>
+
+                </div>
+
+            `;
+
+
+            productsGrid.appendChild(card);
+
+        });
+
+    }
+
+
+    /* =============================================
+       NO RESULTS
+    ============================================= */
+
+    else{
+
+        productsGrid.innerHTML = `
+
+            <div class="no-results">
+
+                No products found for
+                "<strong>${searchTerm}</strong>"
+
+            </div>
+
+        `;
+
+    }
 
 }
 
 </script>
-
 
 </body>
 
