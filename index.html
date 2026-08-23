@@ -271,6 +271,48 @@ textarea {
     }
 }
 
+/* =====================================================
+     Search Button
+===================================================== */
+
+
+.search-container{
+    position:relative;
+    width:350px;
+    margin:auto;
+}
+
+#searchInput{
+    width:100%;
+    padding:12px 18px;
+    border-radius:30px;
+    border:1px solid gold;
+    outline:none;
+    font-size:16px;
+}
+
+#searchResults{
+    position:absolute;
+    top:50px;
+    width:100%;
+    background:white;
+    border-radius:10px;
+    display:none;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,.2);
+    z-index:999;
+}
+
+.result{
+    padding:12px;
+    cursor:pointer;
+    border-bottom:1px solid #eee;
+}
+
+.result:hover{
+    background:#f5f5f5;
+}
+
 
 /* =====================================================
    HERO SLIDER
@@ -2628,6 +2670,19 @@ textarea {
     </div>
 
 
+    <div class="search-container">
+
+    <input
+        type="text"
+        id="searchInput"
+        placeholder="Search watches & sunglasses..."
+    >
+
+    <div id="searchResults"></div>
+
+</div>
+
+
    <div class="header-right">
 
     <!-- CART BUTTON -->
@@ -4627,6 +4682,89 @@ document.addEventListener(
 
     }
 );
+
+</script>
+
+
+/* Search Bar */
+
+    
+<script>
+
+const products=[
+
+{
+name:"Cartier C Decor Sunglasses",
+link:"product-detailssunglasses.html?id=1"
+},
+
+{
+name:"Cartier CT06010 Sunglasses",
+link:"product-detailssunglasses.html?id=2"
+},
+
+{
+name:"Tommy Hilfiger Clark Watch",
+link:"product-detailswatches.html?id=1"
+},
+
+{
+name:"Tommy Hilfiger Dual Tone Watch TH1781644",
+link:"product-detailswatches.html?id=2"
+},
+
+{
+name:"Tissot T-Race Chronograph Watch",
+link:"product-detailswatches.html?id=3"
+},
+
+{
+name:"Armani Exchange Automatic Skeleton Watch",
+link:"product-detailswatches.html?id=4"
+},
+
+{
+name:"Rolex Automatic Couple Watch",
+link:"product-detailscouple-watches.html?id=1"
+}
+
+];
+
+const input=document.getElementById("searchInput");
+const results=document.getElementById("searchResults");
+
+input.addEventListener("input",()=>{
+
+const value=input.value.toLowerCase();
+
+results.innerHTML="";
+
+if(value===""){
+
+results.style.display="none";
+return;
+
+}
+
+const matches=products.filter(product=>
+
+product.name.toLowerCase().includes(value)
+
+);
+
+matches.forEach(product=>{
+
+results.innerHTML+=`
+<div class="result" onclick="window.location='${product.link}'">
+${product.name}
+</div>
+`;
+
+});
+
+results.style.display="block";
+
+});
 
 </script>
 
