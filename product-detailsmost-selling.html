@@ -633,6 +633,111 @@ body{
 
 
 /* =========================================================
+   PRODUCT IMAGE SLIDER
+========================================================= */
+
+.product-slider{
+    width:100%;
+    height:100%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    position:relative;
+}
+
+.product-slider-image{
+    width:100%;
+    height:100%;
+
+    object-fit:contain;
+
+    display:block;
+}
+
+.slider-arrow{
+    position:absolute;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:45px;
+    height:45px;
+
+    border:none;
+    border-radius:50%;
+
+    background:rgba(17,17,17,0.85);
+
+    color:#c9a24d;
+
+    font-size:28px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    cursor:pointer;
+
+    z-index:5;
+
+    transition:0.3s ease;
+}
+
+.slider-arrow:hover{
+    background:#c9a24d;
+    color:#111;
+}
+
+.slider-prev{
+    left:15px;
+}
+
+.slider-next{
+    right:15px;
+}
+
+.slider-dots{
+    position:absolute;
+
+    bottom:15px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    display:flex;
+
+    gap:8px;
+
+    z-index:5;
+}
+
+.slider-dot{
+    width:9px;
+    height:9px;
+
+    border-radius:50%;
+
+    border:1px solid #111;
+
+    background:#fff;
+
+    cursor:pointer;
+
+    padding:0;
+}
+
+.slider-dot.active{
+    background:#c9a24d;
+
+    border-color:#c9a24d;
+}
+    
+    
+/* =========================================================
    DELIVERY
 ========================================================= */
 
@@ -1749,11 +1854,13 @@ const mostSelling = [
         name:"Tissot PRX Band",
         price:4500,
         media:"image",
-        file:"Tissot PRX Band 1.jpeg",
-             "Tissot PRX Band 2.jpeg",
-             "Tissot PRX Band 3.jpeg",
-             "Tissot PRX Band 4.jpeg"
-        brand:"Tissot"
+files:[
+    "Tissot PRX Band 1.jpeg",
+    "Tissot PRX Band 2.jpeg",
+    "Tissot PRX Band 3.jpeg",
+    "Tissot PRX Band 4.jpeg"
+] 
+    brand:"Tissot"
     },
 
     {
@@ -1761,9 +1868,11 @@ const mostSelling = [
         name:"Versace Dominus Skeleton Watch",
         price:4000,
         media:"image",
-        file:"Versace Dominus Skeleton Watch 3.jpeg",
-             "Versace Dominus Skeleton Watch4.jpeg"
-        brand:"Versace"
+files:[
+    "Versace Dominus Skeleton Watch 3.jpeg",
+    "Versace Dominus Skeleton Watch4.jpeg"
+]
+            brand:"Versace"
     },
 
     {
@@ -1834,13 +1943,15 @@ const mostSelling = [
         name:"Casio Edifice EFR-539SG-1AVUDF",
         price:3500,
         media:"image",
-        file:"Casio Edifice EFR-539SG-1AVUDF 1.jpeg",
-             "Casio Edifice EFR-539SG-1AVUDF 2.jpeg",
-             "Casio Edifice EFR-539SG-1AVUDF 3.jpeg",
-             "Casio Edifice EFR-539SG-1AVUDF 4.jpeg",
-             "Casio Edifice EFR-539SG-1AVUDF 5.jpeg",
-             "Casio Edifice EFR-539SG-1AVUDF 6.jpeg"
-        brand:"Casio Edifice"
+files:[
+    "Casio Edifice EFR-539SG-1AVUDF 1.jpeg",
+    "Casio Edifice EFR-539SG-1AVUDF 2.jpeg",
+    "Casio Edifice EFR-539SG-1AVUDF 3.jpeg",
+    "Casio Edifice EFR-539SG-1AVUDF 4.jpeg",
+    "Casio Edifice EFR-539SG-1AVUDF 5.jpeg",
+    "Casio Edifice EFR-539SG-1AVUDF 6.jpeg"
+]
+            brand:"Casio Edifice"
     },
 
     {
@@ -1911,16 +2022,18 @@ const mostSelling = [
         name:"Tissot PRX",
         price:4500,
         media:"image",
-        file:"Tissot PRX 1.jpeg",
-             "Tissot PRX 2.jpeg",
-             "Tissot PRX 3.jpeg",
-             "Tissot PRX 4.jpeg",
-             "Tissot PRX 5.jpeg",
-             "Tissot PRX 6.jpeg",
-             "Tissot PRX 7.jpeg",
-             "Tissot PRX 8.jpeg",
-             "Tissot PRX 9.jpeg"
-        brand:"Tissot"
+files:[
+    "Tissot PRX 1.jpeg",
+    "Tissot PRX 2.jpeg",
+    "Tissot PRX 3.jpeg",
+    "Tissot PRX 4.jpeg",
+    "Tissot PRX 5.jpeg",
+    "Tissot PRX 6.jpeg",
+    "Tissot PRX 7.jpeg",
+    "Tissot PRX 8.jpeg",
+    "Tissot PRX 9.jpeg"
+]
+            brand:"Tissot"
     },
 
     {
@@ -2144,40 +2257,46 @@ function loadProduct(){
         );
 
 
-    /* =====================================================
-       MEDIA
-    ===================================================== */
+   /* =====================================================
+   PRODUCT MEDIA
+===================================================== */
 
-    if(product.media === "video"){
+if(product.media === "video"){
 
-        productMedia.innerHTML = `
+    productMedia.innerHTML = `
 
-            <video
-                controls
-                playsinline
-                preload="metadata"
+        <video
+            controls
+            playsinline
+            preload="metadata"
+        >
+
+            <source
+                src="${encodeURI(product.file)}"
+                type="video/mp4"
             >
 
-                <source
-                    src="${encodeURI(product.file)}"
-                    type="video/mp4"
-                >
+            Your browser does not support
+            video playback.
 
-                Your browser does not support
-                video playback.
+        </video>
 
-            </video>
+    `;
 
-        `;
+}
 
-    }
+else{
 
-    else{
+    const images =
+        product.files ||
+        [product.file];
+
+    if(images.length === 1){
 
         productMedia.innerHTML = `
 
             <img
-                src="${encodeURI(product.file)}"
+                src="${encodeURI(images[0])}"
                 alt="${escapeHTML(product.name)}"
             >
 
@@ -2185,6 +2304,231 @@ function loadProduct(){
 
     }
 
+    else{
+
+        let currentSlide = 0;
+
+        productMedia.innerHTML = `
+
+            <div class="product-slider">
+
+                <img
+                    id="sliderImage"
+                    class="product-slider-image"
+                    src="${encodeURI(images[0])}"
+                    alt="${escapeHTML(product.name)}"
+                >
+
+
+                <button
+                    type="button"
+                    class="slider-arrow slider-prev"
+                    id="sliderPrev"
+                    aria-label="Previous image"
+                >
+                    ‹
+                </button>
+
+
+                <button
+                    type="button"
+                    class="slider-arrow slider-next"
+                    id="sliderNext"
+                    aria-label="Next image"
+                >
+                    ›
+                </button>
+
+
+                <div
+                    class="slider-dots"
+                    id="sliderDots"
+                >
+
+                    ${images.map(
+                        (_, index) => `
+
+                            <button
+                                type="button"
+                                class="slider-dot ${
+                                    index === 0
+                                        ? "active"
+                                        : ""
+                                }"
+                                data-slide="${index}"
+                                aria-label="Go to image ${
+                                    index + 1
+                                }"
+                            ></button>
+
+                        `
+                    ).join("")}
+
+                </div>
+
+            </div>
+
+        `;
+
+
+        const sliderImage =
+            document.getElementById(
+                "sliderImage"
+            );
+
+        const sliderDots =
+            document.querySelectorAll(
+                ".slider-dot"
+            );
+
+
+        function showSlide(index){
+
+            currentSlide =
+                (
+                    index +
+                    images.length
+                ) %
+                images.length;
+
+
+            sliderImage.src =
+                encodeURI(
+                    images[currentSlide]
+                );
+
+
+            sliderDots.forEach(
+                function(dot, dotIndex){
+
+                    dot.classList.toggle(
+                        "active",
+                        dotIndex ===
+                        currentSlide
+                    );
+
+                }
+            );
+
+        }
+
+
+        document
+            .getElementById("sliderPrev")
+            .addEventListener(
+                "click",
+                function(){
+
+                    showSlide(
+                        currentSlide - 1
+                    );
+
+                }
+            );
+
+
+        document
+            .getElementById("sliderNext")
+            .addEventListener(
+                "click",
+                function(){
+
+                    showSlide(
+                        currentSlide + 1
+                    );
+
+                }
+            );
+
+
+        sliderDots.forEach(
+            function(dot){
+
+                dot.addEventListener(
+                    "click",
+                    function(){
+
+                        showSlide(
+                            Number(
+                                dot.dataset.slide
+                            )
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+
+        /* =========================================
+           SWIPE SUPPORT
+        ========================================= */
+
+        let touchStartX = 0;
+
+        let touchEndX = 0;
+
+
+        sliderImage.addEventListener(
+            "touchstart",
+            function(event){
+
+                touchStartX =
+                    event.changedTouches[0].screenX;
+
+            },
+            {
+                passive:true
+            }
+        );
+
+
+        sliderImage.addEventListener(
+            "touchend",
+            function(event){
+
+                touchEndX =
+                    event.changedTouches[0].screenX;
+
+
+                const difference =
+                    touchStartX -
+                    touchEndX;
+
+
+                if(
+                    Math.abs(difference) >
+                    50
+                ){
+
+                    if(difference > 0){
+
+                        showSlide(
+                            currentSlide + 1
+                        );
+
+                    }
+
+                    else{
+
+                        showSlide(
+                            currentSlide - 1
+                        );
+
+                    }
+
+                }
+
+            },
+            {
+                passive:true
+            }
+        );
+
+    }
+
+}
 
     /* =====================================================
        DESCRIPTION
