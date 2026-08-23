@@ -195,6 +195,15 @@ img{
 
 }
 
+.product-card video{
+
+    width:100%;
+    height:280px;
+    object-fit:cover;
+    display:block;
+
+}
+
 .product-info{
 
     padding:20px;
@@ -436,7 +445,11 @@ grid.innerHTML+=`
 
 <div class="product-card">
 
-<img src="${product.image}" alt="${product.name}">
+${
+product.image
+? `<img src="${product.image}" alt="${product.name}">`
+: `<video src="${product.video}" autoplay muted loop playsinline></video>`
+}
 
 <div class="product-info">
 
@@ -446,7 +459,7 @@ grid.innerHTML+=`
 
 <div class="price">${product.price}</div>
 
-<a href="${product.page}" class="view-btn">View Product</a>
+<a href="${product.link}" class="view-btn">View Product</a>
 
 </div>
 
@@ -455,9 +468,7 @@ grid.innerHTML+=`
 `;
 
 });
-
-}
-      
+   
 </script>
 
 </body>
