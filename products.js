@@ -886,7 +886,7 @@ const products = [
     price:"₹4,000",
     image:"Tissot PRX 1.jpeg",
     link:"product-details.html?id=70"
-}
+},
     
     /* =====================================================
        COUPLE WATCHES
