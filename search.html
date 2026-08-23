@@ -6,8 +6,11 @@
 <meta charset="UTF-8">
 
 <meta name="viewport" content="width=1250">
-   
-<meta name="description" content="Search luxury watches and sunglasses at 50 Mirars.">
+
+<meta
+    name="description"
+    content="Search luxury watches and sunglasses at 50 Mirars."
+>
 
 <title>Search | 50 Mirars</title>
 
@@ -24,11 +27,9 @@
 }
 
 body{
-
     font-family:Arial, Helvetica, sans-serif;
     background:#fff;
     color:#111;
-
 }
 
 a{
@@ -55,9 +56,9 @@ img{
     display:flex;
     align-items:center;
     justify-content:space-between;
+
     gap:30px;
     flex-wrap:wrap;
-
 }
 
 .brand{
@@ -65,30 +66,30 @@ img{
     display:flex;
     align-items:center;
     gap:18px;
-
 }
 
 .brand img{
-
     height:60px;
-
 }
 
 .brand-text h1{
 
     font-family:Georgia,"Times New Roman",serif;
-    font-size:34px;
-    letter-spacing:5px;
 
+    font-size:34px;
+
+    letter-spacing:5px;
 }
 
 .brand-text span{
 
     color:#b38a38;
-    font-size:10px;
-    letter-spacing:3px;
-    font-weight:bold;
 
+    font-size:10px;
+
+    letter-spacing:3px;
+
+    font-weight:bold;
 }
 
 /* =========================================================
@@ -100,17 +101,17 @@ img{
     padding:12px 24px;
 
     border:1px solid #111;
+
     border-radius:30px;
 
     transition:.3s;
-
 }
 
 .back-btn:hover{
 
     background:#111;
-    color:#fff;
 
+    color:#fff;
 }
 
 /* =========================================================
@@ -120,36 +121,37 @@ img{
 .page-title{
 
     text-align:center;
-    padding:45px 20px 20px;
 
+    padding:45px 20px 20px;
 }
 
 .page-title h2{
 
     font-family:Georgia,"Times New Roman",serif;
-    font-size:42px;
-    margin-bottom:10px;
 
+    font-size:42px;
+
+    margin-bottom:10px;
 }
 
 .page-title p{
 
     color:#666;
-    font-size:17px;
 
+    font-size:17px;
 }
 
 /* =========================================================
-   RESULTS GRID
+   RESULTS CONTAINER
 ========================================================= */
 
 .results-container{
 
     max-width:1400px;
+
     margin:auto;
 
     padding:30px 40px 80px;
-
 }
 
 .results-grid{
@@ -159,7 +161,6 @@ img{
     grid-template-columns:repeat(4,1fr);
 
     gap:28px;
-
 }
 
 /* =========================================================
@@ -171,12 +172,12 @@ img{
     background:#fff;
 
     border:1px solid #eee;
+
     border-radius:16px;
 
     overflow:hidden;
 
     transition:.35s;
-
 }
 
 .product-card:hover{
@@ -184,30 +185,31 @@ img{
     transform:translateY(-6px);
 
     box-shadow:0 18px 35px rgba(0,0,0,.12);
-
 }
 
 .product-card img{
 
     width:100%;
-    height:280px;
-    object-fit:cover;
 
+    height:280px;
+
+    object-fit:cover;
 }
 
 .product-card video{
 
     width:100%;
-    height:280px;
-    object-fit:cover;
-    display:block;
 
+    height:280px;
+
+    object-fit:cover;
+
+    display:block;
 }
 
 .product-info{
 
     padding:20px;
-
 }
 
 .category{
@@ -215,6 +217,7 @@ img{
     display:inline-block;
 
     background:#faf5e6;
+
     color:#b38a38;
 
     padding:6px 12px;
@@ -222,36 +225,40 @@ img{
     border-radius:20px;
 
     font-size:12px;
+
     font-weight:bold;
 
     margin-bottom:12px;
-
 }
 
 .product-info h3{
 
     font-size:19px;
-    margin-bottom:12px;
-    line-height:1.35;
 
+    margin-bottom:12px;
+
+    line-height:1.35;
 }
 
 .price{
 
     font-size:22px;
+
     font-weight:bold;
+
     color:#111;
 
     margin-bottom:18px;
-
 }
 
 .view-btn{
 
     display:block;
+
     text-align:center;
 
     background:#111;
+
     color:#fff;
 
     padding:13px;
@@ -259,13 +266,11 @@ img{
     border-radius:8px;
 
     transition:.3s;
-
 }
 
 .view-btn:hover{
 
     background:#b38a38;
-
 }
 
 /* =========================================================
@@ -275,22 +280,53 @@ img{
 .no-results{
 
     text-align:center;
+
     padding:80px 20px;
 
+    grid-column:1/-1;
 }
 
 .no-results h3{
 
     font-size:34px;
-    margin-bottom:12px;
 
+    margin-bottom:12px;
 }
 
 .no-results p{
 
     color:#666;
+
     font-size:17px;
 
+    line-height:1.6;
+}
+
+/* =========================================================
+   ERROR STATE
+========================================================= */
+
+.search-error{
+
+    text-align:center;
+
+    padding:80px 20px;
+
+    grid-column:1/-1;
+}
+
+.search-error h3{
+
+    font-size:30px;
+
+    margin-bottom:12px;
+}
+
+.search-error p{
+
+    color:#666;
+
+    line-height:1.7;
 }
 
 /* =========================================================
@@ -299,49 +335,37 @@ img{
 
 @media(max-width:1200px){
 
-.results-grid{
-
-grid-template-columns:repeat(3,1fr);
-
-}
+    .results-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
 
 }
 
 @media(max-width:850px){
 
-.results-grid{
+    .results-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
 
-grid-template-columns:repeat(2,1fr);
-
-}
-
-.search-header{
-
-padding:20px;
-
-}
+    .search-header{
+        padding:20px;
+    }
 
 }
 
 @media(max-width:550px){
 
-.results-grid{
+    .results-grid{
+        grid-template-columns:1fr;
+    }
 
-grid-template-columns:1fr;
+    .page-title h2{
+        font-size:30px;
+    }
 
-}
-
-.page-title h2{
-
-font-size:30px;
-
-}
-
-.brand-text h1{
-
-font-size:24px;
-
-}
+    .brand-text h1{
+        font-size:24px;
+    }
 
 }
 
@@ -359,7 +383,10 @@ font-size:24px;
 
     <div class="brand">
 
-        <img src="logo.jpeg" alt="50 Mirars Logo">
+        <img
+            src="logo.jpeg"
+            alt="50 Mirars Logo"
+        >
 
         <div class="brand-text">
 
@@ -371,9 +398,15 @@ font-size:24px;
 
     </div>
 
-    <a href="index.html" class="back-btn">← Back to Home</a>
+    <a
+        href="index.html"
+        class="back-btn"
+    >
+        ← Back to Home
+    </a>
 
 </header>
+
 
 <!-- =========================================================
      TITLE
@@ -381,11 +414,16 @@ font-size:24px;
 
 <section class="page-title">
 
-    <h2 id="searchTitle">Search Results</h2>
+    <h2 id="searchTitle">
+        Search Results
+    </h2>
 
-    <p>Discover luxury watches and premium sunglasses.</p>
+    <p>
+        Discover luxury watches and premium sunglasses.
+    </p>
 
 </section>
+
 
 <!-- =========================================================
      RESULTS
@@ -393,86 +431,322 @@ font-size:24px;
 
 <section class="results-container">
 
-    <div class="results-grid" id="resultsGrid"></div>
+    <div
+        class="results-grid"
+        id="resultsGrid"
+    ></div>
 
 </section>
 
 
+<!-- =========================================================
+     PRODUCT DATABASE
+========================================================= -->
+
 <script src="products.js"></script>
 
-   
-   <script>
+
+<!-- =========================================================
+     SEARCH ENGINE
+========================================================= -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function(){
+
+    const params = new URLSearchParams(
+        window.location.search
+    );
+
+    const query = (
+        params.get("q") || ""
+    ).trim();
+
+
+    const searchTitle =
+        document.getElementById("searchTitle");
+
+    const grid =
+        document.getElementById("resultsGrid");
+
+
+    /* =====================================================
+       CHECK PRODUCT DATABASE
+    ===================================================== */
+
+    if(
+        typeof products === "undefined" ||
+        !Array.isArray(products)
+    ){
+
+        searchTitle.textContent =
+            "Search";
+
+        grid.innerHTML = `
+
+            <div class="search-error">
+
+                <h3>Search is temporarily unavailable</h3>
+
+                <p>
+                    The product database could not be loaded.
+                    Please refresh the page and try again.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    /* =====================================================
+       EMPTY SEARCH
+    ===================================================== */
+
+    if(!query){
+
+        searchTitle.textContent =
+            "Search Products";
+
+        grid.innerHTML = `
+
+            <div class="no-results">
+
+                <h3>Search for a Product</h3>
+
+                <p>
+                    Search by product name, brand or category.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    /* =====================================================
+       PAGE TITLE
+    ===================================================== */
+
+    searchTitle.textContent =
+        `Search results for "${query}"`;
+
+
+    /* =====================================================
+       NORMALIZE SEARCH
+    ===================================================== */
+
+    const searchTerm = query
+        .toLowerCase()
+        .replace(/\s+/g, " ")
+        .trim();
+
+
+    /* =====================================================
+       SEARCH COMPLETE PRODUCT DATABASE
+    ===================================================== */
+
+    const results = products.filter(function(product){
+
+        const name =
+            String(product.name || "").toLowerCase();
+
+        const brand =
+            String(product.brand || "").toLowerCase();
+
+        const category =
+            String(product.category || "").toLowerCase();
+
+        const searchableText = [
+
+            name,
+            brand,
+            category
+
+        ].join(" ");
+
+
+        return searchableText.includes(searchTerm);
+
+    });
+
+
+    /* =====================================================
+       NO RESULTS
+    ===================================================== */
+
+    if(results.length === 0){
+
+        grid.innerHTML = `
+
+            <div class="no-results">
+
+                <h3>No Products Found</h3>
+
+                <p>
+                    We couldn't find any products matching
+                    "<strong>${escapeHTML(query)}</strong>".
+                </p>
+
+                <p style="margin-top:10px;">
+                    Try searching for a brand such as
+                    Rolex, Cartier, Tommy Hilfiger, Tissot,
+                    Seiko or Guess.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    /* =====================================================
+       DISPLAY RESULTS
+    ===================================================== */
+
+    grid.innerHTML = "";
+
+
+    results.forEach(function(product){
+
+        const card =
+            document.createElement("div");
+
+        card.className =
+            "product-card";
+
+
+        /* =================================================
+           MEDIA
+        ================================================= */
+
+        let mediaHTML = "";
+
+
+        if(product.image){
+
+            mediaHTML = `
+
+                <img
+                    src="${escapeAttribute(product.image)}"
+                    alt="${escapeAttribute(product.name)}"
+                    loading="lazy"
+                >
+
+            `;
+
+        }
+
+        else if(product.video){
+
+            mediaHTML = `
+
+                <video
+                    src="${escapeAttribute(product.video)}"
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                    preload="metadata"
+                ></video>
+
+            `;
+
+        }
+
+        else{
+
+            mediaHTML = `
+
+                <div
+                    style="
+                        height:280px;
+                        display:flex;
+                        align-items:center;
+                        justify-content:center;
+                        background:#f7f7f7;
+                        color:#777;
+                    "
+                >
+                    No Image Available
+                </div>
+
+            `;
+
+        }
+
+
+        /* =================================================
+           CARD
+        ================================================= */
+
+        card.innerHTML = `
+
+            ${mediaHTML}
+
+            <div class="product-info">
+
+                <span class="category">
+                    ${escapeHTML(product.category || "")}
+                </span>
+
+                <h3>
+                    ${escapeHTML(product.name || "")}
+                </h3>
+
+                <div class="price">
+                    ${escapeHTML(product.price || "")}
+                </div>
+
+                <a
+                    href="${escapeAttribute(product.link || "#")}"
+                    class="view-btn"
+                >
+                    View Product
+                </a>
+
+            </div>
+
+        `;
+
+
+        grid.appendChild(card);
+
+    });
+
+});
+
 
 /* =========================================================
-   SEARCH
+   SECURITY / HTML HELPERS
 ========================================================= */
 
-const params=new URLSearchParams(window.location.search);
+function escapeHTML(value){
 
-const query=params.get("q")||"";
+    return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
 
-document.getElementById("searchTitle").textContent=`Search results for "${query}"`;
-
-const grid=document.getElementById("resultsGrid");
-
-const results = products.filter(product => {
-
-    const searchableText =
-        (product.name + " " + product.brand + " " + product.category).toLowerCase();
-
-    return searchableText.includes(query.toLowerCase());
-
-});
-
-if(results.length===0){
-
-grid.innerHTML=`
-
-<div class="no-results" style="grid-column:1/-1;">
-
-<h3>No Products Found</h3>
-
-<p>Try searching for Rolex, Cartier, Tommy Hilfiger or Tissot.</p>
-
-</div>
-
-`;
-
-}else{
-
-results.forEach(product=>{
-
-grid.innerHTML+=`
-
-<div class="product-card">
-
-${
-product.image
-? `<img src="${product.image}" alt="${product.name}">`
-: `<video src="${product.video}" autoplay muted loop playsinline></video>`
 }
 
-<div class="product-info">
 
-<span class="category">${product.category}</span>
+function escapeAttribute(value){
 
-<h3>${product.name}</h3>
+    return escapeHTML(value);
 
-<div class="price">${product.price}</div>
-
-<a href="${product.link}" class="view-btn">View Product</a>
-
-</div>
-
-</div>
-
-`;
-
-});
-   
 }
-      
+
 </script>
 
 </body>
+
 </html>
