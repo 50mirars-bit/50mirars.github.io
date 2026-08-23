@@ -515,6 +515,7 @@ header h1{
 
 }
 
+
 @media(max-width:600px){
 
     .products-grid{
@@ -522,8 +523,13 @@ header h1{
             1fr;
     }
 
-}
+    .search-slider,
+    .search-product-video{
+        height:300px;
+    }
 
+}
+    
 </style>
 
 </head>
@@ -766,7 +772,8 @@ const productsGrid = document.getElementById("productsGrid");
 
 const searchTitle = document.getElementById("searchTitle");
 
-const searchDescription = document.getElementById("searchDescription");
+const searchDescription =
+    document.getElementById("searchDescription");
 
 
 /* =====================================================
@@ -787,7 +794,8 @@ async function searchAllProducts(){
     }
 
 
-    const searchText = searchTerm.toLowerCase().trim();
+    const searchText =
+        searchTerm.toLowerCase().trim();
 
 
     searchTitle.textContent =
@@ -798,13 +806,29 @@ async function searchAllProducts(){
 
 
     /* =================================================
-       SECTION PAGES
+       YOUR EXISTING PRODUCT PAGES
     ================================================= */
 
     const pages = [
 
         "sunglasses.html",
 
+        "most-selling.html",
+        
+        "couple-watches.html",
+
+        "limited-editions.html",
+        
+        "luxury-articles.html",  
+        
+        "rolex.html",
+
+        "tissot.html",
+
+        "omega.html",
+
+        "seiko.html",
+        
         "watches.html"
 
     ];
@@ -821,12 +845,17 @@ async function searchAllProducts(){
 
         try{
 
-            const response = await fetch(page);
+            const response =
+                await fetch(page);
 
-            const html = await response.text();
+
+            const html =
+                await response.text();
 
 
-            const parser = new DOMParser();
+            const parser =
+                new DOMParser();
+
 
             const documentPage =
                 parser.parseFromString(
@@ -843,13 +872,25 @@ async function searchAllProducts(){
 
             cards.forEach(card => {
 
+                /* =====================================
+                   PRODUCT NAME
+                ===================================== */
+
                 const nameElement =
                     card.querySelector("h3");
 
 
+                /* =====================================
+                   PRODUCT PRICE
+                ===================================== */
+
                 const priceElement =
                     card.querySelector(".price");
 
+
+                /* =====================================
+                   PRODUCT LINK
+                ===================================== */
 
                 const linkElement =
                     card.querySelector(
@@ -857,7 +898,10 @@ async function searchAllProducts(){
                     );
 
 
-                if(!nameElement || !linkElement){
+                if(
+                    !nameElement ||
+                    !linkElement
+                ){
 
                     return;
 
@@ -874,40 +918,6 @@ async function searchAllProducts(){
                     : "";
 
 
-                let image = "";
-
-
-                const imageElement =
-                    card.querySelector("img");
-
-
-                if(imageElement){
-
-                    image =
-                        imageElement.getAttribute("src");
-
-                }
-
-
-                /* =====================================
-                   FIX IMAGE PATH
-                ===================================== */
-
-                if(image){
-
-                    image =
-                        new URL(
-                            image,
-                            window.location.href
-                        ).href;
-
-                }
-
-
-                /* =====================================
-                   FIX PRODUCT LINK
-                ===================================== */
-
                 let link =
                     linkElement.getAttribute("href");
 
@@ -923,15 +933,190 @@ async function searchAllProducts(){
                 }
 
 
+                /* =====================================
+                   CHECK FOR SLIDER
+                ===================================== */
+
+                const slider =
+                    card.querySelector(".slider");
+
+
+                let sliderImages = [];
+
+
+                if(slider){
+
+                    const images =
+                        slider.querySelectorAll(
+                            "img"
+                        );
+
+
+                    images.forEach(img => {
+
+                        const src =
+                            img.getAttribute("src");
+
+
+                        if(src){
+
+                            sliderImages.push(
+
+                                new URL(
+                                    src,
+                                    new URL(
+                                        page,
+                                        window.location.href
+                                    ).href
+                                ).href
+
+                            );
+
+                        }
+
+                    });
+
+                }
+
+
+                /* =====================================
+                   CHECK FOR VIDEO
+                ===================================== */
+
+                const video =
+                    card.querySelector("video");
+
+
+                let videoSource = "";
+
+
+                if(video){
+
+                    const source =
+                        video.querySelector("source");
+
+
+                    if(source){
+
+                        const src =
+                            source.getAttribute("src");
+
+
+                        if(src){
+
+                            videoSource =
+                                new URL(
+                                    src,
+                                    new URL(
+                                        page,
+                                        window.location.href
+                                    ).href
+                                ).href;
+
+                        }
+
+                    }
+
+
+                    /*
+
+                       Some products may use:
+
+                       <video src="example.mp4">
+
+                       instead of:
+
+                       <video>
+                           <source src="example.mp4">
+                       </video>
+
+                    */
+
+                    if(
+                        !videoSource &&
+                        video.getAttribute("src")
+                    ){
+
+                        videoSource =
+                            new URL(
+                                video.getAttribute("src"),
+                                new URL(
+                                    page,
+                                    window.location.href
+                                ).href
+                            ).href;
+
+                    }
+
+                }
+
+
+                /* =====================================
+                   CHECK FOR NORMAL IMAGE
+                ===================================== */
+
+                let normalImage = "";
+
+
+                if(
+                    !slider &&
+                    !video
+                ){
+
+                    const imageElement =
+                        card.querySelector("img");
+
+
+                    if(imageElement){
+
+                        const src =
+                            imageElement.getAttribute(
+                                "src"
+                            );
+
+
+                        if(src){
+
+                            normalImage =
+                                new URL(
+                                    src,
+                                    new URL(
+                                        page,
+                                        window.location.href
+                                    ).href
+                                ).href;
+
+                        }
+
+                    }
+
+                }
+
+
+                /* =====================================
+                   SAVE PRODUCT
+                ===================================== */
+
                 allProducts.push({
 
                     name:name,
 
                     price:price,
 
-                    image:image,
+                    link:link,
 
-                    link:link
+                    type:
+                        slider
+                        ? "slider"
+                        : video
+                        ? "video"
+                        : "image",
+
+                    images:sliderImages,
+
+                    video:videoSource,
+
+                    image:normalImage
 
                 });
 
@@ -954,7 +1139,7 @@ async function searchAllProducts(){
 
 
     /* =================================================
-       SEARCH
+       SEARCH PRODUCTS
     ================================================= */
 
     const results =
@@ -968,11 +1153,15 @@ async function searchAllProducts(){
 
 
     /* =================================================
-       DISPLAY RESULTS
+       CLEAR OLD RESULTS
     ================================================= */
 
     productsGrid.innerHTML = "";
 
+
+    /* =================================================
+       NO RESULTS
+    ================================================= */
 
     if(results.length === 0){
 
@@ -992,6 +1181,10 @@ async function searchAllProducts(){
     }
 
 
+    /* =================================================
+       DISPLAY RESULTS
+    ================================================= */
+
     results.forEach(product => {
 
         const card =
@@ -1002,20 +1195,149 @@ async function searchAllProducts(){
             "product-card";
 
 
-        card.innerHTML = `
+        /* =============================================
+           PRODUCT MEDIA
+        ============================================= */
 
-            ${
-                product.image
-                ?
-                `
+        let mediaHTML = "";
+
+
+        /* =============================================
+           SLIDER PRODUCT
+        ============================================= */
+
+        if(
+            product.type === "slider" &&
+            product.images.length > 0
+        ){
+
+            const sliderId =
+                "slider-" +
+                Math.random()
+                .toString(36)
+                .substring(2,10);
+
+
+            mediaHTML = `
+
+                <div
+                    class="search-slider"
+                    id="${sliderId}"
+                >
+
+                    ${product.images.map(
+                        (image,index) => `
+
+                        <img
+                            src="${image}"
+                            class="search-slide ${
+                                index === 0
+                                ? "active"
+                                : ""
+                            }"
+                            alt="${product.name}"
+                        >
+
+                    `
+                    ).join("")}
+
+
+                    ${
+                        product.images.length > 1
+                        ?
+
+                        `
+
+                        <button
+                            class="search-slider-prev"
+                            type="button"
+                        >
+                            ❮
+                        </button>
+
+
+                        <button
+                            class="search-slider-next"
+                            type="button"
+                        >
+                            ❯
+                        </button>
+
+                        `
+
+                        :
+
+                        ""
+
+                    }
+
+                </div>
+
+            `;
+
+        }
+
+
+        /* =============================================
+           VIDEO PRODUCT
+        ============================================= */
+
+        else if(
+            product.type === "video" &&
+            product.video
+        ){
+
+            mediaHTML = `
+
+                <video
+                    class="search-product-video"
+                    controls
+                    playsinline
+                    preload="metadata"
+                >
+
+                    <source
+                        src="${product.video}"
+                        type="video/mp4"
+                    >
+
+                    Your browser does not support
+                    video playback.
+
+                </video>
+
+            `;
+
+        }
+
+
+        /* =============================================
+           NORMAL IMAGE PRODUCT
+        ============================================= */
+
+        else if(product.image){
+
+            mediaHTML = `
+
                 <img
                     src="${product.image}"
                     class="product-image"
                     alt="${product.name}"
                 >
-                `
-                :
-                `
+
+            `;
+
+        }
+
+
+        /* =============================================
+           FALLBACK
+        ============================================= */
+
+        else{
+
+            mediaHTML = `
+
                 <div
                     class="product-image"
                     style="
@@ -1025,10 +1347,23 @@ async function searchAllProducts(){
                         color:#777;
                     "
                 >
+
                     50 Mirars
+
                 </div>
-                `
-            }
+
+            `;
+
+        }
+
+
+        /* =============================================
+           COMPLETE CARD
+        ============================================= */
+
+        card.innerHTML = `
+
+            ${mediaHTML}
 
 
             <div class="product-info">
@@ -1062,6 +1397,104 @@ async function searchAllProducts(){
 
 
         productsGrid.appendChild(card);
+
+
+        /* =============================================
+           START SLIDER
+        ============================================= */
+
+        if(
+            product.type === "slider" &&
+            product.images.length > 1
+        ){
+
+            const slider =
+                card.querySelector(
+                    ".search-slider"
+                );
+
+
+            const slides =
+                slider.querySelectorAll(
+                    ".search-slide"
+                );
+
+
+            const prev =
+                slider.querySelector(
+                    ".search-slider-prev"
+                );
+
+
+            const next =
+                slider.querySelector(
+                    ".search-slider-next"
+                );
+
+
+            let currentSlide = 0;
+
+
+            function showSlide(index){
+
+                slides.forEach(slide => {
+
+                    slide.classList.remove(
+                        "active"
+                    );
+
+                });
+
+
+                slides[index].classList.add(
+                    "active"
+                );
+
+            }
+
+
+            next.addEventListener(
+                "click",
+                function(){
+
+                    currentSlide++;
+
+                    if(
+                        currentSlide >=
+                        slides.length
+                    ){
+
+                        currentSlide = 0;
+
+                    }
+
+
+                    showSlide(currentSlide);
+
+                }
+            );
+
+
+            prev.addEventListener(
+                "click",
+                function(){
+
+                    currentSlide--;
+
+                    if(currentSlide < 0){
+
+                        currentSlide =
+                            slides.length - 1;
+
+                    }
+
+
+                    showSlide(currentSlide);
+
+                }
+            );
+
+        }
 
     });
 
