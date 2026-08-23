@@ -631,6 +631,66 @@ body{
     margin-top:10px;
 }
 
+.product-slider{
+    width:100%;
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+}
+
+.product-slider-image{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    display:block;
+}
+
+.slider-arrow{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:45px;
+    height:45px;
+    border:none;
+    border-radius:50%;
+    background:rgba(17,17,17,.85);
+    color:#c9a24d;
+    font-size:28px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    z-index:5;
+}
+
+.slider-prev{left:15px;}
+.slider-next{right:15px;}
+
+.slider-dots{
+    position:absolute;
+    bottom:15px;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    gap:8px;
+}
+
+.slider-dot{
+    width:9px;
+    height:9px;
+    border-radius:50%;
+    border:1px solid #111;
+    background:#fff;
+    cursor:pointer;
+}
+
+.slider-dot.active{
+    background:#c9a24d;
+    border-color:#c9a24d;
+}
+
 
 /* =========================================================
    DELIVERY
@@ -1869,8 +1929,10 @@ const coupleWatches = [
 
         media:"image",
 
-        file:"Fossil Nick Jonas Couple Watch .jpeg",
-
+files:[
+    "Fossil Nick Jonas Couple Watch .jpeg",
+    "Fossil Nick Jonas Couple Watch 2.jpeg"
+],
         brand:"Fossil",
 
         description:
@@ -2107,8 +2169,10 @@ const coupleWatches = [
 
         media:"image",
 
-        file:"Danial Wellington Couple Watch.jpeg",
-
+files:[
+    "Danial Wellington Couple Watch.jpeg",
+    "Danial Wellington Couple 2.jpeg"
+],
         brand:"Daniel Wellington",
 
         description:
@@ -2141,8 +2205,19 @@ const coupleWatches = [
 
         media:"image",
 
-        file:"Rolex Day-Date Couple Watch.jpeg",
-
+files:[
+    "Rolex Day-Date Couple Watch.jpeg",
+    "Rolex Day-Date Couple Watch 2.jpeg",
+    "Rolex Day-Date Couple Watch 3.jpeg",
+    "Rolex Day-Date Couple Watch 4.jpeg",
+    "Rolex Day-Date Couple Watch 5.jpeg",
+    "Rolex Day-Date Couple Watch 6.jpeg",
+    "Rolex Day-Date Couple Watch 7.jpeg",
+    "Rolex Day-Date Couple Watch 8.jpeg",
+    "Rolex Day-Date Couple Watch 9.jpeg",
+    "Rolex Day-Date Couple Watch 10.jpeg",
+    "Rolex Day-Date Couple Watch 11.jpeg"
+],
         brand:"Rolex",
 
         description:
@@ -2391,43 +2466,83 @@ function loadProduct(){
        PRODUCT MEDIA
     ===================================================== */
 
-    if(product.media === "video"){
+ else{
+
+    const images =
+        product.files ||
+        [product.file];
+
+    if(images.length === 1){
 
         productMedia.innerHTML = `
-
-            <video
-                controls
-                playsinline
-                preload="metadata"
-            >
-
-                <source
-                    src="${encodeURI(product.file)}"
-                    type="video/mp4"
-                >
-
-                Your browser does not support
-                video playback.
-
-            </video>
-
-        `;
-
-    }
-
-    else{
-
-        productMedia.innerHTML = `
-
             <img
-                src="${encodeURI(product.file)}"
+                src="${encodeURI(images[0])}"
                 alt="${escapeHTML(product.name)}"
             >
-
         `;
 
-    }
+    }else{
 
+        let currentSlide = 0;
+
+        productMedia.innerHTML = `
+            <div class="product-slider">
+
+                <img
+                    id="sliderImage"
+                    class="product-slider-image"
+                    src="${encodeURI(images[0])}"
+                    alt="${escapeHTML(product.name)}"
+                >
+
+                <button type="button" class="slider-arrow slider-prev" id="sliderPrev">‹</button>
+                <button type="button" class="slider-arrow slider-next" id="sliderNext">›</button>
+
+                <div class="slider-dots" id="sliderDots">
+                    ${images.map((_,i)=>`
+                        <button class="slider-dot ${i===0?"active":""}" data-slide="${i}"></button>
+                    `).join("")}
+                </div>
+
+            </div>
+        `;
+
+        const sliderImage = document.getElementById("sliderImage");
+        const sliderDots = document.querySelectorAll(".slider-dot");
+
+        function showSlide(index){
+            currentSlide=(index+images.length)%images.length;
+            sliderImage.src=encodeURI(images[currentSlide]);
+            sliderDots.forEach((dot,i)=>dot.classList.toggle("active",i===currentSlide));
+        }
+
+        document.getElementById("sliderPrev").onclick=()=>showSlide(currentSlide-1);
+        document.getElementById("sliderNext").onclick=()=>showSlide(currentSlide+1);
+
+        sliderDots.forEach(dot=>{
+            dot.onclick=()=>showSlide(Number(dot.dataset.slide));
+        });
+
+        let startX=0;
+
+        sliderImage.addEventListener("touchstart",e=>{
+            startX=e.changedTouches[0].screenX;
+        },{passive:true});
+
+        sliderImage.addEventListener("touchend",e=>{
+            const endX=e.changedTouches[0].screenX;
+            if(Math.abs(startX-endX)>50){
+                if(startX>endX){
+                    showSlide(currentSlide+1);
+                }else{
+                    showSlide(currentSlide-1);
+                }
+            }
+        },{passive:true});
+
+    }
+}
+    
 
     /* =====================================================
        PRODUCT DESCRIPTION
@@ -2696,10 +2811,10 @@ function createCartItem(
         quantity:
             selectedQuantity,
 
-        image:
-            product.media === "image"
-                ? product.file
-                : "",
+       image:
+    product.media === "image"
+        ? (product.files ? product.files[0] : product.file)
+        : "",
 
         media:
             product.media,
