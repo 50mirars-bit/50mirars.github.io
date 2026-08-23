@@ -1587,6 +1587,910 @@ const searchProducts = [
     link: "product-details.html?id=70"
 }
 
+/* =========================================================
+   SUNGLASSES PRODUCTS
+========================================================= */
+
+
+/* =========================================================
+   85
+========================================================= */
+
+{
+    id: 85,
+    name: "Balmain Paris 7020 Purple Shade Sunglasses",
+    brand: "Balmain Paris",
+    category: "Sunglasses",
+    price: "₹2,500",
+    type: "image",
+    media: [
+        { type: "image", src: "Balmain Paris 7020 Purpule Shade Sungalsses.jpeg" }
+    ],
+    link: "product-detailssunglasses.html?id=1"
+},
+
+
+/* =========================================================
+   86
+========================================================= */
+
+{
+    id: 86,
+    name: "Cartier CT05505S",
+    brand: "Cartier",
+    category: "Sunglasses",
+    price: "₹2,500",
+    type: "video",
+    media: [
+        { type: "video", src: "Cartier CT05505S.mp4" }
+    ],
+    link: "product-detailssunglasses.html?id=49"
+},
+
+
+/* =========================================================
+   87
+========================================================= */
+
+{
+    id: 87,
+    name: "Cartier SHURAYA4",
+    brand: "Cartier",
+    category: "Sunglasses",
+    price: "₹2,500",
+    type: "video",
+    media: [
+        { type: "video", src: "Cartier SHURAYA4.mp4" }
+    ],
+    link: "product-detailssunglasses.html?id=50"
+},
+
+
+/* =========================================================
+   88
+========================================================= */
+
+{
+    id: 88,
+    name: "Cartier CT06010",
+    brand: "Cartier",
+    category: "Sunglasses",
+    price: "₹2,500",
+    type: "video",
+    media: [
+        { type: "video", src: "Cartier CT06010.mp4" }
+    ],
+    link: "product-detailssunglasses.html?id=2"
+},
+
+
+/* =========================================================
+   89
+========================================================= */
+
+{
+    id: 89,
+    name: "Cartier C Decor",
+    brand: "Cartier",
+    category: "Sunglasses",
+    price: "₹2,500",
+    type: "video",
+    media: [
+        { type: "video", src: "Cartier C Decor.mp4" }
+    ],
+    link: "product-detailssunglasses.html?id=3"
+},
+
+
+/* =========================================================
+   90
+========================================================= */
+
+{
+    id: 90,
+    name: "Ray-Ban Original Wayfarer",
+    brand: "Ray-Ban",
+    category: "Sunglasses",
+    price: "₹2,500",
+    type: "video",
+    media: [
+        { type: "video", src: "Ray-Ban Original Wayfarer.mp4" }
+    ],
+    link: "product-detailssunglasses.html?id=4"
+},
+
+
+/* =========================================================
+   91
+========================================================= */
+
+{
+    id: 91,
+    name: "Calvin Klein Sunglasses",
+    brand: "Calvin Klein",
+    category: "Sunglasses",
+    price: "₹2,500",
+    type: "video",
+    media: [
+        { type: "video", src: "Calvin Klein Sunglasses.mp4" }
+    ],
+    link: "product-detailssunglasses.html?id=5"
+},
+
+
+/* =========================================================
+   92
+========================================================= */
+
+{
+    id: 92,
+    name: "Cartier C Decor CT0550S",
+    brand: "Cartier",
+    category: "Sunglasses",
+    price: "₹2,500",
+    type: "image",
+    media: [
+        { type: "image", src: "Cartier C Decor CT0550S.jpeg" }
+    ],
+    link: "product-detailssunglasses.html?id=6"
+},
+
+
+/* =========================================================
+   93
+========================================================= */
+
+{
+    id: 93,
+    name: "LOEWE Sunglasses 2583",
+    brand: "LOEWE",
+    category: "Sunglasses",
+    price: "₹2,500",
+    type: "video",
+    media: [
+        { type: "video", src: "LOEWE Sunglasses 2583.mp4" }
+    ],
+    link: "product-detailssunglasses.html?id=7"
+},
+
+
+/* =========================================================
+   94
+========================================================= */
+
+{
+    id: 94,
+    name: "Cartier Rimeless 0550S Sunglasses",
+    brand: "Cartier",
+    category: "Sunglasses",
+    price: "₹2,500",
+    type: "image",
+    media: [
+        { type: "image", src: "Cartier Rimeless 0550S Sunglasses.jpeg" }
+    ],
+    link: "product-detailssunglasses.html?id=8"
+},
+
+
+/* =========================================================
+   95
+========================================================= */
+
+{
+    id: 95,
+    name: "Maybach 1030",
+    brand: "Maybach",
+    category: "Sunglasses",
+    price: "₹2,500",
+    type: "video",
+    media: [
+        { type: "video", src: "Maybach 1030.mp4" }
+    ],
+    link: "product-detailssunglasses.html?id=9"
+},
+
+
+/* =========================================================
+   96
+========================================================= */
+
+{
+    id: 96,
+    name: "Ray-Ban Meta Gen-2",
+    brand: "Ray-Ban",
+    category: "Sunglasses",
+    price: "₹16,000",
+    type: "video",
+    media: [
+        { type: "video", src: "Ray-Ban Meta Gen-2.mp4" }
+    ],
+    link: "product-detailssunglasses.html?id=10"
+},
+
+
+/* =========================================================
+   97
+========================================================= */
+
+{
+    id: 97,
+    name: "MayBach Sunglasses 0272",
+    brand: "Maybach",
+    category: "Sunglasses",
+    price: "₹2,500",
+    type: "video",
+    media: [
+        { type: "video", src: "MayBach Sunglasses 0272.mp4" }
+    ],
+    link: "product-detailssunglasses.html?id=11"
+},
+
+
+/* =========================================================
+   98
+========================================================= */
+
+{
+    id: 98,
+    name: "Balmain Paris 7020 Green Shade Sunglasses",
+    brand: "Balmain Paris",
+    category: "Sunglasses",
+    price: "₹2,500",
+    type: "image",
+    media: [
+        { type: "image", src: "Balmain Paris 7020 Green Shade Sungalsses.jpeg" }
+    ],
+    link: "product-detailssunglasses.html?id=12"
+},
+
+
+/* =========================================================
+   99
+========================================================= */
+
+{
+    id: 99,
+    name: "Gucci Diamond Cut Sunglasses",
+    brand: "Gucci",
+    category: "Sunglasses",
+    price: "₹2,500",
+    type: "image",
+    media: [
+        { type: "image", src: "Gucci diamond cut sunglasses.jpeg" }
+    ],
+    link: "product-detailssunglasses.html?id=13"
+},
+
+
+/* =========================================================
+   100
+========================================================= */
+
+{
+    id: 100,
+    name: "Maybach FA-812",
+    brand: "Maybach",
+    category: "Sunglasses",
+    price: "₹2,500",
+    type: "video",
+    media: [
+        { type: "video", src: "Maybach FA-812.mp4" }
+    ],
+    link: "product-detailssunglasses.html?id=14"
+},
+
+
+/* =========================================================
+   101
+========================================================= */
+
+{
+    id: 101,
+    name: "MayBach (MB147)",
+    brand: "Maybach",
+    category: "Sunglasses",
+    price: "₹2,500",
+    type: "image",
+    media: [
+        { type: "image", src: "MayBach (MB147).jpeg" }
+    ],
+    link: "product-detailssunglasses.html?id=15"
+},
+
+
+/* =========================================================
+   102
+========================================================= */
+
+{
+    id: 102,
+    name: "MayBach Karan Aujla Edition Sunglasses",
+    brand: "Maybach",
+    category: "Sunglasses",
+    price: "₹3,000",
+    type: "image",
+    media: [
+        { type: "image", src: "MayBach Karan Aujla Edition Sunglasses front.jpeg" }
+    ],
+    link: "product-detailssunglasses.html?id=16"
+},
+
+
+/* =========================================================
+   103
+========================================================= */
+
+{
+    id: 103,
+    name: "Maybach 98522",
+    brand: "Maybach",
+    category: "Sunglasses",
+    price: "₹2,500",
+    type: "video",
+    media: [
+        { type: "video", src: "Maybach 98522.mp4" }
+    ],
+    link: "product-detailssunglasses.html?id=17"
+},
+
+
+/* =========================================================
+   104
+========================================================= */
+
+{
+    id: 104,
+    name: "Ray-Ban X A$AP RB3928",
+    brand: "Ray-Ban",
+    category: "Sunglasses",
+    price: "₹2,500",
+    type: "video",
+    media: [
+        { type: "video", src: "Ray-Ban X A$AP RB3928.mp4" }
+    ],
+    link: "product-detailssunglasses.html?id=18"
+},
+
+
+/* =========================================================
+   105
+========================================================= */
+
+{
+    id: 105,
+    name: "Panthere de Cartier",
+    brand: "Cartier",
+    category: "Sunglasses",
+    price: "₹2,500",
+    type: "image",
+    media: [
+        { type: "image", src: "Panthere de Cartier .jpeg" }
+    ],
+    link: "product-detailssunglasses.html?id=19"
+},
+
+
+/* =========================================================
+   106
+========================================================= */
+
+{
+    id: 106,
+    name: "Premiere de Cartier Malmaison",
+    brand: "Cartier",
+    category: "Sunglasses",
+    price: "₹2,500",
+    type: "image",
+    media: [
+        { type: "image", src: "Premiere de Cartier Malmaison .jpeg" }
+    ],
+    link: "product-detailssunglasses.html?id=20"
+},
+
+
+/* =========================================================
+   107
+========================================================= */
+
+{
+    id: 107,
+    name: "Marc Jacob Round Sunglasses",
+    brand: "Marc Jacob",
+    category: "Sunglasses",
+    price: "₹2,500",
+    type: "image",
+    media: [
+        { type: "image", src: "Marc Jacob Round Sunglasses.jpeg" }
+    ],
+    link: "product-detailssunglasses.html?id=21"
+},
+
+
+/* =========================================================
+   108
+========================================================= */
+
+{
+    id: 108,
+    name: "Cartier Round Sunglasses",
+    brand: "Cartier",
+    category: "Sunglasses",
+    price: "₹2,500",
+    type: "image",
+    media: [
+        { type: "image", src: "Cartier Round Sunglasses.jpeg" }
+    ],
+    link: "product-detailssunglasses.html?id=22"
+},
+
+
+/* =========================================================
+   109
+========================================================= */
+
+{
+    id: 109,
+    name: "Maybach M011",
+    brand: "Maybach",
+    category: "Sunglasses",
+    price: "₹2,500",
+    type: "video",
+    media: [
+        { type: "video", src: "Maybach M011.mp4" }
+    ],
+    link: "product-detailssunglasses.html?id=23"
+},
+
+
+/* =========================================================
+   110
+========================================================= */
+
+{
+    id: 110,
+    name: "RayBan Round Sunglasses",
+    brand: "Ray-Ban",
+    category: "Sunglasses",
+    price: "₹2,500",
+    type: "image",
+    media: [
+        { type: "image", src: "RayBan Round Sunglasses.jpeg" }
+    ],
+    link: "product-detailssunglasses.html?id=24"
+},
+
+
+/* =========================================================
+   111
+========================================================= */
+
+{
+    id: 111,
+    name: "Cartier C Decor CT0622S",
+    brand: "Cartier",
+    category: "Sunglasses",
+    price: "₹2,500",
+    type: "image",
+    media: [
+        { type: "image", src: "Cartier C Decor CT0622S.jpeg" }
+    ],
+    link: "product-detailssunglasses.html?id=25"
+},
+
+
+/* =========================================================
+   112
+========================================================= */
+
+{
+    id: 112,
+    name: "MayBach Sunglasses 2735",
+    brand: "Maybach",
+    category: "Sunglasses",
+    price: "₹2,500",
+    type: "image",
+    media: [
+        { type: "image", src: "MayBach Sunglasses 2735.jpeg" }
+    ],
+    link: "product-detailssunglasses.html?id=26"
+},
+
+
+/* =========================================================
+   113
+========================================================= */
+
+{
+    id: 113,
+    name: "MayBach Sunglasses 5029",
+    brand: "Maybach",
+    category: "Sunglasses",
+    price: "₹2,500",
+    type: "image",
+    media: [
+        { type: "image", src: "MayBach Sunglasses 5029.jpeg" }
+    ],
+    link: "product-detailssunglasses.html?id=27"
+},
+
+
+/* =========================================================
+   114
+========================================================= */
+
+{
+    id: 114,
+    name: "Cartier Aqua Green Karan Aujla Edition",
+    brand: "Cartier",
+    category: "Sunglasses",
+    price: "₹3,000",
+    type: "image",
+    media: [
+        { type: "image", src: "Cartier Aqua Green Karan Aujla Edition.jpeg" }
+    ],
+    link: "product-detailssunglasses.html?id=28"
+},
+
+
+/* =========================================================
+   115
+========================================================= */
+
+{
+    id: 115,
+    name: "Cartier CT0468S",
+    brand: "Cartier",
+    category: "Sunglasses",
+    price: "₹2,500",
+    type: "image",
+    media: [
+        { type: "image", src: "Cartier CT0468S.jpeg" }
+    ],
+    link: "product-detailssunglasses.html?id=29"
+},
+
+
+/* =========================================================
+   116
+========================================================= */
+
+{
+    id: 116,
+    name: "MayBach The Magic Sunglasses",
+    brand: "Maybach",
+    category: "Sunglasses",
+    price: "₹2,500",
+    type: "image",
+    media: [
+        { type: "image", src: "MayBach The Magic Sunglasses.jpeg" }
+    ],
+    link: "product-detailssunglasses.html?id=30"
+},
+
+
+/* =========================================================
+   117
+========================================================= */
+
+{
+    id: 117,
+    name: "Cartier CT0550S",
+    brand: "Cartier",
+    category: "Sunglasses",
+    price: "₹2,500",
+    type: "image",
+    media: [
+        { type: "image", src: "Cartier CT0550S.jpeg" }
+    ],
+    link: "product-detailssunglasses.html?id=31"
+},
+
+
+/* =========================================================
+   118
+========================================================= */
+
+{
+    id: 118,
+    name: "MayBach Rimless Sunglasses",
+    brand: "Maybach",
+    category: "Sunglasses",
+    price: "₹2,500",
+    type: "image",
+    media: [
+        { type: "image", src: "MayBach Rimless Sunglasses.jpeg" }
+    ],
+    link: "product-detailssunglasses.html?id=32"
+},
+
+
+/* =========================================================
+   119
+========================================================= */
+
+{
+    id: 119,
+    name: "MayBach Sunglasses MGWEUM10",
+    brand: "Maybach",
+    category: "Sunglasses",
+    price: "₹2,500",
+    type: "image",
+    media: [
+        { type: "image", src: "MayBach Sunglasses MGWEUM10.jpeg" }
+    ],
+    link: "product-detailssunglasses.html?id=33"
+},
+
+
+/* =========================================================
+   120
+========================================================= */
+
+{
+    id: 120,
+    name: "Voyage Unisex Sunglasses",
+    brand: "Voyage",
+    category: "Sunglasses",
+    price: "₹2,500",
+    type: "image",
+    media: [
+        { type: "image", src: "Voyage Unisex Sunglasses.jpeg" }
+    ],
+    link: "product-detailssunglasses.html?id=34"
+},
+
+
+/* =========================================================
+   121
+========================================================= */
+
+{
+    id: 121,
+    name: "Roman Kings Milano Sunglasses",
+    brand: "Roman Kings",
+    category: "Sunglasses",
+    price: "₹2,500",
+    type: "image",
+    media: [
+        { type: "image", src: "Roman Kings Milano Sunglasses.jpeg" }
+    ],
+    link: "product-detailssunglasses.html?id=35"
+},
+
+
+/* =========================================================
+   122
+========================================================= */
+
+{
+    id: 122,
+    name: "Versace VE2298",
+    brand: "Versace",
+    category: "Sunglasses",
+    price: "₹2,500",
+    type: "video",
+    media: [
+        { type: "video", src: "Versace VE2298.mp4" }
+    ],
+    link: "product-detailssunglasses.html?id=36"
+},
+
+
+/* =========================================================
+   123
+========================================================= */
+
+{
+    id: 123,
+    name: "Ray-Ban Wayfarer Reverse Sunglasses",
+    brand: "Ray-Ban",
+    category: "Sunglasses",
+    price: "₹2,500",
+    type: "image",
+    media: [
+        { type: "image", src: "Ray-Ban Wayfarer Reverse Sunglasses.jpeg" }
+    ],
+    link: "product-detailssunglasses.html?id=37"
+},
+
+
+/* =========================================================
+   124
+========================================================= */
+
+{
+    id: 124,
+    name: "Cartier Rimless Sunglasses",
+    brand: "Cartier",
+    category: "Sunglasses",
+    price: "₹2,500",
+    type: "image",
+    media: [
+        { type: "image", src: "Cartier Rimless Sunglasses.jpeg" }
+    ],
+    link: "product-detailssunglasses.html?id=38"
+},
+
+
+/* =========================================================
+   125
+========================================================= */
+
+{
+    id: 125,
+    name: "Cartier Sunglasses 1021",
+    brand: "Cartier",
+    category: "Sunglasses",
+    price: "₹2,500",
+    type: "image",
+    media: [
+        { type: "image", src: "Cartier Sunglasses 1021.jpeg" }
+    ],
+    link: "product-detailssunglasses.html?id=39"
+},
+
+
+/* =========================================================
+   126
+========================================================= */
+
+{
+    id: 126,
+    name: "Cartier CT0503S",
+    brand: "Cartier",
+    category: "Sunglasses",
+    price: "₹2,500",
+    type: "image",
+    media: [
+        { type: "image", src: "Cartier CT0503S.jpeg" }
+    ],
+    link: "product-detailssunglasses.html?id=40"
+},
+
+
+/* =========================================================
+   127
+========================================================= */
+
+{
+    id: 127,
+    name: "Maybach 1015 Gold Pink Sunglasses",
+    brand: "Maybach",
+    category: "Sunglasses",
+    price: "₹3,000",
+    type: "image",
+    media: [
+        { type: "image", src: "Maybach 1015 Gold Pink Sunglasses.jpeg" }
+    ],
+    link: "product-detailssunglasses.html?id=41"
+},
+
+
+/* =========================================================
+   128
+========================================================= */
+
+{
+    id: 128,
+    name: "Maybach The Character II Sunglasses",
+    brand: "Maybach",
+    category: "Sunglasses",
+    price: "₹2,500",
+    type: "image",
+    media: [
+        { type: "image", src: "Maybach The Character II Sunglasses.jpeg" }
+    ],
+    link: "product-detailssunglasses.html?id=42"
+},
+
+
+/* =========================================================
+   129
+========================================================= */
+
+{
+    id: 129,
+    name: "Cartier Santos Sunglasses",
+    brand: "Cartier",
+    category: "Sunglasses",
+    price: "₹2,500",
+    type: "image",
+    media: [
+        { type: "image", src: "Cartier Santos Sunglasses.jpeg" }
+    ],
+    link: "product-detailssunglasses.html?id=43"
+},
+
+
+/* =========================================================
+   130
+========================================================= */
+
+{
+    id: 130,
+    name: "Maybach 1016 Sunglasses",
+    brand: "Maybach",
+    category: "Sunglasses",
+    price: "₹2,500",
+    type: "image",
+    media: [
+        { type: "image", src: "Maybach 1016 Sunglasses.jpeg" }
+    ],
+    link: "product-detailssunglasses.html?id=44"
+},
+
+
+/* =========================================================
+   131
+========================================================= */
+
+{
+    id: 131,
+    name: "Versace VE2298 Sunglasses",
+    brand: "Versace",
+    category: "Sunglasses",
+    price: "₹2,500",
+    type: "image",
+    media: [
+        { type: "image", src: "Versace VE2298 Sunglasses.jpeg" }
+    ],
+    link: "product-detailssunglasses.html?id=45"
+},
+
+
+/* =========================================================
+   132
+========================================================= */
+
+{
+    id: 132,
+    name: "Maybach The Magic I Sunglasses",
+    brand: "Maybach",
+    category: "Sunglasses",
+    price: "₹2,500",
+    type: "image",
+    media: [
+        { type: "image", src: "Maybach The Magic I Sunglasses.jpeg" }
+    ],
+    link: "product-detailssunglasses.html?id=46"
+},
+
+
+/* =========================================================
+   133
+========================================================= */
+
+{
+    id: 133,
+    name: "Maybach The Magic I Blue Sunglasses",
+    brand: "Maybach",
+    category: "Sunglasses",
+    price: "₹2,500",
+    type: "image",
+    media: [
+        { type: "image", src: "Maybach The Magic I Blue Sunglasses.jpeg" }
+    ],
+    link: "product-detailssunglasses.html?id=47"
+},
+
+
+/* =========================================================
+   134
+========================================================= */
+
+{
+    id: 134,
+    name: "Cartier Sky Blue Jaguar Sunglasses",
+    brand: "Cartier",
+    category: "Sunglasses",
+    price: "₹2,500",
+    type: "image",
+    media: [
+        { type: "image", src: "Cartier Sky Blue Jaguar Sunglasses.jpeg" }
+    ],
+    link: "product-detailssunglasses.html?id=48"
+}
+
 ];
 
 
