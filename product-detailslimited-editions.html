@@ -12,10 +12,10 @@
 
 <meta
     name="description"
-    content="Premium Limited Edition watches and sunglasses product details at 50 Mirars."
+    content="Premium couple watches product details at 50 Mirars."
 >
 
-<title>Product Details | 50 Mirars</title>
+<title>Couple Watches | 50 Mirars</title>
 
 
 <style>
@@ -266,8 +266,6 @@ body{
 
     box-shadow:
         0 8px 30px rgba(0,0,0,0.08);
-
-    position:relative;
 }
 
 .product-media-wrapper img,
@@ -305,147 +303,6 @@ body{
     font-weight:bold;
 
     letter-spacing:0.5px;
-
-    z-index:10;
-}
-
-
-/* =========================================================
-   DETAIL IMAGE GALLERY
-========================================================= */
-
-.detail-gallery{
-    width:100%;
-
-    height:100%;
-
-    position:relative;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    overflow:hidden;
-
-    background:#fff;
-}
-
-.detail-gallery img{
-    width:100%;
-
-    height:100%;
-
-    object-fit:contain;
-
-    display:none;
-}
-
-.detail-gallery img.active{
-    display:block;
-}
-
-.gallery-prev,
-.gallery-next{
-    position:absolute;
-
-    top:50%;
-
-    transform:translateY(-50%);
-
-    width:46px;
-
-    height:46px;
-
-    border:none;
-
-    border-radius:50%;
-
-    background:rgba(17,17,17,0.85);
-
-    color:#fff;
-
-    font-size:22px;
-
-    cursor:pointer;
-
-    z-index:5;
-
-    transition:
-        background 0.3s ease,
-        transform 0.3s ease;
-}
-
-.gallery-prev{
-    left:15px;
-}
-
-.gallery-next{
-    right:15px;
-}
-
-.gallery-prev:hover,
-.gallery-next:hover{
-    background:#c9a24d;
-
-    color:#111;
-}
-
-.gallery-counter{
-    position:absolute;
-
-    bottom:15px;
-
-    left:50%;
-
-    transform:translateX(-50%);
-
-    background:rgba(17,17,17,0.80);
-
-    color:#fff;
-
-    padding:7px 14px;
-
-    border-radius:20px;
-
-    font-size:12px;
-
-    font-weight:bold;
-
-    z-index:5;
-}
-
-
-/* =========================================================
-   OUT OF STOCK BADGE
-========================================================= */
-
-.out-of-stock-badge{
-    position:absolute;
-
-    top:25px;
-
-    right:25px;
-
-    background:#b00020;
-
-    color:#fff;
-
-    padding:10px 18px;
-
-    border-radius:30px;
-
-    font-size:13px;
-
-    font-weight:bold;
-
-    letter-spacing:1px;
-
-    z-index:10;
-
-    box-shadow:
-        0 5px 15px rgba(0,0,0,0.18);
 }
 
 
@@ -512,10 +369,6 @@ body{
     font-weight:bold;
 
     margin-bottom:28px;
-}
-
-.product-price.out-of-stock-price{
-    color:#888;
 }
 
 .divider{
@@ -652,17 +505,6 @@ body{
 
 
 /* =========================================================
-   DISABLED QUANTITY
-========================================================= */
-
-.quantity-box.disabled{
-    opacity:0.55;
-
-    pointer-events:none;
-}
-
-
-/* =========================================================
    ACTION BUTTONS
 ========================================================= */
 
@@ -723,31 +565,21 @@ body{
     border-color:#c9a24d;
 }
 
-
-/* =========================================================
-   DISABLED ACTION BUTTONS
-========================================================= */
-
-.add-cart-btn:disabled,
-.buy-now-btn:disabled{
-    background:#e5e5e5;
-
-    color:#888;
-
-    border-color:#ccc;
-
-    cursor:not-allowed;
-
-    opacity:1;
+.wishlist-btn{
+    grid-column:1/-1;
+    min-height:54px;
+    border-radius:6px;
+    background:#fff;
+    color:#111;
+    border:2px solid #c9a24d;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s ease;
 }
-
-.add-cart-btn:disabled:hover,
-.buy-now-btn:disabled:hover{
-    background:#e5e5e5;
-
-    color:#888;
-
-    border-color:#ccc;
+.wishlist-btn:hover,.wishlist-btn.active{
+    background:#c9a24d;
+    color:#111;
 }
 
 
@@ -816,8 +648,64 @@ body{
     margin-top:10px;
 }
 
-.cart-message.stock-message{
-    color:#b00020;
+.product-slider{
+    width:100%;
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+}
+
+.product-slider-image{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    display:block;
+}
+
+.slider-arrow{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:45px;
+    height:45px;
+    border:none;
+    border-radius:50%;
+    background:rgba(17,17,17,.85);
+    color:#c9a24d;
+    font-size:28px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    z-index:5;
+}
+
+.slider-prev{left:15px;}
+.slider-next{right:15px;}
+
+.slider-dots{
+    position:absolute;
+    bottom:15px;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    gap:8px;
+}
+
+.slider-dot{
+    width:9px;
+    height:9px;
+    border-radius:50%;
+    border:1px solid #111;
+    background:#fff;
+    cursor:pointer;
+}
+
+.slider-dot.active{
+    background:#c9a24d;
+    border-color:#c9a24d;
 }
 
 
@@ -939,8 +827,6 @@ body{
     justify-content:center;
 
     overflow:hidden;
-
-    position:relative;
 }
 
 .related-media img,
@@ -955,36 +841,6 @@ body{
 .related-media video{
     background:#111;
 }
-
-
-/* =========================================================
-   RELATED OUT OF STOCK BADGE
-========================================================= */
-
-.related-stock-badge{
-    position:absolute;
-
-    top:12px;
-
-    right:12px;
-
-    z-index:5;
-
-    background:#b00020;
-
-    color:#fff;
-
-    padding:7px 11px;
-
-    border-radius:20px;
-
-    font-size:11px;
-
-    font-weight:bold;
-
-    letter-spacing:0.7px;
-}
-
 
 .related-info{
     padding:20px;
@@ -1012,10 +868,6 @@ body{
     font-weight:bold;
 
     margin-bottom:15px;
-}
-
-.related-price.out-of-stock{
-    color:#888;
 }
 
 .related-btn{
@@ -1046,16 +898,6 @@ body{
     background:#c9a24d;
 
     color:#111;
-}
-
-.related-btn.out-of-stock{
-    background:#e5e5e5;
-
-    color:#888;
-
-    cursor:not-allowed;
-
-    pointer-events:none;
 }
 
 
@@ -1429,15 +1271,6 @@ body{
         align-items:center;
     }
 
-    .gallery-prev,
-    .gallery-next{
-        width:40px;
-
-        height:40px;
-
-        font-size:18px;
-    }
-
 }
 
 
@@ -1495,31 +1328,14 @@ body{
         font-size:30px;
     }
 
-    .out-of-stock-badge{
-        top:15px;
-
-        right:15px;
-
-        padding:8px 12px;
-
-        font-size:11px;
-    }
-
-    .gallery-prev{
-        left:8px;
-    }
-
-    .gallery-next{
-        right:8px;
-    }
-
 }
 
 </style>
 
 </head>
 
-    <body>
+
+<body>
 
 
 <!-- =========================================================
@@ -1533,10 +1349,10 @@ body{
     </div>
 
     <a
-        href="limited-editions.html"
+        href="couple-watches.html"
         class="back-btn"
     >
-        ← Back to Limited Editions
+        ← Back to Couple Watches
     </a>
 
 </div>
@@ -1549,7 +1365,7 @@ body{
 <header class="page-header">
 
     <h1>
-        Limited Editions
+        Couple Watches
     </h1>
 
     <div class="title-line"></div>
@@ -1576,14 +1392,6 @@ body{
             </div>
 
             <div
-                class="out-of-stock-badge"
-                id="outOfStockBadge"
-                style="display:none;"
-            >
-                OUT OF STOCK
-            </div>
-
-            <div
                 class="product-media-wrapper"
                 id="productMedia"
             >
@@ -1598,7 +1406,7 @@ body{
                 class="product-brand"
                 id="productBrand"
             >
-                Limited Editions
+                Couple Watches
             </div>
 
 
@@ -1649,10 +1457,7 @@ body{
             </div>
 
 
-            <div
-                class="quantity-box"
-                id="quantityBox"
-            >
+            <div class="quantity-box">
 
                 <button
                     type="button"
@@ -1680,6 +1485,14 @@ body{
 
 
             <div class="action-buttons">
+
+                <button
+                    type="button"
+                    class="wishlist-btn"
+                    id="wishlistBtn"
+                >
+                    ♡ Save to Wishlist
+                </button>
 
                 <button
                     type="button"
@@ -1749,7 +1562,7 @@ body{
 
 
 <!-- =========================================================
-     RELATED PRODUCTS
+     SIMILAR PRODUCTS
 ========================================================= -->
 
 <section class="related-section">
@@ -1761,7 +1574,7 @@ body{
         </h2>
 
         <p>
-            Explore more Limited Edition watches and sunglasses from the 50 Mirars collection.
+            Explore more couple watches from the 50 Mirars collection.
         </p>
 
     </div>
@@ -1956,193 +1769,507 @@ body{
 
 <script>
 
-    /* =========================================================
-   LIMITED EDITIONS DATABASE
+/* =========================================================
+   COUPLE WATCHES DATABASE
 ========================================================= */
 
-const limitedEditions = [
+const coupleWatches = [
 
     {
-        id:1,
-        name:"Seiko 5 Sports Red Blood",
+        slug:"cartier-santos-dumont",
+
+        name:"Cartier Santos Dumont Couple Watch",
+
         price:4500,
-        media:"video",
-        file:"Seiko 5 Sports Red Blood.mp4",
-        brand:"Limited Editions",
-        outOfStock:false
-    },
 
-    {
-        id:2,
-        name:"Seiko Presage Cocktail SRPG23J1",
-        price:4000,
-        media:"video",
-        file:"Seiko Presage Cocktail SRPG23J1.mp4",
-        brand:"Limited Editions",
-        outOfStock:false
-    },
-
-    {
-        id:3,
-        name:"MayBach Sunglasses 0272",
-        price:2500,
-        media:"video",
-        file:"MayBach Sunglasses 0272.mp4",
-        brand:"Limited Editions",
-        outOfStock:false
-    },
-
-    {
-        id:4,
-        name:"Versace VE2298",
-        price:2500,
-        media:"video",
-        file:"Versace VE2298.mp4",
-        brand:"Limited Editions",
-        outOfStock:false
-    },
-
-    {
-        id:5,
-        name:"Ray-Ban Wayfarer Reverse Sunglasses",
-        price:2500,
         media:"image",
-        file:"Ray-Ban Wayfarer Reverse Sunglasses.jpeg",
-        brand:"Limited Editions",
-        outOfStock:false
-    },
 
-    {
-        id:6,
-        name:"Balmain Paris 7020 Purple Shade Sunglasses",
-        price:2500,
-        media:"image",
-        file:"Balmain Paris 7020 Purpule Shade Sungalsses.jpeg",
-        brand:"Limited Editions",
-        outOfStock:false
-    },
+        file:"Cartier Santos Dumont Couple Watch.jpeg",
 
-    {
-        id:7,
-        name:"Seiko Pepsi Edition",
-        price:6000,
-        media:"image",
-        file:"Seiko Pepsi Edition.jpeg",
-        brand:"Limited Editions",
-        outOfStock:false
-    },
+        brand:"Cartier",
 
-    {
-        id:8,
-        name:"Gucci Diamond Cut Sunglasses",
-        price:2500,
-        media:"image",
-        file:"Gucci diamond cut sunglasses.jpeg",
-        brand:"Limited Editions",
-        outOfStock:false
-    },
+        description:
+        "The Cartier Santos Dumont Couple Watch is an elegant coordinated timepiece designed for couples who appreciate a sophisticated and timeless appearance. Its refined Santos-inspired styling gives both watches a distinctive presence, making the set suitable for everyday wear, special occasions and meaningful gifting.",
 
-    {
-        id:9,
-        name:"Tissot Gentleman Powermatic 80",
-        price:6000,
-        media:"gallery",
-        files:[
-            "Tissot Gentelman Powermatic 80.jpeg",
-            "Tissot Gentelman Powermatic 80 2.jpeg"
+        features:[
+            "Elegant Santos-inspired couple watch design",
+            "Coordinated watch set for couples",
+            "Classic and sophisticated appearance",
+            "Suitable for everyday and occasion wear",
+            "Carefully selected by 50 Mirars",
+            "Premium presentation and packaging"
         ],
-        file:"Tissot Gentelman Powermatic 80.jpeg",
-        brand:"Limited Editions",
-        outOfStock:false
+
+        similar:[
+            "cartier-santos-roman",
+            "rolex-automatic",
+            "omega-constellation",
+            "citizen-classic"
+        ]
     },
 
-    {
-        id:10,
-        name:"Maybach The Magic I Blue Sunglasses",
-        price:2500,
-        media:"image",
-        file:"Maybach The Magic I Blue Sunglasses.jpeg",
-        brand:"Limited Editions",
-        outOfStock:false
-    },
 
     {
-        id:11,
-        name:"Casio Edifice ECB-2000DD",
-        price:6000,
-        media:"image",
-        file:"Casio Edifice ECB-2000DD.jpeg",
-        brand:"Limited Editions",
-        outOfStock:false
-    },
+        slug:"rolex-all-black",
 
-    {
-        id:12,
-        name:"Seiko Datejust Mod",
-        price:5000,
-        media:"video",
-        file:"Seiko Datejust Mod.mp4",
-        brand:"Limited Editions",
-        outOfStock:false
-    },
+        name:"Rolex All Black Couple Watch",
 
-    {
-        id:13,
-        name:"Seiko Mod",
-        price:5000,
-        media:"image",
-        file:"Seiko Mod .jpeg",
-        brand:"Limited Editions",
-        outOfStock:false
-    },
-
-    {
-        id:14,
-        name:"Maybach FA-812",
-        price:2500,
-        media:"video",
-        file:"Maybach FA-812.mp4",
-        brand:"Limited Editions",
-        outOfStock:false
-    },
-
-    {
-        id:15,
-        name:"Seiko Prospex Diver",
         price:4000,
+
         media:"video",
-        file:"Seiko Prospex Diver .mp4",
-        brand:"Limited Editions",
-        outOfStock:false
+
+        file:"Rolex All Black Couple Watch.mp4",
+
+        brand:"Rolex",
+
+        description:
+        "The Rolex All Black Couple Watch offers a bold and sophisticated coordinated appearance for couples. Its striking all-black styling creates a modern and powerful look while remaining versatile enough for everyday outfits, evening occasions and special events.",
+
+        features:[
+            "Bold all-black couple watch design",
+            "Coordinated design for couples",
+            "Modern and sophisticated appearance",
+            "Versatile styling for multiple occasions",
+            "Carefully selected by 50 Mirars",
+            "Premium presentation and packaging"
+        ],
+
+        similar:[
+            "rolex-automatic",
+            "rolex-sky-dweller",
+            "rolex-day-date",
+            "omega-constellation"
+        ]
     },
+
 
     {
-        id:16,
-        name:"Balmain Paris 7020 Green Shade Sunglasses",
-        price:2500,
+        slug:"rolex-automatic",
+
+        name:"Rolex Automatic Couple Watch",
+
+        price:5000,
+
         media:"image",
-        file:"Balmain Paris 7020 Green Shade Sungalsses.jpeg",
-        brand:"Limited Editions",
-        outOfStock:false
+
+        file:"Rolex Automatic Couple Watch.jpeg",
+
+        brand:"Rolex",
+
+        description:
+        "The Rolex Automatic Couple Watch is a refined coordinated timepiece created for couples who prefer a classic luxury-inspired appearance. Its distinctive automatic-style presentation gives the matching set an elegant character suitable for formal occasions, celebrations and everyday styling.",
+
+        features:[
+            "Automatic-style luxury watch appearance",
+            "Matching design for couples",
+            "Classic and refined styling",
+            "Suitable for formal and casual outfits",
+            "Carefully selected by 50 Mirars",
+            "Premium presentation and packaging"
+        ],
+
+        similar:[
+            "rolex-all-black",
+            "rolex-sky-dweller",
+            "rolex-day-date",
+            "tissot-gentel"
+        ]
     },
 
-    /* 17 */
-{
-    id:17,
-    name:"Tag Heuer Carrera 160 Year Anniversary Limited Edition",
-    price:4500,
-    media:"video",
-    file:"Tag Heuer Carrera 160 Year Anniversary Limited Edition.mp4",
-    brand:"Limited Editions",
-    outOfStock:false
 
-}
+    {
+        slug:"rolex-sky-dweller",
+
+        name:"Rolex Sky-Dweller Couple Watch",
+
+        price:5000,
+
+        media:"image",
+
+        file:"Rolex Sky-Dewller Couple Watch.jpeg",
+
+        brand:"Rolex",
+
+        description:
+        "The Rolex Sky-Dweller Couple Watch offers a polished coordinated appearance inspired by the distinctive character of a premium luxury timepiece. Designed for couples, the matching set creates an elegant look suitable for celebrations, special occasions and sophisticated everyday styling.",
+
+        features:[
+            "Sky-Dweller-inspired couple watch design",
+            "Coordinated set for couples",
+            "Premium-looking dial presentation",
+            "Elegant and sophisticated styling",
+            "Suitable for special occasions and everyday wear",
+            "Premium presentation and packaging"
+        ],
+
+        similar:[
+            "rolex-all-black",
+            "rolex-automatic",
+            "rolex-day-date",
+            "omega-constellation"
+        ]
+    },
+
+
+    {
+        slug:"rado-diastar",
+
+        name:"Rado Diastar Couple Watch",
+
+        price:5000,
+
+        media:"image",
+
+        file:"Rado Diastar Couple Watch.jpeg",
+
+        brand:"Rado",
+
+        description:
+        "The Rado Diastar Couple Watch brings a distinctive and elegant character to a coordinated couple's collection. Its refined appearance makes it an excellent choice for couples looking for matching watches with a sophisticated presence for everyday wear, celebrations and gifting.",
+
+        features:[
+            "Diastar-inspired couple watch design",
+            "Matching design for couples",
+            "Distinctive and elegant appearance",
+            "Suitable for formal and occasion wear",
+            "Carefully selected by 50 Mirars",
+            "Premium presentation and packaging"
+        ],
+
+        similar:[
+            "rado-centrix-jubile",
+            "tissot-gentel",
+            "omega-constellation",
+            "cartier-santos-dumont"
+        ]
+    },
+
+
+    {
+        slug:"fossil-nick-jonas",
+
+        name:"Fossil Nick Jonas Couple Watch",
+
+        price:4500,
+
+        media:"image",
+
+files:[
+    "Fossil Nick Jonas Couple Watch .jpeg",
+    "Fossil Nick Jonas Couple Watch 2.jpeg"
+],
+        brand:"Fossil",
+
+        description:
+        "The Fossil Nick Jonas Couple Watch combines a fashionable contemporary appearance with a coordinated design for couples. The matching set is an ideal choice for couples who want a stylish timepiece that complements modern everyday outfits while remaining suitable for special occasions.",
+
+        features:[
+            "Contemporary couple watch styling",
+            "Coordinated design for couples",
+            "Fashion-forward appearance",
+            "Suitable for everyday and occasion wear",
+            "Carefully selected by 50 Mirars",
+            "Premium presentation and packaging"
+        ],
+
+        similar:[
+            "rado-centrix-jubile",
+            "tissot-gentel",
+            "citizen-classic",
+            "casio-vintage"
+        ]
+    },
+
+
+    {
+        slug:"rado-centrix-jubile",
+
+        name:"Rado Centrix Jubile Couple Watch",
+
+        price:4500,
+
+        media:"image",
+
+        file:"Rado Centrix Jubile Couple Watch.jpeg",
+
+        brand:"Rado",
+
+        description:
+        "The Rado Centrix Jubile Couple Watch is designed for couples who prefer an elegant and coordinated timepiece. Its refined appearance creates a sophisticated matching look that works beautifully for celebrations, gifting and everyday wear.",
+
+        features:[
+            "Centrix-inspired couple watch design",
+            "Elegant coordinated design for couples",
+            "Refined and sophisticated appearance",
+            "Ideal for gifting and special occasions",
+            "Carefully selected by 50 Mirars",
+            "Premium presentation and packaging"
+        ],
+
+        similar:[
+            "rado-diastar",
+            "fossil-nick-jonas",
+            "tissot-gentel",
+            "omega-constellation"
+        ]
+    },
+
+
+    {
+        slug:"tissot-gentel",
+
+        name:"Tissot Gentel Couple Watch",
+
+        price:5000,
+
+        media:"image",
+
+        file:"Tissot Gentel Couple Watch.jpeg",
+
+        brand:"Tissot",
+
+        description:
+        "The Tissot Gentel Couple Watch offers a classic and sophisticated coordinated appearance for couples. Its timeless styling makes it suitable for customers who prefer an elegant matching watch set that can transition easily between formal occasions and everyday wear.",
+
+        features:[
+            "Classic Tissot-inspired couple watch design",
+            "Coordinated set for couples",
+            "Timeless and sophisticated styling",
+            "Suitable for formal and everyday wear",
+            "Carefully selected by 50 Mirars",
+            "Premium presentation and packaging"
+        ],
+
+        similar:[
+            "rado-centrix-jubile",
+            "rado-diastar",
+            "rolex-automatic",
+            "citizen-classic"
+        ]
+    },
+
+
+    {
+        slug:"omega-constellation",
+
+        name:"Omega Constellation Couple Watch",
+
+        price:4500,
+
+        media:"image",
+
+        file:"Omega Constellation Couple Watch.jpeg",
+
+        brand:"Omega",
+
+        description:
+        "The Omega Constellation Couple Watch delivers a sophisticated coordinated look inspired by the distinctive character of the Constellation style. Designed for couples, it offers an elegant presence suitable for celebrations, special occasions and everyday wear.",
+
+        features:[
+            "Constellation-inspired couple watch design",
+            "Matching design for couples",
+            "Elegant and distinctive appearance",
+            "Suitable for special occasions and everyday wear",
+            "Carefully selected by 50 Mirars",
+            "Premium presentation and packaging"
+        ],
+
+        similar:[
+            "rolex-automatic",
+            "rolex-sky-dweller",
+            "tissot-gentel",
+            "cartier-santos-roman"
+        ]
+    },
+
+
+    {
+        slug:"cartier-santos-roman",
+
+        name:"Cartier Santos Roman Couple Watch",
+
+        price:4500,
+
+        media:"image",
+
+        file:"Cartier Santos Roman Couple Watch.jpeg",
+
+        brand:"Cartier",
+
+        description:
+        "The Cartier Santos Roman Couple Watch combines a classic Roman-numeral-inspired appearance with an elegant coordinated design for couples. It is designed for customers who appreciate a sophisticated and timeless-looking matching watch set.",
+
+        features:[
+            "Santos-inspired Roman numeral design",
+            "Coordinated design for couples",
+            "Classic and elegant appearance",
+            "Distinctive Roman numeral dial styling",
+            "Suitable for formal and occasion wear",
+            "Premium presentation and packaging"
+        ],
+
+        similar:[
+            "cartier-santos-dumont",
+            "omega-constellation",
+            "rado-diastar",
+            "citizen-classic"
+        ]
+    },
+
+
+    {
+        slug:"citizen-classic",
+
+        name:"Citizen Classic Couple Watch",
+
+        price:4500,
+
+        media:"image",
+
+        file:"Citizen Classic Couple Watch.jpeg",
+
+        brand:"Citizen",
+
+        description:
+        "The Citizen Classic Couple Watch is designed for couples who prefer a timeless and understated coordinated appearance. Its classic styling makes it versatile for everyday use, gifting and special occasions.",
+
+        features:[
+            "Classic couple watch design",
+            "Coordinated design for couples",
+            "Timeless and versatile appearance",
+            "Suitable for everyday and occasion wear",
+            "Carefully selected by 50 Mirars",
+            "Premium presentation and packaging"
+        ],
+
+        similar:[
+            "tissot-gentel",
+            "rado-centrix-jubile",
+            "omega-constellation",
+            "cartier-santos-roman"
+        ]
+    },
+
+
+    {
+        slug:"casio-vintage",
+
+        name:"Casio Vintage Couple Watch",
+
+        price:4500,
+
+        media:"image",
+
+        file:"Casio Vintage Couple Watch.jpeg",
+
+        brand:"Casio",
+
+        description:
+        "The Casio Vintage Couple Watch brings a distinctive retro-inspired character to a coordinated couple's collection. Its vintage styling makes it a great choice for couples who prefer a fashionable and recognizable everyday timepiece.",
+
+        features:[
+            "Vintage-inspired couple watch design",
+            "Coordinated design for couples",
+            "Distinctive retro appearance",
+            "Suitable for everyday styling",
+            "Carefully selected by 50 Mirars",
+            "Premium presentation and packaging"
+        ],
+
+        similar:[
+            "fossil-nick-jonas",
+            "citizen-classic",
+            "tissot-gentel",
+            "danial-wellington"
+        ]
+    },
+
+
+    {
+        slug:"danial-wellington",
+
+        name:"Danial Wellington Couple",
+
+        price:4500,
+
+        media:"image",
+
+files:[
+    "Danial Wellington Couple Watch.jpeg",
+    "Danial Wellington Couple 2.jpeg"
+],
+        brand:"Daniel Wellington",
+
+        description:
+        "The Danial Wellington Couple offers a clean and elegant coordinated appearance for couples. Its minimalist-inspired styling makes it easy to pair with both casual and formal outfits, making it a versatile matching set for couples.",
+
+        features:[
+            "Minimalist-inspired couple watch design",
+            "Coordinated design for couples",
+            "Clean and elegant appearance",
+            "Suitable for casual and formal outfits",
+            "Carefully selected by 50 Mirars",
+            "Premium presentation and packaging"
+        ],
+
+        similar:[
+            "casio-vintage",
+            "fossil-nick-jonas",
+            "citizen-classic",
+            "tissot-gentel"
+        ]
+    },
+
+
+    {
+        slug:"rolex-day-date",
+
+        name:"Rolex Day-Date Couple Watch",
+
+        price:5500,
+
+        media:"image",
+
+files:[
+    "Rolex Day-Date Couple Watch.jpeg",
+    "Rolex Day-Date Couple Watch 2.jpeg",
+    "Rolex Day-Date Couple Watch 3.jpeg",
+    "Rolex Day-Date Couple Watch 4.jpeg",
+    "Rolex Day-Date Couple Watch 5.jpeg",
+    "Rolex Day-Date Couple Watch 6.jpeg",
+    "Rolex Day-Date Couple Watch 7.jpeg",
+    "Rolex Day-Date Couple Watch 8.jpeg",
+    "Rolex Day-Date Couple Watch 9.jpeg",
+    "Rolex Day-Date Couple Watch 10.jpeg",
+    "Rolex Day-Date Couple Watch 11.jpeg"
+],
+        brand:"Rolex",
+
+        description:
+        "The Rolex Day-Date Couple Watch is designed for couples who want a sophisticated and coordinated luxury-inspired appearance. Its distinctive Day-Date-inspired styling creates a polished presence suitable for celebrations, formal occasions and elevated everyday wear.",
+
+        features:[
+            "Day-Date-inspired couple watch design",
+            "Coordinated design for couples",
+            "Elegant and sophisticated appearance",
+            "Distinctive luxury-inspired dial styling",
+            "Suitable for formal and special occasions",
+            "Premium presentation and packaging"
+        ],
+
+        similar:[
+            "rolex-automatic",
+            "rolex-sky-dweller",
+            "rolex-all-black",
+            "omega-constellation"
+        ]
+    }
 
 ];
 
 
 /* =========================================================
-   GET PRODUCT ID
+   GET PRODUCT SLUG
 ========================================================= */
 
 const params =
@@ -2150,14 +2277,8 @@ const params =
         window.location.search
     );
 
-const rawProductId =
-    params.get("id");
-
-const productId =
-    Number.parseInt(
-        rawProductId,
-        10
-    );
+const productSlug =
+    params.get("product");
 
 
 /* =========================================================
@@ -2165,10 +2286,10 @@ const productId =
 ========================================================= */
 
 const product =
-    limitedEditions.find(
+    coupleWatches.find(
         item =>
-            Number(item.id) ===
-            productId
+            item.slug ===
+            productSlug
     );
 
 
@@ -2216,11 +2337,6 @@ const quantity =
         "quantity"
     );
 
-const quantityBox =
-    document.getElementById(
-        "quantityBox"
-    );
-
 const cartMessage =
     document.getElementById(
         "cartMessage"
@@ -2235,28 +2351,6 @@ const whatsappBtn =
     document.getElementById(
         "whatsappBtn"
     );
-
-const outOfStockBadge =
-    document.getElementById(
-        "outOfStockBadge"
-    );
-
-const addCartBtn =
-    document.getElementById(
-        "addCartBtn"
-    );
-
-const buyNowBtn =
-    document.getElementById(
-        "buyNowBtn"
-    );
-
-
-/* =========================================================
-   GALLERY VARIABLES
-========================================================= */
-
-let galleryIndex = 0;
 
 
 /* =========================================================
@@ -2291,212 +2385,6 @@ function escapeHTML(value){
 
 
 /* =========================================================
-   SHOW OUT OF STOCK STATE
-========================================================= */
-
-function setOutOfStockState(){
-
-    outOfStockBadge.style.display =
-        "block";
-
-    productPrice.classList.add(
-        "out-of-stock-price"
-    );
-
-    quantityBox.classList.add(
-        "disabled"
-    );
-
-    quantity.disabled =
-        true;
-
-    document
-        .getElementById(
-            "minusBtn"
-        )
-        .disabled =
-        true;
-
-    document
-        .getElementById(
-            "plusBtn"
-        )
-        .disabled =
-        true;
-
-    addCartBtn.disabled =
-        true;
-
-    buyNowBtn.disabled =
-        true;
-
-    addCartBtn.textContent =
-        "Out of Stock";
-
-    buyNowBtn.textContent =
-        "Out of Stock";
-
-    cartMessage.classList.add(
-        "stock-message"
-    );
-
-    cartMessage.textContent =
-        "This product is currently out of stock.";
-
-}
-
-
-/* =========================================================
-   LOAD GALLERY
-========================================================= */
-
-function loadGallery(){
-
-    galleryIndex = 0;
-
-    const galleryImages =
-        product.files || [];
-
-    productMedia.innerHTML = `
-
-        <div
-            class="detail-gallery"
-            id="detailGallery"
-        >
-
-            ${galleryImages
-                .map(
-                    (file,index) => `
-
-                        <img
-                            src="${encodeURI(file)}"
-                            alt="${escapeHTML(product.name)} - Image ${index + 1}"
-                            class="${index === 0 ? "active" : ""}"
-                        >
-
-                    `
-                )
-                .join("")
-            }
-
-            <button
-                type="button"
-                class="gallery-prev"
-                id="galleryPrev"
-                aria-label="Previous image"
-            >
-                ❮
-            </button>
-
-            <button
-                type="button"
-                class="gallery-next"
-                id="galleryNext"
-                aria-label="Next image"
-            >
-                ❯
-            </button>
-
-            <div
-                class="gallery-counter"
-                id="galleryCounter"
-            >
-                1 / ${galleryImages.length}
-            </div>
-
-        </div>
-
-    `;
-
-    const images =
-        document.querySelectorAll(
-            "#detailGallery img"
-        );
-
-    const counter =
-        document.getElementById(
-            "galleryCounter"
-        );
-
-    function showGalleryImage(index){
-
-        if(!images.length){
-
-            return;
-
-        }
-
-        if(index < 0){
-
-            index =
-                images.length - 1;
-
-        }
-
-        if(index >= images.length){
-
-            index = 0;
-
-        }
-
-        galleryIndex =
-            index;
-
-        images.forEach(
-            image =>
-                image.classList.remove(
-                    "active"
-                )
-        );
-
-        images[galleryIndex]
-            .classList.add(
-                "active"
-            );
-
-        counter.textContent =
-            (
-                galleryIndex + 1
-            ) +
-            " / " +
-            images.length;
-
-    }
-
-    document
-        .getElementById(
-            "galleryPrev"
-        )
-        .addEventListener(
-            "click",
-            function(){
-
-                showGalleryImage(
-                    galleryIndex - 1
-                );
-
-            }
-        );
-
-    document
-        .getElementById(
-            "galleryNext"
-        )
-        .addEventListener(
-            "click",
-            function(){
-
-                showGalleryImage(
-                    galleryIndex + 1
-                );
-
-            }
-        );
-
-}
-
-
-/* =========================================================
    LOAD PRODUCT
 ========================================================= */
 
@@ -2508,21 +2396,21 @@ function loadProduct(){
             "Product Not Found | 50 Mirars";
 
         productBrand.textContent =
-            "Limited Editions";
+            "Couple Watches";
 
         productName.textContent =
             "Product Not Found";
 
         productIdElement.textContent =
-            rawProductId
-                ? "Product ID: " + rawProductId
-                : "No Product ID Provided";
+            productSlug
+                ? "Product: " + productSlug
+                : "No Product Provided";
 
         productPrice.textContent =
             "";
 
         productDescription.textContent =
-            "The requested Limited Edition product could not be found. Please return to the Limited Editions section and select a product again.";
+            "The requested couple watch product could not be found. Please return to the Couple Watches section and select a product again.";
 
         featureList.innerHTML =
             "";
@@ -2542,113 +2430,175 @@ function loadProduct(){
 
         `;
 
-        return;
+        relatedGrid.innerHTML =
+            "";
 
+        return;
     }
+
+
+    /* =====================================================
+       PAGE TITLE
+    ===================================================== */
 
     document.title =
         product.name +
         " | 50 Mirars";
 
+
+    /* =====================================================
+       PRODUCT BRAND
+    ===================================================== */
+
     productBrand.textContent =
         product.brand;
+
+
+    /* =====================================================
+       PRODUCT NAME
+    ===================================================== */
 
     productName.textContent =
         product.name;
 
+
+    /* =====================================================
+       PRODUCT ID
+    ===================================================== */
+
+    const productNumber =
+        coupleWatches.indexOf(
+            product
+        ) + 1;
+
     productIdElement.textContent =
-        "Product ID: LIMITED-" +
-        String(product.id)
+        "Product ID: CW-" +
+        String(productNumber)
             .padStart(3,"0");
+
+
+    /* =====================================================
+       PRICE
+    ===================================================== */
 
     productPrice.textContent =
         formatPrice(
             product.price
         );
 
-    /* =====================================================
-       MEDIA
-    ===================================================== */
 
-    if(product.media === "video"){
+    /* =====================================================
+   PRODUCT MEDIA
+===================================================== */
+
+if(product.media === "video"){
+
+    productMedia.innerHTML = `
+        <video controls playsinline preload="metadata">
+            <source src="${encodeURI(product.file)}" type="video/mp4">
+            Your browser does not support video playback.
+        </video>
+    `;
+
+}else{
+
+    const images = product.files || [product.file];
+
+    if(images.length === 1){
 
         productMedia.innerHTML = `
-
-            <video
-                controls
-                playsinline
-                preload="metadata"
-            >
-
-                <source
-                    src="${encodeURI(product.file)}"
-                    type="video/mp4"
-                >
-
-                Your browser does not support
-                video playback.
-
-            </video>
-
+            <img src="${encodeURI(images[0])}" alt="${escapeHTML(product.name)}">
         `;
 
-    }
+   }else{
 
-    else if(product.media === "gallery"){
+    let currentSlide = 0;
 
-        loadGallery();
-
-    }
-
-    else{
-
-        productMedia.innerHTML = `
+    productMedia.innerHTML = `
+        <div class="product-slider">
 
             <img
-                src="${encodeURI(product.file)}"
+                id="sliderImage"
+                class="product-slider-image"
+                src="${encodeURI(images[0])}"
                 alt="${escapeHTML(product.name)}"
             >
 
-        `;
+            <button type="button" class="slider-arrow slider-prev" id="sliderPrev">‹</button>
+            <button type="button" class="slider-arrow slider-next" id="sliderNext">›</button>
 
+            <div class="slider-dots" id="sliderDots">
+                ${images.map((_,i)=>`
+                    <button class="slider-dot ${i===0?"active":""}" data-slide="${i}"></button>
+                `).join("")}
+            </div>
+
+        </div>
+    `;
+
+    const sliderImage = document.getElementById("sliderImage");
+    const sliderDots = document.querySelectorAll(".slider-dot");
+
+    function showSlide(index){
+        currentSlide = (index + images.length) % images.length;
+        sliderImage.src = encodeURI(images[currentSlide]);
+        sliderDots.forEach((dot,i)=>
+            dot.classList.toggle("active", i===currentSlide)
+        );
     }
 
+    document.getElementById("sliderPrev").onclick = () => showSlide(currentSlide-1);
+    document.getElementById("sliderNext").onclick = () => showSlide(currentSlide+1);
+
+    sliderDots.forEach(dot=>{
+        dot.onclick = () => showSlide(Number(dot.dataset.slide));
+    });
+
+    let startX = 0;
+
+    sliderImage.addEventListener("touchstart",e=>{
+        startX = e.changedTouches[0].screenX;
+    },{passive:true});
+
+    sliderImage.addEventListener("touchend",e=>{
+        const endX = e.changedTouches[0].screenX;
+        if(Math.abs(startX-endX)>50){
+            if(startX>endX){
+                showSlide(currentSlide+1);
+            }else{
+                showSlide(currentSlide-1);
+            }
+        }
+    },{passive:true});
+
+}
+}    
+
     /* =====================================================
-       DESCRIPTION
+       PRODUCT DESCRIPTION
     ===================================================== */
 
     productDescription.textContent =
-        "Discover the distinctive character of the " +
-        product.name +
-        " at 50 Mirars. Carefully selected for our Limited Editions collection, this premium piece combines elegant styling, exclusive appeal, and a refined luxury presence for customers who appreciate standout watches and sunglasses.";
+        product.description;
+
 
     /* =====================================================
-       FEATURES
+       PRODUCT FEATURES
     ===================================================== */
 
-    featureList.innerHTML = `
+    featureList.innerHTML =
+        product.features
+            .map(
+                feature => `
 
-        <li>
-            Premium Limited Edition selection
-        </li>
+                    <li>
+                        ${escapeHTML(feature)}
+                    </li>
 
-        <li>
-            Distinctive luxury styling
-        </li>
+                `
+            )
+            .join("");
 
-        <li>
-            Suitable for everyday and occasion wear
-        </li>
-
-        <li>
-            Carefully selected by 50 Mirars
-        </li>
-
-        <li>
-            Premium presentation and packaging
-        </li>
-
-    `;
 
     /* =====================================================
        WHATSAPP
@@ -2667,21 +2617,21 @@ function loadProduct(){
             whatsappText
         );
 
-    if(product.outOfStock){
 
-        setOutOfStockState();
+    /* =====================================================
+       SIMILAR PRODUCTS
+    ===================================================== */
 
-    }
-
-    loadRelatedProducts();
+    loadSimilarProducts();
 
 }
 
-    /* =========================================================
-   RELATED PRODUCTS
+
+/* =========================================================
+   LOAD SIMILAR PRODUCTS
 ========================================================= */
 
-function loadRelatedProducts(){
+function loadSimilarProducts(){
 
     if(!product){
 
@@ -2689,28 +2639,39 @@ function loadRelatedProducts(){
             "";
 
         return;
-
     }
 
-    let related =
-        limitedEditions.filter(
-            item =>
-                item.id !==
-                product.id
-        );
 
-    related =
-        related.slice(0,4);
+    const similarProducts =
+        product.similar
+            .map(
+                slug =>
+                    coupleWatches.find(
+                        item =>
+                            item.slug ===
+                            slug
+                    )
+            )
+            .filter(Boolean);
+
 
     relatedGrid.innerHTML =
-        related
+        similarProducts
             .map(
                 item => {
 
                     let mediaHTML =
                         "";
 
-                    if(item.media === "video"){
+
+                    /* =====================================
+                       VIDEO
+                    ===================================== */
+
+                    if(
+                        item.media ===
+                        "video"
+                    ){
 
                         mediaHTML = `
 
@@ -2721,7 +2682,7 @@ function loadRelatedProducts(){
                             >
 
                                 <source
-                                    src="${encodeURI(item.file)}"
+                                    src="${encodeURI(item.files ? item.files[0] : item.file)}"
                                     type="video/mp4"
                                 >
 
@@ -2731,17 +2692,17 @@ function loadRelatedProducts(){
 
                     }
 
-                    else{
 
-                        const image =
-                            item.media === "gallery"
-                                ? item.files[0]
-                                : item.file;
+                    /* =====================================
+                       IMAGE
+                    ===================================== */
+
+                    else{
 
                         mediaHTML = `
 
                             <img
-                                src="${encodeURI(image)}"
+                                src="${encodeURI(item.files ? item.files[0] : item.file)}"
                                 alt="${escapeHTML(item.name)}"
                             >
 
@@ -2749,34 +2710,6 @@ function loadRelatedProducts(){
 
                     }
 
-                    const stockBadge =
-                        item.outOfStock
-                            ? `
-                                <div class="related-stock-badge">
-                                    OUT OF STOCK
-                                </div>
-                              `
-                            : "";
-
-                    const button =
-                        item.outOfStock
-
-                            ? `
-                                <div
-                                    class="related-btn out-of-stock"
-                                >
-                                    Out of Stock
-                                </div>
-                              `
-
-                            : `
-                                <a
-                                    href="product-detailslimited-editions.html?id=${item.id}"
-                                    class="related-btn"
-                                >
-                                    View Details
-                                </a>
-                              `;
 
                     return `
 
@@ -2786,9 +2719,8 @@ function loadRelatedProducts(){
 
                                 ${mediaHTML}
 
-                                ${stockBadge}
-
                             </div>
+
 
                             <div class="related-info">
 
@@ -2796,16 +2728,18 @@ function loadRelatedProducts(){
                                     ${escapeHTML(item.name)}
                                 </h3>
 
-                                <div
-                                    class="
-                                        related-price
-                                        ${item.outOfStock ? "out-of-stock" : ""}
-                                    "
-                                >
+
+                                <div class="related-price">
                                     ${formatPrice(item.price)}
                                 </div>
 
-                                ${button}
+
+                                <a
+                                    href="product-detailscouple-watches.html?product=${encodeURIComponent(item.slug)}"
+                                    class="related-btn"
+                                >
+                                    View Details
+                                </a>
 
                             </div>
 
@@ -2820,6 +2754,59 @@ function loadRelatedProducts(){
 }
 
 
+
+/* =========================================================
+   WISHLIST
+========================================================= */
+
+function getWishlist(){
+    return JSON.parse(localStorage.getItem("wishlist")) || [];
+}
+
+function isWishlisted(id){
+    return getWishlist().some(item=>String(item.id)===String("limited-"+id));
+}
+
+function updateWishlistButton(){
+    const btn=document.getElementById("wishlistBtn");
+    if(!btn||!product) return;
+    if(isWishlisted(product.id)){
+        btn.classList.add("active");
+        btn.innerHTML="♥ Saved to Wishlist";
+    }else{
+        btn.classList.remove("active");
+        btn.innerHTML="♡ Save to Wishlist";
+    }
+}
+
+function toggleWishlist(){
+    if(!product) return;
+    let wishlist=getWishlist();
+    const pid="limited-"+product.id;
+    const i=wishlist.findIndex(item=>String(item.id)===String(pid));
+    if(i>-1){
+        wishlist.splice(i,1);
+        cartMessage.classList.remove("stock-message");
+        cartMessage.textContent="♥ Removed from Wishlist";
+    }else{
+        wishlist.push({
+            id:pid,
+            productId:product.id,
+            name:product.name,
+            price:product.price,
+            image:product.media==="gallery"?(product.files?product.files[0]:product.file):product.file,
+            media:product.media,
+            category:"Limited Editions",
+            brand:product.brand
+        });
+        cartMessage.classList.remove("stock-message");
+        cartMessage.textContent="♥ Added to Wishlist";
+    }
+    localStorage.setItem("wishlist",JSON.stringify(wishlist));
+    updateWishlistButton();
+    setTimeout(()=>{ if(cartMessage.textContent.includes("Wishlist")) cartMessage.textContent=""; },2500);
+}
+
 /* =========================================================
    GET CART
 ========================================================= */
@@ -2829,7 +2816,10 @@ function getCart(){
     try{
 
         const stored =
-            localStorage.getItem("cart");
+            localStorage.getItem(
+                "cart"
+            );
+
 
         if(!stored){
 
@@ -2837,8 +2827,12 @@ function getCart(){
 
         }
 
+
         const parsed =
-            JSON.parse(stored);
+            JSON.parse(
+                stored
+            );
+
 
         return Array.isArray(parsed)
             ? parsed
@@ -2878,16 +2872,18 @@ function saveCart(cart){
    CREATE CART ITEM
 ========================================================= */
 
-function createCartItem(selectedQuantity){
+function createCartItem(
+    selectedQuantity
+){
 
-    return{
+    return {
 
         id:
-            "limited-" +
-            product.id,
+            "couple-watches-" +
+            product.slug,
 
         productId:
-            product.id,
+            product.slug,
 
         name:
             product.name,
@@ -2898,12 +2894,10 @@ function createCartItem(selectedQuantity){
         quantity:
             selectedQuantity,
 
-        image:
-            product.media === "image"
-                ? product.file
-                : product.media === "gallery"
-                    ? product.files[0]
-                    : "",
+       image:
+    product.media === "image"
+        ? (product.files ? product.files[0] : product.file)
+        : "",
 
         media:
             product.media,
@@ -2914,7 +2908,7 @@ function createCartItem(selectedQuantity){
                 : "",
 
         category:
-            "Limited Editions",
+            "Couple Watches",
 
         brand:
             product.brand
@@ -2931,7 +2925,10 @@ function createCartItem(selectedQuantity){
 function getSelectedQuantity(){
 
     let value =
-        Number(quantity.value);
+        Number(
+            quantity.value
+        );
+
 
     if(!Number.isFinite(value)){
 
@@ -2939,8 +2936,10 @@ function getSelectedQuantity(){
 
     }
 
+
     value =
         Math.floor(value);
+
 
     if(value < 1){
 
@@ -2948,14 +2947,17 @@ function getSelectedQuantity(){
 
     }
 
+
     if(value > 10){
 
         value = 10;
 
     }
 
+
     quantity.value =
         value;
+
 
     return value;
 
@@ -2974,26 +2976,19 @@ function addToCart(){
 
     }
 
-    if(product.outOfStock){
-
-        cartMessage.classList.add("stock-message");
-
-        cartMessage.textContent =
-            "This product is currently out of stock.";
-
-        return;
-
-    }
 
     const selectedQuantity =
         getSelectedQuantity();
 
+
     const cart =
         getCart();
 
+
     const cartProductId =
-        "limited-" +
-        product.id;
+        "couple-watches-" +
+        product.slug;
+
 
     const existing =
         cart.find(
@@ -3002,11 +2997,14 @@ function addToCart(){
                 String(cartProductId)
         );
 
+
     if(existing){
 
         existing.quantity =
             (
-                Number(existing.quantity) || 0
+                Number(
+                    existing.quantity
+                ) || 0
             ) +
             selectedQuantity;
 
@@ -3015,17 +3013,20 @@ function addToCart(){
     else{
 
         cart.push(
-            createCartItem(selectedQuantity)
+            createCartItem(
+                selectedQuantity
+            )
         );
 
     }
 
+
     saveCart(cart);
 
-    cartMessage.classList.remove("stock-message");
 
     cartMessage.textContent =
         "✓ Added to your cart";
+
 
     setTimeout(
         function(){
@@ -3052,26 +3053,19 @@ function buyNow(){
 
     }
 
-    if(product.outOfStock){
-
-        cartMessage.classList.add("stock-message");
-
-        cartMessage.textContent =
-            "This product is currently out of stock.";
-
-        return;
-
-    }
 
     const selectedQuantity =
         getSelectedQuantity();
 
+
     const cart =
         getCart();
 
+
     const cartProductId =
-        "limited-" +
-        product.id;
+        "couple-watches-" +
+        product.slug;
+
 
     const existing =
         cart.find(
@@ -3080,11 +3074,14 @@ function buyNow(){
                 String(cartProductId)
         );
 
+
     if(existing){
 
         existing.quantity =
             (
-                Number(existing.quantity) || 0
+                Number(
+                    existing.quantity
+                ) || 0
             ) +
             selectedQuantity;
 
@@ -3093,12 +3090,16 @@ function buyNow(){
     else{
 
         cart.push(
-            createCartItem(selectedQuantity)
+            createCartItem(
+                selectedQuantity
+            )
         );
 
     }
 
+
     saveCart(cart);
+
 
     window.location.href =
         "cart.html";
@@ -3111,25 +3112,25 @@ function buyNow(){
 ========================================================= */
 
 document
-    .getElementById("minusBtn")
+    .getElementById(
+        "minusBtn"
+    )
     .addEventListener(
         "click",
         function(){
 
-            if(product && product.outOfStock){
-
-                return;
-
-            }
-
             let value =
-                Number(quantity.value) || 1;
+                Number(
+                    quantity.value
+                ) || 1;
+
 
             value =
                 Math.max(
                     1,
                     value - 1
                 );
+
 
             quantity.value =
                 value;
@@ -3143,25 +3144,25 @@ document
 ========================================================= */
 
 document
-    .getElementById("plusBtn")
+    .getElementById(
+        "plusBtn"
+    )
     .addEventListener(
         "click",
         function(){
 
-            if(product && product.outOfStock){
-
-                return;
-
-            }
-
             let value =
-                Number(quantity.value) || 1;
+                Number(
+                    quantity.value
+                ) || 1;
+
 
             value =
                 Math.min(
                     10,
                     value + 1
                 );
+
 
             quantity.value =
                 value;
@@ -3178,14 +3179,6 @@ quantity.addEventListener(
     "change",
     function(){
 
-        if(product && product.outOfStock){
-
-            quantity.value = 1;
-
-            return;
-
-        }
-
         getSelectedQuantity();
 
     }
@@ -3196,15 +3189,24 @@ quantity.addEventListener(
    BUTTON EVENTS
 ========================================================= */
 
-addCartBtn.addEventListener(
-    "click",
-    addToCart
-);
+document
+    .getElementById(
+        "addCartBtn"
+    )
+    .addEventListener(
+        "click",
+        addToCart
+    );
 
-buyNowBtn.addEventListener(
-    "click",
-    buyNow
-);
+
+document
+    .getElementById(
+        "buyNowBtn"
+    )
+    .addEventListener(
+        "click",
+        buyNow
+    );
 
 
 /* =========================================================
@@ -3214,6 +3216,7 @@ buyNowBtn.addEventListener(
 loadProduct();
 
 </script>
+
 
 </body>
 
