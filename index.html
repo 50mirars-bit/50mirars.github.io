@@ -175,14 +175,170 @@ textarea {
 }
     
 
+/* =====================================================
+   HEADER ICONS
+   ORDER: WISHLIST → PROFILE → CART
+===================================================== */
+
 .header-icons{
 
     display:flex;
+
     align-items:center;
+
+    justify-content:center;
+
     gap:12px;
 
 }
 
+
+/* =====================================================
+   WISHLIST BUTTON
+===================================================== */
+
+.header-wishlist{
+
+    width:52px;
+    height:52px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    color:#111111;
+
+    transition:
+        transform 0.25s ease,
+        color 0.25s ease,
+        background 0.25s ease;
+
+}
+
+.wishlist-icon{
+
+    font-size:31px;
+
+    line-height:1;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-weight:400;
+
+}
+
+
+/* Wishlist Hover */
+
+.header-wishlist:hover{
+
+    color:#c9a24d;
+
+    background:#faf8f3;
+
+    transform:scale(1.06);
+
+}
+
+
+/* =====================================================
+   PROFILE BUTTON
+===================================================== */
+
+.header-profile{
+
+    width:52px;
+    height:52px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    color:#111111;
+
+    transition:
+        transform 0.25s ease,
+        color 0.25s ease,
+        background 0.25s ease;
+
+}
+
+.profile-icon{
+
+    font-size:26px;
+
+    line-height:1;
+
+}
+
+
+/* Profile Hover */
+
+.header-profile:hover{
+
+    color:#c9a24d;
+
+    background:#faf8f3;
+
+    transform:scale(1.06);
+
+}
+
+
+/* =====================================================
+   CART BUTTON
+===================================================== */
+
+.header-cart{
+
+    width:52px;
+    height:52px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    color:#111111;
+
+    transition:
+        transform 0.25s ease,
+        color 0.25s ease,
+        background 0.25s ease;
+
+}
+
+.cart-icon{
+
+    font-size:26px;
+
+    line-height:1;
+
+}
+
+
+/* Cart Hover */
+
+.header-cart:hover{
+
+    color:#c9a24d;
+
+    background:#faf8f3;
+
+    transform:scale(1.06);
+
+}
     
 /* =====================================================
      Cart Button
@@ -1838,16 +1994,57 @@ textarea {
         white-space: nowrap;
     }
 
-    .header-cart {
+    /* =====================================================
+   MOBILE HEADER ICONS
+===================================================== */
 
-        width: 44px;
-        height: 44px;
-    }
+.header-icons{
 
-    .cart-icon {
-        font-size: 22px;
-    }
+    gap:4px;
 
+}
+
+
+.header-wishlist{
+
+    width:44px;
+    height:44px;
+
+}
+
+.wishlist-icon{
+
+    font-size:27px;
+
+}
+
+
+.header-profile{
+
+    width:44px;
+    height:44px;
+
+}
+
+.profile-icon{
+
+    font-size:22px;
+
+}
+
+
+.header-cart{
+
+    width:44px;
+    height:44px;
+
+}
+
+.cart-icon{
+
+    font-size:22px;
+
+}
 
     /* OFFER */
 
@@ -2499,15 +2696,57 @@ textarea {
         display: none;
     }
 
-    .header-cart {
+   /* =====================================================
+   SMALL PHONE HEADER ICONS
+===================================================== */
 
-        width: 40px;
-        height: 40px;
-    }
+.header-icons{
 
-    .cart-icon {
-        font-size: 21px;
-    }
+    gap:2px;
+
+}
+
+
+.header-wishlist{
+
+    width:40px;
+    height:40px;
+
+}
+
+.wishlist-icon{
+
+    font-size:25px;
+
+}
+
+
+.header-profile{
+
+    width:40px;
+    height:40px;
+
+}
+
+.profile-icon{
+
+    font-size:21px;
+
+}
+
+
+.header-cart{
+
+    width:40px;
+    height:40px;
+
+}
+
+.cart-icon{
+
+    font-size:21px;
+
+}
 
     .headline-text {
 
@@ -2689,25 +2928,38 @@ textarea {
    <div class="header-right">
 
     <!-- Top Row -->
-    <div class="header-icons">
+<div class="header-icons">
 
-        <a href="profile.html"
-           class="header-profile"
-           aria-label="My Profile">
+    <!-- WISHLIST -->
+    <a href="wishlist.html"
+       class="header-wishlist"
+       aria-label="My Wishlist">
 
-            <span class="profile-icon">👤</span>
+        <span class="wishlist-icon">♡</span>
 
-        </a>
+    </a>
 
-        <a href="cart.html"
-           class="header-cart"
-           aria-label="Shopping Cart">
 
-            <span class="cart-icon">🛒</span>
+    <!-- PROFILE -->
+    <a href="profile.html"
+       class="header-profile"
+       aria-label="My Profile">
 
-        </a>
+        <span class="profile-icon">👤</span>
 
-    </div>
+    </a>
+
+
+    <!-- CART -->
+    <a href="cart.html"
+       class="header-cart"
+       aria-label="Shopping Cart">
+
+        <span class="cart-icon">🛒</span>
+
+    </a>
+
+</div>
 
     <!-- Bottom Row -->
    <div class="search-container">
