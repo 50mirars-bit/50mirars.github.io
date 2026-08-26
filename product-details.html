@@ -533,6 +533,21 @@ video{
     color:#fff;
 }
 
+.wishlist-btn{
+    background:#fff;
+    color:#111;
+    border:1px solid #c9a45d;
+}
+.wishlist-btn:hover{
+    background:#c9a45d;
+    color:#111;
+}
+.wishlist-btn.active{
+    background:#c9a45d;
+    color:#111;
+}
+
+
 
 /* =========================================================
    STOCK
@@ -2797,6 +2812,14 @@ function renderProduct(){
 
                 <div class="action-buttons">
 
+                    <button
+                        class="action-btn wishlist-btn"
+                        id="wishlistBtn"
+                        onclick="toggleWishlist()"
+                    >
+                        ♡ Save to Wishlist
+                    </button>
+
 
                     <button
                         class="action-btn add-cart-btn"
@@ -3062,6 +3085,64 @@ function showToast(message){
 
 }
 
+
+
+/* =========================================================
+   WISHLIST
+========================================================= */
+
+function getWishlist(){
+    return JSON.parse(localStorage.getItem("wishlist")) || [];
+}
+
+function isWishlisted(id){
+    return getWishlist().some(item => String(item.id) === String(id));
+}
+
+function updateWishlistButton(){
+    const btn = document.getElementById("wishlistBtn");
+    if(!btn || !product) return;
+
+    if(isWishlisted(product.id)){
+        btn.classList.add("active");
+        btn.innerHTML = "♥ Saved to Wishlist";
+    }else{
+        btn.classList.remove("active");
+        btn.innerHTML = "♡ Save to Wishlist";
+    }
+}
+
+function toggleWishlist(){
+
+    if(!product) return;
+
+    let wishlist = getWishlist();
+
+    const index = wishlist.findIndex(
+        item => String(item.id) === String(product.id)
+    );
+
+    if(index > -1){
+        wishlist.splice(index,1);
+        showToast("Removed from Wishlist");
+    }else{
+        wishlist.push({
+            id:product.id,
+            name:product.name,
+            price:product.price,
+            media:product.media[0],
+            type:product.type
+        });
+        showToast("Added to Wishlist");
+    }
+
+    localStorage.setItem(
+        "wishlist",
+        JSON.stringify(wishlist)
+    );
+
+    updateWishlistButton();
+}
 
 /* =========================================================
    ADD TO CART
