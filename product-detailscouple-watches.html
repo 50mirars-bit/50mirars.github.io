@@ -566,6 +566,25 @@ body{
 }
 
 
+/* WISHLIST */
+.wishlist-btn{
+    width:100%;
+    min-height:52px;
+    border:2px solid #c9a24d;
+    background:#fff;
+    color:#111;
+    border-radius:6px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s ease;
+}
+.wishlist-btn:hover,.wishlist-btn.active{
+    background:#c9a24d;
+    color:#111;
+}
+
+
 /* =========================================================
    WHATSAPP
 ========================================================= */
@@ -1466,6 +1485,8 @@ body{
 
             </div>
 
+
+            <button type="button" class="wishlist-btn" id="wishlistBtn">♡ Save to Wishlist</button>
 
             <div class="action-buttons">
 
@@ -2575,6 +2596,9 @@ if(product.media === "video"){
             .join("");
 
 
+    updateWishlistButton();
+    document.getElementById("wishlistBtn").onclick=toggleWishlist;
+
     /* =====================================================
        WHATSAPP
     ===================================================== */
@@ -2728,6 +2752,29 @@ function loadSimilarProducts(){
 
 }
 
+
+
+/* =========================================================
+   WISHLIST
+========================================================= */
+function getWishlist(){return JSON.parse(localStorage.getItem("wishlist"))||[];}
+function isWishlisted(slug){return getWishlist().some(i=>i.slug===slug);}
+function updateWishlistButton(){
+ const b=document.getElementById("wishlistBtn");
+ if(!b||!product)return;
+ if(isWishlisted(product.slug)){b.classList.add("active");b.innerHTML="♥ Saved to Wishlist";}
+ else{b.classList.remove("active");b.innerHTML="♡ Save to Wishlist";}
+}
+function toggleWishlist(){
+ if(!product)return;
+ let w=getWishlist();
+ const i=w.findIndex(x=>x.slug===product.slug);
+ if(i>-1){w.splice(i,1);cartMessage.textContent="Removed from Wishlist";}
+ else{w.push({slug:product.slug,name:product.name,price:product.price,image:(product.files?product.files[0]:product.file),media:product.media,brand:product.brand});cartMessage.textContent="Added to Wishlist";}
+ localStorage.setItem("wishlist",JSON.stringify(w));
+ updateWishlistButton();
+ setTimeout(()=>cartMessage.textContent="",2500);
+}
 
 /* =========================================================
    GET CART
