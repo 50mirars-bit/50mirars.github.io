@@ -2277,21 +2277,19 @@ const params =
         window.location.search
     );
 
-const productSlug =
-    params.get("product");
-
-
-/* =========================================================
-   FIND PRODUCT
-========================================================= */
+const productSlug = params.get("product");
+const productId = Number.parseInt(params.get("id"),10);
 
 const product =
-    coupleWatches.find(
-        item =>
-            item.slug ===
-            productSlug
-    );
-
+    coupleWatches.find(item => item.slug === productSlug)
+    ||
+    (
+        Number.isFinite(productId) &&
+        productId >= 1 &&
+        productId <= coupleWatches.length
+    )
+        ? coupleWatches[productId-1]
+        : coupleWatches[0];
 
 /* =========================================================
    ELEMENTS
