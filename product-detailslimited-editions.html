@@ -2620,8 +2620,8 @@ if(product.media === "video"){
        SIMILAR PRODUCTS
     ===================================================== */
 
-    loadSimilarProducts();
-
+updateWishlistButton();
+loadSimilarProducts();
 }
 
 
@@ -2761,10 +2761,12 @@ function getWishlist(){
     return JSON.parse(localStorage.getItem("wishlist")) || [];
 }
 
-function isWishlisted(id){
-    return getWishlist().some(item=>String(item.id)===String("limited-"+id));
+function isWishlisted(slug){
+    return getWishlist().some(
+        item => String(item.id) === String("couple-watches-" + slug)
+    );
 }
-
+    
 function updateWishlistButton(){
     const btn=document.getElementById("wishlistBtn");
     if(!btn||!product) return;
@@ -2778,33 +2780,62 @@ function updateWishlistButton(){
 }
 
 function toggleWishlist(){
-    if(!product) return;
-    let wishlist=getWishlist();
-    const pid="limited-"+product.id;
-    const i=wishlist.findIndex(item=>String(item.id)===String(pid));
-    if(i>-1){
-        wishlist.splice(i,1);
-        cartMessage.classList.remove("stock-message");
-        cartMessage.textContent="♥ Removed from Wishlist";
-    }else{
-        wishlist.push({
-            id:pid,
-            productId:product.id,
-            name:product.name,
-            price:product.price,
-            image:product.media==="gallery"?(product.files?product.files[0]:product.file):product.file,
-            media:product.media,
-            category:"Limited Editions",
-            brand:product.brand
-        });
-        cartMessage.classList.remove("stock-message");
-        cartMessage.textContent="♥ Added to Wishlist";
-    }
-    localStorage.setItem("wishlist",JSON.stringify(wishlist));
-    updateWishlistButton();
-    setTimeout(()=>{ if(cartMessage.textContent.includes("Wishlist")) cartMessage.textContent=""; },2500);
-}
 
+    if(!product) return;
+
+    let wishlist = getWishlist();
+
+    const pid = "couple-watches-" + product.slug;
+
+    const index = wishlist.findIndex(
+        item => item.id === pid
+    );
+
+    if(index > -1){
+
+        wishlist.splice(index,1);
+
+        cartMessage.textContent = "♥ Removed from Wishlist";
+
+    }else{
+
+        wishlist.push({
+
+            id:pid,
+
+            productId:product.slug,
+
+            name:product.name,
+
+            price:product.price,
+
+            image:product.files ? product.files[0] : product.file,
+
+            media:product.media,
+
+            category:"Couple Watches",
+
+            brand:product.brand
+
+        });
+
+        cartMessage.textContent = "♥ Added to Wishlist";
+
+    }
+
+    localStorage.setItem(
+        "wishlist",
+        JSON.stringify(wishlist)
+    );
+
+    updateWishlistButton();
+
+    setTimeout(()=>{
+        cartMessage.textContent="";
+    },2500);
+
+}
+    
 /* =========================================================
    GET CART
 ========================================================= */
@@ -3206,6 +3237,13 @@ document
         buyNow
     );
 
+document
+    .getElementById("wishlistBtn")
+    .addEventListener(
+        "click",
+        toggleWishlist
+    );
+    
 
 /* =========================================================
    INITIALIZE
