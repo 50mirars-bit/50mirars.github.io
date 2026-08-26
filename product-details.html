@@ -2508,6 +2508,13 @@ const productContainer =
 
 
 /* =========================================================
+   LOGIN STATUS
+========================================================= */
+
+let currentUser = null;
+
+
+/* =========================================================
    FORMAT PRICE
 ========================================================= */
 
@@ -3118,11 +3125,9 @@ function showToast(message){
 
 async function getUserWishlist(){
 
-    const user = window.auth.currentUser;
+    if(!currentUser) return [];
 
-    if(!user) return [];
-
-    const ref = window.doc(window.db,"wishlists",user.uid);
+    const ref = window.doc(window.db,"wishlists",currentUser.uid);
 
     const snap = await window.getDoc(ref);
 
@@ -3132,11 +3137,9 @@ async function getUserWishlist(){
 
 async function saveUserWishlist(items){
 
-    const user = window.auth.currentUser;
+    if(!currentUser) return;
 
-    if(!user) return;
-
-    const ref = window.doc(window.db,"wishlists",user.uid);
+    const ref = window.doc(window.db,"wishlists",currentUser.uid);
 
     await window.setDoc(ref,{items});
 
@@ -3148,30 +3151,29 @@ async function updateWishlistButton(){
 
     if(!btn || !product) return;
 
-    const user = window.auth.currentUser;
-
-    if(!user){
+    if(!currentUser){
 
         btn.classList.remove("active");
-        btn.innerHTML="♡ Save to Wishlist";
-        return;
+        btn.innerHTML = "♡ Save to Wishlist";
 
+        return;
     }
 
     const wishlist = await getUserWishlist();
 
-    const exists = wishlist.some(item=>String(item.id)===String(product.id));
+    const exists = wishlist.some(
+        item => String(item.id) === String(product.id)
+    );
 
     if(exists){
 
         btn.classList.add("active");
-        btn.innerHTML="♥ Saved to Wishlist";
+        btn.innerHTML = "♥ Saved to Wishlist";
 
     }else{
 
         btn.classList.remove("active");
-        btn.innerHTML="♡ Save to Wishlist";
-
+        btn.innerHTML = "♡ Save to Wishlist";
     }
 
 }
@@ -3180,29 +3182,28 @@ async function toggleWishlist(){
 
     if(!product) return;
 
-    const user = window.auth.currentUser;
+    /* Customer is NOT signed in */
 
-    if(!user){
+    if(!currentUser){
 
-        showToast("Please sign in to use Wishlist.");
+        showToast("Please sign in first.");
 
-        setTimeout(()=>{
+        setTimeout(function(){
 
-            window.location.href="profile.html";
+            window.location.href = "profile.html";
 
-        },1200);
+        },1000);
 
         return;
-
     }
 
     let wishlist = await getUserWishlist();
 
     const index = wishlist.findIndex(
-        item=>String(item.id)===String(product.id)
+        item => String(item.id) === String(product.id)
     );
 
-    if(index>-1){
+    if(index > -1){
 
         wishlist.splice(index,1);
 
@@ -3230,6 +3231,7 @@ async function toggleWishlist(){
     updateWishlistButton();
 
 }
+
     
 /* =========================================================
    ADD TO CART
@@ -3519,10 +3521,13 @@ renderProduct();
 renderRelatedProducts();
 
 // Check login status and update the wishlist button
-window.onAuthStateChanged(window.auth, () => {
-    updateWishlistButton();
-});
+window.onAuthStateChanged(window.auth, (user) => {
 
+    currentUser = user;
+
+    updateWishlistButton();
+
+});
 
 /* =========================================================
    ENTER KEY / QUANTITY VALIDATION
