@@ -1437,11 +1437,6 @@ td {
 
 <script type="module">
 
-
-/* =====================================================
-   FIREBASE IMPORTS
-===================================================== */
-
 import {
     initializeApp
 }
@@ -1501,18 +1496,14 @@ const firebaseConfig = {
 
 
 /* =====================================================
-   INITIALIZE FIREBASE
+   FIREBASE
 ===================================================== */
 
 const app =
-    initializeApp(
-        firebaseConfig
-    );
-
+    initializeApp(firebaseConfig);
 
 const auth =
     getAuth(app);
-
 
 const db =
     getFirestore(app);
@@ -1520,7 +1511,7 @@ const db =
 
 
 /* =====================================================
-   GLOBAL STATE
+   GLOBAL VARIABLES
 ===================================================== */
 
 let currentUser = null;
@@ -1529,8 +1520,6 @@ let customerCart = [];
 
 let authReady = false;
 
-let cartLoaded = false;
-
 
 
 /* =====================================================
@@ -1538,48 +1527,30 @@ let cartLoaded = false;
 ===================================================== */
 
 const cartItems =
-    document.getElementById(
-        "cart-items"
-    );
-
+    document.getElementById("cart-items");
 
 const accountStatus =
-    document.getElementById(
-        "account-status"
-    );
-
-
-const checkoutButton =
-    document.getElementById(
-        "checkout-button"
-    );
-
+    document.getElementById("account-status");
 
 const couponCodeInput =
-    document.getElementById(
-        "coupon-code"
-    );
-
+    document.getElementById("coupon-code");
 
 const couponMessage =
-    document.getElementById(
-        "coupon-message"
-    );
+    document.getElementById("coupon-message");
 
 
 
 /* =====================================================
-   FIRESTORE CART REFERENCE
+   FIRESTORE CART
 ===================================================== */
 
-function getCartDocument() {
+function getCartDocument(){
 
-    if (!currentUser) {
+    if(!currentUser){
 
         return null;
 
     }
-
 
     return doc(
         db,
@@ -1592,20 +1563,18 @@ function getCartDocument() {
 
 
 /* =====================================================
-   LOCAL CART
+   GET LOCAL CART
 ===================================================== */
 
-function getLocalCart() {
+function getLocalCart(){
 
-    try {
+    try{
 
         const storedCart =
-            localStorage.getItem(
-                "cart"
-            );
+            localStorage.getItem("cart");
 
 
-        if (!storedCart) {
+        if(!storedCart){
 
             return [];
 
@@ -1613,14 +1582,10 @@ function getLocalCart() {
 
 
         const parsed =
-            JSON.parse(
-                storedCart
-            );
+            JSON.parse(storedCart);
 
 
-        if (
-            !Array.isArray(parsed)
-        ) {
+        if(!Array.isArray(parsed)){
 
             return [];
 
@@ -1631,13 +1596,12 @@ function getLocalCart() {
 
     }
 
-    catch (error) {
+    catch(error){
 
         console.error(
-            "Local cart read error:",
+            "Local cart error:",
             error
         );
-
 
         return [];
 
@@ -1647,9 +1611,13 @@ function getLocalCart() {
 
 
 
-function saveLocalCart(cart) {
+/* =====================================================
+   SAVE LOCAL CART
+===================================================== */
 
-    try {
+function saveLocalCart(cart){
+
+    try{
 
         localStorage.setItem(
             "cart",
@@ -1660,10 +1628,10 @@ function saveLocalCart(cart) {
 
     }
 
-    catch (error) {
+    catch(error){
 
         console.error(
-            "Local cart save error:",
+            "Could not save local cart:",
             error
         );
 
@@ -1674,12 +1642,12 @@ function saveLocalCart(cart) {
 
 
 /* =====================================================
-   NORMALIZE ITEM
+   NORMALIZE CART ITEM
 ===================================================== */
 
-function normalizeCartItem(item) {
+function normalizeCartItem(item){
 
-    if (!item) {
+    if(!item){
 
         return null;
 
@@ -1692,7 +1660,7 @@ function normalizeCartItem(item) {
         ).trim();
 
 
-    if (!name) {
+    if(!name){
 
         return null;
 
@@ -1703,12 +1671,28 @@ function normalizeCartItem(item) {
         item.price;
 
 
-    if (
+    if(
         price === undefined ||
         price === null
-    ) {
+    ){
 
         price = "0";
+
+    }
+
+
+    let quantity =
+        Number(
+            item.quantity
+        );
+
+
+    if(
+        !Number.isFinite(quantity) ||
+        quantity < 1
+    ){
+
+        quantity = 1;
 
     }
 
@@ -1725,9 +1709,7 @@ function normalizeCartItem(item) {
             item.image || "",
 
         quantity:
-            Number(item.quantity) > 0
-                ? Number(item.quantity)
-                : 1
+            quantity
 
     };
 
@@ -1739,11 +1721,9 @@ function normalizeCartItem(item) {
    NORMALIZE CART
 ===================================================== */
 
-function normalizeCart(cart) {
+function normalizeCart(cart){
 
-    if (
-        !Array.isArray(cart)
-    ) {
+    if(!Array.isArray(cart)){
 
         return [];
 
@@ -1754,15 +1734,13 @@ function normalizeCart(cart) {
 
 
     cart.forEach(
-        function(item) {
+        function(item){
 
             const clean =
-                normalizeCartItem(
-                    item
-                );
+                normalizeCartItem(item);
 
 
-            if (!clean) {
+            if(!clean){
 
                 return;
 
@@ -1771,32 +1749,36 @@ function normalizeCart(cart) {
 
             const existing =
                 result.find(
-                    function(product) {
+                    function(product){
 
                         return (
+
                             product.name ===
-                                clean.name
+                            clean.name
+
                             &&
+
                             String(
                                 product.price
                             ) ===
-                                String(
-                                    clean.price
-                                )
+                            String(
+                                clean.price
+                            )
+
                         );
 
                     }
                 );
 
 
-            if (existing) {
+            if(existing){
 
                 existing.quantity +=
                     clean.quantity;
 
             }
 
-            else {
+            else{
 
                 result.push(
                     clean
@@ -1815,81 +1797,10 @@ function normalizeCart(cart) {
 
 
 /* =====================================================
-   MERGE CARTS
-===================================================== */
-
-function mergeCarts(
-    first,
-    second
-) {
-
-    const merged =
-        normalizeCart(
-            first
-        );
-
-
-    const other =
-        normalizeCart(
-            second
-        );
-
-
-    other.forEach(
-        function(item) {
-
-            const existing =
-                merged.find(
-                    function(product) {
-
-                        return (
-                            product.name ===
-                                item.name
-                            &&
-                            String(
-                                product.price
-                            ) ===
-                                String(
-                                    item.price
-                                )
-                        );
-
-                    }
-                );
-
-
-            if (existing) {
-
-                existing.quantity +=
-                    item.quantity;
-
-            }
-
-            else {
-
-                merged.push(
-                    {
-                        ...item
-                    }
-                );
-
-            }
-
-        }
-    );
-
-
-    return merged;
-
-}
-
-
-
-/* =====================================================
    SAVE CART LOCALLY
 ===================================================== */
 
-function saveCartLocally() {
+function saveCartLocally(){
 
     customerCart =
         normalizeCart(
@@ -1901,11 +1812,6 @@ function saveCartLocally() {
         customerCart
     );
 
-
-    /*
-       checkoutCart is always kept
-       ready for delivery.html.
-    */
 
     localStorage.setItem(
         "checkoutCart",
@@ -1919,24 +1825,15 @@ function saveCartLocally() {
 
 
 /* =====================================================
-   SAVE CART TO FIREBASE
+   SAVE ACCOUNT CART
 ===================================================== */
 
-async function saveCustomerCart() {
-
-    /*
-       Always save locally first.
-    */
+async function saveCustomerCart(){
 
     saveCartLocally();
 
 
-    /*
-       Guest users do not have
-       a Firebase cart.
-    */
-
-    if (!currentUser) {
+    if(!currentUser){
 
         return true;
 
@@ -1947,37 +1844,33 @@ async function saveCustomerCart() {
         getCartDocument();
 
 
-    if (!cartRef) {
+    if(!cartRef){
 
         return true;
 
     }
 
 
-    try {
-
-        /*
-           IMPORTANT:
-           This function is allowed to be
-           awaited when we actually need to
-           know the result.
-
-           The Proceed button below does NOT
-           wait forever for this function.
-        */
+    try{
 
         await setDoc(
+
             cartRef,
+
             {
+
                 cart:
                     customerCart,
 
                 updatedAt:
                     serverTimestamp()
+
             },
+
             {
-                merge: true
+                merge:true
             }
+
         );
 
 
@@ -1985,13 +1878,12 @@ async function saveCustomerCart() {
 
     }
 
-    catch (error) {
+    catch(error){
 
         console.error(
             "Firebase cart save error:",
             error
         );
-
 
         return false;
 
@@ -2002,20 +1894,15 @@ async function saveCustomerCart() {
 
 
 /* =====================================================
-   BACKGROUND FIREBASE SAVE
+   BACKGROUND SAVE
 ===================================================== */
 
-function saveCustomerCartInBackground() {
-
-    /*
-       Never let a Firebase save
-       block the website.
-    */
+function saveCustomerCartInBackground(){
 
     saveCartLocally();
 
 
-    if (!currentUser) {
+    if(!currentUser){
 
         return;
 
@@ -2026,7 +1913,7 @@ function saveCustomerCartInBackground() {
         getCartDocument();
 
 
-    if (!cartRef) {
+    if(!cartRef){
 
         return;
 
@@ -2034,32 +1921,40 @@ function saveCustomerCartInBackground() {
 
 
     setDoc(
+
         cartRef,
+
         {
+
             cart:
                 customerCart,
 
             updatedAt:
                 serverTimestamp()
+
         },
+
         {
-            merge: true
+            merge:true
         }
+
     )
+
     .then(
-        function() {
+        function(){
 
             console.log(
-                "Cart saved to Firebase."
+                "Cart saved to customer account."
             );
 
         }
     )
-    .catch(
-        function(error) {
 
-            console.warn(
-                "Background Firebase cart save failed:",
+    .catch(
+        function(error){
+
+            console.error(
+                "Firebase cart save failed:",
                 error
             );
 
@@ -2074,13 +1969,7 @@ function saveCustomerCartInBackground() {
    LOAD CUSTOMER CART
 ===================================================== */
 
-async function loadCustomerCart() {
-
-    /*
-       First load local cart.
-       This means the page can always
-       display something.
-    */
+async function loadCustomerCart(){
 
     const localCart =
         normalizeCart(
@@ -2088,47 +1977,31 @@ async function loadCustomerCart() {
         );
 
 
-    customerCart =
-        localCart;
-
-
-    saveLocalCart(
-        customerCart
-    );
-
-
     /*
-       Guest user.
+       GUEST
     */
 
-    if (!currentUser) {
+    if(!currentUser){
 
-        cartLoaded =
-            true;
+        customerCart =
+            localCart;
+
+        saveCartLocally();
 
         return;
 
     }
 
 
+
     /*
-       Signed-in user.
+       SIGNED-IN CUSTOMER
     */
 
-    try {
+    try{
 
         const cartRef =
             getCartDocument();
-
-
-        if (!cartRef) {
-
-            cartLoaded =
-                true;
-
-            return;
-
-        }
 
 
         const snapshot =
@@ -2138,47 +2011,66 @@ async function loadCustomerCart() {
 
 
         /*
-           IMPORTANT:
-           Firebase modular SDK uses
-           snapshot.exists()
-           */
+           CUSTOMER ALREADY HAS
+           AN ACCOUNT CART
+        */
 
-        if (
-            snapshot.exists()
-        ) {
+        if(snapshot.exists()){
 
             const data =
                 snapshot.data();
 
 
-            const onlineCart =
+            customerCart =
                 normalizeCart(
                     data.cart || []
                 );
-
-
-            /*
-               Merge local and online.
-            */
-
-            customerCart =
-                mergeCarts(
-                    onlineCart,
-                    localCart
-                );
-
-        }
-
-        else {
-
-            customerCart =
-                localCart;
 
         }
 
 
         /*
-           Store merged cart locally.
+           CUSTOMER DOES NOT HAVE
+           AN ACCOUNT CART YET
+        */
+
+        else{
+
+            /*
+               Transfer this device's
+               cart to the account.
+            */
+
+            customerCart =
+                localCart;
+
+
+            await setDoc(
+
+                cartRef,
+
+                {
+
+                    cart:
+                        customerCart,
+
+                    updatedAt:
+                        serverTimestamp()
+
+                },
+
+                {
+                    merge:true
+                }
+
+            );
+
+        }
+
+
+        /*
+           Make this device match
+           the account cart.
         */
 
         saveLocalCart(
@@ -2186,51 +2078,48 @@ async function loadCustomerCart() {
         );
 
 
-        /*
-           If a local cart was merged into
-           the online cart, save the merged
-           result in the background.
-        */
+        localStorage.setItem(
+            "checkoutCart",
+            JSON.stringify(
+                customerCart
+            )
+        );
 
-        saveCustomerCartInBackground();
 
-
-        cartLoaded =
-            true;
+        console.log(
+            "Account cart loaded:",
+            customerCart
+        );
 
     }
 
-    catch (error) {
+    catch(error){
 
         console.error(
-            "Unable to load online cart:",
+            "Could not load account cart:",
             error
         );
 
 
         /*
-           IMPORTANT:
-           Firebase failure must NEVER
-           destroy the local cart.
+           Keep local cart if
+           Firebase has a problem.
         */
 
         customerCart =
             localCart;
 
 
-        saveLocalCart(
-            customerCart
-        );
+        saveCartLocally();
 
 
         accountStatus.innerHTML =
 
-            "Showing the cart saved on this device. " +
+            "Unable to load your online cart. " +
+
+            "Showing this device's cart. " +
+
             "<a href='profile.html'>My Account</a>";
-
-
-        cartLoaded =
-            true;
 
     }
 
@@ -2242,13 +2131,14 @@ async function loadCustomerCart() {
    PRICE
 ===================================================== */
 
-function getPrice(item) {
+function getPrice(item){
 
     return parseFloat(
 
         String(
             item.price || "0"
         )
+
         .replace(
             /[^0-9.]/g,
             ""
@@ -2264,18 +2154,18 @@ function getPrice(item) {
    SUBTOTAL
 ===================================================== */
 
-function calculateSubtotal() {
+function calculateSubtotal(){
 
-    let subtotal =
-        0;
+    let subtotal = 0;
 
 
     customerCart.forEach(
-        function(item) {
+        function(item){
 
             subtotal +=
 
                 getPrice(item) *
+
                 Number(
                     item.quantity || 1
                 );
@@ -2294,9 +2184,9 @@ function calculateSubtotal() {
    COUPON KEYS
 ===================================================== */
 
-function getCouponStorageKey() {
+function getCouponStorageKey(){
 
-    if (currentUser) {
+    if(currentUser){
 
         return (
             "50mirars_coupon_" +
@@ -2312,9 +2202,9 @@ function getCouponStorageKey() {
 
 
 
-function getDiscountStorageKey() {
+function getDiscountStorageKey(){
 
-    if (currentUser) {
+    if(currentUser){
 
         return (
             "50mirars_discount_" +
@@ -2334,7 +2224,7 @@ function getDiscountStorageKey() {
    LOAD COUPON
 ===================================================== */
 
-function loadSavedCoupon() {
+function loadSavedCoupon(){
 
     const coupon =
         localStorage.getItem(
@@ -2344,13 +2234,15 @@ function loadSavedCoupon() {
 
     const discount =
         parseFloat(
+
             localStorage.getItem(
                 getDiscountStorageKey()
             )
+
         ) || 0;
 
 
-    if (coupon) {
+    if(coupon){
 
         couponCodeInput.value =
             coupon;
@@ -2358,10 +2250,10 @@ function loadSavedCoupon() {
     }
 
 
-    if (
+    if(
         coupon &&
         discount > 0
-    ) {
+    ){
 
         couponMessage.innerText =
             coupon +
@@ -2380,7 +2272,7 @@ function loadSavedCoupon() {
    UPDATE SUMMARY
 ===================================================== */
 
-function updateSummary() {
+function updateSummary(){
 
     const subtotal =
         calculateSubtotal();
@@ -2438,31 +2330,21 @@ function updateSummary() {
         );
 
 
-    /*
-       Save totals for delivery page.
-    */
-
     localStorage.setItem(
         "orderSubtotal",
-        String(
-            subtotal
-        )
+        String(subtotal)
     );
 
 
     localStorage.setItem(
         "orderDiscount",
-        String(
-            discount
-        )
+        String(discount)
     );
 
 
     localStorage.setItem(
         "orderTotal",
-        String(
-            total
-        )
+        String(total)
     );
 
 }
@@ -2473,7 +2355,7 @@ function updateSummary() {
    ESCAPE HTML
 ===================================================== */
 
-function escapeHTML(text) {
+function escapeHTML(text){
 
     return String(text)
 
@@ -2510,7 +2392,7 @@ function escapeHTML(text) {
    RENDER CART
 ===================================================== */
 
-function renderCart() {
+function renderCart(){
 
     customerCart =
         normalizeCart(
@@ -2518,13 +2400,12 @@ function renderCart() {
         );
 
 
-    cartItems.innerHTML =
-        "";
+    cartItems.innerHTML = "";
 
 
-    if (
+    if(
         customerCart.length === 0
-    ) {
+    ){
 
         cartItems.innerHTML = `
 
@@ -2553,7 +2434,7 @@ function renderCart() {
 
 
     customerCart.forEach(
-        function(item, index) {
+        function(item){
 
             const price =
                 getPrice(item);
@@ -2679,12 +2560,13 @@ function renderCart() {
 ===================================================== */
 
 window.changeQuantity =
+
 function(
     encodedName,
     amount
-) {
+){
 
-    if (!authReady) {
+    if(!authReady){
 
         return;
 
@@ -2699,7 +2581,7 @@ function(
 
     const item =
         customerCart.find(
-            function(product) {
+            function(product){
 
                 return (
                     product.name ===
@@ -2710,7 +2592,7 @@ function(
         );
 
 
-    if (!item) {
+    if(!item){
 
         return;
 
@@ -2723,13 +2605,9 @@ function(
         );
 
 
-    /*
-       Increase.
-    */
-
-    if (
+    if(
         amount === 1
-    ) {
+    ){
 
         item.quantity =
             currentQuantity + 1;
@@ -2737,17 +2615,13 @@ function(
     }
 
 
-    /*
-       Decrease.
-    */
-
-    if (
+    if(
         amount === -1
-    ) {
+    ){
 
-        if (
+        if(
             currentQuantity <= 1
-        ) {
+        ){
 
             const confirmed =
                 confirm(
@@ -2755,7 +2629,7 @@ function(
                 );
 
 
-            if (!confirmed) {
+            if(!confirmed){
 
                 return;
 
@@ -2764,7 +2638,7 @@ function(
 
             customerCart =
                 customerCart.filter(
-                    function(product) {
+                    function(product){
 
                         return (
                             product.name !==
@@ -2776,7 +2650,7 @@ function(
 
         }
 
-        else {
+        else{
 
             item.quantity =
                 currentQuantity - 1;
@@ -2786,19 +2660,9 @@ function(
     }
 
 
-    /*
-       Save immediately locally.
-    */
-
     saveCartLocally();
 
-
-    /*
-       Save to Firebase in background.
-    */
-
     saveCustomerCartInBackground();
-
 
     renderCart();
 
@@ -2811,11 +2675,12 @@ function(
 ===================================================== */
 
 window.removeProduct =
+
 function(
     encodedName
-) {
+){
 
-    if (!authReady) {
+    if(!authReady){
 
         return;
 
@@ -2834,7 +2699,7 @@ function(
         );
 
 
-    if (!confirmed) {
+    if(!confirmed){
 
         return;
 
@@ -2843,7 +2708,7 @@ function(
 
     customerCart =
         customerCart.filter(
-            function(item) {
+            function(item){
 
                 return (
                     item.name !==
@@ -2856,9 +2721,7 @@ function(
 
     saveCartLocally();
 
-
     saveCustomerCartInBackground();
-
 
     renderCart();
 
@@ -2871,7 +2734,8 @@ function(
 ===================================================== */
 
 window.applyCoupon =
-function() {
+
+function(){
 
     const code =
         couponCodeInput.value
@@ -2883,9 +2747,7 @@ function() {
         calculateSubtotal();
 
 
-    if (
-        subtotal <= 0
-    ) {
+    if(subtotal <= 0){
 
         couponMessage.innerText =
             "Your cart is empty.";
@@ -2898,7 +2760,7 @@ function() {
     }
 
 
-    if (!code) {
+    if(!code){
 
         couponMessage.innerText =
             "Please enter a coupon code.";
@@ -2911,43 +2773,28 @@ function() {
     }
 
 
-    let discount =
-        0;
+    let discount = 0;
 
 
-    /*
-       20% coupon.
-    */
-
-    if (
+    if(
         code === "BIRTH1"
-    ) {
+    ){
 
         discount =
             subtotal * 0.20;
 
     }
 
-
-    /*
-       10% coupon.
-    */
-
-    else if (
+    else if(
         code === "10OFF10"
-    ) {
+    ){
 
         discount =
             subtotal * 0.10;
 
     }
 
-
-    /*
-       Invalid coupon.
-    */
-
-    else {
+    else{
 
         localStorage.removeItem(
             getDiscountStorageKey()
@@ -2972,10 +2819,6 @@ function() {
 
     }
 
-
-    /*
-       Store coupon.
-    */
 
     localStorage.setItem(
 
@@ -3003,7 +2846,9 @@ function() {
     couponMessage.innerText =
 
         code +
+
         " applied successfully! You saved ₹" +
+
         discount.toLocaleString(
             "en-IN"
         );
@@ -3021,7 +2866,8 @@ function() {
 ===================================================== */
 
 window.removeCoupon =
-function() {
+
+function(){
 
     localStorage.removeItem(
         getDiscountStorageKey()
@@ -3033,8 +2879,7 @@ function() {
     );
 
 
-    couponCodeInput.value =
-        "";
+    couponCodeInput.value = "";
 
 
     couponMessage.innerText =
@@ -3056,13 +2901,10 @@ function() {
 ===================================================== */
 
 window.goToDelivery =
-function() {
 
-    /*
-       Authentication must have finished.
-    */
+function(){
 
-    if (!authReady) {
+    if(!authReady){
 
         alert(
             "Please wait while your account is being checked."
@@ -3073,13 +2915,9 @@ function() {
     }
 
 
-    /*
-       Cart must contain products.
-    */
-
-    if (
+    if(
         customerCart.length === 0
-    ) {
+    ){
 
         alert(
             "Your cart is empty."
@@ -3094,7 +2932,7 @@ function() {
        Customer must be logged in.
     */
 
-    if (!currentUser) {
+    if(!currentUser){
 
         localStorage.setItem(
             "returnToCheckout",
@@ -3111,34 +2949,22 @@ function() {
     }
 
 
-    /*
-       IMPORTANT:
-       Everything required by delivery.html
-       is saved locally FIRST.
-    */
-
     saveCartLocally();
 
 
     updateSummary();
 
 
-    /*
-       Make absolutely sure checkoutCart
-       contains the latest cart.
-    */
-
     localStorage.setItem(
+
         "checkoutCart",
+
         JSON.stringify(
             customerCart
         )
+
     );
 
-
-    /*
-       Store checkout state.
-    */
 
     localStorage.setItem(
         "checkoutStarted",
@@ -3147,18 +2973,11 @@ function() {
 
 
     /*
-       Save Firebase in the BACKGROUND.
-       We deliberately DO NOT await it.
-       This prevents the button from getting
-       stuck on "loading".
+       Save latest cart to Firebase.
     */
 
     saveCustomerCartInBackground();
 
-
-    /*
-       Go immediately to delivery page.
-    */
 
     window.location.href =
         "delivery.html";
@@ -3175,7 +2994,7 @@ onAuthStateChanged(
 
     auth,
 
-    async function(user) {
+    async function(user){
 
         currentUser =
             user;
@@ -3185,40 +3004,41 @@ onAuthStateChanged(
             false;
 
 
-        cartLoaded =
-            false;
 
+        /* =================================================
+           CUSTOMER LOGGED IN
+        ================================================= */
 
-        /*
-           SIGNED-IN CUSTOMER
-        */
-
-        if (user) {
+        if(user){
 
             accountStatus.innerHTML =
 
                 "Signed in as " +
+
                 "<strong>" +
+
                 escapeHTML(
+
                     user.displayName ||
+
                     user.email ||
+
                     "Customer"
+
                 ) +
+
                 "</strong> · " +
+
                 "<a href='profile.html'>My Account</a>";
 
 
             /*
-               Load online cart.
+               IMPORTANT:
+               Load Firebase account cart.
             */
 
             await loadCustomerCart();
 
-
-            /*
-               Load coupon after UID
-               is known.
-            */
 
             loadSavedCoupon();
 
@@ -3227,26 +3047,33 @@ onAuthStateChanged(
                 true;
 
 
-            /*
-               Render cart.
-            */
-
             renderCart();
+
+
+            console.log(
+                "Customer UID:",
+                user.uid
+            );
 
         }
 
 
-        /*
-           GUEST
-        */
 
-        else {
+        /* =================================================
+           GUEST
+        ================================================= */
+
+        else{
 
             accountStatus.innerHTML =
 
                 "You are browsing as a guest. " +
-                "<a href='profile.html'>Sign in with Google</a> " +
-                "to save your cart to your account.";
+
+                "<a href='profile.html'>" +
+
+                "Sign in with Google" +
+
+                "</a> to save your cart to your account.";
 
 
             customerCart =
@@ -3256,10 +3083,6 @@ onAuthStateChanged(
 
 
             loadSavedCoupon();
-
-
-            cartLoaded =
-                true;
 
 
             authReady =
@@ -3275,7 +3098,6 @@ onAuthStateChanged(
 );
 
 </script>
-
 
 </body>
 
