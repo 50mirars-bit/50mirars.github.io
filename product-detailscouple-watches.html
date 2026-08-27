@@ -566,25 +566,6 @@ body{
 }
 
 
-/* WISHLIST */
-.wishlist-btn{
-    width:100%;
-    min-height:52px;
-    border:2px solid #c9a24d;
-    background:#fff;
-    color:#111;
-    border-radius:6px;
-    font-size:16px;
-    font-weight:bold;
-    cursor:pointer;
-    transition:.3s ease;
-}
-.wishlist-btn:hover,.wishlist-btn.active{
-    background:#c9a24d;
-    color:#111;
-}
-
-
 /* =========================================================
    WHATSAPP
 ========================================================= */
@@ -1486,8 +1467,6 @@ body{
             </div>
 
 
-            <button type="button" class="wishlist-btn" id="wishlistBtn">♡ Save to Wishlist</button>
-
             <div class="action-buttons">
 
                 <button
@@ -1761,31 +1740,6 @@ body{
     </div>
 
 </footer>
-
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
-import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
-import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
-
-const firebaseConfig = {
-    apiKey: "AIzaSyD5oZFRZUDnmb2d1_juGTeWAbQcy3gcyjc",
-    authDomain: "mirars-project.firebaseapp.com",
-    projectId: "mirars-project",
-    storageBucket: "mirars-project.firebasestorage.app",
-    messagingSenderId: "947955901957",
-    appId: "1:947955901957:web:67bb04627f25bf2a419e6c",
-    measurementId: "G-HXESQZER5L"
-};
-
-const app = initializeApp(firebaseConfig);
-
-window.auth = getAuth(app);
-window.db = getFirestore(app);
-window.onAuthStateChanged = onAuthStateChanged;
-window.doc = doc;
-window.getDoc = getDoc;
-window.setDoc = setDoc;
-</script>
 
 
 <script>
@@ -2373,12 +2327,6 @@ const whatsappBtn =
         "whatsappBtn"
     );
 
-/* =========================================================
-   LOGIN STATUS
-========================================================= */
-
-let currentUser = null;
-
 
 /* =========================================================
    FORMAT PRICE
@@ -2627,9 +2575,6 @@ if(product.media === "video"){
             .join("");
 
 
-    updateWishlistButton();
-    document.getElementById("wishlistBtn").onclick=toggleWishlist;
-
     /* =====================================================
        WHATSAPP
     ===================================================== */
@@ -2784,117 +2729,6 @@ function loadSimilarProducts(){
 }
 
 
-
-/* =========================================================
-   FIREBASE WISHLIST
-========================================================= */
-
-async function getUserWishlist(){
-
-    if(!currentUser) return [];
-
-    const ref = window.doc(window.db,"wishlists",currentUser.uid);
-
-    const snap = await window.getDoc(ref);
-
-    return snap.exists() ? (snap.data().items || []) : [];
-}
-
-async function saveUserWishlist(items){
-
-    if(!currentUser) return;
-
-    const ref = window.doc(window.db,"wishlists",currentUser.uid);
-
-    await window.setDoc(ref,{items});
-}
-
-async function updateWishlistButton(){
-
-    const btn = document.getElementById("wishlistBtn");
-
-    if(!btn || !product) return;
-
-    if(!currentUser){
-
-        btn.classList.remove("active");
-        btn.innerHTML = "♡ Save to Wishlist";
-        return;
-    }
-
-    const wishlist = await getUserWishlist();
-
-    const exists = wishlist.some(
-        item => String(item.id) === String(product.slug)
-    );
-
-    if(exists){
-
-        btn.classList.add("active");
-        btn.innerHTML = "♥ Saved to Wishlist";
-
-    }else{
-
-        btn.classList.remove("active");
-        btn.innerHTML = "♡ Save to Wishlist";
-    }
-}
-
-async function toggleWishlist(){
-
-    if(!product) return;
-
-    if(!currentUser){
-
-        cartMessage.textContent = "Please sign in first.";
-
-        setTimeout(function(){
-
-            window.location.href = "profile.html";
-
-        },1000);
-
-        return;
-    }
-
-    let wishlist = await getUserWishlist();
-
-    const index = wishlist.findIndex(
-        item => String(item.id) === String(product.slug)
-    );
-
-    if(index > -1){
-
-        wishlist.splice(index,1);
-        cartMessage.textContent = "Removed from Wishlist";
-
-    }else{
-
-        wishlist.push({
-
-            id:product.slug,
-            name:product.name,
-            price:product.price,
-            media:product.files ? product.files[0] : product.file,
-            type:product.media,
-            category:"Couple Watches"
-
-        });
-
-        cartMessage.textContent = "Added to Wishlist";
-    }
-
-    await saveUserWishlist(wishlist);
-
-    updateWishlistButton();
-
-    setTimeout(function(){
-
-        cartMessage.textContent = "";
-
-    },2500);
-}
-    
 /* =========================================================
    GET CART
 ========================================================= */
@@ -3302,14 +3136,6 @@ document
 ========================================================= */
 
 loadProduct();
-
-window.onAuthStateChanged(window.auth,(user)=>{
-
-    currentUser = user;
-
-    updateWishlistButton();
-
-});
 
 </script>
 
