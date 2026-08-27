@@ -109,6 +109,14 @@ body{
 }
 
 
+.header-spacer{
+
+    width:210px;
+
+    flex-shrink:0;
+}
+
+
 .header-title{
 
     flex:1;
@@ -162,6 +170,10 @@ body{
 
     transition:
         all 0.3s ease;
+
+    white-space:nowrap;
+
+    flex-shrink:0;
 }
 
 
@@ -189,7 +201,7 @@ body{
     margin:0 auto;
 
     padding:
-        50px
+        40px
         40px
         90px;
 }
@@ -639,7 +651,7 @@ body{
 
     width:100%;
 
-    min-height:58px;
+    min-height:56px;
 
     border:
         1px solid
@@ -666,7 +678,7 @@ body{
     cursor:pointer;
 
     transition:
-        all .3s ease;
+        .3s ease;
 }
 
 
@@ -688,13 +700,6 @@ body{
     box-shadow:
         0 10px 25px
         rgba(0,0,0,.20);
-}
-
-
-.buy-now-btn:active{
-
-    transform:
-        translateY(0);
 }
 
 
@@ -832,11 +837,15 @@ body{
 }
 
 
+/* =========================================================
+   WISHLIST STATUS
+========================================================= */
+
 .wishlist-status{
 
     min-height:22px;
 
-    margin-top:5px;
+    margin-top:2px;
 
     text-align:center;
 
@@ -845,11 +854,61 @@ body{
     color:#9b7838;
 
     font-weight:600;
+
+    transition:
+        all .2s ease;
 }
 
 
 /* =========================================================
-   WHATSAPP
+   LOGIN MESSAGE
+========================================================= */
+
+.login-message{
+
+    display:none;
+
+    width:100%;
+
+    margin-top:3px;
+
+    padding:
+        13px
+        15px;
+
+    background:
+        rgba(201,162,77,0.12);
+
+    border:
+        1px solid
+        rgba(201,162,77,0.45);
+
+    border-radius:7px;
+
+    color:#6e5424;
+
+    text-align:center;
+
+    font-size:14px;
+
+    line-height:1.5;
+
+    font-weight:600;
+}
+
+
+.login-message a{
+
+    color:#8a6727;
+
+    font-weight:700;
+
+    text-decoration:underline;
+}
+
+
+/* =========================================================
+   WHATSAPP BUTTON
 ========================================================= */
 
 .whatsapp-enquiry-btn{
@@ -928,10 +987,7 @@ body{
         #c9a24d;
 
     border-radius:
-        0
-        8px
-        8px
-        0;
+        0 8px 8px 0;
 }
 
 
@@ -966,7 +1022,7 @@ body{
 
 
 /* =========================================================
-   PRODUCT NOT FOUND
+   NOT FOUND
 ========================================================= */
 
 .product-not-found{
@@ -1015,34 +1071,6 @@ body{
     line-height:1.7;
 
     margin-bottom:25px;
-}
-
-
-.not-found-back{
-
-    display:inline-flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    padding:
-        12px
-        22px;
-
-    background:#111;
-
-    color:#fff;
-
-    text-decoration:none;
-
-    border:
-        1px solid
-        #c9a24d;
-
-    border-radius:7px;
-
-    font-weight:600;
 }
 
 
@@ -1165,7 +1193,7 @@ body{
 
 
 /* =========================================================
-   FOOTER WHATSAPP
+   WHATSAPP FOOTER
 ========================================================= */
 
 .whatsapp-column{
@@ -1406,6 +1434,8 @@ body{
         padding:
             15px
             20px;
+
+        gap:12px;
     }
 
 
@@ -1417,7 +1447,21 @@ body{
     }
 
 
+    .header-spacer{
+
+        display:none;
+    }
+
+
+    .header-title{
+
+        display:none;
+    }
+
+
     .header-back-btn{
+
+        margin-left:auto;
 
         padding:
             10px
@@ -1430,7 +1474,7 @@ body{
     .page-wrapper{
 
         padding:
-            30px
+            25px
             20px
             60px;
     }
@@ -1625,6 +1669,14 @@ body{
     >
 
 
+    <h1 class="header-title">
+        Limited Editions
+    </h1>
+
+
+    <div class="header-spacer"></div>
+
+
     <a
         href="limited-editions.html"
         class="header-back-btn"
@@ -1654,7 +1706,7 @@ body{
 
 
         <!-- =================================================
-             PRODUCT MEDIA
+             MEDIA
         ================================================== -->
 
         <div class="product-media-section">
@@ -1663,7 +1715,6 @@ body{
                 class="media-box"
                 id="mediaBox"
             >
-
             </div>
 
         </div>
@@ -1755,7 +1806,9 @@ body{
                         Availability
                     </span>
 
-                    <span class="meta-value">
+                    <span
+                        class="meta-value"
+                    >
                         Available
                     </span>
 
@@ -1784,7 +1837,6 @@ body{
                 </button>
 
 
-
                 <!-- ADD TO CART -->
 
                 <button
@@ -1794,7 +1846,6 @@ body{
                 >
                     🛒 Add to Cart
                 </button>
-
 
 
                 <!-- WISHLIST -->
@@ -1819,11 +1870,25 @@ body{
                 </button>
 
 
+                <!-- WISHLIST STATUS -->
+
                 <div
                     class="wishlist-status"
                     id="wishlistStatus"
                 ></div>
 
+
+                <!-- LOGIN MESSAGE -->
+
+                <div
+                    class="login-message"
+                    id="loginMessage"
+                >
+                    Please sign in first.
+                    <a href="profile.html">
+                        Sign In
+                    </a>
+                </div>
 
 
                 <!-- WHATSAPP -->
@@ -1890,7 +1955,6 @@ body{
             Product Not Found
         </h1>
 
-
         <p>
             We could not find the Limited Edition product you are
             looking for. Please return to the Limited Editions
@@ -1900,7 +1964,7 @@ body{
 
         <a
             href="limited-editions.html"
-            class="not-found-back"
+            class="header-back-btn"
         >
             ← Back to Limited Editions
         </a>
@@ -2136,10 +2200,81 @@ body{
 
 
 <!-- =========================================================
-     JAVASCRIPT
+     FIREBASE + JAVASCRIPT
 ========================================================= -->
 
-<script>
+<script type="module">
+
+
+/* =========================================================
+   FIREBASE IMPORTS
+========================================================= */
+
+import {
+    initializeApp
+}
+from
+"https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+
+
+import {
+    getAuth,
+    onAuthStateChanged
+}
+from
+"https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+
+
+/* =========================================================
+   FIREBASE CONFIG
+========================================================= */
+
+const firebaseConfig = {
+
+    apiKey:
+        "AIzaSyD5oZFRZUDnmb2d1_juGTeWAbQcy3gcyjc",
+
+    authDomain:
+        "mirars-project.firebaseapp.com",
+
+    projectId:
+        "mirars-project",
+
+    storageBucket:
+        "mirars-project.firebasestorage.app",
+
+    messagingSenderId:
+        "947955901957",
+
+    appId:
+        "1:947955901957:web:67bb04627f25bf2a419e6c",
+
+    measurementId:
+        "G-HXESQZER5L"
+
+};
+
+
+/* =========================================================
+   INITIALIZE FIREBASE
+========================================================= */
+
+const app =
+    initializeApp(
+        firebaseConfig
+    );
+
+
+const auth =
+    getAuth(app);
+
+
+/* =========================================================
+   GLOBAL AUTH USER
+========================================================= */
+
+let currentUser = null;
+
 
 /* =========================================================
    LIMITED EDITION PRODUCTS
@@ -2149,222 +2284,324 @@ const limitedEditionProducts = [
 
     {
         id: "1",
+
         name: "Seiko 5 Sports Red Blood",
+
         price: 4500,
+
         type: "video",
+
         media: [
             "Seiko 5 Sports Red Blood.mp4"
         ],
+
         category: "Limited Edition Watches",
+
         productType: "Watch"
     },
 
 
     {
         id: "2",
+
         name: "Seiko Presage Cocktail SRPG23J1",
+
         price: 4000,
+
         type: "video",
+
         media: [
             "Seiko Presage Cocktail SRPG23J1.mp4"
         ],
+
         category: "Limited Edition Watches",
+
         productType: "Watch"
     },
 
 
     {
         id: "3",
+
         name: "MayBach Sunglasses 0272",
+
         price: 2500,
+
         type: "video",
+
         media: [
             "MayBach Sunglasses 0272.mp4"
         ],
+
         category: "Limited Edition Sunglasses",
+
         productType: "Sunglasses"
     },
 
 
     {
         id: "4",
+
         name: "Versace VE2298",
+
         price: 2500,
+
         type: "video",
+
         media: [
             "Versace VE2298.mp4"
         ],
+
         category: "Limited Edition Sunglasses",
+
         productType: "Sunglasses"
     },
 
 
     {
         id: "5",
+
         name: "Ray-Ban Wayfarer Reverse Sunglasses",
+
         price: 2500,
+
         type: "image",
+
         media: [
             "Ray-Ban Wayfarer Reverse Sunglasses.jpeg"
         ],
+
         category: "Limited Edition Sunglasses",
+
         productType: "Sunglasses"
     },
 
 
     {
         id: "6",
+
         name: "Balmain Paris 7020 Purple Shade Sunglasses",
+
         price: 2500,
+
         type: "image",
+
         media: [
             "Balmain Paris 7020 Purpule Shade Sungalsses.jpeg"
         ],
+
         category: "Limited Edition Sunglasses",
+
         productType: "Sunglasses"
     },
 
 
     {
         id: "7",
+
         name: "Seiko Pepsi Edition",
+
         price: 6000,
+
         type: "image",
+
         media: [
             "Seiko Pepsi Edition.jpeg"
         ],
+
         category: "Limited Edition Watches",
+
         productType: "Watch"
     },
 
 
     {
         id: "8",
+
         name: "Gucci Diamond Cut Sunglasses",
+
         price: 2500,
+
         type: "image",
+
         media: [
             "Gucci diamond cut sunglasses.jpeg"
         ],
+
         category: "Limited Edition Sunglasses",
+
         productType: "Sunglasses"
     },
 
 
     {
         id: "9",
+
         name: "Tissot Gentleman Powermatic 80",
+
         price: 6000,
+
         type: "slider",
+
         media: [
             "Tissot Gentelman Powermatic 80.jpeg",
             "Tissot Gentelman Powermatic 80 2.jpeg"
         ],
+
         category: "Limited Edition Watches",
+
         productType: "Watch"
     },
 
 
     {
         id: "10",
+
         name: "Maybach The Magic I Blue Sunglasses",
+
         price: 2500,
+
         type: "image",
+
         media: [
             "Maybach The Magic I Blue Sunglasses.jpeg"
         ],
+
         category: "Limited Edition Sunglasses",
+
         productType: "Sunglasses"
     },
 
 
     {
         id: "11",
+
         name: "Casio Edifice ECB-2000DD",
+
         price: 6000,
+
         type: "image",
+
         media: [
             "Casio Edifice ECB-2000DD.jpeg"
         ],
+
         category: "Limited Edition Watches",
+
         productType: "Watch"
     },
 
 
     {
         id: "12",
+
         name: "Seiko Datejust Mod",
+
         price: 5000,
+
         type: "video",
+
         media: [
             "Seiko Datejust Mod.mp4"
         ],
+
         category: "Limited Edition Watches",
+
         productType: "Watch"
     },
 
 
     {
         id: "13",
+
         name: "Seiko Mod",
+
         price: 5000,
+
         type: "image",
+
         media: [
             "Seiko Mod .jpeg"
         ],
+
         category: "Limited Edition Watches",
+
         productType: "Watch"
     },
 
 
     {
         id: "14",
+
         name: "Maybach FA-812",
+
         price: 2500,
+
         type: "video",
+
         media: [
             "Maybach FA-812.mp4"
         ],
+
         category: "Limited Edition Sunglasses",
+
         productType: "Sunglasses"
     },
 
 
     {
         id: "15",
+
         name: "Seiko Prospex Diver",
+
         price: 4000,
+
         type: "video",
+
         media: [
             "Seiko Prospex Diver .mp4"
         ],
+
         category: "Limited Edition Watches",
+
         productType: "Watch"
     },
 
 
     {
         id: "16",
+
         name: "Balmain Paris 7020 Green Shade Sunglasses",
+
         price: 2500,
+
         type: "image",
+
         media: [
             "Balmain Paris 7020 Green Shade Sungalsses.jpeg"
         ],
+
         category: "Limited Edition Sunglasses",
+
         productType: "Sunglasses"
     },
 
 
     {
         id: "17",
+
         name: "Tag Heuer Carrera 160 Year Anniversary Limited Edition",
+
         price: 4500,
+
         type: "video",
+
         media: [
             "Tag Heuer Carrera 160 Year Anniversary Limited Edition.mp4"
         ],
+
         category: "Limited Edition Watches",
+
         productType: "Watch"
     }
 
@@ -2372,7 +2609,7 @@ const limitedEditionProducts = [
 
 
 /* =========================================================
-   GET URL PRODUCT ID
+   GET PRODUCT ID
 ========================================================= */
 
 const urlParams =
@@ -2458,6 +2695,18 @@ const metaProductType =
     );
 
 
+const buyNowBtn =
+    document.getElementById(
+        "buyNowBtn"
+    );
+
+
+const addCartBtn =
+    document.getElementById(
+        "addCartBtn"
+    );
+
+
 const wishlistBtn =
     document.getElementById(
         "wishlistBtn"
@@ -2482,15 +2731,9 @@ const wishlistStatus =
     );
 
 
-const addCartBtn =
+const loginMessage =
     document.getElementById(
-        "addCartBtn"
-    );
-
-
-const buyNowBtn =
-    document.getElementById(
-        "buyNowBtn"
+        "loginMessage"
     );
 
 
@@ -2515,284 +2758,43 @@ function formatPrice(price){
 
 
 /* =========================================================
-   CREATE CART PRODUCT
+   ESCAPE HTML
 ========================================================= */
 
-function createCartProduct(product){
+function escapeHTML(text){
 
-    return {
+    return String(text || "")
 
-        id:
-            product.id,
-
-        name:
-            product.name,
-
-        price:
-            product.price,
-
-        quantity:
-            1,
-
-        image:
-            product.media[0],
-
-        media:
-            product.media,
-
-        type:
-            product.type,
-
-        category:
-            product.category,
-
-        productType:
-            product.productType,
-
-        link:
-            "product-detailslimited-editions.html?id=" +
-            product.id
-
-    };
-
-}
-
-
-/* =========================================================
-   GET CART
-========================================================= */
-
-function getCart(){
-
-    try{
-
-        const storedCart =
-            localStorage.getItem(
-                "cart"
-            );
-
-
-        if(!storedCart){
-
-            return [];
-
-        }
-
-
-        const parsedCart =
-            JSON.parse(
-                storedCart
-            );
-
-
-        if(
-            Array.isArray(
-                parsedCart
-            )
-        ){
-
-            return parsedCart;
-
-        }
-
-    }
-    catch(error){
-
-        console.error(
-            "Cart read error:",
-            error
-        );
-
-    }
-
-
-    return [];
-
-}
-
-
-/* =========================================================
-   SAVE CART
-========================================================= */
-
-function saveCart(cart){
-
-    localStorage.setItem(
-        "cart",
-        JSON.stringify(
-            cart
+        .replace(
+            /&/g,
+            "&amp;"
         )
-    );
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
 
 }
 
 
 /* =========================================================
-   ADD PRODUCT TO CART
-========================================================= */
-
-function addProductToCart(product){
-
-    if(!product){
-
-        return false;
-
-    }
-
-
-    const cart =
-        getCart();
-
-
-    const existingProduct =
-        cart.find(
-            function(item){
-
-                return String(
-                    item.id
-                ) ===
-                String(
-                    product.id
-                );
-
-            }
-        );
-
-
-    if(existingProduct){
-
-        existingProduct.quantity =
-            Number(
-                existingProduct.quantity || 1
-            ) + 1;
-
-    }
-    else{
-
-        cart.push(
-            createCartProduct(
-                product
-            )
-        );
-
-    }
-
-
-    saveCart(
-        cart
-    );
-
-
-    return true;
-
-}
-
-
-/* =========================================================
-   BUY NOW
-========================================================= */
-
-buyNowBtn.addEventListener(
-    "click",
-    function(){
-
-        if(!product){
-
-            return;
-
-        }
-
-
-        const added =
-            addProductToCart(
-                product
-            );
-
-
-        if(!added){
-
-            return;
-
-        }
-
-
-        /*
-         * Product is now saved in localStorage.
-         *
-         * Redirect directly to cart.
-         */
-
-        window.location.href =
-            "cart.html";
-
-    }
-);
-
-
-/* =========================================================
-   ADD TO CART
-========================================================= */
-
-addCartBtn.addEventListener(
-    "click",
-    function(){
-
-        if(!product){
-
-            return;
-
-        }
-
-
-        const added =
-            addProductToCart(
-                product
-            );
-
-
-        if(!added){
-
-            return;
-
-        }
-
-
-        addCartBtn.textContent =
-            "✓ Added to Cart";
-
-
-        addCartBtn.style.background =
-            "#c9a24d";
-
-
-        addCartBtn.style.color =
-            "#111";
-
-
-        setTimeout(
-            function(){
-
-                addCartBtn.textContent =
-                    "🛒 Add to Cart";
-
-
-                addCartBtn.style.background =
-                    "";
-
-
-                addCartBtn.style.color =
-                    "";
-
-            },
-            2200
-        );
-
-    }
-);
-
-
-/* =========================================================
-   PRODUCT DESCRIPTION
+   DESCRIPTION
 ========================================================= */
 
 function createDescription(product){
@@ -2827,13 +2829,12 @@ function createDescription(product){
 
 
 /* =========================================================
-   RENDER PRODUCT MEDIA
+   RENDER MEDIA
 ========================================================= */
 
 function renderMedia(product){
 
-    mediaBox.innerHTML =
-        "";
+    mediaBox.innerHTML = "";
 
 
     /* =====================================================
@@ -2865,13 +2866,9 @@ function renderMedia(product){
             );
 
 
-        video.controls =
-            true;
+        video.controls = true;
 
-
-        video.playsInline =
-            true;
-
+        video.playsInline = true;
 
         video.preload =
             "metadata";
@@ -3113,8 +3110,7 @@ function renderMedia(product){
             );
 
 
-            let currentSlide =
-                0;
+            let currentSlide = 0;
 
 
             const slides =
@@ -3149,8 +3145,7 @@ function renderMedia(product){
 
                     currentSlide =
                         (
-                            currentSlide +
-                            1
+                            currentSlide + 1
                         )
                         %
                         slides.length;
@@ -3270,15 +3265,38 @@ function saveWishlist(
 
 
 /* =========================================================
+   WISHLIST ID
+========================================================= */
+
+function getWishlistId(){
+
+    return "limited-" +
+        String(
+            product.id
+        );
+
+}
+
+
+/* =========================================================
    CHECK WISHLIST
 ========================================================= */
 
-function isInWishlist(
-    productId
-){
+function isInWishlist(){
+
+    if(!product){
+
+        return false;
+
+    }
+
 
     const wishlist =
         getWishlist();
+
+
+    const wishlistId =
+        getWishlistId();
 
 
     return wishlist.some(
@@ -3294,14 +3312,14 @@ function isInWishlist(
                     item.id
                 ) ===
                 String(
-                    productId
+                    wishlistId
                 );
 
             }
 
 
             return String(item) ===
-                   String(productId);
+                String(wishlistId);
 
         }
     );
@@ -3315,20 +3333,44 @@ function isInWishlist(
 
 function updateWishlistButton(){
 
-    if(!product){
+    if(
+        !product ||
+        !wishlistBtn
+    ){
 
         return;
 
     }
 
 
-    const active =
-        isInWishlist(
-            product.id
+    /*
+       When signed out, keep the normal
+       Add to Wishlist appearance.
+    */
+
+    if(!currentUser){
+
+        wishlistBtn.classList.remove(
+            "active"
         );
 
 
-    if(active){
+        wishlistHeart.textContent =
+            "♡";
+
+
+        wishlistText.textContent =
+            "Add to Wishlist";
+
+
+        return;
+
+    }
+
+
+    if(
+        isInWishlist()
+    ){
 
         wishlistBtn.classList.add(
             "active"
@@ -3363,6 +3405,31 @@ function updateWishlistButton(){
 
 
 /* =========================================================
+   SHOW STATUS
+========================================================= */
+
+function showWishlistStatus(
+    message
+){
+
+    wishlistStatus.textContent =
+        message;
+
+
+    setTimeout(
+        function(){
+
+            wishlistStatus.textContent =
+                "";
+
+        },
+        2500
+    );
+
+}
+
+
+/* =========================================================
    WISHLIST BUTTON
 ========================================================= */
 
@@ -3377,8 +3444,57 @@ wishlistBtn.addEventListener(
         }
 
 
+        /*
+           IMPORTANT:
+
+           Firebase Authentication is checked FIRST.
+
+           A signed-out visitor is NEVER allowed
+           to add/remove a wishlist product.
+        */
+
+        if(!currentUser){
+
+            loginMessage.style.display =
+                "block";
+
+
+            showWishlistStatus(
+                "Please sign in first."
+            );
+
+
+            /*
+               Small delay lets the customer
+               see the message before redirect.
+            */
+
+            setTimeout(
+                function(){
+
+                    window.location.href =
+                        "profile.html";
+
+                },
+                900
+            );
+
+
+            return;
+
+        }
+
+
+        loginMessage.style.display =
+            "none";
+
+
         let wishlist =
             getWishlist();
+
+
+        const wishlistId =
+            getWishlistId();
 
 
         const existingIndex =
@@ -3395,22 +3511,25 @@ wishlistBtn.addEventListener(
                             item.id
                         ) ===
                         String(
-                            product.id
+                            wishlistId
                         );
 
                     }
 
 
                     return String(item) ===
-                           String(product.id);
+                        String(wishlistId);
 
                 }
             );
 
 
+        /* =================================================
+           REMOVE
+        ================================================== */
+
         if(
-            existingIndex !==
-            -1
+            existingIndex !== -1
         ){
 
             wishlist.splice(
@@ -3424,15 +3543,25 @@ wishlistBtn.addEventListener(
             );
 
 
-            wishlistStatus.textContent =
-                "Removed from your wishlist.";
+            showWishlistStatus(
+                "Removed from your wishlist."
+            );
 
         }
+
+
+        /* =================================================
+           ADD
+        ================================================== */
+
         else{
 
             wishlist.push({
 
                 id:
+                    wishlistId,
+
+                productId:
                     product.id,
 
                 name:
@@ -3441,11 +3570,14 @@ wishlistBtn.addEventListener(
                 price:
                     product.price,
 
-                type:
-                    product.type,
+                image:
+                    product.media[0],
 
                 media:
                     product.media,
+
+                type:
+                    product.type,
 
                 category:
                     product.category,
@@ -3465,23 +3597,312 @@ wishlistBtn.addEventListener(
             );
 
 
-            wishlistStatus.textContent =
-                "Added to your wishlist.";
+            showWishlistStatus(
+                "Added to your wishlist."
+            );
 
         }
 
 
         updateWishlistButton();
 
+    }
+);
+
+
+/* =========================================================
+   GET CART
+========================================================= */
+
+function getCart(){
+
+    try{
+
+        const stored =
+            localStorage.getItem(
+                "cart"
+            );
+
+
+        if(!stored){
+
+            return [];
+
+        }
+
+
+        const parsed =
+            JSON.parse(
+                stored
+            );
+
+
+        return Array.isArray(
+            parsed
+        )
+            ? parsed
+            : [];
+
+    }
+    catch(error){
+
+        console.error(
+            "Cart read error:",
+            error
+        );
+
+
+        return [];
+
+    }
+
+}
+
+
+/* =========================================================
+   SAVE CART
+========================================================= */
+
+function saveCart(cart){
+
+    localStorage.setItem(
+        "cart",
+        JSON.stringify(
+            cart
+        )
+    );
+
+}
+
+
+/* =========================================================
+   CREATE CART ITEM
+========================================================= */
+
+function createCartItem(){
+
+    return {
+
+        id:
+            "limited-editions-" +
+            product.id,
+
+        productId:
+            product.id,
+
+        name:
+            product.name,
+
+        price:
+            product.price,
+
+        quantity:
+            1,
+
+        image:
+            product.media[0],
+
+        media:
+            product.media,
+
+        type:
+            product.type,
+
+        category:
+            "Limited Editions",
+
+        productType:
+            product.productType,
+
+        link:
+            "product-detailslimited-editions.html?id=" +
+            product.id
+
+    };
+
+}
+
+
+/* =========================================================
+   ADD TO CART
+========================================================= */
+
+addCartBtn.addEventListener(
+    "click",
+    function(){
+
+        if(!product){
+
+            return;
+
+        }
+
+
+        const cart =
+            getCart();
+
+
+        const cartProductId =
+            "limited-editions-" +
+            product.id;
+
+
+        const existingItem =
+            cart.find(
+                function(item){
+
+                    return String(
+                        item.id
+                    ) ===
+                    String(
+                        cartProductId
+                    );
+
+                }
+            );
+
+
+        if(existingItem){
+
+            existingItem.quantity =
+                Number(
+                    existingItem.quantity || 1
+                ) + 1;
+
+        }
+        else{
+
+            cart.push(
+                createCartItem()
+            );
+
+        }
+
+
+        saveCart(
+            cart
+        );
+
+
+        addCartBtn.textContent =
+            "✓ Added to Cart";
+
+
+        addCartBtn.style.background =
+            "#c9a24d";
+
+
+        addCartBtn.style.color =
+            "#111";
+
 
         setTimeout(
             function(){
 
-                wishlistStatus.textContent =
+                addCartBtn.textContent =
+                    "🛒 Add to Cart";
+
+
+                addCartBtn.style.background =
+                    "";
+
+
+                addCartBtn.style.color =
                     "";
 
             },
-            2500
+            2200
+        );
+
+    }
+);
+
+
+/* =========================================================
+   BUY NOW
+========================================================= */
+
+buyNowBtn.addEventListener(
+    "click",
+    function(){
+
+        if(!product){
+
+            return;
+
+        }
+
+
+        /*
+           Buy Now always places the
+           selected product into cart.
+
+           It does NOT require login.
+        */
+
+        const cart =
+            getCart();
+
+
+        const cartProductId =
+            "limited-editions-" +
+            product.id;
+
+
+        const existingItem =
+            cart.find(
+                function(item){
+
+                    return String(
+                        item.id
+                    ) ===
+                    String(
+                        cartProductId
+                    );
+
+                }
+            );
+
+
+        if(existingItem){
+
+            existingItem.quantity =
+                Number(
+                    existingItem.quantity || 1
+                ) + 1;
+
+        }
+        else{
+
+            cart.push(
+                createCartItem()
+            );
+
+        }
+
+
+        saveCart(
+            cart
+        );
+
+
+        buyNowBtn.textContent =
+            "Opening Cart...";
+
+
+        /*
+           Short delay gives the button
+           feedback before navigation.
+        */
+
+        setTimeout(
+            function(){
+
+                window.location.href =
+                    "cart.html";
+
+            },
+            250
         );
 
     }
@@ -3542,7 +3963,7 @@ function loadProduct(){
 
 
     /* =====================================================
-       PRODUCT INFORMATION
+       PRODUCT TEXT
     ===================================================== */
 
     productName.textContent =
@@ -3583,13 +4004,6 @@ function loadProduct(){
 
 
     /* =====================================================
-       WISHLIST
-    ===================================================== */
-
-    updateWishlistButton();
-
-
-    /* =====================================================
        WHATSAPP
     ===================================================== */
 
@@ -3599,7 +4013,7 @@ function loadProduct(){
 
 
     /* =====================================================
-       PAGE TITLE
+       TITLE
     ===================================================== */
 
     document.title =
@@ -3610,10 +4024,56 @@ function loadProduct(){
 
 
 /* =========================================================
+   FIREBASE AUTH STATE
+========================================================= */
+
+onAuthStateChanged(
+    auth,
+    function(user){
+
+        currentUser =
+            user;
+
+
+        /*
+           User is signed in.
+        */
+
+        if(user){
+
+            loginMessage.style.display =
+                "none";
+
+
+            updateWishlistButton();
+
+        }
+
+
+        /*
+           User is signed out.
+        */
+
+        else{
+
+            loginMessage.style.display =
+                "none";
+
+
+            updateWishlistButton();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
    START PAGE
 ========================================================= */
 
 loadProduct();
+
 
 </script>
 
