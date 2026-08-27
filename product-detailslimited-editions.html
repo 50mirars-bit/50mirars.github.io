@@ -1766,6 +1766,31 @@ body{
 
 </footer>
 
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyD5oZFRZUDnmb2d1_juGTeWAbQcy3gcyjc",
+    authDomain: "mirars-project.firebaseapp.com",
+    projectId: "mirars-project",
+    storageBucket: "mirars-project.firebasestorage.app",
+    messagingSenderId: "947955901957",
+    appId: "1:947955901957:web:67bb04627f25bf2a419e6c",
+    measurementId: "G-HXESQZER5L"
+};
+
+const app = initializeApp(firebaseConfig);
+
+window.auth = getAuth(app);
+window.db = getFirestore(app);
+window.onAuthStateChanged = onAuthStateChanged;
+window.doc = doc;
+window.getDoc = getDoc;
+window.setDoc = setDoc;
+</script>
+
 
 <script>
 
@@ -2352,6 +2377,12 @@ const whatsappBtn =
 
 
 /* =========================================================
+   LOGIN STATUS
+========================================================= */
+
+let currentUser = null;
+    
+/* =========================================================
    FORMAT PRICE
 ========================================================= */
 
@@ -2754,87 +2785,114 @@ function loadSimilarProducts(){
 
 
 /* =========================================================
-   WISHLIST
+   FIREBASE WISHLIST
 ========================================================= */
 
-function getWishlist(){
-    return JSON.parse(localStorage.getItem("wishlist")) || [];
+async function getUserWishlist(){
+
+    if(!currentUser) return [];
+
+    const ref = window.doc(window.db,"wishlists",currentUser.uid);
+    const snap = await window.getDoc(ref);
+
+    return snap.exists() ? (snap.data().items || []) : [];
 }
 
-function isWishlisted(slug){
-    return getWishlist().some(
-        item => String(item.id) === String("couple-watches-" + slug)
-    );
+async function saveUserWishlist(items){
+
+    if(!currentUser) return;
+
+    const ref = window.doc(window.db,"wishlists",currentUser.uid);
+
+    await window.setDoc(ref,{items});
 }
-    
-function updateWishlistButton(){
-    const btn=document.getElementById("wishlistBtn");
-    if(!btn||!product) return;
-    if(isWishlisted(product.id)){
-        btn.classList.add("active");
-        btn.innerHTML="♥ Saved to Wishlist";
-    }else{
+
+async function updateWishlistButton(){
+
+    const btn = document.getElementById("wishlistBtn");
+
+    if(!btn || !product) return;
+
+    if(!currentUser){
+
         btn.classList.remove("active");
-        btn.innerHTML="♡ Save to Wishlist";
+        btn.innerHTML = "♡ Save to Wishlist";
+        return;
+    }
+
+    const wishlist = await getUserWishlist();
+
+    const exists = wishlist.some(
+        item => String(item.id) === String(product.slug)
+    );
+
+    if(exists){
+
+        btn.classList.add("active");
+        btn.innerHTML = "♥ Saved to Wishlist";
+
+    }else{
+
+        btn.classList.remove("active");
+        btn.innerHTML = "♡ Save to Wishlist";
     }
 }
 
-function toggleWishlist(){
+async function toggleWishlist(){
 
     if(!product) return;
 
-    let wishlist = getWishlist();
+    if(!currentUser){
 
-    const pid = "couple-watches-" + product.slug;
+        cartMessage.textContent = "Please sign in first.";
+
+        setTimeout(function(){
+
+            window.location.href = "profile.html";
+
+        },1000);
+
+        return;
+    }
+
+    let wishlist = await getUserWishlist();
 
     const index = wishlist.findIndex(
-        item => item.id === pid
+        item => String(item.id) === String(product.slug)
     );
 
     if(index > -1){
 
         wishlist.splice(index,1);
-
-        cartMessage.textContent = "♥ Removed from Wishlist";
+        cartMessage.textContent = "Removed from Wishlist";
 
     }else{
 
         wishlist.push({
 
-            id:pid,
-
-            productId:product.slug,
-
+            id:product.slug,
             name:product.name,
-
             price:product.price,
-
-            image:product.files ? product.files[0] : product.file,
-
-            media:product.media,
-
-            category:"Couple Watches",
-
-            brand:product.brand
+            media:product.files ? product.files[0] : product.file,
+            type:product.media,
+            category:"Limited Editions"
 
         });
 
-        cartMessage.textContent = "♥ Added to Wishlist";
-
+        cartMessage.textContent = "Added to Wishlist";
     }
 
-    localStorage.setItem(
-        "wishlist",
-        JSON.stringify(wishlist)
-    );
+    await saveUserWishlist(wishlist);
 
     updateWishlistButton();
 
-    setTimeout(()=>{
-        cartMessage.textContent="";
-    },2500);
+    setTimeout(function(){
 
+        cartMessage.textContent = "";
+
+    },2500);
 }
+
     
 /* =========================================================
    GET CART
@@ -3250,6 +3308,14 @@ document
 ========================================================= */
 
 loadProduct();
+
+window.onAuthStateChanged(window.auth,(user)=>{
+
+    currentUser = user;
+
+    updateWishlistButton();
+
+});
 
 </script>
 
