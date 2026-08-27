@@ -78,11 +78,6 @@ body{
 }
 
 .brand-logo{
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
     font-size:28px;
 
     font-weight:700;
@@ -303,6 +298,8 @@ body{
     font-weight:bold;
 
     letter-spacing:0.5px;
+
+    z-index:10;
 }
 
 
@@ -465,6 +462,90 @@ body{
     color:#c9a24d;
 
     font-size:9px;
+}
+
+
+/* =========================================================
+   WISHLIST BUTTON
+========================================================= */
+
+.wishlist-product-btn{
+    width:100%;
+
+    min-height:52px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    margin-bottom:12px;
+
+    background:#fff;
+
+    color:#111;
+
+    border:2px solid #c9a24d;
+
+    border-radius:6px;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.2s ease;
+}
+
+.wishlist-product-btn:hover{
+    background:#c9a24d;
+
+    color:#111;
+
+    transform:translateY(-1px);
+}
+
+.wishlist-product-btn.active{
+    background:#111;
+
+    color:#fff;
+
+    border-color:#111;
+}
+
+.wishlist-heart{
+    font-size:22px;
+
+    line-height:1;
+}
+
+.wishlist-message{
+    min-height:22px;
+
+    text-align:center;
+
+    color:#2d8a43;
+
+    font-size:14px;
+
+    font-weight:bold;
+
+    margin:
+        -3px
+        0
+        10px;
+}
+
+.wishlist-message.error{
+    color:#b00020;
 }
 
 
@@ -873,6 +954,85 @@ body{
 
     letter-spacing:0.7px;
 }
+
+
+/* =========================================================
+   RELATED WISHLIST
+========================================================= */
+
+.related-wishlist-btn{
+    position:absolute;
+
+    top:12px;
+
+    left:12px;
+
+    z-index:6;
+
+    width:42px;
+
+    height:42px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,0.95);
+
+    color:#111;
+
+    font-size:21px;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,0.12);
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.2s ease;
+}
+
+.related-wishlist-btn:hover{
+    background:#c9a24d;
+
+    transform:scale(1.06);
+}
+
+.related-wishlist-btn.active{
+    background:#111;
+
+    color:#fff;
+}
+
+.related-wishlist-message{
+    min-height:18px;
+
+    text-align:center;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+    color:#2d8a43;
+
+    margin:
+        0
+        0
+        8px;
+}
+
+.related-wishlist-message.error{
+    color:#b00020;
+}
+
 
 .related-info{
     padding:20px;
@@ -1516,6 +1676,41 @@ body{
             </ul>
 
 
+            <!-- =================================================
+                 WISHLIST
+            ================================================== -->
+
+            <button
+                type="button"
+                class="wishlist-product-btn"
+                id="wishlistProductBtn"
+            >
+
+                <span
+                    class="wishlist-heart"
+                    id="wishlistHeart"
+                >
+                    ♡
+                </span>
+
+                <span id="wishlistButtonText">
+                    Add to Wishlist
+                </span>
+
+            </button>
+
+
+            <div
+                class="wishlist-message"
+                id="wishlistMessage"
+            >
+            </div>
+
+
+            <!-- =================================================
+                 QUANTITY
+            ================================================== -->
+
             <div class="quantity-title">
                 Quantity
             </div>
@@ -1551,6 +1746,10 @@ body{
             </div>
 
 
+            <!-- =================================================
+                 ACTION BUTTONS
+            ================================================== -->
+
             <div class="action-buttons">
 
                 <button
@@ -1572,6 +1771,10 @@ body{
 
             </div>
 
+
+            <!-- =================================================
+                 WHATSAPP
+            ================================================== -->
 
             <a
                 href="#"
@@ -1826,7 +2029,68 @@ body{
 </footer>
 
 
-<script>
+<!-- =========================================================
+     FIREBASE + JAVASCRIPT
+========================================================= -->
+
+<script type="module">
+
+/* =========================================================
+   FIREBASE IMPORTS
+========================================================= */
+
+import {
+    initializeApp
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+    getAuth,
+    onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+
+/* =========================================================
+   FIREBASE CONFIG
+=========================================================
+
+   IMPORTANT:
+   Use the EXACT SAME firebaseConfig that you already
+   use in your working profile.html / wishlist section.
+
+========================================================= */
+
+const firebaseConfig = {
+
+    apiKey:
+        "YOUR_API_KEY",
+
+    authDomain:
+        "YOUR_PROJECT.firebaseapp.com",
+
+    projectId:
+        "YOUR_PROJECT_ID",
+
+    storageBucket:
+        "YOUR_PROJECT.appspot.com",
+
+    messagingSenderId:
+        "YOUR_MESSAGING_SENDER_ID",
+
+    appId:
+        "YOUR_APP_ID"
+
+};
+
+
+const app =
+    initializeApp(
+        firebaseConfig
+    );
+
+
+const auth =
+    getAuth(app);
+
 
 /* =========================================================
    LUXURY ARTICLES DATABASE
@@ -2237,6 +2501,33 @@ const buyNowBtn =
         "buyNowBtn"
     );
 
+const wishlistProductBtn =
+    document.getElementById(
+        "wishlistProductBtn"
+    );
+
+const wishlistHeart =
+    document.getElementById(
+        "wishlistHeart"
+    );
+
+const wishlistButtonText =
+    document.getElementById(
+        "wishlistButtonText"
+    );
+
+const wishlistMessage =
+    document.getElementById(
+        "wishlistMessage"
+    );
+
+
+/* =========================================================
+   CURRENT USER
+========================================================= */
+
+let currentUser = null;
+
 
 /* =========================================================
    FORMAT PRICE
@@ -2270,7 +2561,391 @@ function escapeHTML(value){
 
 
 /* =========================================================
-   SHOW OUT OF STOCK STATE
+   WISHLIST STORAGE
+=========================================================
+
+   IMPORTANT:
+   This uses the same localStorage key:
+
+       wishlist
+
+   as the previous working wishlist section.
+
+========================================================= */
+
+function getWishlist(){
+
+    try{
+
+        const stored =
+            localStorage.getItem(
+                "wishlist"
+            );
+
+        if(!stored){
+
+            return [];
+
+        }
+
+        const parsed =
+            JSON.parse(
+                stored
+            );
+
+        return Array.isArray(parsed)
+            ? parsed
+            : [];
+
+    }
+
+    catch(error){
+
+        console.error(
+            "Wishlist loading error:",
+            error
+        );
+
+        return [];
+
+    }
+
+}
+
+
+/* =========================================================
+   SAVE WISHLIST
+========================================================= */
+
+function saveWishlist(wishlist){
+
+    localStorage.setItem(
+        "wishlist",
+        JSON.stringify(
+            wishlist
+        )
+    );
+
+}
+
+
+/* =========================================================
+   WISHLIST PRODUCT ID
+========================================================= */
+
+function getWishlistProductId(item){
+
+    return (
+        "luxury-articles-" +
+        String(item.id)
+    );
+
+}
+
+
+/* =========================================================
+   CREATE WISHLIST ITEM
+========================================================= */
+
+function createWishlistItem(item){
+
+    return {
+
+        id:
+            getWishlistProductId(item),
+
+        productId:
+            item.id,
+
+        name:
+            item.name,
+
+        price:
+            item.price,
+
+        image:
+            item.media === "image"
+                ? item.file
+                : "",
+
+        media:
+            item.media,
+
+        video:
+            item.media === "video"
+                ? item.file
+                : "",
+
+        category:
+            "Luxury Articles",
+
+        brand:
+            item.brand,
+
+        link:
+            "product-detailsluxury-articles.html?id=" +
+            item.id
+
+    };
+
+}
+
+
+/* =========================================================
+   IS PRODUCT IN WISHLIST
+========================================================= */
+
+function isProductInWishlist(item){
+
+    const wishlist =
+        getWishlist();
+
+    const wishlistId =
+        getWishlistProductId(item);
+
+    return wishlist.some(
+        wishlistItem =>
+            String(
+                wishlistItem.id
+            ) ===
+            String(
+                wishlistId
+            )
+    );
+
+}
+
+
+/* =========================================================
+   UPDATE MAIN WISHLIST BUTTON
+========================================================= */
+
+function updateMainWishlistButton(){
+
+    if(!product){
+
+        return;
+
+    }
+
+    const active =
+        isProductInWishlist(
+            product
+        );
+
+
+    if(active){
+
+        wishlistProductBtn.classList.add(
+            "active"
+        );
+
+        wishlistHeart.textContent =
+            "♥";
+
+        wishlistButtonText.textContent =
+            "Remove from Wishlist";
+
+    }
+
+    else{
+
+        wishlistProductBtn.classList.remove(
+            "active"
+        );
+
+        wishlistHeart.textContent =
+            "♡";
+
+        wishlistButtonText.textContent =
+            "Add to Wishlist";
+
+    }
+
+}
+
+
+/* =========================================================
+   SHOW WISHLIST MESSAGE
+========================================================= */
+
+function showWishlistMessage(
+    message,
+    isError = false
+){
+
+    wishlistMessage.textContent =
+        message;
+
+    wishlistMessage.classList.toggle(
+        "error",
+        isError
+    );
+
+
+    setTimeout(
+        function(){
+
+            wishlistMessage.textContent =
+                "";
+
+            wishlistMessage.classList.remove(
+                "error"
+            );
+
+        },
+        3000
+    );
+
+}
+
+
+/* =========================================================
+   SIGN-IN REQUIRED
+========================================================= */
+
+function requireSignIn(){
+
+    showWishlistMessage(
+        "Please sign in first.",
+        true
+    );
+
+
+    setTimeout(
+        function(){
+
+            window.location.href =
+                "profile.html";
+
+        },
+        900
+    );
+
+}
+
+
+/* =========================================================
+   TOGGLE WISHLIST
+========================================================= */
+
+function toggleWishlist(item){
+
+    if(!item){
+
+        return;
+
+    }
+
+
+    /* =====================================================
+       FIRST CHECK AUTHENTICATION
+    ===================================================== */
+
+    if(!currentUser){
+
+        requireSignIn();
+
+        return;
+
+    }
+
+
+    let wishlist =
+        getWishlist();
+
+
+    const wishlistId =
+        getWishlistProductId(
+            item
+        );
+
+
+    const existingIndex =
+        wishlist.findIndex(
+            wishlistItem =>
+                String(
+                    wishlistItem.id
+                ) ===
+                String(
+                    wishlistId
+                )
+        );
+
+
+    /* =====================================================
+       REMOVE
+    ===================================================== */
+
+    if(existingIndex !== -1){
+
+        wishlist.splice(
+            existingIndex,
+            1
+        );
+
+        saveWishlist(
+            wishlist
+        );
+
+
+        if(
+            product &&
+            Number(item.id) ===
+            Number(product.id)
+        ){
+
+            updateMainWishlistButton();
+
+        }
+
+
+        showWishlistMessage(
+            "✓ Removed from wishlist"
+        );
+
+
+        return;
+
+    }
+
+
+    /* =====================================================
+       ADD
+    ===================================================== */
+
+    wishlist.push(
+        createWishlistItem(
+            item
+        )
+    );
+
+
+    saveWishlist(
+        wishlist
+    );
+
+
+    if(
+        product &&
+        Number(item.id) ===
+        Number(product.id)
+    ){
+
+        updateMainWishlistButton();
+
+    }
+
+
+    showWishlistMessage(
+        "♥ Added to wishlist"
+    );
+
+}
+
+
+/* =========================================================
+   SET OUT OF STOCK STATE
 ========================================================= */
 
 function setOutOfStockState(){
@@ -2380,7 +3055,13 @@ function loadProduct(){
 
         `;
 
+
+        wishlistProductBtn.style.display =
+            "none";
+
+
         return;
+
     }
 
 
@@ -2501,6 +3182,7 @@ function loadProduct(){
         formatPrice(product.price) +
         "). Please share more details.";
 
+
     whatsappBtn.href =
         "https://wa.me/918209989013?text=" +
         encodeURIComponent(
@@ -2517,6 +3199,13 @@ function loadProduct(){
         setOutOfStockState();
 
     }
+
+
+    /* =====================================================
+       WISHLIST BUTTON
+    ===================================================== */
+
+    updateMainWishlistButton();
 
 
     /* =====================================================
@@ -2626,12 +3315,53 @@ function loadRelatedProducts(){
                         item.outOfStock
                             ? `
 
-                                <div class="related-stock-badge">
+                                <div
+                                    class="related-stock-badge"
+                                >
                                     OUT OF STOCK
                                 </div>
 
                               `
                             : "";
+
+
+                    const isWishlisted =
+                        isProductInWishlist(
+                            item
+                        );
+
+
+                    const wishlistButton =
+                        `
+
+                            <button
+                                type="button"
+                                class="
+                                    related-wishlist-btn
+                                    ${isWishlisted
+                                        ? "active"
+                                        : ""}
+                                "
+                                data-wishlist-id="${item.id}"
+                                aria-label="${
+                                    isWishlisted
+                                        ? "Remove from Wishlist"
+                                        : "Add to Wishlist"
+                                }"
+                                title="${
+                                    isWishlisted
+                                        ? "Remove from Wishlist"
+                                        : "Add to Wishlist"
+                                }"
+                            >
+                                ${
+                                    isWishlisted
+                                        ? "♥"
+                                        : "♡"
+                                }
+                            </button>
+
+                        `;
 
 
                     const button =
@@ -2661,11 +3391,16 @@ function loadRelatedProducts(){
 
                     return `
 
-                        <div class="related-card">
+                        <div
+                            class="related-card"
+                            data-related-card-id="${item.id}"
+                        >
 
                             <div class="related-media">
 
                                 ${mediaHTML}
+
+                                ${wishlistButton}
 
                                 ${stockBadge}
 
@@ -2691,6 +3426,13 @@ function loadRelatedProducts(){
                                 </div>
 
 
+                                <div
+                                    class="related-wishlist-message"
+                                    id="relatedWishlistMessage-${item.id}"
+                                >
+                                </div>
+
+
                                 ${button}
 
                             </div>
@@ -2702,6 +3444,229 @@ function loadRelatedProducts(){
                 }
             )
             .join("");
+
+
+    /* =====================================================
+       RELATED WISHLIST EVENTS
+    ===================================================== */
+
+    document
+        .querySelectorAll(
+            ".related-wishlist-btn"
+        )
+        .forEach(
+            button => {
+
+                button.addEventListener(
+                    "click",
+                    function(event){
+
+                        event.preventDefault();
+
+                        event.stopPropagation();
+
+
+                        const id =
+                            Number(
+                                button.dataset.wishlistId
+                            );
+
+
+                        const selectedProduct =
+                            luxuryArticles.find(
+                                item =>
+                                    Number(item.id) ===
+                                    id
+                            );
+
+
+                        if(!selectedProduct){
+
+                            return;
+
+                        }
+
+
+                        if(!currentUser){
+
+                            const message =
+                                document.getElementById(
+                                    "relatedWishlistMessage-" +
+                                    id
+                                );
+
+
+                            if(message){
+
+                                message.textContent =
+                                    "Please sign in first.";
+
+                                message.classList.add(
+                                    "error"
+                                );
+
+                            }
+
+
+                            setTimeout(
+                                function(){
+
+                                    window.location.href =
+                                        "profile.html";
+
+                                },
+                                900
+                            );
+
+
+                            return;
+
+                        }
+
+
+                        let wishlist =
+                            getWishlist();
+
+
+                        const wishlistId =
+                            getWishlistProductId(
+                                selectedProduct
+                            );
+
+
+                        const existingIndex =
+                            wishlist.findIndex(
+                                wishlistItem =>
+                                    String(
+                                        wishlistItem.id
+                                    ) ===
+                                    String(
+                                        wishlistId
+                                    )
+                            );
+
+
+                        const message =
+                            document.getElementById(
+                                "relatedWishlistMessage-" +
+                                id
+                            );
+
+
+                        if(existingIndex !== -1){
+
+                            wishlist.splice(
+                                existingIndex,
+                                1
+                            );
+
+
+                            saveWishlist(
+                                wishlist
+                            );
+
+
+                            button.classList.remove(
+                                "active"
+                            );
+
+
+                            button.textContent =
+                                "♡";
+
+
+                            button.title =
+                                "Add to Wishlist";
+
+
+                            button.setAttribute(
+                                "aria-label",
+                                "Add to Wishlist"
+                            );
+
+
+                            if(message){
+
+                                message.textContent =
+                                    "✓ Removed from wishlist";
+
+                                message.classList.remove(
+                                    "error"
+                                );
+
+                            }
+
+                        }
+
+                        else{
+
+                            wishlist.push(
+                                createWishlistItem(
+                                    selectedProduct
+                                )
+                            );
+
+
+                            saveWishlist(
+                                wishlist
+                            );
+
+
+                            button.classList.add(
+                                "active"
+                            );
+
+
+                            button.textContent =
+                                "♥";
+
+
+                            button.title =
+                                "Remove from Wishlist";
+
+
+                            button.setAttribute(
+                                "aria-label",
+                                "Remove from Wishlist"
+                            );
+
+
+                            if(message){
+
+                                message.textContent =
+                                    "♥ Added to wishlist";
+
+                                message.classList.remove(
+                                    "error"
+                                );
+
+                            }
+
+                        }
+
+
+                        setTimeout(
+                            function(){
+
+                                if(message){
+
+                                    message.textContent =
+                                        "";
+
+                                }
+
+                            },
+                            3000
+                        );
+
+
+                        updateMainWishlistButton();
+
+                    }
+                );
+
+            }
+        );
 
 }
 
@@ -3151,7 +4116,23 @@ quantity.addEventListener(
 
 
 /* =========================================================
-   BUTTON EVENTS
+   MAIN WISHLIST BUTTON
+========================================================= */
+
+wishlistProductBtn.addEventListener(
+    "click",
+    function(){
+
+        toggleWishlist(
+            product
+        );
+
+    }
+);
+
+
+/* =========================================================
+   CART BUTTON
 ========================================================= */
 
 addCartBtn.addEventListener(
@@ -3160,9 +4141,48 @@ addCartBtn.addEventListener(
 );
 
 
+/* =========================================================
+   BUY NOW BUTTON
+========================================================= */
+
 buyNowBtn.addEventListener(
     "click",
     buyNow
+);
+
+
+/* =========================================================
+   FIREBASE AUTH STATE
+========================================================= */
+
+onAuthStateChanged(
+    auth,
+    function(user){
+
+        currentUser =
+            user || null;
+
+
+        /*
+         * Refresh the wishlist buttons whenever
+         * authentication status changes.
+         */
+
+        updateMainWishlistButton();
+
+
+        /*
+         * Rebuild related products so their
+         * wishlist state is correct.
+         */
+
+        if(product){
+
+            loadRelatedProducts();
+
+        }
+
+    }
 );
 
 
