@@ -5,7 +5,6 @@
 
 <meta charset="UTF-8">
 
-
 <meta
     name="viewport"
     content="width=1250"
@@ -533,21 +532,6 @@ video{
     background:#111;
     color:#fff;
 }
-
-.wishlist-btn{
-    background:#fff;
-    color:#111;
-    border:1px solid #c9a45d;
-}
-.wishlist-btn:hover{
-    background:#c9a45d;
-    color:#111;
-}
-.wishlist-btn.active{
-    background:#c9a45d;
-    color:#111;
-}
-
 
 
 /* =========================================================
@@ -1480,31 +1464,6 @@ video{
     class="toast"
     id="toast"
 ></div>
-
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
-import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
-import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
-
-const firebaseConfig = {
-    apiKey: "AIzaSyD5oZFRZUDnmb2d1_juGTeWAbQcy3gcyjc",
-    authDomain: "mirars-project.firebaseapp.com",
-    projectId: "mirars-project",
-    storageBucket: "mirars-project.firebasestorage.app",
-    messagingSenderId: "947955901957",
-    appId: "1:947955901957:web:67bb04627f25bf2a419e6c",
-    measurementId: "G-HXESQZER5L"
-};
-
-const app = initializeApp(firebaseConfig);
-
-window.auth = getAuth(app);
-window.db = getFirestore(app);
-window.onAuthStateChanged = onAuthStateChanged;
-window.doc = doc;
-window.getDoc = getDoc;
-window.setDoc = setDoc;
-</script>
 
 
 <script>
@@ -2509,13 +2468,6 @@ const productContainer =
 
 
 /* =========================================================
-   LOGIN STATUS
-========================================================= */
-
-let currentUser = null;
-
-
-/* =========================================================
    FORMAT PRICE
 ========================================================= */
 
@@ -2845,14 +2797,6 @@ function renderProduct(){
 
                 <div class="action-buttons">
 
-                    <button
-                        class="action-btn wishlist-btn"
-                        id="wishlistBtn"
-                        onclick="toggleWishlist()"
-                    >
-                        ♡ Save to Wishlist
-                    </button>
-
 
                     <button
                         class="action-btn add-cart-btn"
@@ -3119,121 +3063,6 @@ function showToast(message){
 }
 
 
-
-/* =========================================================
-   FIREBASE WISHLIST
-========================================================= */
-
-async function getUserWishlist(){
-
-    if(!currentUser) return [];
-
-    const ref = window.doc(window.db,"wishlists",currentUser.uid);
-
-    const snap = await window.getDoc(ref);
-
-    return snap.exists() ? (snap.data().items || []) : [];
-
-}
-
-async function saveUserWishlist(items){
-
-    if(!currentUser) return;
-
-    const ref = window.doc(window.db,"wishlists",currentUser.uid);
-
-    await window.setDoc(ref,{items});
-
-}
-
-async function updateWishlistButton(){
-
-    const btn = document.getElementById("wishlistBtn");
-
-    if(!btn || !product) return;
-
-    if(!currentUser){
-
-        btn.classList.remove("active");
-        btn.innerHTML = "♡ Save to Wishlist";
-
-        return;
-    }
-
-    const wishlist = await getUserWishlist();
-
-    const exists = wishlist.some(
-        item => String(item.id) === String(product.id)
-    );
-
-    if(exists){
-
-        btn.classList.add("active");
-        btn.innerHTML = "♥ Saved to Wishlist";
-
-    }else{
-
-        btn.classList.remove("active");
-        btn.innerHTML = "♡ Save to Wishlist";
-    }
-
-}
-
-async function toggleWishlist(){
-
-    if(!product) return;
-
-    /* Customer is NOT signed in */
-
-    if(!currentUser){
-
-        showToast("Please sign in first.");
-
-        setTimeout(function(){
-
-            window.location.href = "profile.html";
-
-        },1000);
-
-        return;
-    }
-
-    let wishlist = await getUserWishlist();
-
-    const index = wishlist.findIndex(
-        item => String(item.id) === String(product.id)
-    );
-
-    if(index > -1){
-
-        wishlist.splice(index,1);
-
-        showToast("Removed from Wishlist");
-
-    }else{
-
-        wishlist.push({
-
-            id:product.id,
-            name:product.name,
-            price:product.price,
-            media:product.media[0],
-            type:product.type,
-            category:"Watches"
-
-        });
-
-        showToast("Added to Wishlist");
-
-    }
-
-    await saveUserWishlist(wishlist);
-
-    updateWishlistButton();
-
-}
-
-    
 /* =========================================================
    ADD TO CART
 ========================================================= */
@@ -3519,16 +3348,9 @@ function renderRelatedProducts(){
 ========================================================= */
 
 renderProduct();
+
 renderRelatedProducts();
 
-// Check login status and update the wishlist button
-window.onAuthStateChanged(window.auth, (user) => {
-
-    currentUser = user;
-
-    updateWishlistButton();
-
-});
 
 /* =========================================================
    ENTER KEY / QUANTITY VALIDATION
