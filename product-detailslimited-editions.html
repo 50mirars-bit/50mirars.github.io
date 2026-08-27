@@ -684,6 +684,61 @@ body{
     width:100%;
 }
 
+/* =========================================================
+   BUY NOW BUTTON
+========================================================= */
+
+.buy-now-btn{
+
+    width:100%;
+
+    min-height:56px;
+
+    border:1px solid #c9a24d;
+
+    border-radius:7px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0b0b0b 0%,
+            #1c1c1c 50%,
+            #0b0b0b 100%
+        );
+
+    color:#fff;
+
+    font-size:17px;
+
+    font-weight:700;
+
+    letter-spacing:.5px;
+
+    cursor:pointer;
+
+    transition:
+        .3s ease;
+}
+
+.buy-now-btn:hover{
+
+    background:
+        linear-gradient(
+            135deg,
+            #c9a24d,
+            #e5ca83,
+            #c9a24d
+        );
+
+    color:#111;
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(0,0,0,.20);
+}
+
 
 /* =========================================================
    ADD TO CART
@@ -1605,21 +1660,14 @@ body{
         class="header-logo"
     >
 
-
-    <h2 class="header-title">
-        50 Mirars
-    </h2>
-
-
     <a
-        href="index.html"
+        href="limited-editions.html"
         class="header-home-btn"
     >
-        ← Home
+        ← Back to Limited Editions
     </a>
 
 </header>
-
 
 
 <!-- =========================================================
@@ -1777,8 +1825,15 @@ body{
                  ACTION BUTTONS
             ================================================== -->
 
-            <div class="action-buttons">
+           <div class="product-actions">
 
+    <button
+        type="button"
+        class="buy-now-btn"
+        id="buyNowBtn"
+    >
+        Buy Now
+    </button>
 
                 <!-- ADD TO CART -->
 
@@ -2132,6 +2187,71 @@ body{
 <!-- =========================================================
      JAVASCRIPT
 ========================================================= -->
+
+<script>
+
+/* =========================================================
+   BUY NOW
+========================================================= */
+
+document
+    .getElementById("buyNowBtn")
+    .addEventListener("click", function(){
+
+        const product = {
+
+            id: currentProduct.id,
+
+            name: currentProduct.name,
+
+            price: currentProduct.price,
+
+            image: currentProduct.image,
+
+            quantity: 1
+
+        };
+
+
+        let cart =
+            JSON.parse(
+                localStorage.getItem("cart")
+            ) || [];
+
+
+        const existingProduct =
+            cart.find(function(item){
+
+                return String(item.id) ===
+                       String(product.id);
+
+            });
+
+
+        if(existingProduct){
+
+            existingProduct.quantity =
+                (existingProduct.quantity || 1) + 1;
+
+        }else{
+
+            cart.push(product);
+
+        }
+
+
+        localStorage.setItem(
+            "cart",
+            JSON.stringify(cart)
+        );
+
+
+        window.location.href =
+            "cart.html";
+
+    });
+
+</script>
 
 <script>
 
