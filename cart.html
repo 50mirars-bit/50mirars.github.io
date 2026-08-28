@@ -1971,161 +1971,64 @@ function saveCustomerCartInBackground(){
 
 async function loadCustomerCart(){
 
-    const localCart =
-        normalizeCart(
-            getLocalCart()
-        );
+    const localCart = normalizeCart(getLocalCart());
 
-
-    /*
-       GUEST
-    */
-
+    // Guest users
     if(!currentUser){
-
-        customerCart =
-            localCart;
-
+        customerCart = localCart;
         saveCartLocally();
-
         return;
-
     }
-
-
-
-    /*
-       SIGNED-IN CUSTOMER
-    */
 
     try{
 
-        const cartRef =
-            getCartDocument();
+        const cartRef = getCartDocument();
+        const snapshot = await getDoc(cartRef);
 
+        let cloudCart = [];
 
-        const snapshot =
-            await getDoc(
-                cartRef
-            );
-
-
-        /*
-           CUSTOMER ALREADY HAS
-           AN ACCOUNT CART
-        */
-
+        // Get existing cloud cart
         if(snapshot.exists()){
-
-            const data =
-                snapshot.data();
-
-
-            customerCart =
-                normalizeCart(
-                    data.cart || []
-                );
-
+            cloudCart = normalizeCart(snapshot.data().cart || []);
         }
 
+        // Merge local cart + cloud cart
+        const mergedCart = normalizeCart([
+            ...cloudCart,
+            ...localCart
+        ]);
 
-        /*
-           CUSTOMER DOES NOT HAVE
-           AN ACCOUNT CART YET
-        */
+        customerCart = mergedCart;
 
-        else{
-
-            /*
-               Transfer this device's
-               cart to the account.
-            */
-
-            customerCart =
-                localCart;
-
-
-            await setDoc(
-
-                cartRef,
-
-                {
-
-                    cart:
-                        customerCart,
-
-                    updatedAt:
-                        serverTimestamp()
-
-                },
-
-                {
-                    merge:true
-                }
-
-            );
-
-        }
-
-
-        /*
-           Make this device match
-           the account cart.
-        */
-
-        saveLocalCart(
-            customerCart
+        // Save merged cart back to Firestore
+        await setDoc(
+            cartRef,
+            {
+                cart: customerCart,
+                updatedAt: serverTimestamp()
+            },
+            { merge: true }
         );
 
+        // Make this device match the account cart
+        saveCartLocally();
 
-        localStorage.setItem(
-            "checkoutCart",
-            JSON.stringify(
-                customerCart
-            )
-        );
-
-
-        console.log(
-            "Account cart loaded:",
-            customerCart
-        );
+        console.log("Merged account cart:", customerCart);
 
     }
 
     catch(error){
 
-        console.error(
-            "Could not load account cart:",
-            error
-        );
+        console.error("Could not load account cart:", error);
 
-
-        /*
-           Keep local cart if
-           Firebase has a problem.
-        */
-
-        customerCart =
-            localCart;
-
+        customerCart = localCart;
 
         saveCartLocally();
 
-
         accountStatus.innerHTML =
-
-            "Unable to load your online cart. " +
-
-            "Showing this device's cart. " +
-
-            "<a href='profile.html'>My Account</a>";
-
+            "Unable to load your online cart. Showing this device's cart. <a href='profile.html'>My Account</a>";
     }
-
 }
-
-
 
 /* =====================================================
    PRICE
