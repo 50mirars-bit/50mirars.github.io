@@ -1993,13 +1993,37 @@ async function loadCustomerCart(){
         }
 
         // Merge local cart + cloud cart
-        const mergedCart = normalizeCart([
-            ...cloudCart,
-            ...localCart
-        ]);
+       
+const mergedMap = new Map();
 
-        customerCart = mergedCart;
+[...cloudCart, ...localCart].forEach(function(item){
 
+    const key = item.name + "|" + item.price;
+
+    if(!mergedMap.has(key)){
+
+        mergedMap.set(key,{
+            ...item,
+            quantity:Number(item.quantity || 1)
+        });
+
+    }
+
+    else{
+
+        const existing = mergedMap.get(key);
+
+        existing.quantity = Math.max(
+            existing.quantity,
+            Number(item.quantity || 1)
+        );
+
+    }
+
+});
+
+customerCart = Array.from(mergedMap.values());
+        
         // Save merged cart back to Firestore
         await setDoc(
             cartRef,
