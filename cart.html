@@ -2122,53 +2122,27 @@ function getDiscountStorageKey(){
 }
 
 
-
 /* =====================================================
    LOAD COUPON
+   (Manual Entry Only)
 ===================================================== */
 
 function loadSavedCoupon(){
 
-    const coupon =
-        localStorage.getItem(
-            getCouponStorageKey()
-        );
+    // Remove any previously saved coupon
+    localStorage.removeItem(getCouponStorageKey());
+    localStorage.removeItem(getDiscountStorageKey());
 
+    // Keep the coupon box empty
+    couponCodeInput.value = "";
 
-    const discount =
-        parseFloat(
+    // Clear old message
+    couponMessage.innerText = "";
 
-            localStorage.getItem(
-                getDiscountStorageKey()
-            )
-
-        ) || 0;
-
-
-    if(coupon){
-
-        couponCodeInput.value =
-            coupon;
-
-    }
-
-
-    if(
-        coupon &&
-        discount > 0
-    ){
-
-        couponMessage.innerText =
-            coupon +
-            " is currently applied.";
-
-        couponMessage.style.color =
-            "#008577";
-
-    }
+    // Reset totals
+    updateSummary();
 
 }
-
 
 
 /* =====================================================
