@@ -294,14 +294,17 @@ margin-bottom:15px;
 
 .stars span{
 
+font-size:42px;
 cursor:pointer;
 transition:.25s;
+color:#C9A24D;
+user-select:none;
 
 }
 
 .stars span:hover{
 
-transform:scale(1.25);
+transform:scale(1.2);
 
 }
 
@@ -994,25 +997,31 @@ rel="noopener"
 
 <div class="rating-box">
 
-<div class="stars">
+<div class="stars" id="ratingStars">
 
-<span>⭐</span>
-<span>⭐</span>
-<span>⭐</span>
-<span>⭐</span>
-<span>⭐</span>
-
-</div>
-
-<p>Thank you for shopping with 50 Mirars.</p>
+<span data-rating="1">☆</span>
+<span data-rating="2">☆</span>
+<span data-rating="3">☆</span>
+<span data-rating="4">☆</span>
+<span data-rating="5">☆</span>
 
 </div>
 
+<p id="ratingText">
+Rate your delivery and product.
+</p>
 </div>
 
 </div>
 
 </div>
+
+        </div> <!-- timeline -->
+    </div> <!-- Order Journey section -->
+</div> <!-- Quick Actions section -->
+</div> <!-- order-card -->
+</div> <!-- orderContainer -->
+</div> <!-- container -->
 
 <!-- =========================================================
      FOOTER
@@ -1569,6 +1578,50 @@ deliverStep.classList.add("active");
 
 }
 
+/* ==========================================
+   SHOW RATING AFTER DELIVERY
+========================================== */
+
+if(status.includes("delivered")){
+
+    document.getElementById("ratingSection").style.display="block";
+
+}
+
+/* ==========================================
+   STAR RATING
+========================================== */
+
+const stars = document.querySelectorAll("#ratingStars span");
+const ratingText = document.getElementById("ratingText");
+
+stars.forEach(star => {
+
+    star.addEventListener("click", () => {
+
+        const rating = Number(star.dataset.rating);
+
+        stars.forEach(s => {
+
+            s.textContent =
+                Number(s.dataset.rating) <= rating
+                ? "★"
+                : "☆";
+
+        });
+
+        localStorage.setItem(
+            "rating_" + order.orderId,
+            rating
+        );
+
+        ratingText.innerHTML =
+            `Thank you! You rated this order <strong>${rating}/5</strong>.`;
+
+    });
+
+});
+
 }
 
 catch(error){
@@ -1576,12 +1629,6 @@ catch(error){
 console.error(error);
 
 loading.innerHTML="Unable to load order.";
-
-}
-
-if(status.includes("delivered")){
-
-document.getElementById("ratingSection").style.display="block";
 
 }
 
