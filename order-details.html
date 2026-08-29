@@ -275,6 +275,36 @@ background:#1da851;
 
 }
 
+.rating-box{
+
+background:#fafafa;
+border-radius:16px;
+padding:28px;
+text-align:center;
+border:1px solid #eee;
+
+}
+
+.stars{
+
+font-size:36px;
+margin-bottom:15px;
+
+}
+
+.stars span{
+
+cursor:pointer;
+transition:.25s;
+
+}
+
+.stars span:hover{
+
+transform:scale(1.25);
+
+}
+
 .invoice-btn{
 
 background:#C9A24D;
@@ -318,9 +348,47 @@ opacity:.45;
 
 }
 
+.timeline{
+
+position:relative;
+margin-top:20px;
+padding-left:15px;
+
+}
+
+.timeline::before{
+
+content:"";
+position:absolute;
+left:8px;
+top:10px;
+bottom:10px;
+width:3px;
+background:#e0e0e0;
+
+}
+
+.timeline-step{
+
+position:relative;
+display:flex;
+gap:18px;
+margin-bottom:28px;
+opacity:.45;
+transition:.4s;
+
+}
+
 .timeline-step.active{
 
 opacity:1;
+
+}
+
+.timeline-step.active .dot{
+
+background:#C9A24D;
+box-shadow:0 0 18px rgba(201,162,77,.55);
 
 }
 
@@ -328,21 +396,14 @@ opacity:1;
 
 width:18px;
 height:18px;
-background:#C9A24D;
 border-radius:50%;
+background:#bdbdbd;
 margin-top:4px;
-box-shadow:0 0 0 5px rgba(201,162,77,.15);
+z-index:2;
+transition:.4s;
 
 }
-
-.timeline-step p{
-
-margin-top:6px;
-color:#666;
-font-size:14px;
-
-}
-
+   
 /* PRODUCT IMAGE */
 
 .product-left{
@@ -364,6 +425,324 @@ transition:.3s;
 .product-item:hover .ordered-product-image{
 transform:scale(1.05);
 }
+
+.order-card{
+
+transition:.35s;
+
+}
+
+.order-card:hover{
+
+transform:translateY(-3px);
+box-shadow:0 20px 45px rgba(0,0,0,.12);
+
+}
+
+.info-box{
+
+transition:.3s;
+
+}
+
+.info-box:hover{
+
+border-color:#C9A24D;
+transform:translateY(-2px);
+
+}
+
+.section h3{
+
+position:relative;
+
+}
+
+.section h3::after{
+
+content:"";
+position:absolute;
+bottom:-2px;
+left:0;
+width:55px;
+height:3px;
+background:#C9A24D;
+border-radius:3px;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.main-footer{
+    background:#111;
+
+    color:#fff;
+
+    margin-top:40px;
+}
+
+.footer-container{
+    width:100%;
+
+    max-width:1400px;
+
+    margin:0 auto;
+
+    padding:
+        60px
+        50px
+        0;
+}
+
+
+/* =========================================================
+   FOOTER TOP
+========================================================= */
+
+.footer-top{
+    display:grid;
+
+    grid-template-columns:
+        1fr
+        1fr
+        1fr;
+
+    gap:50px;
+
+    padding-bottom:50px;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,0.15);
+}
+
+.footer-top > h2{
+    grid-column:1 / -1;
+
+    text-align:center;
+
+    margin:0 0 10px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:38px;
+
+    font-weight:600;
+
+    color:#c9a24d;
+}
+
+
+/* =========================================================
+   FOOTER CONTACT
+========================================================= */
+
+.contact-column{
+    text-align:left;
+}
+
+.contact-column h3,
+.whatsapp-column h3,
+.footer-links-column h3,
+.footer-social h3{
+    color:#c9a24d;
+
+    font-size:20px;
+
+    margin:0 0 18px;
+}
+
+.contact-column p{
+    color:#bbb;
+
+    font-size:15px;
+
+    line-height:1.6;
+}
+
+.footer-link{
+    display:block;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    margin-bottom:12px;
+
+    transition:0.3s ease;
+}
+
+.footer-link:hover{
+    color:#c9a24d;
+}
+
+
+/* =========================================================
+   WHATSAPP
+========================================================= */
+
+.whatsapp-column{
+    text-align:center;
+}
+
+.whatsapp-title{
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+}
+
+.whatsapp-icon{
+    width:28px !important;
+
+    height:28px !important;
+
+    object-fit:contain !important;
+}
+
+.whatsapp-button{
+    display:inline-block;
+
+    background:#c9a24d;
+
+    color:#111;
+
+    text-decoration:none;
+
+    padding:13px 30px;
+
+    border-radius:6px;
+
+    font-weight:bold;
+
+    transition:0.3s ease;
+}
+
+.whatsapp-button:hover{
+    background:#fff;
+
+    color:#111;
+}
+
+
+/* =========================================================
+   FOOTER MIDDLE
+========================================================= */
+
+.footer-middle{
+    display:grid;
+
+    grid-template-columns:
+        1fr
+        1fr
+        1fr;
+
+    gap:50px;
+
+    padding:50px 0;
+}
+
+.footer-links-column{
+    display:flex;
+
+    flex-direction:column;
+}
+
+.footer-links-column a{
+    color:#ccc;
+
+    text-decoration:none;
+
+    margin-bottom:13px;
+
+    transition:0.3s ease;
+}
+
+.footer-links-column a:hover{
+    color:#c9a24d;
+}
+
+
+/* =========================================================
+   INSTAGRAM
+========================================================= */
+
+.footer-social{
+    text-align:center;
+}
+
+.footer-social p{
+    color:#bbb;
+
+    margin-bottom:15px;
+}
+
+.instagram-button{
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    width:50px;
+
+    height:50px;
+
+    border:
+        1px solid
+        #c9a24d;
+
+    border-radius:50%;
+
+    transition:0.3s ease;
+}
+
+.instagram-button:hover{
+    background:#c9a24d;
+}
+
+.instagram-button img{
+    width:28px;
+
+    height:28px;
+
+    object-fit:contain;
+}
+
+
+/* =========================================================
+   COPYRIGHT
+========================================================= */
+
+.footer-bottom{
+    border-top:
+        1px solid
+        rgba(255,255,255,0.15);
+
+    text-align:center;
+
+    padding:25px 10px;
+}
+
+.footer-bottom p{
+    margin:0;
+
+    color:#999;
+
+    font-size:14px;
+
+    line-height:1.6;
+}
+
 
 @media(max-width:700px){
 
@@ -592,13 +971,160 @@ rel="noopener"
 
 </div>
 
+<div class="section" id="ratingSection" style="display:none;">
+
+<h3>Rate Your Experience</h3>
+
+<div class="rating-box">
+
+<div class="stars">
+
+<span>⭐</span>
+<span>⭐</span>
+<span>⭐</span>
+<span>⭐</span>
+<span>⭐</span>
+
+</div>
+
+<p>Thank you for shopping with 50 Mirars.</p>
+
 </div>
 
 </div>
 
-<footer>
+</div>
 
-© 2026 50 Mirars • Premium Watches & Sunglasses
+</div>
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="main-footer">
+
+    <div class="footer-container">
+
+        <div class="footer-top">
+
+            <h2>Contact Us</h2>
+
+            <div class="contact-column">
+
+                <h3>For Customers:</h3>
+
+                <a href="mailto:50mirars@gmail.com" class="footer-link">
+                    50mirars@gmail.com
+                </a>
+
+                <a href="tel:+918209989013" class="footer-link">
+                    82099 89013
+                </a>
+
+                <p>09:00 - 21:30 | Monday to Sunday</p>
+
+            </div>
+
+            <div class="contact-column">
+
+                <h3>For Sales/Watch Service:</h3>
+
+                <a href="mailto:50mirars@gmail.com" class="footer-link">
+                    50mirars@gmail.com
+                </a>
+
+                <a href="tel:+918209989013" class="footer-link">
+                    82099 89013
+                </a>
+
+                <p>09:00 - 21:30 | Monday to Sunday</p>
+
+            </div>
+
+            <div class="whatsapp-column">
+
+                <h3 class="whatsapp-title">
+
+                    <span>View Products on WhatsApp</span>
+
+                    <img
+                        src="whatsapplogo.png"
+                        alt="WhatsApp"
+                        class="whatsapp-icon"
+                    >
+
+                </h3>
+
+                <a
+                    href="https://wa.me/918209989013"
+                    target="_blank"
+                    rel="noopener"
+                    class="whatsapp-button"
+                >
+                    View Products
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="footer-middle">
+
+            <div class="footer-links-column">
+
+                <h3>Know 50 Mirars</h3>
+
+                <a href="about.html">About Us</a>
+
+                <a href="faq.html">FAQ</a>
+
+            </div>
+
+            <div class="footer-links-column">
+
+                <h3>Terms & Conditions</h3>
+
+                <a href="terms.html">Terms & Conditions</a>
+
+                <a href="privacypolicy.html">Privacy Policy</a>
+
+            </div>
+
+            <div class="footer-social">
+
+                <h3>50 Mirars</h3>
+
+                <p>Follow Us On</p>
+
+                <a
+                    href="https://instagram.com/50mirars"
+                    target="_blank"
+                    rel="noopener"
+                    class="instagram-button"
+                    aria-label="Follow 50 Mirars on Instagram"
+                >
+
+                    <img
+                        src="instagramimage.webp"
+                        alt="Instagram"
+                    >
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 50 Mirars - The Watch & Sunglasses Store.
+                All Rights Reserved.
+            </p>
+
+        </div>
+
+    </div>
 
 </footer>
 
@@ -778,26 +1304,28 @@ document.getElementById("total").innerText=
    BUY AGAIN
 ========================================== */
 
-document.getElementById("buyAgainBtn").onclick = () => {
+document.getElementById("buyAgainBtn").onclick=()=>{
 
-    const currentCart = JSON.parse(localStorage.getItem("cart") || "[]");
+const currentCart=JSON.parse(localStorage.getItem("cart")||"[]");
 
-    order.products.forEach(product => {
+order.products.forEach(product=>{
 
-        for(let i=0;i<product.quantity;i++){
+for(let i=0;i<product.quantity;i++){
 
-            currentCart.push({
-                name: product.name,
-                price: product.price
-            });
+currentCart.push({
 
-        }
+name:product.name,
+price:product.price
 
-    });
+});
 
-    localStorage.setItem("cart", JSON.stringify(currentCart));
+}
 
-    alert("Items added back to your cart.");
+});
+
+localStorage.setItem("cart",JSON.stringify(currentCart));
+
+window.location.href="cart.html";
 
 };
 
@@ -1031,6 +1559,12 @@ catch(error){
 console.error(error);
 
 loading.innerHTML="Unable to load order.";
+
+}
+
+if(status.includes("delivered")){
+
+document.getElementById("ratingSection").style.display="block";
 
 }
 
