@@ -234,50 +234,184 @@ font-size:14px;
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
-import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import {
+  getAuth,
+  onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  query,
+  orderBy
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
 
 const firebaseConfig = {
-
-apiKey:"AIzaSyD5oZFRZUDnmb2d1_juGTeWAbQcy3gcyjc",
-
-authDomain:"mirars-project.firebaseapp.com",
-
-projectId:"mirars-project",
-
-storageBucket:"mirars-project.firebasestorage.app",
-
-messagingSenderId:"947955901957",
-
-appId:"1:947955901957:web:67bb04627f25bf2a419e6c"
-
+  apiKey: "AIzaSyD5oZFRZUDnmb2d1_juGTeWAbQcy3gcyjc",
+  authDomain: "mirars-project.firebaseapp.com",
+  projectId: "mirars-project",
+  storageBucket: "mirars-project.firebasestorage.app",
+  messagingSenderId: "947955901957",
+  appId: "1:947955901957:web:67bb04627f25bf2a419e6c"
 };
 
-const app=initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
 
-const auth=getAuth(app);
+const loading = document.getElementById("loading");
+const loginBox = document.getElementById("loginRequired");
+const emptyState = document.getElementById("emptyState");
+const ordersList = document.getElementById("ordersList");
 
-const loading=document.getElementById("loading");
-const loginBox=document.getElementById("loginRequired");
-const emptyState=document.getElementById("emptyState");
+loading.style.display = "block";
 
-loading.style.display="block";
+onAuthStateChanged(auth, async (user) => {
 
-onAuthStateChanged(auth,(user)=>{
+    loading.style.display = "none";
 
-loading.style.display="none";
+    if (!user) {
 
-if(!user){
+        loginBox.style.display = "block";
+        return;
 
-loginBox.style.display="block";
-return;
+    }
 
-}
+    try {
 
-emptyState.style.display="block";
+        const q = query(
+            collection(db, "users", user.uid, "orders"),
+            orderBy("timestamp", "desc")
+        );
+
+        const snapshot = await getDocs(q);
+
+        if (snapshot.empty) {
+
+            emptyState.style.display = "block";
+            return;
+
+        }
+
+        ordersList.innerHTML = "";
+
+        snapshot.forEach((docSnap) => {
+
+            const order = docSnap.data();
+
+            const firstProduct = order.products?.[0];
+
+            const productName = firstProduct?.name || "Product";
+
+            const qty = firstProduct?.quantity || 1;
+
+            const date =
+                order.timestamp
+                    ? order.timestamp.toDate().toLocaleDateString("en-IN", {
+                          day: "numeric",
+                          month: "short",
+                          year: "numeric"
+                      })
+                    : "Today";
+
+            const card = document.createElement("div");
+
+            card.className = "order-card";
+
+            card.style.display = "block";
+
+            card.innerHTML = `
+
+            <div style="
+                background:white;
+                border-radius:18px;
+                box-shadow:0 8px 25px rgba(0,0,0,.08);
+                padding:25px;
+                border:1px solid #eee;
+            ">
+
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;">
+
+                    <div>
+
+                        <div style="font-size:22px;font-weight:bold;">${productName}</div>
+
+                        <div style="color:#777;margin-top:5px;">Order ID: ${order.orderId}</div>
+
+                    </div>
+
+                    <div style="
+                        background:#E8F5E9;
+                        color:#2E7D32;
+                        padding:8px 16px;
+                        border-radius:30px;
+                        font-weight:bold;
+                        font-size:14px;
+                    ">
+                        ${order.status}
+                    </div>
+
+                </div>
+
+                <div style="display:flex;justify-content:space-between;margin:20px 0;color:#555;">
+
+                    <div>
+                        <div style="font-size:13px;">Order Date</div>
+                        <strong>${date}</strong>
+                    </div>
+
+                    <div>
+                        <div style="font-size:13px;">Quantity</div>
+                        <strong>${qty}</strong>
+                    </div>
+
+                    <div>
+                        <div style="font-size:13px;">Total Paid</div>
+                        <strong>₹${Number(order.total).toLocaleString("en-IN")}</strong>
+                    </div>
+
+                </div>
+
+                <button
+                    onclick="window.location.href='order-details.html?id=${order.orderId}'"
+                    style="
+                        width:100%;
+                        background:black;
+                        color:white;
+                        border:none;
+                        padding:14px;
+                        border-radius:10px;
+                        font-weight:bold;
+                        cursor:pointer;
+                    "
+                >
+                    View Details
+                </button>
+
+            </div>
+
+            `;
+
+            ordersList.appendChild(card);
+
+        });
+
+    }
+
+    catch (err) {
+
+        console.error(err);
+
+        emptyState.style.display = "block";
+
+    }
 
 });
 
 </script>
-
+  
 </body>
+  
 </html>
