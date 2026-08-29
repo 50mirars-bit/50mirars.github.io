@@ -1118,8 +1118,33 @@ header{
 </footer>
 
 
-<script>
+<script type="module">
 
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+import {
+    getFirestore,
+    doc,
+    setDoc,
+    getDoc,
+    serverTimestamp
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyD5oZFRZUDnmb2d1_juGTeWAbQcy3gcyjc",
+    authDomain: "mirars-project.firebaseapp.com",
+    projectId: "mirars-project",
+    storageBucket: "mirars-project.firebasestorage.app",
+    messagingSenderId: "947955901957",
+    appId: "1:947955901957:web:67bb04627f25bf2a419e6c"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+    
 /* =====================================================
    GOOGLE APPS SCRIPT URL
 ===================================================== */
@@ -1788,6 +1813,75 @@ function sendOrderToGoogleSheet(
    LOAD ORDER
 ===================================================== */
 
+async function saveOrderToFirebase(
+    orderId,
+    deliveryDetails,
+    products,
+    subtotal,
+    discount,
+    total,
+    transactionId
+) {
+
+    const user = auth.currentUser;
+
+    if (!user) {
+        console.log("User not signed in. Order history skipped.");
+        return;
+    }
+
+    const orderRef = doc(
+        db,
+        "users",
+        user.uid,
+        "orders",
+        orderId
+    );
+
+    const existing = await getDoc(orderRef);
+
+    if (existing.exists()) {
+        console.log("Order already exists in Firebase.");
+        return;
+    }
+
+    await setDoc(orderRef, {
+
+        orderId,
+
+        timestamp: serverTimestamp(),
+
+        customerName: deliveryDetails.customerName || "",
+
+        phone: deliveryDetails.phone || "",
+
+        email: deliveryDetails.email || user.email || "",
+
+        address: deliveryDetails.address || "",
+
+        city: deliveryDetails.city || "",
+
+        state: deliveryDetails.state || "",
+
+        pin: deliveryDetails.pin || "",
+
+        products,
+
+        subtotal,
+
+        discount,
+
+        total,
+
+        transactionId,
+
+        status: "Order Received"
+
+    });
+
+    console.log("Order saved to Firebase.");
+}
+
 function loadOrder() {
 
     console.log(
@@ -2101,30 +2195,39 @@ function loadOrder() {
 
 
 
-    /* =========================
-       SEND TO GOOGLE SHEET
-    ========================= */
+   /* =========================
+   SEND TO GOOGLE SHEET
+========================= */
 
-    sendOrderToGoogleSheet(
+sendOrderToGoogleSheet(
 
-        orderId,
+    orderId,
 
-        deliveryDetails,
+    deliveryDetails,
 
-        products,
+    products,
 
-        subtotal,
+    subtotal,
 
-        discount,
+    discount,
 
-        total,
+    total,
 
-        transactionId
+    transactionId
 
-    );
+);
+
+saveOrderToFirebase(
+    orderId,
+    deliveryDetails,
+    products,
+    subtotal,
+    discount,
+    total,
+    transactionId
+).catch(console.error);
 
 }
-
 
 
 /* =====================================================
