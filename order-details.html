@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1200">
+<meta name="description" content="View your order details at 50 Mirars.">
+
+<title>Order Details | 50 Mirars</title>
+
+<link rel="icon" href="logo.jpeg">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+background:#f8f5ef;
+color:#111;
+}
+
+/* HEADER */
+
+header{
+background:black;
+padding:20px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+height:60px;
+}
+
+.back-btn{
+text-decoration:none;
+color:white;
+background:#C9A24D;
+padding:12px 22px;
+border-radius:30px;
+font-weight:bold;
+transition:.3s;
+}
+
+.back-btn:hover{
+background:#b08c3d;
+}
+
+.container{
+max-width:1050px;
+margin:40px auto;
+padding:0 20px;
+}
+
+.page-title{
+font-size:40px;
+font-weight:bold;
+margin-bottom:10px;
+}
+
+.subtitle{
+color:#666;
+margin-bottom:35px;
+}
+
+.order-card{
+background:white;
+border-radius:24px;
+padding:35px;
+box-shadow:0 12px 35px rgba(0,0,0,.08);
+border:1px solid #eee;
+}
+
+.order-top{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:25px;
+}
+
+.order-id{
+font-size:28px;
+font-weight:bold;
+}
+
+.status{
+background:#E8F5E9;
+color:#2E7D32;
+padding:10px 20px;
+border-radius:30px;
+font-weight:bold;
+}
+
+.section{
+margin-top:35px;
+}
+
+.section h3{
+font-size:22px;
+margin-bottom:18px;
+padding-bottom:10px;
+border-bottom:1px solid #eee;
+}
+
+.info-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:18px;
+}
+
+.info-box{
+background:#fafafa;
+padding:18px;
+border-radius:12px;
+border:1px solid #eee;
+}
+
+.label{
+font-size:13px;
+color:#777;
+margin-bottom:6px;
+}
+
+.value{
+font-size:17px;
+font-weight:bold;
+word-break:break-word;
+}
+
+.product-list{
+display:flex;
+flex-direction:column;
+gap:16px;
+}
+
+.product-item{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px;
+border:1px solid #eee;
+border-radius:14px;
+}
+
+.product-name{
+font-size:18px;
+font-weight:bold;
+}
+
+.product-qty{
+font-size:14px;
+color:#666;
+margin-top:5px;
+}
+
+.product-price{
+font-size:18px;
+font-weight:bold;
+}
+
+.summary{
+margin-top:25px;
+display:flex;
+flex-direction:column;
+gap:14px;
+}
+
+.summary-line{
+display:flex;
+justify-content:space-between;
+font-size:17px;
+}
+
+.total-line{
+display:flex;
+justify-content:space-between;
+font-size:24px;
+font-weight:bold;
+border-top:2px solid #ddd;
+padding-top:18px;
+margin-top:10px;
+}
+
+.loading{
+text-align:center;
+padding:80px 20px;
+font-size:22px;
+}
+
+footer{
+margin-top:60px;
+padding:30px;
+text-align:center;
+color:#666;
+font-size:14px;
+}
+
+@media(max-width:700px){
+
+.order-top{
+flex-direction:column;
+align-items:flex-start;
+gap:15px;
+}
+
+.info-grid{
+grid-template-columns:1fr;
+}
+
+.product-item{
+flex-direction:column;
+align-items:flex-start;
+gap:10px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<a href="my-orders.html" class="back-btn">← Back to My Orders</a>
+
+<img src="logo.jpeg" class="logo">
+
+</header>
+
+<div class="container">
+
+<div class="page-title">Order Details</div>
+
+<div class="subtitle">Complete details of your 50 Mirars order.</div>
+
+<div id="loading" class="loading">
+
+Loading your order...
+
+</div>
+
+<div id="orderContainer" style="display:none;">
+
+<div class="order-card">
+
+<div class="order-top">
+
+<div id="orderId" class="order-id">Loading...</div>
+
+<div id="status" class="status">Loading...</div>
+
+</div>
+
+<div class="section">
+
+<h3>Customer Information</h3>
+
+<div class="info-grid">
+
+<div class="info-box">
+<div class="label">Customer Name</div>
+<div id="customerName" class="value"></div>
+</div>
+
+<div class="info-box">
+<div class="label">Phone</div>
+<div id="phone" class="value"></div>
+</div>
+
+<div class="info-box">
+<div class="label">Email</div>
+<div id="email" class="value"></div>
+</div>
+
+<div class="info-box">
+<div class="label">Address</div>
+<div id="address" class="value"></div>
+</div>
+
+<div class="info-box">
+<div class="label">City</div>
+<div id="city" class="value"></div>
+</div>
+
+<div class="info-box">
+<div class="label">State</div>
+<div id="state" class="value"></div>
+</div>
+
+<div class="info-box">
+<div class="label">PIN Code</div>
+<div id="pin" class="value"></div>
+</div>
+
+<div class="info-box">
+<div class="label">Transaction ID</div>
+<div id="transactionId" class="value"></div>
+</div>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<h3>Products</h3>
+
+<div id="productList" class="product-list"></div>
+
+</div>
+
+<div class="section">
+
+<h3>Payment Summary</h3>
+
+<div class="summary">
+
+<div class="summary-line">
+<span>Subtotal</span>
+<span id="subtotal"></span>
+</div>
+
+<div class="summary-line">
+<span>Discount</span>
+<span id="discount"></span>
+</div>
+
+<div class="summary-line">
+<span>Shipping</span>
+<span>FREE</span>
+</div>
+
+<div class="total-line">
+<span>Total Paid</span>
+<span id="total"></span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<footer>
+
+© 2026 50 Mirars • Premium Watches & Sunglasses
+
+</footer>
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+getAuth,
+onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+import {
+getFirestore,
+collection,
+getDocs
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+const firebaseConfig = {
+
+apiKey:"AIzaSyD5oZFRZUDnmb2d1_juGTeWAbQcy3gcyjc",
+authDomain:"mirars-project.firebaseapp.com",
+projectId:"mirars-project",
+storageBucket:"mirars-project.firebasestorage.app",
+messagingSenderId:"947955901957",
+appId:"1:947955901957:web:67bb04627f25bf2a419e6c"
+
+};
+
+const app=initializeApp(firebaseConfig);
+const auth=getAuth(app);
+const db=getFirestore(app);
+
+const params=new URLSearchParams(window.location.search);
+const orderId=params.get("id");
+
+const loading=document.getElementById("loading");
+const container=document.getElementById("orderContainer");
+
+onAuthStateChanged(auth,async(user)=>{
+
+if(!user){
+
+window.location.href="profile.html";
+return;
+
+}
+
+try{
+
+const snapshot=await getDocs(
+
+collection(db,"users",user.uid,"orders")
+
+);
+
+let order=null;
+
+snapshot.forEach(doc=>{
+
+const data=doc.data();
+
+if(data.orderId===orderId){
+
+order=data;
+
+}
+
+});
+
+if(!order){
+
+loading.innerHTML="Order not found.";
+return;
+
+}
+
+loading.style.display="none";
+container.style.display="block";
+
+document.getElementById("orderId").innerText=order.orderId;
+
+document.getElementById("status").innerText=
+order.status || "Order Received";
+
+document.getElementById("customerName").innerText=
+order.customerName || "-";
+
+document.getElementById("phone").innerText=
+order.phone || "-";
+
+document.getElementById("email").innerText=
+order.email || "-";
+
+document.getElementById("address").innerText=
+order.address || "-";
+
+document.getElementById("city").innerText=
+order.city || "-";
+
+document.getElementById("state").innerText=
+order.state || "-";
+
+document.getElementById("pin").innerText=
+order.pin || "-";
+
+document.getElementById("transactionId").innerText=
+order.transactionId || "-";
+
+const productList=document.getElementById("productList");
+
+productList.innerHTML="";
+
+order.products.forEach(product=>{
+
+const div=document.createElement("div");
+
+div.className="product-item";
+
+div.innerHTML=`
+
+<div>
+
+<div class="product-name">
+
+${product.name}
+
+</div>
+
+<div class="product-qty">
+
+Quantity: ${product.quantity}
+
+</div>
+
+</div>
+
+<div class="product-price">
+
+₹${(product.price*product.quantity).toLocaleString("en-IN")}
+
+</div>
+
+`;
+
+productList.appendChild(div);
+
+});
+
+document.getElementById("subtotal").innerText=
+"₹"+Number(order.subtotal).toLocaleString("en-IN");
+
+document.getElementById("discount").innerText=
+"₹"+Number(order.discount).toLocaleString("en-IN");
+
+document.getElementById("total").innerText=
+"₹"+Number(order.total).toLocaleString("en-IN");
+
+}
+
+catch(error){
+
+console.error(error);
+
+loading.innerHTML="Unable to load order.";
+
+}
+
+});
+
+</script>
+
+</body>
+  
+</html>
