@@ -170,6 +170,154 @@ color:#666;
 font-size:14px;
 }
 
+/* ==========================================
+   PREMIUM ORDER CARD
+========================================== */
+
+.order-card{
+display:block;
+margin-bottom:28px;
+}
+
+.order-box{
+background:#fff;
+border-radius:22px;
+padding:25px;
+box-shadow:0 10px 28px rgba(0,0,0,.08);
+border:1px solid #ececec;
+transition:.3s;
+}
+
+.order-box:hover{
+transform:translateY(-2px);
+box-shadow:0 15px 35px rgba(0,0,0,.12);
+}
+
+.order-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:20px;
+margin-bottom:20px;
+}
+
+.product-area{
+display:flex;
+gap:18px;
+align-items:center;
+}
+
+.product-image{
+width:95px;
+height:95px;
+border-radius:16px;
+object-fit:cover;
+background:#f7f7f7;
+padding:6px;
+border:1px solid #ececec;
+}
+
+.product-title{
+font-size:23px;
+font-weight:bold;
+}
+
+.order-id-small{
+margin-top:6px;
+color:#777;
+font-size:14px;
+}
+
+.status-badge{
+background:#E8F5E9;
+color:#2E7D32;
+padding:8px 18px;
+border-radius:40px;
+font-weight:bold;
+font-size:14px;
+}
+
+.order-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+padding:22px 0;
+border-top:1px solid #eee;
+border-bottom:1px solid #eee;
+margin:20px 0;
+}
+
+.info-label{
+font-size:13px;
+color:#777;
+margin-bottom:6px;
+}
+
+.info-value{
+font-size:17px;
+font-weight:bold;
+}
+
+.order-buttons{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+margin-top:10px;
+}
+
+.buy-btn,
+.details-btn{
+padding:15px;
+border-radius:12px;
+font-weight:bold;
+font-size:15px;
+cursor:pointer;
+transition:.3s;
+}
+
+.buy-btn{
+background:white;
+border:1px solid #ccc;
+}
+
+.buy-btn:hover{
+background:#f3f3f3;
+}
+
+.details-btn{
+background:black;
+color:white;
+border:none;
+}
+
+.details-btn:hover{
+background:#C9A24D;
+color:black;
+}
+
+@media(max-width:700px){
+
+.order-header{
+flex-direction:column;
+align-items:flex-start;
+}
+
+.order-grid{
+grid-template-columns:1fr;
+}
+
+.order-buttons{
+grid-template-columns:1fr;
+}
+
+.product-area{
+flex-direction:column;
+align-items:flex-start;
+}
+
+}
+  
+
 </style>
 
 </head>
@@ -235,31 +383,32 @@ font-size:14px;
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 import {
-  getAuth,
-  onAuthStateChanged
+    getAuth,
+    onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 import {
-  getFirestore,
-  collection,
-  getDocs,
-  query,
-  orderBy
+    getFirestore,
+    collection,
+    getDocs,
+    query,
+    orderBy
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyD5oZFRZUDnmb2d1_juGTeWAbQcy3gcyjc",
-  authDomain: "mirars-project.firebaseapp.com",
-  projectId: "mirars-project",
-  storageBucket: "mirars-project.firebasestorage.app",
-  messagingSenderId: "947955901957",
-  appId: "1:947955901957:web:67bb04627f25bf2a419e6c"
+    apiKey: "AIzaSyD5oZFRZUDnmb2d1_juGTeWAbQcy3gcyjc",
+    authDomain: "mirars-project.firebaseapp.com",
+    projectId: "mirars-project",
+    storageBucket: "mirars-project.firebasestorage.app",
+    messagingSenderId: "947955901957",
+    appId: "1:947955901957:web:67bb04627f25bf2a419e6c"
 };
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
+
 
 const loading = document.getElementById("loading");
 const loginBox = document.getElementById("loginRequired");
@@ -268,127 +417,184 @@ const ordersList = document.getElementById("ordersList");
 
 loading.style.display = "block";
 
-onAuthStateChanged(auth, async (user) => {
 
-    loading.style.display = "none";
+/* ==========================================
+   PRODUCT IMAGE HELPER
+========================================== */
 
-    if (!user) {
+function getProductImage(productName){
 
-        loginBox.style.display = "block";
+    const images = {
+
+        "Richard Mille RM 50-03":"Richard Mille RM 50-03.jpg",
+        "Rolex Pheonix Watch":"Rolex Pheonix Watch.jpg",
+        "Tissot T-Race Chronograph Watch":"Tissot T-Race Chronograph Watch.jpg"
+
+    };
+
+    return images[productName] || "logo.jpeg";
+
+}
+
+
+/* ==========================================
+   LOAD ORDERS
+========================================== */
+
+onAuthStateChanged(auth, async(user)=>{
+
+    loading.style.display="none";
+
+    if(!user){
+
+        loginBox.style.display="block";
         return;
 
     }
 
-    try {
+    try{
 
-        const q = query(
-            collection(db, "users", user.uid, "orders"),
-            orderBy("timestamp", "desc")
+        const q=query(
+
+            collection(db,"users",user.uid,"orders"),
+            orderBy("timestamp","desc")
+
         );
 
-        const snapshot = await getDocs(q);
+        const snapshot=await getDocs(q);
 
-        if (snapshot.empty) {
+        if(snapshot.empty){
 
-            emptyState.style.display = "block";
+            emptyState.style.display="block";
             return;
 
         }
 
-        ordersList.innerHTML = "";
+        ordersList.innerHTML="";
 
-        snapshot.forEach((docSnap) => {
+        snapshot.forEach((docSnap)=>{
 
-            const order = docSnap.data();
+            const order=docSnap.data();
 
-            const firstProduct = order.products?.[0];
+            const firstProduct=order.products?.[0] || {};
 
-            const productName = firstProduct?.name || "Product";
+            const productName=firstProduct.name || "Product";
 
-            const qty = firstProduct?.quantity || 1;
+            const qty=firstProduct.quantity || 1;
 
-            const date =
-                order.timestamp
-                    ? order.timestamp.toDate().toLocaleDateString("en-IN", {
-                          day: "numeric",
-                          month: "short",
-                          year: "numeric"
-                      })
-                    : "Today";
+            const total=Number(order.total || 0);
 
-            const card = document.createElement("div");
+            const date=order.timestamp
 
-            card.className = "order-card";
+                ? order.timestamp.toDate().toLocaleDateString("en-IN",{
 
-            card.style.display = "block";
+                    day:"numeric",
+                    month:"short",
+                    year:"numeric"
 
-            card.innerHTML = `
+                })
 
-            <div style="
-                background:white;
-                border-radius:18px;
-                box-shadow:0 8px 25px rgba(0,0,0,.08);
-                padding:25px;
-                border:1px solid #eee;
-            ">
+                : "Today";
 
-                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;">
 
-                    <div>
+            const card=document.createElement("div");
 
-                        <div style="font-size:22px;font-weight:bold;">${productName}</div>
+            card.className="order-card";
 
-                        <div style="color:#777;margin-top:5px;">Order ID: ${order.orderId}</div>
+            card.innerHTML=`
+
+            <div class="order-box">
+
+                <div class="order-header">
+
+                    <div class="product-area">
+
+                        <img
+                            src="${getProductImage(productName)}"
+                            class="product-image"
+                            alt="${productName}"
+                            onerror="this.src='logo.jpeg'"
+                        >
+
+                        <div>
+
+                            <div class="product-title">
+                                ${productName}
+                            </div>
+
+                            <div class="order-id-small">
+                                Order ID: ${order.orderId}
+                            </div>
+
+                        </div>
 
                     </div>
 
-                    <div style="
-                        background:#E8F5E9;
-                        color:#2E7D32;
-                        padding:8px 16px;
-                        border-radius:30px;
-                        font-weight:bold;
-                        font-size:14px;
-                    ">
-                        ${order.status}
-                    </div>
-
-                </div>
-
-                <div style="display:flex;justify-content:space-between;margin:20px 0;color:#555;">
-
-                    <div>
-                        <div style="font-size:13px;">Order Date</div>
-                        <strong>${date}</strong>
-                    </div>
-
-                    <div>
-                        <div style="font-size:13px;">Quantity</div>
-                        <strong>${qty}</strong>
-                    </div>
-
-                    <div>
-                        <div style="font-size:13px;">Total Paid</div>
-                        <strong>₹${Number(order.total).toLocaleString("en-IN")}</strong>
+                    <div class="status-badge">
+                        ${order.status || "Order Received"}
                     </div>
 
                 </div>
 
-                <button
-                    onclick="window.location.href='order-details.html?id=${order.orderId}'"
-                    style="
-                        width:100%;
-                        background:black;
-                        color:white;
-                        border:none;
-                        padding:14px;
-                        border-radius:10px;
-                        font-weight:bold;
-                        cursor:pointer;
-                    "
-                >
-                    View Details
-                </button>
+
+                <div class="order-grid">
+
+                    <div>
+
+                        <div class="info-label">
+                            Order Date
+                        </div>
+
+                        <div class="info-value">
+                            ${date}
+                        </div>
+
+                    </div>
+
+                    <div>
+
+                        <div class="info-label">
+                            Quantity
+                        </div>
+
+                        <div class="info-value">
+                            ${qty}
+                        </div>
+
+                    </div>
+
+                    <div>
+
+                        <div class="info-label">
+                            Total Paid
+                        </div>
+
+                        <div class="info-value">
+                            ₹${total.toLocaleString("en-IN")}
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="order-buttons">
+
+                    <button
+                        class="buy-btn"
+                        onclick="alert('Buy Again feature will be added in the next upgrade.')"
+                    >
+                        Buy Again
+                    </button>
+
+                    <button
+                        class="details-btn"
+                        onclick="window.location.href='order-details.html?id=${order.orderId}'"
+                    >
+                        View Details
+                    </button>
+
+                </div>
 
             </div>
 
@@ -400,11 +606,11 @@ onAuthStateChanged(auth, async (user) => {
 
     }
 
-    catch (err) {
+    catch(error){
 
-        console.error(err);
+        console.error(error);
 
-        emptyState.style.display = "block";
+        emptyState.style.display="block";
 
     }
 
