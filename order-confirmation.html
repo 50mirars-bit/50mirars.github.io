@@ -1122,8 +1122,11 @@ header{
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
-import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-
+import {
+    getAuth,
+    onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    
 import {
     getFirestore,
     doc,
@@ -1823,71 +1826,72 @@ async function saveOrderToFirebase(
     transactionId
 ) {
 
-    const user = auth.currentUser;
+    return new Promise((resolve, reject) => {
 
-    if (!user) {
-        console.log("User not signed in. Order history skipped.");
-        return;
-    }
+        onAuthStateChanged(auth, async (user) => {
 
-    const orderRef = doc(
-        db,
-        "users",
-        user.uid,
-        "orders",
-        orderId
-    );
+            if (!user) {
+                console.log("No signed-in user found.");
+                resolve();
+                return;
+            }
 
-    const existing = await getDoc(orderRef);
+            try {
 
-    if (existing.exists()) {
-        console.log("Order already exists in Firebase.");
-        return;
-    }
+                const orderRef = doc(
+                    db,
+                    "users",
+                    user.uid,
+                    "orders",
+                    orderId
+                );
 
-    await setDoc(orderRef, {
+                const existing = await getDoc(orderRef);
 
-        orderId,
+                if (existing.exists()) {
+                    console.log("Order already exists.");
+                    resolve();
+                    return;
+                }
 
-        timestamp: serverTimestamp(),
+                await setDoc(orderRef, {
 
-        customerName: deliveryDetails.customerName || "",
+                    orderId,
+                    timestamp: serverTimestamp(),
 
-        phone: deliveryDetails.phone || "",
+                    customerName: deliveryDetails.customerName || "",
+                    phone: deliveryDetails.phone || "",
+                    email: deliveryDetails.email || user.email || "",
+                    address: deliveryDetails.address || "",
+                    city: deliveryDetails.city || "",
+                    state: deliveryDetails.state || "",
+                    pin: deliveryDetails.pin || "",
 
-        email: deliveryDetails.email || user.email || "",
+                    products,
+                    subtotal,
+                    discount,
+                    total,
+                    transactionId,
 
-        address: deliveryDetails.address || "",
+                    status: "Order Received"
 
-        city: deliveryDetails.city || "",
+                });
 
-        state: deliveryDetails.state || "",
+                console.log("Order saved to Firebase.");
+                resolve();
 
-        pin: deliveryDetails.pin || "",
+            } catch (error) {
 
-        products,
+                console.error(error);
+                reject(error);
 
-        subtotal,
+            }
 
-        discount,
-
-        total,
-
-        transactionId,
-
-        status: "Order Received"
+        });
 
     });
 
-    console.log("Order saved to Firebase.");
 }
-
-function loadOrder() {
-
-    console.log(
-        "===== 50 MIRARS ORDER CONFIRMATION ====="
-    );
-
 
     /* =========================
        GET ORDER DATA
