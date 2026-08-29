@@ -1,1016 +1,384 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta
-    name="viewport"
-    content="width=1200"
->
-
-<title>Order Confirmed | 50 Mirars</title>
-
-
+<meta name="viewport" content="width=1110">
+<meta name="theme-color" content="#111111">
+<meta name="description" content="My Account - 50 Mirars">
+<title>My Account | 50 Mirars</title>
 <style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f6f6f6;color:#111}
+header{background:#111;color:#fff;padding:22px 5%;display:flex;justify-content:space-between;align-items:center}
+.logo,.back-home{color:#fff;text-decoration:none}.logo{font:700 30px Georgia,serif;letter-spacing:5px}
+.back-home{border:1px solid rgba(255,255,255,.35);padding:10px 16px;border-radius:6px}
+main{padding:55px 20px}.account-container{max-width:1050px;margin:auto}
+.login-card,.card{background:#fff;border:1px solid #e3e3e3;border-radius:18px;padding:30px;box-shadow:0 10px 30px rgba(0,0,0,.06)}
+#login-section{max-width:600px;margin:30px auto}#profile-section{display:none}
+.profile-header{background:linear-gradient(135deg,#111,#292929);color:#fff;border-radius:18px;padding:35px;display:flex;gap:24px;align-items:center;margin-bottom:24px}
+.profile-image{width:96px;height:96px;border-radius:50%;object-fit:cover;border:3px solid rgba(255,255,255,.8)}
+.profile-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}.full-card{grid-column:1/-1}
+.form-group{margin-bottom:16px}.form-group label{display:block;margin-bottom:6px;font-size:13px;font-weight:700}
+input,textarea{width:100%;padding:12px;border:1px solid #ccc;border-radius:8px}textarea{min-height:90px}
+.address-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+button,.action-link{min-height:48px;border-radius:8px;font-weight:700}
+.primary-button{width:100%;background:#111;color:#fff;border:none}
+.logout-button{width:100%;margin-top:12px;background:#fff;border:1px solid #111}
+.account-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}.action-link{display:flex;justify-content:center;align-items:center;border:1px solid #ccc;text-decoration:none;color:#111}
+.readonly-field{background:#f3f3f3}
+.status{display:none;margin-top:12px;padding:12px;border-radius:8px}.success{display:block;background:#edf8f0;color:#176b2c}.error{display:block;background:#fff0f0;color:#a40000}
+/* =========================================================
+   FOOTER
+========================================================= */
 
-/* =====================================================
-   BASIC
-===================================================== */
+.main-footer{
+    background:#111;
 
-* {
-    box-sizing: border-box;
+    color:#fff;
+
+    margin-top:40px;
 }
 
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f9f9f9;
-    color: #222;
-}
+.footer-container{
+    width:100%;
 
+    max-width:1400px;
 
-/* =====================================================
-   HEADER
-===================================================== */
+    margin:0 auto;
 
-/* =====================================================
-   HEADER
-===================================================== */
-
-header{
-    background:#000;
-    padding:22px 55px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    border-bottom:1px solid #1f1f1f;
-}
-
-.logo{
-    width:78px;
-    height:78px;
-    object-fit:contain;
-}
-
-.brand-title{
-    flex:1;
-    text-align:center;
-    margin:0;
-    font-family:"Times New Roman", Georgia, serif;
-    font-size:34px;
-    font-weight:700;
-    color:#C9A24D;
-    text-transform:uppercase;
-    letter-spacing:3px;
-}
-
-.header-spacer{
-    width:78px;   /* Same width as logo */
-}
-    
-
-/* =====================================================
-   MAIN
-===================================================== */
-
-.confirmation-page {
-    max-width: 900px;
-    margin: 50px auto;
-    padding: 0 20px;
+    padding:
+        60px
+        50px
+        0;
 }
 
 
-/* =====================================================
-   SUCCESS BOX
-===================================================== */
-
-.success-box {
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-    padding: 40px;
-    text-align: center;
-}
-
-.success-icon {
-    width: 70px;
-    height: 70px;
-    margin: 0 auto 20px;
-    border-radius: 50%;
-    background: #009688;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 38px;
-    font-weight: bold;
-}
-
-.success-box h2 {
-    margin: 0 0 10px;
-    font-size: 30px;
-}
-
-.success-message {
-    color: #666;
-    font-size: 16px;
-    line-height: 1.5;
-}
-
-
-/* =====================================================
-   ORDER ID
-===================================================== */
-
-.order-id-box {
-    margin: 25px auto;
-    padding: 15px 20px;
-    background: #f5f5f5;
-    border: 1px solid #ddd;
-    border-radius: 7px;
-    max-width: 450px;
-}
-
-.order-id-label {
-    font-size: 13px;
-    color: #777;
-}
-
-.order-id {
-    margin-top: 6px;
-    font-size: 21px;
-    font-weight: bold;
-}
-
-
-/* =====================================================
-   DETAILS
-===================================================== */
-
-.details-section {
-    margin-top: 30px;
-    text-align: left;
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 25px;
-}
-
-.details-section h3 {
-    margin-top: 0;
-    font-size: 20px;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 12px;
-}
-
-
-/* =====================================================
-   CUSTOMER DETAILS
-===================================================== */
-
-.customer-detail {
-    display: flex;
-    gap: 20px;
-    padding: 9px 0;
-    border-bottom: 1px solid #f0f0f0;
-}
-
-.customer-detail:last-child {
-    border-bottom: none;
-}
-
-.detail-label {
-    width: 180px;
-    font-weight: 600;
-}
-
-.detail-value {
-    flex: 1;
-    color: #555;
-    word-break: break-word;
-}
-
-
-/* =====================================================
-   PRODUCTS
-===================================================== */
-
-.product-item {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    padding: 14px 0;
-    border-bottom: 1px solid #eee;
-}
-
-.product-item:last-child {
-    border-bottom: none;
-}
-
-.product-name {
-    flex: 1;
-    font-weight: 600;
-}
-
-.product-quantity {
-    color: #666;
-    font-size: 14px;
-    margin-top: 5px;
-}
-
-.product-price {
-    font-weight: 600;
-    white-space: nowrap;
-}
-
-
-/* =====================================================
-   TOTALS
-===================================================== */
-
-.summary-line {
-    display: flex;
-    justify-content: space-between;
-    padding: 9px 0;
-    font-size: 15px;
-}
-
-.discount {
-    color: #008577;
-}
-
-.total-line {
-    display: flex;
-    justify-content: space-between;
-    border-top: 1px solid #ddd;
-    padding-top: 16px;
-    margin-top: 10px;
-    font-size: 21px;
-    font-weight: bold;
-}
-
-
-/* =====================================================
-   PAYMENT STATUS
-===================================================== */
-
-.payment-status {
-    margin-top: 25px;
-    padding: 15px;
-    background: #fff8e1;
-    border: 1px solid #ffe082;
-    border-radius: 7px;
-    text-align: center;
-}
-
-.payment-status strong {
-    display: block;
-    margin-bottom: 5px;
-}
-
-
-/* =====================================================
-   GOOGLE SHEET STATUS
-===================================================== */
-
-.sheet-status {
-    margin-top: 20px;
-    padding: 14px;
-    border-radius: 7px;
-    text-align: center;
-    font-size: 14px;
-    background: #f5f5f5;
-    border: 1px solid #ddd;
-}
-
-.sheet-status.success {
-    background: #e8f5e9;
-    border-color: #a5d6a7;
-    color: #2e7d32;
-}
-
-.sheet-status.error {
-    background: #ffebee;
-    border-color: #ef9a9a;
-    color: #c62828;
-}
-
-
-/* =====================================================
-   BUTTON
-===================================================== */
-
-.button-area {
-    text-align: center;
-    margin-top: 30px;
-}
-
-.home-btn {
-    display: inline-block;
-    background: #009688;
-    color: #fff;
-    text-decoration: none;
-    padding: 13px 28px;
-    border-radius: 6px;
-    font-size: 15px;
-    font-weight: 600;
-}
-
-.home-btn:hover {
-    background: #00796b;
-}
-
-
-/* =====================================================
-   PREMIUM FOOTER
-===================================================== */
-
-.main-footer {
-    width: 100%;
-    background: #0b0b0b;
-    color: #ffffff;
-    padding: 70px 7% 25px;
-    margin-top: 70px;
-}
-
-.footer-container {
-    max-width: 1400px;
-    margin: auto;
-}
-
-
-/* =====================================================
+/* =========================================================
    FOOTER TOP
-===================================================== */
+========================================================= */
 
-.footer-top {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
+.footer-top{
+    display:grid;
+
+    grid-template-columns:
+        1fr
+        1fr
+        1fr;
+
+    gap:50px;
+
+    padding-bottom:50px;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,0.15);
 }
 
-.footer-top > h2 {
-    grid-column: 1 / -1;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 42px;
-    text-align: center;
-    margin: 0 0 10px 0;
-    letter-spacing: 0.5px;
+.footer-top > h2{
+    grid-column:1 / -1;
+
+    text-align:center;
+
+    margin:0 0 10px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:38px;
+
+    font-weight:600;
+
+    color:#c9a24d;
 }
 
 
-/* =====================================================
-   CONTACT COLUMNS
-===================================================== */
+/* =========================================================
+   FOOTER CONTACT
+========================================================= */
 
-.contact-column,
-.whatsapp-column {
-    text-align: center;
+.contact-column{
+    text-align:left;
 }
 
 .contact-column h3,
-.whatsapp-column h3 {
-    font-size: 20px;
-    margin-bottom: 22px;
-}
-
-.contact-column p {
-    color: #bdbdbd;
-    font-size: 15px;
-    margin-top: 12px;
-    line-height: 1.6;
-}
-
-
-/* =====================================================
-   FOOTER LINKS
-===================================================== */
-
-.footer-link {
-    display: block;
-    width: fit-content;
-    margin: 0 auto 8px;
-    color: #ffffff;
-    font-size: 16px;
-    text-decoration: none;
-}
-
-.footer-link:hover {
-    color: #c9a24d;
-}
-
-
-/* =====================================================
-   WHATSAPP
-===================================================== */
-
-.whatsapp-title {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-}
-
-.whatsapp-icon {
-    width: 24px !important;
-    height: 24px !important;
-    object-fit: contain;
-}
-
-.whatsapp-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 50px;
-    padding: 13px 30px;
-    background: #ffffff;
-    color: #111111;
-    font-weight: 700;
-    text-decoration: none;
-    transition: 0.3s ease;
-}
-
-.whatsapp-button:hover {
-    background: #c9a24d;
-    color: #ffffff;
-}
-
-
-/* =====================================================
-   FOOTER MIDDLE
-===================================================== */
-
-.footer-middle {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 50px;
-    margin-top: 65px;
-    padding-top: 45px;
-    border-top: 1px solid rgba(255,255,255,0.10);
-}
-
-.footer-links-column,
-.footer-social {
-    text-align: center;
-}
-
+.whatsapp-column h3,
 .footer-links-column h3,
-.footer-social h3 {
-    margin-bottom: 20px;
-    font-size: 20px;
+.footer-social h3{
+    color:#c9a24d;
+
+    font-size:20px;
+
+    margin:0 0 18px;
 }
 
-.footer-links-column a {
-    display: block;
-    width: fit-content;
-    margin: 0 auto 14px;
-    color: #d7d7d7;
-    text-decoration: none;
+.contact-column p{
+    color:#bbb;
+
+    font-size:15px;
+
+    line-height:1.6;
 }
 
-.footer-links-column a:hover {
-    color: #c9a24d;
+.footer-link{
+    display:block;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    margin-bottom:12px;
+
+    transition:0.3s ease;
 }
 
-.footer-social p {
-    color: #d7d7d7;
-    margin-bottom: 14px;
-}
-
-
-/* =====================================================
-   INSTAGRAM BUTTON
-===================================================== */
-
-.instagram-button {
-    width: 48px;
-    height: 48px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid rgba(255,255,255,0.7);
-    border-radius: 10px;
-    transition: 0.3s ease;
-}
-
-.instagram-button:hover {
-    border-color: #c9a24d;
-}
-
-.instagram-button img {
-    width: 27px;
-    height: 27px;
-    object-fit: contain;
+.footer-link:hover{
+    color:#c9a24d;
 }
 
 
-/* =====================================================
-   FOOTER BOTTOM
-===================================================== */
+/* =========================================================
+   WHATSAPP
+========================================================= */
 
-.footer-bottom {
-    margin-top: 50px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255,255,255,0.10);
-    text-align: center;
+.whatsapp-column{
+    text-align:center;
 }
 
-.footer-bottom p {
-    color: #aaaaaa;
-    font-size: 13px;
-    margin: 0;
+.whatsapp-title{
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+}
+
+.whatsapp-icon{
+    width:28px !important;
+
+    height:28px !important;
+
+    object-fit:contain !important;
+}
+
+.whatsapp-button{
+    display:inline-block;
+
+    background:#c9a24d;
+
+    color:#111;
+
+    text-decoration:none;
+
+    padding:13px 30px;
+
+    border-radius:6px;
+
+    font-weight:bold;
+
+    transition:0.3s ease;
+}
+
+.whatsapp-button:hover{
+    background:#fff;
+
+    color:#111;
 }
 
 
-/* =====================================================
-   MOBILE
-===================================================== */
+/* =========================================================
+   FOOTER MIDDLE
+========================================================= */
 
-@media (max-width: 900px) {
+.footer-middle{
+    display:grid;
 
-    .confirmation-page {
-        margin: 30px auto;
-    }
+    grid-template-columns:
+        1fr
+        1fr
+        1fr;
 
-    .success-box {
-        padding: 30px;
-    }
+    gap:50px;
 
-    .customer-detail {
-        flex-direction: column;
-        gap: 5px;
-    }
+    padding:50px 0;
+}
 
-    .detail-label {
-        width: auto;
-    }
+.footer-links-column{
+    display:flex;
 
-    .product-item {
-        flex-direction: column;
-        gap: 6px;
-    }
+    flex-direction:column;
+}
 
+.footer-links-column a{
+    color:#ccc;
+
+    text-decoration:none;
+
+    margin-bottom:13px;
+
+    transition:0.3s ease;
+}
+
+.footer-links-column a:hover{
+    color:#c9a24d;
 }
 
 
-/* =====================================================
-   FOOTER MOBILE
-===================================================== */
+/* =========================================================
+   INSTAGRAM
+========================================================= */
 
-@media screen and (max-width: 768px) {
-
-    .main-footer {
-        padding: 55px 18px 20px;
-    }
-
-    .footer-top {
-        grid-template-columns: 1fr;
-    }
-
-    .footer-top > h2 {
-        font-size: 34px;
-    }
-
-    .footer-middle {
-        grid-template-columns: 1fr;
-    }
-
+.footer-social{
+    text-align:center;
 }
 
+.footer-social p{
+    color:#bbb;
+
+    margin-bottom:15px;
+}
+
+.instagram-button{
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    width:50px;
+
+    height:50px;
+
+    border:
+        1px solid
+        #c9a24d;
+
+    border-radius:50%;
+
+    transition:0.3s ease;
+}
+
+.instagram-button:hover{
+    background:#c9a24d;
+}
+
+.instagram-button img{
+    width:28px;
+
+    height:28px;
+
+    object-fit:contain;
+}
+
+
+/* =========================================================
+   COPYRIGHT
+========================================================= */
+
+.footer-bottom{
+    border-top:
+        1px solid
+        rgba(255,255,255,0.15);
+
+    text-align:center;
+
+    padding:25px 10px;
+}
+
+.footer-bottom p{
+    margin:0;
+
+    color:#999;
+
+    font-size:14px;
+
+    line-height:1.6;
+}
+
+
+@media(max-width:800px){.profile-grid,.address-row{grid-template-columns:1fr}.full-card{grid-column:auto}.profile-header{flex-direction:column;text-align:center}}
 </style>
-
 </head>
-
-
 <body>
-
-
-<!-- =====================================================
-     HEADER
-===================================================== -->
-
-<header>
-
-    <img
-        src="logo.jpeg"
-        alt="50 Mirars Logo"
-        class="logo"
-    >
-
-    <h1 class="brand-title">
-        50 Mirars
-    </h1>
-
-    <div class="header-spacer"></div>
-
-</header>
-    
-
-
-<!-- =====================================================
-     MAIN
-===================================================== -->
-
-<section class="confirmation-page">
-
-
-    <div class="success-box">
-
-
-        <!-- SUCCESS ICON -->
-
-        <div class="success-icon">
-            ✓
-        </div>
-
-
-        <h2>
-            Order Received!
-        </h2>
-
-
-        <p class="success-message">
-
-            Thank you for shopping with
-            <strong>50 Mirars</strong>.
-
-            <br>
-
-            We have received your order
-            and payment details.
-
-        </p>
-
-
-
-        <!-- =================================================
-             ORDER ID
-        ================================================== -->
-
-        <div class="order-id-box">
-
-            <div class="order-id-label">
-                Your Order ID
-            </div>
-
-            <div
-                class="order-id"
-                id="order-id"
-            >
-                Loading...
-            </div>
-
-        </div>
-
-
-
-        <!-- =================================================
-             DELIVERY DETAILS
-        ================================================== -->
-
-        <div class="details-section">
-
-            <h3>
-                Delivery Details
-            </h3>
-
-
-            <div class="customer-detail">
-
-                <div class="detail-label">
-                    Name
-                </div>
-
-                <div
-                    class="detail-value"
-                    id="customer-name"
-                >
-                    Loading...
-                </div>
-
-            </div>
-
-
-            <div class="customer-detail">
-
-                <div class="detail-label">
-                    Phone
-                </div>
-
-                <div
-                    class="detail-value"
-                    id="customer-phone"
-                >
-                    Loading...
-                </div>
-
-            </div>
-
-
-            <div class="customer-detail">
-
-                <div class="detail-label">
-                    Email
-                </div>
-
-                <div
-                    class="detail-value"
-                    id="customer-email"
-                >
-                    Loading...
-                </div>
-
-            </div>
-
-
-            <div class="customer-detail">
-
-                <div class="detail-label">
-                    Address
-                </div>
-
-                <div
-                    class="detail-value"
-                    id="customer-address"
-                >
-                    Loading...
-                </div>
-
-            </div>
-
-
-            <div class="customer-detail">
-
-                <div class="detail-label">
-                    City
-                </div>
-
-                <div
-                    class="detail-value"
-                    id="customer-city"
-                >
-                    Loading...
-                </div>
-
-            </div>
-
-
-            <div class="customer-detail">
-
-                <div class="detail-label">
-                    State
-                </div>
-
-                <div
-                    class="detail-value"
-                    id="customer-state"
-                >
-                    Loading...
-                </div>
-
-            </div>
-
-
-            <div class="customer-detail">
-
-                <div class="detail-label">
-                    PIN Code
-                </div>
-
-                <div
-                    class="detail-value"
-                    id="customer-pin"
-                >
-                    Loading...
-                </div>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- =================================================
-             ORDER DETAILS
-        ================================================== -->
-
-        <div class="details-section">
-
-            <h3>
-                Order Details
-            </h3>
-
-
-            <div id="product-list"></div>
-
-
-            <div class="summary-line">
-
-                <span>
-                    Subtotal
-                </span>
-
-                <span id="subtotal">
-                    ₹0
-                </span>
-
-            </div>
-
-
-            <div class="summary-line discount">
-
-                <span>
-                    Discount
-                </span>
-
-                <span id="discount">
-                    ₹0
-                </span>
-
-            </div>
-
-
-            <div class="summary-line">
-
-                <span>
-                    Shipping
-                </span>
-
-                <span>
-                    Free
-                </span>
-
-            </div>
-
-
-            <div class="total-line">
-
-                <span>
-                    Total Paid
-                </span>
-
-                <span id="total">
-                    ₹0
-                </span>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- =================================================
-             PAYMENT DETAILS
-        ================================================== -->
-
-        <div class="details-section">
-
-            <h3>
-                Payment Details
-            </h3>
-
-
-            <div class="customer-detail">
-
-                <div class="detail-label">
-                    Transaction ID / UTR
-                </div>
-
-                <div
-                    class="detail-value"
-                    id="transaction-id"
-                >
-                    Loading...
-                </div>
-
-            </div>
-
-
-            <div class="payment-status">
-
-                <strong>
-                    Payment Verification Pending
-                </strong>
-
-                Your payment will be verified
-                by 50 Mirars before the order
-                is dispatched.
-
-            </div>
-
-
-            <div
-                id="sheet-status"
-                class="sheet-status"
-            >
-                Saving order details...
-            </div>
-
-        </div>
-
-
-
-        <!-- =================================================
-             BUTTON
-        ================================================== -->
-
-        <div class="button-area">
-
-            <a
-                href="index.html"
-                class="home-btn"
-            >
-                Continue Shopping
-            </a>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
+<header><a href="index.html" class="logo">50 MIRARS</a><a href="index.html" class="back-home">← Back to Home</a></header>
+<main><div class="account-container">
+<section id="login-section" class="login-card">
+<h1>My Account</h1><p>Sign in with your Google account.</p>
+<button id="google-login" class="primary-button">Continue with Google</button>
+<div id="login-status" class="status"></div></section>
+<section id="profile-section">
+<div class="profile-header"><img id="profile-image" class="profile-image"><div><h1 id="profile-name">Customer</h1><p id="profile-email"></p></div></div>
+<div class="profile-grid">
+<div class="card full-card">
+<h2>Delivery Details</h2>
+<div class="address-row">
+<div class="form-group"><label>Full Name</label><input id="customer-name"></div>
+<div class="form-group"><label>Phone</label><input id="customer-phone"></div></div>
+<div class="form-group"><label>Email</label><input id="customer-email" class="readonly-field" readonly></div>
+<div class="form-group"><label>Address</label><textarea id="address-line"></textarea></div>
+<div class="address-row">
+<div class="form-group"><label>City</label><input id="address-city"></div>
+<div class="form-group"><label>State</label><input id="address-state"></div></div>
+<div class="form-group"><label>PIN Code</label><input id="address-pincode" maxlength="6"></div>
+<button id="save-profile" class="primary-button">Save Details</button><div id="profile-status" class="status"></div></div>
+<div class="card"><h2>My Account</h2>
+<div class="form-group"><label>Google Account</label><input id="google-account-display" class="readonly-field" readonly></div>
+<div class="form-group"><label>Account ID</label><input id="customer-uid" class="readonly-field" readonly></div>
+<div class="account-actions"><a href="cart.html" class="action-link">🛒 My Cart</a><a href="index.html" class="action-link">🏠 Home</a></div>
+<button id="logout-button" class="logout-button">Logout</button></div>
+</div></section></div></main>
+  
+<!-- =========================================================
      FOOTER
-===================================================== -->
+========================================================= -->
 
 <footer class="main-footer">
 
     <div class="footer-container">
 
-
         <div class="footer-top">
 
-
-            <h2>
-                Contact Us
-            </h2>
-
+            <h2>Contact Us</h2>
 
             <div class="contact-column">
 
-                <h3>
-                    For Customers:
-                </h3>
+                <h3>For Customers:</h3>
 
-                <a
-                    href="mailto:50mirars@gmail.com"
-                    class="footer-link"
-                >
+                <a href="mailto:50mirars@gmail.com" class="footer-link">
                     50mirars@gmail.com
                 </a>
 
-                <a
-                    href="tel:+918209989013"
-                    class="footer-link"
-                >
+                <a href="tel:+918209989013" class="footer-link">
                     82099 89013
                 </a>
 
-                <p>
-                    09:00 - 21:30 | Monday to Sunday
-                </p>
+                <p>09:00 - 21:30 | Monday to Sunday</p>
 
             </div>
-
 
             <div class="contact-column">
 
-                <h3>
-                    For Sales/Watch Service:
-                </h3>
+                <h3>For Sales/Watch Service:</h3>
 
-                <a
-                    href="mailto:50mirars@gmail.com"
-                    class="footer-link"
-                >
+                <a href="mailto:50mirars@gmail.com" class="footer-link">
                     50mirars@gmail.com
                 </a>
 
-                <a
-                    href="tel:+918209989013"
-                    class="footer-link"
-                >
+                <a href="tel:+918209989013" class="footer-link">
                     82099 89013
                 </a>
 
-                <p>
-                    09:00 - 21:30 | Monday to Sunday
-                </p>
+                <p>09:00 - 21:30 | Monday to Sunday</p>
 
             </div>
-
 
             <div class="whatsapp-column">
 
                 <h3 class="whatsapp-title">
 
-                    View Products on WhatsApp
+                    <span>View Products on WhatsApp</span>
 
                     <img
                         src="whatsapplogo.png"
@@ -1021,7 +389,7 @@ header{
                 </h3>
 
                 <a
-                    href="https://wa.me/c/918209989013"
+                    href="https://wa.me/918209989013"
                     target="_blank"
                     rel="noopener"
                     class="whatsapp-button"
@@ -1031,56 +399,35 @@ header{
 
             </div>
 
-
         </div>
-
 
         <div class="footer-middle">
 
-
             <div class="footer-links-column">
 
-                <h3>
-                    Know 50 Mirars
-                </h3>
+                <h3>Know 50 Mirars</h3>
 
-                <a href="about.html">
-                    About Us
-                </a>
+                <a href="about.html">About Us</a>
 
-                <a href="faq.html">
-                    FAQ
-                </a>
+                <a href="faq.html">FAQ</a>
 
             </div>
 
-
             <div class="footer-links-column">
 
-                <h3>
-                    Terms & Conditions
-                </h3>
+                <h3>Terms & Conditions</h3>
 
-                <a href="terms.html">
-                    Terms & Conditions
-                </a>
+                <a href="terms.html">Terms & Conditions</a>
 
-                <a href="privacypolicy.html">
-                    Privacy Policy
-                </a>
+                <a href="privacypolicy.html">Privacy Policy</a>
 
             </div>
-
 
             <div class="footer-social">
 
-                <h3>
-                    50 Mirars
-                </h3>
+                <h3>50 Mirars</h3>
 
-                <p>
-                    Follow Us On
-                </p>
+                <p>Follow Us On</p>
 
                 <a
                     href="https://instagram.com/50mirars"
@@ -1099,1049 +446,60 @@ header{
 
             </div>
 
-
         </div>
-
 
         <div class="footer-bottom">
 
             <p>
-                © 2026 50 Mirars - The Watch &amp; Sunglasses Store.
+                © 2026 50 Mirars - The Watch & Sunglasses Store.
                 All Rights Reserved.
             </p>
 
         </div>
 
-
     </div>
 
 </footer>
 
-
-<script>
-
-/* =====================================================
-   GOOGLE APPS SCRIPT URL
-===================================================== */
-
-const GOOGLE_SCRIPT_URL =
-"https://script.google.com/macros/s/AKfycby3ax0fb-oYkP0by51Z0LGDsYfmy6jlEUA_pG4NCTBFjbvgQLWAP8knGe30xHnQaWiiKA/exec";
-
-
-
-/* =====================================================
-   SAFE LOCAL STORAGE GET
-===================================================== */
-
-function getStorage(key) {
-
-    try {
-
-        const value =
-            localStorage.getItem(key);
-
-        if (!value) {
-            return null;
-        }
-
-        return JSON.parse(value);
-
-    }
-
-    catch (error) {
-
-        console.error(
-            "Storage error:",
-            key,
-            error
-        );
-
-        return null;
-
-    }
-
-}
-
-
-
-/* =====================================================
-   GET CART
-===================================================== */
-
-function getCart() {
-
-    return getStorage("cart") || [];
-
-}
-
-
-
-/* =====================================================
-   GET PRICE
-===================================================== */
-
-function getPrice(item) {
-
-    return parseFloat(
-
-        String(
-            item.price || 0
-        ).replace(
-            /[^0-9.]/g,
-            ""
-        )
-
-    ) || 0;
-
-}
-
-
-
-/* =====================================================
-   CALCULATE SUBTOTAL
-===================================================== */
-
-function calculateSubtotal(cart) {
-
-    let subtotal = 0;
-
-
-    cart.forEach(function(item) {
-
-        subtotal += getPrice(item);
-
-    });
-
-
-    return subtotal;
-
-}
-
-
-
-/* =====================================================
-   CREATE / GET ORDER ID
-===================================================== */
-
-function getOrderId() {
-
-    let orderId =
-        localStorage.getItem(
-            "orderId"
-        );
-
-
-    if (!orderId) {
-
-        orderId =
-            "50M-" +
-            Date.now();
-
-
-        localStorage.setItem(
-            "orderId",
-            orderId
-        );
-
-    }
-
-
-    return orderId;
-
-}
-
-
-
-/* =====================================================
-   GET DELIVERY DETAILS
-===================================================== */
-
-function getDeliveryDetails(orderData) {
-
-    if (
-        orderData &&
-        orderData.deliveryDetails
-    ) {
-
-        return orderData.deliveryDetails;
-
-    }
-
-
-    return getStorage(
-        "deliveryDetails"
-    ) || {};
-
-}
-
-
-
-/* =====================================================
-   GET TRANSACTION ID
-===================================================== */
-
-function getTransactionId(orderData) {
-
-    if (
-        orderData &&
-        orderData.transactionId
-    ) {
-
-        return orderData.transactionId;
-
-    }
-
-
-    return (
-        localStorage.getItem(
-            "transactionId"
-        ) || ""
-    );
-
-}
-
-
-
-/* =====================================================
-   GET PRODUCTS
-===================================================== */
-
-function getProducts(cart) {
-
-    const products = {};
-
-
-    cart.forEach(function(item) {
-
-        const key =
-            String(item.name || "") +
-            "|" +
-            String(item.price || "");
-
-
-        if (!products[key]) {
-
-            products[key] = {
-
-                name:
-                    item.name || "Product",
-
-                price:
-                    getPrice(item),
-
-                quantity:
-                    0
-
-            };
-
-        }
-
-
-        products[key].quantity++;
-
-    });
-
-
-    return Object.values(
-        products
-    );
-
-}
-
-
-
-/* =====================================================
-   DISPLAY CUSTOMER DETAILS
-===================================================== */
-
-function displayCustomerDetails(
-    deliveryDetails
-) {
-
-    document.getElementById(
-        "customer-name"
-    ).innerText =
-        deliveryDetails.customerName ||
-        "Not available";
-
-
-    document.getElementById(
-        "customer-phone"
-    ).innerText =
-        deliveryDetails.phone ||
-        "Not available";
-
-
-    document.getElementById(
-        "customer-email"
-    ).innerText =
-        deliveryDetails.email ||
-        "Not available";
-
-
-    document.getElementById(
-        "customer-address"
-    ).innerText =
-        deliveryDetails.address ||
-        "Not available";
-
-
-    document.getElementById(
-        "customer-city"
-    ).innerText =
-        deliveryDetails.city ||
-        "Not available";
-
-
-    document.getElementById(
-        "customer-state"
-    ).innerText =
-        deliveryDetails.state ||
-        "Not available";
-
-
-    document.getElementById(
-        "customer-pin"
-    ).innerText =
-        deliveryDetails.pin ||
-        "Not available";
-
-}
-
-
-
-/* =====================================================
-   DISPLAY PRODUCTS
-===================================================== */
-
-function displayProducts(products) {
-
-    const productList =
-        document.getElementById(
-            "product-list"
-        );
-
-
-    productList.innerHTML = "";
-
-
-    if (
-        !products ||
-        products.length === 0
-    ) {
-
-        productList.innerHTML = `
-
-            <p>
-                No products found.
-            </p>
-
-        `;
-
-        return;
-
-    }
-
-
-    products.forEach(function(item) {
-
-        const itemTotal =
-            item.price *
-            item.quantity;
-
-
-        const productDiv =
-            document.createElement(
-                "div"
-            );
-
-
-        productDiv.className =
-            "product-item";
-
-
-        productDiv.innerHTML = `
-
-            <div class="product-name">
-
-                ${escapeHtml(item.name)}
-
-                <div class="product-quantity">
-
-                    Quantity:
-                    ${item.quantity}
-
-                </div>
-
-            </div>
-
-
-            <div class="product-price">
-
-                ₹${itemTotal.toLocaleString("en-IN")}
-
-            </div>
-
-        `;
-
-
-        productList.appendChild(
-            productDiv
-        );
-
-    });
-
-}
-
-
-
-/* =====================================================
-   SECURITY / TEXT ESCAPE
-===================================================== */
-
-function escapeHtml(text) {
-
-    const div =
-        document.createElement(
-            "div"
-        );
-
-
-    div.innerText =
-        String(text);
-
-
-    return div.innerHTML;
-
-}
-
-
-
-/* =====================================================
-   SEND ORDER TO GOOGLE SHEET
-===================================================== */
-
-function sendOrderToGoogleSheet(
-
-    orderId,
-    deliveryDetails,
-    products,
-    subtotal,
-    discount,
-    total,
-    transactionId
-
-) {
-
-    const statusBox =
-        document.getElementById(
-            "sheet-status"
-        );
-
-
-    const sendKey =
-        "orderSheetSent_" +
-        orderId +
-        "_" +
-        transactionId;
-
-
-    const alreadySent =
-        localStorage.getItem(
-            sendKey
-        );
-
-
-    if (
-        alreadySent === "yes"
-    ) {
-
-        statusBox.innerText =
-            "✓ Order details already submitted.";
-
-        statusBox.className =
-            "sheet-status success";
-
-        return;
-
-    }
-
-
-
-    /* =========================
-       TOTAL QUANTITY
-    ========================= */
-
-    let totalQuantity = 0;
-
-
-    products.forEach(
-        function(product) {
-
-            totalQuantity +=
-                Number(
-                    product.quantity
-                );
-
-        }
-    );
-
-
-
-    /* =========================
-       ORDER OBJECT
-    ========================= */
-
-    const order = {
-
-        orderId:
-            orderId,
-
-
-        customerName:
-            deliveryDetails.customerName ||
-            "",
-
-
-        phone:
-            deliveryDetails.phone ||
-            "",
-
-
-        email:
-            deliveryDetails.email ||
-            "",
-
-
-        address:
-            deliveryDetails.address ||
-            "",
-
-
-        city:
-            deliveryDetails.city ||
-            "",
-
-
-        state:
-            deliveryDetails.state ||
-            "",
-
-
-        pin:
-            deliveryDetails.pin ||
-            "",
-
-
-        products:
-            products.map(
-                function(product) {
-
-                    return {
-
-                        name:
-                            product.name,
-
-                        quantity:
-                            Number(
-                                product.quantity
-                            ),
-
-                        price:
-                            Number(
-                                product.price
-                            )
-
-                    };
-
-                }
-            ),
-
-
-        totalQuantity:
-            totalQuantity,
-
-
-        subtotal:
-            Number(subtotal),
-
-
-        discount:
-            Number(discount),
-
-
-        total:
-            Number(total),
-
-
-        transactionId:
-            transactionId,
-
-
-        orderDate:
-            new Date().toLocaleString(
-                "en-IN"
-            )
-
-    };
-
-
-
-    console.log(
-        "ORDER BEING SENT:",
-        order
-    );
-
-
-
-    statusBox.innerText =
-        "Saving order details...";
-
-    statusBox.className =
-        "sheet-status";
-
-
-
-    /* =========================
-       SEND TO GOOGLE APPS SCRIPT
-    ========================= */
-
-    fetch(
-
-        GOOGLE_SCRIPT_URL,
-
-        {
-
-            method:
-                "POST",
-
-            mode:
-                "no-cors",
-
-            headers: {
-
-                "Content-Type":
-                    "text/plain;charset=utf-8"
-
-            },
-
-            body:
-                JSON.stringify(
-                    order
-                )
-
-        }
-
-    )
-
-    .then(
-        function() {
-
-            localStorage.setItem(
-
-                sendKey,
-
-                "yes"
-
-            );
-
-
-            statusBox.innerText =
-                "✓ Order details submitted successfully.";
-
-            statusBox.className =
-                "sheet-status success";
-
-
-            console.log(
-                "Order sent to Google Sheet."
-            );
-
-        }
-
-    )
-
-    .catch(
-        function(error) {
-
-            statusBox.innerText =
-                "⚠ Unable to submit order automatically. Please contact 50 Mirars.";
-
-            statusBox.className =
-                "sheet-status error";
-
-
-            console.error(
-                "Google Sheet Error:",
-                error
-            );
-
-        }
-
-    );
-
-}
-
-
-
-/* =====================================================
-   LOAD ORDER
-===================================================== */
-
-function loadOrder() {
-
-    console.log(
-        "===== 50 MIRARS ORDER CONFIRMATION ====="
-    );
-
-
-    /* =========================
-       GET ORDER DATA
-    ========================= */
-
-    const orderData =
-        getStorage(
-            "orderData"
-        );
-
-
-    console.log(
-        "orderData:",
-        orderData
-    );
-
-
-    /* =========================
-       GET CART
-    ========================= */
-
-    const cart =
-        getCart();
-
-
-    console.log(
-        "cart:",
-        cart
-    );
-
-
-    /* =========================
-       CHECK ORDER DATA
-    ========================= */
-
-    if (!orderData) {
-
-        document.getElementById(
-            "order-id"
-        ).innerText =
-            "Order information unavailable";
-
-
-        document.getElementById(
-            "sheet-status"
-        ).innerText =
-            "⚠ Order data was not found in this browser.";
-
-
-        document.getElementById(
-            "sheet-status"
-        ).className =
-            "sheet-status error";
-
-
-        console.error(
-            "orderData is missing from localStorage."
-        );
-
-
-        return;
-
-    }
-
-
-
-    /* =========================
-       ORDER ID
-    ========================= */
-
-    const orderId =
-        getOrderId();
-
-
-    document.getElementById(
-        "order-id"
-    ).innerText =
-        orderId;
-
-
-
-    /* =========================
-       DELIVERY DETAILS
-    ========================= */
-
-    const deliveryDetails =
-        getDeliveryDetails(
-            orderData
-        );
-
-
-    console.log(
-        "deliveryDetails:",
-        deliveryDetails
-    );
-
-
-    displayCustomerDetails(
-        deliveryDetails
-    );
-
-
-
-    /* =========================
-       TRANSACTION ID
-    ========================= */
-
-    const transactionId =
-        getTransactionId(
-            orderData
-        );
-
-
-    console.log(
-        "transactionId:",
-        transactionId
-    );
-
-
-    document.getElementById(
-        "transaction-id"
-    ).innerText =
-        transactionId ||
-        "Not available";
-
-
-
-    /* =========================
-       PRODUCTS
-    ========================= */
-
-    let products;
-
-
-    if (
-        orderData.cart &&
-        Array.isArray(
-            orderData.cart
-        )
-    ) {
-
-        products =
-            getProducts(
-                orderData.cart
-            );
-
-    }
-
-    else {
-
-        products =
-            getProducts(
-                cart
-            );
-
-    }
-
-
-    console.log(
-        "products:",
-        products
-    );
-
-
-    displayProducts(
-        products
-    );
-
-
-
-    /* =========================
-       SUBTOTAL
-    ========================= */
-
-    let subtotal;
-
-
-    if (
-        orderData.subtotal !==
-        undefined &&
-        orderData.subtotal !==
-        null
-    ) {
-
-        subtotal =
-            Number(
-                orderData.subtotal
-            );
-
-    }
-
-    else {
-
-        subtotal =
-            Number(
-                localStorage.getItem(
-                    "orderSubtotal"
-                )
-            ) ||
-            calculateSubtotal(
-                cart
-            );
-
-    }
-
-
-
-    /* =========================
-       DISCOUNT
-    ========================= */
-
-    let discount;
-
-
-    if (
-        orderData.discount !==
-        undefined &&
-        orderData.discount !==
-        null
-    ) {
-
-        discount =
-            Number(
-                orderData.discount
-            );
-
-    }
-
-    else {
-
-        discount =
-            Number(
-                localStorage.getItem(
-                    "orderDiscount"
-                )
-            ) || 0;
-
-    }
-
-
-
-    /* =========================
-       TOTAL
-    ========================= */
-
-    let total;
-
-
-    if (
-        orderData.total !==
-        undefined &&
-        orderData.total !==
-        null
-    ) {
-
-        total =
-            Number(
-                orderData.total
-            );
-
-    }
-
-    else {
-
-        total =
-            subtotal -
-            discount;
-
-    }
-
-
-
-    /* =========================
-       DISPLAY TOTALS
-    ========================= */
-
-    document.getElementById(
-        "subtotal"
-    ).innerText =
-
-        "₹" +
-        subtotal.toLocaleString(
-            "en-IN"
-        );
-
-
-    document.getElementById(
-        "discount"
-    ).innerText =
-
-        "₹" +
-        discount.toLocaleString(
-            "en-IN"
-        );
-
-
-    document.getElementById(
-        "total"
-    ).innerText =
-
-        "₹" +
-        total.toLocaleString(
-            "en-IN"
-        );
-
-
-
-    /* =========================
-       SEND TO GOOGLE SHEET
-    ========================= */
-
-    sendOrderToGoogleSheet(
-
-        orderId,
-
-        deliveryDetails,
-
-        products,
-
-        subtotal,
-
-        discount,
-
-        total,
-
-        transactionId
-
-    );
-
-}
-
-
-
-/* =====================================================
-   START
-===================================================== */
-
-document.addEventListener(
-    "DOMContentLoaded",
-    function() {
-
-        loadOrder();
-
-    }
-);
-
+  
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js";
+import { getFirestore, doc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+
+const firebaseConfig = {
+    apiKey:"AIzaSyD5oZFRZUDnmb2d1_juGTeWAbQcy3gcyjc",
+    authDomain:"mirars-project.firebaseapp.com",
+    projectId:"mirars-project",
+    storageBucket:"mirars-project.firebasestorage.app",
+    messagingSenderId:"947955901957",
+    appId:"1:947955901957:web:67bb04627f25bf2a419e6c",
+    measurementId:"G-HXESQZER5L"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+import {initializeApp} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
+import {getAuth,GoogleAuthProvider,signInWithPopup,signInWithRedirect,getRedirectResult,signOut,onAuthStateChanged} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js";
+import {getFirestore,doc,getDoc,setDoc,collection,addDoc,getDocs,serverTimestamp} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+const app=initializeApp({apiKey:"AIzaSyD5oZFRZUDnmb2d1_juGTeWAbQcy3gcyjc",authDomain:"mirars-project.firebaseapp.com",projectId:"mirars-project",storageBucket:"mirars-project.firebasestorage.app",messagingSenderId:"947955901957",appId:"1:947955901957:web:67bb04627f25bf2a419e6c",measurementId:"G-HXESQZER5L"});
+const auth=getAuth(app),db=getFirestore(app),provider=new GoogleAuthProvider();provider.setCustomParameters({prompt:"select_account"});
+const $=id=>document.getElementById(id);
+const login=$("login-section"),profile=$("profile-section");
+$("google-login").onclick=async()=>{try{await signInWithPopup(auth,provider)}catch(e){if(e.code==="auth/popup-blocked")await signInWithRedirect(auth,provider);}};
+getRedirectResult(auth).catch(()=>{});
+async function loadProfile(u){
+const ref=doc(db,"customers",u.uid);const s=await getDoc(ref);
+if(s.exists()){const d=s.data();$("customer-name").value=d.name||u.displayName||"";$("customer-phone").value=d.phone||"";}else await setDoc(ref,{name:u.displayName||"",email:u.email||"",phone:"",photoURL:u.photoURL||"",createdAt:serverTimestamp()},{merge:true});
+const ads=await getDocs(collection(db,"customers",u.uid,"addresses"));
+ads.forEach(x=>{const d=x.data();if(d.isDefault){$("address-line").value=d.address||"";$("address-city").value=d.city||"";$("address-state").value=d.state||"";$("address-pincode").value=d.pincode||"";}});
+$("profile-name").innerText=u.displayName||"50 Mirars Customer";$("profile-email").innerText=u.email||"";$("customer-email").value=u.email||"";$("google-account-display").value=u.email||"";$("customer-uid").value=u.uid;$("profile-image").src=u.photoURL||`https://ui-avatars.com/api/?name=${encodeURIComponent(u.displayName||"Customer")}&background=111111&color=ffffff`;}
+onAuthStateChanged(auth,async u=>{if(u){login.style.display="none";profile.style.display="block";await loadProfile(u);}else{login.style.display="block";profile.style.display="none";}});
+$("save-profile").onclick=async()=>{const u=auth.currentUser;if(!u)return alert("Please sign in first.");const p=$("address-pincode").value.trim();if(!/^\d{6}$/.test(p))return alert("Please enter a valid 6-digit PIN Code.");await setDoc(doc(db,"customers",u.uid),{name:$("customer-name").value.trim(),email:u.email||"",phone:$("customer-phone").value.trim(),photoURL:u.photoURL||"",updatedAt:serverTimestamp()},{merge:true});const a=collection(db,"customers",u.uid,"addresses");const s=await getDocs(a);await Promise.all(s.docs.filter(d=>d.data().isDefault).map(d=>setDoc(doc(db,"customers",u.uid,"addresses",d.id),{isDefault:false},{merge:true})));await addDoc(a,{name:$("customer-name").value.trim(),phone:$("customer-phone").value.trim(),address:$("address-line").value.trim(),city:$("address-city").value.trim(),state:$("address-state").value.trim(),pincode:p,isDefault:true,createdAt:serverTimestamp(),updatedAt:serverTimestamp()});const st=$("profile-status");st.className="status success";st.innerText="Details saved successfully.";setTimeout(()=>{if(localStorage.getItem("returnToCheckout")==="true"){localStorage.removeItem("returnToCheckout");location.href="cart.html";}else location.href="cart.html";},1000);};
+$("logout-button").onclick=async()=>{if(confirm("Are you sure you want to logout?")){await signOut(auth);location.href="profile.html";}};
 </script>
-
 
 </body>
 
