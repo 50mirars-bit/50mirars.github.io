@@ -226,11 +226,9 @@ gap:10px;
 ========================================== */
 
 .action-buttons{
-
 display:grid;
-grid-template-columns:1fr 1fr;
+grid-template-columns:repeat(3,1fr);
 gap:18px;
-
 }
 
 .buy-again-btn,
@@ -274,6 +272,26 @@ color:white;
 .support-btn:hover{
 
 background:#1da851;
+
+}
+
+.invoice-btn{
+
+background:#C9A24D;
+color:black;
+border:none;
+padding:16px;
+border-radius:14px;
+font-weight:bold;
+font-size:16px;
+cursor:pointer;
+transition:.3s;
+
+}
+
+.invoice-btn:hover{
+
+background:#b48c38;
 
 }
 
@@ -470,9 +488,11 @@ Loading your order...
 <div class="action-buttons">
 
 <button id="buyAgainBtn" class="buy-again-btn">
-
 🔁 Buy Again
+</button>
 
+<button id="downloadInvoiceBtn" class="invoice-btn">
+📄 Download Invoice
 </button>
 
 <a
@@ -481,15 +501,11 @@ class="support-btn"
 target="_blank"
 rel="noopener"
 >
-
 💬 WhatsApp Support
-
 </a>
 
 </div>
-
-</div>
-
+   
 <!-- ORDER TIMELINE -->
 
 <div class="section">
@@ -563,6 +579,8 @@ rel="noopener"
 © 2026 50 Mirars • Premium Watches & Sunglasses
 
 </footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
 <script type="module">
 
@@ -747,6 +765,182 @@ document.getElementById("buyAgainBtn").onclick = () => {
 
 };
 
+/* ==========================================
+   DOWNLOAD PREMIUM INVOICE
+========================================== */
+
+document.getElementById("downloadInvoiceBtn").onclick = () => {
+
+const { jsPDF } = window.jspdf;
+
+const doc = new jsPDF();
+
+doc.setFillColor(0,0,0);
+doc.rect(0,0,210,35,"F");
+
+doc.setTextColor(201,162,77);
+doc.setFontSize(22);
+doc.text("50 MIRARS",105,18,{align:"center"});
+
+doc.setTextColor(255,255,255);
+doc.setFontSize(10);
+doc.text("Premium Watches & Sunglasses",105,27,{align:"center"});
+
+doc.setTextColor(0,0,0);
+
+let y=50;
+
+doc.setFontSize(18);
+doc.text("INVOICE",15,y);
+
+y+=12;
+
+doc.setFontSize(11);
+
+doc.text(`Order ID: ${order.orderId}`,15,y);
+
+doc.text(`Date: ${new Date().toLocaleDateString("en-IN")}`,140,y);
+
+y+=12;
+
+doc.setDrawColor(210);
+doc.line(15,y,195,y);
+
+y+=10;
+
+doc.setFontSize(14);
+doc.text("Customer Details",15,y);
+
+y+=10;
+
+doc.setFontSize(11);
+
+doc.text(`Name: ${order.customerName || "-"}`,15,y);
+
+y+=7;
+
+doc.text(`Phone: ${order.phone || "-"}`,15,y);
+
+y+=7;
+
+doc.text(`Email: ${order.email || "-"}`,15,y);
+
+y+=7;
+
+doc.text(`Address: ${order.address || "-"}`,15,y);
+
+y+=7;
+
+doc.text(`${order.city || ""}, ${order.state || ""} ${order.pin || ""}`,15,y);
+
+y+=12;
+
+doc.setDrawColor(210);
+doc.line(15,y,195,y);
+
+y+=10;
+
+doc.setFontSize(14);
+doc.text("Products",15,y);
+
+y+=10;
+
+doc.setFontSize(11);
+
+order.products.forEach(product=>{
+
+doc.text(product.name,15,y);
+
+doc.text(`Qty: ${product.quantity}`,120,y);
+
+doc.text(
+`₹${(product.price*product.quantity).toLocaleString("en-IN")}`,
+170,
+y
+);
+
+y+=8;
+
+});
+
+y+=5;
+
+doc.line(15,y,195,y);
+
+y+=10;
+
+doc.text(
+`Subtotal: ₹${Number(order.subtotal).toLocaleString("en-IN")}`,
+15,
+y
+);
+
+y+=8;
+
+doc.text(
+`Discount: ₹${Number(order.discount).toLocaleString("en-IN")}`,
+15,
+y
+);
+
+y+=8;
+
+doc.text("Shipping: FREE",15,y);
+
+y+=10;
+
+doc.setFontSize(15);
+doc.setTextColor(201,162,77);
+
+doc.text(
+`TOTAL PAID: ₹${Number(order.total).toLocaleString("en-IN")}`,
+15,
+y
+);
+
+y+=15;
+
+doc.setTextColor(0,0,0);
+
+doc.setFontSize(11);
+
+doc.text(
+`Transaction ID: ${order.transactionId || "-"}`,
+15,
+y
+);
+
+y+=20;
+
+doc.setDrawColor(210);
+doc.line(15,y,195,y);
+
+y+=12;
+
+doc.setFontSize(12);
+
+doc.text(
+"Thank you for choosing 50 Mirars.",
+105,
+y,
+{align:"center"}
+);
+
+y+=8;
+
+doc.setFontSize(10);
+
+doc.text(
+"Luxury isn't just what you wear. It's what you choose.",
+105,
+y,
+{align:"center"}
+);
+
+doc.save(`50Mirars_Invoice_${order.orderId}.pdf`);
+
+};
+   
 
 /* ==========================================
    WHATSAPP SUPPORT
