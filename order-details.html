@@ -343,6 +343,28 @@ font-size:14px;
 
 }
 
+/* PRODUCT IMAGE */
+
+.product-left{
+display:flex;
+align-items:center;
+gap:18px;
+}
+
+.ordered-product-image{
+width:85px;
+height:85px;
+border-radius:14px;
+object-fit:cover;
+background:#f8f8f8;
+padding:6px;
+transition:.3s;
+}
+
+.product-item:hover .ordered-product-image{
+transform:scale(1.05);
+}
+
 @media(max-width:700px){
 
 .action-buttons{
@@ -582,6 +604,8 @@ rel="noopener"
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
+<script src="searchProducts.js"></script>
+
 <script type="module">
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
@@ -699,7 +723,17 @@ const div=document.createElement("div");
 
 div.className="product-item";
 
-div.innerHTML=`
+const matchedProduct = window.searchProducts?.find(p =>
+    p.name.toLowerCase() === product.name.toLowerCase()
+);
+
+const image = matchedProduct?.media?.[0] || "logo.jpeg";
+
+div.innerHTML = `
+
+<div class="product-left">
+
+<img src="${image}" class="ordered-product-image">
 
 <div>
 
@@ -717,6 +751,8 @@ Quantity: ${product.quantity}
 
 </div>
 
+</div>
+
 <div class="product-price">
 
 ₹${(product.price*product.quantity).toLocaleString("en-IN")}
@@ -724,7 +760,7 @@ Quantity: ${product.quantity}
 </div>
 
 `;
-
+   
 productList.appendChild(div);
 
 });
