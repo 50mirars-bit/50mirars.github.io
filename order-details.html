@@ -221,6 +221,120 @@ gap:10px;
 
 }
 
+/* ==========================================
+   PREMIUM ACTIONS
+========================================== */
+
+.action-buttons{
+
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:18px;
+
+}
+
+.buy-again-btn,
+.support-btn{
+
+display:flex;
+justify-content:center;
+align-items:center;
+padding:16px;
+border-radius:14px;
+font-weight:bold;
+font-size:16px;
+cursor:pointer;
+text-decoration:none;
+transition:.3s;
+
+}
+
+.buy-again-btn{
+
+background:black;
+color:white;
+border:none;
+
+}
+
+.buy-again-btn:hover{
+
+background:#C9A24D;
+color:black;
+
+}
+
+.support-btn{
+
+background:#25D366;
+color:white;
+
+}
+
+.support-btn:hover{
+
+background:#1da851;
+
+}
+
+
+/* ==========================================
+   TIMELINE
+========================================== */
+
+.timeline{
+
+margin-top:15px;
+display:flex;
+flex-direction:column;
+gap:25px;
+
+}
+
+.timeline-step{
+
+display:flex;
+gap:18px;
+align-items:flex-start;
+opacity:.45;
+
+}
+
+.timeline-step.active{
+
+opacity:1;
+
+}
+
+.dot{
+
+width:18px;
+height:18px;
+background:#C9A24D;
+border-radius:50%;
+margin-top:4px;
+box-shadow:0 0 0 5px rgba(201,162,77,.15);
+
+}
+
+.timeline-step p{
+
+margin-top:6px;
+color:#666;
+font-size:14px;
+
+}
+
+@media(max-width:700px){
+
+.action-buttons{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
 </style>
 
 </head>
@@ -344,6 +458,97 @@ Loading your order...
 </div>
 
 </div>
+
+</div>
+
+<!-- PREMIUM ACTION BUTTONS -->
+
+<div class="section">
+
+<h3>Quick Actions</h3>
+
+<div class="action-buttons">
+
+<button id="buyAgainBtn" class="buy-again-btn">
+
+🔁 Buy Again
+
+</button>
+
+<a
+id="whatsappBtn"
+class="support-btn"
+target="_blank"
+rel="noopener"
+>
+
+💬 WhatsApp Support
+
+</a>
+
+</div>
+
+</div>
+
+<!-- ORDER TIMELINE -->
+
+<div class="section">
+
+<h3>Order Journey</h3>
+
+<div class="timeline">
+
+<div class="timeline-step active">
+
+<div class="dot"></div>
+
+<div>
+
+<strong>Order Received</strong>
+
+<p>Your order has been successfully placed.</p>
+
+</div>
+
+</div>
+
+<div class="timeline-step" id="paymentStep">
+
+<div class="dot"></div>
+
+<div>
+
+<strong>Payment Verified</strong>
+
+<p>Our team will verify your payment.</p>
+
+</div>
+
+</div>
+
+<div class="timeline-step" id="shipStep">
+
+<div class="dot"></div>
+
+<div>
+
+<strong>Shipped</strong>
+
+<p>Your order will be dispatched soon.</p>
+
+</div>
+
+</div>
+
+<div class="timeline-step" id="deliverStep">
+
+<div class="dot"></div>
+
+<div>
+
+<strong>Delivered</strong>
+
+<p>Enjoy your premium 50 Mirars product.</p>
 
 </div>
 
@@ -514,6 +719,80 @@ document.getElementById("discount").innerText=
 
 document.getElementById("total").innerText=
 "₹"+Number(order.total).toLocaleString("en-IN");
+
+/* ==========================================
+   BUY AGAIN
+========================================== */
+
+document.getElementById("buyAgainBtn").onclick = () => {
+
+    const currentCart = JSON.parse(localStorage.getItem("cart") || "[]");
+
+    order.products.forEach(product => {
+
+        for(let i=0;i<product.quantity;i++){
+
+            currentCart.push({
+                name: product.name,
+                price: product.price
+            });
+
+        }
+
+    });
+
+    localStorage.setItem("cart", JSON.stringify(currentCart));
+
+    alert("Items added back to your cart.");
+
+};
+
+
+/* ==========================================
+   WHATSAPP SUPPORT
+========================================== */
+
+document.getElementById("whatsappBtn").href =
+
+`https://wa.me/918209989013?text=${encodeURIComponent(
+`Hello 50 Mirars,
+
+I need help with my order.
+
+Order ID: ${order.orderId}`
+)}`;
+
+
+/* ==========================================
+   TIMELINE STATUS
+========================================== */
+
+const paymentStep = document.getElementById("paymentStep");
+const shipStep = document.getElementById("shipStep");
+const deliverStep = document.getElementById("deliverStep");
+
+const status = (order.status || "").toLowerCase();
+
+if(status.includes("verified")){
+
+paymentStep.classList.add("active");
+
+}
+
+if(status.includes("shipped")){
+
+paymentStep.classList.add("active");
+shipStep.classList.add("active");
+
+}
+
+if(status.includes("delivered")){
+
+paymentStep.classList.add("active");
+shipStep.classList.add("active");
+deliverStep.classList.add("active");
+
+}
 
 }
 
