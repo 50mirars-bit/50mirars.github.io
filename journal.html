@@ -75,11 +75,11 @@ z-index:-1;
 /* Container */
 
 .container{
-width:1100px;
-max-width:90%;
+width:min(1100px,100%);
 margin:auto;
+padding:0 20px;
 }
-
+  
 /* Header */
 
 header{
@@ -914,69 +914,64 @@ font-size:44px;
 
 @media (max-width:768px){
 
-/* General */
-
 body{
 overflow-x:hidden;
 }
 
+/* Container */
+
 .container{
-max-width:92%;
+padding:0 16px;
 }
 
 /* Header */
 
 header{
-padding:16px 4%;
+padding:14px 0;
 }
 
 .topbar{
 flex-direction:column;
-gap:10px;
+align-items:center;
 text-align:center;
+gap:8px;
 }
 
 .logo{
-font-size:34px;
-line-height:1;
+font-size:30px;
+line-height:1.1;
 }
 
 .issue,
 .tagline{
-font-size:11px;
+font-size:10px;
 letter-spacing:2px;
 }
 
-/* Mobile Navigation - Fixed */
+/* Navigation */
 
 nav{
-  margin-top:16px;
-  display:flex;
-  flex-wrap:nowrap;
-  overflow-x:auto;
-  gap:8px;
-  padding-bottom:4px;
-  scrollbar-width:none;
-  -webkit-overflow-scrolling:touch;
-}
-
-nav::-webkit-scrollbar{
-  display:none;
+margin-top:14px;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:10px;
+width:100%;
 }
 
 nav a{
-  flex:0 0 auto;
-  min-width:90px;
-  padding:11px 14px;
-  font-size:10px;
-  letter-spacing:1px;
-  text-align:center;
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:999px;
-  background:rgba(255,255,255,.03);
-  white-space:nowrap;
+display:flex;
+align-items:center;
+justify-content:center;
+height:42px;
+padding:0;
+font-size:10px;
+letter-spacing:1px;
+white-space:nowrap;
+border:1px solid rgba(255,255,255,.08);
+border-radius:999px;
+background:rgba(255,255,255,.03);
 }
-  
+
 /* Hero */
 
 .hero{
@@ -984,6 +979,7 @@ padding:35px 0 50px;
 }
 
 .hero-grid{
+grid-template-columns:1fr;
 gap:28px;
 }
 
@@ -992,24 +988,24 @@ border-radius:20px;
 }
 
 .hero-image img{
-height:360px;
+height:340px;
 }
 
 .hero-badge{
 top:16px;
 left:16px;
-padding:9px 14px;
 font-size:10px;
+padding:8px 14px;
 }
 
 .hero-content small{
 font-size:11px;
 letter-spacing:2px;
-margin-bottom:12px;
+margin-bottom:10px;
 }
 
 .hero-content h1{
-font-size:42px;
+font-size:40px;
 line-height:.95;
 margin-bottom:18px;
 }
@@ -1017,11 +1013,11 @@ margin-bottom:18px;
 .hero-content p{
 font-size:15px;
 line-height:1.8;
-margin-bottom:24px;
+margin-bottom:22px;
 }
 
 .editor-note{
-padding:20px;
+padding:18px;
 }
 
 .editor-note p{
@@ -1031,7 +1027,7 @@ font-size:14px;
 .btn{
 width:100%;
 justify-content:center;
-padding:15px 24px;
+padding:15px;
 font-size:14px;
 }
 
@@ -1050,16 +1046,6 @@ font-size:30px;
 font-size:70px;
 }
 
-.quote::before{
-left:-8px;
-top:-8px;
-}
-
-.quote::after{
-right:-8px;
-bottom:-35px;
-}
-
 /* Sections */
 
 .section{
@@ -1070,7 +1056,7 @@ padding:50px 0;
 flex-direction:column;
 align-items:flex-start;
 gap:12px;
-margin-bottom:28px;
+margin-bottom:26px;
 }
 
 .section-head h2{
@@ -1082,29 +1068,18 @@ font-size:14px;
 max-width:100%;
 }
 
-/* Cards */
+/* Featured Stories */
 
-.grid,
-.editorial-grid{
+.grid{
 grid-template-columns:1fr;
 gap:22px;
-}
-
-.card,
-.mag-card{
-border-radius:18px;
 }
 
 .card img{
 height:220px;
 }
 
-.mag-card img{
-height:210px;
-}
-
-.card-content,
-.mag-content{
+.card-content{
 padding:18px;
 }
 
@@ -1112,14 +1087,8 @@ padding:18px;
 font-size:28px;
 }
 
-.mag-content h3{
-font-size:24px;
-}
-
-.card p,
-.mag-content p{
+.card p{
 font-size:14px;
-line-height:1.7;
 }
 
 /* Feature Stories */
@@ -1129,7 +1098,12 @@ padding:35px 0;
 }
 
 .feature-layout{
+grid-template-columns:1fr;
 gap:24px;
+}
+
+.feature-story.reverse .feature-layout{
+direction:ltr;
 }
 
 .feature-image img{
@@ -1161,20 +1135,38 @@ border-radius:22px;
 }
 
 .feature-banner img{
-height:340px;
+height:320px;
 }
 
 .overlay-content{
-padding:24px;
+padding:22px;
 }
 
 .overlay-content h2{
-font-size:34px;
+font-size:32px;
 }
 
 .overlay-content p{
 font-size:14px;
-line-height:1.7;
+}
+
+/* More Stories */
+
+.editorial-grid{
+grid-template-columns:1fr;
+gap:22px;
+}
+
+.mag-card img{
+height:220px;
+}
+
+.mag-content{
+padding:18px;
+}
+
+.mag-content h3{
+font-size:24px;
 }
 
 /* Footer */
@@ -1185,21 +1177,23 @@ padding:40px 0;
 }
 
 footer h2{
-font-size:32px;
+font-size:30px;
 }
 
 footer p{
 font-size:14px;
 }
 
-/* Cursor Glow */
+/* Hide desktop-only effects */
 
-.cursor-glow{
+.cursor-glow,
+.floating-date{
 display:none;
 }
 
 }
 
+  
 /* =========================
    SMALL PHONES
 ========================= */
@@ -1207,15 +1201,15 @@ display:none;
 @media (max-width:420px){
 
 .logo{
-font-size:30px;
+font-size:27px;
 }
 
 .hero-image img{
-height:300px;
+height:290px;
 }
 
 .hero-content h1{
-font-size:36px;
+font-size:34px;
 }
 
 .hero-content p{
@@ -1223,31 +1217,30 @@ font-size:14px;
 }
 
 .section-head h2{
-font-size:30px;
+font-size:28px;
 }
 
 .feature-text h2{
-font-size:30px;
+font-size:28px;
 }
 
 .overlay-content h2{
-font-size:30px;
+font-size:28px;
 }
 
-.card h3{
-font-size:24px;
-}
-
+.card h3,
 .mag-content h3{
 font-size:22px;
 }
 
-.btn{
-padding:14px 20px;
+nav a{
+font-size:9px;
+letter-spacing:.5px;
 }
 
 }
 
+  
 </style>
 
 </head>
