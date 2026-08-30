@@ -10,6 +10,10 @@
 
 <link rel="icon" href="logo.jpeg">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
+
 <style>
 
 *{
@@ -27,31 +31,67 @@ color:#111;
 /* HEADER */
 
 header{
-background:black;
-padding:20px 40px;
-display:flex;
-justify-content:space-between;
-align-items:center;
+    background:#000;
+    padding:18px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:relative;
+    box-shadow:0 4px 18px rgba(0,0,0,.35);
 }
 
 .logo{
-height:60px;
+    height:60px;
+    z-index:2;
+}
+
+.brand-title{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    font-family:"Cinzel", Georgia, serif;
+    font-size:34px;
+    font-weight:700;
+    letter-spacing:8px;
+    color:#f5e7c2;
+    text-transform:uppercase;
+    user-select:none;
+    white-space:nowrap;
 }
 
 .back-btn{
-text-decoration:none;
-color:white;
-background:#C9A24D;
-padding:12px 22px;
-border-radius:30px;
-font-weight:bold;
-transition:.3s;
+    text-decoration:none;
+    color:white;
+    background:#C9A24D;
+    padding:12px 24px;
+    border-radius:30px;
+    font-weight:bold;
+    transition:.3s;
+    z-index:2;
 }
 
 .back-btn:hover{
-background:#b08c3d;
+    background:#b08c3d;
+    transform:translateY(-2px);
 }
 
+@media(max-width:900px){
+
+    .brand-title{
+        font-size:26px;
+        letter-spacing:5px;
+    }
+
+    .logo{
+        height:50px;
+    }
+
+    .back-btn{
+        padding:10px 18px;
+        font-size:14px;
+    }
+}
+   
 .container{
 max-width:1050px;
 margin:40px auto;
@@ -782,9 +822,11 @@ border-radius:3px;
 
 <header>
 
-<img src="logo.jpeg" class="logo">
+    <img src="logo.jpeg" class="logo" alt="50 Mirars Logo">
 
-<a href="my-orders.html" class="back-btn">← Back to My Orders</a>
+    <div class="brand-title">50 MIRARS</div>
+
+    <a href="my-orders.html" class="back-btn">← Back to My Orders</a>
 
 </header>
 
