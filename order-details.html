@@ -1407,6 +1407,8 @@ const { jsPDF } = window.jspdf;
 
 const doc = new jsPDF();
 
+doc.setFont("helvetica","normal");
+
 doc.setFillColor(0,0,0);
 doc.rect(0,0,210,35,"F");
 
@@ -1486,11 +1488,12 @@ doc.text(product.name,15,y);
 doc.text(`Qty: ${product.quantity}`,120,y);
 
 doc.text(
-`₹${(product.price*product.quantity).toLocaleString("en-IN")}`,
-170,
-y
+`Rs. ${(product.price * product.quantity).toLocaleString("en-IN")}`,
+195,
+y,
+{ align: "right" }
 );
-
+    
 y+=8;
 
 });
@@ -1501,33 +1504,46 @@ doc.line(15,y,195,y);
 
 y+=10;
 
+doc.text(`Subtotal:`,15,y);
+
 doc.text(
-`Subtotal: ₹${Number(order.subtotal).toLocaleString("en-IN")}`,
-15,
-y
+`Rs. ${Number(order.subtotal).toLocaleString("en-IN")}`,
+195,
+y,
+{align:"right"}
+);
+    
+y+=8;
+
+doc.text(`Discount:`,15,y);
+
+doc.text(
+`Rs. ${Number(order.discount).toLocaleString("en-IN")}`,
+195,
+y,
+{align:"right"}
 );
 
 y+=8;
 
-doc.text(
-`Discount: ₹${Number(order.discount).toLocaleString("en-IN")}`,
-15,
-y
-);
+doc.text("Shipping:",15,y);
 
-y+=8;
-
-doc.text("Shipping: FREE",15,y);
-
+doc.text("FREE",195,y,{align:"right"});
 y+=10;
 
 doc.setFontSize(15);
 doc.setTextColor(201,162,77);
 
+doc.setFontSize(16);
+doc.setTextColor(201,162,77);
+
+doc.text("TOTAL PAID",15,y);
+
 doc.text(
-`TOTAL PAID: ₹${Number(order.total).toLocaleString("en-IN")}`,
-15,
-y
+`Rs. ${Number(order.total).toLocaleString("en-IN")}`,
+195,
+y,
+{align:"right"}
 );
 
 y+=15;
