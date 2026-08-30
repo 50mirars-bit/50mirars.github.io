@@ -3,8 +3,8 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=800">
-<meta name="theme-color" content="#0b0b0b">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b0b0b">
 <meta name="description" content="50 Mirars Journal — Luxury Watch & Sunglasses Magazine">
 
 <title>50 Mirars Journal</title>
@@ -863,19 +863,27 @@ transform:scale(1.06);
 filter:brightness(1.08);
 }
 
-/* Responsive */
+/* =========================
+   TABLET
+========================= */
 
-@media(max-width:1200px){
-.hero-grid, .grid, .feature-layout, .editorial-grid{
+@media (max-width:1200px){
+
+.container{
+width:100%;
+max-width:94%;
+}
+
+.hero-grid,
+.feature-layout,
+.grid,
+.editorial-grid{
 grid-template-columns:1fr;
+gap:35px;
 }
 
-.floating-date{
-display:none;
-}
-
-.loader-logo h1{
-font-size:44px;
+.feature-story.reverse .feature-layout{
+direction:ltr;
 }
 
 .hero-image img{
@@ -890,9 +898,341 @@ font-size:58px;
 font-size:48px;
 }
 
-.feature-story.reverse .feature-layout {
-direction: ltr;
+.floating-date{
+display:none;
 }
+
+.loader-logo h1{
+font-size:44px;
+}
+
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width:768px){
+
+/* General */
+
+body{
+overflow-x:hidden;
+}
+
+.container{
+max-width:92%;
+}
+
+/* Header */
+
+header{
+padding:16px 4%;
+}
+
+.topbar{
+flex-direction:column;
+gap:10px;
+text-align:center;
+}
+
+.logo{
+font-size:34px;
+line-height:1;
+}
+
+.issue,
+.tagline{
+font-size:11px;
+letter-spacing:2px;
+}
+
+nav{
+margin-top:16px;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:10px;
+width:100%;
+}
+
+nav a{
+text-align:center;
+padding:10px 12px;
+font-size:11px;
+border:1px solid rgba(255,255,255,.08);
+border-radius:999px;
+background:rgba(255,255,255,.03);
+}
+  
+/* Hero */
+
+.hero{
+padding:35px 0 50px;
+}
+
+.hero-grid{
+gap:28px;
+}
+
+.hero-image{
+border-radius:20px;
+}
+
+.hero-image img{
+height:360px;
+}
+
+.hero-badge{
+top:16px;
+left:16px;
+padding:9px 14px;
+font-size:10px;
+}
+
+.hero-content small{
+font-size:11px;
+letter-spacing:2px;
+margin-bottom:12px;
+}
+
+.hero-content h1{
+font-size:42px;
+line-height:.95;
+margin-bottom:18px;
+}
+
+.hero-content p{
+font-size:15px;
+line-height:1.8;
+margin-bottom:24px;
+}
+
+.editor-note{
+padding:20px;
+}
+
+.editor-note p{
+font-size:14px;
+}
+
+.btn{
+width:100%;
+justify-content:center;
+padding:15px 24px;
+font-size:14px;
+}
+
+/* Quote */
+
+.quote{
+padding:55px 0;
+}
+
+.quote h2{
+font-size:30px;
+}
+
+.quote::before,
+.quote::after{
+font-size:70px;
+}
+
+.quote::before{
+left:-8px;
+top:-8px;
+}
+
+.quote::after{
+right:-8px;
+bottom:-35px;
+}
+
+/* Sections */
+
+.section{
+padding:50px 0;
+}
+
+.section-head{
+flex-direction:column;
+align-items:flex-start;
+gap:12px;
+margin-bottom:28px;
+}
+
+.section-head h2{
+font-size:34px;
+}
+
+.section-head p{
+font-size:14px;
+max-width:100%;
+}
+
+/* Cards */
+
+.grid,
+.editorial-grid{
+grid-template-columns:1fr;
+gap:22px;
+}
+
+.card,
+.mag-card{
+border-radius:18px;
+}
+
+.card img{
+height:220px;
+}
+
+.mag-card img{
+height:210px;
+}
+
+.card-content,
+.mag-content{
+padding:18px;
+}
+
+.card h3{
+font-size:28px;
+}
+
+.mag-content h3{
+font-size:24px;
+}
+
+.card p,
+.mag-content p{
+font-size:14px;
+line-height:1.7;
+}
+
+/* Feature Stories */
+
+.feature-story{
+padding:35px 0;
+}
+
+.feature-layout{
+gap:24px;
+}
+
+.feature-image img{
+height:320px;
+}
+
+.feature-text{
+padding:0;
+}
+
+.story-number{
+font-size:48px;
+}
+
+.feature-text h2{
+font-size:34px;
+}
+
+.story-meta{
+flex-wrap:wrap;
+gap:12px;
+}
+
+/* Banner */
+
+.feature-banner{
+margin:45px 0;
+border-radius:22px;
+}
+
+.feature-banner img{
+height:340px;
+}
+
+.overlay-content{
+padding:24px;
+}
+
+.overlay-content h2{
+font-size:34px;
+}
+
+.overlay-content p{
+font-size:14px;
+line-height:1.7;
+}
+
+/* Footer */
+
+footer{
+margin-top:50px;
+padding:40px 0;
+}
+
+footer h2{
+font-size:32px;
+}
+
+footer p{
+font-size:14px;
+}
+
+/* Cursor Glow */
+
+.cursor-glow{
+display:none;
+}
+
+}
+
+/* =========================
+   SMALL PHONES
+========================= */
+
+@media (max-width:420px){
+
+.logo{
+font-size:30px;
+}
+
+.hero-image img{
+height:300px;
+}
+
+.hero-content h1{
+font-size:36px;
+}
+
+.hero-content p{
+font-size:14px;
+}
+
+.section-head h2{
+font-size:30px;
+}
+
+.feature-text h2{
+font-size:30px;
+}
+
+.overlay-content h2{
+font-size:30px;
+}
+
+.card h3{
+font-size:24px;
+}
+
+.mag-content h3{
+font-size:22px;
+}
+
+.btn{
+padding:14px 20px;
+}
+
 }
 
 </style>
