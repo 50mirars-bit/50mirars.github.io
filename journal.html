@@ -5,30 +5,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=1200">
 <meta name="theme-color" content="#090909">
-<meta name="description" content="50 Mirars Journal — Luxury Watch & Eyewear Magazine">
+<meta name="description" content="50 Mirars Journal - Luxury Watch & Eyewear Magazine">
 
 <title>50 Mirars Journal | Issue No.01</title>
 
 <link rel="icon" href="logo.jpeg">
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-html{
-scroll-behavior:smooth;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
 
 body{
 background:#090909;
-color:white;
-font-family:'Inter',sans-serif;
+color:#fff;
+font-family:Inter,sans-serif;
 overflow-x:hidden;
 }
 
@@ -38,23 +30,9 @@ position:fixed;
 inset:0;
 background:
 radial-gradient(circle at top,#2b1f0d 0%,transparent 42%),
-radial-gradient(circle at bottom,#111111 0%,#090909 72%);
+radial-gradient(circle at bottom,#111 0%,#090909 72%);
 z-index:-2;
 }
-
-body::after{
-content:"";
-position:fixed;
-inset:0;
-background-image:
-linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),
-linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);
-background-size:120px 120px;
-opacity:.12;
-z-index:-1;
-}
-
-/* Reading Progress */
 
 .progress{
 position:fixed;
@@ -66,30 +44,14 @@ background:linear-gradient(90deg,#8b5e23,#d7aa63,#f4d28a);
 z-index:9999;
 }
 
-/* Floating Date */
-
-.issue-side{
-position:fixed;
-right:36px;
-top:50%;
-transform:translateY(-50%) rotate(90deg);
-letter-spacing:3px;
-font-size:12px;
-text-transform:uppercase;
-color:#c59b52;
-z-index:20;
-}
-
-/* Header */
-
 header{
 position:sticky;
 top:0;
-z-index:999;
-padding:28px 6%;
 background:rgba(9,9,9,.82);
 backdrop-filter:blur(18px);
+padding:25px 6%;
 border-bottom:1px solid rgba(255,255,255,.08);
+z-index:999;
 }
 
 .topbar{
@@ -98,63 +60,48 @@ justify-content:space-between;
 align-items:center;
 }
 
-.issue{
-font-size:13px;
-letter-spacing:4px;
-text-transform:uppercase;
-color:#c59b52;
-}
-
 .logo{
 font-family:"Cormorant Garamond",serif;
-font-size:46px;
+font-size:44px;
 font-weight:700;
 }
 
-.tagline{
-font-size:13px;
+.issue{
 letter-spacing:3px;
+font-size:12px;
+color:#c59b52;
 text-transform:uppercase;
-color:#888;
 }
 
 nav{
-margin-top:22px;
+margin-top:20px;
 display:flex;
 justify-content:center;
-gap:42px;
+gap:35px;
 }
 
 nav a{
-text-decoration:none;
 color:#ddd;
+text-decoration:none;
 letter-spacing:2px;
-font-size:14px;
+font-size:13px;
 text-transform:uppercase;
 transition:.3s;
 }
 
-nav a:hover{
-color:#d7aa63;
-}
-
-/* Hero */
+nav a:hover{color:#d7aa63;}
 
 .hero{
-padding:80px 6%;
-}
-
-.hero-grid{
+padding:70px 6%;
 display:grid;
 grid-template-columns:1.1fr .9fr;
-gap:60px;
+gap:55px;
 align-items:center;
 }
 
 .hero-image{
-position:relative;
+border-radius:30px;
 overflow:hidden;
-border-radius:34px;
 }
 
 .hero-image img{
@@ -168,13 +115,24 @@ transition:1s;
 transform:scale(1.05);
 }
 
-.hero-badge{
-position:absolute;
-top:24px;
-left:24px;
-background:rgba(0,0,0,.65);
-border:1px solid rgba(255,255,255,.1);
-padding:12px 18px;
+.hero-text h1{
+font-family:"Cormorant Garamond",serif;
+font-size:82px;
+line-height:.9;
+margin:20px 0;
+}
+
+.hero-text p{
+font-size:18px;
+line-height:1.9;
+color:#d0d0d0;
+margin-bottom:30px;
+}
+
+.tag{
+display:inline-block;
+padding:10px 18px;
+border:1px solid rgba(197,155,82,.4);
 border-radius:40px;
 font-size:12px;
 letter-spacing:2px;
@@ -182,154 +140,71 @@ color:#d7aa63;
 text-transform:uppercase;
 }
 
-.hero-text small{
-display:block;
-color:#c59b52;
-letter-spacing:3px;
-margin-bottom:18px;
-text-transform:uppercase;
-}
-
-.hero-text h1{
-font-family:"Cormorant Garamond",serif;
-font-size:86px;
-line-height:.92;
-margin-bottom:24px;
-}
-
-.hero-text p{
-font-size:19px;
-line-height:1.9;
-color:#d1d1d1;
-margin-bottom:35px;
-}
-
-.editor-note{
-padding:28px;
-background:rgba(255,255,255,.03);
-border-left:2px solid #c59b52;
-margin-bottom:35px;
-}
-
-.editor-note span{
-display:block;
-font-size:12px;
-letter-spacing:3px;
-color:#c59b52;
-text-transform:uppercase;
-margin-bottom:10px;
-}
-
 .btn{
-display:inline-flex;
-align-items:center;
-gap:10px;
-padding:17px 34px;
-border-radius:50px;
+display:inline-block;
+margin-top:20px;
+padding:16px 34px;
 background:#c59b52;
 color:#111;
-text-decoration:none;
+border-radius:40px;
 font-weight:600;
+text-decoration:none;
 transition:.3s;
 }
 
 .btn:hover{
 transform:translateY(-3px);
-box-shadow:0 20px 40px rgba(197,155,82,.3);
+box-shadow:0 20px 40px rgba(197,155,82,.35);
 }
-
-/* Quote */
 
 .quote{
-padding:90px 0;
+padding:80px 12%;
 text-align:center;
-max-width:820px;
-margin:auto;
-position:relative;
-}
-
-.quote::before{
-content:"“";
-position:absolute;
-left:-20px;
-top:-20px;
-font-family:"Cormorant Garamond",serif;
-font-size:140px;
-color:rgba(197,155,82,.08);
 }
 
 .quote h2{
 font-family:"Cormorant Garamond",serif;
-font-size:50px;
+font-size:48px;
 font-weight:500;
-line-height:1.25;
+line-height:1.3;
 }
-
-.quote span{
-display:block;
-margin-top:18px;
-font-size:12px;
-letter-spacing:3px;
-color:#c59b52;
-text-transform:uppercase;
-}
-
-/* Container */
 
 .container{
 width:1120px;
 margin:auto;
 }
 
-/* Feature Stories */
-
-.section{
-padding:80px 0;
-}
-
-.section-head{
+.section-title{
 display:flex;
 justify-content:space-between;
 align-items:end;
-margin-bottom:45px;
+margin:70px 0 40px;
 }
 
-.section-head h2{
+.section-title h2{
 font-family:"Cormorant Garamond",serif;
-font-size:54px;
+font-size:58px;
 }
 
-.section-head p{
-max-width:430px;
-color:#8d8d8d;
+.section-title p{
+color:#999;
+max-width:420px;
 line-height:1.8;
 }
 
 .feature{
 display:grid;
-grid-template-columns:1.1fr .9fr;
-gap:55px;
+grid-template-columns:1fr 1fr;
+gap:50px;
 align-items:center;
 margin-bottom:90px;
 }
 
-.feature.reverse{
-grid-template-columns:.9fr 1.1fr;
-}
-
-.feature.reverse .feature-image{
-order:2;
-}
-
-.feature-image{
-overflow:hidden;
-border-radius:30px;
-}
-
-.feature-image img{
+.feature img{
 width:100%;
-height:560px;
+height:540px;
 object-fit:cover;
+border-radius:28px;
 transition:1s;
 }
 
@@ -337,51 +212,23 @@ transition:1s;
 transform:scale(1.04);
 }
 
-.number{
-font-family:"Cormorant Garamond",serif;
-font-size:100px;
-color:rgba(197,155,82,.18);
-}
-
-.tag{
-display:inline-block;
-padding:8px 16px;
-border:1px solid rgba(197,155,82,.3);
-border-radius:40px;
-font-size:12px;
-letter-spacing:2px;
-color:#c59b52;
-text-transform:uppercase;
-margin:16px 0;
-}
-
-.feature-text h3{
+.feature h3{
 font-family:"Cormorant Garamond",serif;
 font-size:58px;
-margin-bottom:16px;
+margin:18px 0;
 }
 
-.feature-text p{
+.feature p{
 color:#d0d0d0;
 line-height:1.9;
-margin-bottom:24px;
+margin-bottom:20px;
 }
 
-.story-meta{
-display:flex;
-gap:20px;
-font-size:13px;
-text-transform:uppercase;
-color:#888;
-margin-bottom:26px;
-}
-
-/* Cards */
-
-.editorial-grid{
+.grid{
 display:grid;
 grid-template-columns:repeat(4,1fr);
 gap:24px;
+margin-top:40px;
 }
 
 .card{
@@ -408,42 +255,38 @@ transition:.8s;
 transform:scale(1.08);
 }
 
-.card-content{
+.content{
 padding:22px;
 }
 
-.card span{
-display:block;
+.content span{
 font-size:11px;
 letter-spacing:2px;
-text-transform:uppercase;
 color:#c59b52;
-margin-bottom:10px;
+text-transform:uppercase;
 }
 
-.card h4{
+.content h4{
 font-family:"Cormorant Garamond",serif;
 font-size:34px;
-margin-bottom:12px;
+margin:10px 0;
 }
 
-.card p{
+.content p{
 font-size:15px;
-line-height:1.8;
+line-height:1.7;
 color:#bdbdbd;
 margin-bottom:18px;
 }
 
-.card a{
+.content a{
 color:#d7aa63;
 text-decoration:none;
 font-weight:600;
 }
 
-/* Collector Banner */
-
 .banner{
-margin:100px auto;
+margin:90px auto;
 width:1120px;
 position:relative;
 overflow:hidden;
@@ -452,97 +295,64 @@ border-radius:34px;
 
 .banner img{
 width:100%;
-height:560px;
+height:520px;
 object-fit:cover;
 }
 
-.banner-overlay{
+.overlay{
 position:absolute;
 inset:0;
-background:linear-gradient(to top,rgba(0,0,0,.85),transparent 65%);
+background:linear-gradient(to top,rgba(0,0,0,.85),transparent 60%);
 display:flex;
 align-items:end;
 }
 
-.banner-content{
+.overlay-text{
 padding:60px;
-max-width:650px;
+max-width:620px;
 }
 
-.banner-content small{
-letter-spacing:3px;
-color:#c59b52;
-text-transform:uppercase;
-}
-
-.banner-content h2{
+.overlay-text h2{
 font-family:"Cormorant Garamond",serif;
-font-size:66px;
+font-size:64px;
 line-height:1;
-margin:16px 0;
+margin:15px 0;
 }
-
-/* Footer */
 
 footer{
-margin-top:100px;
-padding:70px 0;
+margin-top:80px;
+padding:70px;
 text-align:center;
 border-top:1px solid rgba(255,255,255,.08);
 }
 
 footer h2{
 font-family:"Cormorant Garamond",serif;
-font-size:44px;
+font-size:42px;
 margin-bottom:14px;
 }
 
 footer p{
-color:#888;
+color:#999;
+line-height:1.8;
 max-width:620px;
 margin:auto;
-line-height:1.9;
 }
-
-footer span{
-display:block;
-margin-top:26px;
-color:#c59b52;
-letter-spacing:3px;
-font-size:12px;
-text-transform:uppercase;
-}
-
-/* Responsive */
 
 @media(max-width:1200px){
 
-.container,.banner{
-width:92%;
-}
+.container,.banner{width:92%;}
 
-.hero-grid,.feature,.feature.reverse{
+.hero,.feature{
 grid-template-columns:1fr;
 }
 
-.feature.reverse .feature-image{
-order:0;
-}
+.hero-image img{height:500px;}
 
-.hero-image img{
-height:500px;
-}
+.hero-text h1{font-size:56px;}
 
-.hero-text h1{
-font-size:60px;
-}
-
-.editorial-grid{
+.grid{
 grid-template-columns:1fr;
-}
-
-.issue-side{
-display:none;
 }
 
 }
@@ -555,10 +365,6 @@ display:none;
 
 <div class="progress"></div>
 
-<div class="issue-side">
-Issue No.01 • September 2026
-</div>
-
 <header>
 
 <div class="topbar">
@@ -567,7 +373,7 @@ Issue No.01 • September 2026
 
 <div class="logo">50 Mirars Journal</div>
 
-<div class="tagline">Luxury Editorial</div>
+<div class="issue">Luxury Editorial</div>
 
 </div>
 
@@ -575,7 +381,6 @@ Issue No.01 • September 2026
 
 <a href="#">Cover</a>
 <a href="#featured">Featured</a>
-<a href="#stories">Stories</a>
 <a href="#collection">Collection</a>
 
 </nav>
@@ -584,43 +389,25 @@ Issue No.01 • September 2026
 
 <section class="hero">
 
-<div class="hero-grid">
-
 <div class="hero-image">
 
-<div class="hero-badge">Cover Story • Rolex</div>
-
-<AsyncImage query="Rolex Cosmograph Daytona luxury watch black dial editorial" aspectRatio="4:5" width="100%" maxHeight=720/>
+<img src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&w=1200&q=80">
 
 </div>
 
 <div class="hero-text">
 
-<small>Luxury Watch & Eyewear Magazine</small>
+<div class="tag">Cover Story • Rolex</div>
 
 <h1>Timeless Icons.<br>Modern Luxury.</h1>
 
 <p>
 
-Welcome to the first edition of 50 Mirars Journal—an editorial destination where legendary watches, iconic sunglasses, craftsmanship, and timeless design come together in a premium digital magazine inspired by the world's finest luxury publications.
+Welcome to the first edition of 50 Mirars Journal — a premium editorial destination celebrating legendary watches, iconic sunglasses, craftsmanship and timeless luxury.
 
 </p>
 
-<div class="editor-note">
-
-<span>Editor's Note</span>
-
-Luxury isn't measured by price alone—it's measured by craftsmanship, heritage, and the stories that endure for generations.
-
-</div>
-
-<a href="#featured" class="btn">
-
-Explore Issue 01 →
-
-</a>
-
-</div>
+<a href="#featured" class="btn">Explore Issue 01 →</a>
 
 </div>
 
@@ -630,25 +417,23 @@ Explore Issue 01 →
 
 <h2>
 
-"Great design doesn't follow time—it defines it."
+“Great design doesn't follow time—it defines it.”
 
 </h2>
-
-<span>50 Mirars Editorial</span>
 
 </section>
 
 <div class="container">
 
-<section class="section" id="featured">
+<section id="featured">
 
-<div class="section-head">
+<div class="section-title">
 
 <h2>Featured Stories</h2>
 
 <p>
 
-The opening edition explores legendary timepieces and iconic eyewear that continue shaping modern luxury culture.
+The opening edition explores legendary timepieces and iconic eyewear that continue shaping luxury culture.
 
 </p>
 
@@ -656,19 +441,13 @@ The opening edition explores legendary timepieces and iconic eyewear that contin
 
 <div class="feature">
 
-<div class="feature-image">
+<img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=1200&q=80">
 
-<AsyncImage query="Rolex Cosmograph Daytona luxury watch close up" aspectRatio="5:4" width="100%" maxHeight=560/>
+<div>
 
-</div>
+<div class="tag">Rolex</div>
 
-<div class="feature-text">
-
-<div class="number">01</div>
-
-<div class="tag">Collector's Pick</div>
-
-<h3>Rolex Daytona</h3>
+<h3>Daytona</h3>
 
 <p>
 
@@ -676,59 +455,7 @@ The racing chronograph that became one of the world's most celebrated luxury wat
 
 </p>
 
-<div class="story-meta">
-
-<span>Rolex</span>
-
-<span>8 min read</span>
-
-</div>
-
-<a href="journal/rolex-daytona.html" class="btn">
-
-Read Story →
-
-</a>
-
-</div>
-
-</div>
-
-<div class="feature reverse">
-
-<div class="feature-image">
-
-<AsyncImage query="Cartier Santos luxury watch" aspectRatio="5:4" width="100%" maxHeight=560/>
-
-</div>
-
-<div class="feature-text">
-
-<div class="number">02</div>
-
-<div class="tag">Editor's Choice</div>
-
-<h3>Cartier Santos</h3>
-
-<p>
-
-The pioneering pilot watch that transformed elegance into everyday luxury.
-
-</p>
-
-<div class="story-meta">
-
-<span>Cartier</span>
-
-<span>7 min read</span>
-
-</div>
-
-<a href="journal/cartier-santos.html" class="btn">
-
-Read Story →
-
-</a>
+<a href="journal/rolex-daytona.html" class="btn">Read Story →</a>
 
 </div>
 
@@ -738,242 +465,166 @@ Read Story →
 
 </div>
 
-<section class="banner">
+<div class="banner">
 
-<AsyncImage query="luxury watches collection black gold editorial" aspectRatio="2:1" width="100%" maxHeight=560/>
+<img src="https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?auto=format&fit=crop&w=1400&q=80">
 
-<div class="banner-overlay">
+<div class="overlay">
 
-<div class="banner-content">
+<div class="overlay-text">
 
-<small>Collector's Edition</small>
+<div class="tag">Collector's Edition</div>
 
 <h2>Where Craftsmanship Meets Legacy.</h2>
 
-From Swiss chronographs to iconic luxury eyewear, every story celebrates timeless design.
+<p>
+
+Every issue celebrates timeless design, heritage and luxury craftsmanship.
+
+</p>
 
 </div>
 
 </div>
 
-</section>
+</div>
 
 <div class="container">
 
-<section class="section" id="collection">
+<section id="collection">
 
-<div class="section-head">
+<div class="section-title">
 
 <h2>Editorial Collection</h2>
 
 <p>
 
-Twenty curated stories inspired by the world's greatest luxury watches and sunglasses.
+Curated stories inspired by the world's greatest watches and sunglasses.
 
 </p>
 
 </div>
 
-<div class="editorial-grid">
+<div class="grid">
 
 <div class="card">
-  <AsyncImage query="Rolex Submariner luxury watch" aspectRatio="1:1" width="100%" maxHeight=220/>
-  <div class="card-content">
-    <span>Rolex</span>
-    <h4>Submariner</h4>
-    <p>The diver that shaped modern watchmaking.</p>
-    <a href="journal/rolex-submariner.html">Read →</a>
-  </div>
+<img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=600&q=80">
+<div class="content">
+<span>Rolex</span>
+<h4>Daytona</h4>
+<p>The racing chronograph icon.</p>
+<a href="journal/rolex-daytona.html">Read →</a>
+</div>
 </div>
 
 <div class="card">
-  <AsyncImage query="Omega Speedmaster Moonwatch" aspectRatio="1:1" width="100%" maxHeight=220/>
-  <div class="card-content">
-    <span>Omega</span>
-    <h4>Speedmaster</h4>
-    <p>The legendary Moonwatch.</p>
-    <a href="journal/omega-speedmaster.html">Read →</a>
-  </div>
+<img src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&w=600&q=80">
+<div class="content">
+<span>Cartier</span>
+<h4>Santos</h4>
+<p>The pioneering pilot watch.</p>
+<a href="#">Read →</a>
+</div>
 </div>
 
 <div class="card">
-  <AsyncImage query="TAG Heuer Carrera watch" aspectRatio="1:1" width="100%" maxHeight=220/>
-  <div class="card-content">
-    <span>TAG Heuer</span>
-    <h4>Carrera</h4>
-    <p>Motorsport elegance.</p>
-    <a href="journal/tag-heuer-carrera.html">Read →</a>
-  </div>
+<img src="https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=600&q=80">
+<div class="content">
+<span>Omega</span>
+<h4>Speedmaster</h4>
+<p>The legendary Moonwatch.</p>
+<a href="#">Read →</a>
+</div>
 </div>
 
 <div class="card">
-  <AsyncImage query="Seiko Presage Cocktail Time watch" aspectRatio="1:1" width="100%" maxHeight=220/>
-  <div class="card-content">
-    <span>Seiko</span>
-    <h4>Presage</h4>
-    <p>Japanese craftsmanship.</p>
-    <a href="journal/seiko-presage.html">Read →</a>
-  </div>
+<img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80">
+<div class="content">
+<span>TAG Heuer</span>
+<h4>Carrera</h4>
+<p>Motorsport elegance.</p>
+<a href="#">Read →</a>
+</div>
 </div>
 
 <div class="card">
-  <AsyncImage query="Tissot PRX watch" aspectRatio="1:1" width="100%" maxHeight=220/>
-  <div class="card-content">
-    <span>Tissot</span>
-    <h4>PRX</h4>
-    <p>The modern classic.</p>
-    <a href="journal/tissot-prx.html">Read →</a>
-  </div>
+<img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=600&q=80">
+<div class="content">
+<span>Ray-Ban</span>
+<h4>Aviator</h4>
+<p>The aviation icon.</p>
+<a href="#">Read →</a>
+</div>
 </div>
 
 <div class="card">
-  <AsyncImage query="Patek Philippe Nautilus watch" aspectRatio="1:1" width="100%" maxHeight=220/>
-  <div class="card-content">
-    <span>Patek</span>
-    <h4>Nautilus</h4>
-    <p>The luxury sports icon.</p>
-    <a href="journal/patek-nautilus.html">Read →</a>
-  </div>
+<img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=600&q=80">
+<div class="content">
+<span>Versace</span>
+<h4>Medusa</h4>
+<p>Bold Italian luxury.</p>
+<a href="#">Read →</a>
+</div>
 </div>
 
 <div class="card">
-  <AsyncImage query="Audemars Piguet Royal Oak watch" aspectRatio="1:1" width="100%" maxHeight=220/>
-  <div class="card-content">
-    <span>AP</span>
-    <h4>Royal Oak</h4>
-    <p>The octagonal revolution.</p>
-    <a href="journal/royal-oak.html">Read →</a>
-  </div>
+<img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80">
+<div class="content">
+<span>Dior</span>
+<h4>279</h4>
+<p>Parisian sophistication.</p>
+<a href="#">Read →</a>
+</div>
 </div>
 
 <div class="card">
-  <AsyncImage query="Breitling Navitimer watch" aspectRatio="1:1" width="100%" maxHeight=220/>
-  <div class="card-content">
-    <span>Breitling</span>
-    <h4>Navitimer</h4>
-    <p>Pilot's favorite.</p>
-    <a href="journal/navitimer.html">Read →</a>
-  </div>
+<img src="https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?auto=format&fit=crop&w=600&q=80">
+<div class="content">
+<span>Cartier</span>
+<h4>CT0474S</h4>
+<p>Luxury eyewear perfected.</p>
+<a href="#">Read →</a>
+</div>
 </div>
 
 <div class="card">
-  <AsyncImage query="Cartier CT0474S sunglasses" aspectRatio="1:1" width="100%" maxHeight=220/>
-  <div class="card-content">
-    <span>Cartier</span>
-    <h4>CT0474S</h4>
-    <p>Luxury eyewear perfected.</p>
-    <a href="journal/cartier-ct0474s.html">Read →</a>
-  </div>
+<img src="https://images.unsplash.com/photo-1511385348-a52b4a160dc2?auto=format&fit=crop&w=600&q=80">
+<div class="content">
+<span>Gucci</span>
+<h4>GG0061S</h4>
+<p>Fashion-forward luxury.</p>
+<a href="#">Read →</a>
+</div>
 </div>
 
 <div class="card">
-  <AsyncImage query="Dior 279 sunglasses" aspectRatio="1:1" width="100%" maxHeight=220/>
-  <div class="card-content">
-    <span>Dior</span>
-    <h4>279</h4>
-    <p>Parisian sophistication.</p>
-    <a href="journal/dior-279.html">Read →</a>
-  </div>
+<img src="https://images.unsplash.com/photo-1490367532201-b9bc1dc483f6?auto=format&fit=crop&w=600&q=80">
+<div class="content">
+<span>Tom Ford</span>
+<h4>FT0237</h4>
+<p>Hollywood elegance.</p>
+<a href="#">Read →</a>
+</div>
 </div>
 
 <div class="card">
-  <AsyncImage query="Versace Medusa sunglasses" aspectRatio="1:1" width="100%" maxHeight=220/>
-  <div class="card-content">
-    <span>Versace</span>
-    <h4>Medusa</h4>
-    <p>Bold Italian luxury.</p>
-    <a href="journal/versace-medusa.html">Read →</a>
-  </div>
+<img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=600&q=80">
+<div class="content">
+<span>Burberry</span>
+<h4>BE4372</h4>
+<p>British sophistication.</p>
+<a href="#">Read →</a>
+</div>
 </div>
 
 <div class="card">
-  <AsyncImage query="Ray-Ban Aviator sunglasses" aspectRatio="1:1" width="100%" maxHeight=220/>
-  <div class="card-content">
-    <span>Ray-Ban</span>
-    <h4>Aviator</h4>
-    <p>The aviation icon.</p>
-    <a href="journal/rayban-aviator.html">Read →</a>
-  </div>
+<img src="https://images.unsplash.com/photo-1514996937319-344454492b37?auto=format&fit=crop&w=600&q=80">
+<div class="content">
+<span>Police</span>
+<h4>SPL872</h4>
+<p>Urban confidence.</p>
+<a href="#">Read →</a>
 </div>
-
-<div class="card">
-  <AsyncImage query="Oakley Holbrook sunglasses" aspectRatio="1:1" width="100%" maxHeight=220/>
-  <div class="card-content">
-    <span>Oakley</span>
-    <h4>Holbrook</h4>
-    <p>Performance meets lifestyle.</p>
-    <a href="journal/oakley-holbrook.html">Read →</a>
-  </div>
-</div>
-
-<div class="card">
-  <AsyncImage query="Gucci GG0061S sunglasses" aspectRatio="1:1" width="100%" maxHeight=220/>
-  <div class="card-content">
-    <span>Gucci</span>
-    <h4>GG0061S</h4>
-    <p>Fashion-forward luxury.</p>
-    <a href="journal/gucci-gg0061s.html">Read →</a>
-  </div>
-</div>
-
-<div class="card">
-  <AsyncImage query="Prada Linea Rossa sunglasses" aspectRatio="1:1" width="100%" maxHeight=220/>
-  <div class="card-content">
-    <span>Prada</span>
-    <h4>Linea Rossa</h4>
-    <p>Sport luxury eyewear.</p>
-    <a href="journal/prada-linea-rossa.html">Read →</a>
-  </div>
-</div>
-
-<div class="card">
-  <AsyncImage query="Tom Ford FT0237 sunglasses" aspectRatio="1:1" width="100%" maxHeight=220/>
-  <div class="card-content">
-    <span>Tom Ford</span>
-    <h4>FT0237</h4>
-    <p>Hollywood elegance.</p>
-    <a href="journal/tom-ford-ft0237.html">Read →</a>
-  </div>
-</div>
-
-<div class="card">
-  <AsyncImage query="Burberry BE4372 sunglasses" aspectRatio="1:1" width="100%" maxHeight=220/>
-  <div class="card-content">
-    <span>Burberry</span>
-    <h4>BE4372</h4>
-    <p>British sophistication.</p>
-    <a href="journal/burberry-be4372.html">Read →</a>
-  </div>
-</div>
-
-<div class="card">
-  <AsyncImage query="Police SPL872 sunglasses" aspectRatio="1:1" width="100%" maxHeight=220/>
-  <div class="card-content">
-    <span>Police</span>
-    <h4>SPL872</h4>
-    <p>Urban confidence.</p>
-    <a href="journal/police-spl872.html">Read →</a>
-  </div>
-</div>
-
-<div class="card">
-  <AsyncImage query="Cartier Panthère sunglasses" aspectRatio="1:1" width="100%" maxHeight=220/>
-  <div class="card-content">
-    <span>Cartier</span>
-    <h4>Panthère</h4>
-    <p>Elegant feline luxury.</p>
-    <a href="journal/cartier-panthere.html">Read →</a>
-  </div>
-</div>
-
-<div class="card">
-  <AsyncImage query="Rolex GMT Master II watch" aspectRatio="1:1" width="100%" maxHeight=220/>
-  <div class="card-content">
-    <span>Rolex</span>
-    <h4>GMT-Master II</h4>
-    <p>The travel icon.</p>
-    <a href="journal/gmt-master.html">Read →</a>
-  </div>
 </div>
 
 </div>
@@ -988,11 +639,9 @@ Twenty curated stories inspired by the world's greatest luxury watches and sungl
 
 <p>
 
-A premium editorial destination dedicated to timeless watches, iconic sunglasses, craftsmanship, and luxury design.
+A premium editorial destination dedicated to timeless watches, iconic sunglasses, craftsmanship and luxury design.
 
 </p>
-
-<span>Issue No.01 • Luxury Editorial</span>
 
 </footer>
 
@@ -1013,5 +662,4 @@ progress.style.width=(scroll/height)*100+"%";
 </script>
 
 </body>
-   
 </html>
