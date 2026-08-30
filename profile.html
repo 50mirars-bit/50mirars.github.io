@@ -17,6 +17,20 @@ main{padding:55px 20px}.account-container{max-width:1050px;margin:auto}
 .profile-header{background:linear-gradient(135deg,#111,#292929);color:#fff;border-radius:18px;padding:35px;display:flex;gap:24px;align-items:center;margin-bottom:24px}
 .profile-image{width:96px;height:96px;border-radius:50%;object-fit:cover;border:3px solid rgba(255,255,255,.8)}
 .profile-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}.full-card{grid-column:1/-1}
+
+/* Right-side stacked cards */
+.right-column{
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+}
+
+@media(max-width:800px){
+    .right-column{
+        gap:18px;
+    }
+}
+    
 .form-group{margin-bottom:16px}.form-group label{display:block;margin-bottom:6px;font-size:13px;font-weight:700}
 input,textarea{width:100%;padding:12px;border:1px solid #ccc;border-radius:8px}textarea{min-height:90px}
 .address-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
@@ -385,37 +399,44 @@ button,.action-link{min-height:48px;border-radius:8px;font-weight:700}
 <div class="form-group"><label>State</label><input id="address-state"></div></div>
 <div class="form-group"><label>PIN Code</label><input id="address-pincode" maxlength="6"></div>
 <button id="save-profile" class="primary-button">Save Details</button><div id="profile-status" class="status"></div></div>
-<div class="card"><h2>My Account</h2>
-<div class="form-group"><label>Google Account</label><input id="google-account-display" class="readonly-field" readonly></div>
-<div class="form-group"><label>Account ID</label><input id="customer-uid" class="readonly-field" readonly></div>
-<div class="account-actions">
-</div>
-   
-<button id="logout-button" class="logout-button">Logout</button></div>
+<div class="card">
+    <h2>My Account</h2>
 
-<div class="card orders-card">
+    <div class="form-group">
+        <label>Google Account</label>
+        <input id="google-account-display" class="readonly-field" readonly>
+    </div>
 
-    <h2>My Orders</h2>
+    <div class="form-group">
+        <label>Account ID</label>
+        <input id="customer-uid" class="readonly-field" readonly>
+    </div>
 
-    <p>View your order history and track your purchases.</p>
+    <div class="account-actions"></div>
 
-    <a href="my-orders.html" class="orders-button">
-        Open My Orders
-    </a>
-
+    <button id="logout-button" class="logout-button">Logout</button>
 </div>
 
-<div class="card orders-card care-guide-card">
-    
-    <h2>Care Guide</h2>
+<div class="right-column">
 
-    <p>Learn how to keep your watches and sunglasses looking premium for years.</p>
+    <div class="card orders-card">
+        <h2>My Orders</h2>
+        <p>View your order history and track your purchases.</p>
+        <a href="my-orders.html" class="orders-button">
+            Open My Orders
+        </a>
+    </div>
 
-    <a href="care-guide.html" class="orders-button">
-        Open Care Guide
-    </a>
+    <div class="card orders-card">
+        <h2>Care Guide</h2>
+        <p>Learn how to keep your watches and sunglasses looking premium for years.</p>
+        <a href="care-guide.html" class="orders-button">
+            Open Care Guide
+        </a>
+    </div>
 
 </div>
+
 </div></section></div></main>
   
 <!-- =========================================================
