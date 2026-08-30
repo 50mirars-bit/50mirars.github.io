@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=1200">
 <meta name="theme-color" content="#111111">
@@ -18,6 +19,7 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
+scroll-behavior:smooth;
 }
 
 body{
@@ -25,6 +27,7 @@ background:#F7F6F3;
 color:#111;
 font-family:'Inter',sans-serif;
 line-height:1.9;
+overflow-x:hidden;
 }
 
 /* Progress Bar */
@@ -33,23 +36,24 @@ line-height:1.9;
 position:fixed;
 top:0;
 left:0;
+width:0%;
 height:4px;
 background:#D4AF37;
-width:0%;
-z-index:999;
+z-index:9999;
 }
 
 /* Header */
 
 header{
+position:sticky;
+top:0;
+z-index:999;
 background:#111;
 padding:18px 60px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-position:sticky;
-top:0;
-z-index:100;
+backdrop-filter:blur(15px);
 }
 
 header img{
@@ -58,9 +62,9 @@ height:42px;
 
 .back-btn{
 text-decoration:none;
-color:#111;
 background:white;
-padding:10px 18px;
+color:#111;
+padding:11px 22px;
 border-radius:30px;
 font-weight:600;
 transition:.35s;
@@ -73,25 +77,71 @@ background:#D4AF37;
 /* Hero */
 
 .hero{
-padding:120px 80px;
+padding:130px 70px;
 text-align:center;
-background:linear-gradient(145deg,#0d0d0d,#1c1c1c);
+background:linear-gradient(145deg,#080808,#1d1d1d);
 color:white;
+position:relative;
+overflow:hidden;
+}
+
+.hero::before{
+content:"50 MIRARS";
+position:absolute;
+font-family:'Cormorant Garamond',serif;
+font-size:200px;
+font-weight:700;
+color:rgba(212,175,55,.05);
+left:50%;
+top:45%;
+transform:translate(-50%,-50%);
+white-space:nowrap;
 }
 
 .hero h1{
 font-family:'Cormorant Garamond',serif;
-font-size:68px;
+font-size:72px;
 margin-bottom:20px;
 letter-spacing:1px;
+position:relative;
 }
 
 .hero p{
 max-width:900px;
 margin:auto;
 font-size:22px;
-color:#ddd;
+color:#DDD;
+position:relative;
 }
+
+.read-meta{
+margin-top:35px;
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+position:relative;
+}
+
+.read-badge{
+padding:12px 22px;
+border-radius:40px;
+border:1px solid rgba(212,175,55,.35);
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(10px);
+font-size:15px;
+}
+
+.gold-line{
+width:140px;
+height:2px;
+background:#D4AF37;
+margin:35px auto 0;
+border-radius:10px;
+position:relative;
+}
+
+/* Container */
 
 .container{
 width:92%;
@@ -99,22 +149,89 @@ max-width:1180px;
 margin:90px auto;
 }
 
+/* Table of Contents */
+
+.toc{
+background:white;
+padding:45px;
+border-radius:28px;
+box-shadow:0 12px 35px rgba(0,0,0,.08);
+margin-bottom:90px;
+position:relative;
+overflow:hidden;
+}
+
+.toc::before{
+content:"HANDBOOK";
+position:absolute;
+right:-30px;
+top:-10px;
+font-family:'Cormorant Garamond',serif;
+font-size:120px;
+font-weight:700;
+color:rgba(212,175,55,.05);
+}
+
+.toc h2{
+font-family:'Cormorant Garamond',serif;
+font-size:42px;
+margin-bottom:25px;
+}
+
+.toc-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:18px;
+}
+
+.toc a{
+text-decoration:none;
+color:#222;
+padding:18px 22px;
+border:1px solid #E8E5DE;
+border-radius:16px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+transition:.35s;
+font-weight:500;
+}
+
+.toc a:hover{
+background:#111;
+color:white;
+border-color:#D4AF37;
+transform:translateX(6px);
+}
+
 /* Sections */
 
 .section{
+position:relative;
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:70px;
 align-items:center;
-margin:90px 0;
+margin:100px 0;
 opacity:0;
-transform:translateY(50px);
+transform:translateY(60px);
 transition:1s ease;
 }
 
 .section.show{
 opacity:1;
 transform:translateY(0);
+}
+
+.section::after{
+content:"";
+position:absolute;
+bottom:-45px;
+left:50%;
+transform:translateX(-50%);
+width:130px;
+height:1px;
+background:linear-gradient(to right,transparent,#D4AF37,transparent);
 }
 
 .reverse{
@@ -127,22 +244,38 @@ direction:ltr;
 
 .section img{
 width:100%;
-height:460px;
+height:470px;
 object-fit:cover;
-border-radius:24px;
-box-shadow:0 18px 45px rgba(0,0,0,.15);
+border-radius:26px;
+box-shadow:0 18px 45px rgba(0,0,0,.18);
 transition:.5s;
+will-change:transform;
 }
 
 .section img:hover{
 transform:scale(1.03);
 }
 
+.text{
+position:relative;
+}
+
+.chapter{
+position:absolute;
+top:-45px;
+left:-15px;
+font-family:'Cormorant Garamond',serif;
+font-size:130px;
+font-weight:700;
+color:rgba(212,175,55,.12);
+z-index:-1;
+user-select:none;
+}
+
 .text h2{
 font-family:'Cormorant Garamond',serif;
 font-size:46px;
 margin-bottom:22px;
-color:#111;
 }
 
 .text p{
@@ -151,26 +284,36 @@ color:#555;
 text-align:justify;
 }
 
-/* Golden Quote */
+.text p::first-letter{
+font-family:'Cormorant Garamond',serif;
+font-size:62px;
+font-weight:700;
+color:#D4AF37;
+float:left;
+line-height:.8;
+padding-right:8px;
+}
+
+/* Quote */
 
 .quote{
-background:linear-gradient(135deg,#111,#242424);
-color:white;
-padding:70px;
-border-radius:28px;
-text-align:center;
 margin:120px 0;
+padding:70px;
+background:linear-gradient(135deg,#111,#262626);
+color:white;
+border-radius:30px;
+text-align:center;
 }
 
 .quote h2{
 font-family:'Cormorant Garamond',serif;
-font-size:48px;
+font-size:52px;
 margin-bottom:20px;
 }
 
 .quote p{
-font-size:20px;
-color:#ddd;
+font-size:21px;
+color:#DDD;
 }
 
 /* Checklist */
@@ -178,14 +321,14 @@ color:#ddd;
 .checklist{
 background:white;
 padding:60px;
-border-radius:24px;
+border-radius:28px;
 box-shadow:0 12px 35px rgba(0,0,0,.08);
-margin-bottom:100px;
+margin-bottom:110px;
 }
 
 .checklist h2{
 font-family:'Cormorant Garamond',serif;
-font-size:42px;
+font-size:44px;
 text-align:center;
 margin-bottom:35px;
 }
@@ -197,46 +340,97 @@ gap:22px;
 }
 
 .item{
-background:#F5F4F0;
 padding:22px;
-border-radius:18px;
 border-left:4px solid #D4AF37;
+background:#F5F4F0;
+border-radius:16px;
 transition:.35s;
 }
 
 .item:hover{
-transform:translateY(-4px);
+transform:translateY(-5px);
+}
+
+/* Certificate */
+
+.certificate{
+margin:120px 0;
+padding:70px;
+border-radius:30px;
+background:linear-gradient(135deg,#111,#1E1E1E);
+color:white;
+text-align:center;
+position:relative;
+overflow:hidden;
+}
+
+.certificate::before{
+content:"CERTIFIED";
+position:absolute;
+top:40px;
+right:-60px;
+font-family:'Cormorant Garamond',serif;
+font-size:140px;
+font-weight:700;
+color:rgba(212,175,55,.05);
+transform:rotate(-18deg);
+}
+
+.certificate h2{
+font-family:'Cormorant Garamond',serif;
+font-size:54px;
+margin-bottom:20px;
+}
+
+.certificate p{
+max-width:760px;
+margin:auto;
+font-size:20px;
+color:#DDD;
+}
+
+.gold-seal{
+width:120px;
+height:120px;
+border:4px solid #D4AF37;
+border-radius:50%;
+margin:35px auto;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:42px;
+color:#D4AF37;
 }
 
 /* CTA */
 
 .cta{
 text-align:center;
-background:white;
 padding:70px;
+background:white;
 border-radius:28px;
 box-shadow:0 12px 35px rgba(0,0,0,.08);
 }
 
 .cta h2{
 font-family:'Cormorant Garamond',serif;
-font-size:46px;
+font-size:48px;
 margin-bottom:20px;
 }
 
 .cta p{
 font-size:19px;
 color:#555;
-margin-bottom:30px;
+margin-bottom:35px;
 }
 
 .cta a{
 display:inline-block;
-padding:16px 38px;
+padding:16px 40px;
 background:#111;
 color:white;
 text-decoration:none;
-border-radius:40px;
+border-radius:35px;
 font-weight:600;
 transition:.35s;
 }
@@ -246,7 +440,39 @@ background:#D4AF37;
 color:#111;
 }
 
+/* Top Button */
+
+.top-btn{
+position:fixed;
+right:30px;
+bottom:30px;
+width:55px;
+height:55px;
+border:none;
+border-radius:50%;
+background:#111;
+color:white;
+font-size:22px;
+cursor:pointer;
+opacity:0;
+visibility:hidden;
+transition:.35s;
+box-shadow:0 10px 25px rgba(0,0,0,.25);
+}
+
+.top-btn.show{
+opacity:1;
+visibility:visible;
+}
+
+.top-btn:hover{
+background:#D4AF37;
+color:#111;
+transform:translateY(-4px);
+}
+
 </style>
+
 </head>
 
 <body>
@@ -257,7 +483,7 @@ color:#111;
 
 <a href="index.html" class="back-btn">← Back</a>
 
-<img src="logo.jpeg">
+<img src="logo.jpeg" alt="50 Mirars">
 
 </header>
 
@@ -265,77 +491,115 @@ color:#111;
 
 <h1>Luxury Care Guide</h1>
 
-<p>Every timepiece tells a story, and every pair of sunglasses reflects a lifestyle. Learn how to preserve the elegance, comfort, and premium finish of your 50 Mirars collection with our complete luxury care handbook.</p>
+<p>Every timepiece tells a story, and every pair of sunglasses reflects a lifestyle. Discover our complete luxury care handbook designed to help you preserve the beauty, performance, and elegance of your 50 Mirars collection for years to come.</p>
+
+<div class="read-meta">
+
+<div class="read-badge">📖 4 Min Read</div>
+<div class="read-badge">⌚ Watch Care</div>
+<div class="read-badge">🕶 Sunglasses Care</div>
+<div class="read-badge">✨ 10 Luxury Tips</div>
+
+</div>
+
+<div class="gold-line"></div>
 
 </section>
 
 <div class="container">
 
-<!-- 1 -->
+<div class="toc">
 
-<div class="section">
+<h2>Luxury Handbook</h2>
+
+<div class="toc-grid">
+
+<a href="#sec1"><span>01 • Luxury Care</span> →</a>
+<a href="#sec2"><span>02 • Crystal Cleaning</span> →</a>
+<a href="#sec3"><span>03 • Water Protection</span> →</a>
+<a href="#sec4"><span>04 • Proper Storage</span> →</a>
+<a href="#sec5"><span>05 • Lens Cleaning</span> →</a>
+<a href="#sec6"><span>06 • Protective Case</span> →</a>
+<a href="#sec7"><span>07 • Heat Protection</span> →</a>
+<a href="#sec8"><span>08 • Frame Handling</span> →</a>
+<a href="#sec9"><span>09 • Maintenance</span> →</a>
+<a href="#sec10"><span>10 • Timeless Luxury</span> →</a>
+
+</div>
+
+</div>
+
+<!-- SECTION 1 -->
+
+<div class="section" id="sec1">
 
 <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=1200&q=80">
 
 <div class="text">
 
-<h2>1. The Art of Caring for Luxury Accessories</h2>
+<div class="chapter">01</div>
 
-<p>Luxury accessories deserve more than ordinary care—they deserve thoughtful attention. A premium watch or an elegant pair of sunglasses becomes part of your daily lifestyle, collecting memories with every wear. By cleaning them regularly, storing them safely, and protecting them from unnecessary damage, you preserve not only their appearance but also their lasting elegance. Simple habits practiced consistently will ensure your collection continues looking refined for years to come.</p>
+<h2>The Art of Caring for Luxury Accessories</h2>
+
+<p>Luxury accessories deserve thoughtful attention every single day. A premium watch or elegant pair of sunglasses becomes part of your lifestyle, collecting memories with every occasion. Caring for them preserves their beauty, confidence, and sophistication for years.</p>
 
 </div>
 
 </div>
 
-<!-- 2 -->
+<!-- SECTION 2 -->
 
-<div class="section reverse">
+<div class="section reverse" id="sec2">
 
 <img src="Seiko Blue Moon SSA347J1.jpeg">
 
 <div class="text">
 
-<h2>2. Keep Your Watch Crystal Clean</h2>
+<div class="chapter">02</div>
 
-<p>After wearing your watch throughout the day, fingerprints, dust particles, and natural skin oils begin settling on the surface. Using a soft microfiber cloth removes these marks without scratching the crystal or polished metal finish. Avoid household cleaners or rough fabrics because they gradually reduce the luxurious shine that makes a premium watch stand out.</p>
+<h2>Keep Your Watch Crystal Clean</h2>
+
+<p>Fingerprints, dust, and natural oils slowly reduce the brilliance of your watch. A soft microfiber cloth keeps the crystal and bracelet polished without causing scratches or damaging protective coatings.</p>
 
 </div>
 
 </div>
 
-<!-- 3 -->
+<!-- SECTION 3 -->
 
-<div class="section">
+<div class="section" id="sec3">
 
 <img src="Cartier CT0579S.jpeg">
 
 <div class="text">
 
-<h2>3. Respect Water Resistance</h2>
+<div class="chapter">03</div>
 
-<p>Water-resistant watches are designed for protection, but they still require sensible handling. Hot showers, steam, and sudden temperature changes can weaken seals over time. Always ensure the crown is fully secured before exposing your watch to moisture, and remember that proper care extends the life of its internal movement.</p>
+<h2>Respect Water Resistance</h2>
+
+<p>Water resistance has limits. Avoid unnecessary exposure to steam, hot showers, and swimming pools unless your watch is specifically designed for those conditions.</p>
 
 </div>
 
 </div>
 
-<!-- 4 -->
+<!-- SECTION 4 -->
 
-<div class="section reverse">
+<div class="section reverse" id="sec4">
 
 <img src="https://images.unsplash.com/photo-1612817159949-195b6eb9e31a?auto=format&fit=crop&w=1200&q=80">
 
 <div class="text">
 
-<h2>4. Store It Like a Collector</h2>
+<div class="chapter">04</div>
 
-<p>When you're not wearing your watch, store it inside a dedicated watch box or a soft protective pouch. Proper storage prevents scratches, keeps dust away, and protects delicate finishes from unnecessary wear. Collectors understand that storage is just as important as daily use.</p>
+<h2>Store It Like a Collector</h2>
+
+<p>Keep your watch inside a dedicated watch box or soft pouch away from sunlight, humidity, and magnetic devices. Proper storage protects delicate finishes and polished surfaces.</p>
 
 </div>
 
 </div>
-
-<!-- Quote -->
 
 <div class="quote">
 
@@ -345,101 +609,115 @@ color:#111;
 
 </div>
 
-<!-- 5 -->
+<!-- SECTION 5 -->
 
-<div class="section">
+<div class="section" id="sec5">
 
 <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=1200&q=80">
 
 <div class="text">
 
-<h2>5. Clean Sunglasses Properly</h2>
+<div class="chapter">05</div>
 
-<p>Your sunglasses protect your eyes while completing your style. Always clean the lenses with a microfiber cloth and lens-safe cleaning solution. Paper tissues, shirts, or rough fabrics may seem harmless, but they gradually create fine scratches that reduce optical clarity.</p>
+<h2>Clean Sunglasses Properly</h2>
+
+<p>Use a microfiber cloth and lens-safe cleaning solution instead of tissues or clothing. Proper cleaning preserves protective coatings and keeps your vision crystal clear.</p>
 
 </div>
 
 </div>
 
-<!-- 6 -->
+<!-- SECTION 6 -->
 
-<div class="section reverse">
+<div class="section reverse" id="sec6">
 
 <img src="Cartier kit.jpg">
 
 <div class="text">
 
-<h2>6. Always Use a Protective Case</h2>
+<div class="chapter">06</div>
 
-<p>A premium hard case protects your sunglasses from accidental pressure, falls, and scratches while traveling. Even placing them upside down on a table can damage the lenses, so building the habit of using a protective case keeps them looking flawless.</p>
+<h2>Always Use a Protective Case</h2>
+
+<p>A premium hard case protects your sunglasses from scratches, pressure, and accidental drops while traveling or carrying them inside a bag.</p>
 
 </div>
 
 </div>
 
-<!-- 7 -->
+<!-- SECTION 7 -->
 
-<div class="section">
+<div class="section" id="sec7">
 
 <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=80">
 
 <div class="text">
 
-<h2>7. Protect Against Heat</h2>
+<div class="chapter">07</div>
 
-<p>Excessive heat can warp premium frames and damage protective lens coatings. Avoid leaving sunglasses inside a parked car or directly under intense sunlight for extended periods. Cooler storage conditions help preserve both comfort and durability.</p>
+<h2>Protect Against Heat</h2>
+
+<p>Extreme heat can warp premium frames and damage delicate lens coatings. Cooler storage conditions help preserve both comfort and durability.</p>
 
 </div>
 
 </div>
 
-<!-- 8 -->
+<!-- SECTION 8 -->
 
-<div class="section reverse">
+<div class="section reverse" id="sec8">
 
 <img src="https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=1200&q=80">
 
 <div class="text">
 
-<h2>8. Handle Frames with Care</h2>
+<div class="chapter">08</div>
 
-<p>Always use both hands when putting on or removing your sunglasses. This simple habit distributes pressure evenly across the frame, preventing unnecessary bending and helping maintain the perfect fit over time.</p>
+<h2>Handle Frames with Care</h2>
+
+<p>Always use both hands when wearing or removing your sunglasses. This prevents unnecessary bending and helps maintain their perfect fit.</p>
 
 </div>
 
 </div>
 
-<!-- 9 -->
+<!-- SECTION 9 -->
 
-<div class="section">
+<div class="section" id="sec9">
 
 <img src="https://images.unsplash.com/photo-1577803645773-f96470509666?auto=format&fit=crop&w=1200&q=80">
 
 <div class="text">
 
-<h2>9. Regular Maintenance Matters</h2>
+<div class="chapter">09</div>
 
-<p>Inspect screws, hinges, and moving parts every few weeks. Tightening a loose hinge early prevents larger repairs later and keeps your accessories feeling as premium as the day you received them.</p>
+<h2>Regular Maintenance Matters</h2>
+
+<p>Inspect screws, hinges, and moving parts regularly. Small maintenance habits keep your accessories feeling smooth, secure, and dependable.</p>
 
 </div>
 
 </div>
 
-<!-- 10 -->
+<!-- SECTION 10 -->
 
-<div class="section reverse">
+<div class="section reverse" id="sec10">
 
 <img src="Rolex Sky-Dweller.jpeg">
 
 <div class="text">
 
-<h2>10. Preserve the Luxury Experience</h2>
+<div class="chapter">10</div>
 
-<p>True luxury isn't only about buying premium products—it's about preserving them with pride. Every careful cleaning, every protective case, and every thoughtful habit ensures your 50 Mirars collection remains elegant, reliable, and timeless for years ahead.</p>
+<h2>Preserve the Luxury Experience</h2>
+
+<p>True luxury isn't only about owning premium accessories—it's about preserving them with pride through careful cleaning, thoughtful storage, and consistent maintenance.</p>
 
 </div>
 
 </div>
+
+<!-- Checklist -->
 
 <div class="checklist">
 
@@ -448,32 +726,43 @@ color:#111;
 <div class="grid">
 
 <div class="item">✔ Clean with a microfiber cloth only.</div>
-
-<div class="item">✔ Store in a protective case.</div>
-
+<div class="item">✔ Store products in a protective case.</div>
 <div class="item">✔ Keep away from excessive heat.</div>
-
 <div class="item">✔ Remove watches during heavy impact activities.</div>
-
-<div class="item">✔ Keep crowns securely closed.</div>
-
+<div class="item">✔ Keep the crown securely closed.</div>
 <div class="item">✔ Check hinges and screws regularly.</div>
 
 </div>
 
 </div>
 
+<!-- Certificate -->
+
+<div class="certificate">
+
+<h2>Luxury Care Certificate</h2>
+
+<div class="gold-seal">★</div>
+
+<p>Every customer who follows this guide becomes part of the 50 Mirars promise of timeless elegance. Your commitment to proper care helps preserve the beauty and craftsmanship of every premium watch and pair of sunglasses.</p>
+
+</div>
+
+<!-- CTA -->
+
 <div class="cta">
 
 <h2>Luxury Deserves Lasting Care</h2>
 
-<p>Your collection represents timeless style. Give every watch and every pair of sunglasses the attention they deserve, and they'll continue reflecting elegance for years to come.</p>
+<p>Give every watch and every pair of sunglasses the attention they deserve, and they'll continue reflecting elegance for years to come.</p>
 
 <a href="index.html">Continue Shopping</a>
 
 </div>
 
 </div>
+
+<button class="top-btn" id="topBtn">↑</button>
 
 <script>
 
@@ -495,13 +784,45 @@ entry.target.classList.add('show');
 
 sections.forEach(section=>observer.observe(section));
 
-window.addEventListener('scroll',()=>{
+const topBtn=document.getElementById("topBtn");
+
+window.addEventListener("scroll",()=>{
 
 const scrollTop=document.documentElement.scrollTop;
 
 const height=document.documentElement.scrollHeight-document.documentElement.clientHeight;
 
-document.getElementById('progress').style.width=(scrollTop/height)*100+'%';
+document.getElementById("progress").style.width=(scrollTop/height)*100+"%";
+
+if(window.scrollY>500){
+
+topBtn.classList.add("show");
+
+}else{
+
+topBtn.classList.remove("show");
+
+}
+
+document.querySelectorAll(".section img").forEach(img=>{
+
+const rect=img.getBoundingClientRect();
+
+img.style.transform=`translateY(${rect.top*0.02}px)`;
+
+});
+
+});
+
+topBtn.addEventListener("click",()=>{
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
 
 });
 
