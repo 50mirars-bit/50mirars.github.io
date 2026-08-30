@@ -1401,25 +1401,43 @@ window.location.href="cart.html";
    DOWNLOAD PREMIUM INVOICE
 ========================================== */
 
-document.getElementById("downloadInvoiceBtn").onclick = () => {
-
+document.getElementById("downloadInvoiceBtn").onclick = async () => {
+    
 const { jsPDF } = window.jspdf;
 
 const doc = new jsPDF();
 
 doc.setFont("helvetica","normal");
 
+// Load 50 Mirars logo
+const logo = new Image();
+logo.src = "logo.jpeg";
+
+await new Promise((resolve)=>{
+    logo.onload = resolve;
+    logo.onerror = resolve; // Continue even if logo doesn't load
+});
+
+doc.setFont("helvetica","normal");
+
+// Premium black header
 doc.setFillColor(0,0,0);
 doc.rect(0,0,210,35,"F");
 
+// Logo on top-left
+if(logo.complete && logo.naturalWidth){
+    doc.addImage(logo,"JPEG",10,6,18,18);
+}
+
+// Brand name in center
 doc.setTextColor(201,162,77);
 doc.setFontSize(22);
-doc.text("50 MIRARS",105,18,{align:"center"});
+doc.text("50 MIRARS",105,16,{align:"center"});
 
+// Tagline
 doc.setTextColor(255,255,255);
 doc.setFontSize(10);
-doc.text("Premium Watches & Sunglasses",105,27,{align:"center"});
-
+doc.text("Premium Watches & Sunglasses",105,25,{align:"center"});
 doc.setTextColor(0,0,0);
 
 let y=50;
