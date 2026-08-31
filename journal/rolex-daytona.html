@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rolex Daytona - The Ultimate Chronograph</title>
+    <title>The Rolex Cosmograph Daytona | Editorial Feature</title>
     <style>
+        /* Modern Editorial Typography & Layout */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap');
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -12,125 +15,256 @@
         }
 
         body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: #0f0f0f;
-            color: #f0f0f0;
-            line-height: 1.6;
+            background-color: #0b0b0b;
+            color: #e5e5e5;
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* Hero Section */
-        .hero {
-            position: relative;
-            height: 70vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(15, 15, 15, 1)), 
-                        url('https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        /* Magazine Header */
+        .magazine-header {
             text-align: center;
+            padding: 60px 20px 30px;
+            border-bottom: 1px solid #222;
         }
 
-        .hero-text h1 {
-            font-size: 3.5rem;
+        .issue-tag {
+            font-size: 0.75rem;
             letter-spacing: 4px;
-            color: #d4af37; /* Rolex Gold Accent */
             text-transform: uppercase;
+            color: #a38138;
+            margin-bottom: 10px;
+            display: block;
         }
 
-        .hero-text p {
-            font-size: 1.2rem;
-            letter-spacing: 2px;
-            color: #cccccc;
-        }
-
-        /* Main Container */
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        /* Feature Section - Image + Text Split */
-        .grid-section {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-            margin-bottom: 60px;
-        }
-
-        .grid-section.reverse {
-            direction: rtl;
-        }
-
-        .grid-section.reverse .text-content {
-            direction: ltr;
-        }
-
-        .image-box img {
-            width: 100%;
-            height: 350px;
-            object-fit: cover;
-            border-radius: 8px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-            border: 1px solid #333;
-        }
-
-        .text-content h2 {
-            font-size: 2rem;
-            color: #d4af37;
+        .magazine-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 400;
+            letter-spacing: -1px;
+            color: #ffffff;
             margin-bottom: 15px;
         }
 
-        .text-content p {
-            color: #b3b3b3;
-            font-size: 1rem;
+        .magazine-subtitle {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.3rem;
+            color: #888888;
+            max-width: 650px;
+            margin: 0 auto;
         }
 
-        /* Responsive Design */
+        /* Hero Image Spread */
+        .hero-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .hero-frame {
+            position: relative;
+            width: 100%;
+            height: 70vh;
+            overflow: hidden;
+            border-radius: 2px;
+        }
+
+        .hero-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            filter: brightness(0.9);
+        }
+
+        .image-caption {
+            font-size: 0.75rem;
+            color: #666;
+            margin-top: 8px;
+            text-align: right;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Editorial Article Body */
+        .article-container {
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        /* Lead Paragraph Dropcap */
+        .lead-paragraph::first-letter {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.8rem;
+            float: left;
+            line-height: 0.8;
+            margin-right: 12px;
+            color: #a38138;
+        }
+
+        .lead-paragraph {
+            font-size: 1.15rem;
+            color: #d1d1d1;
+            margin-bottom: 40px;
+        }
+
+        /* Multi-Column Magazine Layout */
+        .magazine-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .magazine-columns p {
+            font-size: 0.95rem;
+            color: #a0a0a0;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        /* Editorial Pull Quote */
+        .pull-quote {
+            grid-column: 1 / -1;
+            margin: 40px 0;
+            padding: 30px 0;
+            border-top: 1px solid #a38138;
+            border-bottom: 1px solid #a38138;
+            text-align: center;
+        }
+
+        .pull-quote blockquote {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-style: italic;
+            color: #ffffff;
+            line-height: 1.4;
+        }
+
+        /* Feature Gallery Spread */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+            margin: 60px 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 450px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 2px;
+        }
+
+        /* Editorial Footer */
+        .editorial-footer {
+            text-align: center;
+            padding: 60px 0;
+            border-top: 1px solid #222;
+            margin-top: 80px;
+        }
+
+        .editorial-footer h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #a38138;
+            margin-bottom: 10px;
+        }
+
+        /* Mobile Optimization */
         @media (max-width: 768px) {
-            .grid-section, .grid-section.reverse {
-                grid-template-columns: 1fr;
-                direction: ltr;
-            }
-            .hero-text h1 {
-                font-size: 2.2rem;
-            }
+            .magazine-title { font-size: 2.5rem; }
+            .magazine-columns { grid-template-columns: 1fr; gap: 20px; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .hero-frame { height: 45vh; }
+            .gallery-item { height: 300px; }
+            .pull-quote blockquote { font-size: 1.4rem; }
         }
     </style>
 </head>
 <body>
 
-    <header class="hero">
-        <div class="hero-text">
-            <h1>Rolex Cosmograph Daytona</h1>
-            <p>Designed to Drive</p>
-        </div>
+    <header class="magazine-header">
+        <span class="issue-tag">HOROLOGY & MOTORSPORT &mdash; SPECIAL EDITION</span>
+        <h1 class="magazine-title">The Anatomy of Speed</h1>
+        <p class="magazine-subtitle">How the Rolex Cosmograph Daytona transcended professional racing to become the world's most coveted mechanical chronograph.</p>
     </header>
 
-    <main class="container">
+    <div class="hero-container">
+        <div class="hero-frame">
+            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1600&q=80" alt="Rolex Cosmograph Daytona Dial Detail">
+        </div>
+        <p class="image-caption">Fig 1. The Rolex Cosmograph Daytona with high-contrast sub-dials designed for instantaneous readability.</p>
+    </div>
 
-        <section class="grid-section">
-            <div class="image-box">
-                <img src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&w=800&q=80" alt="Rolex Daytona Watch">
-            </div>
-            <div class="text-content">
-                <h2>The Iconic Motorsport Chronograph</h2>
-                <p>Introduced in 1963, the Cosmograph Daytona was designed to meet the demands of professional racing drivers. With its highly reliable chronograph and bezel featuring a tachymetric scale, it allows drivers to perfectly measure average speeds up to 400 kilometers or miles per hour. An icon eternally joined in name and function to the high-performance world of motorsport.</p>
-            </div>
-        </section>
+    <article class="article-container">
 
-        <section class="grid-section reverse">
-            <div class="image-box">
-                <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80" alt="Rolex Daytona Detail">
-            </div>
-            <div class="text-content">
-                <h2>Precision & Legendary Design</h2>
-                <p>At the core of the Daytona’s identity is its tachymetric bezel, crafted from high-tech materials like Cerachrom ceramic. This key feature offers excellent legibility and remains virtually scratchproof. Paired with the high-performance Calibre 4131 movement, the Daytona guarantees exceptional precision, robustness, and an impressive power reserve.</p>
-            </div>
-        </section>
+        <p class="lead-paragraph">
+            In 1963, on the sun-baked asphalt of the Daytona International Speedway, a legend was born not out of luxury marketing, but out of absolute necessity. Drivers pushing machines to their technical limits required a timekeeping instrument capable of calculating average speeds with split-second precision. Rolex answered with the Cosmograph Daytona—a watch engineered specifically for high-speed endurance.
+        </p>
 
-    </main>
+        <div class="magazine-columns">
+            <div>
+                <p>
+                    Unlike traditional wristwatches of its era, the Daytona placed its defining feature on the outside: a bold tachymetric scale engraved directly onto the bezel. This radical design choice allowed racers to read speeds of up to 400 units per hour at a single glance. It shifted the chronograph from a hidden internal mechanism into an aggressive, utilitarian masterpiece.
+                </p>
+                <p>
+                    The dial, characterized by contrasting sub-dials, was crafted specifically for optimum legibility under extreme conditions. Over decades, this functional architecture transformed into one of the most recognizable aesthetics in modern industrial design. What began as an essential pit-lane tool rapidly evolved into an undeniable status symbol across global luxury circles.
+                </p>
+            </div>
+            <div>
+                <p>
+                    At the heart of today’s Daytona lies the caliber 4131—a self-winding mechanical chronograph movement entirely developed and manufactured by Rolex. Built with fewer components than a standard chronograph, it enhances movement reliability while preserving energy efficiency, offering an extraordinary power reserve of approximately 72 hours.
+                </p>
+                <p>
+                    Complemented by the Parachrom hairspring—virtually immune to magnetic fields and temperature variations—and the high-performance Paraflex shock absorbers, the Daytona maintains supreme accuracy under extreme mechanical vibration. It stands as a testament to Rolex's relentless pursuit of technical perfection.
+                </p>
+            </div>
+        </div>
+
+        <div class="pull-quote">
+            <blockquote>
+                &ldquo;It wasn't designed to follow trends. The Daytona was built to measure speed, and in doing so, it captured time itself.&rdquo;
+            </blockquote>
+        </div>
+
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&w=1200&q=80" alt="Rolex Daytona Wrist shot">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80" alt="Rolex Daytona Bezel Close-up">
+            </div>
+        </div>
+
+        <div class="magazine-columns">
+            <div>
+                <p>
+                    Beyond its internal mechanics, the Daytona’s exterior engineering is equally uncompromising. The Cerachrom ceramic bezel, introduced in modern iterations, is virtually scratchproof, unaffected by ultraviolet rays, and resistant to corrosion. The tachymetric numerals are molded directly into the ceramic and coated with a thin layer of platinum or gold via a physical vapor deposition (PVD) process.
+                </p>
+            </div>
+            <div>
+                <p>
+                    Whether rendered in Oystersteel, 18 ct gold, or 950 platinum, the Daytona retains its unmistakable silhouette. Its screw-down pushers lock tightly against the Oyster case, ensuring water resistance to 100 meters while preserving the crisp, tactile engagement of the chronograph functions that drivers have relied on for generations.
+                </p>
+            </div>
+        </div>
+
+    </article>
+
+    <footer class="editorial-footer">
+        <h3>Rolex Cosmograph Daytona</h3>
+        <p style="color: #666; font-size: 0.85rem; letter-spacing: 1px;">THE ULTIMATE BENCHMARK OF MOTORSPORT HOROLOGY</p>
+    </footer>
 
 </body>
 </html>
