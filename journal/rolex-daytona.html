@@ -4,17 +4,31 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#0b0b0b">
+<meta name="theme-color" content="#090909">
 
 <title>Rolex Daytona | 50 Mirars Journal</title>
 
-<meta name="description" content="Discover the Rolex Daytona—its history, iconic design, movement, and why it remains one of the world's most sought-after luxury watches.">
+<meta name="description" content="Rolex Daytona — The chronograph that became the world's most coveted luxury watch. An editorial story by 50 Mirars Journal.">
 
 <link rel="icon" href="../logo.jpeg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
+
+:root{
+--bg:#090909;
+--surface:#111111;
+--text:#F5F3EF;
+--muted:#B7B0A4;
+--gold:#C8A24A;
+--line:rgba(255,255,255,.08);
+--max:1380px;
+--article:760px;
+}
 
 *{
 margin:0;
@@ -27,28 +41,35 @@ scroll-behavior:smooth;
 }
 
 body{
-font-family:'Inter',sans-serif;
-background:#0b0b0b;
-color:#ece7df;
-line-height:1.8;
+background:var(--bg);
+color:var(--text);
+font-family:Inter,sans-serif;
 overflow-x:hidden;
+line-height:1.9;
 }
 
-/* ---------- NAV ---------- */
+img{
+display:block;
+width:100%;
+}
+
+/*---------------- NAV ----------------*/
 
 nav{
-position:sticky;
+position:fixed;
 top:0;
+left:0;
+right:0;
 z-index:1000;
-background:rgba(11,11,11,.92);
+background:rgba(9,9,9,.55);
 backdrop-filter:blur(18px);
-border-bottom:1px solid rgba(212,175,55,.15);
+border-bottom:1px solid rgba(255,255,255,.05);
 }
 
-.nav-container{
-max-width:1200px;
+.nav-wrap{
+max-width:var(--max);
 margin:auto;
-padding:16px 20px;
+padding:16px 30px;
 display:flex;
 justify-content:space-between;
 align-items:center;
@@ -57,282 +78,398 @@ align-items:center;
 .logo{
 display:flex;
 align-items:center;
-gap:12px;
+gap:14px;
 text-decoration:none;
 color:white;
-font-family:'Cormorant Garamond',serif;
-font-size:30px;
-letter-spacing:1px;
 }
 
 .logo img{
-width:46px;
-height:46px;
+width:42px;
+height:42px;
 border-radius:50%;
 }
 
-.back-btn{
+.logo span{
+font-family:"Cormorant Garamond",serif;
+font-size:30px;
+letter-spacing:.08em;
+}
+
+.back{
 text-decoration:none;
-color:#d4af37;
-font-size:14px;
-border:1px solid rgba(212,175,55,.3);
-padding:10px 18px;
-border-radius:999px;
+color:#d8c48b;
+font-size:13px;
+letter-spacing:.18em;
+text-transform:uppercase;
+position:relative;
+}
+
+.back:after{
+content:"";
+position:absolute;
+bottom:-6px;
+left:0;
+width:0;
+height:1px;
+background:#d8c48b;
 transition:.35s;
 }
 
-.back-btn:hover{
-background:#d4af37;
-color:#111;
+.back:hover:after{
+width:100%;
 }
 
-/* ---------- HERO ---------- */
+/*---------------- HERO ----------------*/
 
 .hero{
 position:relative;
-min-height:92vh;
+height:100vh;
 display:flex;
-align-items:center;
-justify-content:center;
-overflow:hidden;
+align-items:flex-end;
 }
 
 .hero img{
 position:absolute;
 inset:0;
-width:100%;
 height:100%;
 object-fit:cover;
-filter:brightness(.35);
+filter:brightness(.38);
 }
 
-.hero-overlay{
+.hero:before{
+content:"";
 position:absolute;
 inset:0;
-background:linear-gradient(180deg,rgba(0,0,0,.25),rgba(0,0,0,.82));
+background:
+linear-gradient(to bottom,rgba(0,0,0,.12),rgba(0,0,0,.78)),
+radial-gradient(circle at top,rgba(200,162,74,.10),transparent 55%);
 }
 
-.hero-content{
+.hero-inner{
 position:relative;
 z-index:2;
-text-align:center;
-max-width:900px;
-padding:30px;
+max-width:var(--max);
+margin:auto;
+width:100%;
+padding:0 70px 90px;
 }
 
-.hero-content span{
-display:inline-block;
-color:#d4af37;
-letter-spacing:3px;
+.kicker{
+color:var(--gold);
 font-size:12px;
-margin-bottom:18px;
-}
-
-.hero-content h1{
-font-family:'Cormorant Garamond',serif;
-font-size:clamp(44px,8vw,88px);
-font-weight:600;
-line-height:1.05;
+letter-spacing:.45em;
+text-transform:uppercase;
 margin-bottom:22px;
 }
 
-.hero-content p{
+.hero h1{
+font-family:"Cormorant Garamond",serif;
+font-weight:600;
+font-size:clamp(4rem,8vw,8rem);
+line-height:.92;
 max-width:700px;
-margin:auto;
-font-size:18px;
-color:#d6d1c7;
 }
 
-/* ---------- ARTICLE ---------- */
+.hero-meta{
+display:flex;
+gap:28px;
+margin-top:34px;
+color:#d3cec4;
+font-size:13px;
+letter-spacing:.18em;
+text-transform:uppercase;
+flex-wrap:wrap;
+}
+
+/*---------------- INTRO ----------------*/
+
+.intro{
+max-width:920px;
+margin:90px auto;
+padding:0 30px;
+text-align:center;
+}
+
+.intro p{
+font-family:"Cormorant Garamond",serif;
+font-size:clamp(1.7rem,3vw,2.7rem);
+line-height:1.45;
+color:#ECE8E0;
+}
+
+/*---------------- ARTICLE ----------------*/
 
 .article{
-max-width:900px;
+max-width:var(--article);
 margin:auto;
-padding:90px 22px;
-}
-
-.article h2{
-font-family:'Cormorant Garamond',serif;
-font-size:42px;
-margin:60px 0 22px;
-color:#f4e7be;
+padding:0 30px 120px;
 }
 
 .article p{
-margin-bottom:24px;
 font-size:17px;
-color:#ddd;
+color:#DDD8D0;
+margin:24px 0;
 }
 
-.lead{
-font-size:21px;
-color:#f0ece5;
+.article p:first-of-type:first-letter{
+float:left;
+font-family:"Cormorant Garamond",serif;
+font-size:6.4rem;
+line-height:.8;
+padding-right:12px;
+color:var(--gold);
 }
 
-/* ---------- IMAGE GRID ---------- */
+.article h2{
+font-family:"Cormorant Garamond",serif;
+font-size:54px;
+font-weight:600;
+margin:95px 0 18px;
+line-height:1;
+}
 
-.image-grid{
+.divider{
+height:1px;
+background:linear-gradient(90deg,transparent,var(--gold),transparent);
+margin:85px auto;
+width:120px;
+}
+
+/*---------------- FULL IMAGE ----------------*/
+
+.full-image{
+max-width:var(--max);
+margin:90px auto;
+padding:0 40px;
+}
+
+.full-image figure{
+position:relative;
+overflow:hidden;
+border-radius:2px;
+}
+
+.full-image img{
+height:75vh;
+object-fit:cover;
+transition:transform .8s ease;
+}
+
+.full-image:hover img{
+transform:scale(1.04);
+}
+
+figcaption{
+margin-top:16px;
+font-size:12px;
+letter-spacing:.22em;
+text-transform:uppercase;
+color:#9E988C;
+}
+
+/*---------------- TWO COLUMN ----------------*/
+
+.two{
+max-width:var(--max);
+margin:90px auto;
+padding:0 40px;
 display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:20px;
-margin:55px 0;
+grid-template-columns:1fr 1fr;
+gap:30px;
 }
 
-.image-grid img{
-width:100%;
-border-radius:22px;
-display:block;
-transition:.5s;
+.two img{
+height:500px;
+object-fit:cover;
 }
 
-.image-grid img:hover{
-transform:scale(1.03);
-}
-
-/* ---------- QUOTE ---------- */
+/*---------------- QUOTE ----------------*/
 
 .quote{
-margin:70px 0;
-padding:35px;
-border-left:3px solid #d4af37;
-background:rgba(255,255,255,.03);
-font-family:'Cormorant Garamond',serif;
-font-size:30px;
-font-style:italic;
-color:#f3e8c2;
+max-width:900px;
+margin:110px auto;
+padding:0 30px;
+text-align:center;
 }
 
-/* ---------- SPECS ---------- */
+.quote p{
+font-family:"Cormorant Garamond",serif;
+font-size:clamp(2.1rem,4vw,4rem);
+line-height:1.2;
+}
+
+.quote span{
+display:block;
+margin-top:24px;
+font-size:12px;
+letter-spacing:.35em;
+color:var(--gold);
+text-transform:uppercase;
+}
+
+/*---------------- SPECS ----------------*/
 
 .specs{
-margin-top:70px;
-border:1px solid rgba(212,175,55,.18);
-border-radius:24px;
-overflow:hidden;
+max-width:920px;
+margin:120px auto;
+padding:55px;
+border:1px solid rgba(255,255,255,.08);
+background:
+linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01));
 }
 
-.spec-row{
+.specs h3{
+font-family:"Cormorant Garamond",serif;
+font-size:46px;
+margin-bottom:34px;
+}
+
+.spec{
 display:flex;
 justify-content:space-between;
-padding:18px 22px;
-border-bottom:1px solid rgba(255,255,255,.08);
+padding:18px 0;
+border-bottom:1px solid var(--line);
+font-size:15px;
 }
 
-.spec-row:last-child{
+.spec:last-child{
 border-bottom:none;
 }
 
-.spec-row span:first-child{
-color:#b9b0a1;
+.spec span:first-child{
+color:var(--muted);
+letter-spacing:.08em;
+text-transform:uppercase;
+font-size:12px;
 }
 
-.spec-row span:last-child{
-font-weight:500;
-}
-
-/* ---------- CTA ---------- */
+/*---------------- CTA ----------------*/
 
 .cta{
-margin:90px auto;
+max-width:1100px;
+margin:140px auto;
+padding:90px 50px;
 text-align:center;
-padding:60px 25px;
-background:linear-gradient(135deg,#161616,#0b0b0b);
-border-radius:30px;
-border:1px solid rgba(212,175,55,.18);
+border-top:1px solid rgba(200,162,74,.25);
+border-bottom:1px solid rgba(200,162,74,.25);
 }
 
 .cta h3{
-font-family:'Cormorant Garamond',serif;
-font-size:42px;
+font-family:"Cormorant Garamond",serif;
+font-size:60px;
 margin-bottom:16px;
-color:#f4e7be;
 }
 
 .cta p{
-max-width:520px;
-margin:auto auto 28px;
+max-width:600px;
+margin:auto;
+color:#c9c2b5;
 }
 
 .cta a{
 display:inline-block;
-padding:16px 34px;
-background:#d4af37;
-color:#111;
+margin-top:34px;
+padding:17px 42px;
 text-decoration:none;
+background:var(--gold);
+color:#111;
 font-weight:600;
-border-radius:999px;
+letter-spacing:.12em;
+text-transform:uppercase;
+font-size:13px;
 transition:.35s;
 }
 
 .cta a:hover{
 transform:translateY(-3px);
-box-shadow:0 15px 35px rgba(212,175,55,.35);
+box-shadow:0 25px 55px rgba(200,162,74,.28);
 }
 
-/* ---------- FOOTER ---------- */
+/*---------------- FOOTER ----------------*/
 
 footer{
-border-top:1px solid rgba(255,255,255,.08);
-padding:40px 20px;
+padding:45px 25px;
+border-top:1px solid var(--line);
 text-align:center;
-color:#888;
-font-size:14px;
+font-size:13px;
+color:#8F8A80;
 }
 
 footer span{
-color:#d4af37;
+color:var(--gold);
 }
 
-/* ---------- MOBILE ---------- */
+/*---------------- MOBILE ----------------*/
 
-@media(max-width:768px){
+@media(max-width:900px){
+
+.hero-inner{
+padding:0 24px 60px;
+}
 
 .hero{
-min-height:78vh;
+height:82vh;
 }
 
-.hero-content p{
-font-size:16px;
+.hero h1{
+font-size:clamp(3rem,13vw,4.8rem);
 }
 
-.article{
-padding:70px 18px;
+.intro{
+margin:70px auto;
 }
 
 .article h2{
-font-size:34px;
+font-size:40px;
 }
 
-.quote{
-font-size:24px;
-padding:26px;
-}
-
-.image-grid{
+.two{
 grid-template-columns:1fr;
+padding:0 18px;
 }
 
-.spec-row{
+.two img{
+height:360px;
+}
+
+.full-image{
+padding:0;
+}
+
+.full-image img{
+height:55vh;
+}
+
+.specs{
+margin:90px 18px;
+padding:32px 24px;
+}
+
+.spec{
 flex-direction:column;
-gap:6px;
+gap:8px;
 }
 
-.logo{
+.cta{
+margin:90px 18px;
+padding:60px 24px;
+}
+
+.cta h3{
+font-size:40px;
+}
+
+.nav-wrap{
+padding:14px 18px;
+}
+
+.logo span{
 font-size:24px;
 }
 
 .logo img{
-width:40px;
-height:40px;
-}
-
-.back-btn{
-padding:8px 14px;
-font-size:13px;
-}
-
-.cta h3{
-font-size:34px;
+width:36px;
+height:36px;
 }
 
 }
@@ -345,17 +482,17 @@ font-size:34px;
 
 <nav>
 
-<div class="nav-container">
+<div class="nav-wrap">
 
 <a href="../index.html" class="logo">
 
 <img src="../logo.jpeg" alt="50 Mirars">
 
-50 Mirars
+<span>50 Mirars</span>
 
 </a>
 
-<a href="journal.html" class="back-btn">← Journal</a>
+<a href="../journal.html" class="back">Back to Journal</a>
 
 </div>
 
@@ -363,127 +500,191 @@ font-size:34px;
 
 <section class="hero">
 
-<img src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?w=1600&q=80" alt="Rolex Daytona">
+<img src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?w=1800&q=90" alt="Rolex Daytona">
 
-<div class="hero-overlay"></div>
+<div class="hero-inner">
 
-<div class="hero-content">
-
-<span>50 MIRARS JOURNAL</span>
+<div class="kicker">Collector's Edition • 50 Mirars Journal</div>
 
 <h1>Rolex Daytona</h1>
 
-<p>The legendary chronograph that transformed from an overlooked racing watch into one of the world's most coveted luxury timepieces.</p>
+<div class="hero-meta">
+
+<span>Editorial</span>
+
+<span>Luxury Watches</span>
+
+<span>Reading Time • 6 Min</span>
 
 </div>
+
+</div>
+
+</section>
+
+<section class="intro">
+
+<p>
+
+A chronograph born for racing, elevated by scarcity, and immortalized by collectors—the Rolex Daytona remains the benchmark against which every luxury sports watch is measured.
+
+</p>
 
 </section>
 
 <section class="article">
 
-<p class="lead">
-
-Few watches command the same respect as the Rolex Daytona. Originally introduced for professional racing drivers, it has become a symbol of precision engineering, timeless design, and unparalleled desirability.
-
-</p>
-
-<h2>Born for Speed</h2>
-
 <p>
 
-Introduced in 1963, the Daytona was designed to meet the demands of motorsport professionals. Named after the famous Daytona International Speedway, the watch featured a tachymeter bezel that allowed drivers to measure average speeds with remarkable precision.
+When Rolex unveiled the Cosmograph Daytona in 1963, it wasn't designed to become the world's most coveted luxury watch. It was built for drivers chasing fractions of a second on legendary circuits like Daytona International Speedway. Decades later, that purpose-built instrument has transformed into one of horology's most recognizable icons.
 
 </p>
 
 <p>
 
-Although it wasn't an instant commercial success, decades later the Daytona became one of the most sought-after watches ever produced.
+Its appeal isn't driven by marketing alone. The Daytona represents a rare convergence of precision engineering, timeless design, and genuine scarcity—qualities that continue to define the highest tier of luxury watchmaking.
 
 </p>
 
-<div class="image-grid">
+<div class="divider"></div>
 
-<img src="https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?w=800&q=80" alt="Daytona Detail">
-
-<img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=800&q=80" alt="Rolex Watch">
-
-</div>
-
-<h2>Why Collectors Love It</h2>
+<h2>Born From Motorsport</h2>
 
 <p>
 
-The Daytona represents more than luxury—it represents rarity. Limited availability, exceptional craftsmanship, and decades of motorsport heritage have elevated it into a grail watch for collectors worldwide.
+The defining characteristic of the Daytona has always been functionality. Its tachymeter bezel allowed professional drivers to calculate average speeds instantly, while the chronograph layout prioritized legibility under pressure. Those practical decisions ultimately became aesthetic signatures that collectors now instantly recognize.
 
 </p>
-
-<div class="quote">
-
-"The Rolex Daytona isn't just a chronograph—it's a statement of timeless ambition."
-
-</div>
-
-<h2>The Movement</h2>
 
 <p>
 
-Modern Daytona models feature Rolex's in-house Calibre 4131 movement, renowned for exceptional accuracy, reliability, and a power reserve of approximately 72 hours.
+What once served racing professionals now defines one of the strongest visual identities in watchmaking.
 
 </p>
 
-<div class="specs">
+</section>
 
-<div class="spec-row">
+<section class="full-image">
+
+<figure>
+
+<img src="https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?w=1800&q=90" alt="Rolex Daytona Close Up">
+
+<figcaption>Rolex Daytona — A balance of symmetry, proportion, and mechanical precision.</figcaption>
+
+</figure>
+
+</section>
+
+<section class="article">
+
+<h2>The Collector's Obsession</h2>
+
+<p>
+
+Unlike many luxury products, the Daytona's desirability is reinforced by genuine availability constraints. Waiting lists, limited production, and enduring demand have created an ecosystem where ownership represents more than purchasing power—it reflects patience, timing, and appreciation for craftsmanship.
+
+</p>
+
+<p>
+
+Its restrained proportions allow the watch to move effortlessly between formal tailoring and everyday wear, making it one of the rare sports watches that never feels out of place.
+
+</p>
+
+</section>
+
+<section class="two">
+
+<img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=1000&q=90" alt="Rolex Dial">
+
+<img src="https://images.unsplash.com/photo-1612817159949-195b6eb9e31a?w=1000&q=90" alt="Rolex Detail">
+
+</section>
+
+<section class="quote">
+
+<p>
+
+"A truly great watch doesn't chase attention. It earns admiration over decades."
+
+</p>
+
+<span>50 Mirars Journal</span>
+
+</section>
+
+<section class="article">
+
+<h2>Engineering Without Excess</h2>
+
+<p>
+
+Modern Daytona models house Rolex's Calibre 4131 movement, an in-house chronograph celebrated for reliability, efficiency, and long-term serviceability. Behind its polished exterior lies a movement engineered to deliver exceptional accuracy while maintaining a generous seventy-two-hour power reserve.
+
+</p>
+
+<p>
+
+Every polished surface, every brushed edge, and every precisely aligned sub-dial reflects Rolex's relentless pursuit of refinement rather than unnecessary ornamentation.
+
+</p>
+
+</section>
+
+<section class="specs">
+
+<h3>Specifications</h3>
+
+<div class="spec">
 <span>Model</span>
-<span>Rolex Daytona</span>
+<strong>Rolex Cosmograph Daytona</strong>
 </div>
 
-<div class="spec-row">
-<span>Case Size</span>
-<span>40mm</span>
+<div class="spec">
+<span>Case</span>
+<strong>40mm Oystersteel</strong>
 </div>
 
-<div class="spec-row">
+<div class="spec">
 <span>Movement</span>
-<span>Rolex Calibre 4131</span>
+<strong>Rolex Calibre 4131</strong>
 </div>
 
-<div class="spec-row">
+<div class="spec">
 <span>Power Reserve</span>
-<span>72 Hours</span>
+<strong>72 Hours</strong>
 </div>
 
-<div class="spec-row">
+<div class="spec">
 <span>Water Resistance</span>
-<span>100m</span>
+<strong>100 Metres</strong>
 </div>
 
-<div class="spec-row">
-<span>Type</span>
-<span>Luxury Chronograph</span>
+<div class="spec">
+<span>Complication</span>
+<strong>Chronograph</strong>
 </div>
 
-</div>
+</section>
 
-<div class="cta">
+<section class="cta">
 
-<h3>Explore More Icons</h3>
+<h3>Discover More Icons</h3>
 
 <p>
 
-Discover more legendary watches and premium eyewear inside the 50 Mirars Journal.
+Explore legendary timepieces and premium eyewear through the editorial world of 50 Mirars Journal.
 
 </p>
 
-<a href="journal.html">Back to Journal</a>
-
-</div>
+<a href="../journal.html">Return to Journal</a>
 
 </section>
 
 <footer>
 
-© 2026 <span>50 Mirars</span> — Luxury Watches & Premium Eyewear
+© 2026 <span>50 Mirars</span> • Editorial Luxury Journal
 
 </footer>
 
