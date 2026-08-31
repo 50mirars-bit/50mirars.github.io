@@ -20,6 +20,7 @@
             --header-bg: linear-gradient(180deg, #141920 0%, #0a0c0e 100%);
             --footer-bg: #060809;
             --lightbox-bg: rgba(0, 0, 0, 0.9);
+            --tooltip-bg: #1e293b;
         }
 
         /* Light Theme Overrides */
@@ -34,6 +35,7 @@
             --header-bg: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
             --footer-bg: #f1f5f9;
             --lightbox-bg: rgba(15, 23, 42, 0.92);
+            --tooltip-bg: #ffffff;
         }
 
         * {
@@ -52,11 +54,29 @@
             -webkit-font-smoothing: antialiased;
         }
 
+        /* Reading Progress Bar */
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: transparent;
+            z-index: 1100;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--accent-gold);
+            width: 0%;
+            transition: width 0.1s ease-out;
+        }
+
         /* Header & Theme Control */
         header {
             position: relative;
             border-bottom: 1px solid var(--border-color);
-            padding: 2rem 1rem;
+            padding: 2.5rem 1rem 2rem 1rem;
             text-align: center;
             background: var(--header-bg);
         }
@@ -228,6 +248,49 @@
             padding-bottom: 0.5rem;
         }
 
+        /* Hoverable Horological Tooltips */
+        .term-tooltip {
+            position: relative;
+            color: var(--accent-gold);
+            border-bottom: 1px dashed var(--accent-gold);
+            cursor: help;
+            display: inline-block;
+        }
+
+        .term-tooltip .tooltip-card {
+            visibility: hidden;
+            opacity: 0;
+            width: 260px;
+            background-color: var(--tooltip-bg);
+            color: var(--text-main);
+            text-align: left;
+            border-radius: 6px;
+            padding: 1rem;
+            position: absolute;
+            z-index: 100;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            border: 1px solid var(--border-color);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            line-height: 1.5;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .term-tooltip:hover .tooltip-card {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .tooltip-card strong {
+            display: block;
+            color: var(--accent-gold);
+            margin-bottom: 0.3rem;
+            font-size: 0.85rem;
+        }
+
         /* Pull Quote */
         .pull-quote {
             margin: 3rem 0;
@@ -240,12 +303,35 @@
             line-height: 1.6;
         }
 
-        /* Inset Image Card */
+        /* Inset Image Card & Interactive Hotspots */
         .inset-figure {
             margin: 3rem 0;
             background: var(--card-bg);
             padding: 1rem;
             border: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .hotspot-container {
+            position: relative;
+        }
+
+        .hotspot {
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            background: var(--accent-gold);
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(201, 160, 80, 0.7); }
+            70% { transform: scale(1.1); box-shadow: 0 0 0 10px rgba(201, 160, 80, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(201, 160, 80, 0); }
         }
 
         /* Sidebar Elements */
@@ -359,6 +445,10 @@
 </head>
 <body data-theme="dark">
 
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
     <header>
         <div class="masthead">CHRONO ARCHIVE</div>
         <div class="issue-meta">VOL. IV — HIGH HOROLOGY REVIEW — SPECIAL EDITION</div>
@@ -388,7 +478,10 @@
 
                 <p>The genesis of the Daytona is inextricably tied to the sun-drenched, high-octane asphalt of Daytona Beach, Florida. Long before permanent tracks were poured, land-speed record pioneers gathered on the hard-packed sands to push internal combustion engines beyond known limits. Sir Malcolm Campbell, an early icon of velocity, tore across these shores wearing a Rolex Oyster, forging an implicit link between Genevan watchmaking and competitive racing that remains unbreakable to this day.</p>
 
-                <p>When Rolex introduced Reference 6239 in 1963, it formally codified this relationship. The defining aesthetic innovation was both radical and pragmatic: moving the engraved tachymeter scale from the perimeter of the dial onto the outer bezel. This structural shift allowed drivers to calculate average speeds of up to 400 units per hour instantly, without cluttering the chronograph counters—a design choice that forever defined the visual architecture of sport timing instruments.</p>
+                <p>When Rolex introduced Reference 6239 in 1963, it formally codified this relationship. The defining aesthetic innovation was both radical and pragmatic: moving the engraved 
+                <span class="term-tooltip">tachymeter scale
+                    <span class="tooltip-card"><strong>Tachymeter Scale</strong>A scale on the bezel used to compute speed based on travel time over a fixed distance.</span>
+                </span> onto the outer bezel. This structural shift allowed drivers to calculate average speeds of up to 400 units per hour instantly, without cluttering the chronograph counters—a design choice that forever defined the visual architecture of sport timing instruments.</p>
 
                 <h2 class="section-heading">I. The Manual Era & The Legend of Paul Newman</h2>
 
@@ -413,25 +506,35 @@
                 <p>Beyond the engine bay, the Reference 16520 expanded the case diameter from 37mm to a modern, commanding 40mm. Rolex introduced crown guards, dynamic lacquered dials, and sapphire crystals, replacing the acrylic plexiglass of prior decades. The aesthetic transition gave birth to the modern luxury chronograph era, triggering years-long waiting lists at authorized retailers worldwide.</p>
 
                 <div class="inset-figure">
-                    <div class="zoomable-image">
+                    <div class="hotspot-container zoomable-image">
                         <img src="https://newsroom-content.rolex.com/-/media/project/rolex/newsroom/rolex/rolex-newsroom-int/2024-04/cosmograph-daytona/responsive-images/newsroom-joyeuse-movt4131_2301dh_001.jpg?imwidth=337" alt="Rolex In-House Chronograph Movement Calibre 4131" data-caption="The Rolex Calibre 4131: A pinnacle of modern chronograph engineering featuring a column wheel, vertical clutch, and Chronergy escapement.">
+                        <div class="hotspot" style="top: 40%; left: 48%;" title="Gold Rotor Engine"></div>
                     </div>
-                    <div class="caption">Click image to inspect high-resolution detail.</div>
+                    <div class="caption">Click image to inspect detail or hover over point for focal feature.</div>
                 </div>
 
                 <h2 class="section-heading">III. Complete Autonomy: The In-House Calibres</h2>
 
                 <p>At the dawn of the new millennium in the year 2000, Rolex achieved total manufacturing autonomy with the release of Reference 116520, introducing the fully in-house developed Calibre 4130. Designed entirely from a blank page, Calibre 4130 set new standards in efficiency, precision, and durability. By reducing the total number of movement components by 60 percent compared to standard chronographs, engineers created space for a larger mainspring barrel, expanding power reserve to a robust 72 hours.</p>
 
-                <p>Calibre 4130 incorporated a vertical clutch system for chronograph actuation, replacing the traditional horizontal coupling mechanism. This innovation eliminated the annoying "jump" or flutter of the central seconds hand when starting the timing function, allowing the chronograph to run continuously without degrading timing amplitude or causing premature wear on gear trains.</p>
+                <p>Calibre 4130 incorporated a 
+                <span class="term-tooltip">vertical clutch
+                    <span class="tooltip-card"><strong>Vertical Clutch</strong>Engages chronograph mechanisms directly without gear-tooth friction, stopping seconds hand stutter on start.</span>
+                </span> system for chronograph actuation, replacing the traditional horizontal coupling mechanism. This innovation eliminated the annoying "jump" or flutter of the central seconds hand when starting the timing function, allowing the chronograph to run continuously without degrading timing amplitude or causing premature wear on gear trains.</p>
 
-                <p>In 2023, celebrating the 60th anniversary of the model line, Rolex unveiled the next evolution: Calibre 4131. Incorporating the patented Chronergy escapement made of nickel-phosphorus—rendering it resistant to high magnetic fields—alongside Paraflex shock absorbers, this new movement represents the current pinnacle of mechanical chronograph reliability.</p>
+                <p>In 2023, celebrating the 60th anniversary of the model line, Rolex unveiled the next evolution: Calibre 4131. Incorporating the patented 
+                <span class="term-tooltip">Chronergy escapement
+                    <span class="tooltip-card"><strong>Chronergy Escapement</strong>High-efficiency, anti-magnetic nickel-phosphorus design that optimizes power transfer from mainspring.</span>
+                </span> made of nickel-phosphorus—rendering it resistant to high magnetic fields—alongside Paraflex shock absorbers, this new movement represents the current pinnacle of mechanical chronograph reliability.</p>
 
                 <p>Visually, Calibre 4131 is adorned with Rolex Côtés de Genève finishing—a delicate reinterpretation of traditional decorative techniques featuring polished grooves between the bridges. For select luxury models like the platinum Reference 126506, Rolex introduced a sapphire crystal display caseback, allowing enthusiasts to admire the openworked gold oscillating weight and hand-finished bridges for the first time in mainstream Oyster Perpetual history.</p>
 
                 <h2 class="section-heading">IV. Material Mastery & Architectural Precision</h2>
 
-                <p>The contemporary Daytona is as much an exploration of metallurgical technology as it is of gear-train micro-mechanics. Central to its modern aesthetic is the Cerachrom ceramic bezel insert, introduced initially on precious metal variations and brought to steel models with Reference 116500LN. Virtually scratchproof and unaffected by ultraviolet radiation, the Cerachrom bezel ensures the tachymeter scale will never fade or degrade, retaining its intense luster indefinitely.</p>
+                <p>The contemporary Daytona is as much an exploration of metallurgical technology as it is of gear-train micro-mechanics. Central to its modern aesthetic is the 
+                <span class="term-tooltip">Cerachrom
+                    <span class="tooltip-card"><strong>Cerachrom Ceramic</strong>An extremely hard, scratch-resistant ceramic material developed by Rolex that resists UV degradation.</span>
+                </span> bezel insert, introduced initially on precious metal variations and brought to steel models with Reference 116500LN. Virtually scratchproof and unaffected by ultraviolet radiation, the Cerachrom bezel ensures the tachymeter scale will never fade or degrade, retaining its intense luster indefinitely.</p>
 
                 <p>Rolex utilizes its proprietary 904L alloy—branded as Oystersteel—for stainless steel models. Highly resistant to harsh environments and chemical corrosion, 904L steel requires specialized foundry equipment and extreme machining tolerances, resulting in a distinctively brilliant polish that sets Daytona cases apart from conventional 316L luxury timepieces.</p>
 
@@ -490,6 +593,14 @@
     </footer>
 
     <script>
+        // Reading Progress Bar
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("progressBar").style.width = scrolled + "%";
+        };
+
         // Theme Toggle Logic
         const themeToggleBtn = document.getElementById('themeToggle');
         const themeIcon = document.getElementById('themeIcon');
