@@ -4,961 +4,782 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=1200">
-<meta name="theme-color" content="#111111">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0A0A0A">
 <meta name="description" content="Luxury Care Guide | 50 Mirars">
 
 <title>Luxury Care Guide | 50 Mirars</title>
 
 <link rel="icon" href="logo.jpeg">
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
+/* ============================================================
+   50 MIRARS — ULTRA-LUXURY CARE GUIDE (10-LAKH EDITION)
+============================================================ */
 
-/* ======================================
-   50 MIRARS — LUXURY CARE GUIDE
-   Final Premium Edition
-====================================== */
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-scroll-behavior:smooth;
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
-:root{
-
---gold:#D4AF37;
---gold-light:#F4D97A;
---gold-dark:#A57C1B;
---black:#0C0C0C;
---charcoal:#1B1B1B;
---paper:#F7F5F1;
---paper-dark:#EFEAE1;
---text:#2E2E2E;
-
+:root {
+    --gold: #D4AF37;
+    --gold-light: #F7E7AD;
+    --gold-dark: #9A7B1C;
+    --gold-glow: rgba(212, 175, 55, 0.25);
+    --gold-gradient: linear-gradient(135deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+    --gold-gradient-subtle: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(212, 175, 55, 0.02));
+    
+    --bg-dark: #080808;
+    --bg-card: rgba(18, 18, 18, 0.65);
+    --bg-paper: #FBF9F5;
+    --bg-paper-dark: #F2EDE4;
+    
+    --text-primary: #1C1C1C;
+    --text-muted: #666666;
+    --text-light: #E0E0E0;
+    
+    --font-heading: 'Cormorant Garamond', serif;
+    --font-body: 'Inter', sans-serif;
+    
+    --transition-smooth: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-body{
-
-background:
-radial-gradient(circle at top,rgba(212,175,55,.08),transparent 40%),
-linear-gradient(180deg,#FBFAF7,#F4F0E8);
-
-font-family:'Inter',sans-serif;
-color:var(--text);
-line-height:1.9;
-overflow-x:hidden;
-position:relative;
-
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #080808;
+}
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--gold-dark), var(--gold));
+    border-radius: 4px;
 }
 
-/* Luxury paper texture */
-
-body::before{
-
-content:"";
-position:fixed;
-inset:0;
-
-background-image:
-radial-gradient(rgba(0,0,0,.015) 1px,transparent 1px);
-
-background-size:6px 6px;
-pointer-events:none;
-opacity:.35;
-z-index:-1;
-
+body {
+    background-color: var(--bg-paper);
+    font-family: var(--font-body);
+    color: var(--text-primary);
+    line-height: 1.95;
+    overflow-x: hidden;
+    position: relative;
+    opacity: 0;
+    transition: opacity 1.2s ease;
 }
 
-/* Scroll Progress */
+/* Luxury Grain & Ambient Overlay */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(rgba(0,0,0,0.025) 1px, transparent 1px);
+    background-size: 8px 8px;
+    pointer-events: none;
+    opacity: 0.6;
+    z-index: 1000;
+}
 
-.progress{
-
-position:fixed;
-top:0;
-left:0;
-height:4px;
-width:0;
-
-background:
-linear-gradient(90deg,
-var(--gold-dark),
-var(--gold-light),
-var(--gold));
-
-box-shadow:0 0 12px rgba(212,175,55,.5);
-z-index:99999;
-
+/* Scroll Progress Line */
+.progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: var(--gold-gradient);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.8);
+    z-index: 99999;
 }
 
 /* ================= HEADER ================= */
 
-header{
-
-position:sticky;
-top:0;
-z-index:999;
-
-padding:18px 65px;
-
-display:flex;
-justify-content:space-between;
-align-items:center;
-
-background:rgba(12,12,12,.82);
-
-backdrop-filter:blur(18px);
--webkit-backdrop-filter:blur(18px);
-
-border-bottom:1px solid rgba(212,175,55,.15);
-
+header {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    padding: 22px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(8, 8, 8, 0.88);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.18);
+    transition: var(--transition-smooth);
 }
 
-header::after{
-
-content:"";
-position:absolute;
-bottom:0;
-left:0;
-width:100%;
-height:1px;
-
-background:
-linear-gradient(90deg,
-transparent,
-rgba(212,175,55,.45),
-transparent);
-
+header::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.5), transparent);
 }
 
-header img{
-
-height:42px;
-transition:.4s;
-
+header img {
+    height: 44px;
+    transition: var(--transition-smooth);
+    filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.2));
 }
 
-header img:hover{
-
-transform:scale(1.05);
-
+header img:hover {
+    transform: scale(1.05);
 }
 
-.back-btn{
-
-text-decoration:none;
-
-padding:12px 24px;
-
-border-radius:40px;
-
-background:white;
-color:#111;
-
-font-weight:600;
-font-size:15px;
-
-transition:.35s;
-
-box-shadow:0 8px 20px rgba(0,0,0,.15);
-
+.back-btn {
+    position: relative;
+    text-decoration: none;
+    padding: 12px 28px;
+    border-radius: 40px;
+    background: transparent;
+    color: #FFFFFF;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    transition: var(--transition-smooth);
+    overflow: hidden;
+    z-index: 1;
 }
 
-.back-btn:hover{
+.back-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--gold-gradient);
+    opacity: 0;
+    z-index: -1;
+    transition: var(--transition-smooth);
+}
 
-background:var(--gold);
-color:#111;
+.back-btn:hover {
+    color: #0A0A0A;
+    border-color: transparent;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+}
 
-transform:translateY(-2px);
-
+.back-btn:hover::before {
+    opacity: 1;
 }
 
 /* ================= HERO ================= */
 
-.hero{
-
-position:relative;
-
-padding:150px 70px 120px;
-
-text-align:center;
-
-background:
-radial-gradient(circle at center top,
-rgba(212,175,55,.08),
-transparent 45%),
-
-linear-gradient(145deg,#050505,#171717);
-
-color:white;
-
-overflow:hidden;
-
+.hero {
+    position: relative;
+    padding: 180px 8% 140px;
+    text-align: center;
+    background: 
+        radial-gradient(circle at 50% 30%, rgba(212, 175, 55, 0.12), transparent 60%),
+        linear-gradient(180deg, #050505 0%, #0F0F0F 50%, #171717 100%);
+    color: white;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.15);
 }
 
 /* Background watermark */
-
-.hero::before{
-
-content:"50 MIRARS";
-
-position:absolute;
-
-left:50%;
-top:48%;
-
-transform:translate(-50%,-50%);
-
-font-family:'Cormorant Garamond',serif;
-
-font-size:230px;
-font-weight:700;
-
-letter-spacing:12px;
-
-color:rgba(212,175,55,.05);
-
-white-space:nowrap;
-
+.hero::before {
+    content: "50 MIRARS";
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%, -50%);
+    font-family: var(--font-heading);
+    font-size: clamp(100px, 18vw, 320px);
+    font-weight: 700;
+    letter-spacing: 24px;
+    color: rgba(212, 175, 55, 0.03);
+    white-space: nowrap;
+    pointer-events: none;
 }
 
-/* Decorative circles */
-
-.hero::after{
-
-content:"";
-
-position:absolute;
-
-width:700px;
-height:700px;
-
-right:-240px;
-top:-240px;
-
-border-radius:50%;
-
-background:
-radial-gradient(circle,
-rgba(212,175,55,.10),
-transparent 70%);
-
+/* Ambient Ring Glow */
+.hero::after {
+    content: "";
+    position: absolute;
+    width: 850px;
+    height: 850px;
+    right: -250px;
+    top: -250px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+    pointer-events: none;
 }
 
-/* Floating gold particles */
-
-.sparkles{
-
-position:absolute;
-inset:0;
-pointer-events:none;
-
+.sparkles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
 }
 
-.sparkles span{
-
-position:absolute;
-
-width:4px;
-height:4px;
-
-background:var(--gold);
-
-border-radius:50%;
-
-box-shadow:0 0 12px rgba(212,175,55,.8);
-
-animation:float 10s infinite ease-in-out;
-
+.sparkles span {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: var(--gold-light);
+    border-radius: 50%;
+    box-shadow: 0 0 12px var(--gold);
+    animation: float 12s infinite ease-in-out;
 }
 
-.sparkles span:nth-child(1){
-top:18%;
-left:18%;
-animation-delay:0s;
+.sparkles span:nth-child(1) { top: 20%; left: 15%; animation-delay: 0s; }
+.sparkles span:nth-child(2) { top: 35%; right: 20%; animation-delay: 3s; }
+.sparkles span:nth-child(3) { bottom: 30%; left: 25%; animation-delay: 6s; }
+.sparkles span:nth-child(4) { bottom: 20%; right: 15%; animation-delay: 9s; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) scale(1); opacity: 0.2; }
+    50% { transform: translateY(-30px) scale(1.8); opacity: 0.9; }
 }
 
-.sparkles span:nth-child(2){
-top:28%;
-right:24%;
-animation-delay:2s;
+.hero h1 {
+    position: relative;
+    font-family: var(--font-heading);
+    font-size: clamp(52px, 6vw, 92px);
+    font-weight: 500;
+    letter-spacing: 2px;
+    margin-bottom: 28px;
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: fadeUp 1.2s ease forwards;
 }
 
-.sparkles span:nth-child(3){
-bottom:28%;
-left:32%;
-animation-delay:4s;
+.hero p {
+    position: relative;
+    max-width: 860px;
+    margin: 0 auto;
+    font-size: clamp(17px, 1.8vw, 21px);
+    font-weight: 300;
+    color: #CCCCCC;
+    letter-spacing: 0.5px;
+    animation: fadeUp 1.4s ease forwards;
 }
 
-.sparkles span:nth-child(4){
-bottom:20%;
-right:18%;
-animation-delay:6s;
+.read-meta {
+    position: relative;
+    margin-top: 48px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    animation: fadeUp 1.6s ease forwards;
 }
 
-@keyframes float{
-
-0%,100%{
-transform:translateY(0);
-opacity:.35;
+.read-badge {
+    padding: 14px 28px;
+    border-radius: 40px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    backdrop-filter: blur(15px);
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: #E0E0E0;
+    transition: var(--transition-smooth);
+    cursor: default;
 }
 
-50%{
-transform:translateY(-20px);
-opacity:1;
+.read-badge:hover {
+    transform: translateY(-4px);
+    background: rgba(212, 175, 55, 0.12);
+    border-color: var(--gold);
+    box-shadow: 0 12px 30px rgba(212, 175, 55, 0.2);
+    color: #FFFFFF;
 }
 
+.gold-line {
+    position: relative;
+    width: 180px;
+    height: 1px;
+    margin: 50px auto 0;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    overflow: hidden;
 }
 
-.hero h1{
-
-position:relative;
-
-font-family:'Cormorant Garamond',serif;
-
-font-size:78px;
-font-weight:700;
-
-letter-spacing:1px;
-
-margin-bottom:24px;
-
-animation:fadeUp 1s ease forwards;
-
+.gold-line::after {
+    content: "";
+    position: absolute;
+    left: -40%;
+    top: 0;
+    width: 40%;
+    height: 100%;
+    background: #FFFFFF;
+    filter: blur(2px);
+    animation: shine 3.5s infinite;
 }
 
-.hero p{
-
-position:relative;
-
-max-width:900px;
-
-margin:auto;
-
-font-size:22px;
-font-weight:300;
-
-color:#DDD;
-
-animation:fadeUp 1.2s ease forwards;
-
+@keyframes shine {
+    100% { left: 140%; }
 }
 
-.read-meta{
-
-position:relative;
-
-margin-top:38px;
-
-display:flex;
-justify-content:center;
-gap:16px;
-flex-wrap:wrap;
-
-animation:fadeUp 1.4s ease forwards;
-
-}
-
-.read-badge{
-
-padding:12px 24px;
-
-border-radius:40px;
-
-background:rgba(255,255,255,.08);
-
-border:1px solid rgba(212,175,55,.25);
-
-backdrop-filter:blur(12px);
-
-font-size:15px;
-
-transition:.35s;
-
-}
-
-.read-badge:hover{
-
-transform:translateY(-4px);
-
-background:rgba(212,175,55,.12);
-
-border-color:var(--gold);
-
-box-shadow:0 10px 25px rgba(212,175,55,.18);
-
-}
-
-.gold-line{
-
-position:relative;
-
-width:170px;
-height:2px;
-
-margin:40px auto 0;
-
-background:
-linear-gradient(90deg,
-transparent,
-var(--gold),
-transparent);
-
-overflow:hidden;
-
-}
-
-.gold-line::after{
-
-content:"";
-
-position:absolute;
-left:-40%;
-top:0;
-
-width:40%;
-height:100%;
-
-background:white;
-
-filter:blur(3px);
-
-animation:shine 3s infinite;
-
-}
-
-@keyframes shine{
-
-100%{
-left:120%;
-}
-
-}
-
-@keyframes fadeUp{
-
-from{
-
-opacity:0;
-transform:translateY(30px);
-
-}
-
-to{
-
-opacity:1;
-transform:translateY(0);
-
-}
-
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* ================= MAIN CONTAINER ================= */
 
-.container{
-
-width:92%;
-max-width:1180px;
-
-margin:90px auto;
-
+.container {
+    width: 90%;
+    max-width: 1240px;
+    margin: 120px auto;
 }
 
 /* ================= SECTIONS ================= */
 
-.section{
-
-position:relative;
-
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:70px;
-align-items:center;
-
-margin:110px 0;
-
-opacity:0;
-transform:translateY(60px);
-
-transition:1s ease;
-
+.section {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    margin: 140px 0;
+    opacity: 0;
+    transform: translateY(60px);
+    transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.section.show{
-
-opacity:1;
-transform:translateY(0);
-
+.section.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.reverse{
-
-direction:rtl;
-
+.reverse {
+    direction: rtl;
 }
 
-.reverse>*{
-
-direction:ltr;
-
+.reverse > * {
+    direction: ltr;
 }
 
-.section::after{
-
-content:"";
-
-position:absolute;
-
-bottom:-50px;
-left:50%;
-
-transform:translateX(-50%);
-
-width:150px;
-height:1px;
-
-background:
-linear-gradient(to right,
-transparent,
-var(--gold),
-transparent);
-
+.section::after {
+    content: "";
+    position: absolute;
+    bottom: -70px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(212, 175, 55, 0.4), transparent);
 }
 
-.section img{
-
-width:100%;
-height:470px;
-
-object-fit:cover;
-
-border-radius:28px;
-
-box-shadow:
-0 25px 60px rgba(0,0,0,.18);
-
-transition:.5s;
-
-will-change:transform;
-
+/* Image Container Frame */
+.img-wrap {
+    position: relative;
+    border-radius: 24px;
+    padding: 12px;
+    background: linear-gradient(145deg, rgba(212,175,55,0.25), rgba(0,0,0,0.05));
+    box-shadow: 0 30px 60px rgba(0,0,0,0.12);
+    transition: var(--transition-smooth);
 }
 
-.section img:hover{
-
-transform:scale(1.035);
-
-box-shadow:
-0 35px 70px rgba(0,0,0,.22);
-
+.img-wrap::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    padding: 1px;
+    background: var(--gold-gradient);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0.5;
+    transition: var(--transition-smooth);
 }
 
-.text{
-
-position:relative;
-
+.section img {
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
+    border-radius: 16px;
+    display: block;
+    transition: var(--transition-smooth);
 }
 
-.chapter{
-
-position:absolute;
-
-top:-45px;
-left:-15px;
-
-font-family:'Cormorant Garamond',serif;
-
-font-size:130px;
-font-weight:700;
-
-color:rgba(212,175,55,.12);
-
-user-select:none;
-z-index:-1;
-
+.img-wrap:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 40px 80px rgba(212, 175, 55, 0.18);
 }
 
-.text h2{
-
-font-family:'Cormorant Garamond',serif;
-
-font-size:46px;
-
-margin-bottom:24px;
-
-color:#111;
-
-position:relative;
-
+.img-wrap:hover::before {
+    opacity: 1;
 }
 
-.text h2::after{
-
-content:"";
-
-display:block;
-
-width:65px;
-height:2px;
-
-margin-top:12px;
-
-background:var(--gold);
-
+.text {
+    position: relative;
+    padding: 10px 0;
 }
 
-.text p{
-
-font-size:18px;
-
-color:#555;
-
-text-align:justify;
-
+.chapter {
+    position: absolute;
+    top: -55px;
+    left: -20px;
+    font-family: var(--font-heading);
+    font-size: clamp(100px, 12vw, 160px);
+    font-weight: 700;
+    color: rgba(212, 175, 55, 0.08);
+    line-height: 1;
+    user-select: none;
+    z-index: -1;
 }
 
-.text p::first-letter{
+.text h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(34px, 3.5vw, 48px);
+    font-weight: 500;
+    line-height: 1.25;
+    margin-bottom: 28px;
+    color: #111111;
+    position: relative;
+}
 
-font-family:'Cormorant Garamond',serif;
+.text h2::after {
+    content: "";
+    display: block;
+    width: 70px;
+    height: 2px;
+    margin-top: 16px;
+    background: var(--gold-gradient);
+    border-radius: 2px;
+}
 
-font-size:64px;
-font-weight:700;
+.text p {
+    font-size: clamp(16px, 1.2vw, 18px);
+    color: #4A4A4A;
+    text-align: justify;
+    line-height: 1.95;
+    font-weight: 300;
+}
 
-color:var(--gold);
-
-float:left;
-
-line-height:.8;
-
-padding-right:8px;
-
+.text p::first-letter {
+    font-family: var(--font-heading);
+    font-size: 68px;
+    font-weight: 600;
+    color: var(--gold-dark);
+    float: left;
+    line-height: 0.75;
+    margin-right: 12px;
+    margin-top: 4px;
 }
 
 /* ================= QUOTE ================= */
 
-.quote{
-
-margin:130px 0;
-
-padding:80px;
-
-border-radius:30px;
-
-background:
-linear-gradient(135deg,#111,#242424);
-
-color:white;
-
-text-align:center;
-
-position:relative;
-
-overflow:hidden;
-
+.quote {
+    margin: 160px 0;
+    padding: 100px 8%;
+    border-radius: 32px;
+    background: linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 100%);
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(212, 175, 55, 0.2);
 }
 
-.quote::before{
-
-content:"“";
-
-position:absolute;
-
-top:-40px;
-left:35px;
-
-font-size:180px;
-
-font-family:'Cormorant Garamond',serif;
-
-color:rgba(212,175,55,.12);
-
+.quote::before {
+    content: "“";
+    position: absolute;
+    top: -30px;
+    left: 40px;
+    font-size: 220px;
+    font-family: var(--font-heading);
+    color: rgba(212, 175, 55, 0.08);
+    pointer-events: none;
 }
 
-.quote h2{
-
-font-family:'Cormorant Garamond',serif;
-
-font-size:54px;
-
-margin-bottom:22px;
-
+.quote h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(38px, 4vw, 58px);
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-bottom: 24px;
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.quote p{
-
-font-size:21px;
-
-color:#DDD;
-
-max-width:820px;
-margin:auto;
-
+.quote p {
+    font-size: clamp(18px, 1.8vw, 22px);
+    color: #D5D5D5;
+    font-weight: 300;
+    max-width: 820px;
+    margin: 0 auto;
+    font-style: italic;
 }
 
 /* ================= CHECKLIST ================= */
 
-.checklist{
-
-background:white;
-
-padding:60px;
-
-border-radius:30px;
-
-box-shadow:0 20px 55px rgba(0,0,0,.08);
-
-margin-bottom:120px;
-
+.checklist {
+    background: #FFFFFF;
+    padding: 80px 8%;
+    border-radius: 36px;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.05);
+    margin-bottom: 140px;
+    border: 1px solid rgba(212, 175, 55, 0.15);
 }
 
-.checklist h2{
-
-font-family:'Cormorant Garamond',serif;
-
-font-size:44px;
-
-text-align:center;
-
-margin-bottom:35px;
-
-color:#111;
-
+.checklist h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(36px, 3.5vw, 48px);
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 50px;
+    color: #111111;
 }
 
-.grid{
-
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:22px;
-
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
 }
 
-.item{
-
-padding:22px;
-
-background:#F7F3EB;
-
-border-left:4px solid var(--gold);
-
-border-radius:18px;
-
-transition:.35s;
-
+.item {
+    padding: 28px 32px;
+    background: var(--bg-paper);
+    border-left: 3px solid var(--gold);
+    border-radius: 16px;
+    transition: var(--transition-smooth);
+    font-size: 17px;
+    font-weight: 400;
+    color: #2C2C2C;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
 }
 
-.item:hover{
-
-transform:translateY(-5px);
-
-box-shadow:0 15px 30px rgba(0,0,0,.08);
-
+.item:hover {
+    transform: translateY(-6px);
+    background: #FFFFFF;
+    box-shadow: 0 20px 40px rgba(212, 175, 55, 0.12);
+    border-left-color: var(--gold-light);
 }
 
 /* ================= CERTIFICATE ================= */
 
-.certificate{
-
-margin:120px 0;
-
-padding:75px;
-
-border-radius:32px;
-
-background:
-linear-gradient(135deg,#0E0E0E,#1E1E1E);
-
-color:white;
-
-text-align:center;
-
-position:relative;
-
-overflow:hidden;
-
+.certificate {
+    margin: 150px 0;
+    padding: 90px 8%;
+    border-radius: 36px;
+    background: linear-gradient(135deg, #090909 0%, #161616 100%);
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.4);
 }
 
-.certificate::before{
-
-content:"CERTIFIED";
-
-position:absolute;
-
-top:45px;
-right:-70px;
-
-font-family:'Cormorant Garamond',serif;
-
-font-size:150px;
-font-weight:700;
-
-color:rgba(212,175,55,.05);
-
-transform:rotate(-18deg);
-
+.certificate::before {
+    content: "CERTIFIED";
+    position: absolute;
+    top: 50px;
+    right: -60px;
+    font-family: var(--font-heading);
+    font-size: clamp(90px, 14vw, 180px);
+    font-weight: 700;
+    color: rgba(212, 175, 55, 0.03);
+    transform: rotate(-15deg);
+    pointer-events: none;
 }
 
-.certificate h2{
-
-font-family:'Cormorant Garamond',serif;
-
-font-size:54px;
-
-margin-bottom:20px;
-
+.certificate h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(38px, 4vw, 56px);
+    font-weight: 500;
+    margin-bottom: 24px;
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.certificate p{
-
-max-width:760px;
-
-margin:auto;
-
-font-size:20px;
-
-color:#DDD;
-
+.certificate p {
+    max-width: 780px;
+    margin: 0 auto;
+    font-size: clamp(17px, 1.6vw, 20px);
+    color: #D0D0D0;
+    font-weight: 300;
+    line-height: 1.9;
 }
 
-.gold-seal{
+.gold-seal {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    margin: 40px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+    border: 2px solid var(--gold);
+    font-size: 38px;
+    color: var(--gold);
+    box-shadow: 0 0 35px rgba(212, 175, 55, 0.3);
+    transition: var(--transition-smooth);
+}
 
-width:120px;
-height:120px;
-
-border-radius:50%;
-
-margin:35px auto;
-
-display:flex;
-align-items:center;
-justify-content:center;
-
-border:4px solid var(--gold);
-
-font-size:42px;
-
-color:var(--gold);
-
-box-shadow:0 0 30px rgba(212,175,55,.25);
-
+.certificate:hover .gold-seal {
+    transform: scale(1.1) rotate(15deg);
+    box-shadow: 0 0 50px rgba(212, 175, 55, 0.5);
 }
 
 /* ================= CTA ================= */
 
-.cta{
-
-background:white;
-
-padding:70px;
-
-border-radius:30px;
-
-text-align:center;
-
-box-shadow:0 20px 55px rgba(0,0,0,.08);
-
+.cta {
+    background: #FFFFFF;
+    padding: 90px 8%;
+    border-radius: 36px;
+    text-align: center;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(212, 175, 55, 0.18);
 }
 
-.cta h2{
-
-font-family:'Cormorant Garamond',serif;
-
-font-size:48px;
-
-margin-bottom:18px;
-
+.cta h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(38px, 4vw, 52px);
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: #111111;
 }
 
-.cta p{
-
-font-size:19px;
-
-color:#555;
-
-margin-bottom:35px;
-
+.cta p {
+    font-size: clamp(17px, 1.5vw, 20px);
+    color: #555555;
+    margin-bottom: 40px;
+    font-weight: 300;
 }
 
-.cta a{
-
-display:inline-block;
-
-padding:17px 42px;
-
-border-radius:40px;
-
-background:#111;
-color:white;
-
-text-decoration:none;
-
-font-weight:600;
-
-transition:.35s;
-
+.cta a {
+    position: relative;
+    display: inline-block;
+    padding: 20px 48px;
+    border-radius: 50px;
+    background: #0A0A0A;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: var(--transition-smooth);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    overflow: hidden;
+    z-index: 1;
 }
 
-.cta a:hover{
+.cta a::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--gold-gradient);
+    opacity: 0;
+    z-index: -1;
+    transition: var(--transition-smooth);
+}
 
-background:var(--gold);
+.cta a:hover {
+    color: #0A0A0A;
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(212, 175, 55, 0.35);
+}
 
-color:#111;
-
-transform:translateY(-3px);
-
+.cta a:hover::before {
+    opacity: 1;
 }
 
 /* ================= TOP BUTTON ================= */
 
-.top-btn{
-
-position:fixed;
-
-right:30px;
-bottom:30px;
-
-width:56px;
-height:56px;
-
-border:none;
-
-border-radius:50%;
-
-background:#111;
-color:white;
-
-font-size:22px;
-
-cursor:pointer;
-
-opacity:0;
-visibility:hidden;
-
-transition:.35s;
-
-box-shadow:0 12px 30px rgba(0,0,0,.25);
-
+.top-btn {
+    position: fixed;
+    right: 40px;
+    bottom: 40px;
+    width: 58px;
+    height: 58px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 50%;
+    background: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(10px);
+    color: var(--gold);
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition-smooth);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    z-index: 998;
 }
 
-.top-btn.show{
-
-opacity:1;
-visibility:visible;
-
+.top-btn.show {
+    opacity: 1;
+    visibility: visible;
 }
 
-.top-btn:hover{
-
-background:var(--gold);
-
-color:#111;
-
-transform:translateY(-4px);
-
+.top-btn:hover {
+    background: var(--gold-gradient);
+    color: #0A0A0A;
+    border-color: transparent;
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(212, 175, 55, 0.4);
 }
 
+/* ================= RESPONSIVE DESIGN ================= */
+
+@media (max-width: 992px) {
+    .section {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        margin: 100px 0;
+    }
+
+    .reverse {
+        direction: ltr;
+    }
+
+    .section img {
+        height: 400px;
+    }
+    
+    header {
+        padding: 18px 5%;
+    }
+
+    .hero {
+        padding: 140px 5% 100px;
+    }
+    
+    .checklist, .quote, .certificate, .cta {
+        padding: 60px 6%;
+    }
+}
+
+@media (max-width: 576px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .section img {
+        height: 320px;
+    }
+    
+    .top-btn {
+        right: 20px;
+        bottom: 20px;
+        width: 48px;
+        height: 48px;
+        font-size: 16px;
+    }
+}
 </style>
 
 </head>
@@ -968,417 +789,274 @@ transform:translateY(-4px);
 <div class="progress" id="progress"></div>
 
 <header>
-
-<img src="logo.jpeg" alt="50 Mirars">
-
-<a href="profile.html" class="back-btn">← Back</a>
-
+    <img src="logo.jpeg" alt="50 Mirars">
+    <a href="profile.html" class="back-btn">← Back</a>
 </header>
 
 <section class="hero">
+    <div class="sparkles">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 
-<div class="sparkles">
+    <h1>Luxury Care Guide</h1>
+    <p>Every timepiece tells a story, and every pair of sunglasses reflects a lifestyle. Discover our complete luxury care handbook designed to preserve the beauty, performance, and elegance of your 50 Mirars collection for years to come.</p>
 
-<span></span>
-<span></span>
-<span></span>
-<span></span>
+    <div class="read-meta">
+        <div class="read-badge">⌚ Watch Care</div>
+        <div class="read-badge">🕶 Sunglasses Care</div>
+        <div class="read-badge">✨ Premium Handbook</div>
+    </div>
 
-</div>
-
-<h1>Luxury Care Guide</h1>
-
-<p>Every timepiece tells a story, and every pair of sunglasses reflects a lifestyle. Discover our complete luxury care handbook designed to preserve the beauty, performance, and elegance of your 50 Mirars collection for years to come.</p>
-
-<div class="read-meta">
-
-<div class="read-badge">⌚ Watch Care</div>
-<div class="read-badge">🕶 Sunglasses Care</div>
-<div class="read-badge">✨ Premium Handbook</div>
-
-</div>
-
-<div class="gold-line"></div>
-
+    <div class="gold-line"></div>
 </section>
 
-<!-- ================= SECTION 1 ================= -->
-
-<div class="section" id="sec1">
-
-<img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=1200&q=80" alt="Luxury Watch">
-
-<div class="text">
-
-<div class="chapter">01</div>
-
-<h2>The Art of Caring for Luxury Accessories</h2>
-
-<p>
-Luxury accessories are more than everyday essentials—they become a reflection of your personality, confidence, and the memorable moments you experience throughout life. Every premium watch records valuable moments, while every pair of sunglasses accompanies journeys, celebrations, and everyday adventures with effortless elegance. Caring for these accessories is about preserving craftsmanship, precision, and premium finishes through thoughtful habits such as proper cleaning, careful storage, and gentle handling.
-</p>
-
-</div>
-
-</div>
-
-<!-- ================= SECTION 2 ================= -->
-
-<div class="section reverse" id="sec2">
-
-<img src="Seiko Blue Moon SSA347J1.jpeg" alt="Seiko Blue Moon">
-
-<div class="text">
-
-<div class="chapter">02</div>
-
-<h2>Keep Your Watch Crystal Clean</h2>
-
-<p>
-The crystal is one of the most beautiful features of a luxury watch. Fingerprints, dust, and skin oils gradually reduce its brilliance throughout the day. Use a clean microfiber cloth to gently wipe the crystal, bezel, and bracelet, while avoiding tissues or harsh cleaners that may create microscopic scratches. This simple routine preserves the refined elegance of your timepiece.
-</p>
-
-</div>
-
-</div>
-
-<!-- ================= SECTION 3 ================= -->
-
-<div class="section" id="sec3">
-
-<img src="Cartier CT0579S.jpeg" alt="Cartier Sunglasses">
-
-<div class="text">
-
-<div class="chapter">03</div>
-
-<h2>Respect Water Resistance</h2>
-
-<p>
-Water resistance is designed to protect your watch, but hot showers, steam, and swimming pools can gradually weaken protective seals. Always ensure the crown is fully secured before water exposure, and gently dry your watch afterward with a microfiber cloth. Respecting these limits helps preserve accuracy, reliability, and timeless luxury.
-</p>
-
-</div>
-
-</div>
-
-<!-- ================= SECTION 4 ================= -->
-
-<div class="section reverse" id="sec4">
-
-<img src="https://images.unsplash.com/photo-1612817159949-195b6eb9e31a?auto=format&fit=crop&w=1200&q=80" alt="Luxury Watch Storage">
-
-<div class="text">
-
-<div class="chapter">04</div>
-
-<h2>Store It Like a Collector</h2>
-
-<p>
-The way you store your watch is just as important as the way you wear it. Experienced collectors understand that proper storage protects both beauty and performance. Instead of leaving your watch on a bedside table or inside a crowded drawer, keep it inside a dedicated watch box or a soft protective pouch whenever it is not being worn. Store it in a cool, dry place away from direct sunlight, excessive humidity, and strong magnetic devices that may affect certain movements over time. Giving every watch its own space helps preserve polished finishes, delicate edges, and premium materials while ensuring it remains ready for every important occasion with timeless elegance.
-</p>
-
-</div>
-
-</div>
-
-<!-- ================= LUXURY QUOTE ================= -->
-
-<div class="quote">
-
-<h2>Luxury Lives in the Details</h2>
-
-<p>
-The finest accessories remain timeless because they're cared for with intention,
-patience, and respect.
-</p>
-
-</div>
-
-<!-- ================= SECTION 5 ================= -->
-
-<div class="section" id="sec5">
-
-<img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=1200&q=80" alt="Luxury Sunglasses Cleaning">
-
-<div class="text">
-
-<div class="chapter">05</div>
-
-<h2>Clean Sunglasses Properly</h2>
-
-<p>
-Premium sunglasses combine elegant design with advanced lens technology, making proper cleaning one of the most important habits for preserving their luxurious appearance. Remove loose dust first to avoid scratching the lenses, then use a clean microfiber cloth together with a lens-safe cleaning solution. Avoid shirts, paper tissues, or harsh household cleaners because they can damage delicate protective coatings. A careful cleaning routine keeps your lenses crystal clear while maintaining the refined appearance that defines premium eyewear.
-</p>
-
-</div>
-
-</div>
-
-<!-- ================= SECTION 6 ================= -->
-
-<div class="section reverse" id="sec6">
-
-<img src="Cartier kit.jpg" alt="Cartier Protective Case">
-
-<div class="text">
-
-<div class="chapter">06</div>
-
-<h2>Always Use a Protective Case</h2>
-
-<p>
-A protective case is one of the simplest yet most valuable investments you can make for your premium sunglasses. Even high-quality frames remain vulnerable to scratches, pressure, and accidental drops when left unprotected inside a bag or placed carelessly on a table. A hard protective case absorbs impact while protecting delicate hinges, temples, and premium lenses. Fold your sunglasses carefully before storing them, and this small habit will help preserve their alignment, comfort, and luxurious finish for years.
-</p>
-
-</div>
-
-</div>
-
-<!-- ================= SECTION 7 ================= -->
-
-<div class="section" id="sec7">
-
-<img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=80" alt="Heat Protection">
-
-<div class="text">
-
-<div class="chapter">07</div>
-
-<h2>Protect Against Heat</h2>
-
-<p>
-Excessive heat is one of the most overlooked threats to premium sunglasses because it can slowly affect both the frame and the lenses without causing immediate visible damage. Leaving your sunglasses inside a parked car, placing them near heating vents, or exposing them to intense sunlight for long periods may gradually warp the frame and weaken delicate lens coatings. Whenever possible, keep them inside their protective case and store them in a cool, shaded environment to preserve their original shape, optical clarity, and premium appearance.
-</p>
-
-</div>
-
-</div>
-
-<!-- ================= SECTION 8 ================= -->
-
-<div class="section reverse" id="sec8">
-
-<img src="https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=1200&q=80" alt="Handle Frames Carefully">
-
-<div class="text">
-
-<div class="chapter">08</div>
-
-<h2>Handle Frames with Care</h2>
-
-<p>
-Luxury sunglasses are engineered for both comfort and elegant styling, which is why proper handling makes a noticeable difference over time. Always use both hands when putting on or removing your sunglasses to distribute pressure evenly across the frame. Removing them with one hand repeatedly can gradually loosen hinges, affect alignment, and reduce the comfortable fit that premium eyewear is designed to provide. Keep the lenses facing upward whenever they are placed on a surface, and dry them gently before returning them to their protective case after exposure to rain or perspiration.
-</p>
-
-</div>
-
-</div>
-
-<!-- ================= SECTION 9 ================= -->
-
-<div class="section" id="sec9">
-
-<img src="https://images.unsplash.com/photo-1577803645773-f96470509666?auto=format&fit=crop&w=1200&q=80" alt="Luxury Maintenance">
-
-<div class="text">
-
-<div class="chapter">09</div>
-
-<h2>Regular Maintenance Matters</h2>
-
-<p>
-Regular maintenance is one of the easiest ways to keep luxury accessories performing and looking their best because small checks today often prevent larger problems tomorrow. Inspect your watches and sunglasses every few weeks for loose screws, worn hinges, hidden dust, or other signs of everyday wear. Tightening a loose hinge early can prevent unnecessary repairs, while professional servicing after years of regular use helps preserve precision, comfort, and long-term performance.
-</p>
-
-</div>
-
-</div>
-
-<!-- ================= SECTION 10 ================= -->
-
-<div class="section reverse" id="sec10">
-
-<img src="Rolex Sky-Dweller.jpeg" alt="Rolex Sky Dweller">
-
-<div class="text">
-
-<div class="chapter">10</div>
-
-<h2>Preserve the Luxury Experience</h2>
-
-<p>
-True luxury is not defined only by owning premium accessories—it is defined by preserving them with pride, appreciation, and thoughtful care throughout every stage of their journey. Every careful cleaning routine, every protective case, every proper storage habit, and every small maintenance check contributes to a collection that continues looking elegant year after year. At 50 Mirars, we believe every premium accessory deserves care that matches the quality with which it was created, allowing timeless elegance to accompany you every single day.
-</p>
-
-</div>
-
-</div>
-
-<!-- ================= GOLDEN CHECKLIST ================= -->
-
-<div class="checklist">
-
-<h2>Golden Care Checklist</h2>
-
-<div class="grid">
-
-<div class="item">✔ Clean with a microfiber cloth only.</div>
-
-<div class="item">✔ Store products in a protective case.</div>
-
-<div class="item">✔ Keep away from excessive heat.</div>
-
-<div class="item">✔ Remove watches during heavy impact activities.</div>
-
-<div class="item">✔ Keep the crown securely closed.</div>
-
-<div class="item">✔ Check hinges and screws regularly.</div>
-
-</div>
-
-</div>
-
-<!-- ================= CERTIFICATE ================= -->
-
-<div class="certificate">
-
-<h2>Luxury Care Certificate</h2>
-
-<div class="gold-seal">★</div>
-
-<p>
-Every customer who follows this guide becomes part of the 50 Mirars promise of timeless elegance. Your commitment to proper care helps preserve the beauty, craftsmanship, and lasting performance of every premium watch and pair of sunglasses.
-</p>
-
-</div>
-
-<!-- ================= FINAL CTA ================= -->
-
-<div class="cta">
-
-<h2>Luxury Deserves Lasting Care</h2>
-
-<p>
-Give every watch and every pair of sunglasses the attention they deserve, and they'll continue reflecting elegance for years to come.
-</p>
-
-<a href="index.html">Continue Shopping</a>
-
-</div>
+<!-- ================= MAIN CONTAINER ================= -->
+
+<div class="container">
+
+    <!-- ================= SECTION 1 ================= -->
+    <div class="section" id="sec1">
+        <div class="img-wrap">
+            <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=1200&q=80" alt="Luxury Watch">
+        </div>
+        <div class="text">
+            <div class="chapter">01</div>
+            <h2>The Art of Caring for Luxury Accessories</h2>
+            <p>
+                Luxury accessories are more than everyday essentials—they become a reflection of your personality, confidence, and the memorable moments you experience throughout life. Every premium watch records valuable moments, while every pair of sunglasses accompanies journeys, celebrations, and everyday adventures with effortless elegance. Caring for these accessories is about preserving craftsmanship, precision, and premium finishes through thoughtful habits such as proper cleaning, careful storage, and gentle handling.
+            </p>
+        </div>
+    </div>
+
+    <!-- ================= SECTION 2 ================= -->
+    <div class="section reverse" id="sec2">
+        <div class="img-wrap">
+            <img src="Seiko Blue Moon SSA347J1.jpeg" alt="Seiko Blue Moon">
+        </div>
+        <div class="text">
+            <div class="chapter">02</div>
+            <h2>Keep Your Watch Crystal Clean</h2>
+            <p>
+                The crystal is one of the most beautiful features of a luxury watch. Fingerprints, dust, and skin oils gradually reduce its brilliance throughout the day. Use a clean microfiber cloth to gently wipe the crystal, bezel, and bracelet, while avoiding tissues or harsh cleaners that may create microscopic scratches. This simple routine preserves the refined elegance of your timepiece.
+            </p>
+        </div>
+    </div>
+
+    <!-- ================= SECTION 3 ================= -->
+    <div class="section" id="sec3">
+        <div class="img-wrap">
+            <img src="Cartier CT0579S.jpeg" alt="Cartier Sunglasses">
+        </div>
+        <div class="text">
+            <div class="chapter">03</div>
+            <h2>Respect Water Resistance</h2>
+            <p>
+                Water resistance is designed to protect your watch, but hot showers, steam, and swimming pools can gradually weaken protective seals. Always ensure the crown is fully secured before water exposure, and gently dry your watch afterward with a microfiber cloth. Respecting these limits helps preserve accuracy, reliability, and timeless luxury.
+            </p>
+        </div>
+    </div>
+
+    <!-- ================= SECTION 4 ================= -->
+    <div class="section reverse" id="sec4">
+        <div class="img-wrap">
+            <img src="https://images.unsplash.com/photo-1612817159949-195b6eb9e31a?auto=format&fit=crop&w=1200&q=80" alt="Luxury Watch Storage">
+        </div>
+        <div class="text">
+            <div class="chapter">04</div>
+            <h2>Store It Like a Collector</h2>
+            <p>
+                The way you store your watch is just as important as the way you wear it. Experienced collectors understand that proper storage protects both beauty and performance. Instead of leaving your watch on a bedside table or inside a crowded drawer, keep it inside a dedicated watch box or a soft protective pouch whenever it is not being worn. Store it in a cool, dry place away from direct sunlight, excessive humidity, and strong magnetic devices that may affect certain movements over time. Giving every watch its own space helps preserve polished finishes, delicate edges, and premium materials while ensuring it remains ready for every important occasion with timeless elegance.
+            </p>
+        </div>
+    </div>
+
+    <!-- ================= LUXURY QUOTE ================= -->
+    <div class="quote">
+        <h2>Luxury Lives in the Details</h2>
+        <p>
+            The finest accessories remain timeless because they're cared for with intention, patience, and respect.
+        </p>
+    </div>
+
+    <!-- ================= SECTION 5 ================= -->
+    <div class="section" id="sec5">
+        <div class="img-wrap">
+            <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=1200&q=80" alt="Luxury Sunglasses Cleaning">
+        </div>
+        <div class="text">
+            <div class="chapter">05</div>
+            <h2>Clean Sunglasses Properly</h2>
+            <p>
+                Premium sunglasses combine elegant design with advanced lens technology, making proper cleaning one of the most important habits for preserving their luxurious appearance. Remove loose dust first to avoid scratching the lenses, then use a clean microfiber cloth together with a lens-safe cleaning solution. Avoid shirts, paper tissues, or harsh household cleaners because they can damage delicate protective coatings. A careful cleaning routine keeps your lenses crystal clear while maintaining the refined appearance that defines premium eyewear.
+            </p>
+        </div>
+    </div>
+
+    <!-- ================= SECTION 6 ================= -->
+    <div class="section reverse" id="sec6">
+        <div class="img-wrap">
+            <img src="Cartier kit.jpg" alt="Cartier Protective Case">
+        </div>
+        <div class="text">
+            <div class="chapter">06</div>
+            <h2>Always Use a Protective Case</h2>
+            <p>
+                A protective case is one of the simplest yet most valuable investments you can make for your premium sunglasses. Even high-quality frames remain vulnerable to scratches, pressure, and accidental drops when left unprotected inside a bag or placed carelessly on a table. A hard protective case absorbs impact while protecting delicate hinges, temples, and premium lenses. Fold your sunglasses carefully before storing them, and this small habit will help preserve their alignment, comfort, and luxurious finish for years.
+            </p>
+        </div>
+    </div>
+
+    <!-- ================= SECTION 7 ================= -->
+    <div class="section" id="sec7">
+        <div class="img-wrap">
+            <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=80" alt="Heat Protection">
+        </div>
+        <div class="text">
+            <div class="chapter">07</div>
+            <h2>Protect Against Heat</h2>
+            <p>
+                Excessive heat is one of the most overlooked threats to premium sunglasses because it can slowly affect both the frame and the lenses without causing immediate visible damage. Leaving your sunglasses inside a parked car, placing them near heating vents, or exposing them to intense sunlight for long periods may gradually warp the frame and weaken delicate lens coatings. Whenever possible, keep them inside their protective case and store them in a cool, shaded environment to preserve their original shape, optical clarity, and premium appearance.
+            </p>
+        </div>
+    </div>
+
+    <!-- ================= SECTION 8 ================= -->
+    <div class="section reverse" id="sec8">
+        <div class="img-wrap">
+            <img src="https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=1200&q=80" alt="Handle Frames Carefully">
+        </div>
+        <div class="text">
+            <div class="chapter">08</div>
+            <h2>Handle Frames with Care</h2>
+            <p>
+                Luxury sunglasses are engineered for both comfort and elegant styling, which is why proper handling makes a noticeable difference over time. Always use both hands when putting on or removing your sunglasses to distribute pressure evenly across the frame. Removing them with one hand repeatedly can gradually loosen hinges, affect alignment, and reduce the comfortable fit that premium eyewear is designed to provide. Keep the lenses facing upward whenever they are placed on a surface, and dry them gently before returning them to their protective case after exposure to rain or perspiration.
+            </p>
+        </div>
+    </div>
+
+    <!-- ================= SECTION 9 ================= -->
+    <div class="section" id="sec9">
+        <div class="img-wrap">
+            <img src="https://images.unsplash.com/photo-1577803645773-f96470509666?auto=format&fit=crop&w=1200&q=80" alt="Luxury Maintenance">
+        </div>
+        <div class="text">
+            <div class="chapter">09</div>
+            <h2>Regular Maintenance Matters</h2>
+            <p>
+                Regular maintenance is one of the easiest ways to keep luxury accessories performing and looking their best because small checks today often prevent larger problems tomorrow. Inspect your watches and sunglasses every few weeks for loose screws, worn hinges, hidden dust, or other signs of everyday wear. Tightening a loose hinge early can prevent unnecessary repairs, while professional servicing after years of regular use helps preserve precision, comfort, and long-term performance.
+            </p>
+        </div>
+    </div>
+
+    <!-- ================= SECTION 10 ================= -->
+    <div class="section reverse" id="sec10">
+        <div class="img-wrap">
+            <img src="Rolex Sky-Dweller.jpeg" alt="Rolex Sky Dweller">
+        </div>
+        <div class="text">
+            <div class="chapter">10</div>
+            <h2>Preserve the Luxury Experience</h2>
+            <p>
+                True luxury is not defined only by owning premium accessories—it is defined by preserving them with pride, appreciation, and thoughtful care throughout every stage of their journey. Every careful cleaning routine, every protective case, every proper storage habit, and every small maintenance check contributes to a collection that continues looking elegant year after year. At 50 Mirars, we believe every premium accessory deserves care that matches the quality with which it was created, allowing timeless elegance to accompany you every single day.
+            </p>
+        </div>
+    </div>
+
+    <!-- ================= GOLDEN CHECKLIST ================= -->
+    <div class="checklist">
+        <h2>Golden Care Checklist</h2>
+        <div class="grid">
+            <div class="item">✔ Clean with a microfiber cloth only.</div>
+            <div class="item">✔ Store products in a protective case.</div>
+            <div class="item">✔ Keep away from excessive heat.</div>
+            <div class="item">✔ Remove watches during heavy impact activities.</div>
+            <div class="item">✔ Keep the crown securely closed.</div>
+            <div class="item">✔ Check hinges and screws regularly.</div>
+        </div>
+    </div>
+
+    <!-- ================= CERTIFICATE ================= -->
+    <div class="certificate">
+        <h2>Luxury Care Certificate</h2>
+        <div class="gold-seal">★</div>
+        <p>
+            Every customer who follows this guide becomes part of the 50 Mirars promise of timeless elegance. Your commitment to proper care helps preserve the beauty, craftsmanship, and lasting performance of every premium watch and pair of sunglasses.
+        </p>
+    </div>
+
+    <!-- ================= FINAL CTA ================= -->
+    <div class="cta">
+        <h2>Luxury Deserves Lasting Care</h2>
+        <p>
+            Give every watch and every pair of sunglasses the attention they deserve, and they'll continue reflecting elegance for years to come.
+        </p>
+        <a href="index.html">Continue Shopping</a>
+    </div>
 
 </div>
 
 <!-- ================= SCROLL BUTTON ================= -->
-
 <button class="top-btn" id="topBtn">↑</button>
 
 <script>
+/* ===== Intersection Observer for Smooth Reveal ===== */
+const sections = document.querySelectorAll(".section");
 
-/* ===== Reveal Animation ===== */
-
-const sections=document.querySelectorAll(".section");
-
-const observer=new IntersectionObserver(entries=>{
-
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-
-entry.target.classList.add("show");
-
-}
-
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+    });
+}, {
+    threshold: 0.15
 });
 
-},{
+sections.forEach(section => observer.observe(section));
 
-threshold:.18
+/* ===== Scroll Progress & Smooth Top Button ===== */
+const progress = document.getElementById("progress");
+const topBtn = document.getElementById("topBtn");
 
-});
-
-sections.forEach(section=>observer.observe(section));
-
-/* ===== Scroll Progress ===== */
-
-const progress=document.getElementById("progress");
-
-const topBtn=document.getElementById("topBtn");
-
-window.addEventListener("scroll",()=>{
-
-const scrollTop=document.documentElement.scrollTop;
-
-const height=document.documentElement.scrollHeight-document.documentElement.clientHeight;
-
-progress.style.width=(scrollTop/height)*100+"%";
-
-topBtn.classList.toggle("show",window.scrollY>500);
-
-/* Luxury Image Parallax */
-
-document.querySelectorAll(".section img").forEach(img=>{
-
-const rect=img.getBoundingClientRect();
-
-img.style.transform=`translateY(${rect.top*0.018}px)`;
-
-});
-
+window.addEventListener("scroll", () => {
+    const scrollTop = document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    
+    progress.style.width = (scrollTop / height) * 100 + "%";
+    topBtn.classList.toggle("show", window.scrollY > 600);
 });
 
 /* ===== Back To Top ===== */
-
-topBtn.addEventListener("click",()=>{
-
-window.scrollTo({
-
-top:0,
-
-behavior:"smooth"
-
+topBtn.addEventListener("click", () => {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 });
 
+/* ===== Gold Badge Glow Effect ===== */
+document.querySelectorAll(".read-badge").forEach(badge => {
+    badge.addEventListener("mousemove", e => {
+        const rect = badge.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        badge.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(212,175,55,0.3), rgba(255,255,255,0.03))`;
+    });
+    
+    badge.addEventListener("mouseleave", () => {
+        badge.style.background = "rgba(255, 255, 255, 0.03)";
+    });
 });
 
-/* ===== Gold Badge Hover Glow ===== */
-
-document.querySelectorAll(".read-badge").forEach(badge=>{
-
-badge.addEventListener("mousemove",e=>{
-
-const x=e.offsetX;
-
-const y=e.offsetY;
-
-badge.style.background=`radial-gradient(circle at ${x}px ${y}px,
-rgba(212,175,55,.28),
-rgba(255,255,255,.08))`;
-
+/* ===== Luxury Page Fade In ===== */
+window.addEventListener("load", () => {
+    document.body.style.opacity = "1";
 });
-
-badge.addEventListener("mouseleave",()=>{
-
-badge.style.background="rgba(255,255,255,.08)";
-
-});
-
-});
-
-/* ===== Luxury Fade-In on Load ===== */
-
-window.addEventListener("load",()=>{
-
-document.body.style.opacity="1";
-
-});
-
-document.body.style.opacity="0";
-
-document.body.style.transition="opacity .8s ease";
-
 </script>
 
 </body>
-
 </html>
