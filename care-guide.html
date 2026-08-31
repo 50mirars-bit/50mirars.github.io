@@ -2,1173 +2,1173 @@
 <html lang="en" data-theme="dark">
 
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080808">
-<meta name="description" content="Luxury Care Guide | 50 Mirars">
-
-<title>Luxury Care Guide | 50 Mirars</title>
-
-<link rel="icon" href="logo.jpeg">
-
-<!-- Luxury Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
-
-<style>
-   
-/* ============================================================
-   50 MIRARS — DYNAMIC DUAL-THEME ULTRA-LUXURY ARCHITECTURE
-============================================================ */
-
-*, *::before, *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
-
-/* --- THEME SYSTEM VARIABLES --- */
-:root[data-theme="dark"] {
-    --bg-main: #060606;
-    --bg-header: rgba(8, 8, 8, 0.85);
-    --bg-card: #0F0F0F;
-    --bg-card-glass: rgba(18, 18, 18, 0.65);
-    --bg-subtle: #121212;
-    
-    --text-primary: #F0F0F0;
-    --text-secondary: #AAAAAA;
-    --text-dark-contrast: #060606;
-    
-    --gold: #D4AF37;
-    --gold-light: #F7E7AD;
-    --gold-dark: #9A7B1C;
-    --gold-glow: rgba(212, 175, 55, 0.25);
-    --gold-gradient: linear-gradient(135deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
-    
-    --border-color: rgba(212, 175, 55, 0.2);
-    --border-subtle: rgba(255, 255, 255, 0.08);
-    --shadow-main: 0 30px 80px rgba(0, 0, 0, 0.6);
-    --shadow-card: 0 20px 50px rgba(0, 0, 0, 0.4);
-    --watermark-color: rgba(212, 175, 55, 0.03);
-    --grain-opacity: 0.4;
-}
-
-:root[data-theme="light"] {
-    --bg-main: #FAFAF7;
-    --bg-header: rgba(250, 250, 247, 0.88);
-    --bg-card: #FFFFFF;
-    --bg-card-glass: rgba(255, 255, 255, 0.75);
-    --bg-subtle: #F3EFEA;
-    
-    --text-primary: #1A1A1A;
-    --text-secondary: #555555;
-    --text-dark-contrast: #FFFFFF;
-    
-    --gold: #B8860B;
-    --gold-light: #D4AF37;
-    --gold-dark: #7A5805;
-    --gold-glow: rgba(184, 134, 11, 0.18);
-    --gold-gradient: linear-gradient(135deg, #A2790D, #EEDC82, #8C6509, #E4D070, #735104);
-    
-    --border-color: rgba(184, 134, 11, 0.25);
-    --border-subtle: rgba(0, 0, 0, 0.06);
-    --shadow-main: 0 30px 80px rgba(184, 134, 11, 0.08);
-    --shadow-card: 0 15px 45px rgba(0, 0, 0, 0.05);
-    --watermark-color: rgba(0, 0, 0, 0.025);
-    --grain-opacity: 0.15;
-}
-
-:root {
-    --font-heading: 'Cormorant Garamond', serif;
-    --font-body: 'Inter', sans-serif;
-    --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-/* --- SCROLLBAR --- */
-::-webkit-scrollbar {
-    width: 8px;
-}
-::-webkit-scrollbar-track {
-    background: var(--bg-main);
-}
-::-webkit-scrollbar-thumb {
-    background: var(--gold-gradient);
-    border-radius: 4px;
-}
-
-body {
-    background-color: var(--bg-main);
-    font-family: var(--font-body);
-    color: var(--text-primary);
-    line-height: 1.95;
-    overflow-x: hidden;
-    position: relative;
-    opacity: 0;
-    transition: background-color 0.6s ease, color 0.6s ease, opacity 1s ease;
-}
-
-/* Grain Effect Overlay */
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background-image: radial-gradient(rgba(0,0,0,0.1) 1px, transparent 1px);
-    background-size: 8px 8px;
-    pointer-events: none;
-    opacity: var(--grain-opacity);
-    z-index: 1000;
-}
-
-/* Scroll Progress Line */
-.progress {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 3px;
-    width: 0%;
-    background: var(--gold-gradient);
-    box-shadow: 0 0 15px var(--gold-glow);
-    z-index: 99999;
-}
-
-/* ================= HEADER ================= */
-
-header {
-    position: sticky;
-    top: 0;
-    z-index: 999;
-    padding: 20px 8%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: var(--bg-header);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--border-color);
-    transition: var(--transition-smooth);
-}
-
-header::after {
-    content: "";
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
-    opacity: 0.5;
-}
-
-.header-left {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-header img {
-    height: 44px;
-    transition: var(--transition-smooth);
-    filter: drop-shadow(0 0 10px var(--gold-glow));
-}
-
-header img:hover {
-    transform: scale(1.05);
-}
-
-.header-actions {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-}
-
-/* Dynamic Theme Switcher */
-.theme-toggle {
-    background: transparent;
-    border: 1px solid var(--border-color);
-    color: var(--text-primary);
-    padding: 10px 18px;
-    border-radius: 40px;
-    cursor: pointer;
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: var(--transition-smooth);
-}
-
-.theme-toggle:hover {
-    border-color: var(--gold);
-    box-shadow: 0 0 20px var(--gold-glow);
-    transform: translateY(-2px);
-}
-
-.theme-toggle span {
-    font-size: 14px;
-}
-
-.back-btn {
-    position: relative;
-    text-decoration: none;
-    padding: 11px 26px;
-    border-radius: 40px;
-    background: transparent;
-    color: var(--text-primary);
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    border: 1px solid var(--border-color);
-    transition: var(--transition-smooth);
-    overflow: hidden;
-    z-index: 1;
-}
-
-.back-btn::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: var(--gold-gradient);
-    opacity: 0;
-    z-index: -1;
-    transition: var(--transition-smooth);
-}
-
-.back-btn:hover {
-    color: var(--text-dark-contrast);
-    border-color: transparent;
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px var(--gold-glow);
-}
-
-.back-btn:hover::before {
-    opacity: 1;
-}
-
-/* ================= HERO ================= */
-
-.hero {
-    position: relative;
-    padding: 170px 8% 130px;
-    text-align: center;
-    background: 
-        radial-gradient(circle at 50% 30%, var(--gold-glow), transparent 60%),
-        linear-gradient(180deg, var(--bg-main) 0%, var(--bg-subtle) 100%);
-    color: var(--text-primary);
-    overflow: hidden;
-    border-bottom: 1px solid var(--border-color);
-    transition: var(--transition-smooth);
-}
-
-.hero::before {
-    content: "50 MIRARS";
-    position: absolute;
-    left: 50%;
-    top: 45%;
-    transform: translate(-50%, -50%);
-    font-family: var(--font-heading);
-    font-size: clamp(100px, 18vw, 320px);
-    font-weight: 700;
-    letter-spacing: 24px;
-    color: var(--watermark-color);
-    white-space: nowrap;
-    pointer-events: none;
-}
-
-.sparkles {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-}
-
-.sparkles span {
-    position: absolute;
-    width: 3px;
-    height: 3px;
-    background: var(--gold-light);
-    border-radius: 50%;
-    box-shadow: 0 0 12px var(--gold);
-    animation: float 12s infinite ease-in-out;
-}
-
-.sparkles span:nth-child(1) { top: 20%; left: 15%; animation-delay: 0s; }
-.sparkles span:nth-child(2) { top: 35%; right: 20%; animation-delay: 3s; }
-.sparkles span:nth-child(3) { bottom: 30%; left: 25%; animation-delay: 6s; }
-.sparkles span:nth-child(4) { bottom: 20%; right: 15%; animation-delay: 9s; }
-
-@keyframes float {
-    0%, 100% { transform: translateY(0) scale(1); opacity: 0.2; }
-    50% { transform: translateY(-30px) scale(1.8); opacity: 0.9; }
-}
-
-.hero h1 {
-    position: relative;
-    font-family: var(--font-heading);
-    font-size: clamp(52px, 6vw, 92px);
-    font-weight: 500;
-    letter-spacing: 2px;
-    margin-bottom: 28px;
-    background: var(--gold-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: fadeUp 1.2s ease forwards;
-}
-
-.hero p {
-    position: relative;
-    max-width: 860px;
-    margin: 0 auto;
-    font-size: clamp(17px, 1.8vw, 21px);
-    font-weight: 300;
-    color: var(--text-secondary);
-    letter-spacing: 0.5px;
-    animation: fadeUp 1.4s ease forwards;
-}
-
-.read-meta {
-    position: relative;
-    margin-top: 48px;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    animation: fadeUp 1.6s ease forwards;
-}
-
-.read-badge {
-    padding: 12px 28px;
-    border-radius: 40px;
-    background: var(--bg-card-glass);
-    border: 1px solid var(--border-color);
-    backdrop-filter: blur(15px);
-    font-size: 13px;
-    font-weight: 400;
-    letter-spacing: 1px;
-    color: var(--text-primary);
-    transition: var(--transition-smooth);
-    cursor: default;
-}
-
-.read-badge:hover {
-    transform: translateY(-4px);
-    border-color: var(--gold);
-    box-shadow: 0 12px 30px var(--gold-glow);
-}
-
-.gold-line {
-    position: relative;
-    width: 180px;
-    height: 1px;
-    margin: 50px auto 0;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
-    overflow: hidden;
-}
-
-.gold-line::after {
-    content: "";
-    position: absolute;
-    left: -40%;
-    top: 0;
-    width: 40%;
-    height: 100%;
-    background: #FFFFFF;
-    filter: blur(2px);
-    animation: shine 3.5s infinite;
-}
-
-@keyframes shine {
-    100% { left: 140%; }
-}
-
-@keyframes fadeUp {
-    from { opacity: 0; transform: translateY(40px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* ================= MAIN CONTAINER ================= */
-
-.container {
-    width: 90%;
-    max-width: 1240px;
-    margin: 120px auto;
-}
-
-/* ================= SECTIONS ================= */
-
-.section {
-    position: relative;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
-    margin: 140px 0;
-    opacity: 0;
-    transform: translateY(60px);
-    transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.section.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.reverse {
-    direction: rtl;
-}
-
-.reverse > * {
-    direction: ltr;
-}
-
-.section::after {
-    content: "";
-    position: absolute;
-    bottom: -70px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 200px;
-    height: 1px;
-    background: linear-gradient(to right, transparent, var(--border-color), transparent);
-}
-
-/* Image Container Frame */
-.img-wrap {
-    position: relative;
-    border-radius: 24px;
-    padding: 10px;
-    background: linear-gradient(145deg, var(--border-color), transparent);
-    box-shadow: var(--shadow-card);
-    transition: var(--transition-smooth);
-}
-
-.img-wrap::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 24px;
-    padding: 1px;
-    background: var(--gold-gradient);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    opacity: 0.4;
-    transition: var(--transition-smooth);
-}
-
-.section img {
-    width: 100%;
-    height: 520px;
-    object-fit: cover;
-    border-radius: 16px;
-    display: block;
-    transition: var(--transition-smooth);
-}
-
-.img-wrap:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 30px 60px var(--gold-glow);
-}
-
-.img-wrap:hover::before {
-    opacity: 1;
-}
-
-.text {
-    position: relative;
-    padding: 10px 0;
-}
-
-.chapter {
-    position: absolute;
-    top: -55px;
-    left: -20px;
-    font-family: var(--font-heading);
-    font-size: clamp(100px, 12vw, 160px);
-    font-weight: 700;
-    color: var(--watermark-color);
-    line-height: 1;
-    user-select: none;
-    z-index: -1;
-}
-
-.text h2 {
-    font-family: var(--font-heading);
-    font-size: clamp(34px, 3.5vw, 48px);
-    font-weight: 500;
-    line-height: 1.25;
-    margin-bottom: 28px;
-    color: var(--text-primary);
-    position: relative;
-}
-
-.text h2::after {
-    content: "";
-    display: block;
-    width: 70px;
-    height: 2px;
-    margin-top: 16px;
-    background: var(--gold-gradient);
-    border-radius: 2px;
-}
-
-.text p {
-    font-size: clamp(16px, 1.2vw, 18px);
-    color: var(--text-secondary);
-    text-align: justify;
-    line-height: 1.95;
-    font-weight: 300;
-}
-
-.text p::first-letter {
-    font-family: var(--font-heading);
-    font-size: 68px;
-    font-weight: 600;
-    color: var(--gold);
-    float: left;
-    line-height: 0.75;
-    margin-right: 12px;
-    margin-top: 4px;
-}
-
-/* ================= QUOTE ================= */
-
-.quote {
-    margin: 160px 0;
-    padding: 100px 8%;
-    border-radius: 32px;
-    background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-subtle) 100%);
-    color: var(--text-primary);
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    box-shadow: var(--shadow-main);
-    border: 1px solid var(--border-color);
-    transition: var(--transition-smooth);
-}
-
-.quote::before {
-    content: "“";
-    position: absolute;
-    top: -30px;
-    left: 40px;
-    font-size: 220px;
-    font-family: var(--font-heading);
-    color: var(--watermark-color);
-    pointer-events: none;
-}
-
-.quote h2 {
-    font-family: var(--font-heading);
-    font-size: clamp(38px, 4vw, 58px);
-    font-weight: 400;
-    letter-spacing: 1px;
-    margin-bottom: 24px;
-    background: var(--gold-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.quote p {
-    font-size: clamp(18px, 1.8vw, 22px);
-    color: var(--text-secondary);
-    font-weight: 300;
-    max-width: 820px;
-    margin: 0 auto;
-    font-style: italic;
-}
-
-/* ================= CHECKLIST ================= */
-
-.checklist {
-    background: var(--bg-card);
-    padding: 80px 8%;
-    border-radius: 36px;
-    box-shadow: var(--shadow-card);
-    margin-bottom: 140px;
-    border: 1px solid var(--border-color);
-    transition: var(--transition-smooth);
-}
-
-.checklist h2 {
-    font-family: var(--font-heading);
-    font-size: clamp(36px, 3.5vw, 48px);
-    font-weight: 500;
-    text-align: center;
-    margin-bottom: 50px;
-    color: var(--text-primary);
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 24px;
-}
-
-.item {
-    padding: 28px 32px;
-    background: var(--bg-subtle);
-    border-left: 3px solid var(--gold);
-    border-radius: 16px;
-    transition: var(--transition-smooth);
-    font-size: 17px;
-    font-weight: 400;
-    color: var(--text-primary);
-    display: flex;
-    align-items: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
-}
-
-.item:hover {
-    transform: translateY(-6px);
-    background: var(--bg-card);
-    box-shadow: 0 20px 40px var(--gold-glow);
-    border-left-color: var(--gold-light);
-}
-
-/* ================= CERTIFICATE ================= */
-
-.certificate {
-    margin: 150px 0;
-    padding: 90px 8%;
-    border-radius: 36px;
-    background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-subtle) 100%);
-    color: var(--text-primary);
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    border: 1px solid var(--border-color);
-    box-shadow: var(--shadow-main);
-    transition: var(--transition-smooth);
-}
-
-.certificate::before {
-    content: "CERTIFIED";
-    position: absolute;
-    top: 50px;
-    right: -60px;
-    font-family: var(--font-heading);
-    font-size: clamp(90px, 14vw, 180px);
-    font-weight: 700;
-    color: var(--watermark-color);
-    transform: rotate(-15deg);
-    pointer-events: none;
-}
-
-.certificate h2 {
-    font-family: var(--font-heading);
-    font-size: clamp(38px, 4vw, 56px);
-    font-weight: 500;
-    margin-bottom: 24px;
-    background: var(--gold-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.certificate p {
-    max-width: 780px;
-    margin: 0 auto;
-    font-size: clamp(17px, 1.6vw, 20px);
-    color: var(--text-secondary);
-    font-weight: 300;
-    line-height: 1.9;
-}
-
-.gold-seal {
-    width: 110px;
-    height: 110px;
-    border-radius: 50%;
-    margin: 40px auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: radial-gradient(circle, var(--gold-glow) 0%, transparent 70%);
-    border: 2px solid var(--gold);
-    font-size: 38px;
-    color: var(--gold);
-    box-shadow: 0 0 35px var(--gold-glow);
-    transition: var(--transition-smooth);
-}
-
-.certificate:hover .gold-seal {
-    transform: scale(1.1) rotate(15deg);
-    box-shadow: 0 0 50px var(--gold-glow);
-}
-
-/* ================= CTA ================= */
-
-.cta {
-    background: var(--bg-card);
-    padding: 90px 8%;
-    border-radius: 36px;
-    text-align: center;
-    box-shadow: var(--shadow-card);
-    border: 1px solid var(--border-color);
-    transition: var(--transition-smooth);
-}
-
-.cta h2 {
-    font-family: var(--font-heading);
-    font-size: clamp(38px, 4vw, 52px);
-    font-weight: 500;
-    margin-bottom: 20px;
-    color: var(--text-primary);
-}
-
-.cta p {
-    font-size: clamp(17px, 1.5vw, 20px);
-    color: var(--text-secondary);
-    margin-bottom: 40px;
-    font-weight: 300;
-}
-
-.cta a {
-    position: relative;
-    display: inline-block;
-    padding: 20px 48px;
-    border-radius: 50px;
-    background: var(--text-primary);
-    color: var(--bg-main);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 13px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    transition: var(--transition-smooth);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    overflow: hidden;
-    z-index: 1;
-}
-
-.cta a::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: var(--gold-gradient);
-    opacity: 0;
-    z-index: -1;
-    transition: var(--transition-smooth);
-}
-
-.cta a:hover {
-    color: var(--text-dark-contrast);
-    transform: translateY(-4px);
-    box-shadow: 0 20px 40px var(--gold-glow);
-}
-
-.cta a:hover::before {
-    opacity: 1;
-}
-
-/* ================= TOP BUTTON ================= */
-
-.top-btn {
-    position: fixed;
-    right: 40px;
-    bottom: 40px;
-    width: 58px;
-    height: 58px;
-    border: 1px solid var(--border-color);
-    border-radius: 50%;
-    background: var(--bg-header);
-    backdrop-filter: blur(10px);
-    color: var(--gold);
-    font-size: 20px;
-    cursor: pointer;
-    opacity: 0;
-    visibility: hidden;
-    transition: var(--transition-smooth);
-    box-shadow: var(--shadow-card);
-    z-index: 998;
-}
-
-.top-btn.show {
-    opacity: 1;
-    visibility: visible;
-}
-
-.top-btn:hover {
-    background: var(--gold-gradient);
-    color: var(--text-dark-contrast);
-    border-color: transparent;
-    transform: translateY(-6px);
-    box-shadow: 0 20px 40px var(--gold-glow);
-}
-
-/* ================= RESPONSIVE DESIGN ================= */
-
-@media (max-width: 992px) {
-    .section {
-        grid-template-columns: 1fr;
-        gap: 50px;
-        margin: 100px 0;
-    }
-
-    .reverse {
-        direction: ltr;
-    }
-
-    .section img {
-        height: 400px;
-    }
-    
-    header {
-        padding: 18px 5%;
-    }
-
-    .hero {
-        padding: 140px 5% 100px;
-    }
-    
-    .checklist, .quote, .certificate, .cta {
-        padding: 60px 6%;
-    }
-}
-
-@media (max-width: 576px) {
-    .grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .section img {
-        height: 320px;
-    }
-    
-    .top-btn {
-        right: 20px;
-        bottom: 20px;
-        width: 48px;
-        height: 48px;
-        font-size: 16px;
-    }
-    
-    .theme-toggle span {
-        display: none;
-    }
-}
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#050505">
+    <meta name="description" content="Luxury Care Guide | 50 Mirars Haute Horlogerie & Eyewear Care">
+
+    <title>Luxury Care Guide | 50 Mirars</title>
+
+    <link rel="icon" href="logo.jpeg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================================
+           50 MIRARS — ULTRA-LUXURY DESIGN SYSTEM ARCHITECTURE
+        ============================================================ */
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        /* --- THEME SYSTEM VARIABLES --- */
+        :root[data-theme="dark"] {
+            --bg-main: #050505;
+            --bg-header: rgba(5, 5, 5, 0.85);
+            --bg-card: #0D0D0E;
+            --bg-card-glass: rgba(18, 18, 20, 0.65);
+            --bg-subtle: #121215;
+            
+            --text-primary: #F7F7F8;
+            --text-secondary: #A0A0AA;
+            --text-dark-contrast: #050505;
+            
+            --gold: #D4AF37;
+            --gold-light: #F9E7B9;
+            --gold-dark: #8C6D1F;
+            --gold-glow: rgba(212, 175, 55, 0.18);
+            --gold-glow-strong: rgba(212, 175, 55, 0.4);
+            --gold-gradient: linear-gradient(135deg, #B8860B 0%, #F5E6AD 25%, #D4AF37 50%, #FDF0A6 75%, #AA771C 100%);
+            --gold-border-gradient: linear-gradient(135deg, rgba(212, 175, 55, 0.4), rgba(255, 255, 255, 0.05), rgba(212, 175, 55, 0.2));
+            
+            --border-color: rgba(212, 175, 55, 0.22);
+            --border-subtle: rgba(255, 255, 255, 0.06);
+            --shadow-main: 0 35px 90px rgba(0, 0, 0, 0.8);
+            --shadow-card: 0 20px 60px rgba(0, 0, 0, 0.5);
+            --watermark-color: rgba(212, 175, 55, 0.035);
+            --grain-opacity: 0.35;
+        }
+
+        :root[data-theme="light"] {
+            --bg-main: #FAF8F5;
+            --bg-header: rgba(250, 248, 245, 0.88);
+            --bg-card: #FFFFFF;
+            --bg-card-glass: rgba(255, 255, 255, 0.82);
+            --bg-subtle: #F4EFEA;
+            
+            --text-primary: #121212;
+            --text-secondary: #5A5A62;
+            --text-dark-contrast: #FFFFFF;
+            
+            --gold: #A87E15;
+            --gold-light: #D4AF37;
+            --gold-dark: #6E5005;
+            --gold-glow: rgba(168, 126, 21, 0.12);
+            --gold-glow-strong: rgba(168, 126, 21, 0.3);
+            --gold-gradient: linear-gradient(135deg, #8C6509 0%, #D4AF37 30%, #A87E15 50%, #F5E6AD 75%, #735104 100%);
+            --gold-border-gradient: linear-gradient(135deg, rgba(168, 126, 21, 0.4), rgba(0, 0, 0, 0.05), rgba(168, 126, 21, 0.2));
+            
+            --border-color: rgba(168, 126, 21, 0.25);
+            --border-subtle: rgba(0, 0, 0, 0.06);
+            --shadow-main: 0 30px 80px rgba(168, 126, 21, 0.08);
+            --shadow-card: 0 15px 45px rgba(0, 0, 0, 0.04);
+            --watermark-color: rgba(168, 126, 21, 0.03);
+            --grain-opacity: 0.12;
+        }
+
+        :root {
+            --font-title: 'Cinzel', serif;
+            --font-heading: 'Cormorant Garamond', serif;
+            --font-body: 'Montserrat', sans-serif;
+            --transition-smooth: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* --- SCROLLBAR --- */
+        ::-webkit-scrollbar {
+            width: 7px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-main);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--gold-gradient);
+            border-radius: 4px;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            font-family: var(--font-body);
+            color: var(--text-primary);
+            line-height: 1.9;
+            overflow-x: hidden;
+            position: relative;
+            opacity: 0;
+            transition: background-color 0.6s ease, color 0.6s ease, opacity 1s ease;
+        }
+
+        /* Fine Subtle Grain Overlay */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image: radial-gradient(rgba(0,0,0,0.15) 1px, transparent 1px);
+            background-size: 6px 6px;
+            pointer-events: none;
+            opacity: var(--grain-opacity);
+            z-index: 1000;
+        }
+
+        /* Scroll Progress Line */
+        .progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2px;
+            width: 0%;
+            background: var(--gold-gradient);
+            box-shadow: 0 0 12px var(--gold-glow-strong);
+            z-index: 99999;
+        }
+
+        /* ================= HEADER ================= */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            padding: 22px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--bg-header);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border-bottom: 1px solid var(--border-subtle);
+            transition: var(--transition-smooth);
+        }
+
+        header::after {
+            content: "";
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        header img {
+            height: 42px;
+            transition: var(--transition-smooth);
+            filter: drop-shadow(0 0 12px var(--gold-glow));
+        }
+
+        header img:hover {
+            transform: scale(1.04);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .theme-toggle {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 10px 20px;
+            border-radius: 40px;
+            cursor: pointer;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition-smooth);
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--gold);
+            box-shadow: 0 0 25px var(--gold-glow);
+            transform: translateY(-2px);
+        }
+
+        .back-btn {
+            position: relative;
+            text-decoration: none;
+            padding: 11px 28px;
+            border-radius: 40px;
+            background: transparent;
+            color: var(--text-primary);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: 1px solid var(--border-color);
+            transition: var(--transition-smooth);
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .back-btn::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: var(--gold-gradient);
+            opacity: 0;
+            z-index: -1;
+            transition: var(--transition-smooth);
+        }
+
+        .back-btn:hover {
+            color: var(--text-dark-contrast);
+            border-color: transparent;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px var(--gold-glow-strong);
+        }
+
+        .back-btn:hover::before {
+            opacity: 1;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            position: relative;
+            padding: 190px 8% 140px;
+            text-align: center;
+            background: 
+                radial-gradient(circle at 50% 20%, var(--gold-glow), transparent 70%),
+                linear-gradient(180deg, var(--bg-main) 0%, var(--bg-subtle) 100%);
+            color: var(--text-primary);
+            overflow: hidden;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .hero::before {
+            content: "50 MIRARS";
+            position: absolute;
+            left: 50%;
+            top: 48%;
+            transform: translate(-50%, -50%);
+            font-family: var(--font-title);
+            font-size: clamp(90px, 16vw, 280px);
+            font-weight: 800;
+            letter-spacing: 30px;
+            color: var(--watermark-color);
+            white-space: nowrap;
+            pointer-events: none;
+        }
+
+        .sparkles {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .sparkles span {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: var(--gold-light);
+            border-radius: 50%;
+            box-shadow: 0 0 15px var(--gold);
+            animation: float 14s infinite ease-in-out;
+        }
+
+        .sparkles span:nth-child(1) { top: 20%; left: 15%; animation-delay: 0s; }
+        .sparkles span:nth-child(2) { top: 35%; right: 20%; animation-delay: 3s; }
+        .sparkles span:nth-child(3) { bottom: 30%; left: 25%; animation-delay: 6s; }
+        .sparkles span:nth-child(4) { bottom: 20%; right: 15%; animation-delay: 9s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); opacity: 0.15; }
+            50% { transform: translateY(-35px) scale(1.6); opacity: 0.85; }
+        }
+
+        .hero-subtitle {
+            font-family: var(--font-title);
+            font-size: clamp(10px, 1.2vw, 13px);
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 20px;
+            display: block;
+            animation: fadeUp 1s ease forwards;
+        }
+
+        .hero h1 {
+            position: relative;
+            font-family: var(--font-heading);
+            font-size: clamp(54px, 7vw, 98px);
+            font-weight: 400;
+            letter-spacing: 2px;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeUp 1.2s ease forwards;
+        }
+
+        .hero p {
+            position: relative;
+            max-width: 820px;
+            margin: 0 auto;
+            font-size: clamp(15px, 1.4vw, 18px);
+            font-weight: 300;
+            color: var(--text-secondary);
+            letter-spacing: 0.5px;
+            line-height: 2;
+            animation: fadeUp 1.4s ease forwards;
+        }
+
+        .read-meta {
+            position: relative;
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            animation: fadeUp 1.6s ease forwards;
+        }
+
+        .read-badge {
+            padding: 10px 24px;
+            border-radius: 40px;
+            background: var(--bg-card-glass);
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(15px);
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-primary);
+            transition: var(--transition-smooth);
+        }
+
+        .read-badge:hover {
+            transform: translateY(-3px);
+            border-color: var(--gold);
+            box-shadow: 0 10px 25px var(--gold-glow);
+        }
+
+        .gold-line {
+            position: relative;
+            width: 140px;
+            height: 1px;
+            margin: 60px auto 0;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            overflow: hidden;
+        }
+
+        .gold-line::after {
+            content: "";
+            position: absolute;
+            left: -40%;
+            top: 0;
+            width: 40%;
+            height: 100%;
+            background: #FFFFFF;
+            filter: blur(2px);
+            animation: shine 4s infinite;
+        }
+
+        @keyframes shine {
+            100% { left: 140%; }
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ================= MAIN CONTAINER ================= */
+
+        .container {
+            width: 90%;
+            max-width: 1280px;
+            margin: 100px auto;
+        }
+
+        /* ================= SECTIONS ================= */
+
+        .section {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 90px;
+            align-items: center;
+            margin: 160px 0;
+            opacity: 0;
+            transform: translateY(60px);
+            transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .section.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reverse {
+            direction: rtl;
+        }
+
+        .reverse > * {
+            direction: ltr;
+        }
+
+        .section::after {
+            content: "";
+            position: absolute;
+            bottom: -80px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--border-color), transparent);
+        }
+
+        /* Luxury Image Frame */
+        .img-wrap {
+            position: relative;
+            border-radius: 20px;
+            padding: 12px;
+            background: var(--bg-card);
+            box-shadow: var(--shadow-card);
+            transition: var(--transition-smooth);
+        }
+
+        .img-wrap::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            padding: 1px;
+            background: var(--gold-border-gradient);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0.6;
+            transition: var(--transition-smooth);
+        }
+
+        .section img {
+            width: 100%;
+            height: 540px;
+            object-fit: cover;
+            border-radius: 12px;
+            display: block;
+            filter: brightness(0.95) contrast(1.05);
+            transition: var(--transition-smooth);
+        }
+
+        .img-wrap:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 70px var(--gold-glow-strong);
+        }
+
+        .img-wrap:hover img {
+            filter: brightness(1.02) contrast(1.08);
+            transform: scale(1.02);
+        }
+
+        .img-wrap:hover::before {
+            opacity: 1;
+        }
+
+        .text {
+            position: relative;
+            padding: 10px 0;
+        }
+
+        .chapter {
+            position: absolute;
+            top: -65px;
+            left: -10px;
+            font-family: var(--font-title);
+            font-size: clamp(90px, 11vw, 150px);
+            font-weight: 700;
+            color: var(--watermark-color);
+            line-height: 1;
+            user-select: none;
+            z-index: -1;
+        }
+
+        .text h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(34px, 3.6vw, 50px);
+            font-weight: 400;
+            line-height: 1.25;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+            position: relative;
+        }
+
+        .text h2::after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 2px;
+            margin-top: 18px;
+            background: var(--gold-gradient);
+            border-radius: 2px;
+        }
+
+        .text p {
+            font-size: clamp(14px, 1.1vw, 16px);
+            color: var(--text-secondary);
+            text-align: justify;
+            line-height: 2;
+            font-weight: 300;
+        }
+
+        .text p::first-letter {
+            font-family: var(--font-heading);
+            font-size: 64px;
+            font-weight: 500;
+            color: var(--gold);
+            float: left;
+            line-height: 0.75;
+            margin-right: 14px;
+            margin-top: 6px;
+        }
+
+        /* ================= QUOTE ================= */
+
+        .quote {
+            margin: 180px 0;
+            padding: 110px 8%;
+            border-radius: 28px;
+            background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-subtle) 100%);
+            color: var(--text-primary);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-main);
+            border: 1px solid var(--border-color);
+            transition: var(--transition-smooth);
+        }
+
+        .quote::before {
+            content: "“";
+            position: absolute;
+            top: -40px;
+            left: 50px;
+            font-size: 240px;
+            font-family: var(--font-heading);
+            color: var(--watermark-color);
+            pointer-events: none;
+        }
+
+        .quote h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(36px, 4.2vw, 62px);
+            font-weight: 400;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .quote p {
+            font-size: clamp(16px, 1.6vw, 21px);
+            color: var(--text-secondary);
+            font-weight: 300;
+            max-width: 800px;
+            margin: 0 auto;
+            font-style: italic;
+            font-family: var(--font-heading);
+        }
+
+        /* ================= CHECKLIST ================= */
+
+        .checklist {
+            background: var(--bg-card);
+            padding: 90px 8%;
+            border-radius: 28px;
+            box-shadow: var(--shadow-card);
+            margin-bottom: 160px;
+            border: 1px solid var(--border-color);
+            transition: var(--transition-smooth);
+        }
+
+        .checklist h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(36px, 3.8vw, 52px);
+            font-weight: 400;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--text-primary);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .item {
+            padding: 28px 32px;
+            background: var(--bg-subtle);
+            border-left: 2px solid var(--gold);
+            border-radius: 12px;
+            transition: var(--transition-smooth);
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .item span.icon {
+            color: var(--gold);
+            font-size: 16px;
+        }
+
+        .item:hover {
+            transform: translateY(-6px);
+            background: var(--bg-card);
+            box-shadow: 0 15px 35px var(--gold-glow);
+            border-left-color: var(--gold-light);
+        }
+
+        /* ================= CERTIFICATE ================= */
+
+        .certificate {
+            margin: 160px 0;
+            padding: 100px 8%;
+            border-radius: 28px;
+            background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-subtle) 100%);
+            color: var(--text-primary);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-main);
+            transition: var(--transition-smooth);
+        }
+
+        .certificate::before {
+            content: "AUTHENTIC";
+            position: absolute;
+            top: 40px;
+            right: -40px;
+            font-family: var(--font-title);
+            font-size: clamp(70px, 12vw, 150px);
+            font-weight: 700;
+            color: var(--watermark-color);
+            transform: rotate(-12deg);
+            pointer-events: none;
+        }
+
+        .certificate h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(36px, 4vw, 56px);
+            font-weight: 400;
+            margin-bottom: 24px;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .certificate p {
+            max-width: 760px;
+            margin: 0 auto;
+            font-size: clamp(15px, 1.4vw, 18px);
+            color: var(--text-secondary);
+            font-weight: 300;
+            line-height: 2;
+        }
+
+        .gold-seal {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 45px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle, var(--gold-glow-strong) 0%, transparent 70%);
+            border: 1px solid var(--gold);
+            font-size: 32px;
+            color: var(--gold);
+            box-shadow: 0 0 35px var(--gold-glow);
+            transition: var(--transition-smooth);
+        }
+
+        .certificate:hover .gold-seal {
+            transform: scale(1.08) rotate(15deg);
+            box-shadow: 0 0 50px var(--gold-glow-strong);
+        }
+
+        /* ================= CTA ================= */
+
+        .cta {
+            background: var(--bg-card);
+            padding: 100px 8%;
+            border-radius: 28px;
+            text-align: center;
+            box-shadow: var(--shadow-card);
+            border: 1px solid var(--border-color);
+            transition: var(--transition-smooth);
+            margin-bottom: 80px;
+        }
+
+        .cta h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(38px, 4.2vw, 56px);
+            font-weight: 400;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        .cta p {
+            font-size: clamp(15px, 1.4vw, 19px);
+            color: var(--text-secondary);
+            margin-bottom: 45px;
+            font-weight: 300;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta a {
+            position: relative;
+            display: inline-block;
+            padding: 22px 54px;
+            border-radius: 50px;
+            background: var(--text-primary);
+            color: var(--bg-main);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            transition: var(--transition-smooth);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .cta a::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: var(--gold-gradient);
+            opacity: 0;
+            z-index: -1;
+            transition: var(--transition-smooth);
+        }
+
+        .cta a:hover {
+            color: var(--text-dark-contrast);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px var(--gold-glow-strong);
+        }
+
+        .cta a:hover::before {
+            opacity: 1;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            padding: 60px 8% 40px;
+            text-align: center;
+            border-top: 1px solid var(--border-subtle);
+            font-size: 12px;
+            color: var(--text-secondary);
+            letter-spacing: 1px;
+        }
+
+        footer p {
+            font-weight: 300;
+        }
+
+        /* ================= TOP BUTTON ================= */
+
+        .top-btn {
+            position: fixed;
+            right: 40px;
+            bottom: 40px;
+            width: 52px;
+            height: 52px;
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            background: var(--bg-header);
+            backdrop-filter: blur(10px);
+            color: var(--gold);
+            font-size: 18px;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition-smooth);
+            box-shadow: var(--shadow-card);
+            z-index: 998;
+        }
+
+        .top-btn.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .top-btn:hover {
+            background: var(--gold-gradient);
+            color: var(--text-dark-contrast);
+            border-color: transparent;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px var(--gold-glow-strong);
+        }
+
+        /* ================= RESPONSIVE DESIGN ================= */
+
+        @media (max-width: 992px) {
+            .section {
+                grid-template-columns: 1fr;
+                gap: 50px;
+                margin: 110px 0;
+            }
+
+            .reverse {
+                direction: ltr;
+            }
+
+            .section img {
+                height: 420px;
+            }
+            
+            header {
+                padding: 18px 5%;
+            }
+
+            .hero {
+                padding: 150px 5% 100px;
+            }
+            
+            .checklist, .quote, .certificate, .cta {
+                padding: 60px 6%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section img {
+                height: 340px;
+            }
+            
+            .top-btn {
+                right: 20px;
+                bottom: 20px;
+                width: 46px;
+                height: 46px;
+                font-size: 15px;
+            }
+            
+            .theme-toggle span:last-child {
+                display: none;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<div class="progress" id="progress"></div>
+    <div class="progress" id="progress"></div>
 
-<header>
-    <div class="header-left">
-        <img src="logo.jpeg" alt="50 Mirars">
-    </div>
-    
-    <div class="header-actions">
-        <!-- Theme Switcher Toggle -->
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
-            <span id="themeIcon">🌙</span>
-            <span id="themeText">Dark</span>
-        </button>
-        <a href="profile.html" class="back-btn">← Back</a>
-    </div>
-</header>
-
-<section class="hero">
-    <div class="sparkles">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-
-    <h1>Luxury Care Guide</h1>
-    <p>Every timepiece tells a story, and every pair of sunglasses reflects a lifestyle. Discover our complete luxury care handbook designed to preserve the beauty, performance, and elegance of your 50 Mirars collection for years to come.</p>
-
-    <div class="read-meta">
-        <div class="read-badge">⌚ Watch Care</div>
-        <div class="read-badge">🕶 Sunglasses Care</div>
-        <div class="read-badge">✨ Premium Handbook</div>
-    </div>
-
-    <div class="gold-line"></div>
-</section>
-
-<!-- ================= MAIN CONTAINER ================= -->
-
-<div class="container">
-
-    <!-- ================= SECTION 1 ================= -->
-    <div class="section" id="sec1">
-        <div class="img-wrap">
-            <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=1200&q=80" alt="Luxury Watch">
+    <header>
+        <div class="header-left">
+            <img src="logo.jpeg" alt="50 Mirars Logo">
         </div>
-        <div class="text">
-            <div class="chapter">01</div>
-            <h2>The Art of Caring for Luxury Accessories</h2>
-            <p>
-                Luxury accessories are more than everyday essentials—they become a reflection of your personality, confidence, and the memorable moments you experience throughout life. Every premium watch records valuable moments, while every pair of sunglasses accompanies journeys, celebrations, and everyday adventures with effortless elegance. Caring for these accessories is about preserving craftsmanship, precision, and premium finishes through thoughtful habits such as proper cleaning, careful storage, and gentle handling.
-            </p>
-        </div>
-    </div>
-
-    <!-- ================= SECTION 2 ================= -->
-    <div class="section reverse" id="sec2">
-        <div class="img-wrap">
-            <img src="Seiko Blue Moon SSA347J1.jpeg" alt="Seiko Blue Moon">
-        </div>
-        <div class="text">
-            <div class="chapter">02</div>
-            <h2>Keep Your Watch Crystal Clean</h2>
-            <p>
-                The crystal is one of the most beautiful features of a luxury watch. Fingerprints, dust, and skin oils gradually reduce its brilliance throughout the day. Use a clean microfiber cloth to gently wipe the crystal, bezel, and bracelet, while avoiding tissues or harsh cleaners that may create microscopic scratches. This simple routine preserves the refined elegance of your timepiece.
-            </p>
-        </div>
-    </div>
-
-    <!-- ================= SECTION 3 ================= -->
-    <div class="section" id="sec3">
-        <div class="img-wrap">
-            <img src="Cartier CT0579S.jpeg" alt="Cartier Sunglasses">
-        </div>
-        <div class="text">
-            <div class="chapter">03</div>
-            <h2>Respect Water Resistance</h2>
-            <p>
-                Water resistance is designed to protect your watch, but hot showers, steam, and swimming pools can gradually weaken protective seals. Always ensure the crown is fully secured before water exposure, and gently dry your watch afterward with a microfiber cloth. Respecting these limits helps preserve accuracy, reliability, and timeless luxury.
-            </p>
-        </div>
-    </div>
-
-    <!-- ================= SECTION 4 ================= -->
-    <div class="section reverse" id="sec4">
-        <div class="img-wrap">
-            <img src="https://images.unsplash.com/photo-1612817159949-195b6eb9e31a?auto=format&fit=crop&w=1200&q=80" alt="Luxury Watch Storage">
-        </div>
-        <div class="text">
-            <div class="chapter">04</div>
-            <h2>Store It Like a Collector</h2>
-            <p>
-                The way you store your watch is just as important as the way you wear it. Experienced collectors understand that proper storage protects both beauty and performance. Instead of leaving your watch on a bedside table or inside a crowded drawer, keep it inside a dedicated watch box or a soft protective pouch whenever it is not being worn. Store it in a cool, dry place away from direct sunlight, excessive humidity, and strong magnetic devices that may affect certain movements over time. Giving every watch its own space helps preserve polished finishes, delicate edges, and premium materials while ensuring it remains ready for every important occasion with timeless elegance.
-            </p>
-        </div>
-    </div>
-
-    <!-- ================= LUXURY QUOTE ================= -->
-    <div class="quote">
-        <h2>Luxury Lives in the Details</h2>
-        <p>
-            The finest accessories remain timeless because they're cared for with intention, patience, and respect.
-        </p>
-    </div>
-
-    <!-- ================= SECTION 5 ================= -->
-    <div class="section" id="sec5">
-        <div class="img-wrap">
-            <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=1200&q=80" alt="Luxury Sunglasses Cleaning">
-        </div>
-        <div class="text">
-            <div class="chapter">05</div>
-            <h2>Clean Sunglasses Properly</h2>
-            <p>
-                Premium sunglasses combine elegant design with advanced lens technology, making proper cleaning one of the most important habits for preserving their luxurious appearance. Remove loose dust first to avoid scratching the lenses, then use a clean microfiber cloth together with a lens-safe cleaning solution. Avoid shirts, paper tissues, or harsh household cleaners because they can damage delicate protective coatings. A careful cleaning routine keeps your lenses crystal clear while maintaining the refined appearance that defines premium eyewear.
-            </p>
-        </div>
-    </div>
-
-    <!-- ================= SECTION 6 ================= -->
-    <div class="section reverse" id="sec6">
-        <div class="img-wrap">
-            <img src="Cartier kit.jpg" alt="Cartier Protective Case">
-        </div>
-        <div class="text">
-            <div class="chapter">06</div>
-            <h2>Always Use a Protective Case</h2>
-            <p>
-                A protective case is one of the simplest yet most valuable investments you can make for your premium sunglasses. Even high-quality frames remain vulnerable to scratches, pressure, and accidental drops when left unprotected inside a bag or placed carelessly on a table. A hard protective case absorbs impact while protecting delicate hinges, temples, and premium lenses. Fold your sunglasses carefully before storing them, and this small habit will help preserve their alignment, comfort, and luxurious finish for years.
-            </p>
-        </div>
-    </div>
-
-    <!-- ================= SECTION 7 ================= -->
-    <div class="section" id="sec7">
-        <div class="img-wrap">
-            <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=80" alt="Heat Protection">
-        </div>
-        <div class="text">
-            <div class="chapter">07</div>
-            <h2>Protect Against Heat</h2>
-            <p>
-                Excessive heat is one of the most overlooked threats to premium sunglasses because it can slowly affect both the frame and the lenses without causing immediate visible damage. Leaving your sunglasses inside a parked car, placing them near heating vents, or exposing them to intense sunlight for long periods may gradually warp the frame and weaken delicate lens coatings. Whenever possible, keep them inside their protective case and store them in a cool, shaded environment to preserve their original shape, optical clarity, and premium appearance.
-            </p>
-        </div>
-    </div>
-
-    <!-- ================= SECTION 8 ================= -->
-    <div class="section reverse" id="sec8">
-        <div class="img-wrap">
-            <img src="https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=1200&q=80" alt="Handle Frames Carefully">
-        </div>
-        <div class="text">
-            <div class="chapter">08</div>
-            <h2>Handle Frames with Care</h2>
-            <p>
-                Luxury sunglasses are engineered for both comfort and elegant styling, which is why proper handling makes a noticeable difference over time. Always use both hands when putting on or removing your sunglasses to distribute pressure evenly across the frame. Removing them with one hand repeatedly can gradually loosen hinges, affect alignment, and reduce the comfortable fit that premium eyewear is designed to provide. Keep the lenses facing upward whenever they are placed on a surface, and dry them gently before returning them to their protective case after exposure to rain or perspiration.
-            </p>
-        </div>
-    </div>
-
-    <!-- ================= SECTION 9 ================= -->
-    <div class="section" id="sec9">
-        <div class="img-wrap">
-            <img src="https://images.unsplash.com/photo-1577803645773-f96470509666?auto=format&fit=crop&w=1200&q=80" alt="Luxury Maintenance">
-        </div>
-        <div class="text">
-            <div class="chapter">09</div>
-            <h2>Regular Maintenance Matters</h2>
-            <p>
-                Regular maintenance is one of the easiest ways to keep luxury accessories performing and looking their best because small checks today often prevent larger problems tomorrow. Inspect your watches and sunglasses every few weeks for loose screws, worn hinges, hidden dust, or other signs of everyday wear. Tightening a loose hinge early can prevent unnecessary repairs, while professional servicing after years of regular use helps preserve precision, comfort, and long-term performance.
-            </p>
-        </div>
-    </div>
-
-    <!-- ================= SECTION 10 ================= -->
-    <div class="section reverse" id="sec10">
-        <div class="img-wrap">
-            <img src="Rolex Sky-Dweller.jpeg" alt="Rolex Sky Dweller">
-        </div>
-        <div class="text">
-            <div class="chapter">10</div>
-            <h2>Preserve the Luxury Experience</h2>
-            <p>
-                True luxury is not defined only by owning premium accessories—it is defined by preserving them with pride, appreciation, and thoughtful care throughout every stage of their journey. Every careful cleaning routine, every protective case, every proper storage habit, and every small maintenance check contributes to a collection that continues looking elegant year after year. At 50 Mirars, we believe every premium accessory deserves care that matches the quality with which it was created, allowing timeless elegance to accompany you every single day.
-            </p>
-        </div>
-    </div>
-
-    <!-- ================= GOLDEN CHECKLIST ================= -->
-    <div class="checklist">
-        <h2>Golden Care Checklist</h2>
-        <div class="grid">
-            <div class="item">✔ Clean with a microfiber cloth only.</div>
-            <div class="item">✔ Store products in a protective case.</div>
-            <div class="item">✔ Keep away from excessive heat.</div>
-            <div class="item">✔ Remove watches during heavy impact activities.</div>
-            <div class="item">✔ Keep the crown securely closed.</div>
-            <div class="item">✔ Check hinges and screws regularly.</div>
-        </div>
-    </div>
-
-    <!-- ================= CERTIFICATE ================= -->
-    <div class="certificate">
-        <h2>Luxury Care Certificate</h2>
-        <div class="gold-seal">★</div>
-        <p>
-            Every customer who follows this guide becomes part of the 50 Mirars promise of timeless elegance. Your commitment to proper care helps preserve the beauty, craftsmanship, and lasting performance of every premium watch and pair of sunglasses.
-        </p>
-    </div>
-
-    <!-- ================= FINAL CTA ================= -->
-    <div class="cta">
-        <h2>Luxury Deserves Lasting Care</h2>
-        <p>
-            Give every watch and every pair of sunglasses the attention they deserve, and they'll continue reflecting elegance for years to come.
-        </p>
-        <a href="index.html">Continue Shopping</a>
-    </div>
-
-</div>
-
-<!-- ================= SCROLL BUTTON ================= -->
-<button class="top-btn" id="topBtn">↑</button>
-
-<script>
-/* ===== Dark / Light Theme Engine ===== */
-const themeToggleBtn = document.getElementById("themeToggle");
-const themeIcon = document.getElementById("themeIcon");
-const themeText = document.getElementById("themeText");
-const htmlElement = document.documentElement;
-
-// Read saved preference or default to dark
-const savedTheme = localStorage.getItem("theme") || "dark";
-setTheme(savedTheme);
-
-themeToggleBtn.addEventListener("click", () => {
-    const currentTheme = htmlElement.getAttribute("data-theme");
-    const newTheme = currentTheme === "dark" ? "light" : "dark";
-    setTheme(newTheme);
-});
-
-function setTheme(theme) {
-    htmlElement.setAttribute("data-theme", theme);
-    localStorage.setItem("theme", theme);
-    
-    if (theme === "dark") {
-        themeIcon.textContent = "🌙";
-        themeText.textContent = "Dark";
-    } else {
-        themeIcon.textContent = "☀️";
-        themeText.textContent = "Light";
-    }
-}
-
-/* ===== Intersection Observer for Smooth Reveal ===== */
-const sections = document.querySelectorAll(".section");
-
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-        }
-    });
-}, {
-    threshold: 0.15
-});
-
-sections.forEach(section => observer.observe(section));
-
-/* ===== Scroll Progress & Smooth Top Button ===== */
-const progress = document.getElementById("progress");
-const topBtn = document.getElementById("topBtn");
-
-window.addEventListener("scroll", () => {
-    const scrollTop = document.documentElement.scrollTop;
-    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    
-    progress.style.width = (scrollTop / height) * 100 + "%";
-    topBtn.classList.toggle("show", window.scrollY > 600);
-});
-
-/* ===== Back To Top ===== */
-topBtn.addEventListener("click", () => {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-});
-
-/* ===== Gold Badge Glow Effect ===== */
-document.querySelectorAll(".read-badge").forEach(badge => {
-    badge.addEventListener("mousemove", e => {
-        const rect = badge.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
         
-        const isDark = htmlElement.getAttribute("data-theme") === "dark";
-        const glowColor = isDark ? "rgba(212,175,55,0.3)" : "rgba(184,134,11,0.2)";
-        
-        badge.style.background = `radial-gradient(circle at ${x}px ${y}px, ${glowColor}, var(--bg-card-glass))`;
-    });
-    
-    badge.addEventListener("mouseleave", () => {
-        badge.style.background = "var(--bg-card-glass)";
-    });
-});
+        <div class="header-actions">
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
+                <span id="themeIcon">🌙</span>
+                <span id="themeText">Dark</span>
+            </button>
+            <a href="profile.html" class="back-btn">← Back</a>
+        </div>
+    </header>
 
-/* ===== Luxury Page Fade In ===== */
-window.addEventListener("load", () => {
-    document.body.style.opacity = "1";
-});
-</script>
+    <section class="hero">
+        <div class="sparkles">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <span class="hero-subtitle">Haute Care & Maintenance</span>
+        <h1>Luxury Care Handbook</h1>
+        <p>Every timepiece records legacy, and every frame defines perspective. Explore our definitive luxury care guide designed to preserve the beauty, mechanical precision, and timeless prestige of your 50 Mirars collection.</p>
+
+        <div class="read-meta">
+            <div class="read-badge">⌚ Horlogerie Care</div>
+            <div class="read-badge">🕶 Eyewear Care</div>
+            <div class="read-badge">✨ Preservation Guide</div>
+        </div>
+
+        <div class="gold-line"></div>
+    </section>
+
+    <div class="container">
+
+        <div class="section" id="sec1">
+            <div class="img-wrap">
+                <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=1200&q=80" alt="Luxury Watch Detail">
+            </div>
+            <div class="text">
+                <div class="chapter">01</div>
+                <h2>The Art of Caring for Luxury Accessories</h2>
+                <p>
+                    Luxury accessories are more than everyday essentials—they become a reflection of your personality, confidence, and the memorable moments you experience throughout life. Every premium watch records valuable moments, while every pair of sunglasses accompanies journeys, celebrations, and everyday adventures with effortless elegance. Caring for these accessories is about preserving craftsmanship, precision, and premium finishes through thoughtful habits such as proper cleaning, careful storage, and gentle handling.
+                </p>
+            </div>
+        </div>
+
+        <div class="section reverse" id="sec2">
+            <div class="img-wrap">
+                <img src="Seiko Blue Moon SSA347J1.jpeg" alt="Seiko Blue Moon Timepiece">
+            </div>
+            <div class="text">
+                <div class="chapter">02</div>
+                <h2>Keep Your Watch Crystal Clean</h2>
+                <p>
+                    The crystal is one of the most beautiful features of a luxury watch. Fingerprints, dust, and skin oils gradually reduce its brilliance throughout the day. Use a clean microfiber cloth to gently wipe the crystal, bezel, and bracelet, while avoiding tissues or harsh cleaners that may create microscopic scratches. This simple routine preserves the refined elegance of your timepiece.
+                </p>
+            </div>
+        </div>
+
+        <div class="section" id="sec3">
+            <div class="img-wrap">
+                <img src="Cartier CT0579S.jpeg" alt="Cartier Luxury Eyewear">
+            </div>
+            <div class="text">
+                <div class="chapter">03</div>
+                <h2>Respect Water Resistance</h2>
+                <p>
+                    Water resistance is designed to protect your watch, but hot showers, steam, and swimming pools can gradually weaken protective seals. Always ensure the crown is fully secured before water exposure, and gently dry your watch afterward with a microfiber cloth. Respecting these limits helps preserve accuracy, reliability, and timeless luxury.
+                </p>
+            </div>
+        </div>
+
+        <div class="section reverse" id="sec4">
+            <div class="img-wrap">
+                <img src="https://images.unsplash.com/photo-1612817159949-195b6eb9e31a?auto=format&fit=crop&w=1200&q=80" alt="Luxury Watch Box Storage">
+            </div>
+            <div class="text">
+                <div class="chapter">04</div>
+                <h2>Store It Like a Collector</h2>
+                <p>
+                    The way you store your watch is just as important as the way you wear it. Experienced collectors understand that proper storage protects both beauty and performance. Instead of leaving your watch on a bedside table or inside a crowded drawer, keep it inside a dedicated watch box or a soft protective pouch whenever it is not being worn. Store it in a cool, dry place away from direct sunlight, excessive humidity, and strong magnetic devices that may affect certain movements over time.
+                </p>
+            </div>
+        </div>
+
+        <div class="quote">
+            <h2>Luxury Lives in the Details</h2>
+            <p>
+                "The finest accessories remain timeless because they're cared for with intention, patience, and respect."
+            </p>
+        </div>
+
+        <div class="section" id="sec5">
+            <div class="img-wrap">
+                <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=1200&q=80" alt="Luxury Sunglasses Cleaning">
+            </div>
+            <div class="text">
+                <div class="chapter">05</div>
+                <h2>Clean Sunglasses Properly</h2>
+                <p>
+                    Premium sunglasses combine elegant design with advanced lens technology, making proper cleaning one of the most important habits for preserving their luxurious appearance. Remove loose dust first to avoid scratching the lenses, then use a clean microfiber cloth together with a lens-safe cleaning solution. Avoid shirts, paper tissues, or harsh household cleaners because they can damage delicate protective coatings.
+                </p>
+            </div>
+        </div>
+
+        <div class="section reverse" id="sec6">
+            <div class="img-wrap">
+                <img src="Cartier kit.jpg" alt="Cartier Protective Leather Case">
+            </div>
+            <div class="text">
+                <div class="chapter">06</div>
+                <h2>Always Use a Protective Case</h2>
+                <p>
+                    A protective case is one of the simplest yet most valuable investments you can make for your premium sunglasses. Even high-quality frames remain vulnerable to scratches, pressure, and accidental drops when left unprotected inside a bag or placed carelessly on a table. A hard protective case absorbs impact while protecting delicate hinges, temples, and premium lenses.
+                </p>
+            </div>
+        </div>
+
+        <div class="section" id="sec7">
+            <div class="img-wrap">
+                <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=80" alt="Sunglasses Thermal Protection">
+            </div>
+            <div class="text">
+                <div class="chapter">07</div>
+                <h2>Protect Against Heat</h2>
+                <p>
+                    Excessive heat is one of the most overlooked threats to premium sunglasses because it can slowly affect both the frame and the lenses without causing immediate visible damage. Leaving your sunglasses inside a parked car, placing them near heating vents, or exposing them to intense sunlight for long periods may gradually warp the frame and weaken delicate lens coatings.
+                </p>
+            </div>
+        </div>
+
+        <div class="section reverse" id="sec8">
+            <div class="img-wrap">
+                <img src="https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=1200&q=80" alt="Handling Luxury Frame">
+            </div>
+            <div class="text">
+                <div class="chapter">08</div>
+                <h2>Handle Frames with Care</h2>
+                <p>
+                    Luxury sunglasses are engineered for both comfort and elegant styling, which is why proper handling makes a noticeable difference over time. Always use both hands when putting on or removing your sunglasses to distribute pressure evenly across the frame. Removing them with one hand repeatedly can gradually loosen hinges and affect alignment.
+                </p>
+            </div>
+        </div>
+
+        <div class="section" id="sec9">
+            <div class="img-wrap">
+                <img src="https://images.unsplash.com/photo-1577803645773-f96470509666?auto=format&fit=crop&w=1200&q=80" alt="Watch Maintenance and Inspection">
+            </div>
+            <div class="text">
+                <div class="chapter">09</div>
+                <h2>Regular Maintenance Matters</h2>
+                <p>
+                    Regular maintenance is one of the easiest ways to keep luxury accessories performing and looking their best because small checks today often prevent larger problems tomorrow. Inspect your watches and sunglasses every few weeks for loose screws, worn hinges, hidden dust, or other signs of everyday wear.
+                </p>
+            </div>
+        </div>
+
+        <div class="section reverse" id="sec10">
+            <div class="img-wrap">
+                <img src="Rolex Sky-Dweller.jpeg" alt="Rolex Sky-Dweller Masterpiece">
+            </div>
+            <div class="text">
+                <div class="chapter">10</div>
+                <h2>Preserve the Luxury Experience</h2>
+                <p>
+                    True luxury is not defined only by owning premium accessories—it is defined by preserving them with pride, appreciation, and thoughtful care throughout every stage of their journey. Every careful cleaning routine, every protective case, every proper storage habit, and every small maintenance check contributes to a collection that continues looking elegant year after year.
+                </p>
+            </div>
+        </div>
+
+        <div class="checklist">
+            <h2>Golden Care Checklist</h2>
+            <div class="grid">
+                <div class="item"><span class="icon">✦</span> Clean exclusively with premium microfiber cloth.</div>
+                <div class="item"><span class="icon">✦</span> Store products in dedicated protective cases.</div>
+                <div class="item"><span class="icon">✦</span> Protect against high heat and thermal shocks.</div>
+                <div class="item"><span class="icon">✦</span> Remove timepieces during high-impact activities.</div>
+                <div class="item"><span class="icon">✦</span> Ensure winding crown is fully secured.</div>
+                <div class="item"><span class="icon">✦</span> Inspect hinges and micro-screws periodically.</div>
+            </div>
+        </div>
+
+        <div class="certificate">
+            <h2>Luxury Care Certificate</h2>
+            <div class="gold-seal">★</div>
+            <p>
+                Every customer who follows this guide becomes part of the 50 Mirars promise of timeless elegance. Your commitment to proper care helps preserve the beauty, craftsmanship, and lasting performance of every premium watch and pair of sunglasses.
+            </p>
+        </div>
+
+        <div class="cta">
+            <h2>Luxury Deserves Excellence</h2>
+            <p>Explore our latest curated luxury collections and discover hand-picked timepieces and designer eyewear crafted for extraordinary moments.</p>
+            <a href="profile.html">Explore Collection</a>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>© 2026 50 MIRARS. ALL RIGHTS RESERVED. HAUTE HORLOGERIE & EYEWEAR CARE.</p>
+    </footer>
+
+    <button class="top-btn" id="topBtn" aria-label="Scroll to Top">↑</button>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Fade-in effect on load
+            document.body.style.opacity = "1";
+
+            // Scroll Progress Line
+            const progress = document.getElementById("progress");
+            const topBtn = document.getElementById("topBtn");
+
+            window.addEventListener("scroll", () => {
+                const totalScroll = document.documentElement.scrollTop;
+                const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrollPercent = (totalScroll / windowHeight) * 100;
+                
+                if (progress) {
+                    progress.style.width = scrollPercent + "%";
+                }
+
+                if (totalScroll > 400) {
+                    topBtn.classList.add("show");
+                } else {
+                    topBtn.classList.remove("show");
+                }
+            });
+
+            // Smooth Scroll to Top
+            topBtn.addEventListener("click", () => {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            });
+
+            // Dynamic Theme Switcher logic
+            const themeToggle = document.getElementById("themeToggle");
+            const themeIcon = document.getElementById("themeIcon");
+            const themeText = document.getElementById("themeText");
+            const htmlTag = document.documentElement;
+
+            themeToggle.addEventListener("click", () => {
+                const currentTheme = htmlTag.getAttribute("data-theme");
+                const newTheme = currentTheme === "dark" ? "light" : "dark";
+                
+                htmlTag.setAttribute("data-theme", newTheme);
+                themeIcon.textContent = newTheme === "dark" ? "🌙" : "☀️";
+                themeText.textContent = newTheme === "dark" ? "Dark" : "Light";
+            });
+
+            // Intersection Observer for Section Reveal
+            const sections = document.querySelectorAll(".section");
+            const observerOptions = {
+                threshold: 0.15
+            };
+
+            const sectionObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("show");
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                sectionObserver.observe(section);
+            });
+        });
+    </script>
 
 </body>
 </html>
