@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=1200">
-    <title>ROLEX DAYTONA — High Fashion Editorial</title>
+    <title>ROLEX COSMOGRAPH DAYTONA — High Fashion Editorial</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -31,7 +31,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 3rem;
+            gap: 4rem;
             padding: 3rem 1rem;
         }
 
@@ -62,7 +62,7 @@
         /* Typography Essentials */
         .giant-title {
             font-family: 'Oswald', sans-serif;
-            font-size: 3.8rem;
+            font-size: 3.6rem;
             line-height: 0.9;
             text-transform: uppercase;
             color: var(--text-dark);
@@ -91,8 +91,8 @@
         }
 
         p {
-            font-size: 0.85rem;
-            line-height: 1.6;
+            font-size: 0.82rem;
+            line-height: 1.65;
             color: var(--text-dark);
             text-align: justify;
             margin-bottom: 1rem;
@@ -133,7 +133,7 @@
             color: var(--white);
         }
 
-        /* Image Styling */
+        /* Image Frame Styling */
         .img-frame {
             background-color: #000;
             overflow: hidden;
@@ -145,14 +145,15 @@
             height: 100%;
             object-fit: cover;
             filter: grayscale(100%);
-            transition: filter 0.5s ease;
+            transition: filter 0.5s ease, transform 0.5s ease;
         }
 
         .img-frame img:hover {
             filter: grayscale(0%);
+            transform: scale(1.03);
         }
 
-        /* Content Grids */
+        /* Content Grids & Layouts */
         .two-col-text {
             column-count: 2;
             column-gap: 1.5rem;
@@ -166,6 +167,7 @@
             font-family: 'Inter', sans-serif;
             font-size: 0.7rem;
             text-transform: uppercase;
+            font-weight: 500;
         }
 
         .huge-number {
@@ -175,54 +177,72 @@
             color: var(--panel-teal);
             font-weight: 700;
         }
+
+        .quote-box {
+            border-left: 3px solid var(--panel-teal);
+            padding-left: 1rem;
+            margin: 1rem 0;
+            font-style: italic;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+        }
     </style>
 </head>
 <body>
 
+    <!-- SPREAD 1: COVER & CONTENTS -->
     <div class="spread">
+        <!-- Page 1: Cover -->
         <div class="page page-left teal-panel" style="padding: 0; display: grid; grid-template-rows: auto 1fr auto;">
             <div style="padding: 2.5rem 2.5rem 1rem 2.5rem;">
-                <div class="meta-header" style="color: rgba(255,255,255,0.6);">CHRONO ARCHIVE / ISSUE 01</div>
+                <div class="meta-header" style="color: rgba(255,255,255,0.6);">CHRONO ARCHIVE / ISSUE 04</div>
                 <h1 class="giant-title white">DAYTONA</h1>
             </div>
             
             <div style="padding: 0 2.5rem;">
                 <div class="img-frame" style="height: 300px; border: 1px solid rgba(255,255,255,0.2);">
-                    <img src="https://cdn.luxepolis.com/media/catalog/product/r/o/rowt2919-1.webp?w=1200&q=75" alt="Rolex Daytona">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1200&auto=format&fit=crop" alt="Rolex Daytona Steel Dial">
                 </div>
             </div>
 
             <div style="padding: 1.5rem 2.5rem 2.5rem 2.5rem; display: flex; justify-content: space-between; align-items: flex-end;">
                 <div>
                     <h2 style="font-family: 'Oswald', sans-serif; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 1px;">COSMOGRAPH</h2>
-                    <p style="font-size: 0.75rem; color: rgba(255,255,255,0.8); margin: 0;">The Purest Form of Velocity</p>
+                    <p style="font-size: 0.75rem; color: rgba(255,255,255,0.8); margin: 0;">The Purest Form of Speed & Mechanics</p>
                 </div>
                 <span class="page-num" style="color: rgba(255,255,255,0.5);">01</span>
             </div>
         </div>
 
+        <!-- Page 2: Contents -->
         <div class="page page-right" style="display: grid; grid-template-columns: 80px 1fr; gap: 1.5rem;">
             <div class="vertical-text">CONTENTS</div>
             <div style="display: flex; flex-direction: column; justify-content: space-between;">
                 <div>
-                    <div class="toc-row"><span>CHAPTER 01: THE MANUAL ERA</span><span>P. 03</span></div>
-                    <p style="font-size: 0.7rem; color: var(--text-muted); margin: 0.2rem 0 1rem 0;">Origins at Daytona Beach and Valjoux architectures.</p>
+                    <div class="toc-row"><span>CHAPTER 01: BEACH & SPEEDWAY</span><span>P. 03</span></div>
+                    <p style="font-size: 0.7rem; color: var(--text-muted); margin: 0.2rem 0 1rem 0;">Sir Malcolm Campbell and the Florida sands in the 1930s.</p>
 
-                    <div class="toc-row"><span>CHAPTER 02: THE PAUL NEWMAN LEGEND</span><span>P. 04</span></div>
-                    <p style="font-size: 0.7rem; color: var(--text-muted); margin: 0.2rem 0 1rem 0;">How an exotic dial rewrote auction record books.</p>
+                    <div class="toc-row"><span>CHAPTER 02: THE MANUAL ERA</span><span>P. 04</span></div>
+                    <p style="font-size: 0.7rem; color: var(--text-muted); margin: 0.2rem 0 1rem 0;">Valjoux 72 origins and the birth of Ref. 6239.</p>
 
-                    <div class="toc-row"><span>CHAPTER 03: THE ZENITH AUTOMATIC</span><span>P. 05</span></div>
-                    <p style="font-size: 0.7rem; color: var(--text-muted); margin: 0.2rem 0 1rem 0;">The transition to self-winding mechanical power.</p>
+                    <div class="toc-row"><span>CHAPTER 03: THE PAUL NEWMAN LEGEND</span><span>P. 05</span></div>
+                    <p style="font-size: 0.7rem; color: var(--text-muted); margin: 0.2rem 0 1rem 0;">Exotic dials and the record-breaking $17.75M auction.</p>
 
-                    <div class="toc-row"><span>CHAPTER 04: CALIBRE 4130 & 4131</span><span>P. 06</span></div>
-                    <p style="font-size: 0.7rem; color: var(--text-muted); margin: 0.2rem 0 1rem 0;">In-house mastery and Chronergy escapements.</p>
+                    <div class="toc-row"><span>CHAPTER 04: THE ZENITH TRANSITION</span><span>P. 07</span></div>
+                    <p style="font-size: 0.7rem; color: var(--text-muted); margin: 0.2rem 0 1rem 0;">Transitioning to automatic movements with Calibre 4030.</p>
+
+                    <div class="toc-row"><span>CHAPTER 05: METALLURGY & OYSTERSTEEL</span><span>P. 09</span></div>
+                    <p style="font-size: 0.7rem; color: var(--text-muted); margin: 0.2rem 0 1rem 0;">Proprietary alloys and Everose gold metallurgy.</p>
+
+                    <div class="toc-row"><span>CHAPTER 06: CALIBRE 4131 & BEYOND</span><span>P. 11</span></div>
+                    <p style="font-size: 0.7rem; color: var(--text-muted); margin: 0.2rem 0 1rem 0;">In-house architectural supremacy and modern Cerachrom bezels.</p>
                 </div>
 
                 <div>
-                    <div class="img-frame" style="height: 140px; margin-bottom: 1rem;">
-                        <img src="https://newsroom-content.rolex.com/-/media/project/rolex/newsroom/rolex/rolex-newsroom-int/2024-04/cosmograph-daytona/responsive-images/newsroom-joyeuse-movt4131_2301dh_001.jpg?imwidth=337" alt="Rolex Calibre Movement">
+                    <div class="img-frame" style="height: 120px; margin-bottom: 0.8rem;">
+                        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1200&auto=format&fit=crop" alt="Mechanical Watch Movement Gear Detail">
                     </div>
-                    <p style="font-size: 0.75rem; font-style: italic; margin: 0;">An architectural evaluation of Rolex’s most reverent mechanical chronograph movement.</p>
+                    <p style="font-size: 0.72rem; font-style: italic; margin: 0; color: var(--text-muted);">A comprehensive study of Rolex's iconic racing chronograph evolution.</p>
                 </div>
                 <span class="page-num">02</span>
             </div>
@@ -230,33 +250,38 @@
     </div>
 
 
+    <!-- SPREAD 2: ORIGINS & EARLY MANUFACTURE -->
     <div class="spread">
+        <!-- Page 3: Origins & Beach History -->
         <div class="page page-left" style="display: grid; grid-template-columns: 70px 1fr; gap: 1.5rem;">
             <div class="vertical-text">ORIGINS</div>
             <div>
-                <h2 class="giant-title" style="font-size: 2.2rem; margin-bottom: 1rem;">INTRODUCTION</h2>
-                <div class="img-frame" style="height: 180px; margin-bottom: 1.5rem;">
-                    <img src="https://cdn.luxepolis.com/media/catalog/product/r/o/rowt2919-1.webp?w=1200&q=75" alt="Daytona Details">
+                <h2 class="giant-title" style="font-size: 2.2rem; margin-bottom: 1rem;">DAYTONA BEACH TO LE MANS</h2>
+                <div class="img-frame" style="height: 170px; margin-bottom: 1.2rem;">
+                    <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop" alt="Classic Rolex Chronograph Wrist Shot">
                 </div>
-                <p class="lead">Few objects in the modern luxury canon command the mystical aura, mechanical reverence, and market frenzy of the Rolex Cosmograph Daytona. Introduced in 1963 as Reference 6239, it was crafted for professional endurance drivers.</p>
-                <p>The genesis is tied to the hard-packed sands of Daytona Beach, Florida, where land-speed pioneers shattered records while wearing Rolex Oyster cases.</p>
+                <p class="lead">Long before the Cosmograph Daytona existed as a physical watch, Rolex was deeply entwined with speed. In the 1930s, Sir Malcolm Campbell set five land-speed records at Daytona Beach, Florida, wearing an Oyster watch.</p>
+                <p>When the Daytona International Speedway opened in 1959, Rolex became its Official Timekeeper. By 1963, Rolex introduced Reference 6239, explicitly named the "Cosmograph" and soon updated with "Daytona" on the dial.</p>
                 <span class="page-num">03</span>
             </div>
         </div>
 
+        <!-- Page 4: Design Evolution -->
         <div class="page page-right" style="display: grid; grid-template-rows: auto 1fr;">
             <div>
-                <p>Moving the engraved tachymeter scale from the dial perimeter directly onto the bezel allowed drivers to measure average speeds up to 400 units per hour with total legibility.</p>
+                <div class="meta-header">CHAPTER I — ARCHITECTURAL INNOVATION</div>
+                <p>Prior to Reference 6239, chronographs typically printed the tachymeter scale directly on the dial surface, cluttering the face. Rolex revolutionized racing ergonomics by moving the tachymeter scale onto the bezel itself.</p>
+                <p>This simple shift allowed drivers to instantly read speeds up to 300 units per hour (later expanded to 400) without losing visual focus on elapsed race times.</p>
             </div>
             
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; align-items: flex-end;">
                 <div>
-                    <div class="huge-number">03+</div>
-                    <p style="font-size: 0.75rem; font-weight: 600; text-transform: uppercase;">Decades of Evolution</p>
-                    <p style="font-size: 0.7rem; color: var(--text-muted);">From Valjoux manual winding mechanisms to complete vertically integrated manufacturing.</p>
+                    <div class="huge-number">1963</div>
+                    <p style="font-size: 0.75rem; font-weight: 600; text-transform: uppercase;">The Inaugural Year</p>
+                    <p style="font-size: 0.7rem; color: var(--text-muted);">Reference 6239 debuts, equipped with manual-wind Valjoux 72 movements and high-contrast sub-dials.</p>
                 </div>
-                <div class="teal-panel" style="padding: 1.5rem; height: 100%; display: flex; flex-direction: column; justify-content: center;">
-                    <p style="color: var(--white); font-size: 0.8rem; font-style: italic; margin: 0;">"The Daytona forced the world to adjust its parameters of luxury to match its utility."</p>
+                <div class="teal-panel" style="padding: 1.2rem; height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                    <p style="color: var(--white); font-size: 0.78rem; font-style: italic; margin: 0;">"By positioning the tachymeter outside the crystal, Rolex created a new design language for performance timekeeping."</p>
                 </div>
             </div>
             <span class="page-num">04</span>
@@ -264,28 +289,34 @@
     </div>
 
 
+    <!-- SPREAD 3: THE PAUL NEWMAN DIAL & AUCTION LEGEND -->
     <div class="spread">
+        <!-- Page 5: Exotic Dial History -->
         <div class="page page-left">
-            <div class="meta-header">CHAPTER II — HOROLOGICAL ART</div>
-            <h2 class="giant-title" style="font-size: 2.5rem; margin-bottom: 1.5rem;">THE PAUL NEWMAN ERA</h2>
+            <div class="meta-header">CHAPTER II — THE AUCTION MYTHOS</div>
+            <h2 class="giant-title" style="font-size: 2.4rem; margin-bottom: 1.2rem;">THE "PAUL NEWMAN" EXOTIC DIAL</h2>
             
-            <p>During its initial manual-wind era (Calibres 72B, 722, and 727), the watch was far from an instant hit. Retailers often struggled to move inventory as clients favored slim gold dress timepieces over utilitarian steel timing devices.</p>
+            <p>In the late 1960s, Rolex offered specialized "Exotic Dials" manufactured by Jean-Singer & Cie. Characterized by art-deco subdial font numerals, step-down outer tracks, and small square hash marks, these dials were initially commercial failures.</p>
             
-            <p>Everything changed when Joanne Woodward gifted Paul Newman an exotic-dial Reference 6239 inscribed "Drive Carefully Me". Newman wore the piece throughout his racing career, converting an unpopular reference into the ultimate collector Grail.</p>
+            <div class="img-frame" style="height: 150px; margin: 1rem 0;">
+                <img src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?q=80&w=1200&auto=format&fit=crop" alt="Rolex Daytona Dial Close Up">
+            </div>
 
-            <p>In October 2017, Paul Newman's personal 6239 set auction history in New York, fetching $17.75 million and sealing the Daytona's status as modern fine art.</p>
+            <p>Customers overwhelmingly preferred standard monochrome dials. As a result, Rolex produced very few exotic dial variants during the manual-wind production run between 1963 and 1988.</p>
             <span class="page-num">05</span>
         </div>
 
+        <!-- Page 6: The $17.75 Million Legacy -->
         <div class="page page-right teal-panel" style="display: grid; grid-template-rows: auto 1fr auto;">
-            <div class="meta-header" style="color: rgba(255,255,255,0.5);">CHAPTER III — MECHANICAL MASTERY</div>
+            <div class="meta-header" style="color: rgba(255,255,255,0.5);">RECORD BREAKING GRAIL</div>
             
             <div>
-                <h2 class="giant-title white" style="font-size: 2rem; margin-bottom: 1rem;">CALIBRE 4131</h2>
-                <div class="img-frame" style="height: 220px; border: 1px solid rgba(255,255,255,0.2); margin-bottom: 1rem;">
-                    <img src="https://newsroom-content.rolex.com/-/media/project/rolex/newsroom/rolex/rolex-newsroom-int/2024-04/cosmograph-daytona/responsive-images/newsroom-joyeuse-movt4131_2301dh_001.jpg?imwidth=337" alt="Calibre 4131 Movement">
+                <h2 class="giant-title white" style="font-size: 2rem; margin-bottom: 1rem;">REFERENCE 6239</h2>
+                <div class="quote-box" style="border-left-color: var(--bg-cream); color: rgba(255,255,255,0.9);">
+                    "Drive Carefully Me" — Inscribed on the caseback of Paul Newman’s Daytona by his wife Joanne Woodward before his first motor race.
                 </div>
-                <p style="color: rgba(255,255,255,0.9); font-size: 0.8rem;">In 2023, Rolex introduced Calibre 4131 featuring a Chronergy escapement, Paraflex shock absorbers, and refined Rolex Côtes de Genève bridges visible through sapphire casebacks on select models.</p>
+                <p style="color: rgba(255,255,255,0.85); font-size: 0.8rem; margin-top: 1rem;">When Paul Newman was photographed repeatedly wearing his exotic dial Reference 6239 during his professional racing endeavors, Italian collectors dubbed the design the "Paul Newman Daytona".</p>
+                <p style="color: rgba(255,255,255,0.85); font-size: 0.8rem;">In October 2017, Newman's personal watch sold at auction for $17.75 million—making it one of the most valuable wristwatches ever sold in history.</p>
             </div>
 
             <span class="page-num" style="color: rgba(255,255,255,0.5);">06</span>
@@ -293,36 +324,154 @@
     </div>
 
 
+    <!-- SPREAD 4: THE AUTOMATIC ERA (ZENITH TO IN-HOUSE) -->
     <div class="spread">
+        <!-- Page 7: Zenith El Primero Era -->
         <div class="page page-left">
-            <h2 class="giant-title" style="font-size: 3rem; line-height: 0.9; margin-bottom: 1.5rem; color: var(--panel-teal);">
-                AN ENDURING ICON OF TIME
-            </h2>
-            <div class="two-col-text">
-                <p>The contemporary Daytona is as much an exploration of metallurgical technology as micro-mechanics. Central to its modern aesthetic is the Cerachrom ceramic bezel insert.</p>
-                <p>Virtually scratchproof and impervious to UV radiation, Cerachrom preserves the legibility of the tachymeter scale for generations without patina or degradation.</p>
-                <p>Constructed in proprietary 904L Oystersteel, Everose gold, or 950 platinum, it remains the standard of mechanical chronographs.</p>
+            <div class="meta-header">CHAPTER III — THE AUTOMATIC REVOLUTION</div>
+            <h2 class="giant-title" style="font-size: 2.2rem; margin-bottom: 1rem;">REFERENCE 16520: THE ZENITH ERA</h2>
+            
+            <p>By the late 1980s, market demand shifted permanently to self-winding mechanical movements. In 1988, Rolex released the Reference 16520, introducing automatic winding to the Daytona family.</p>
+
+            <div class="img-frame" style="height: 160px; margin-bottom: 1rem;">
+                <img src="https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?q=80&w=1200&auto=format&fit=crop" alt="Rolex Daytona Steel Bezel Perspective">
             </div>
+
+            <p>Rolex heavily modified the Zenith El Primero 400 caliber—replacing over 50% of the components, reducing the frequency from 36,000 vph to 28,800 vph, and fitting a Microstella balance wheel to create the Rolex Calibre 4030.</p>
             <span class="page-num">07</span>
         </div>
 
+        <!-- Page 8: Modern 116520 & Gold Variants -->
+        <div class="page page-right" style="display: grid; grid-template-rows: auto 1fr;">
+            <div>
+                <div class="meta-header">CHAPTER IV — COMPLETE IN-HOUSE AUTONOMY</div>
+                <h3 style="font-family: 'Oswald', sans-serif; font-size: 1.4rem; text-transform: uppercase; margin-bottom: 0.5rem;">CALIBRE 4130 (YEAR 2000)</h3>
+                <p>At the dawn of the new millennium, Rolex launched Reference 116520 equipped with Calibre 4130—a fully in-house vertical clutch chronograph movement. By reducing the overall component count by 20%, Rolex increased reliability and extended the power reserve to 72 hours.</p>
+            </div>
+
+            <div>
+                <div class="img-frame" style="height: 190px; margin-bottom: 0.8rem;">
+                    <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=1200&auto=format&fit=crop" alt="Luxury Rolex Gold Wrist Shot">
+                </div>
+                <p style="font-size: 0.72rem; color: var(--text-muted);">The implementation of a vertical clutch eliminated chronograph second hand flutter upon activation, allowing continuous precision timing.</p>
+            </div>
+            <span class="page-num">08</span>
+        </div>
+    </div>
+
+
+    <!-- NEW SPREAD 5: METALLURGY & CASE SCIENCE -->
+    <div class="spread">
+        <!-- Page 9: Oystersteel & Precious Metals -->
+        <div class="page page-left" style="display: grid; grid-template-columns: 70px 1fr; gap: 1.5rem;">
+            <div class="vertical-text">METALS</div>
+            <div>
+                <div class="meta-header">CHAPTER V — METALLURGICAL SCIENCE</div>
+                <h2 class="giant-title" style="font-size: 2.2rem; margin-bottom: 1rem;">OYSTERSTEEL & EVEROSE GOLD</h2>
+                
+                <div class="img-frame" style="height: 160px; margin-bottom: 1.2rem;">
+                    <img src="https://images.unsplash.com/photo-1533139502658-0198f920d8e8?q=80&w=1200&auto=format&fit=crop" alt="Rolex Steel Case Metallurgy Focus">
+                </div>
+
+                <p>Unlike standard watchmakers using 316L stainless steel, Rolex manufactures the Daytona using 904L alloy—branded internally as Oystersteel. Extremely resistant to severe corrosion, 904L maintains an exceptional sheen when mirror-polished.</p>
+                <p>For precious metal models, Rolex casts its own gold in an in-house foundry. Proprietary 18ct Everrose gold adds platinum to preserve the warm pink hue indefinitely against exposure to chlorine and salt water.</p>
+                <span class="page-num">09</span>
+            </div>
+        </div>
+
+        <!-- Page 10: Case Construction -->
+        <div class="page page-right" style="display: grid; grid-template-rows: auto 1fr;">
+            <div>
+                <div class="meta-header">HERMETIC SEALING</div>
+                <h3 style="font-family: 'Oswald', sans-serif; font-size: 1.4rem; text-transform: uppercase; margin-bottom: 0.5rem;">TRIPLOCK CROWN & OYSTERCASE</h3>
+                <p>The Daytona’s Monobloc middle case is stamped from a solid block of Oystersteel or gold. Screw-down pushers and a Triplock winding crown—featuring four seals—ensure hermetic water resistance down to 100 meters (330 feet).</p>
+            </div>
+
+            <div>
+                <div class="img-frame" style="height: 200px; margin-bottom: 0.8rem;">
+                    <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=1200&auto=format&fit=crop" alt="Luxury Rolex Gold Case and Bracelet Profile">
+                </div>
+                <p style="font-size: 0.72rem; color: var(--text-muted);">Screw-down chronograph pushers guard against accidental activation underwater while cementing the watch’s muscular, utilitarian silhouette.</p>
+            </div>
+            <span class="page-num">10</span>
+        </div>
+    </div>
+
+
+    <!-- NEW SPREAD 6: DIAL CRAFTSMANSHIP & LUMINESCENCE -->
+    <div class="spread">
+        <!-- Page 11: Dial Engineering -->
+        <div class="page page-left">
+            <div class="meta-header">CHAPTER VI — ART OF THE DIAL</div>
+            <h2 class="giant-title" style="font-size: 2.2rem; margin-bottom: 1rem;">CHROMALIGHT & DIAL VARIANTS</h2>
+            
+            <p>Every Rolex dial is designed in-house to guarantee maximum readability. The hour markers and hands are crafted from 18ct gold to prevent tarnishing over decades of ownership.</p>
+
+            <div class="img-frame" style="height: 160px; margin: 1rem 0;">
+                <img src="https://images.unsplash.com/photo-1622434641406-a158123450f9?q=80&w=1200&auto=format&fit=crop" alt="High Detail Close Up Watch Dial Face">
+            </div>
+
+            <p>Modern Daytona models feature Chromalight luminescent display—a photo-luminescent material emitting a long-lasting blue glow that remains visible twice as long as standard phosphorescent coatings.</p>
+            <span class="page-num">11</span>
+        </div>
+
+        <!-- Page 12: Platinum & Ice Blue Dial -->
+        <div class="page page-right teal-panel" style="display: grid; grid-template-rows: auto 1fr auto;">
+            <div class="meta-header" style="color: rgba(255,255,255,0.5);">EXCEPTIONAL MATERIALS</div>
+            
+            <div>
+                <h2 class="giant-title white" style="font-size: 2rem; margin-bottom: 1rem;">950 PLATINUM & ICE BLUE</h2>
+                <div class="img-frame" style="height: 190px; border: 1px solid rgba(255,255,255,0.2); margin-bottom: 1rem;">
+                    <img src="https://images.unsplash.com/photo-1619134778706-7015533a6150?q=80&w=1200&auto=format&fit=crop" alt="Rolex Platinum Dial Wrist View">
+                </div>
+                <p style="color: rgba(255,255,255,0.85); font-size: 0.8rem;">To mark the 50th anniversary of the Cosmograph Daytona in 2013, Rolex introduced Reference 116506 in solid 950 platinum paired with an exclusive Ice Blue dial and chestnut brown Cerachrom bezel.</p>
+                <p style="color: rgba(255,255,255,0.85); font-size: 0.8rem;">Ice Blue dials are reserved strictly for Rolex platinum timepieces, designating the pinnacle of the manufacture’s catalog.</p>
+            </div>
+
+            <span class="page-num" style="color: rgba(255,255,255,0.5);">12</span>
+        </div>
+    </div>
+
+
+    <!-- SPREAD 7: CONTEMPORARY CERACHROM & SPECS -->
+    <div class="spread">
+        <!-- Page 13: Ref. 126500LN & Technical Perfection -->
+        <div class="page page-left">
+            <div class="meta-header">CHAPTER VII — MODERN HOROLOGY</div>
+            <h2 class="giant-title" style="font-size: 2.4rem; margin-bottom: 1.2rem;">THE CERACHROM ERA</h2>
+
+            <div class="img-frame" style="height: 160px; margin-bottom: 1rem;">
+                <img src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?q=80&w=1200&auto=format&fit=crop" alt="Modern Rolex Daytona Dial Detail">
+            </div>
+
+            <p>In 2016, Rolex introduced the Reference 116500LN featuring a monobloc Cerachrom bezel in high-tech ceramic. Scratchproof and immune to UV fading, it paid homage to the 1963 acrylic bezel while offering modern durability.</p>
+
+            <p>Updated in 2023 as Reference 126500LN with Calibre 4131, it features a Chronergy escapement and a redesigned case silhouette with thin metal bezel borders.</p>
+            <span class="page-num">13</span>
+        </div>
+
+        <!-- Page 14: Final Specs & Full Visual Finish -->
         <div class="page page-right" style="padding: 0; display: grid; grid-template-rows: 1fr 1fr;">
             <div class="img-frame">
-                <img src="https://cdn.luxepolis.com/media/catalog/product/r/o/rowt2919-1.webp?w=1200&q=75" alt="Rolex Daytona Close Up">
+                <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=1200&auto=format&fit=crop" alt="Rolex Daytona Architectural Profile">
             </div>
-            <div class="teal-panel" style="padding: 2.5rem; display: flex; flex-direction: column; justify-content: space-between;">
+
+            <div class="teal-panel" style="padding: 2.2rem; display: flex; flex-direction: column; justify-content: space-between;">
                 <div>
-                    <h3 style="font-family: 'Oswald', sans-serif; font-size: 1.5rem; letter-spacing: 1px; margin-bottom: 0.5rem; color: var(--white);">
-                        SPECIFICATION SUMMARY
+                    <h3 style="font-family: 'Oswald', sans-serif; font-size: 1.5rem; letter-spacing: 1px; margin-bottom: 0.8rem; color: var(--white);">
+                        TECHNICAL SPECIFICATIONS
                     </h3>
-                    <p style="color: rgba(255,255,255,0.8); font-size: 0.75rem; line-height: 1.5;">
-                        Case: 40mm Oystersteel / Gold<br>
-                        Bezel: Monobloc Cerachrom in Ceramic<br>
-                        Power Reserve: Approx 72 Hours<br>
-                        Water Resistance: 100m / 330ft
-                    </p>
+                    <div style="font-family: 'Inter', sans-serif; font-size: 0.72rem; line-height: 1.8; color: rgba(255,255,255,0.85);">
+                        <strong>MODEL REF:</strong> 126500LN / 126506 / 126518LN<br>
+                        <strong>CASE SIZE:</strong> 40 mm (Oystersteel, Gold, Platinum)<br>
+                        <strong>BEZEL:</strong> Monobloc Cerachrom Ceramic with platinum PVD numbers<br>
+                        <strong>MOVEMENT:</strong> Rolex In-House Calibre 4131<br>
+                        <strong>PRECISION:</strong> -2/+2 sec/day (Superlative Chronometer)<br>
+                        <strong>POWER RESERVE:</strong> Approx. 72 Hours<br>
+                        <strong>WATER RESISTANCE:</strong> 100 meters / 330 feet
+                    </div>
                 </div>
-                <span class="page-num" style="color: rgba(255,255,255,0.5); position: static;">08</span>
+                <span class="page-num" style="color: rgba(255,255,255,0.5); position: static;">14</span>
             </div>
         </div>
     </div>
