@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=1200">
     <title>ROLEX COSMOGRAPH DAYTONA — High Fashion Editorial</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -86,10 +86,6 @@
             line-height: 1;
         }
 
-        .vertical-text.white {
-            color: var(--white);
-        }
-
         p {
             font-size: 0.82rem;
             line-height: 1.65;
@@ -133,32 +129,28 @@
             color: var(--white);
         }
 
-        /* Image Frame Styling */
-        .img-frame {
-            background-color: #000;
+        /* Embedded Graphic Frame Styling */
+        .graphic-frame {
+            background-color: #1a1d20;
             overflow: hidden;
             position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border-light);
         }
 
-        .img-frame img {
+        .graphic-frame svg {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            filter: grayscale(100%);
-            transition: filter 0.5s ease, transform 0.5s ease;
+            transition: transform 0.5s ease;
         }
 
-        .img-frame img:hover {
-            filter: grayscale(0%);
-            transform: scale(1.03);
+        .graphic-frame:hover svg {
+            transform: scale(1.05);
         }
 
         /* Content Grids & Layouts */
-        .two-col-text {
-            column-count: 2;
-            column-gap: 1.5rem;
-        }
-
         .toc-row {
             border-bottom: 1px solid var(--border-light);
             padding: 0.5rem 0;
@@ -200,9 +192,27 @@
             </div>
             
             <div style="padding: 0 2.5rem;">
-                <!-- REAL ROLEX DAYTONA IMAGE 1 -->
-                <div class="img-frame" style="height: 300px; border: 1px solid rgba(255,255,255,0.2);">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Rolex_Cosmograph_Daytona.png" alt="Rolex Cosmograph Daytona Watch Face">
+                <!-- EMBEDDED DAYTONA GRAPHIC 1 -->
+                <div class="graphic-frame" style="height: 300px; border-color: rgba(255,255,255,0.2);">
+                    <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="150" cy="150" r="130" fill="#2b2b2b" stroke="#d4af37" stroke-width="4"/>
+                        <circle cx="150" cy="150" r="115" fill="#111" stroke="#888" stroke-width="8"/>
+                        <!-- Bezel Tachymeter Markings -->
+                        <circle cx="150" cy="150" r="108" fill="none" stroke="#fff" stroke-dasharray="2 6" stroke-width="3"/>
+                        <!-- Main Dial -->
+                        <circle cx="150" cy="150" r="95" fill="#f8f8f8"/>
+                        <!-- Sub-dials -->
+                        <circle cx="110" cy="150" r="22" fill="#111" stroke="#d4af37" stroke-width="2"/>
+                        <circle cx="190" cy="150" r="22" fill="#111" stroke="#d4af37" stroke-width="2"/>
+                        <circle cx="150" cy="185" r="22" fill="#111" stroke="#d4af37" stroke-width="2"/>
+                        <!-- Hands -->
+                        <line x1="150" y1="150" x2="150" y2="85" stroke="#111" stroke-width="4" stroke-linecap="round"/>
+                        <line x1="150" y1="150" x2="195" y2="150" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+                        <line x1="150" y1="150" x2="120" y2="200" stroke="#c00" stroke-width="1.5"/>
+                        <circle cx="150" cy="150" r="5" fill="#c00"/>
+                        <text x="150" y="118" font-family="Oswald" font-size="8" fill="#111" text-anchor="middle" font-weight="bold">ROLEX</text>
+                        <text x="150" y="126" font-family="Inter" font-size="5" fill="#c00" text-anchor="middle" font-weight="bold">DAYTONA</text>
+                    </svg>
                 </div>
             </div>
 
@@ -240,9 +250,16 @@
                 </div>
 
                 <div>
-                    <!-- REAL ROLEX DAYTONA IMAGE 2 -->
-                    <div class="img-frame" style="height: 120px; margin-bottom: 0.8rem;">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Detail_of_Rolex_Daytona.jpg" alt="Detail of Rolex Daytona Chronograph Subdial">
+                    <!-- EMBEDDED DAYTONA GRAPHIC 2 -->
+                    <div class="graphic-frame" style="height: 120px; margin-bottom: 0.8rem;">
+                        <svg viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="200" height="100" fill="#1c1f22"/>
+                            <circle cx="100" cy="50" r="40" fill="none" stroke="#3d5a62" stroke-width="6"/>
+                            <circle cx="100" cy="50" r="32" fill="#111" stroke="#e8e3dd" stroke-width="1"/>
+                            <line x1="100" y1="50" x2="100" y2="20" stroke="#fff" stroke-width="2"/>
+                            <line x1="100" y1="50" x2="120" y2="60" stroke="#fff" stroke-width="2"/>
+                            <circle cx="100" cy="50" r="3" fill="#c00"/>
+                        </svg>
                     </div>
                     <p style="font-size: 0.72rem; font-style: italic; margin: 0; color: var(--text-muted);">A comprehensive study of Rolex's iconic racing chronograph evolution.</p>
                 </div>
@@ -259,9 +276,17 @@
             <div class="vertical-text">ORIGINS</div>
             <div>
                 <h2 class="giant-title" style="font-size: 2.2rem; margin-bottom: 1rem;">DAYTONA BEACH TO LE MANS</h2>
-                <!-- REAL ROLEX DAYTONA IMAGE 3 -->
-                <div class="img-frame" style="height: 170px; margin-bottom: 1.2rem;">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/RolexDaytona.jpg" alt="Rolex Daytona Wrist View">
+                <!-- EMBEDDED DAYTONA GRAPHIC 3 -->
+                <div class="graphic-frame" style="height: 170px; margin-bottom: 1.2rem;">
+                    <svg viewBox="0 0 250 150" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="250" height="150" fill="#121416"/>
+                        <circle cx="125" cy="75" r="60" fill="#222" stroke="#aaa" stroke-width="4"/>
+                        <circle cx="125" cy="75" r="50" fill="#fff"/>
+                        <circle cx="100" cy="75" r="12" fill="#222"/>
+                        <circle cx="150" cy="75" r="12" fill="#222"/>
+                        <circle cx="125" cy="95" r="12" fill="#222"/>
+                        <text x="125" y="52" font-family="Oswald" font-size="7" fill="#111" text-anchor="middle">ROLEX</text>
+                    </svg>
                 </div>
                 <p class="lead">Long before the Cosmograph Daytona existed as a physical watch, Rolex was deeply entwined with speed. In the 1930s, Sir Malcolm Campbell set five land-speed records at Daytona Beach, Florida, wearing an Oyster watch.</p>
                 <p>When the Daytona International Speedway opened in 1959, Rolex became its Official Timekeeper. By 1963, Rolex introduced Reference 6239, explicitly named the "Cosmograph" and soon updated with "Daytona" on the dial.</p>
@@ -301,9 +326,17 @@
             
             <p>In the late 1960s, Rolex offered specialized "Exotic Dials" manufactured by Jean-Singer & Cie. Characterized by art-deco subdial font numerals, step-down outer tracks, and small square hash marks, these dials were initially commercial failures.</p>
             
-            <!-- REAL ROLEX DAYTONA IMAGE 4 -->
-            <div class="img-frame" style="height: 150px; margin: 1rem 0;">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/9/90/Rolex_Daytona_ref._16523%2C_fine_anni_%2790.jpg" alt="Rolex Daytona Reference 16523">
+            <!-- EMBEDDED DAYTONA GRAPHIC 4 -->
+            <div class="graphic-frame" style="height: 150px; margin: 1rem 0;">
+                <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="200" height="120" fill="#151719"/>
+                    <circle cx="100" cy="60" r="48" fill="#eae6df" stroke="#c00" stroke-width="2"/>
+                    <!-- Exotic Sub-dials with square art-deco marks -->
+                    <circle cx="80" cy="60" r="12" fill="#111"/>
+                    <rect x="79" y="50" width="2" height="4" fill="#fff"/>
+                    <circle cx="120" cy="60" r="12" fill="#111"/>
+                    <circle cx="100" cy="80" r="12" fill="#111"/>
+                </svg>
             </div>
 
             <p>Customers overwhelmingly preferred standard monochrome dials. As a result, Rolex produced very few exotic dial variants during the manual-wind production run between 1963 and 1988.</p>
@@ -328,144 +361,43 @@
     </div>
 
 
-    <!-- SPREAD 4: THE AUTOMATIC ERA (ZENITH TO IN-HOUSE) -->
+    <!-- SPREAD 4: TECHNICAL SPECIFICATIONS -->
     <div class="spread">
-        <!-- Page 7: Zenith El Primero Era -->
-        <div class="page page-left">
-            <div class="meta-header">CHAPTER III — THE AUTOMATIC REVOLUTION</div>
-            <h2 class="giant-title" style="font-size: 2.2rem; margin-bottom: 1rem;">REFERENCE 16520: THE ZENITH ERA</h2>
-            
-            <p>By the late 1980s, market demand shifted permanently to self-winding mechanical movements. In 1988, Rolex released the Reference 16520, introducing automatic winding to the Daytona family.</p>
-
-            <!-- REAL ROLEX DAYTONA IMAGE 5 -->
-            <div class="img-frame" style="height: 160px; margin-bottom: 1rem;">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Rolex_Cosmograph_Daytona.png" alt="Rolex Daytona Zenith Movement Era Perspective">
-            </div>
-
-            <p>Rolex heavily modified the Zenith El Primero 400 caliber—replacing over 50% of the components, reducing the frequency from 36,000 vph to 28,800 vph, and fitting a Microstella balance wheel to create the Rolex Calibre 4030.</p>
-            <span class="page-num">07</span>
-        </div>
-
-        <!-- Page 8: Modern 116520 & Gold Variants -->
-        <div class="page page-right" style="display: grid; grid-template-rows: auto 1fr;">
-            <div>
-                <div class="meta-header">CHAPTER IV — COMPLETE IN-HOUSE AUTONOMY</div>
-                <h3 style="font-family: 'Oswald', sans-serif; font-size: 1.4rem; text-transform: uppercase; margin-bottom: 0.5rem;">CALIBRE 4130 (YEAR 2000)</h3>
-                <p>At the dawn of the new millennium, Rolex launched Reference 116520 equipped with Calibre 4130—a fully in-house vertical clutch chronograph movement. By reducing the overall component count by 20%, Rolex increased reliability and extended the power reserve to 72 hours.</p>
-            </div>
-
-            <div>
-                <!-- REAL ROLEX DAYTONA IMAGE 6 -->
-                <div class="img-frame" style="height: 190px; margin-bottom: 0.8rem;">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/90/Rolex_Daytona_ref._16523%2C_fine_anni_%2790.jpg" alt="Rolex Daytona Steel and Gold Ref 16523">
-                </div>
-                <p style="font-size: 0.72rem; color: var(--text-muted);">The implementation of a vertical clutch eliminated chronograph second hand flutter upon activation, allowing continuous precision timing.</p>
-            </div>
-            <span class="page-num">08</span>
-        </div>
-    </div>
-
-
-    <!-- SPREAD 5: METALLURGY & CASE SCIENCE -->
-    <div class="spread">
-        <!-- Page 9: Oystersteel & Precious Metals -->
-        <div class="page page-left" style="display: grid; grid-template-columns: 70px 1fr; gap: 1.5rem;">
-            <div class="vertical-text">METALS</div>
-            <div>
-                <div class="meta-header">CHAPTER V — METALLURGICAL SCIENCE</div>
-                <h2 class="giant-title" style="font-size: 2.2rem; margin-bottom: 1rem;">OYSTERSTEEL & EVEROSE GOLD</h2>
-                
-                <!-- REAL ROLEX DAYTONA IMAGE 7 -->
-                <div class="img-frame" style="height: 160px; margin-bottom: 1.2rem;">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/RolexDaytona.jpg" alt="Rolex Daytona Oystersteel Case Detail">
-                </div>
-
-                <p>Unlike standard watchmakers using 316L stainless steel, Rolex manufactures the Daytona using 904L alloy—branded internally as Oystersteel. Extremely resistant to severe corrosion, 904L maintains an exceptional sheen when mirror-polished.</p>
-                <p>For precious metal models, Rolex casts its own gold in an in-house foundry. Proprietary 18ct Everose gold adds platinum to preserve the warm pink hue indefinitely against exposure to chlorine and salt water.</p>
-                <span class="page-num">09</span>
-            </div>
-        </div>
-
-        <!-- Page 10: Case Construction -->
-        <div class="page page-right" style="display: grid; grid-template-rows: auto 1fr;">
-            <div>
-                <div class="meta-header">HERMETIC SEALING</div>
-                <h3 style="font-family: 'Oswald', sans-serif; font-size: 1.4rem; text-transform: uppercase; margin-bottom: 0.5rem;">TRIPLOCK CROWN & OYSTERCASE</h3>
-                <p>The Daytona’s Monobloc middle case is stamped from a solid block of Oystersteel or gold. Screw-down pushers and a Triplock winding crown—featuring four seals—ensure hermetic water resistance down to 100 meters (330 feet).</p>
-            </div>
-
-            <div>
-                <!-- REAL ROLEX DAYTONA IMAGE 8 -->
-                <div class="img-frame" style="height: 200px; margin-bottom: 0.8rem;">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Detail_of_Rolex_Daytona.jpg" alt="Rolex Daytona Case and Crown Close-up">
-                </div>
-                <p style="font-size: 0.72rem; color: var(--text-muted);">Screw-down chronograph pushers guard against accidental activation underwater while cementing the watch’s muscular, utilitarian silhouette.</p>
-            </div>
-            <span class="page-num">10</span>
-        </div>
-    </div>
-
-
-    <!-- SPREAD 6: DIAL CRAFTSMANSHIP & LUMINESCENCE -->
-    <div class="spread">
-        <!-- Page 11: Dial Engineering -->
-        <div class="page page-left">
-            <div class="meta-header">CHAPTER VI — ART OF THE DIAL</div>
-            <h2 class="giant-title" style="font-size: 2.2rem; margin-bottom: 1rem;">CHROMALIGHT & DIAL VARIANTS</h2>
-            
-            <p>Every Rolex dial is designed in-house to guarantee maximum readability. The hour markers and hands are crafted from 18ct gold to prevent tarnishing over decades of ownership.</p>
-
-            <!-- REAL ROLEX DAYTONA IMAGE 9 -->
-            <div class="img-frame" style="height: 160px; margin: 1rem 0;">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Rolex_Cosmograph_Daytona.png" alt="Rolex Daytona Dial Face Close Up">
-            </div>
-
-            <p>Modern Daytona models feature Chromalight luminescent display—a photo-luminescent material emitting a long-lasting blue glow that remains visible twice as long as standard phosphorescent coatings.</p>
-            <span class="page-num">11</span>
-        </div>
-
-        <!-- Page 12: Platinum & Ice Blue Dial -->
-        <div class="page page-right teal-panel" style="display: grid; grid-template-rows: auto 1fr auto;">
-            <div class="meta-header" style="color: rgba(255,255,255,0.5);">EXCEPTIONAL MATERIALS</div>
-            
-            <div>
-                <h2 class="giant-title white" style="font-size: 2rem; margin-bottom: 1rem;">950 PLATINUM & ICE BLUE</h2>
-                <!-- REAL ROLEX DAYTONA IMAGE 10 -->
-                <div class="img-frame" style="height: 190px; border: 1px solid rgba(255,255,255,0.2); margin-bottom: 1rem;">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/RolexDaytona.jpg" alt="Rolex Daytona Metal and Dial Architecture">
-                </div>
-                <p style="color: rgba(255,255,255,0.85); font-size: 0.8rem;">To mark the 50th anniversary of the Cosmograph Daytona in 2013, Rolex introduced Reference 116506 in solid 950 platinum paired with an exclusive Ice Blue dial and chestnut brown Cerachrom bezel.</p>
-                <p style="color: rgba(255,255,255,0.85); font-size: 0.8rem;">Ice Blue dials are reserved strictly for Rolex platinum timepieces, designating the pinnacle of the manufacture’s catalog.</p>
-            </div>
-
-            <span class="page-num" style="color: rgba(255,255,255,0.5);">12</span>
-        </div>
-    </div>
-
-
-    <!-- SPREAD 7: CONTEMPORARY CERACHROM & SPECS -->
-    <div class="spread">
-        <!-- Page 13: Ref. 126500LN & Technical Perfection -->
+        <!-- Page 7: Ref. 126500LN & Technical Perfection -->
         <div class="page page-left">
             <div class="meta-header">CHAPTER VII — MODERN HOROLOGY</div>
             <h2 class="giant-title" style="font-size: 2.4rem; margin-bottom: 1.2rem;">THE CERACHROM ERA</h2>
 
-            <!-- REAL ROLEX DAYTONA IMAGE 11 -->
-            <div class="img-frame" style="height: 160px; margin-bottom: 1rem;">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Detail_of_Rolex_Daytona.jpg" alt="Modern Rolex Daytona Bezel and Subdial Detail">
+            <!-- EMBEDDED DAYTONA GRAPHIC 5 -->
+            <div class="graphic-frame" style="height: 160px; margin-bottom: 1rem;">
+                <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="200" height="120" fill="#111"/>
+                    <circle cx="100" cy="60" r="45" fill="#1a1a1a" stroke="#d4af37" stroke-width="3"/>
+                    <circle cx="100" cy="60" r="38" fill="#000"/>
+                    <circle cx="85" cy="60" r="10" fill="none" stroke="#fff" stroke-width="1.5"/>
+                    <circle cx="115" cy="60" r="10" fill="none" stroke="#fff" stroke-width="1.5"/>
+                    <circle cx="100" cy="75" r="10" fill="none" stroke="#fff" stroke-width="1.5"/>
+                </svg>
             </div>
 
             <p>In 2016, Rolex introduced the Reference 116500LN featuring a monobloc Cerachrom bezel in high-tech ceramic. Scratchproof and immune to UV fading, it paid homage to the 1963 acrylic bezel while offering modern durability.</p>
 
             <p>Updated in 2023 as Reference 126500LN with Calibre 4131, it features a Chronergy escapement and a redesigned case silhouette with thin metal bezel borders.</p>
-            <span class="page-num">13</span>
+            <span class="page-num">07</span>
         </div>
 
-        <!-- Page 14: Final Specs & Full Visual Finish -->
+        <!-- Page 8: Final Specs & Full Visual Finish -->
         <div class="page page-right" style="padding: 0; display: grid; grid-template-rows: 1fr 1fr;">
-            <!-- REAL ROLEX DAYTONA IMAGE 12 -->
-            <div class="img-frame">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Rolex_Cosmograph_Daytona.png" alt="Rolex Daytona Architectural Frontal Profile">
+            <!-- EMBEDDED DAYTONA GRAPHIC 6 -->
+            <div class="graphic-frame">
+                <svg viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="300" height="150" fill="#191c1e"/>
+                    <circle cx="150" cy="75" r="55" fill="#222" stroke="#d4af37" stroke-width="4"/>
+                    <path d="M 100 75 L 200 75" stroke="#d4af37" stroke-width="2"/>
+                    <circle cx="150" cy="75" r="42" fill="#fff"/>
+                    <text x="150" y="65" font-family="Oswald" font-size="10" fill="#111" text-anchor="middle">ROLEX</text>
+                    <text x="150" y="75" font-family="Inter" font-size="6" fill="#c00" text-anchor="middle">DAYTONA</text>
+                </svg>
             </div>
 
             <div class="teal-panel" style="padding: 2.2rem; display: flex; flex-direction: column; justify-content: space-between;">
@@ -483,11 +415,10 @@
                         <strong>WATER RESISTANCE:</strong> 100 meters / 330 feet
                     </div>
                 </div>
-                <span class="page-num" style="color: rgba(255,255,255,0.5); position: static;">14</span>
+                <span class="page-num" style="color: rgba(255,255,255,0.5); position: static;">08</span>
             </div>
         </div>
     </div>
 
 </body>
-    
 </html>
