@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=1200">
-    <title>ROLEX COSMOGRAPH DAYTONA — High Fashion Editorial</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROLEX COSMOGRAPH DAYTONA — 12-Page Editorial</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -35,7 +35,6 @@
             padding: 3rem 1rem;
         }
 
-        /* Spread Container (Mimics Print Spreads) */
         .spread {
             width: 1000px;
             min-height: 580px;
@@ -59,10 +58,9 @@
             border-right: 1px solid var(--border-light);
         }
 
-        /* Typography Essentials */
         .giant-title {
             font-family: 'Oswald', sans-serif;
-            font-size: 3.6rem;
+            font-size: 3.2rem;
             line-height: 0.9;
             text-transform: uppercase;
             color: var(--text-dark);
@@ -78,7 +76,7 @@
             writing-mode: vertical-rl;
             transform: rotate(180deg);
             font-family: 'Oswald', sans-serif;
-            font-size: 3.2rem;
+            font-size: 3rem;
             text-transform: uppercase;
             letter-spacing: 2px;
             font-weight: 700;
@@ -87,15 +85,15 @@
         }
 
         p {
-            font-size: 0.82rem;
-            line-height: 1.65;
+            font-size: 0.8rem;
+            line-height: 1.6;
             color: var(--text-dark);
             text-align: justify;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
         }
 
         p.lead::first-letter {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             float: left;
             line-height: 0.8;
             padding-right: 0.4rem;
@@ -109,7 +107,7 @@
             letter-spacing: 2px;
             text-transform: uppercase;
             color: var(--text-muted);
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
         }
 
         .page-num {
@@ -123,48 +121,44 @@
         .page-left .page-num { left: 2.5rem; }
         .page-right .page-num { right: 2.5rem; }
 
-        /* Color Block Panels */
         .teal-panel {
             background-color: var(--panel-teal);
             color: var(--white);
         }
 
-        /* Embedded Graphic Frame Styling */
-        .graphic-frame {
+        .img-frame {
             background-color: #1a1d20;
             overflow: hidden;
             position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             border: 1px solid var(--border-light);
         }
 
-        .graphic-frame svg {
+        .img-frame img {
             width: 100%;
             height: 100%;
+            object-fit: cover;
+            display: block;
             transition: transform 0.5s ease;
         }
 
-        .graphic-frame:hover svg {
+        .img-frame:hover img {
             transform: scale(1.05);
         }
 
-        /* Content Grids & Layouts */
         .toc-row {
             border-bottom: 1px solid var(--border-light);
-            padding: 0.5rem 0;
+            padding: 0.4rem 0;
             display: flex;
             justify-content: space-between;
             font-family: 'Inter', sans-serif;
-            font-size: 0.7rem;
+            font-size: 0.68rem;
             text-transform: uppercase;
             font-weight: 500;
         }
 
         .huge-number {
             font-family: 'Oswald', sans-serif;
-            font-size: 6rem;
+            font-size: 5rem;
             line-height: 0.8;
             color: var(--panel-teal);
             font-weight: 700;
@@ -172,17 +166,17 @@
 
         .quote-box {
             border-left: 3px solid var(--panel-teal);
-            padding-left: 1rem;
-            margin: 1rem 0;
+            padding-left: 0.8rem;
+            margin: 0.8rem 0;
             font-style: italic;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--text-dark);
         }
     </style>
 </head>
 <body>
 
-    <!-- SPREAD 1: COVER & CONTENTS -->
+    <!-- SPREAD 1: PAGES 1 & 2 -->
     <div class="spread">
         <!-- Page 1: Cover -->
         <div class="page page-left teal-panel" style="padding: 0; display: grid; grid-template-rows: auto 1fr auto;">
@@ -192,76 +186,49 @@
             </div>
             
             <div style="padding: 0 2.5rem;">
-                <!-- EMBEDDED DAYTONA GRAPHIC 1 -->
-                <div class="graphic-frame" style="height: 300px; border-color: rgba(255,255,255,0.2);">
-                    <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="150" cy="150" r="130" fill="#2b2b2b" stroke="#d4af37" stroke-width="4"/>
-                        <circle cx="150" cy="150" r="115" fill="#111" stroke="#888" stroke-width="8"/>
-                        <!-- Bezel Tachymeter Markings -->
-                        <circle cx="150" cy="150" r="108" fill="none" stroke="#fff" stroke-dasharray="2 6" stroke-width="3"/>
-                        <!-- Main Dial -->
-                        <circle cx="150" cy="150" r="95" fill="#f8f8f8"/>
-                        <!-- Sub-dials -->
-                        <circle cx="110" cy="150" r="22" fill="#111" stroke="#d4af37" stroke-width="2"/>
-                        <circle cx="190" cy="150" r="22" fill="#111" stroke="#d4af37" stroke-width="2"/>
-                        <circle cx="150" cy="185" r="22" fill="#111" stroke="#d4af37" stroke-width="2"/>
-                        <!-- Hands -->
-                        <line x1="150" y1="150" x2="150" y2="85" stroke="#111" stroke-width="4" stroke-linecap="round"/>
-                        <line x1="150" y1="150" x2="195" y2="150" stroke="#111" stroke-width="3" stroke-linecap="round"/>
-                        <line x1="150" y1="150" x2="120" y2="200" stroke="#c00" stroke-width="1.5"/>
-                        <circle cx="150" cy="150" r="5" fill="#c00"/>
-                        <text x="150" y="118" font-family="Oswald" font-size="8" fill="#111" text-anchor="middle" font-weight="bold">ROLEX</text>
-                        <text x="150" y="126" font-family="Inter" font-size="5" fill="#c00" text-anchor="middle" font-weight="bold">DAYTONA</text>
-                    </svg>
+                <div class="img-frame" style="height: 280px; border-color: rgba(255,255,255,0.2);">
+                    <img src="daytona1.jpg" alt="Rolex Daytona Page 1 Image">
                 </div>
             </div>
 
             <div style="padding: 1.5rem 2.5rem 2.5rem 2.5rem; display: flex; justify-content: space-between; align-items: flex-end;">
                 <div>
-                    <h2 style="font-family: 'Oswald', sans-serif; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 1px;">COSMOGRAPH</h2>
-                    <p style="font-size: 0.75rem; color: rgba(255,255,255,0.8); margin: 0;">The Purest Form of Speed & Mechanics</p>
+                    <h2 style="font-family: 'Oswald', sans-serif; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px;">COSMOGRAPH</h2>
+                    <p style="font-size: 0.72rem; color: rgba(255,255,255,0.8); margin: 0;">The Purest Form of Speed & Mechanics</p>
                 </div>
                 <span class="page-num" style="color: rgba(255,255,255,0.5);">01</span>
             </div>
         </div>
 
-        <!-- Page 2: Contents -->
-        <div class="page page-right" style="display: grid; grid-template-columns: 80px 1fr; gap: 1.5rem;">
+        <!-- Page 2: Table of Contents -->
+        <div class="page page-right" style="display: grid; grid-template-columns: 70px 1fr; gap: 1.2rem;">
             <div class="vertical-text">CONTENTS</div>
             <div style="display: flex; flex-direction: column; justify-content: space-between;">
                 <div>
-                    <div class="toc-row"><span>CHAPTER 01: BEACH & SPEEDWAY</span><span>P. 03</span></div>
-                    <p style="font-size: 0.7rem; color: var(--text-muted); margin: 0.2rem 0 1rem 0;">Sir Malcolm Campbell and the Florida sands in the 1930s.</p>
+                    <div class="toc-row"><span>CHAPTER 01: SPEEDWAY ORIGINS</span><span>P. 03</span></div>
+                    <p style="font-size: 0.68rem; color: var(--text-muted); margin: 0.1rem 0 0.8rem 0;">Sir Malcolm Campbell and Florida sands.</p>
 
-                    <div class="toc-row"><span>CHAPTER 02: THE MANUAL ERA</span><span>P. 04</span></div>
-                    <p style="font-size: 0.7rem; color: var(--text-muted); margin: 0.2rem 0 1rem 0;">Valjoux 72 origins and the birth of Ref. 6239.</p>
+                    <div class="toc-row"><span>CHAPTER 02: THE INAUGURAL REF. 6239</span><span>P. 04</span></div>
+                    <p style="font-size: 0.68rem; color: var(--text-muted); margin: 0.1rem 0 0.8rem 0;">Valjoux 72 origins and tachymeter bezels.</p>
 
-                    <div class="toc-row"><span>CHAPTER 03: THE PAUL NEWMAN LEGEND</span><span>P. 05</span></div>
-                    <p style="font-size: 0.7rem; color: var(--text-muted); margin: 0.2rem 0 1rem 0;">Exotic dials and the record-breaking $17.75M auction.</p>
+                    <div class="toc-row"><span>CHAPTER 03: THE PAUL NEWMAN DIAL</span><span>P. 05</span></div>
+                    <p style="font-size: 0.68rem; color: var(--text-muted); margin: 0.1rem 0 0.8rem 0;">Exotic dials and the historic auction legend.</p>
 
-                    <div class="toc-row"><span>CHAPTER 04: THE ZENITH TRANSITION</span><span>P. 07</span></div>
-                    <p style="font-size: 0.7rem; color: var(--text-muted); margin: 0.2rem 0 1rem 0;">Transitioning to automatic movements with Calibre 4030.</p>
+                    <div class="toc-row"><span>CHAPTER 04: AUTOMATIC REVOLUTION</span><span>P. 07</span></div>
+                    <p style="font-size: 0.68rem; color: var(--text-muted); margin: 0.1rem 0 0.8rem 0;">Calibre 4030 and the Zenith El Primero era.</p>
 
-                    <div class="toc-row"><span>CHAPTER 05: METALLURGY & OYSTERSTEEL</span><span>P. 09</span></div>
-                    <p style="font-size: 0.7rem; color: var(--text-muted); margin: 0.2rem 0 1rem 0;">Proprietary alloys and Everose gold metallurgy.</p>
+                    <div class="toc-row"><span>CHAPTER 05: OYSTERSTEEL & METALS</span><span>P. 09</span></div>
+                    <p style="font-size: 0.68rem; color: var(--text-muted); margin: 0.1rem 0 0.8rem 0;">904L steel metallurgy and Everose gold.</p>
 
-                    <div class="toc-row"><span>CHAPTER 06: CALIBRE 4131 & BEYOND</span><span>P. 11</span></div>
-                    <p style="font-size: 0.7rem; color: var(--text-muted); margin: 0.2rem 0 1rem 0;">In-house architectural supremacy and modern Cerachrom bezels.</p>
+                    <div class="toc-row"><span>CHAPTER 06: CALIBRE 4131 & CERACHROM</span><span>P. 11</span></div>
+                    <p style="font-size: 0.68rem; color: var(--text-muted); margin: 0.1rem 0 0.8rem 0;">Modern in-house mechanics and ceramic bezels.</p>
                 </div>
 
                 <div>
-                    <!-- EMBEDDED DAYTONA GRAPHIC 2 -->
-                    <div class="graphic-frame" style="height: 120px; margin-bottom: 0.8rem;">
-                        <svg viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="200" height="100" fill="#1c1f22"/>
-                            <circle cx="100" cy="50" r="40" fill="none" stroke="#3d5a62" stroke-width="6"/>
-                            <circle cx="100" cy="50" r="32" fill="#111" stroke="#e8e3dd" stroke-width="1"/>
-                            <line x1="100" y1="50" x2="100" y2="20" stroke="#fff" stroke-width="2"/>
-                            <line x1="100" y1="50" x2="120" y2="60" stroke="#fff" stroke-width="2"/>
-                            <circle cx="100" cy="50" r="3" fill="#c00"/>
-                        </svg>
+                    <div class="img-frame" style="height: 110px; margin-bottom: 0.6rem;">
+                        <img src="daytona2.jpg" alt="Rolex Daytona Page 2 Image">
                     </div>
-                    <p style="font-size: 0.72rem; font-style: italic; margin: 0; color: var(--text-muted);">A comprehensive study of Rolex's iconic racing chronograph evolution.</p>
+                    <p style="font-size: 0.7rem; font-style: italic; margin: 0; color: var(--text-muted);">A thorough analytical archive of Rolex's iconic racing chronograph.</p>
                 </div>
                 <span class="page-num">02</span>
             </div>
@@ -269,47 +236,38 @@
     </div>
 
 
-    <!-- SPREAD 2: ORIGINS & EARLY MANUFACTURE -->
+    <!-- SPREAD 2: PAGES 3 & 4 -->
     <div class="spread">
-        <!-- Page 3: Origins & Beach History -->
-        <div class="page page-left" style="display: grid; grid-template-columns: 70px 1fr; gap: 1.5rem;">
+        <!-- Page 3: Speedway Origins -->
+        <div class="page page-left" style="display: grid; grid-template-columns: 60px 1fr; gap: 1.2rem;">
             <div class="vertical-text">ORIGINS</div>
             <div>
-                <h2 class="giant-title" style="font-size: 2.2rem; margin-bottom: 1rem;">DAYTONA BEACH TO LE MANS</h2>
-                <!-- EMBEDDED DAYTONA GRAPHIC 3 -->
-                <div class="graphic-frame" style="height: 170px; margin-bottom: 1.2rem;">
-                    <svg viewBox="0 0 250 150" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="250" height="150" fill="#121416"/>
-                        <circle cx="125" cy="75" r="60" fill="#222" stroke="#aaa" stroke-width="4"/>
-                        <circle cx="125" cy="75" r="50" fill="#fff"/>
-                        <circle cx="100" cy="75" r="12" fill="#222"/>
-                        <circle cx="150" cy="75" r="12" fill="#222"/>
-                        <circle cx="125" cy="95" r="12" fill="#222"/>
-                        <text x="125" y="52" font-family="Oswald" font-size="7" fill="#111" text-anchor="middle">ROLEX</text>
-                    </svg>
+                <h2 class="giant-title" style="font-size: 2rem; margin-bottom: 0.8rem;">DAYTONA BEACH TO LE MANS</h2>
+                <div class="img-frame" style="height: 160px; margin-bottom: 1rem;">
+                    <img src="daytona3.jpg" alt="Rolex Daytona Page 3 Image">
                 </div>
-                <p class="lead">Long before the Cosmograph Daytona existed as a physical watch, Rolex was deeply entwined with speed. In the 1930s, Sir Malcolm Campbell set five land-speed records at Daytona Beach, Florida, wearing an Oyster watch.</p>
-                <p>When the Daytona International Speedway opened in 1959, Rolex became its Official Timekeeper. By 1963, Rolex introduced Reference 6239, explicitly named the "Cosmograph" and soon updated with "Daytona" on the dial.</p>
+                <p class="lead">Long before the Cosmograph Daytona existed as a physical timepiece, Rolex was entwined with high-speed motor racing. In the 1930s, Sir Malcolm Campbell set land-speed records at Daytona Beach wearing a Rolex Oyster.</p>
+                <p>When Daytona International Speedway opened in 1959, Rolex became its Official Timekeeper, cementing a legacy built on extreme endurance.</p>
                 <span class="page-num">03</span>
             </div>
         </div>
 
-        <!-- Page 4: Design Evolution -->
+        <!-- Page 4: Inaugural Ref 6239 -->
         <div class="page page-right" style="display: grid; grid-template-rows: auto 1fr;">
             <div>
-                <div class="meta-header">CHAPTER I — ARCHITECTURAL INNOVATION</div>
-                <p>Prior to Reference 6239, chronographs typically printed the tachymeter scale directly on the dial surface, cluttering the face. Rolex revolutionized racing ergonomics by moving the tachymeter scale onto the bezel itself.</p>
-                <p>This simple shift allowed drivers to instantly read speeds up to 300 units per hour (later expanded to 400) without losing visual focus on elapsed race times.</p>
+                <div class="meta-header">CHAPTER I — DESIGN REVOLUTION</div>
+                <h3 style="font-family: 'Oswald', sans-serif; font-size: 1.3rem; text-transform: uppercase; margin-bottom: 0.4rem;">THE BIRTH OF REF. 6239</h3>
+                <p>Prior to 1963, chronographs printed tachymeter scales directly on the dial face. Rolex shifted the scale onto the external bezel, dramatically improving legibility for drivers timing laps at speed.</p>
             </div>
             
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; align-items: flex-end;">
                 <div>
                     <div class="huge-number">1963</div>
-                    <p style="font-size: 0.75rem; font-weight: 600; text-transform: uppercase;">The Inaugural Year</p>
-                    <p style="font-size: 0.7rem; color: var(--text-muted);">Reference 6239 debuts, equipped with manual-wind Valjoux 72 movements and high-contrast sub-dials.</p>
+                    <p style="font-size: 0.72rem; font-weight: 600; text-transform: uppercase;">Manual-Wind Era</p>
+                    <p style="font-size: 0.68rem; color: var(--text-muted);">Powered by manual Valjoux movements with inverse sub-dial colorways.</p>
                 </div>
-                <div class="teal-panel" style="padding: 1.2rem; height: 100%; display: flex; flex-direction: column; justify-content: center;">
-                    <p style="color: var(--white); font-size: 0.78rem; font-style: italic; margin: 0;">"By positioning the tachymeter outside the crystal, Rolex created a new design language for performance timekeeping."</p>
+                <div class="img-frame" style="height: 160px;">
+                    <img src="daytona4.jpg" alt="Rolex Daytona Page 4 Image">
                 </div>
             </div>
             <span class="page-num">04</span>
@@ -317,43 +275,36 @@
     </div>
 
 
-    <!-- SPREAD 3: THE PAUL NEWMAN DIAL & AUCTION LEGEND -->
+    <!-- SPREAD 3: PAGES 5 & 6 -->
     <div class="spread">
-        <!-- Page 5: Exotic Dial History -->
+        <!-- Page 5: Exotic Dials -->
         <div class="page page-left">
             <div class="meta-header">CHAPTER II — THE AUCTION MYTHOS</div>
-            <h2 class="giant-title" style="font-size: 2.4rem; margin-bottom: 1.2rem;">THE "PAUL NEWMAN" EXOTIC DIAL</h2>
+            <h2 class="giant-title" style="font-size: 2rem; margin-bottom: 0.8rem;">THE EXOTIC "PAUL NEWMAN" DIAL</h2>
             
-            <p>In the late 1960s, Rolex offered specialized "Exotic Dials" manufactured by Jean-Singer & Cie. Characterized by art-deco subdial font numerals, step-down outer tracks, and small square hash marks, these dials were initially commercial failures.</p>
+            <p>Produced by dial maker Jean-Singer & Cie, "Exotic Dials" featured crosshair sub-dials and art-deco block font numerals. Initially slow sellers, these rare configurations later became the most sought-after vintage watches on Earth.</p>
             
-            <!-- EMBEDDED DAYTONA GRAPHIC 4 -->
-            <div class="graphic-frame" style="height: 150px; margin: 1rem 0;">
-                <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="200" height="120" fill="#151719"/>
-                    <circle cx="100" cy="60" r="48" fill="#eae6df" stroke="#c00" stroke-width="2"/>
-                    <!-- Exotic Sub-dials with square art-deco marks -->
-                    <circle cx="80" cy="60" r="12" fill="#111"/>
-                    <rect x="79" y="50" width="2" height="4" fill="#fff"/>
-                    <circle cx="120" cy="60" r="12" fill="#111"/>
-                    <circle cx="100" cy="80" r="12" fill="#111"/>
-                </svg>
+            <div class="img-frame" style="height: 150px; margin: 0.8rem 0;">
+                <img src="daytona5.jpg" alt="Rolex Daytona Page 5 Image">
             </div>
 
-            <p>Customers overwhelmingly preferred standard monochrome dials. As a result, Rolex produced very few exotic dial variants during the manual-wind production run between 1963 and 1988.</p>
+            <p>Their scarcity during the 1960s and 1970s laid the foundation for modern watch collecting culture.</p>
             <span class="page-num">05</span>
         </div>
 
-        <!-- Page 6: The $17.75 Million Legacy -->
+        <!-- Page 6: Auction Record -->
         <div class="page page-right teal-panel" style="display: grid; grid-template-rows: auto 1fr auto;">
             <div class="meta-header" style="color: rgba(255,255,255,0.5);">RECORD BREAKING GRAIL</div>
             
             <div>
-                <h2 class="giant-title white" style="font-size: 2rem; margin-bottom: 1rem;">REFERENCE 6239</h2>
+                <h2 class="giant-title white" style="font-size: 1.8rem; margin-bottom: 0.8rem;">$17.75 MILLION LEGEND</h2>
                 <div class="quote-box" style="border-left-color: var(--bg-cream); color: rgba(255,255,255,0.9);">
-                    "Drive Carefully Me" — Inscribed on the caseback of Paul Newman’s Daytona by his wife Joanne Woodward before his first motor race.
+                    "Drive Carefully Me" — Engraved on the caseback of Paul Newman’s Ref. 6239 by Joanne Woodward.
                 </div>
-                <p style="color: rgba(255,255,255,0.85); font-size: 0.8rem; margin-top: 1rem;">When Paul Newman was photographed repeatedly wearing his exotic dial Reference 6239 during his professional racing endeavors, Italian collectors dubbed the design the "Paul Newman Daytona".</p>
-                <p style="color: rgba(255,255,255,0.85); font-size: 0.8rem;">In October 2017, Newman's personal watch sold at auction for $17.75 million—making it one of the most valuable wristwatches ever sold in history.</p>
+                <div class="img-frame" style="height: 130px; border-color: rgba(255,255,255,0.2); margin: 0.8rem 0;">
+                    <img src="daytona6.jpg" alt="Rolex Daytona Page 6 Image">
+                </div>
+                <p style="color: rgba(255,255,255,0.85); font-size: 0.75rem;">In October 2017, Paul Newman's personal wristwatch set a world record, solidifying the Daytona's status in horological history.</p>
             </div>
 
             <span class="page-num" style="color: rgba(255,255,255,0.5);">06</span>
@@ -361,64 +312,123 @@
     </div>
 
 
-    <!-- SPREAD 4: TECHNICAL SPECIFICATIONS -->
+    <!-- SPREAD 4: PAGES 7 & 8 -->
     <div class="spread">
-        <!-- Page 7: Ref. 126500LN & Technical Perfection -->
+        <!-- Page 7: Automatic Zenith Era -->
         <div class="page page-left">
-            <div class="meta-header">CHAPTER VII — MODERN HOROLOGY</div>
-            <h2 class="giant-title" style="font-size: 2.4rem; margin-bottom: 1.2rem;">THE CERACHROM ERA</h2>
+            <div class="meta-header">CHAPTER III — AUTOMATIC ERA</div>
+            <h2 class="giant-title" style="font-size: 2rem; margin-bottom: 0.8rem;">REF. 16520: ZENITH CALIBRE 4030</h2>
+            
+            <p>In 1988, Rolex motorized the Daytona with self-winding mechanics. Based on the Zenith El Primero, Rolex modified over 50% of the movement components to create the highly durable Calibre 4030.</p>
 
-            <!-- EMBEDDED DAYTONA GRAPHIC 5 -->
-            <div class="graphic-frame" style="height: 160px; margin-bottom: 1rem;">
-                <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="200" height="120" fill="#111"/>
-                    <circle cx="100" cy="60" r="45" fill="#1a1a1a" stroke="#d4af37" stroke-width="3"/>
-                    <circle cx="100" cy="60" r="38" fill="#000"/>
-                    <circle cx="85" cy="60" r="10" fill="none" stroke="#fff" stroke-width="1.5"/>
-                    <circle cx="115" cy="60" r="10" fill="none" stroke="#fff" stroke-width="1.5"/>
-                    <circle cx="100" cy="75" r="10" fill="none" stroke="#fff" stroke-width="1.5"/>
-                </svg>
+            <div class="img-frame" style="height: 150px; margin: 0.8rem 0;">
+                <img src="daytona7.jpg" alt="Rolex Daytona Page 7 Image">
             </div>
 
-            <p>In 2016, Rolex introduced the Reference 116500LN featuring a monobloc Cerachrom bezel in high-tech ceramic. Scratchproof and immune to UV fading, it paid homage to the 1963 acrylic bezel while offering modern durability.</p>
-
-            <p>Updated in 2023 as Reference 126500LN with Calibre 4131, it features a Chronergy escapement and a redesigned case silhouette with thin metal bezel borders.</p>
+            <p>Case sizes expanded to 40mm, introducing crown guards and sapphire crystals to the collection.</p>
             <span class="page-num">07</span>
         </div>
 
-        <!-- Page 8: Final Specs & Full Visual Finish -->
-        <div class="page page-right" style="padding: 0; display: grid; grid-template-rows: 1fr 1fr;">
-            <!-- EMBEDDED DAYTONA GRAPHIC 6 -->
-            <div class="graphic-frame">
-                <svg viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="300" height="150" fill="#191c1e"/>
-                    <circle cx="150" cy="75" r="55" fill="#222" stroke="#d4af37" stroke-width="4"/>
-                    <path d="M 100 75 L 200 75" stroke="#d4af37" stroke-width="2"/>
-                    <circle cx="150" cy="75" r="42" fill="#fff"/>
-                    <text x="150" y="65" font-family="Oswald" font-size="10" fill="#111" text-anchor="middle">ROLEX</text>
-                    <text x="150" y="75" font-family="Inter" font-size="6" fill="#c00" text-anchor="middle">DAYTONA</text>
-                </svg>
+        <!-- Page 8: In-House Calibre 4130 -->
+        <div class="page page-right" style="display: grid; grid-template-rows: auto 1fr;">
+            <div>
+                <div class="meta-header">CHAPTER IV — IN-HOUSE AUTONOMY</div>
+                <h3 style="font-family: 'Oswald', sans-serif; font-size: 1.3rem; text-transform: uppercase; margin-bottom: 0.4rem;">CALIBRE 4130 (YEAR 2000)</h3>
+                <p>Entering the 21st century, Rolex introduced Ref. 116520 featuring a vertical clutch vertical-clutch chronograph engine engineered entirely in-house, offering a 72-hour power reserve.</p>
             </div>
 
-            <div class="teal-panel" style="padding: 2.2rem; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+                <div class="img-frame" style="height: 180px; margin-bottom: 0.6rem;">
+                    <img src="daytona8.jpg" alt="Rolex Daytona Page 8 Image">
+                </div>
+                <p style="font-size: 0.7rem; color: var(--text-muted);">The vertical clutch architecture eliminated hand-jitter upon starting chronograph timing.</p>
+            </div>
+            <span class="page-num">08</span>
+        </div>
+    </div>
+
+
+    <!-- SPREAD 5: PAGES 9 & 10 -->
+    <div class="spread">
+        <!-- Page 9: Oystersteel & Gold Metallurgy -->
+        <div class="page page-left" style="display: grid; grid-template-columns: 60px 1fr; gap: 1.2rem;">
+            <div class="vertical-text">METALS</div>
+            <div>
+                <div class="meta-header">CHAPTER V — METALLURGICAL SCIENCE</div>
+                <h2 class="giant-title" style="font-size: 2rem; margin-bottom: 0.8rem;">OYSTERSTEEL & EVEROSE GOLD</h2>
+                
+                <div class="img-frame" style="height: 150px; margin-bottom: 0.8rem;">
+                    <img src="daytona9.jpg" alt="Rolex Daytona Page 9 Image">
+                </div>
+
+                <p>Rolex utilizes 904L stainless steel—branded Oystersteel—for exceptional resistance to harsh environments and superior polish sheen.</p>
+                <p>Precious metal models feature in-house cast 18ct Everose gold, blended with platinum to preserve color permanently.</p>
+                <span class="page-num">09</span>
+            </div>
+        </div>
+
+        <!-- Page 10: Hermetic Engineering -->
+        <div class="page page-right" style="display: grid; grid-template-rows: auto 1fr;">
+            <div>
+                <div class="meta-header">CASE ARCHITECTURE</div>
+                <h3 style="font-family: 'Oswald', sans-serif; font-size: 1.3rem; text-transform: uppercase; margin-bottom: 0.4rem;">TRIPLOCK SYSTEM & OYSTERCASE</h3>
+                <p>The Monobloc middle case features screw-down pushers and a Triplock winding crown with four waterproof gaskets, guaranteeing 100 meters (330 feet) water resistance.</p>
+            </div>
+
+            <div>
+                <div class="img-frame" style="height: 180px; margin-bottom: 0.6rem;">
+                    <img src="daytona10.jpg" alt="Rolex Daytona Page 10 Image">
+                </div>
+                <p style="font-size: 0.7rem; color: var(--text-muted);">Rugged screw-down pushers prevent inadvertent underwater activation while preserving the silhouette.</p>
+            </div>
+            <span class="page-num">10</span>
+        </div>
+    </div>
+
+
+    <!-- SPREAD 6: PAGES 11 & 12 -->
+    <div class="spread">
+        <!-- Page 11: Cerachrom Bezel & Calibre 4131 -->
+        <div class="page page-left">
+            <div class="meta-header">CHAPTER VI — MODERN HOROLOGY</div>
+            <h2 class="giant-title" style="font-size: 2rem; margin-bottom: 0.8rem;">CERACHROM & CALIBRE 4131</h2>
+
+            <div class="img-frame" style="height: 150px; margin-bottom: 0.8rem;">
+                <img src="daytona11.jpg" alt="Rolex Daytona Page 11 Image">
+            </div>
+
+            <p>Modern Daytona models utilize high-tech Cerachrom ceramic bezels that are scratchproof and corrosion-resistant, updated with thin metallic outer borders in Ref. 126500LN.</p>
+
+            <p>Calibre 4131 incorporates the Chronergy escapement for optimized energy efficiency.</p>
+            <span class="page-num">11</span>
+        </div>
+
+        <!-- Page 12: Technical Specifications -->
+        <div class="page page-right" style="padding: 0; display: grid; grid-template-rows: 1fr 1fr;">
+            <div class="img-frame">
+                <img src="daytona12.jpg" alt="Rolex Daytona Page 12 Image">
+            </div>
+
+            <div class="teal-panel" style="padding: 2rem; display: flex; flex-direction: column; justify-content: space-between;">
                 <div>
-                    <h3 style="font-family: 'Oswald', sans-serif; font-size: 1.5rem; letter-spacing: 1px; margin-bottom: 0.8rem; color: var(--white);">
+                    <h3 style="font-family: 'Oswald', sans-serif; font-size: 1.4rem; letter-spacing: 1px; margin-bottom: 0.6rem; color: var(--white);">
                         TECHNICAL SPECIFICATIONS
                     </h3>
-                    <div style="font-family: 'Inter', sans-serif; font-size: 0.72rem; line-height: 1.8; color: rgba(255,255,255,0.85);">
-                        <strong>MODEL REF:</strong> 126500LN / 126506 / 126518LN<br>
-                        <strong>CASE SIZE:</strong> 40 mm (Oystersteel, Gold, Platinum)<br>
-                        <strong>BEZEL:</strong> Monobloc Cerachrom Ceramic with platinum PVD numbers<br>
-                        <strong>MOVEMENT:</strong> Rolex In-House Calibre 4131<br>
-                        <strong>PRECISION:</strong> -2/+2 sec/day (Superlative Chronometer)<br>
-                        <strong>POWER RESERVE:</strong> Approx. 72 Hours<br>
+                    <div style="font-family: 'Inter', sans-serif; font-size: 0.7rem; line-height: 1.7; color: rgba(255,255,255,0.85);">
+                        <strong>REFERENCE:</strong> 126500LN / 126506 / 126518LN<br>
+                        <strong>DIAMETER:</strong> 40 mm<br>
+                        <strong>MATERIAL:</strong> Oystersteel / Everose / Platinum<br>
+                        <strong>BEZEL:</strong> Monobloc Cerachrom Ceramic<br>
+                        <strong>MOVEMENT:</strong> Calibre 4131, In-house<br>
+                        <strong>POWER RESERVE:</strong> 72 Hours<br>
                         <strong>WATER RESISTANCE:</strong> 100 meters / 330 feet
                     </div>
                 </div>
-                <span class="page-num" style="color: rgba(255,255,255,0.5); position: static;">08</span>
+                <span class="page-num" style="color: rgba(255,255,255,0.5); position: static;">12</span>
             </div>
         </div>
     </div>
 
 </body>
+    
 </html>
