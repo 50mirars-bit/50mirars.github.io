@@ -1,2230 +1,544 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Rolex Daytona Magazine | 50 Mirars Journal</title>
-
-<meta name="theme-color" content="#0b0b0b">
-
-<meta name="description" content="The Ultimate Rolex Daytona Magazine by 50 Mirars Journal">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-scroll-behavior:smooth;
-}
-
-body{
-background:#090909;
-color:#f5f5f5;
-font-family:'Inter',sans-serif;
-overflow-x:hidden;
-line-height:1.8;
-}
-
-img{
-width:100%;
-display:block;
-}
-
-a{
-text-decoration:none;
-color:inherit;
-}
-
-/* NAVIGATION */
-
-header{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-padding:22px 7%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:rgba(10,10,10,.72);
-backdrop-filter:blur(20px);
-z-index:999;
-border-bottom:1px solid rgba(212,175,55,.18);
-}
-
-.logo{
-font-family:'Cormorant Garamond',serif;
-font-size:34px;
-letter-spacing:4px;
-color:#d4af37;
-}
-
-.nav{
-display:flex;
-gap:35px;
-font-size:14px;
-letter-spacing:2px;
-text-transform:uppercase;
-}
-
-.nav a:hover{
-color:#d4af37;
-}
-
-/* HERO */
-
-.hero{
-height:100vh;
-position:relative;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-overflow:hidden;
-}
-
-.hero::before{
-content:"";
-position:absolute;
-inset:0;
-background:url('rolex daytona Journal.jpg') center/cover;
-transform:scale(1.08);
-filter:brightness(.42);
-animation:slowZoom 20s linear infinite alternate;
-}
-
-@keyframes slowZoom{
-
-from{
-transform:scale(1.08);
-}
-
-to{
-transform:scale(1.15);
-}
-
-}
-
-.hero::after{
-content:"";
-position:absolute;
-inset:0;
-background:linear-gradient(to bottom,
-rgba(0,0,0,.25),
-rgba(0,0,0,.75));
-}
-
-.hero-content{
-position:relative;
-z-index:2;
-max-width:900px;
-padding:20px;
-}
-
-.issue{
-letter-spacing:6px;
-font-size:13px;
-text-transform:uppercase;
-color:#d4af37;
-margin-bottom:20px;
-}
-
-.hero h1{
-font-family:'Cormorant Garamond',serif;
-font-size:110px;
-font-weight:600;
-line-height:.95;
-margin-bottom:25px;
-}
-
-.hero p{
-font-size:21px;
-font-weight:300;
-max-width:700px;
-margin:auto;
-opacity:.92;
-}
-
-.scroll{
-margin-top:50px;
-display:inline-block;
-padding:14px 34px;
-border:1px solid #d4af37;
-color:#d4af37;
-letter-spacing:3px;
-text-transform:uppercase;
-font-size:12px;
-transition:.4s;
-}
-
-.scroll:hover{
-background:#d4af37;
-color:#111;
-}
-
-/* MAGAZINE */
-
-.section{
-max-width:1280px;
-margin:auto;
-padding:120px 7%;
-}
-
-.kicker{
-color:#d4af37;
-letter-spacing:5px;
-font-size:13px;
-text-transform:uppercase;
-margin-bottom:18px;
-}
-
-.title{
-font-family:'Cormorant Garamond',serif;
-font-size:68px;
-line-height:1.05;
-margin-bottom:30px;
-}
-
-.subtitle{
-font-size:22px;
-color:#cfcfcf;
-max-width:760px;
-margin-bottom:55px;
-}
-
-.editorial{
-display:grid;
-grid-template-columns:1.1fr .9fr;
-gap:80px;
-align-items:center;
-}
-
-.editorial.reverse{
-grid-template-columns:.9fr 1.1fr;
-}
-
-.editorial.reverse .image{
-order:2;
-}
-
-.editorial.reverse .text{
-order:1;
-}
-
-.text p{
-font-size:18px;
-margin-bottom:28px;
-color:#dedede;
-}
-
-.image{
-overflow:hidden;
-border-radius:4px;
-}
-
-.image img{
-transition:transform 1.4s ease;
-}
-
-.image:hover img{
-transform:scale(1.06);
-}
-
-.full-image{
-margin:90px 0;
-}
-
-.full-image img{
-height:85vh;
-object-fit:cover;
-}
-
-.pullquote{
-max-width:900px;
-margin:110px auto;
-text-align:center;
-font-family:'Cormorant Garamond',serif;
-font-size:52px;
-font-style:italic;
-color:#d4af37;
-line-height:1.3;
-}
-
-/* SPEC CARD */
-
-.spec-card{
-margin-top:45px;
-padding:35px;
-border:1px solid rgba(212,175,55,.3);
-background:rgba(255,255,255,.02);
-backdrop-filter:blur(18px);
-}
-
-.spec-grid{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:24px;
-margin-top:30px;
-}
-
-.spec-item h4{
-color:#d4af37;
-font-size:12px;
-letter-spacing:3px;
-margin-bottom:10px;
-}
-
-.spec-item p{
-font-size:18px;
-}
-
-/* FADE */
-
-.fade{
-opacity:0;
-transform:translateY(40px);
-transition:1.2s;
-}
-
-.fade.show{
-opacity:1;
-transform:none;
-}
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-header{
-padding:18px 6%;
-}
-
-.nav{
-display:none;
-}
-
-.hero h1{
-font-size:64px;
-}
-
-.hero p{
-font-size:18px;
-}
-
-.title{
-font-size:48px;
-}
-
-.editorial,
-.editorial.reverse{
-grid-template-columns:1fr;
-gap:40px;
-}
-
-.editorial.reverse .image,
-.editorial.reverse .text{
-order:unset;
-}
-
-.full-image img{
-height:55vh;
-}
-
-.pullquote{
-font-size:36px;
-}
-
-.spec-grid{
-grid-template-columns:1fr;
-}
-
-}
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHRONO ARCHIVE — The Rolex Cosmograph Daytona</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables - Dark Theme (Default) */
+        :root {
+            --bg-main: #0a0c0e;
+            --card-bg: #111418;
+            --accent-gold: #c9a050;
+            --text-main: #e2e8f0;
+            --text-title: #ffffff;
+            --text-muted: #94a3b8;
+            --border-color: #222933;
+            --header-bg: linear-gradient(180deg, #141920 0%, #0a0c0e 100%);
+            --footer-bg: #060809;
+            --lightbox-bg: rgba(0, 0, 0, 0.9);
+        }
+
+        /* Light Theme Overrides */
+        [data-theme="light"] {
+            --bg-main: #f8fafc;
+            --card-bg: #ffffff;
+            --accent-gold: #a37928;
+            --text-main: #334155;
+            --text-title: #0f172a;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --header-bg: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+            --footer-bg: #f1f5f9;
+            --lightbox-bg: rgba(15, 23, 42, 0.92);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Header & Theme Control */
+        header {
+            position: relative;
+            border-bottom: 1px solid var(--border-color);
+            padding: 2rem 1rem;
+            text-align: center;
+            background: var(--header-bg);
+        }
+
+        .masthead {
+            font-family: 'Cinzel', serif;
+            font-size: 2.8rem;
+            font-weight: 900;
+            letter-spacing: 0.3em;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+        }
+
+        .issue-meta {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.25em;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-top: 0.5rem;
+        }
+
+        .theme-toggle-btn {
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+            background: var(--card-bg);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 1rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .theme-toggle-btn:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem 2rem 2rem;
+            text-align: center;
+        }
+
+        .category-tag {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.3em;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+            color: var(--text-title);
+        }
+
+        .article-subtitle {
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: 0 auto 3rem auto;
+            font-weight: 400;
+        }
+
+        /* Zoomable Image Styling */
+        .zoomable-image {
+            cursor: zoom-in;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .zoomable-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .zoomable-image:hover img {
+            transform: scale(1.02);
+        }
+
+        .hero-image-wrapper {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto 4rem auto;
+            border: 1px solid var(--border-color);
+            padding: 1rem;
+            background-color: var(--card-bg);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .caption {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        /* Main Content Layout */
+        .magazine-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem 6rem 2rem;
+        }
+
+        .editorial-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+        }
+
+        @media (max-width: 900px) {
+            .editorial-grid {
+                grid-template-columns: 1fr;
+            }
+            .article-title {
+                font-size: 2.5rem;
+            }
+            .theme-toggle-btn {
+                position: static;
+                margin: 1rem auto 0 auto;
+            }
+        }
+
+        /* Body Paragraphs */
+        .article-body p {
+            margin-bottom: 2rem;
+            text-align: justify;
+            hyphens: auto;
+        }
+
+        .article-body p.lead::first-letter {
+            font-family: 'Cinzel', serif;
+            font-size: 4.5rem;
+            float: left;
+            line-height: 0.8;
+            padding-right: 0.75rem;
+            padding-top: 0.25rem;
+            color: var(--accent-gold);
+        }
+
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            color: var(--text-title);
+            margin: 3rem 0 1.5rem 0;
+            border-bottom: 1px solid var(--accent-gold);
+            padding-bottom: 0.5rem;
+        }
+
+        /* Pull Quote */
+        .pull-quote {
+            margin: 3rem 0;
+            padding: 2rem;
+            border-left: 3px solid var(--accent-gold);
+            background-color: var(--card-bg);
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--text-title);
+            line-height: 1.6;
+        }
+
+        /* Inset Image Card */
+        .inset-figure {
+            margin: 3rem 0;
+            background: var(--card-bg);
+            padding: 1rem;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Sidebar Elements */
+        .sidebar {
+            position: sticky;
+            top: 2rem;
+            height: fit-content;
+        }
+
+        .spec-box {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .spec-box h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--accent-gold);
+            font-size: 1.2rem;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .spec-row {
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            padding: 0.6rem 0;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .spec-label {
+            color: var(--text-muted);
+        }
+
+        .spec-value {
+            color: var(--text-title);
+            font-weight: 500;
+            text-align: right;
+        }
+
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 3rem 2rem;
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            background-color: var(--footer-bg);
+        }
+
+        /* Lightbox UI */
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--lightbox-bg);
+            backdrop-filter: blur(8px);
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 80vh;
+            border: 1px solid var(--accent-gold);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .lightbox-caption {
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            margin-top: 1.5rem;
+            text-align: center;
+            max-width: 700px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #ffffff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .lightbox-close:hover {
+            color: var(--accent-gold);
+        }
+    </style>
 </head>
+<body data-theme="dark">
 
-<body>
+    <header>
+        <div class="masthead">CHRONO ARCHIVE</div>
+        <div class="issue-meta">VOL. IV — HIGH HOROLOGY REVIEW — SPECIAL EDITION</div>
+        <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle theme">
+            <span id="themeIcon">☀️</span> <span id="themeText">Light Mode</span>
+        </button>
+    </header>
 
-<header>
+    <div class="hero">
+        <span class="category-tag">Iconic Timepieces</span>
+        <h1 class="article-title">The Anointed King of Chronographs</h1>
+        <p class="article-subtitle">How a slow-selling tool watch transformed into the ultimate symbol of horological mastery, mechanical obsession, and timeless prestige.</p>
+        
+        <div class="hero-image-wrapper">
+            <div class="zoomable-image">
+                <img src="https://cdn.luxepolis.com/media/catalog/product/r/o/rowt2919-1.webp?w=1200&q=75" alt="Rolex Cosmograph Daytona Stainless Steel and Gold Chronograph" data-caption="The Rolex Cosmograph Daytona in Oystersteel and Gold: An architectural triumph balancing race track precision with haute horology design.">
+            </div>
+            <div class="caption">Click image to inspect high-resolution detail.</div>
+        </div>
+    </div>
 
-<div class="logo">50 MIRARS</div>
+    <main class="magazine-container">
+        <div class="editorial-grid">
+            <article class="article-body">
+                
+                <p class="lead">Few objects in the modern luxury canon command the mystical aura, mechanical reverence, and market frenzy of the Rolex Cosmograph Daytona. What began in 1963 as a rugged, functional wrist instrument designed exclusively for professional endurance racing drivers has evolved over six decades into the uncontested sovereign of mechanical chronographs. To comprehend the Daytona is to understand not merely watchmaking mechanics, but the intricate intersections of motorsport heritage, industrial perfection, and human desire.</p>
 
-<div class="nav">
+                <p>The genesis of the Daytona is inextricably tied to the sun-drenched, high-octane asphalt of Daytona Beach, Florida. Long before permanent tracks were poured, land-speed record pioneers gathered on the hard-packed sands to push internal combustion engines beyond known limits. Sir Malcolm Campbell, an early icon of velocity, tore across these shores wearing a Rolex Oyster, forging an implicit link between Genevan watchmaking and competitive racing that remains unbreakable to this day.</p>
 
-<a href="#chapter1">History</a>
+                <p>When Rolex introduced Reference 6239 in 1963, it formally codified this relationship. The defining aesthetic innovation was both radical and pragmatic: moving the engraved tachymeter scale from the perimeter of the dial onto the outer bezel. This structural shift allowed drivers to calculate average speeds of up to 400 units per hour instantly, without cluttering the chronograph counters—a design choice that forever defined the visual architecture of sport timing instruments.</p>
 
-<a href="#chapter3">Design</a>
+                <h2 class="section-heading">I. The Manual Era & The Legend of Paul Newman</h2>
 
-<a href="#chapter5">Movement</a>
+                <p>During its initial production run from the early 1960s through the late 1980s, the Cosmograph Daytona was powered by manual-wind Valjoux movements, primarily Calibres 72B, 722, and 727. Remarkably, during this era, the watch was far from an instant commercial hit. Jewelers often struggled to move inventory, as clients favored slim, gold dress watches over chunky, utilitarian chronographs with manual-wind crowns.</p>
 
-<a href="#chapter6">Legacy</a>
+                <p>The trajectory of the Daytona shifted dramatically due to an unscripted cultural alignment with Hollywood legend and racing enthusiast Paul Newman. Gifted an exotic-dial Reference 6239 by his wife, Joanne Woodward—inscribed on the caseback with the iconic warning "Drive Carefully Me"—Newman wore the watch continuously in the paddocks, on track, and in photo shoots. The exotic dial, featuring blocky crosshairs on the sub-dials and art deco typography, became immortalized overnight.</p>
 
-</div>
+                <p>What collector communities dubbed the "Paul Newman Daytona" ignited an international fever. Decades later, in October 2017, Newman’s personal Reference 6239 crossed the auction block in New York, fetching a earth-shattering $17.75 million. The sale permanently sealed the Daytona’s transition from a specialized mechanical tool into an investment-grade artifact of modern art and pop culture history.</p>
 
-</header>
+                <p>Technological refinement during the manual-wind era was steady. Early references utilized snap-on casebacks and simple push-pieces. However, to enhance durability and environmental resistance, Rolex quickly implemented screw-down pushers and screw-down crowns, achieving genuine Oyster waterproofing standards for a chronograph architecture—a feat previously thought impractical for complex timing pieces.</p>
 
-<!-- HERO -->
+                <div class="pull-quote">
+                    "The Daytona did not achieve icon status by conforming to trends; it forced the world to adjust its parameters of luxury to match its uncompromising utility."
+                </div>
 
-<section class="hero">
+                <h2 class="section-heading">II. The Zenith Revolution: Automatic Awakening</h2>
 
-<div class="hero-content fade">
+                <p>By the late 1980s, the global horological landscape had weathered the Quartz Crisis, and mechanical watchmaking was experiencing a profound renaissance. The market demanded automatic convenience combined with haute-horology construction. In 1988, Rolex unveiled Reference 16520, fundamentally revolutionizing the line by introducing its first automatic self-winding chronograph movement.</p>
 
-<div class="issue">
+                <p>At the heart of this second-generation Daytona was Calibre 4030, a heavily modified version of Zenith’s legendary El Primero 400 movement. Rolex engineers undertook a radical overhaul of the base calibre, discarding roughly 50 percent of its components and replacing them with custom Genevan engineering. The beat rate was intentionally lowered from 36,000 vibrations per hour to a steady 28,800 VpH to extend service intervals and mechanical longevity.</p>
 
-50 MIRARS JOURNAL · SPECIAL EDITION
+                <p>Beyond the engine bay, the Reference 16520 expanded the case diameter from 37mm to a modern, commanding 40mm. Rolex introduced crown guards, dynamic lacquered dials, and sapphire crystals, replacing the acrylic plexiglass of prior decades. The aesthetic transition gave birth to the modern luxury chronograph era, triggering years-long waiting lists at authorized retailers worldwide.</p>
 
-</div>
-
-<h1>ROLEX DAYTONA</h1>
-
-<p>
-
-The definitive editorial celebrating the world's most iconic chronograph—its history, engineering, racing heritage, and timeless elegance.
-
-</p>
-
-<a href="#chapter1" class="scroll">
-
-Begin Reading
-
-</a>
-
-</div>
-
-</section>
-
-<!-- CHAPTER 1 -->
-
-<section class="section fade" id="chapter1">
-
-<div class="kicker">
-
-Chapter One
-
-</div>
-
-<h2 class="title">
-
-The Machine That Redefined Speed
-
-</h2>
-
-<div class="editorial">
-
-<div class="text">
-
-<p>
-
-Few watches occupy the cultural space that the Rolex Cosmograph Daytona commands today. What began as a professional racing chronograph in the early 1960s has become one of the world's most desirable luxury watches, worn by racing legends, Hollywood icons, collectors, and enthusiasts alike. The Daytona's enduring appeal lies in a rare balance of engineering excellence, timeless aesthetics, and historical significance that has remained remarkably consistent for more than six decades.
-
-</p>
-
-<p>
-
-Unlike many watches that evolve dramatically over time, the Daytona has preserved its unmistakable identity. The three-register chronograph layout, engraved tachymeter bezel, screw-down pushers, and Oyster case have become visual signatures instantly recognized across the globe. Every generation refines these elements rather than replacing them, allowing modern references like the 126500LN to feel directly connected to the original 1963 creation.
-
-</p>
-
-<p>
-
-Today, waiting lists stretch for years, auction prices reach extraordinary heights, and vintage references have become museum-worthy artifacts. Yet beneath the exclusivity remains a watch designed for one purpose above all else—measuring speed with precision.
-
-</p>
-
-</div>
-
-<div class="image">
-
-<img src="Rolex Cosmograph Daytona John Walker.jpeg">
-
-</div>
-
-</div>
-
-</section>
-
-<div class="full-image fade">
-
-<img src="rolex daytona Journal.jpg">
-
-</div>
-
-<!-- CHAPTER 2 -->
-
-<section class="section fade">
-
-<div class="kicker">
-
-Chapter Two
-
-</div>
-
-<h2 class="title">
-
-Born on the Racetrack
-
-</h2>
-
-<div class="editorial reverse">
-
-<div class="image">
-
-<img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=80">
-
-</div>
-
-<div class="text">
-
-<p>
-
-The story begins in 1963 when Rolex introduced Reference 6239, a chronograph specifically designed for professional racing drivers. Rather than placing the tachymeter scale on the dial as earlier chronographs had done, Rolex engraved it directly onto the bezel, dramatically improving readability during high-speed competition.
-
-</p>
-
-<p>
-
-The watch soon became associated with Daytona International Speedway in Florida, one of America's greatest racing circuits. Rolex's partnership with endurance racing strengthened the connection between precision timing and automotive excellence, eventually giving the watch its legendary name: Cosmograph Daytona.
-
-</p>
-
-<p>
-
-Ironically, early Daytonas were not immediate commercial successes. For years they remained overlooked compared to other Rolex models, a fact that makes surviving vintage references especially prized today.
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<div class="pullquote fade">
-
-"Great design isn't created overnight—it earns its reputation across generations."
-
-</div>
-
-<!-- CHAPTER 3 -->
-
-<section class="section fade" id="chapter3">
-
-<div class="kicker">
-
-Chapter Three
-
-</div>
-
-<h2 class="title">
-
-Designed for Speed, Admired for Life
-
-</h2>
-
-<div class="editorial">
-
-<div class="text">
-
-<p>
-
-Every line of the Daytona serves a purpose. The Oyster case protects the movement while maintaining elegant proportions. The chronograph sub-dials remain perfectly balanced, creating exceptional legibility without sacrificing sophistication. The polished surfaces catch light beautifully, while brushed finishes preserve a distinctly professional character.
-
-</p>
-
-<p>
-
-The Cerachrom ceramic bezel introduced in modern generations transformed durability by resisting scratches, fading, and ultraviolet damage. Unlike aluminum inserts that age visibly, ceramic preserves its deep black finish for decades while retaining crisp engraved numerals filled with platinum or gold.
-
-</p>
-
-<p>
-
-Viewed closely, the Daytona reveals extraordinary attention to detail—from polished hour markers to razor-sharp case transitions that demonstrate Rolex's manufacturing precision.
-
-</p>
-
-</div>
-
-<div class="image">
-
-<img src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=900&q=80">
-
-</div>
-
-</div>
-
-</section>
-
-<div class="full-image fade">
-
-<img src="https://images.unsplash.com/photo-1612817159949-195b6eb9e31a?auto=format&fit=crop&w=1800&q=80">
-
-</div>
-
-<!-- CHAPTER 4 -->
-
-<section class="section fade">
-
-<div class="kicker">
-
-Chapter Four
-
-</div>
-
-<h2 class="title">
-
-Paul Newman Changed Everything
-
-</h2>
-
-<div class="editorial reverse">
-
-<div class="image">
-
-<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80">
-
-</div>
-
-<div class="text">
-
-<p>
-
-Few collectors could have predicted that an actor would redefine an entire watch market. Paul Newman's personal Daytona transformed certain exotic-dial references into legendary collector pieces after photographs showed him wearing the watch throughout his racing career.
-
-</p>
-
-<p>
-
-The distinctive dial layout—contrasting sub-dials, square markers, and bold typography—eventually became known simply as the "Paul Newman Daytona." What had once been considered difficult to sell became one of the most valuable watch categories ever created.
-
-</p>
-
-<p>
-
-His own Daytona achieved one of the highest auction results ever recorded for a wristwatch, permanently cementing the model's cultural significance beyond horology itself.
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- CHAPTER 5 -->
-
-<section class="section fade" id="chapter5">
-
-<div class="kicker">
-
-Chapter Five
-
-</div>
-
-<h2 class="title">
-
-Engineering Without Compromise
-
-</h2>
-
-<div class="editorial">
-
-<div class="text">
-
-<p>
-
-Inside today's Daytona beats the remarkable Rolex Calibre 4131, representing decades of mechanical refinement. Introduced during the collection's 60th anniversary, the movement builds upon the celebrated Calibre 4130 while incorporating Rolex's latest Chronergy escapement for greater efficiency.
-
-</p>
-
-<p>
-
-The vertical clutch mechanism allows the chronograph to engage smoothly without causing the seconds hand to jump, while the column wheel ensures exceptionally crisp pusher action. Together these components create one of the most refined chronograph experiences available in modern watchmaking.
-
-</p>
-
-<p>
-
-A 72-hour power reserve means the watch can remain unworn throughout an entire weekend before returning to the wrist still running accurately on Monday morning.
-
-</p>
-
-<div class="spec-card">
-
-<h3 style="font-family:'Cormorant Garamond',serif;font-size:38px;color:#d4af37;">
-
-Reference 126500LN
-
-</h3>
-
-<div class="spec-grid">
-
-<div class="spec-item">
-
-<h4>CASE</h4>
-
-<p>40mm Oystersteel</p>
-
-</div>
-
-<div class="spec-item">
-
-<h4>BEZEL</h4>
-
-<p>Cerachrom Ceramic</p>
-
-</div>
-
-<div class="spec-item">
-
-<h4>MOVEMENT</h4>
-
-<p>Calibre 4131</p>
-
-</div>
-
-<div class="spec-item">
-
-<h4>POWER RESERVE</h4>
-
-<p>72 Hours</p>
-
-</div>
-
-<div class="spec-item">
-
-<h4>WATER RESISTANCE</h4>
-
-<p>100 Meters</p>
-
-</div>
-
-<div class="spec-item">
-
-<h4>CERTIFICATION</h4>
-
-<p>Superlative Chronometer</p>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="image">
-
-<img src="https://images.unsplash.com/photo-1526045612212-70caf35c14df?auto=format&fit=crop&w=900&q=80">
-
-</div>
-
-</div>
-
-</section>
-
-<!-- CHAPTER 6 -->
-
-<section class="section fade" id="chapter6">
-
-<div class="kicker">
-
-Chapter Six
-
-</div>
-
-<h2 class="title">
-
-The Oyster Case Revolution
-
-</h2>
-
-<div class="editorial reverse">
-
-<div class="image">
-
-<img src="https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?auto=format&fit=crop&w=900&q=80">
-
-</div>
-
-<div class="text">
-
-<p>
-
-Long before the Daytona became famous, Rolex had already pioneered one of watchmaking's greatest innovations—the Oyster case. Introduced in 1926, this waterproof architecture became the perfect foundation for the Daytona's demanding racing environment, offering protection against dust, moisture, and everyday impacts.
-
-</p>
-
-<p>
-
-Modern Daytonas continue this philosophy with screw-down chronograph pushers that preserve water resistance even while maintaining precise operation. The Twinlock crown system further reinforces reliability, allowing the watch to transition effortlessly from racetrack to formal occasions without compromising performance.
-
-</p>
-
-<p>
-
-This seamless blend of durability and elegance remains one of the defining characteristics that separates the Daytona from many competing chronographs. It is a tool watch built to endure, yet refined enough to become a lasting symbol of luxury.
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ===================================================== -->
-<!-- PART 2 — CHAPTERS 7 TO 12 -->
-<!-- Continue directly after Part 1 -->
-<!-- ===================================================== -->
-
-<!-- CHAPTER 7 -->
-
-<section class="section fade" id="chapter7">
-
-<div class="kicker">
-
-Chapter Seven
-
-</div>
-
-<h2 class="title">
-
-Cerachrom: A Bezel Built for Decades
-
-</h2>
-
-<div class="editorial">
-
-<div class="text">
-
-<p>
-
-When Rolex introduced the Cerachrom bezel to the Daytona, it solved one of the greatest long-term challenges faced by luxury sports watches: maintaining a pristine appearance despite years of daily wear. Traditional aluminum bezels gradually faded under sunlight and accumulated scratches over time. Cerachrom, however, is an exceptionally hard ceramic material engineered to resist scratches, ultraviolet exposure, and corrosion while preserving its rich black finish for decades.
-
-</p>
-
-<p>
-
-Creating a Cerachrom bezel is an extraordinarily precise manufacturing process. After the ceramic component is fired at extremely high temperatures, Rolex engraves every tachymeter numeral with microscopic precision before depositing platinum through a specialized PVD process. The result is a bezel that combines technical durability with remarkable visual depth, reflecting light differently from every angle.
-
-</p>
-
-<p>
-
-More importantly, the engraved tachymeter scale remains perfectly functional. Drivers can still calculate average speeds over measured distances exactly as Rolex intended in 1963, proving that the Daytona's racing heritage continues to influence every modern reference.
-
-</p>
-
-</div>
-
-<div class="image">
-
-<img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=80" alt="Rolex Daytona Cerachrom Bezel">
-
-</div>
-
-</div>
-
-</section>
-
-<div class="full-image fade">
-
-<img src="https://images.unsplash.com/photo-1617042375876-a13e36732a04?auto=format&fit=crop&w=1800&q=80" alt="Rolex Daytona Ceramic Bezel Close Up">
-
-</div>
-
-<!-- CHAPTER 8 -->
-
-<section class="section fade" id="chapter8">
-
-<div class="kicker">
-
-Chapter Eight
-
-</div>
-
-<h2 class="title">
-
-The Perfect Dial
-
-</h2>
-
-<div class="editorial reverse">
-
-<div class="image">
-
-<img src="https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?auto=format&fit=crop&w=900&q=80" alt="Rolex Daytona Dial">
-
-</div>
-
-<div class="text">
-
-<p>
-
-At first glance, the Daytona dial appears deceptively simple. Look closer, however, and every proportion reveals intentional design. The three chronograph registers sit in perfect symmetry, preserving balance while ensuring immediate readability during timing events.
-
-</p>
-
-<p>
-
-The central chronograph seconds hand remains long and elegant, reaching precisely to the minute track. Applied hour markers capture light beautifully throughout the day, while Chromalight luminous material ensures visibility in darkness without compromising daytime refinement.
-
-</p>
-
-<p>
-
-The typography deserves equal appreciation. Rolex carefully refined fonts, spacing, and sub-dial placement over successive generations, particularly with the 2023 anniversary model. These subtle adjustments make the newest Daytona feel both modern and unmistakably familiar.
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<div class="pullquote fade">
-
-"Perfection isn't loud. It's measured in millimeters."
-
-</div>
-
-<!-- CHAPTER 9 -->
-
-<section class="section fade" id="chapter9">
-
-<div class="kicker">
-
-Chapter Nine
-
-</div>
-
-<h2 class="title">
-
-The Oyster Bracelet
-
-</h2>
-
-<div class="editorial">
-
-<div class="text">
-
-<p>
-
-Few bracelets have achieved the legendary status of Rolex's Oyster bracelet. Designed for durability, comfort, and elegance, its three-piece solid-link construction has become one of the defining elements of the Daytona experience.
-
-</p>
-
-<p>
-
-Modern Oystersteel bracelets feature Rolex's Easylink comfort extension, allowing wearers to increase the bracelet length by approximately five millimeters without tools. This seemingly small adjustment dramatically improves everyday comfort as wrist size changes throughout the day.
-
-</p>
-
-<p>
-
-The polished center links create a luxurious appearance, while brushed outer links preserve the Daytona's sporting identity. Together they produce an exceptional balance between formal sophistication and professional functionality.
-
-</p>
-
-</div>
-
-<div class="image">
-
-<img src="https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=900&q=80" alt="Rolex Oyster Bracelet">
-
-</div>
-
-</div>
-
-</section>
-
-<div class="full-image fade">
-
-<img src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=1800&q=80" alt="Rolex Daytona Bracelet Detail">
-
-</div>
-
-<!-- CHAPTER 10 -->
-
-<section class="section fade" id="chapter10">
-
-<div class="kicker">
-
-Chapter Ten
-
-</div>
-
-<h2 class="title">
-
-The White "Panda" Daytona
-
-</h2>
-
-<div class="editorial reverse">
-
-<div class="image">
-
-<img src="https://images.unsplash.com/photo-1612817159949-195b6eb9e31a?auto=format&fit=crop&w=900&q=80" alt="Rolex Daytona Panda">
-
-</div>
-
-<div class="text">
-
-<p>
-
-Among contemporary Daytonas, no configuration has captured public imagination quite like the white-dial "Panda." Its contrasting black sub-dials create extraordinary visual clarity while paying homage to historic racing chronographs that inspired generations of collectors.
-
-</p>
-
-<p>
-
-The nickname itself reflects the dial's distinctive appearance rather than any official Rolex terminology. Yet the unofficial name became so widespread that it is now universally recognized across collector communities worldwide.
-
-</p>
-
-<p>
-
-Demand for the Panda Daytona consistently exceeds supply, transforming it into one of the most sought-after luxury watches in modern history. Waiting lists often extend for years, while secondary-market values frequently exceed retail pricing.
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- CHAPTER 11 -->
-
-<section class="section fade" id="chapter11">
-
-<div class="kicker">
-
-Chapter Eleven
-
-</div>
-
-<h2 class="title">
-
-The Black Dial Icon
-
-</h2>
-
-<div class="editorial">
-
-<div class="text">
-
-<p>
-
-If the Panda represents modern celebrity, the black-dial Daytona embodies timeless restraint. Its monochromatic appearance emphasizes elegance rather than contrast, creating a watch equally comfortable beneath a tailored jacket or inside a racing cockpit.
-
-</p>
-
-<p>
-
-The black dial allows polished hands and hour markers to stand out dramatically under changing light. Combined with the glossy Cerachrom bezel, the overall composition feels remarkably cohesive, reinforcing the Daytona's reputation as one of the most versatile luxury sports watches ever created.
-
-</p>
-
-<p>
-
-Collectors often debate white versus black endlessly, yet many experienced enthusiasts ultimately appreciate the black dial's understated sophistication and everyday practicality.
-
-</p>
-
-</div>
-
-<div class="image">
-
-<img src="https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?auto=format&fit=crop&w=900&q=80" alt="Black Dial Rolex Daytona">
-
-</div>
-
-</div>
-
-</section>
-
-<div class="pullquote fade">
-
-"Some watches demand attention. The black Daytona earns it quietly."
-
-</div>
-
-<!-- CHAPTER 12 -->
-
-<section class="section fade" id="chapter12">
-
-<div class="kicker">
-
-Chapter Twelve
-
-</div>
-
-<h2 class="title">
-
-The Zenith Era That Changed Everything
-
-</h2>
-
-<div class="editorial reverse">
-
-<div class="image">
-
-<img src="https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?auto=format&fit=crop&w=900&q=80" alt="Rolex Daytona Zenith Era">
-
-</div>
-
-<div class="text">
-
-<p>
-
-In 1988, the Daytona entered an entirely new chapter. Rolex introduced Reference 16520, powered by a heavily modified Zenith El Primero automatic movement. Although Rolex extensively re-engineered the movement to meet its own standards, this collaboration became one of the most important moments in Daytona history.
-
-</p>
-
-<p>
-
-The Zenith-era Daytona introduced the now-familiar 40-millimeter case size while dramatically increasing the watch's popularity among collectors. Its combination of automatic winding, improved proportions, and distinctive dial details created a transitional generation that remains highly collectible today.
-
-</p>
-
-<p>
-
-Many enthusiasts view the Zenith era as the bridge between vintage charm and modern refinement—a period that transformed the Daytona from an admired chronograph into a global phenomenon whose influence continues to shape luxury watchmaking.
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<div class="full-image fade">
-
-<img src="https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=1800&q=80" alt="Rolex Daytona Evolution">
-
-</div>
-
-<!-- ===================================================== -->
-<!-- PART 3 — CHAPTERS 13 TO 18 -->
-<!-- Continue directly after Part 2 -->
-<!-- ===================================================== -->
-
-<!-- CHAPTER 13 -->
-
-<section class="section fade" id="chapter13">
-
-<div class="kicker">
-
-Chapter Thirteen
-
-</div>
-
-<h2 class="title">
-
-The Gold Collection
-
-</h2>
-
-<div class="editorial">
-
-<div class="text">
-
-<p>
-
-While stainless-steel Daytonas dominate headlines, Rolex's gold references reveal another side of the collection entirely. Yellow Gold, White Gold, and Everose Gold transform the Daytona from a professional racing instrument into an unmistakable statement of luxury without sacrificing its mechanical excellence.
-
-</p>
-
-<p>
-
-Unlike many precious-metal sports watches that become visually overwhelming, the Daytona maintains remarkable balance. The familiar Oyster case, engraved tachymeter bezel, and perfectly proportioned chronograph layout ensure that every gold reference remains recognizably Daytona before anything else.
-
-</p>
-
-<p>
-
-The warmth of yellow gold evokes classic motorsport glamour, while white gold offers discreet sophistication appreciated by collectors who prefer understatement. Together they demonstrate Rolex's ability to preserve identity across dramatically different materials.
-
-</p>
-
-</div>
-
-<div class="image">
-
-<img src="https://images.unsplash.com/photo-1612817159949-195b6eb9e31a?auto=format&fit=crop&w=900&q=80" alt="Yellow Gold Rolex Daytona">
-
-</div>
-
-</div>
-
-</section>
-
-<div class="full-image fade">
-
-<img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=1800&q=80" alt="Gold Rolex Daytona Collection">
-
-</div>
-
-<!-- CHAPTER 14 -->
-
-<section class="section fade" id="chapter14">
-
-<div class="kicker">
-
-Chapter Fourteen
-
-</div>
-
-<h2 class="title">
-
-Everose Gold: Rolex's Signature Alloy
-
-</h2>
-
-<div class="editorial reverse">
-
-<div class="image">
-
-<img src="https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?auto=format&fit=crop&w=900&q=80" alt="Everose Gold Daytona">
-
-</div>
-
-<div class="text">
-
-<p>
-
-Rolex introduced Everose Gold to solve a problem that had challenged rose-gold watches for generations. Conventional alloys gradually lose their warmth as copper reacts with environmental conditions over time. Everose was engineered specifically to preserve its distinctive color for decades.
-
-</p>
-
-<p>
-
-Exclusive to Rolex, this proprietary alloy combines gold, copper, and platinum to maintain its rich appearance even after years of wear. On the Daytona, Everose creates an extraordinary interplay between polished surfaces and brushed finishes, producing subtle reflections that change constantly under natural light.
-
-</p>
-
-<p>
-
-Collectors often describe Everose Daytonas as remarkably versatile. They retain enough warmth for formal occasions while remaining restrained enough for everyday wear—a rare achievement among precious-metal chronographs.
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<div class="pullquote fade">
-
-"Luxury isn't measured only in gold—it's measured in restraint."
-
-</div>
-
-<!-- CHAPTER 15 -->
-
-<section class="section fade" id="chapter15">
-
-<div class="kicker">
-
-Chapter Fifteen
-
-</div>
-
-<h2 class="title">
-
-The Platinum Ice Blue Daytona
-
-</h2>
-
-<div class="editorial">
-
-<div class="text">
-
-<p>
-
-Few Rolex watches communicate exclusivity more quietly than the Platinum Daytona with its unmistakable ice-blue dial. Reserved exclusively for platinum models, this subtle shade has become one of Rolex's most recognizable visual signatures.
-
-</p>
-
-<p>
-
-Platinum behaves differently from both steel and gold. Its greater density gives the Daytona extraordinary wrist presence, creating a reassuring weight that immediately distinguishes it from lighter references. Yet visually, it remains remarkably discreet, rewarding closer inspection rather than demanding attention.
-
-</p>
-
-<p>
-
-Modern platinum Daytonas pair the ice-blue dial with a chestnut brown Cerachrom bezel, creating one of the most sophisticated color combinations Rolex has ever produced. The contrast feels contemporary while respecting the collection's enduring racing identity.
-
-</p>
-
-<div class="spec-card">
-
-<h3 style="font-family:'Cormorant Garamond',serif;font-size:36px;color:#d4af37;">
-
-Platinum Daytona Highlights
-
-</h3>
-
-<div class="spec-grid">
-
-<div class="spec-item">
-
-<h4>MATERIAL</h4>
-
-<p>950 Platinum</p>
-
-</div>
-
-<div class="spec-item">
-
-<h4>DIAL</h4>
-
-<p>Exclusive Ice Blue</p>
-
-</div>
-
-<div class="spec-item">
-
-<h4>BEZEL</h4>
-
-<p>Brown Cerachrom</p>
-
-</div>
-
-<div class="spec-item">
-
-<h4>CHARACTER</h4>
-
-<p>Discreet Luxury</p>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="image">
-
-<img src="https://images.unsplash.com/photo-1526045612212-70caf35c14df?auto=format&fit=crop&w=900&q=80" alt="Platinum Daytona Ice Blue">
-
-</div>
-
-</div>
-
-</section>
-
-<div class="full-image fade">
-
-<img src="https://images.unsplash.com/photo-1617042375876-a13e36732a04?auto=format&fit=crop&w=1800&q=80" alt="Platinum Daytona Close Up">
-
-</div>
-
-<!-- CHAPTER 16 -->
-
-<section class="section fade" id="chapter16">
-
-<div class="kicker">
-
-Chapter Sixteen
-
-</div>
-
-<h2 class="title">
-
-The Green Dial Phenomenon
-
-</h2>
-
-<div class="editorial reverse">
-
-<div class="image">
-
-<img src="https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=900&q=80" alt="Green Dial Daytona">
-
-</div>
-
-<div class="text">
-
-<p>
-
-Among modern collector favorites, the green-dial Yellow Gold Daytona occupies a unique position. Popularly associated with musician John Mayer after his public praise for the reference, the watch became one of the most celebrated contemporary Rolex models ever produced.
-
-</p>
-
-<p>
-
-Its rich emerald dial transforms dramatically depending on lighting conditions. Under sunlight it appears vibrant and energetic, while indoor lighting reveals darker olive tones that enhance the watch's luxurious character.
-
-</p>
-
-<p>
-
-Beyond celebrity influence, the reference demonstrated how a single color combination could reshape collector demand, reminding enthusiasts that design details often become just as influential as mechanical innovation.
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<div class="pullquote fade">
-
-"Sometimes a single dial color becomes part of watchmaking history."
-
-</div>
-
-<!-- CHAPTER 17 -->
-
-<section class="section fade" id="chapter17">
-
-<div class="kicker">
-
-Chapter Seventeen
-
-</div>
-
-<h2 class="title">
-
-The Rainbow Daytona
-
-</h2>
-
-<div class="editorial">
-
-<div class="text">
-
-<p>
-
-Perhaps no Daytona challenges expectations more dramatically than the Rainbow Daytona. Sapphire gemstones arranged in a perfect chromatic gradient transform the chronograph into one of Rolex's most technically demanding creations.
-
-</p>
-
-<p>
-
-Achieving this effect requires extraordinary gemstone selection. Each sapphire must match its neighboring stones precisely in both color and size, creating a seamless transition across the bezel that appears effortless despite its remarkable complexity.
-
-</p>
-
-<p>
-
-Far from being merely decorative, the Rainbow Daytona demonstrates Rolex's mastery beyond mechanical engineering. It reveals a level of gem-setting precision comparable to the finest jewelry houses while preserving the unmistakable Daytona silhouette beneath the brilliance.
-
-</p>
-
-</div>
-
-<div class="image">
-
-<img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=80" alt="Rainbow Daytona">
-
-</div>
-
-</div>
-
-</section>
-
-<div class="full-image fade">
-
-<img src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=1800&q=80" alt="Luxury Rolex Collection">
-
-</div>
-
-<!-- CHAPTER 18 -->
-
-<section class="section fade" id="chapter18">
-
-<div class="kicker">
-
-Chapter Eighteen
-
-</div>
-
-<h2 class="title">
-
-The 60th Anniversary Daytona
-
-</h2>
-
-<div class="editorial reverse">
-
-<div class="image">
-
-<img src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&w=900&q=80" alt="Rolex Daytona 126500LN">
-
-</div>
-
-<div class="text">
-
-<p>
-
-Released in 2023 to celebrate six decades of the Daytona, Reference 126500LN represents one of Rolex's most carefully considered updates rather than a dramatic redesign. Every adjustment feels intentional: slimmer case proportions, refined dial spacing, and subtle bezel modifications create a noticeably sharper appearance without abandoning the model's unmistakable identity.
-
-</p>
-
-<p>
-
-The introduction of Calibre 4131 marked an equally significant technical milestone. Building upon the celebrated 4130 architecture, the new movement incorporates Rolex's Chronergy escapement, optimized finishing, and improved mechanical efficiency while preserving the smooth chronograph performance collectors expect from the Daytona.
-
-</p>
-
-<p>
-
-Rather than reinventing the icon, Rolex chose evolution over revolution—a philosophy that explains why the Daytona continues to feel contemporary while remaining instantly recognizable after more than sixty years of continuous refinement.
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- COMPARISON SPREAD -->
-
-<section class="section fade">
-
-<div class="kicker">
-
-Collector's Comparison
-
-</div>
-
-<h2 class="title">
-
-Four Faces of the Daytona
-
-</h2>
-
-<div class="spec-card">
-
-<div class="spec-grid">
-
-<div class="spec-item">
-
-<h4>OYSTERSTEEL</h4>
-
-<p>The everyday icon with timeless versatility.</p>
-
-</div>
-
-<div class="spec-item">
-
-<h4>EVEROSE GOLD</h4>
-
-<p>Warm elegance with proprietary Rolex craftsmanship.</p>
-
-</div>
-
-<div class="spec-item">
-
-<h4>PLATINUM</h4>
-
-<p>Quiet exclusivity with the legendary ice-blue dial.</p>
-
-</div>
-
-<div class="spec-item">
-
-<h4>RAINBOW</h4>
-
-<p>High jewelry artistry without losing Daytona DNA.</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ===================================================== -->
-<!-- PART 4 — FINAL CHAPTERS -->
-<!-- Continue directly after Part 3 -->
-<!-- ===================================================== -->
-
-<!-- Reading Progress Bar -->
-
-<div id="progressBar"></div>
-
-<style>
-
-#progressBar{
-
-position:fixed;
-
-top:0;
-
-left:0;
-
-height:3px;
-
-width:0%;
-
-background:linear-gradient(90deg,#d4af37,#f5d46b);
-
-z-index:10000;
-
-transition:width .15s linear;
-
-}
-
-/* Premium Timeline */
-
-.timeline{
-
-position:relative;
-
-max-width:900px;
-
-margin:80px auto;
-
-padding-left:40px;
-
-}
-
-.timeline::before{
-
-content:"";
-
-position:absolute;
-
-left:8px;
-
-top:0;
-
-bottom:0;
-
-width:2px;
-
-background:#d4af37;
-
-}
-
-.timeline-item{
-
-position:relative;
-
-margin-bottom:45px;
-
-}
-
-.timeline-item::before{
-
-content:"";
-
-position:absolute;
-
-left:-40px;
-
-top:8px;
-
-width:16px;
-
-height:16px;
-
-background:#d4af37;
-
-border-radius:50%;
-
-box-shadow:0 0 15px rgba(212,175,55,.5);
-
-}
-
-.timeline-year{
-
-font-family:'Cormorant Garamond',serif;
-
-font-size:34px;
-
-color:#d4af37;
-
-margin-bottom:8px;
-
-}
-
-/* Premium Table */
-
-.spec-table{
-
-width:100%;
-
-border-collapse:collapse;
-
-margin-top:40px;
-
-}
-
-.spec-table td{
-
-padding:22px;
-
-border-bottom:1px solid rgba(212,175,55,.18);
-
-}
-
-.spec-table td:first-child{
-
-color:#d4af37;
-
-letter-spacing:2px;
-
-font-size:13px;
-
-text-transform:uppercase;
-
-width:35%;
-
-}
-
-/* Footer */
-
-footer{
-
-padding:120px 7% 80px;
-
-text-align:center;
-
-border-top:1px solid rgba(212,175,55,.15);
-
-background:linear-gradient(to bottom,#090909,#050505);
-
-}
-
-footer h2{
-
-font-family:'Cormorant Garamond',serif;
-
-font-size:56px;
-
-color:#d4af37;
-
-margin-bottom:20px;
-
-}
-
-footer p{
-
-max-width:700px;
-
-margin:auto;
-
-font-size:18px;
-
-color:#cfcfcf;
-
-line-height:1.9;
-
-}
-
-.footer-bottom{
-
-margin-top:50px;
-
-letter-spacing:4px;
-
-font-size:12px;
-
-color:#888;
-
-text-transform:uppercase;
-
-}
-
-/* Lightbox */
-
-.lightbox{
-
-position:fixed;
-
-inset:0;
-
-background:rgba(0,0,0,.94);
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-opacity:0;
-
-pointer-events:none;
-
-transition:.35s;
-
-z-index:99999;
-
-}
-
-.lightbox.active{
-
-opacity:1;
-
-pointer-events:auto;
-
-}
-
-.lightbox img{
-
-max-width:90%;
-
-max-height:90%;
-
-border:2px solid rgba(212,175,55,.35);
-
-}
-
-</style>
-
-<!-- CHAPTER 19 -->
-
-<section class="section fade" id="chapter19">
-
-<div class="kicker">Chapter Nineteen</div>
-
-<h2 class="title">
-
-The Rarest Daytona References
-
-</h2>
-
-<div class="editorial">
-
-<div class="text">
-
-<p>
-
-Scarcity has always played an important role in the Daytona story, but rarity alone does not create legendary status. The references that collectors pursue most passionately combine limited production, historical importance, and distinctive design details that set them apart from later generations.
-
-</p>
-
-<p>
-
-Early manual-winding references such as the 6239 and 6241 established the foundation of the collection, while references like the 6263 introduced screw-down pushers that became one of the Daytona's defining characteristics. These watches were built during an era when production numbers were relatively modest, making surviving examples increasingly difficult to find in exceptional condition.
-
-</p>
-
-<p>
-
-Collectors also examine seemingly minor details—dial variations, bezel markings, production years, and case engravings. These subtleties can dramatically influence desirability, demonstrating how the Daytona rewards careful observation more than obvious extravagance.
-
-</p>
-
-</div>
-
-<div class="image">
-
-<img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=900&q=80" alt="Vintage Rolex Daytona">
-
-</div>
-
-</div>
-
-</section>
-
-<!-- Timeline -->
-
-<section class="section fade">
-
-<div class="kicker">Daytona Timeline</div>
-
-<h2 class="title">
-
-Six Decades of Evolution
-
-</h2>
-
-<div class="timeline">
-
-<div class="timeline-item">
-
-<div class="timeline-year">1963</div>
-
-<p>Reference 6239 launches and introduces the external tachymeter bezel.</p>
-
-</div>
-
-<div class="timeline-item">
-
-<div class="timeline-year">1965</div>
-
-<p>Exotic dials appear, later becoming famous as Paul Newman Daytonas.</p>
-
-</div>
-
-<div class="timeline-item">
-
-<div class="timeline-year">1988</div>
-
-<p>The Zenith-powered automatic Daytona begins a new era of popularity.</p>
-
-</div>
-
-<div class="timeline-item">
-
-<div class="timeline-year">2000</div>
-
-<p>Rolex unveils its first fully in-house Daytona movement, Calibre 4130.</p>
-
-</div>
-
-<div class="timeline-item">
-
-<div class="timeline-year">2016</div>
-
-<p>Cerachrom bezels become one of the defining modern Daytona features.</p>
-
-</div>
-
-<div class="timeline-item">
-
-<div class="timeline-year">2023</div>
-
-<p>The 60th Anniversary Reference 126500LN arrives with Calibre 4131.</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- CHAPTER 20 -->
-
-<section class="section fade" id="chapter20">
-
-<div class="kicker">Chapter Twenty</div>
-
-<h2 class="title">
-
-Collector's Guide
-
-</h2>
-
-<div class="editorial reverse">
-
-<div class="image">
-
-<img src="https://images.unsplash.com/photo-1526045612212-70caf35c14df?auto=format&fit=crop&w=900&q=80" alt="Rolex Collector">
-
-</div>
-
-<div class="text">
-
-<p>
-
-The Daytona occupies a unique position among luxury watches because collectors often value both modern and vintage references for entirely different reasons. Vintage Daytonas celebrate historical authenticity, while contemporary references showcase Rolex's latest manufacturing capabilities and movement technology.
-
-</p>
-
-<p>
-
-Experienced collectors emphasize originality above all else. Original dials, bezels, bracelets, and documentation contribute significantly to long-term desirability. Even subtle alterations can dramatically influence collector perception.
-
-</p>
-
-<p>
-
-Perhaps the Daytona's greatest strength is its remarkable consistency. Whether examining a manual-winding reference from the 1960s or a modern 126500LN, the same core design language remains immediately recognizable—a rare achievement in contemporary product design.
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<div class="pullquote fade">
-
-"The greatest watches don't follow trends—they outlive them."
-
-</div>
-
-<!-- CHAPTER 21 -->
-
-<section class="section fade" id="chapter21">
-
-<div class="kicker">Chapter Twenty-One</div>
-
-<h2 class="title">
-
-Complete Daytona Specifications
-
-</h2>
-
-<p class="subtitle">
-
-A closer look at the modern Rolex Cosmograph Daytona Reference 126500LN.
-
-</p>
-
-<table class="spec-table">
-
-<tr>
-
-<td>Case</td>
-
-<td>40 mm Oystersteel</td>
-
-</tr>
-
-<tr>
-
-<td>Movement</td>
-
-<td>Rolex Calibre 4131</td>
-
-</tr>
-
-<tr>
-
-<td>Functions</td>
-
-<td>Chronograph, Small Seconds, Time</td>
-
-</tr>
-
-<tr>
-
-<td>Power Reserve</td>
-
-<td>Approximately 72 Hours</td>
-
-</tr>
-
-<tr>
-
-<td>Escapement</td>
-
-<td>Chronergy</td>
-
-</tr>
-
-<tr>
-
-<td>Chronograph</td>
-
-<td>Column Wheel & Vertical Clutch</td>
-
-</tr>
-
-<tr>
-
-<td>Crystal</td>
-
-<td>Scratch-resistant Sapphire</td>
-
-</tr>
-
-<tr>
-
-<td>Bezel</td>
-
-<td>Cerachrom Ceramic Tachymeter</td>
-
-</tr>
-
-<tr>
-
-<td>Bracelet</td>
-
-<td>Oyster Bracelet with Easylink</td>
-
-</tr>
-
-<tr>
-
-<td>Water Resistance</td>
-
-<td>100 Meters</td>
-
-</tr>
-
-<tr>
-
-<td>Certification</td>
-
-<td>Superlative Chronometer</td>
-
-</tr>
-
-</table>
-
-</section>
-
-<!-- CHAPTER 22 -->
-
-<section class="section fade" id="chapter22">
-
-<div class="kicker">Final Chapter</div>
-
-<h2 class="title">
-
-The Legend Lives On
-
-</h2>
-
-<div class="editorial">
-
-<div class="text">
-
-<p>
-
-After more than sixty years, the Rolex Daytona remains one of the clearest examples of timeless industrial design. It has survived changing fashions, technological revolutions, and shifting collector preferences without losing the qualities that made it extraordinary from the beginning.
-
-</p>
-
-<p>
-
-Its appeal extends far beyond rarity or prestige. The Daytona succeeds because it combines functional engineering with enduring aesthetics, creating an object equally appreciated by racing professionals, designers, historians, and everyday enthusiasts.
-
-</p>
-
-<p>
-
-The greatest luxury products become cultural landmarks rather than mere possessions. The Daytona achieved that distinction long ago, and every new generation continues to reinforce a legacy built on precision, restraint, and uncompromising craftsmanship.
-
-</p>
-
-</div>
-
-<div class="image">
-
-<img src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&w=900&q=80" alt="Modern Rolex Daytona">
-
-</div>
-
-</div>
-
-</section>
-
-<div class="full-image fade">
-
-<img src="https://images.unsplash.com/photo-1617042375876-a13e36732a04?auto=format&fit=crop&w=1800&q=80" alt="Rolex Daytona Finale">
-
-</div>
-
-<!-- FOOTER -->
-
-<footer>
-
-<h2>50 Mirars Journal</h2>
-
-<p>
-
-A celebration of timeless craftsmanship, exceptional engineering, and the enduring legacy of the Rolex Cosmograph Daytona. Designed as a luxury editorial inspired by the world's finest watch publications.
-
-</p>
-
-<div class="footer-bottom">
-
-© 2026 • SPECIAL EDITION • ROLEX DAYTONA MAGAZINE
-
-</div>
-
-</footer>
-
-<!-- Lightbox -->
-
-<div class="lightbox" id="lightbox">
-
-<img id="lightboxImg">
-
-</div>
-
-<!-- Premium JavaScript -->
-
-<script>
-
-/* Progress Bar */
-
-window.addEventListener("scroll",()=>{
-
-const winScroll=document.documentElement.scrollTop;
-
-const height=document.documentElement.scrollHeight-document.documentElement.clientHeight;
-
-const scrolled=(winScroll/height)*100;
-
-document.getElementById("progressBar").style.width=scrolled+"%";
-
-});
-
-/* Lightbox */
-
-const lightbox=document.getElementById("lightbox");
-
-const lightboxImg=document.getElementById("lightboxImg");
-
-document.querySelectorAll("img").forEach(img=>{
-
-img.addEventListener("click",()=>{
-
-lightbox.classList.add("active");
-
-lightboxImg.src=img.src;
-
-});
-
-});
-
-lightbox.addEventListener("click",()=>{
-
-lightbox.classList.remove("active");
-
-});
-
-/* Subtle Parallax */
-
-window.addEventListener("scroll",()=>{
-
-document.querySelectorAll(".full-image img").forEach(img=>{
-
-const speed=window.scrollY*0.06;
-
-img.style.transform=`translateY(${speed}px)`;
-
-});
-
-});
-  
-
-const observer=new IntersectionObserver(entries=>{
-
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-
-entry.target.classList.add('show');
-
-}
-
-});
-
-},{threshold:.15});
-
-document.querySelectorAll('.fade').forEach(el=>observer.observe(el));
-
-</script>
-
+                <div class="inset-figure">
+                    <div class="zoomable-image">
+                        <img src="https://newsroom-content.rolex.com/-/media/project/rolex/newsroom/rolex/rolex-newsroom-int/2024-04/cosmograph-daytona/responsive-images/newsroom-joyeuse-movt4131_2301dh_001.jpg?imwidth=337" alt="Rolex In-House Chronograph Movement Calibre 4131" data-caption="The Rolex Calibre 4131: A pinnacle of modern chronograph engineering featuring a column wheel, vertical clutch, and Chronergy escapement.">
+                    </div>
+                    <div class="caption">Click image to inspect high-resolution detail.</div>
+                </div>
+
+                <h2 class="section-heading">III. Complete Autonomy: The In-House Calibres</h2>
+
+                <p>At the dawn of the new millennium in the year 2000, Rolex achieved total manufacturing autonomy with the release of Reference 116520, introducing the fully in-house developed Calibre 4130. Designed entirely from a blank page, Calibre 4130 set new standards in efficiency, precision, and durability. By reducing the total number of movement components by 60 percent compared to standard chronographs, engineers created space for a larger mainspring barrel, expanding power reserve to a robust 72 hours.</p>
+
+                <p>Calibre 4130 incorporated a vertical clutch system for chronograph actuation, replacing the traditional horizontal coupling mechanism. This innovation eliminated the annoying "jump" or flutter of the central seconds hand when starting the timing function, allowing the chronograph to run continuously without degrading timing amplitude or causing premature wear on gear trains.</p>
+
+                <p>In 2023, celebrating the 60th anniversary of the model line, Rolex unveiled the next evolution: Calibre 4131. Incorporating the patented Chronergy escapement made of nickel-phosphorus—rendering it resistant to high magnetic fields—alongside Paraflex shock absorbers, this new movement represents the current pinnacle of mechanical chronograph reliability.</p>
+
+                <p>Visually, Calibre 4131 is adorned with Rolex Côtés de Genève finishing—a delicate reinterpretation of traditional decorative techniques featuring polished grooves between the bridges. For select luxury models like the platinum Reference 126506, Rolex introduced a sapphire crystal display caseback, allowing enthusiasts to admire the openworked gold oscillating weight and hand-finished bridges for the first time in mainstream Oyster Perpetual history.</p>
+
+                <h2 class="section-heading">IV. Material Mastery & Architectural Precision</h2>
+
+                <p>The contemporary Daytona is as much an exploration of metallurgical technology as it is of gear-train micro-mechanics. Central to its modern aesthetic is the Cerachrom ceramic bezel insert, introduced initially on precious metal variations and brought to steel models with Reference 116500LN. Virtually scratchproof and unaffected by ultraviolet radiation, the Cerachrom bezel ensures the tachymeter scale will never fade or degrade, retaining its intense luster indefinitely.</p>
+
+                <p>Rolex utilizes its proprietary 904L alloy—branded as Oystersteel—for stainless steel models. Highly resistant to harsh environments and chemical corrosion, 904L steel requires specialized foundry equipment and extreme machining tolerances, resulting in a distinctively brilliant polish that sets Daytona cases apart from conventional 316L luxury timepieces.</p>
+
+                <p>Precious metal variants elevated the Cosmograph Daytona into high fashion and diplomatic wrists. From 18ct Everose gold—an exclusive pink gold alloy forged in Rolex's internal foundry containing copper and platinum—to solid 950 platinum rendered with an ice-blue dial, each metal choice reflects meticulous engineering balanced with uncompromising luxury.</p>
+
+                <p>Comfort and wrist ergonomics reached their zenith with the development of the Oysterflex bracelet. Blending the durability of a metal bracelet with the flexibility of an elastomer, Oysterflex conceals flexible titanium-nickel alloy blades inside high-performance black synthetic rubber. Internal cushion wings stabilize the watch on the wrist, ensuring optimal breathability and weight distribution.</p>
+
+                <h2 class="section-heading">V. The Cultural Canvas & Eternal Legacy</h2>
+
+                <p>Beyond technical metrics, the Daytona occupies a unique position in global pop culture. It is the trophy awarded to champions of the 24 Hours of Daytona and the 24 Hours of Le Mans—a physical badge of honor worn only by those who have mastered time, endurance, and extreme velocity. Winning a Daytona on the track carries a weight that money simply cannot replicate.</p>
+
+                <p>In the secondary collector markets, the Daytona remains the gold standard of liquidity and value retention. Rare dial configurations—such as "Panna" cream dials, inverted-six registers, and stone dials crafted from meteorites or lapis lazuli—regularly set record prices, demonstrating that fascination with this 40mm case shows no signs of waning.</p>
+
+                <p>Ultimately, the Rolex Cosmograph Daytona succeeds because it refuses to compromise its original identity. While modern iterations offer sapphire display backs, precious alloys, and advanced anti-magnetic escapements, the core silhouette remains instantly recognizable from across a crowded room. It remains, as it was in 1963, a precision tool crafted for those who race against time.</p>
+
+                <p>As micro-mechanics evolve into an increasingly digital future, the mechanical purity of the Daytona stands as a testament to human ingenuity. It is an enduring bridge between analogue engineering and emotional storytelling—a watch that does not merely record history, but actively shapes it on wrists across the globe.</p>
+
+            </article>
+
+            <aside class="sidebar">
+                <div class="spec-box">
+                    <h3>Technical Specs</h3>
+                    <div class="spec-row"><span class="spec-label">Model Ref</span><span class="spec-value">126500LN / 126503</span></div>
+                    <div class="spec-row"><span class="spec-label">Case Size</span><span class="spec-value">40 mm</span></div>
+                    <div class="spec-row"><span class="spec-label">Material</span><span class="spec-value">Oystersteel / Gold</span></div>
+                    <div class="spec-row"><span class="spec-label">Bezel</span><span class="spec-value">Cerachrom / Metal</span></div>
+                    <div class="spec-row"><span class="spec-label">Movement</span><span class="spec-value">Calibre 4131 (In-House)</span></div>
+                    <div class="spec-row"><span class="spec-label">Precision</span><span class="spec-value">-2/+2 sec/day</span></div>
+                    <div class="spec-row"><span class="spec-label">Escapement</span><span class="spec-value">Chronergy</span></div>
+                    <div class="spec-row"><span class="spec-label">Power Reserve</span><span class="spec-value">Approx. 72 Hours</span></div>
+                    <div class="spec-row"><span class="spec-label">Winding</span><span class="spec-value">Bidirectional Automatic</span></div>
+                    <div class="spec-row"><span class="spec-label">Water Resistance</span><span class="spec-value">100 meters / 330 feet</span></div>
+                    <div class="spec-row"><span class="spec-label">Bracelet</span><span class="spec-value">Oyster / Oysterflex</span></div>
+                </div>
+
+                <div class="spec-box">
+                    <h3>Key Milestones</h3>
+                    <div class="spec-row"><span class="spec-label">1963</span><span class="spec-value">First Cosmograph</span></div>
+                    <div class="spec-row"><span class="spec-label">1988</span><span class="spec-value">Automatic Cal. 4030</span></div>
+                    <div class="spec-row"><span class="spec-label">2000</span><span class="spec-value">In-House Cal. 4130</span></div>
+                    <div class="spec-row"><span class="spec-label">2016</span><span class="spec-value">Steel Cerachrom</span></div>
+                    <div class="spec-row"><span class="spec-label">2023</span><span class="spec-value">Cal. 4131 Introduced</span></div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <div class="lightbox-modal" id="lightboxModal">
+        <span class="lightbox-close" id="lightboxClose">&times;</span>
+        <img class="lightbox-content" id="lightboxImg" alt="Enlarged view">
+        <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 CHRONO ARCHIVE MAGAZINE. ALL RIGHTS RESERVED. FEATURING HAUTE HOROLOGY & SPECIALIST MONOGRAPHS.</p>
+    </footer>
+
+    <script>
+        // Theme Toggle Logic
+        const themeToggleBtn = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const themeText = document.getElementById('themeText');
+        const body = document.body;
+
+        themeToggleBtn.addEventListener('click', () => {
+            const currentTheme = body.getAttribute('data-theme');
+            if (currentTheme === 'dark') {
+                body.setAttribute('data-theme', 'light');
+                themeIcon.textContent = '🌙';
+                themeText.textContent = 'Dark Mode';
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                themeIcon.textContent = '☀️';
+                themeText.textContent = 'Light Mode';
+            }
+        });
+
+        // Lightbox Modal Logic
+        const modal = document.getElementById('lightboxModal');
+        const modalImg = document.getElementById('lightboxImg');
+        const modalCaption = document.getElementById('lightboxCaption');
+        const closeModal = document.getElementById('lightboxClose');
+        const zoomableImages = document.querySelectorAll('.zoomable-image img');
+
+        zoomableImages.forEach(img => {
+            img.addEventListener('click', () => {
+                modal.classList.add('active');
+                modalImg.src = img.src;
+                modalCaption.textContent = img.getAttribute('data-caption') || img.alt;
+            });
+        });
+
+        closeModal.addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                modal.classList.remove('active');
+            }
+        });
+    </script>
 </body>
-
 </html>
