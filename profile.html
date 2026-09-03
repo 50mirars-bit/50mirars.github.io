@@ -2,322 +2,45 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=1110">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#111111">
 <meta name="description" content="My Account - 50 Mirars">
 <title>My Account | 50 Mirars</title>
 <style>
-*{box-sizing:border-box}
-:root{--bg:#050505;--panel:rgba(18,18,18,.72);--gold:#c9a24d;--gold2:#e8d6a3;--text:#f7f3e9}
-body{margin:0;font-family:Inter,Arial,sans-serif;color:var(--text);background:
-radial-gradient(circle at top,#2a2010 0,#090909 35%,#050505 100%);}
-body:before{content:"";position:fixed;inset:0;background:
-linear-gradient(rgba(255,255,255,.02),rgba(255,255,255,.02)),
-radial-gradient(circle at 20% 10%,rgba(201,162,77,.08),transparent 40%),
-radial-gradient(circle at 80% 40%,rgba(201,162,77,.05),transparent 35%);
-pointer-events:none}
-header{position:sticky;top:0;z-index:50;background:rgba(10,10,10,.72);backdrop-filter:blur(20px);border-bottom:1px solid rgba(201,162,77,.25);padding:22px 5%;display:flex;justify-content:space-between;align-items:center}
-.logo{font:700 34px Georgia,serif;letter-spacing:8px;color:var(--gold2);text-decoration:none}
-.back-home{color:var(--gold2);text-decoration:none;border:1px solid rgba(201,162,77,.35);padding:12px 20px;border-radius:999px}
-main{padding:56px 18px}
-.account-container{max-width:1220px;margin:auto}
-.login-card,.card{background:var(--panel);backdrop-filter:blur(24px);border:1px solid rgba(201,162,77,.18);border-radius:28px;padding:34px;box-shadow:0 20px 80px rgba(0,0,0,.45),0 0 0 1px rgba(255,255,255,.02) inset}
-#login-section{max-width:620px;margin:24px auto}
-#profile-section{display:none}
-.profile-header{position:relative;overflow:hidden;background:linear-gradient(135deg,#0d0d0d,#1b1b1b,#2b2111);border:1px solid rgba(201,162,77,.25);border-radius:34px;padding:46px;display:flex;gap:28px;align-items:center;margin-bottom:28px}
-.profile-header:after{content:"";position:absolute;width:420px;height:420px;border-radius:50%;right:-120px;top:-180px;background:radial-gradient(circle,rgba(201,162,77,.18),transparent 70%)}
-.profile-image{width:110px;height:110px;border-radius:50%;border:3px solid var(--gold);box-shadow:0 0 35px rgba(201,162,77,.35)}
-.profile-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:22px}
-.right-column{display:flex;flex-direction:column;gap:22px}
-.form-group{margin-bottom:18px}.form-group label{display:block;margin-bottom:8px;font-size:12px;font-weight:700;color:var(--gold2);letter-spacing:.18em;text-transform:uppercase}
-input,textarea{width:100%;padding:15px;background:rgba(255,255,255,.03);border:1px solid rgba(201,162,77,.18);border-radius:14px;color:var(--text)}
-input:focus,textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 20px rgba(201,162,77,.18)}
-.address-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.primary-button,.orders-button{display:flex;justify-content:center;align-items:center;min-height:54px;border:none;border-radius:999px;font-weight:700;background:linear-gradient(90deg,#b88d36,#e8d6a3,#b88d36);background-size:200% auto;color:#111;cursor:pointer}
-.primary-button:hover,.orders-button:hover{background-position:right center}
-.logout-button{width:100%;margin-top:12px;background:transparent;border:1px solid rgba(201,162,77,.35);color:var(--gold2);min-height:52px;border-radius:999px}
-.orders-card h2,.card h2,h1{font-family:Georgia,serif}
-.orders-card p{color:#c7c2b3}
-.readonly-field{background:rgba(255,255,255,.02)}
-.status{display:none;margin-top:14px;padding:14px;border-radius:12px}.success{display:block;background:rgba(37,111,58,.2);color:#9ef0b2}.error{display:block;background:rgba(155,32,32,.2);color:#ffb3b3}
-/* =========================================================
-   FOOTER
-========================================================= */
-
-.main-footer{
-    background:#111;
-
-    color:#fff;
-
-    margin-top:40px;
-}
-
-.footer-container{
-    width:100%;
-
-    max-width:1400px;
-
-    margin:0 auto;
-
-    padding:
-        60px
-        50px
-        0;
-}
-
-
-/* =========================================================
-   FOOTER TOP
-========================================================= */
-
-.footer-top{
-    display:grid;
-
-    grid-template-columns:
-        1fr
-        1fr
-        1fr;
-
-    gap:50px;
-
-    padding-bottom:50px;
-
-    border-bottom:
-        1px solid
-        rgba(255,255,255,0.15);
-}
-
-.footer-top > h2{
-    grid-column:1 / -1;
-
-    text-align:center;
-
-    margin:0 0 10px;
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size:38px;
-
-    font-weight:600;
-
-    color:#c9a24d;
-}
-
-
-/* =========================================================
-   FOOTER CONTACT
-========================================================= */
-
-.contact-column{
-    text-align:left;
-}
-
-.contact-column h3,
-.whatsapp-column h3,
-.footer-links-column h3,
-.footer-social h3{
-    color:#c9a24d;
-
-    font-size:20px;
-
-    margin:0 0 18px;
-}
-
-.contact-column p{
-    color:#bbb;
-
-    font-size:15px;
-
-    line-height:1.6;
-}
-
-.footer-link{
-    display:block;
-
-    color:#fff;
-
-    text-decoration:none;
-
-    margin-bottom:12px;
-
-    transition:0.3s ease;
-}
-
-.footer-link:hover{
-    color:#c9a24d;
-}
-
-
-/* =========================================================
-   WHATSAPP
-========================================================= */
-
-.whatsapp-column{
-    text-align:center;
-}
-
-.whatsapp-title{
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:10px;
-}
-
-.whatsapp-icon{
-    width:28px !important;
-
-    height:28px !important;
-
-    object-fit:contain !important;
-}
-
-.whatsapp-button{
-    display:inline-block;
-
-    background:#c9a24d;
-
-    color:#111;
-
-    text-decoration:none;
-
-    padding:13px 30px;
-
-    border-radius:6px;
-
-    font-weight:bold;
-
-    transition:0.3s ease;
-}
-
-.whatsapp-button:hover{
-    background:#fff;
-
-    color:#111;
-}
-
-
-/* =========================================================
-   FOOTER MIDDLE
-========================================================= */
-
-.footer-middle{
-    display:grid;
-
-    grid-template-columns:
-        1fr
-        1fr
-        1fr;
-
-    gap:50px;
-
-    padding:50px 0;
-}
-
-.footer-links-column{
-    display:flex;
-
-    flex-direction:column;
-}
-
-.footer-links-column a{
-    color:#ccc;
-
-    text-decoration:none;
-
-    margin-bottom:13px;
-
-    transition:0.3s ease;
-}
-
-.footer-links-column a:hover{
-    color:#c9a24d;
-}
-
-
-/* =========================================================
-   INSTAGRAM
-========================================================= */
-
-.footer-social{
-    text-align:center;
-}
-
-.footer-social p{
-    color:#bbb;
-
-    margin-bottom:15px;
-}
-
-.instagram-button{
-    display:inline-flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    width:50px;
-
-    height:50px;
-
-    border:
-        1px solid
-        #c9a24d;
-
-    border-radius:50%;
-
-    transition:0.3s ease;
-}
-
-.instagram-button:hover{
-    background:#c9a24d;
-}
-
-.instagram-button img{
-    width:28px;
-
-    height:28px;
-
-    object-fit:contain;
-}
-
-
-/* =========================================================
-   COPYRIGHT
-========================================================= */
-
-.footer-bottom{
-    border-top:
-        1px solid
-        rgba(255,255,255,0.15);
-
-    text-align:center;
-
-    padding:25px 10px;
-}
-
-.footer-bottom p{
-    margin:0;
-
-    color:#999;
-
-    font-size:14px;
-
-    line-height:1.6;
-}
-@media(max-width:900px){.profile-grid,.address-row{grid-template-columns:1fr}.profile-header{flex-direction:column;text-align:center}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+:root{--bg:#0a0a0a;--card:#121212;--line:rgba(198,163,91,.18);--gold:#c6a35b;--text:#f6f4ef;--muted:#a8a29e}
+body{margin:0;font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--text)}
+header{position:sticky;top:0;z-index:50;background:#0a0a0a;border-bottom:1px solid var(--line);padding:22px 5%;display:flex;justify-content:space-between;align-items:center}
+.logo{font:700 32px Georgia,serif;letter-spacing:6px;color:var(--text);text-decoration:none}
+.back-home{color:var(--muted);text-decoration:none;border:1px solid var(--line);padding:11px 18px;border-radius:999px;transition:.25s}
+.back-home:hover{border-color:var(--gold);color:var(--text)}
+main{padding:56px 20px}.account-container{max-width:1180px;margin:auto}
+.login-card,.card,.orders-card{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:32px;box-shadow:0 12px 40px rgba(0,0,0,.28)}
+#login-section{max-width:620px;margin:24px auto}#profile-section{display:none}
+.profile-header{border:1px solid var(--line);border-radius:24px;padding:38px;display:flex;gap:22px;align-items:center;margin-bottom:26px}
+.profile-image{width:96px;height:96px;border-radius:50%;border:2px solid var(--gold);object-fit:cover}
+.profile-header h1,.card h2,.orders-card h2,.login-card h1{font-family:Georgia,serif;font-weight:500;letter-spacing:.3px;margin:0 0 8px}
+.profile-header p,.orders-card p{color:var(--muted);margin:0}
+.profile-grid{display:grid;grid-template-columns:1.35fr .65fr;gap:22px}.right-column{display:flex;flex-direction:column;gap:22px}
+.form-group{margin-bottom:18px}.form-group label{display:block;margin-bottom:8px;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+input,textarea{width:100%;padding:15px;background:#181818;border:1px solid rgba(255,255,255,.08);border-radius:12px;color:var(--text);font-size:15px}
+input:focus,textarea:focus{outline:none;border-color:var(--gold)}
+.readonly-field{background:#151515;color:#cfcfcf}.address-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.primary-button,.orders-button{display:flex;align-items:center;justify-content:center;width:100%;min-height:50px;border-radius:999px;border:none;background:var(--gold);color:#111;font-weight:700;text-decoration:none;cursor:pointer;transition:.2s}
+.primary-button:hover,.orders-button:hover{filter:brightness(1.05);transform:translateY(-1px)}
+.logout-button{width:100%;margin-top:12px;background:transparent;border:1px solid var(--line);color:var(--text);min-height:50px;border-radius:999px;cursor:pointer}
+.account-actions{display:grid;gap:10px}.action-link{display:flex;align-items:center;justify-content:center;min-height:46px;border:1px solid var(--line);border-radius:12px;color:var(--text);text-decoration:none}
+.status{display:none;margin-top:14px;padding:14px;border-radius:12px}.success{display:block;background:#16341f;color:#9fe3b3}.error{display:block;background:#3a1818;color:#ffb4b4}
+.main-footer{background:#0a0a0a;border-top:1px solid var(--line);margin-top:70px}
+.footer-container{max-width:1400px;margin:auto;padding:60px 40px 0}.footer-top,.footer-middle{display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;padding-bottom:50px}.footer-top{border-bottom:1px solid rgba(255,255,255,.08)}.footer-top>h2{grid-column:1/-1;text-align:center;font:500 38px Georgia,serif;color:var(--text)}.contact-column h3,.whatsapp-column h3,.footer-links-column h3,.footer-social h3{color:var(--gold)}.footer-link,.footer-links-column a{display:block;color:#cfcfcf;text-decoration:none;margin-bottom:12px}.footer-link:hover,.footer-links-column a:hover{color:var(--text)}.whatsapp-button{display:inline-block;padding:13px 30px;background:var(--gold);color:#111;text-decoration:none;border-radius:999px;font-weight:700}.instagram-button{display:inline-flex;align-items:center;justify-content:center;width:50px;height:50px;border:1px solid var(--gold);border-radius:50%}.footer-bottom{border-top:1px solid rgba(255,255,255,.08);text-align:center;padding:25px 10px;color:#888}
+@media(max-width:900px){.profile-grid,.address-row,.footer-top,.footer-middle{grid-template-columns:1fr}.profile-header{flex-direction:column;text-align:center}.footer-container{padding:50px 24px 0}}
 </style>
 </head>
 <body>
 <header><a href="index.html" class="logo">50 MIRARS</a><a href="index.html" class="back-home">← Back to Home</a></header>
 <main><div class="account-container">
 <section id="login-section" class="login-card">
-<h1>My Account</h1><p>Sign in with your Google account.</p>
+<h1>My Account</h1><p>Access your 50 Mirars account to manage delivery details, orders and care guides.</p>
 <button id="google-login" class="primary-button">Continue with Google</button>
 <div id="login-status" class="status"></div></section>
 <section id="profile-section">
@@ -357,7 +80,7 @@ input:focus,textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 
 
     <div class="card orders-card">
         <h2>My Orders</h2>
-        <p>View your order history and track your purchases.</p>
+        <p>Access your complete order history and tracking in one place.</p>
         <a href="my-orders.html" class="orders-button">
             View My Orders
         </a>
@@ -365,7 +88,7 @@ input:focus,textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 
 
     <div class="card orders-card">
         <h2>Care Guide</h2>
-        <p>Learn how to keep your watches and sunglasses looking premium for years.</p>
+        <p>Expert care instructions for your watches and sunglasses.</p>
         <a href="care-guide.html" class="orders-button">
             View Care Guide
         </a>
