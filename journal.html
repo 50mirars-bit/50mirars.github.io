@@ -2003,6 +2003,32 @@ width:140px;
 
 <body>
 
+<!--====================================================
+     LUXURY LOADING SCREEN
+=====================================================-->
+
+<div id="luxury-loader">
+
+    <div class="loader-content">
+
+        <img src="logo.jpeg"
+             alt="50 Mirars"
+             class="loader-logo">
+
+        <div class="loader-title">
+            50 MIRARS
+        </div>
+
+        <div class="loader-subtitle">
+            EDITORIAL JOURNAL
+        </div>
+
+        <div class="loader-line"></div>
+
+    </div>
+
+</div>
+   
 <header class="journal-header">
 
 <div class="header-container">
@@ -2809,6 +2835,8 @@ Explore Watches
 
 <script>
 
+/* Reveal Animation */
+
 const revealElements=document.querySelectorAll(".reveal");
 
 const revealObserver=new IntersectionObserver(entries=>{
@@ -2827,8 +2855,26 @@ entry.target.classList.add("visible");
 
 revealElements.forEach(el=>revealObserver.observe(el));
 
-</script>
+/* Luxury Loader */
 
+document.body.classList.add("loading");
+
+window.addEventListener("load",()=>{
+
+setTimeout(()=>{
+
+const loader=document.getElementById("luxury-loader");
+
+loader.classList.add("hide");
+
+document.body.classList.remove("loading");
+
+},1400);
+
+});
+
+</script>
+   
 </body>
 
 </html>
