@@ -2529,12 +2529,139 @@ font-size:17px;
 }
 
 }
+
+/*====================================================
+PREMIUM LOADER
+====================================================*/
+
+.loader-screen{
+position:fixed;
+inset:0;
+background:#050505;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:99999;
+transition:opacity .8s ease,visibility .8s ease;
+}
+
+.loader-screen.hide{
+opacity:0;
+visibility:hidden;
+pointer-events:none;
+}
+
+.loader-box{
+text-align:center;
+}
+
+.loader-box img{
+width:140px;
+margin:auto;
+animation:logoFade 2s ease infinite alternate;
+}
+
+.loader-box h1{
+font-family:Georgia,serif;
+font-size:56px;
+letter-spacing:8px;
+color:#fff;
+margin-top:24px;
+}
+
+.loader-box p{
+margin-top:10px;
+letter-spacing:6px;
+font-size:15px;
+color:#c9a24d;
+}
+
+.loader-line{
+width:220px;
+height:2px;
+background:rgba(255,255,255,.12);
+margin:38px auto 0;
+overflow:hidden;
+position:relative;
+}
+
+.loader-line::before{
+content:"";
+position:absolute;
+left:-40%;
+top:0;
+width:40%;
+height:100%;
+background:linear-gradient(90deg,transparent,#c9a24d,transparent);
+animation:loadingMove 1.8s linear infinite;
+}
+
+@keyframes loadingMove{
+100%{
+left:100%;
+}
+}
+
+@keyframes logoFade{
+from{
+transform:translateY(-4px) scale(.98);
+opacity:.88;
+}
+to{
+transform:translateY(4px) scale(1.02);
+opacity:1;
+}
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.loader-box img{
+width:110px;
+}
+
+.loader-box h1{
+font-size:36px;
+letter-spacing:5px;
+}
+
+.loader-box p{
+font-size:12px;
+letter-spacing:4px;
+}
+
+.loader-line{
+width:170px;
+}
+
+}
   
 </style>
 
 </head>
 
 <body>
+
+<!--====================================================
+PREMIUM LOADING SCREEN
+====================================================-->
+
+<div class="loader-screen" id="loader">
+
+<div class="loader-box">
+
+<img src="../logo.jpeg" alt="50 Mirars Logo">
+
+<h1>50 MIRARS</h1>
+
+<p>PRESAGE EDITION</p>
+
+<div class="loader-line"></div>
+
+</div>
+
+</div>
 
 <header class="journal-header">
 
@@ -3607,6 +3734,8 @@ Like the first light of sunrise across Kyoto's rooftops, true beauty often arriv
 
 <script>
 
+// Reveal animation
+
 const revealElements=document.querySelectorAll(".reveal");
 
 const observer=new IntersectionObserver(entries=>{
@@ -3624,6 +3753,20 @@ entry.target.classList.add("visible");
 },{threshold:.15});
 
 revealElements.forEach(el=>observer.observe(el));
+
+// Premium Loader
+
+window.addEventListener("load",()=>{
+
+const loader=document.getElementById("loader");
+
+setTimeout(()=>{
+
+loader.classList.add("hide");
+
+},1200);
+
+});
 
 </script>
 
