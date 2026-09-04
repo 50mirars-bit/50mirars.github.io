@@ -1047,6 +1047,363 @@ textarea {
     font-size: 17px;
 }
 
+/* =====================================================
+   LUXURY JOURNAL PREVIEW
+===================================================== */
+
+.journal-preview{
+
+    width:100%;
+
+    padding:120px 7%;
+
+    background:
+        radial-gradient(circle at top,#faf8f3 0%,#ffffff 45%,#ffffff 100%);
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+/* Gold decorative line */
+
+.journal-preview::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:70px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:120px;
+    height:2px;
+
+    background:linear-gradient(90deg,transparent,#c9a24d,transparent);
+}
+
+.journal-header{
+
+    text-align:center;
+
+    max-width:760px;
+
+    margin:0 auto 70px;
+}
+
+.journal-header small{
+
+    display:block;
+
+    color:#c9a24d;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    letter-spacing:4px;
+
+    margin-bottom:16px;
+}
+
+.journal-header h2{
+
+    font-family:Georgia,"Times New Roman",serif;
+
+    font-size:54px;
+
+    font-weight:500;
+
+    line-height:1.15;
+
+    margin-bottom:18px;
+
+    color:#111;
+}
+
+.journal-header p{
+
+    color:#666;
+
+    font-size:17px;
+
+    line-height:1.8;
+}
+
+/* Featured Article */
+
+.featured-journal{
+
+    display:grid;
+
+    grid-template-columns:1.35fr 1fr;
+
+    gap:40px;
+
+    align-items:center;
+
+    margin-bottom:70px;
+}
+
+.featured-image{
+
+    overflow:hidden;
+
+    border-radius:18px;
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.12);
+}
+
+.featured-image img{
+
+    width:100%;
+
+    height:560px;
+
+    object-fit:cover;
+
+    transition:transform .8s ease;
+}
+
+.featured-journal:hover .featured-image img{
+
+    transform:scale(1.05);
+}
+
+.featured-content small{
+
+    color:#c9a24d;
+
+    letter-spacing:3px;
+
+    font-size:13px;
+
+    font-weight:700;
+}
+
+.featured-content h3{
+
+    font-family:Georgia,"Times New Roman",serif;
+
+    font-size:44px;
+
+    line-height:1.15;
+
+    margin:18px 0;
+}
+
+.featured-content p{
+
+    color:#555;
+
+    font-size:17px;
+
+    line-height:1.8;
+
+    margin-bottom:28px;
+}
+
+.read-story{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:15px 28px;
+
+    border:1px solid #c9a24d;
+
+    color:#111;
+
+    font-weight:700;
+
+    transition:.35s ease;
+}
+
+.read-story:hover{
+
+    background:#111;
+
+    color:#fff;
+
+    border-color:#111;
+}
+
+/* Editorial Cards */
+
+.journal-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:26px;
+}
+
+.journal-card{
+
+    background:#fff;
+
+    border-radius:16px;
+
+    overflow:hidden;
+
+    box-shadow:0 12px 35px rgba(0,0,0,.08);
+
+    transition:.35s ease;
+}
+
+.journal-card:hover{
+
+    transform:translateY(-8px);
+}
+
+.journal-card img{
+
+    width:100%;
+
+    height:260px;
+
+    object-fit:cover;
+}
+
+.journal-card-content{
+
+    padding:24px;
+}
+
+.journal-card-content small{
+
+    color:#c9a24d;
+
+    letter-spacing:2px;
+
+    font-size:12px;
+
+    font-weight:700;
+}
+
+.journal-card-content h4{
+
+    font-family:Georgia,"Times New Roman",serif;
+
+    font-size:28px;
+
+    line-height:1.25;
+
+    margin:14px 0;
+}
+
+.journal-card-content p{
+
+    color:#666;
+
+    font-size:15px;
+
+    line-height:1.7;
+
+    margin-bottom:20px;
+}
+
+.card-link{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    font-weight:700;
+
+    color:#111;
+}
+
+.card-link:hover{
+
+    color:#c9a24d;
+}
+
+/* Bottom CTA */
+
+.journal-footer{
+
+    text-align:center;
+
+    margin-top:70px;
+}
+
+.journal-button{
+
+    display:inline-block;
+
+    padding:18px 42px;
+
+    background:#111;
+
+    color:#fff;
+
+    letter-spacing:1px;
+
+    font-weight:700;
+
+    transition:.35s ease;
+}
+
+.journal-button:hover{
+
+    background:#c9a24d;
+
+    color:#111;
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+    .journal-preview{
+
+        padding:80px 14px;
+    }
+
+    .journal-header h2{
+
+        font-size:36px;
+    }
+
+    .featured-journal{
+
+        grid-template-columns:1fr;
+
+        gap:28px;
+    }
+
+    .featured-image img{
+
+        height:360px;
+    }
+
+    .featured-content h3{
+
+        font-size:32px;
+    }
+
+    .journal-grid{
+
+        grid-template-columns:1fr;
+    }
+
+    .journal-card img{
+
+        height:220px;
+    }
+
+}
+
 
 /* =====================================================
    GET IN TOUCH
@@ -3058,6 +3415,172 @@ textarea {
 
         </a>
 
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     LUXURY JOURNAL PREVIEW
+===================================================== -->
+
+<section class="journal-preview">
+
+    <div class="journal-header">
+
+        <small>50 MIRARS JOURNAL</small>
+
+        <h2>Stories Behind Extraordinary Timepieces</h2>
+
+        <p>
+            Discover the craftsmanship, heritage and design philosophy behind
+            the world's most iconic watches through our editorial journal.
+        </p>
+
+    </div>
+
+    <!-- Featured Editorial -->
+
+    <div class="featured-journal">
+
+        <div class="featured-image">
+
+            <img src="Rolex Daytona Cosmograph.jpeg"
+                 alt="Rolex Daytona Journal"
+                 loading="lazy">
+
+        </div>
+
+        <div class="featured-content">
+
+            <small>FEATURED EDITORIAL</small>
+
+            <h3>The Rolex Daytona — The Racing Legend</h3>
+
+            <p>
+                From the racetrack to the wrists of collectors worldwide,
+                discover how the Cosmograph Daytona became one of the most
+                desirable luxury watches ever created.
+            </p>
+
+            <a href="journal/rolex-daytona.html"
+               class="read-story">
+
+                Read the Story →
+
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- Editorial Grid -->
+
+    <div class="journal-grid">
+
+        <!-- Card 1 -->
+
+        <article class="journal-card">
+
+            <img src="Cartier Santos Green.jpeg"
+                 alt="Cartier Santos"
+                 loading="lazy">
+
+            <div class="journal-card-content">
+
+                <small>HERITAGE</small>
+
+                <h4>Cartier Santos</h4>
+
+                <p>
+                    The world's first purpose-built pilot's watch that
+                    transformed elegance into aviation history.
+                </p>
+
+                <a href="journal.html"
+                   class="card-link">
+
+                    Explore Story →
+
+                </a>
+
+            </div>
+
+        </article>
+
+        <!-- Card 2 -->
+
+        <article class="journal-card">
+
+            <img src="Omega Speedmaster James Bond.jpeg"
+                 alt="Omega Speedmaster"
+                 loading="lazy">
+
+            <div class="journal-card-content">
+
+                <small>SPACE LEGACY</small>
+
+                <h4>Omega Speedmaster</h4>
+
+                <p>
+                    The Moonwatch that accompanied astronauts beyond Earth
+                    and became a timeless symbol of exploration.
+                </p>
+
+                <a href="journal.html"
+                   class="card-link">
+
+                    Explore Story →
+
+                </a>
+
+            </div>
+
+        </article>
+
+        <!-- Card 3 -->
+
+        <article class="journal-card">
+
+            <img src="Seiko Presage Open Heart Collection.jpeg"
+                 alt="Seiko Presage"
+                 loading="lazy">
+
+            <div class="journal-card-content">
+
+                <small>JAPANESE ARTISTRY</small>
+
+                <h4>Seiko Presage</h4>
+
+                <p>
+                    Where traditional Japanese craftsmanship meets
+                    modern mechanical excellence.
+                </p>
+
+                <a href="journal.html"
+                   class="card-link">
+
+                    Explore Story →
+
+                </a>
+
+            </div>
+
+        </article>
+
+    </div>
+
+    <!-- Bottom CTA -->
+
+    <div class="journal-footer">
+
+        <a href="journal.html"
+           class="journal-button">
+
+            Explore the Complete Journal
+
+        </a>
 
     </div>
 
