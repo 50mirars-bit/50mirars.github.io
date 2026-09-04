@@ -1514,105 +1514,277 @@ background:#111;
 color:white;
 }
 
-/*====================================================
-PREMIUM FOOTER
-====================================================*/
+/* =========================================================
+   FOOTER
+========================================================= */
 
-.journal-footer{
+.main-footer{
+    background:#111;
 
-background:#0d0d0d;
+    color:#fff;
 
-color:white;
+    margin-top:40px;
 }
 
-.footer-wrap{
+.footer-container{
+    width:100%;
 
-max-width:1400px;
+    max-width:1400px;
 
-margin:auto;
+    margin:0 auto;
 
-padding:80px 8% 30px;
+    padding:
+        60px
+        50px
+        0;
 }
+
+
+/* =========================================================
+   FOOTER TOP
+========================================================= */
 
 .footer-top{
+    display:grid;
 
-display:grid;
+    grid-template-columns:
+        1fr
+        1fr
+        1fr;
 
-grid-template-columns:2fr 1fr 1fr;
+    gap:50px;
 
-gap:50px;
+    padding-bottom:50px;
 
-padding-bottom:55px;
-
-border-bottom:1px solid rgba(255,255,255,.1);
+    border-bottom:
+        1px solid
+        rgba(255,255,255,0.15);
 }
 
-.footer-brand h2{
+.footer-top > h2{
+    grid-column:1 / -1;
 
-font-family:Georgia,serif;
+    text-align:center;
 
-font-size:40px;
+    margin:0 0 10px;
 
-letter-spacing:4px;
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 
-margin-bottom:12px;
+    font-size:38px;
+
+    font-weight:600;
+
+    color:#c9a24d;
 }
 
-.footer-brand span{
 
-display:block;
+/* =========================================================
+   FOOTER CONTACT
+========================================================= */
 
-color:#c9a24d;
-
-letter-spacing:3px;
-
-margin-bottom:20px;
+.contact-column{
+    text-align:left;
 }
 
-.footer-brand p{
+.contact-column h3,
+.whatsapp-column h3,
+.footer-links-column h3,
+.footer-social h3{
+    color:#c9a24d;
 
-color:#bbb;
+    font-size:20px;
 
-line-height:1.8;
-
-max-width:420px;
+    margin:0 0 18px;
 }
 
-.footer-column h3{
+.contact-column p{
+    color:#bbb;
 
-color:#c9a24d;
+    font-size:15px;
 
-margin-bottom:20px;
-
-font-size:20px;
+    line-height:1.6;
 }
 
-.footer-column a{
+.footer-link{
+    display:block;
 
-display:block;
+    color:#fff;
 
-margin-bottom:14px;
+    text-decoration:none;
 
-color:#ccc;
+    margin-bottom:12px;
 
-transition:.3s;
+    transition:0.3s ease;
 }
 
-.footer-column a:hover{
-
-color:#c9a24d;
+.footer-link:hover{
+    color:#c9a24d;
 }
+
+
+/* =========================================================
+   WHATSAPP
+========================================================= */
+
+.whatsapp-column{
+    text-align:center;
+}
+
+.whatsapp-title{
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+}
+
+.whatsapp-icon{
+    width:28px !important;
+
+    height:28px !important;
+
+    object-fit:contain !important;
+}
+
+.whatsapp-button{
+    display:inline-block;
+
+    background:#c9a24d;
+
+    color:#111;
+
+    text-decoration:none;
+
+    padding:13px 30px;
+
+    border-radius:6px;
+
+    font-weight:bold;
+
+    transition:0.3s ease;
+}
+
+.whatsapp-button:hover{
+    background:#fff;
+
+    color:#111;
+}
+
+
+/* =========================================================
+   FOOTER MIDDLE
+========================================================= */
+
+.footer-middle{
+    display:grid;
+
+    grid-template-columns:
+        1fr
+        1fr
+        1fr;
+
+    gap:50px;
+
+    padding:50px 0;
+}
+
+.footer-links-column{
+    display:flex;
+
+    flex-direction:column;
+}
+
+.footer-links-column a{
+    color:#ccc;
+
+    text-decoration:none;
+
+    margin-bottom:13px;
+
+    transition:0.3s ease;
+}
+
+.footer-links-column a:hover{
+    color:#c9a24d;
+}
+
+
+/* =========================================================
+   INSTAGRAM
+========================================================= */
+
+.footer-social{
+    text-align:center;
+}
+
+.footer-social p{
+    color:#bbb;
+
+    margin-bottom:15px;
+}
+
+.instagram-button{
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    width:50px;
+
+    height:50px;
+
+    border:
+        1px solid
+        #c9a24d;
+
+    border-radius:50%;
+
+    transition:0.3s ease;
+}
+
+.instagram-button:hover{
+    background:#c9a24d;
+}
+
+.instagram-button img{
+    width:28px;
+
+    height:28px;
+
+    object-fit:contain;
+}
+
+
+/* =========================================================
+   COPYRIGHT
+========================================================= */
 
 .footer-bottom{
+    border-top:
+        1px solid
+        rgba(255,255,255,0.15);
 
-text-align:center;
+    text-align:center;
 
-padding-top:30px;
-
-color:#888;
-
-font-size:14px;
+    padding:25px 10px;
 }
+
+.footer-bottom p{
+    margin:0;
+
+    color:#999;
+
+    font-size:14px;
+
+    line-height:1.6;
+}
+
 
 /*====================================================
 RESPONSIVE
