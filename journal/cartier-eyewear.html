@@ -1,0 +1,3080 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1150">
+
+<title>Cartier Eyewear | Where Jewelry Meets Vision | 50 Mirars Journal</title>
+
+<meta name="description"
+content="Discover the story of Cartier Eyewear—where French jewelry craftsmanship transforms into timeless luxury sunglasses worn by icons around the world.">
+
+<style>
+
+/*====================================================
+GLOBAL
+====================================================*/
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+
+font-family:Arial,Helvetica,sans-serif;
+
+background:#050505;
+
+color:#fff;
+
+overflow-x:hidden;
+}
+
+img{
+display:block;
+max-width:100%;
+}
+
+a{
+text-decoration:none;
+color:inherit;
+}
+
+/*====================================================
+PREMIUM LOADER
+====================================================*/
+
+.loader{
+
+position:fixed;
+inset:0;
+
+background:#000;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+flex-direction:column;
+
+z-index:99999;
+
+transition:opacity .8s ease, visibility .8s;
+}
+
+.loader.hide{
+
+opacity:0;
+visibility:hidden;
+}
+
+.loader img{
+
+width:140px;
+
+margin-bottom:28px;
+
+animation:logoFloat 2s ease-in-out infinite;
+}
+
+.loader h1{
+
+font-family:Georgia,serif;
+
+font-size:52px;
+
+letter-spacing:8px;
+
+font-weight:500;
+}
+
+.loader p{
+
+margin-top:14px;
+
+letter-spacing:6px;
+
+color:#d7b15a;
+
+font-size:14px;
+}
+
+.loader-bar{
+
+width:210px;
+height:2px;
+
+background:rgba(255,255,255,.15);
+
+margin-top:38px;
+
+overflow:hidden;
+
+position:relative;
+}
+
+.loader-bar span{
+
+position:absolute;
+
+left:-100%;
+
+width:100%;
+height:100%;
+
+background:linear-gradient(90deg,
+transparent,
+#d7b15a,
+transparent);
+
+animation:loading 1.8s linear infinite;
+}
+
+@keyframes loading{
+
+100%{
+left:100%;
+}
+}
+
+@keyframes logoFloat{
+
+50%{
+transform:translateY(-8px);
+}
+}
+
+/*====================================================
+HEADER
+====================================================*/
+
+.journal-header{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+
+z-index:1000;
+
+background:rgba(8,8,10,.88);
+
+backdrop-filter:blur(18px);
+
+border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.header-container{
+
+max-width:1400px;
+
+margin:auto;
+
+padding:18px 40px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+}
+
+.logo{
+
+display:flex;
+
+align-items:center;
+
+gap:14px;
+}
+
+.logo img{
+
+height:48px;
+}
+
+.logo-text h1{
+
+font-family:Georgia,serif;
+
+font-size:28px;
+
+letter-spacing:4px;
+}
+
+.logo-text span{
+
+display:block;
+
+font-size:10px;
+
+letter-spacing:3px;
+
+color:#d7b15a;
+}
+
+.back-home{
+
+padding:12px 22px;
+
+border:1px solid #d7b15a;
+
+font-weight:bold;
+
+transition:.35s;
+}
+
+.back-home:hover{
+
+background:white;
+
+color:#111;
+}
+
+/*====================================================
+HERO
+====================================================*/
+
+.hero{
+
+position:relative;
+
+min-height:100vh;
+
+display:flex;
+
+align-items:center;
+
+padding:150px 8% 100px;
+
+overflow:hidden;
+}
+
+.hero::after{
+
+content:"";
+
+position:absolute;
+inset:0;
+
+background:linear-gradient(90deg,
+rgba(5,5,5,.95),
+rgba(5,5,5,.45),
+rgba(5,5,5,.05));
+
+z-index:1;
+}
+
+.hero-bg{
+
+position:absolute;
+inset:0;
+}
+
+.hero-bg img{
+
+width:100%;
+height:100%;
+
+object-fit:cover;
+
+transform:scale(1.05);
+
+transition:transform 8s ease;
+}
+
+.hero:hover .hero-bg img{
+
+transform:scale(1.1);
+}
+
+.hero-content{
+
+position:relative;
+
+z-index:2;
+
+max-width:700px;
+}
+
+.hero-content small{
+
+display:block;
+
+color:#d7b15a;
+
+letter-spacing:5px;
+
+font-weight:bold;
+
+margin-bottom:18px;
+}
+
+.hero-content h2{
+
+font-family:Georgia,serif;
+
+font-size:78px;
+
+font-weight:500;
+
+line-height:1.05;
+
+margin-bottom:26px;
+}
+
+.hero-content p{
+
+font-size:20px;
+
+line-height:1.9;
+
+color:#ddd;
+
+margin-bottom:36px;
+}
+
+.hero-buttons{
+
+display:flex;
+
+gap:18px;
+
+flex-wrap:wrap;
+}
+
+.primary-btn{
+
+padding:16px 34px;
+
+background:white;
+
+color:#111;
+
+font-weight:bold;
+
+transition:.35s;
+}
+
+.primary-btn:hover{
+
+background:#d7b15a;
+}
+
+.secondary-btn{
+
+padding:16px 34px;
+
+border:1px solid rgba(255,255,255,.4);
+
+transition:.35s;
+}
+
+.secondary-btn:hover{
+
+background:white;
+
+color:#111;
+}
+
+/*====================================================
+REVEAL
+====================================================*/
+
+.reveal{
+
+opacity:0;
+
+transform:translateY(40px);
+
+transition:1s ease;
+}
+
+.reveal.visible{
+
+opacity:1;
+
+transform:translateY(0);
+}
+
+/*====================================================
+RESPONSIVE
+====================================================*/
+
+@media(max-width:768px){
+
+.header-container{
+
+padding:14px 18px;
+}
+
+.logo img{
+
+height:40px;
+}
+
+.logo-text h1{
+
+font-size:22px;
+}
+
+.hero{
+
+padding:120px 18px 70px;
+}
+
+.hero-content h2{
+
+font-size:44px;
+}
+
+.hero-content p{
+
+font-size:16px;
+}
+
+.cartier-ring{
+
+width:110px;
+height:110px;
+
+top:95px;
+}
+
+.loader img{
+
+width:100px;
+}
+
+.loader h1{
+
+font-size:34px;
+}
+
+}
+
+/*====================================================
+EDITOR'S NOTE
+====================================================*/
+
+.intro{
+
+padding:120px 8%;
+
+background:#080808;
+
+text-align:center;
+}
+
+.intro small{
+
+display:block;
+
+color:#d7b15a;
+
+letter-spacing:4px;
+
+font-weight:bold;
+
+margin-bottom:18px;
+}
+
+.intro h3{
+
+font-family:Georgia,serif;
+
+font-size:56px;
+
+font-weight:500;
+
+margin-bottom:28px;
+}
+
+.intro p{
+
+max-width:860px;
+
+margin:auto;
+
+font-size:19px;
+
+line-height:2;
+
+color:#d3d3d3;
+}
+
+/*====================================================
+PARIS HERITAGE
+====================================================*/
+
+.paris-story{
+
+padding:140px 8%;
+
+background:#050505;
+}
+
+.story-grid{
+
+display:grid;
+
+grid-template-columns:1.1fr 1fr;
+
+gap:60px;
+
+align-items:center;
+
+margin-bottom:120px;
+}
+
+.story-grid.reverse{
+
+grid-template-columns:1fr 1.1fr;
+}
+
+.story-grid.reverse .story-image{
+
+order:2;
+}
+
+.story-image{
+
+position:relative;
+
+overflow:hidden;
+
+border-radius:26px;
+
+box-shadow:0 30px 80px rgba(0,0,0,.45);
+}
+
+.story-image img{
+
+width:100%;
+height:650px;
+
+object-fit:cover;
+
+transition:transform .9s ease;
+}
+
+.story-grid:hover .story-image img{
+
+transform:scale(1.05);
+}
+
+/* Gold light sweep */
+
+.story-image::after{
+
+content:"";
+
+position:absolute;
+
+top:0;
+left:-120%;
+
+width:45%;
+height:100%;
+
+background:linear-gradient(
+115deg,
+transparent,
+rgba(255,255,255,.28),
+transparent);
+
+transition:1s ease;
+}
+
+.story-grid:hover .story-image::after{
+
+left:130%;
+}
+
+.story-text small{
+
+display:block;
+
+color:#d7b15a;
+
+letter-spacing:4px;
+
+margin-bottom:18px;
+}
+
+.story-text h2{
+
+font-family:Georgia,serif;
+
+font-size:58px;
+
+font-weight:500;
+
+line-height:1.08;
+
+margin-bottom:24px;
+}
+
+.story-text p{
+
+font-size:18px;
+
+line-height:1.95;
+
+color:#ddd;
+
+margin-bottom:22px;
+}
+
+/*====================================================
+QUOTE
+====================================================*/
+
+.cartier-quote{
+
+padding:130px 8%;
+
+background:linear-gradient(180deg,#050505,#101010);
+
+text-align:center;
+
+position:relative;
+}
+
+.cartier-quote::before{
+
+content:"✦";
+
+position:absolute;
+
+top:35px;
+left:50%;
+
+transform:translateX(-50%);
+
+font-size:80px;
+
+color:rgba(215,177,90,.25);
+}
+
+.cartier-quote blockquote{
+
+max-width:920px;
+
+margin:auto;
+
+font-family:Georgia,serif;
+
+font-size:44px;
+
+line-height:1.45;
+
+font-style:italic;
+}
+
+.cartier-quote cite{
+
+display:block;
+
+margin-top:28px;
+
+letter-spacing:4px;
+
+color:#d7b15a;
+
+font-style:normal;
+}
+
+/*====================================================
+RESPONSIVE
+====================================================*/
+
+@media(max-width:768px){
+
+.intro,
+.paris-story,
+.cartier-quote{
+
+padding:80px 18px;
+}
+
+.intro h3,
+.story-text h2{
+
+font-size:36px;
+}
+
+.story-grid,
+.story-grid.reverse{
+
+grid-template-columns:1fr;
+}
+
+.story-grid.reverse .story-image{
+
+order:0;
+}
+
+.story-image img{
+
+height:360px;
+}
+
+.cartier-quote blockquote{
+
+font-size:28px;
+}
+
+}
+
+/*====================================================
+CRAFTSMANSHIP
+====================================================*/
+
+.craftsmanship{
+
+padding:140px 8%;
+
+background:#0a0a0a;
+}
+
+.craft-header{
+
+text-align:center;
+
+max-width:860px;
+
+margin:0 auto 80px;
+}
+
+.craft-header small{
+
+display:block;
+
+color:#d7b15a;
+
+letter-spacing:4px;
+
+font-weight:bold;
+
+margin-bottom:18px;
+}
+
+.craft-header h2{
+
+font-family:Georgia,serif;
+
+font-size:60px;
+
+font-weight:500;
+
+margin-bottom:24px;
+}
+
+.craft-header p{
+
+font-size:18px;
+
+line-height:1.9;
+
+color:#cfcfcf;
+}
+
+/* Editorial Layout */
+
+.craft-grid{
+
+display:grid;
+
+grid-template-columns:1.1fr 1fr;
+
+gap:60px;
+
+align-items:center;
+
+margin-bottom:120px;
+}
+
+.craft-grid.reverse{
+
+grid-template-columns:1fr 1.1fr;
+}
+
+.craft-grid.reverse .craft-image{
+
+order:2;
+}
+
+.craft-image{
+
+position:relative;
+
+overflow:hidden;
+
+border-radius:28px;
+
+box-shadow:0 35px 90px rgba(0,0,0,.45);
+}
+
+.craft-image img{
+
+width:100%;
+height:650px;
+
+object-fit:cover;
+
+transition:transform .9s ease;
+}
+
+.craft-grid:hover .craft-image img{
+
+transform:scale(1.05);
+}
+
+/* Cartier shine */
+
+.craft-image::after{
+
+content:"";
+
+position:absolute;
+
+top:0;
+left:-120%;
+
+width:40%;
+height:100%;
+
+background:linear-gradient(
+115deg,
+transparent,
+rgba(255,255,255,.28),
+transparent);
+
+transition:1s ease;
+}
+
+.craft-grid:hover .craft-image::after{
+
+left:130%;
+}
+
+.craft-text small{
+
+display:inline-block;
+
+padding:8px 16px;
+
+background:#111;
+
+color:#d7b15a;
+
+border:1px solid rgba(215,177,90,.35);
+
+border-radius:40px;
+
+font-size:11px;
+
+letter-spacing:2px;
+
+margin-bottom:20px;
+}
+
+.craft-text h3{
+
+font-family:Georgia,serif;
+
+font-size:48px;
+
+font-weight:500;
+
+line-height:1.12;
+
+margin-bottom:24px;
+}
+
+.craft-text p{
+
+font-size:18px;
+
+line-height:1.95;
+
+color:#ddd;
+
+margin-bottom:22px;
+}
+
+/*====================================================
+MACRO GALLERY
+====================================================*/
+
+.cartier-gallery{
+
+padding:140px 8%;
+
+background:#050505;
+}
+
+.gallery-header{
+
+text-align:center;
+
+margin-bottom:60px;
+}
+
+.gallery-header small{
+
+display:block;
+
+color:#d7b15a;
+
+letter-spacing:4px;
+
+margin-bottom:16px;
+}
+
+.gallery-header h2{
+
+font-family:Georgia,serif;
+
+font-size:56px;
+}
+
+.macro-grid{
+
+display:grid;
+
+grid-template-columns:2fr 1fr;
+
+grid-template-rows:300px 300px;
+
+gap:22px;
+}
+
+.macro-item{
+
+position:relative;
+
+overflow:hidden;
+
+border-radius:22px;
+}
+
+.macro-item:first-child{
+
+grid-row:1/3;
+}
+
+.macro-item img{
+
+width:100%;
+height:100%;
+
+object-fit:cover;
+
+transition:transform .8s ease;
+}
+
+.macro-item:hover img{
+
+transform:scale(1.08);
+}
+
+.macro-caption{
+
+position:absolute;
+
+left:0;
+right:0;
+bottom:0;
+
+padding:22px;
+
+background:linear-gradient(transparent,rgba(0,0,0,.9));
+}
+
+.macro-caption h3{
+
+font-family:Georgia,serif;
+
+font-size:28px;
+
+margin-bottom:8px;
+}
+
+.macro-caption p{
+
+font-size:14px;
+
+color:#ddd;
+}
+
+/*====================================================
+RESPONSIVE
+====================================================*/
+
+@media(max-width:768px){
+
+.craftsmanship,
+.cartier-gallery{
+
+padding:80px 18px;
+}
+
+.craft-header h2,
+.gallery-header h2{
+
+font-size:38px;
+}
+
+.craft-grid,
+.craft-grid.reverse{
+
+grid-template-columns:1fr;
+}
+
+.craft-grid.reverse .craft-image{
+
+order:0;
+}
+
+.craft-image img{
+
+height:360px;
+}
+
+.craft-text h3{
+
+font-size:34px;
+}
+
+.macro-grid{
+
+grid-template-columns:1fr;
+
+grid-template-rows:320px 220px 220px;
+}
+
+.macro-item:first-child{
+
+grid-row:auto;
+}
+
+}
+
+/*====================================================
+MODERN CARTIER
+====================================================*/
+
+.modern-cartier{
+
+padding:140px 8%;
+
+background:#111;
+}
+
+.modern-header{
+
+text-align:center;
+
+max-width:850px;
+
+margin:0 auto 80px;
+}
+
+.modern-header small{
+
+display:block;
+
+color:#d7b15a;
+
+letter-spacing:4px;
+
+font-weight:bold;
+
+margin-bottom:18px;
+}
+
+.modern-header h2{
+
+font-family:Georgia,serif;
+
+font-size:60px;
+
+font-weight:500;
+
+margin-bottom:24px;
+}
+
+.modern-header p{
+
+font-size:18px;
+
+line-height:1.9;
+
+color:#d2d2d2;
+}
+
+.modern-grid{
+
+display:grid;
+
+grid-template-columns:1.15fr 1fr;
+
+gap:60px;
+
+align-items:center;
+
+margin-bottom:120px;
+}
+
+.modern-grid.reverse{
+
+grid-template-columns:1fr 1.15fr;
+}
+
+.modern-grid.reverse .modern-image{
+
+order:2;
+}
+
+.modern-image{
+
+position:relative;
+
+overflow:hidden;
+
+border-radius:28px;
+
+box-shadow:0 35px 90px rgba(0,0,0,.45);
+}
+
+.modern-image img{
+
+width:100%;
+height:650px;
+
+object-fit:cover;
+
+transition:transform .9s ease;
+}
+
+.modern-grid:hover .modern-image img{
+
+transform:scale(1.05);
+}
+
+.modern-image::after{
+
+content:"";
+
+position:absolute;
+
+top:0;
+left:-120%;
+
+width:40%;
+height:100%;
+
+background:linear-gradient(
+115deg,
+transparent,
+rgba(255,255,255,.28),
+transparent);
+
+transition:1s ease;
+}
+
+.modern-grid:hover .modern-image::after{
+
+left:130%;
+}
+
+.modern-text small{
+
+display:inline-block;
+
+padding:8px 16px;
+
+background:#111;
+
+color:#d7b15a;
+
+border:1px solid rgba(215,177,90,.35);
+
+border-radius:40px;
+
+font-size:11px;
+
+letter-spacing:2px;
+
+margin-bottom:20px;
+}
+
+.modern-text h3{
+
+font-family:Georgia,serif;
+
+font-size:48px;
+
+font-weight:500;
+
+margin-bottom:24px;
+}
+
+.modern-text p{
+
+font-size:18px;
+
+line-height:1.95;
+
+color:#ddd;
+
+margin-bottom:22px;
+}
+
+/*====================================================
+TECHNICAL SPECS
+====================================================*/
+
+.cartier-specs{
+
+padding:140px 8%;
+
+background:#050505;
+}
+
+.specs-header{
+
+text-align:center;
+
+margin-bottom:70px;
+}
+
+.specs-header small{
+
+display:block;
+
+color:#d7b15a;
+
+letter-spacing:4px;
+
+margin-bottom:16px;
+}
+
+.specs-header h2{
+
+font-family:Georgia,serif;
+
+font-size:56px;
+}
+
+.specs-grid{
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:24px;
+}
+
+.spec-card{
+
+background:#111216;
+
+padding:34px;
+
+border-radius:22px;
+
+border:1px solid rgba(255,255,255,.08);
+
+transition:.35s;
+}
+
+.spec-card:hover{
+
+transform:translateY(-8px);
+
+border-color:#d7b15a;
+
+box-shadow:0 25px 60px rgba(0,0,0,.35);
+}
+
+.spec-card span{
+
+display:block;
+
+font-size:30px;
+
+font-weight:bold;
+
+color:#d7b15a;
+
+margin-bottom:14px;
+}
+
+.spec-card h3{
+
+font-family:Georgia,serif;
+
+font-size:28px;
+
+margin-bottom:12px;
+}
+
+.spec-card p{
+
+font-size:15px;
+
+line-height:1.8;
+
+color:#d2d2d2;
+}
+
+/*====================================================
+COLLECTOR GUIDE
+====================================================*/
+
+.collector-guide{
+
+padding:140px 8%;
+
+background:#111;
+}
+
+.collector-header{
+
+text-align:center;
+
+max-width:850px;
+
+margin:0 auto 70px;
+}
+
+.collector-header small{
+
+display:block;
+
+color:#d7b15a;
+
+letter-spacing:4px;
+
+margin-bottom:16px;
+}
+
+.collector-header h2{
+
+font-family:Georgia,serif;
+
+font-size:56px;
+
+margin-bottom:20px;
+}
+
+.collector-header p{
+
+font-size:18px;
+
+line-height:1.9;
+
+color:#ddd;
+}
+
+.collector-grid{
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:24px;
+}
+
+.collector-card{
+
+background:#1a1b20;
+
+padding:34px;
+
+border-radius:22px;
+
+transition:.35s;
+}
+
+.collector-card:hover{
+
+transform:translateY(-8px);
+
+box-shadow:0 22px 55px rgba(0,0,0,.35);
+}
+
+.collector-card h3{
+
+font-family:Georgia,serif;
+
+font-size:30px;
+
+margin-bottom:16px;
+}
+
+.collector-card p{
+
+font-size:16px;
+
+line-height:1.8;
+
+color:#d2d2d2;
+}
+
+/*====================================================
+LUXURY SPOTLIGHT
+====================================================*/
+
+.cartier-spotlight{
+
+padding:150px 8%;
+
+background:#050505;
+}
+
+.spotlight-card{
+
+position:relative;
+
+min-height:760px;
+
+overflow:hidden;
+
+border-radius:30px;
+
+display:flex;
+
+align-items:flex-end;
+
+box-shadow:0 35px 90px rgba(0,0,0,.45);
+}
+
+.spotlight-card img{
+
+position:absolute;
+
+inset:0;
+
+width:100%;
+height:100%;
+
+object-fit:cover;
+}
+
+.spotlight-card::after{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:linear-gradient(180deg,
+rgba(0,0,0,.08),
+rgba(0,0,0,.9));
+}
+
+.spotlight-content{
+
+position:relative;
+
+z-index:2;
+
+padding:70px;
+
+max-width:700px;
+}
+
+.spotlight-content small{
+
+display:block;
+
+color:#d7b15a;
+
+letter-spacing:4px;
+
+margin-bottom:18px;
+}
+
+.spotlight-content h2{
+
+font-family:Georgia,serif;
+
+font-size:62px;
+
+font-weight:500;
+
+line-height:1.05;
+
+margin-bottom:24px;
+}
+
+.spotlight-content p{
+
+font-size:20px;
+
+line-height:1.9;
+
+color:#ededed;
+}
+
+/*====================================================
+RESPONSIVE
+====================================================*/
+
+@media(max-width:768px){
+
+.modern-cartier,
+.cartier-specs,
+.collector-guide,
+.cartier-spotlight{
+
+padding:80px 18px;
+}
+
+.modern-header h2,
+.specs-header h2,
+.collector-header h2,
+.spotlight-content h2{
+
+font-size:38px;
+}
+
+.modern-grid,
+.modern-grid.reverse{
+
+grid-template-columns:1fr;
+}
+
+.modern-grid.reverse .modern-image{
+
+order:0;
+}
+
+.modern-image img{
+
+height:360px;
+}
+
+.modern-text h3{
+
+font-size:34px;
+}
+
+.specs-grid,
+.collector-grid{
+
+grid-template-columns:1fr;
+}
+
+.spotlight-card{
+
+min-height:500px;
+}
+
+.spotlight-content{
+
+padding:32px;
+}
+
+.spotlight-content p{
+
+font-size:16px;
+}
+
+}
+
+/*====================================================
+LEGACY TIMELINE
+====================================================*/
+
+.cartier-legacy{
+
+padding:140px 8%;
+
+background:#050505;
+}
+
+.legacy-header{
+
+text-align:center;
+
+max-width:850px;
+
+margin:0 auto 80px;
+}
+
+.legacy-header small{
+
+display:block;
+
+color:#d7b15a;
+
+letter-spacing:4px;
+
+font-weight:bold;
+
+margin-bottom:16px;
+}
+
+.legacy-header h2{
+
+font-family:Georgia,serif;
+
+font-size:60px;
+
+font-weight:500;
+
+margin-bottom:22px;
+}
+
+.legacy-header p{
+
+font-size:18px;
+
+line-height:1.9;
+
+color:#cfcfcf;
+}
+
+.legacy-line{
+
+position:relative;
+
+max-width:950px;
+
+margin:auto;
+}
+
+.legacy-line::before{
+
+content:"";
+
+position:absolute;
+
+left:50%;
+
+top:0;
+bottom:0;
+
+width:2px;
+
+background:linear-gradient(#d7b15a,#ffffff,#d7b15a);
+
+transform:translateX(-50%);
+}
+
+.legacy-item{
+
+display:grid;
+
+grid-template-columns:1fr 90px 1fr;
+
+gap:24px;
+
+align-items:center;
+
+margin:50px 0;
+}
+
+.legacy-item:nth-child(even) .legacy-card:first-child{
+
+opacity:0;
+}
+
+.legacy-item:nth-child(odd) .legacy-card:last-child{
+
+opacity:0;
+}
+
+.legacy-year{
+
+width:72px;
+height:72px;
+
+margin:auto;
+
+border-radius:50%;
+
+background:#111;
+
+border:2px solid #d7b15a;
+
+display:flex;
+
+align-items:center;
+justify-content:center;
+
+font-family:Georgia,serif;
+
+font-size:20px;
+
+font-weight:bold;
+
+color:#d7b15a;
+}
+
+.legacy-card{
+
+background:#111216;
+
+padding:28px;
+
+border-radius:20px;
+
+border:1px solid rgba(255,255,255,.08);
+
+box-shadow:0 18px 45px rgba(0,0,0,.35);
+}
+
+.legacy-card h3{
+
+font-family:Georgia,serif;
+
+font-size:30px;
+
+margin-bottom:14px;
+}
+
+.legacy-card p{
+
+font-size:16px;
+
+line-height:1.8;
+
+color:#d2d2d2;
+}
+
+/*====================================================
+EDITOR'S VERDICT
+====================================================*/
+
+.verdict{
+
+padding:150px 8%;
+
+background:#111;
+
+text-align:center;
+}
+
+.verdict-wrap{
+
+max-width:900px;
+
+margin:auto;
+}
+
+.verdict small{
+
+display:block;
+
+color:#d7b15a;
+
+letter-spacing:4px;
+
+margin-bottom:18px;
+}
+
+.verdict h2{
+
+font-family:Georgia,serif;
+
+font-size:62px;
+
+font-weight:500;
+
+margin-bottom:28px;
+}
+
+.verdict p{
+
+font-size:21px;
+
+line-height:2;
+
+color:#ececec;
+}
+
+.signature{
+
+margin-top:45px;
+
+font-family:Georgia,serif;
+
+font-size:28px;
+
+color:#d7b15a;
+}
+
+/*====================================================
+RELATED STORIES
+====================================================*/
+
+.related-stories{
+
+padding:140px 8%;
+
+background:#050505;
+}
+
+.related-header{
+
+text-align:center;
+
+margin-bottom:60px;
+}
+
+.related-header small{
+
+display:block;
+
+color:#d7b15a;
+
+letter-spacing:4px;
+
+margin-bottom:16px;
+}
+
+.related-header h2{
+
+font-family:Georgia,serif;
+
+font-size:56px;
+}
+
+.related-grid{
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:26px;
+}
+
+.related-card{
+
+border-radius:24px;
+
+overflow:hidden;
+
+background:#111216;
+
+box-shadow:0 18px 45px rgba(0,0,0,.3);
+
+transition:.35s;
+}
+
+.related-card:hover{
+
+transform:translateY(-10px);
+
+box-shadow:0 28px 65px rgba(0,0,0,.45);
+}
+
+.related-card img{
+
+width:100%;
+height:300px;
+
+object-fit:cover;
+
+transition:.8s;
+}
+
+.related-card:hover img{
+
+transform:scale(1.05);
+}
+
+.related-content{
+
+padding:28px;
+}
+
+.related-content small{
+
+display:block;
+
+color:#d7b15a;
+
+letter-spacing:3px;
+
+margin-bottom:10px;
+}
+
+.related-content h3{
+
+font-family:Georgia,serif;
+
+font-size:30px;
+
+margin-bottom:14px;
+}
+
+.related-content p{
+
+color:#d2d2d2;
+
+line-height:1.8;
+
+margin-bottom:18px;
+}
+
+/*====================================================
+CINEMATIC END
+====================================================*/
+
+.cinematic-end{
+
+position:relative;
+
+min-height:100vh;
+
+display:flex;
+
+align-items:center;
+justify-content:center;
+
+text-align:center;
+
+overflow:hidden;
+}
+
+.cinematic-end img{
+
+position:absolute;
+
+inset:0;
+
+width:100%;
+height:100%;
+
+object-fit:cover;
+}
+
+.cinematic-end::after{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:linear-gradient(180deg,
+rgba(0,0,0,.35),
+rgba(0,0,0,.92));
+}
+
+.end-content{
+
+position:relative;
+
+z-index:2;
+
+max-width:900px;
+
+padding:20px;
+}
+
+.end-content small{
+
+display:block;
+
+color:#d7b15a;
+
+letter-spacing:5px;
+
+margin-bottom:22px;
+}
+
+.end-content h2{
+
+font-family:Georgia,serif;
+
+font-size:72px;
+
+font-weight:500;
+
+line-height:1.05;
+
+margin-bottom:26px;
+}
+
+.end-content p{
+
+font-size:22px;
+
+line-height:1.9;
+
+color:#ededed;
+}
+
+/*====================================================
+RESPONSIVE
+====================================================*/
+
+@media(max-width:768px){
+
+.cartier-legacy,
+.verdict,
+.related-stories{
+
+padding:80px 18px;
+}
+
+.legacy-header h2,
+.verdict h2,
+.related-header h2,
+.end-content h2{
+
+font-size:38px;
+}
+
+.legacy-line::before{
+
+left:34px;
+}
+
+.legacy-item{
+
+grid-template-columns:68px 1fr;
+}
+
+.legacy-card:first-child{
+
+display:none;
+}
+
+.legacy-card:last-child{
+
+opacity:1!important;
+}
+
+.legacy-year{
+
+width:60px;
+height:60px;
+
+font-size:18px;
+}
+
+.related-grid{
+
+grid-template-columns:1fr;
+}
+
+.related-card img{
+
+height:240px;
+}
+
+.end-content p{
+
+font-size:17px;
+}
+
+}
+  
+</style>
+</head>
+
+<body>
+
+<!-- Premium Loader -->
+
+<div class="loader" id="loader">
+
+<img src="../logo.jpeg" alt="50 Mirars">
+
+<h1>50 MIRARS</h1>
+
+<p>EDITORIAL JOURNAL</p>
+
+<div class="loader-bar">
+
+<span></span>
+
+</div>
+
+</div>
+
+<header class="journal-header">
+
+<div class="header-container">
+
+<div class="logo">
+
+<img src="../logo.jpeg" alt="50 Mirars">
+
+<div class="logo-text">
+
+<h1>50 MIRARS</h1>
+
+<span>EDITORIAL JOURNAL</span>
+
+</div>
+
+</div>
+
+<a href="../journal.html" class="back-home">
+
+← Back to Journal
+
+</a>
+
+</div>
+
+</header>
+
+<section class="hero">
+
+<div class="hero-bg">
+
+<img src="../Cartier Eyewear Hero.jpg"
+alt="Cartier Eyewear Luxury Sunglasses">
+
+</div>
+
+<div class="cartier-ring"></div>
+
+<div class="hero-content">
+
+<small>PARIS • LUXURY EYEWEAR</small>
+
+<h2>Where Jewelry Became Vision.</h2>
+
+<p>
+
+Cartier didn't simply create sunglasses—it transformed jewelry craftsmanship into wearable works of art. Every frame carries the elegance of Place Vendôme, the precision of French artisans and the unmistakable confidence that has attracted royalty, Hollywood legends and modern icons alike.
+
+</p>
+
+<div class="hero-buttons">
+
+<a href="#intro" class="primary-btn">
+
+Begin the Story
+
+</a>
+
+<a href="../sunglasses.html" class="secondary-btn">
+
+Explore Sunglasses
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!--====================================================
+EDITOR'S NOTE
+====================================================-->
+
+<section id="intro" class="intro reveal">
+
+<small>EDITOR'S NOTE</small>
+
+<h3>Luxury Isn't Worn. It's Crafted.</h3>
+
+<p>
+
+Cartier Eyewear carries the same philosophy that shaped the Maison's legendary jewelry. Every curve, screw, hinge and polished edge reflects a tradition that began in Paris and continues through generations of exceptional craftsmanship. These are not simply sunglasses—they are heirlooms designed to frame both vision and identity.
+
+</p>
+
+</section>
+
+<!--====================================================
+THE PARIS BEGINNING
+====================================================-->
+
+<section class="paris-story reveal">
+
+<div class="story-grid">
+
+<div class="story-image">
+
+<img src="../Cartier Vintage Portrait.jpg"
+alt="Vintage Cartier Paris">
+
+</div>
+
+<div class="story-text">
+
+<small>PARIS • 1847</small>
+
+<h2>Where Elegance Found Its Home</h2>
+
+<p>
+
+The story of Cartier began in Paris in 1847, when Louis-François Cartier transformed a small jewelry workshop into what would become one of the world's most celebrated luxury houses.
+
+</p>
+
+<p>
+
+Long before Cartier created iconic eyewear, its artisans mastered precious metals, gemstones and refined proportions—skills that would later define every frame bearing the famous signature.
+
+</p>
+
+<p>
+
+The spirit of Place Vendôme still lives inside Cartier Eyewear, where French elegance remains the foundation of every design.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="story-grid reverse">
+
+<div class="story-image">
+
+<img src="../Cartier Gold Frame Close Up.jpg"
+alt="Cartier Gold Frame">
+
+</div>
+
+<div class="story-text">
+
+<small>THE GOLD STANDARD</small>
+
+<h2>When Jewelry Became Eyewear</h2>
+
+<p>
+
+As Cartier expanded internationally under Pierre Cartier, the Maison became synonymous with refined luxury, supplying royalty, aristocrats and influential collectors across Europe and America.
+
+</p>
+
+<p>
+
+That same commitment to perfection eventually shaped Cartier Eyewear, where precious materials, elegant geometry and exceptional finishing transformed sunglasses into wearable jewelry.
+
+</p>
+
+<p>
+
+Every polished gold frame feels less like an accessory and more like a carefully crafted object of timeless design.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="story-grid">
+
+<div class="story-image">
+
+<img src="../Cartier Panther Detail.jpg"
+alt="Cartier Panther Detail">
+
+</div>
+
+<div class="story-text">
+
+<small>THE PANTHER SYMBOL</small>
+
+<h2>An Icon of Confidence</h2>
+
+<p>
+
+Few luxury symbols are as instantly recognizable as Cartier's Panther. Introduced as a bold expression of strength and elegance, it became one of the Maison's most celebrated signatures.
+
+</p>
+
+<p>
+
+Within Cartier Eyewear, subtle Panther-inspired details appear through sculpted temples, refined metalwork and graceful silhouettes that embody confidence without unnecessary excess.
+
+</p>
+
+<p>
+
+Rather than dominating the design, these details reward those who appreciate craftsmanship hidden beneath simplicity.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!--====================================================
+QUOTE
+====================================================-->
+
+<section class="cartier-quote reveal">
+
+<blockquote>
+
+"True luxury is recognized by those who understand the smallest details."
+
+</blockquote>
+
+<cite>— 50 MIRARS JOURNAL</cite>
+
+</section>
+
+<!--====================================================
+THE CRAFTSMANSHIP
+====================================================-->
+
+<section class="craftsmanship reveal">
+
+<div class="craft-header">
+
+<small>THE CRAFTSMANSHIP</small>
+
+<h2>Every Frame Begins Like Jewelry</h2>
+
+<p>
+
+Unlike ordinary sunglasses, Cartier Eyewear is created with the same attention traditionally reserved for precious jewelry. Every polished edge, engraved screw and sculpted temple reflects decades of French craftsmanship.
+
+</p>
+
+</div>
+
+<div class="craft-grid">
+
+<div class="craft-image">
+
+<img src="../Cartier Santos Sunglasses.jpg"
+alt="Cartier Santos Sunglasses">
+
+</div>
+
+<div class="craft-text">
+
+<small>SANTOS COLLECTION</small>
+
+<h3>Inspired by Aviation. Finished Like Jewelry.</h3>
+
+<p>
+
+The Santos collection carries the spirit of Alberto Santos-Dumont's pioneering wristwatch into contemporary eyewear, preserving the iconic exposed screws and architectural geometry that made the original design legendary.
+
+</p>
+
+<p>
+
+Rather than chasing fashion, Santos frames celebrate timeless engineering, making them instantly recognizable to collectors around the world.
+
+</p>
+
+<p>
+
+The familiar screw motifs become elegant design elements that connect Cartier's watchmaking heritage with modern luxury eyewear.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="craft-grid reverse">
+
+<div class="craft-image">
+
+<img src="../Cartier Gold Frame Close Up.jpg"
+alt="Cartier Gold Frame">
+
+</div>
+
+<div class="craft-text">
+
+<small>PRECIOUS METALS</small>
+
+<h3>Luxury You Can Feel</h3>
+
+<p>
+
+Cartier has always understood that luxury begins with materials. Gold finishes, titanium construction and carefully polished surfaces create frames that feel remarkably refined before they're ever worn.
+
+</p>
+
+<p>
+
+Even the smallest hinge receives exceptional attention, ensuring every movement feels smooth, precise and unmistakably premium.
+
+</p>
+
+<p>
+
+The result is elegance that can be felt as much as it can be seen.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="craft-grid">
+
+<div class="craft-image">
+
+<img src="../Cartier Buffalo Horn.jpg"
+alt="Cartier Buffalo Horn">
+
+</div>
+
+<div class="craft-text">
+
+<small>NATURAL MATERIALS</small>
+
+<h3>The Quiet Luxury of Buffalo Horn</h3>
+
+<p>
+
+Some Cartier creations incorporate genuine buffalo horn—a material admired for its natural warmth, distinctive patterns and remarkable comfort on the face.
+
+</p>
+
+<p>
+
+Because every piece carries unique organic variations, no two frames are ever completely identical, giving each creation an individual character.
+
+</p>
+
+<p>
+
+It is craftsmanship that embraces nature rather than hiding it.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!--====================================================
+MACRO GALLERY
+====================================================-->
+
+<section class="cartier-gallery reveal">
+
+<div class="gallery-header">
+
+<small>CLOSE-UP DETAILS</small>
+
+<h2>The Beauty Hidden in Every Millimeter</h2>
+
+</div>
+
+<div class="macro-grid">
+
+<div class="macro-item">
+
+<img src="../Cartier Temple Macro.jpg"
+alt="Cartier Temple">
+
+<div class="macro-caption">
+
+<h3>Temple Detailing</h3>
+
+<p>Elegant finishing inspired by Cartier's jewelry heritage.</p>
+
+</div>
+
+</div>
+
+<div class="macro-item">
+
+<img src="../Cartier Screw Detail.jpg"
+alt="Cartier Screw Detail">
+
+<div class="macro-caption">
+
+<h3>Signature Screws</h3>
+
+<p>A hallmark of Cartier's timeless design language.</p>
+
+</div>
+
+</div>
+
+<div class="macro-item">
+
+<img src="../Cartier Lens Reflection.jpg"
+alt="Cartier Lens Reflection">
+
+<div class="macro-caption">
+
+<h3>Luxury Reflections</h3>
+
+<p>Light becomes part of the design itself.</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!--====================================================
+EDITORIAL QUOTE
+====================================================-->
+
+<section class="cartier-quote reveal">
+
+<blockquote>
+
+"A Cartier frame doesn't compete with the person wearing it—it completes them."
+
+</blockquote>
+
+<cite>— 50 MIRARS JOURNAL</cite>
+
+</section>
+
+<!--====================================================
+MODERN CARTIER
+====================================================-->
+
+<section class="modern-cartier reveal">
+
+<div class="modern-header">
+
+<small>THE MODERN COLLECTION</small>
+
+<h2>From Parisian Elegance to Global Icons</h2>
+
+<p>
+
+Today's Cartier Eyewear continues to balance timeless craftsmanship with contemporary confidence, making every frame feel equally at home on Parisian boulevards and modern city skylines.
+
+</p>
+
+</div>
+
+<div class="modern-grid">
+
+<div class="modern-image">
+
+<img src="../Cartier Modern Campaign.jpg"
+alt="Modern Cartier Eyewear Campaign">
+
+</div>
+
+<div class="modern-text">
+
+<small>CONTEMPORARY LUXURY</small>
+
+<h3>Timeless Without Feeling Traditional</h3>
+
+<p>
+
+Rather than following short-lived trends, Cartier creates frames that preserve elegant proportions while embracing modern materials and refined comfort.
+
+</p>
+
+<p>
+
+The familiar balance of gold, black and sculptural lines allows every generation to discover Cartier without losing the Maison's unmistakable identity.
+
+</p>
+
+<p>
+
+It is luxury that evolves without forgetting where it began.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="modern-grid reverse">
+
+<div class="modern-image">
+
+<img src="../Cartier Celebrity Style.jpg"
+alt="Cartier Celebrity Style">
+
+</div>
+
+<div class="modern-text">
+
+<small>CULTURAL INFLUENCE</small>
+
+<h3>The Frames Chosen by Icons</h3>
+
+<p>
+
+From musicians and actors to entrepreneurs and fashion leaders, Cartier Eyewear has become a symbol of understated confidence rather than loud extravagance.
+
+</p>
+
+<p>
+
+The appeal lies in recognition without obvious branding—a quiet language understood by those who appreciate exceptional craftsmanship.
+
+</p>
+
+<p>
+
+Every frame feels equally suited to a tailored suit, a luxury yacht or a private gallery opening.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!--====================================================
+TECHNICAL SPECIFICATIONS
+====================================================-->
+
+<section class="cartier-specs reveal">
+
+<div class="specs-header">
+
+<small>SIGNATURE DETAILS</small>
+
+<h2>Built Like Fine Jewelry</h2>
+
+</div>
+
+<div class="specs-grid">
+
+<div class="spec-card">
+
+<span>Gold</span>
+
+<h3>Finishing</h3>
+
+<p>Precious metal-inspired polishing creates remarkable elegance.</p>
+
+</div>
+
+<div class="spec-card">
+
+<span>Titanium</span>
+
+<h3>Construction</h3>
+
+<p>Lightweight strength delivers lasting everyday comfort.</p>
+
+</div>
+
+<div class="spec-card">
+
+<span>Buffalo Horn</span>
+
+<h3>Material</h3>
+
+<p>Natural individuality gives every frame a unique personality.</p>
+
+</div>
+
+<div class="spec-card">
+
+<span>French</span>
+
+<h3>Heritage</h3>
+
+<p>Parisian craftsmanship shapes every elegant proportion.</p>
+
+</div>
+
+<div class="spec-card">
+
+<span>Santos</span>
+
+<h3>Design DNA</h3>
+
+<p>Iconic screw detailing connects eyewear to Cartier's legendary history.</p>
+
+</div>
+
+<div class="spec-card">
+
+<span>Luxury</span>
+
+<h3>Identity</h3>
+
+<p>Elegance remains the defining feature rather than excessive branding.</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!--====================================================
+COLLECTOR'S GUIDE
+====================================================-->
+
+<section class="collector-guide reveal">
+
+<div class="collector-header">
+
+<small>COLLECTOR'S GUIDE</small>
+
+<h2>Which Cartier Frame Tells Your Story?</h2>
+
+<p>
+
+Every Cartier collection expresses a different personality while preserving the Maison's timeless elegance.
+
+</p>
+
+</div>
+
+<div class="collector-grid">
+
+<div class="collector-card">
+
+<h3>Santos</h3>
+
+<p>
+
+Ideal for collectors who appreciate architectural design and Cartier's aviation heritage.
+
+</p>
+
+</div>
+
+<div class="collector-card">
+
+<h3>Rimless</h3>
+
+<p>
+
+Perfect for understated elegance where luxury speaks quietly through craftsmanship.
+
+</p>
+
+</div>
+
+<div class="collector-card">
+
+<h3>Panther</h3>
+
+<p>
+
+A confident choice for those drawn to sculptural luxury and iconic Cartier symbolism.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!--====================================================
+LUXURY SPOTLIGHT
+====================================================-->
+
+<section class="cartier-spotlight reveal">
+
+<div class="spotlight-card">
+
+<img src="../Cartier Eyewear Luxury Spotlight.jpg"
+alt="Cartier Luxury Spotlight">
+
+<div class="spotlight-content">
+
+<small>LUXURY SPOTLIGHT</small>
+
+<h2>Some Frames Follow Fashion. Cartier Creates Legacy.</h2>
+
+<p>
+
+Whether illuminated by morning sunlight along the Seine or evening lights inside Place Vendôme, a Cartier frame carries the same quiet confidence that has defined the Maison for generations.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!--====================================================
+1847–TODAY LEGACY
+====================================================-->
+
+<section class="cartier-legacy reveal">
+
+<div class="legacy-header">
+
+<small>1847 — TODAY</small>
+
+<h2>The Legacy Beyond Fashion</h2>
+
+<p>
+
+Cartier Eyewear continues a tradition that began inside a Parisian jewelry workshop more than a century and a half ago, proving that exceptional craftsmanship never becomes outdated.
+
+</p>
+
+</div>
+
+<div class="legacy-line">
+
+<div class="legacy-item">
+
+<div class="legacy-card">
+
+<h3>1847</h3>
+
+<p>Louis-François Cartier opens his Paris workshop.</p>
+
+</div>
+
+<div class="legacy-year">47</div>
+
+<div class="legacy-card"></div>
+
+</div>
+
+<div class="legacy-item">
+
+<div class="legacy-card"></div>
+
+<div class="legacy-year">03</div>
+
+<div class="legacy-card">
+
+<h3>1903</h3>
+
+<p>The Santos legacy begins, inspiring generations of Cartier design.</p>
+
+</div>
+
+</div>
+
+<div class="legacy-item">
+
+<div class="legacy-card">
+
+<h3>Modern Era</h3>
+
+<p>Cartier transforms jewelry craftsmanship into luxury eyewear.</p>
+
+</div>
+
+<div class="legacy-year">∞</div>
+
+<div class="legacy-card"></div>
+
+</div>
+
+<div class="legacy-item">
+
+<div class="legacy-card"></div>
+
+<div class="legacy-year">Now</div>
+
+<div class="legacy-card">
+
+<h3>Today</h3>
+
+<p>Cartier Eyewear remains one of the world's most recognizable symbols of refined luxury.</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!--====================================================
+EDITOR'S VERDICT
+====================================================-->
+
+<section class="verdict reveal">
+
+<div class="verdict-wrap">
+
+<small>EDITOR'S VERDICT</small>
+
+<h2>Luxury Framed in Gold</h2>
+
+<p>
+
+Cartier Eyewear succeeds because it never relies on trends alone. Instead, it draws strength from generations of jewelry craftsmanship, architectural precision and timeless elegance. Every frame reminds us that true luxury is often recognized through the smallest details rather than the loudest statements.
+
+</p>
+
+<div class="signature">
+
+— 50 Mirars Journal
+
+</div>
+
+</div>
+
+</section>
+
+<!--====================================================
+RELATED STORIES
+====================================================-->
+
+<section class="related-stories reveal">
+
+<div class="related-header">
+
+<small>CONTINUE EXPLORING</small>
+
+<h2>More Extraordinary Stories</h2>
+
+</div>
+
+<div class="related-grid">
+
+<article class="related-card">
+
+<img src="../Cartier Santos Journal.webp"
+alt="Cartier Santos">
+
+<div class="related-content">
+
+<small>CARTIER</small>
+
+<h3>The Santos</h3>
+
+<p>The pioneering wristwatch that changed aviation forever.</p>
+
+<a href="cartier-santos.html">Read Story →</a>
+
+</div>
+
+</article>
+
+<article class="related-card">
+
+<img src="../Rolex GMT Master II Hero.jpg"
+alt="Rolex GMT-Master II">
+
+<div class="related-content">
+
+<small>ROLEX</small>
+
+<h3>GMT-Master II</h3>
+
+<p>The watch built for travelers who crossed time zones with confidence.</p>
+
+<a href="rolex-gmt-master-ii.html">Read Story →</a>
+
+</div>
+
+</article>
+
+<article class="related-card">
+
+<img src="../Omega Speedmaster Moonwatch Hero.jpg"
+alt="Omega Speedmaster">
+
+<div class="related-content">
+
+<small>OMEGA</small>
+
+<h3>The Moonwatch</h3>
+
+<p>The chronograph that accompanied humanity beyond Earth.</p>
+
+<a href="omega-speedmaster.html">Read Story →</a>
+
+</div>
+
+</article>
+
+</div>
+
+</section>
+
+<!--====================================================
+CINEMATIC END
+====================================================-->
+
+<section class="cinematic-end">
+
+<img src="../Cartier Eyewear Finale.jpg"
+alt="Cartier Eyewear Finale">
+
+<div class="end-content">
+
+<small>THE FINAL PAGE</small>
+
+<h2>Some Frames Change Fashion. Cartier Changed Luxury.</h2>
+
+<p>
+
+From the elegance of Place Vendôme to the confidence of modern collectors, Cartier Eyewear continues to prove that the finest designs never become louder—they simply become timeless.
+
+</p>
+
+</div>
+
+</section>
+
+<script>
+
+/* Premium Loader */
+
+window.addEventListener("load",()=>{
+
+setTimeout(()=>{
+
+document.getElementById("loader").classList.add("hide");
+
+},1200);
+
+});
+
+/* Reveal Animation */
+
+const revealElements=document.querySelectorAll(".reveal");
+
+const revealObserver=new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("visible");
+
+}
+
+});
+
+},{threshold:.15});
+
+revealElements.forEach(el=>revealObserver.observe(el));
+
+</script>
+
+</body>
+  
+</html>
