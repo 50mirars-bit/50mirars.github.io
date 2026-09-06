@@ -2208,138 +2208,108 @@ font-size:17px;
 }
 
 /*====================================================
-PREMIUM PAGE LOADER
+PREMIUM LOADER
 ====================================================*/
 
-#page-loader{
+.loader-screen{
 position:fixed;
 inset:0;
-background:#faf8f3;
+background:#050505;
 display:flex;
 justify-content:center;
 align-items:center;
-flex-direction:column;
 z-index:99999;
-transition:opacity .9s ease,visibility .9s ease;
+transition:opacity .8s ease,visibility .8s ease;
 }
 
-#page-loader.hide{
+.loader-screen.hide{
 opacity:0;
 visibility:hidden;
 pointer-events:none;
 }
 
-.loader-logo{
-width:90px;
-height:90px;
-border-radius:50%;
-overflow:hidden;
-box-shadow:0 12px 35px rgba(201,162,77,.28);
-animation:logoFloat 3s ease-in-out infinite;
+.loader-box{
+text-align:center;
 }
 
-.loader-logo img{
-width:100%;
-height:100%;
-object-fit:cover;
+.loader-box img{
+width:140px;
+margin:auto;
+animation:logoFade 2s ease infinite alternate;
 }
 
-.loader-title{
-margin-top:28px;
+.loader-box h1{
 font-family:Georgia,serif;
-font-size:38px;
+font-size:56px;
 letter-spacing:8px;
-color:#111;
+color:#fff;
+margin-top:24px;
 }
 
-.loader-subtitle{
+.loader-box p{
 margin-top:10px;
-letter-spacing:5px;
-font-size:12px;
+letter-spacing:6px;
+font-size:15px;
 color:#c9a24d;
-text-transform:uppercase;
 }
 
 .loader-line{
-margin-top:28px;
-width:170px;
+width:220px;
 height:2px;
-background:rgba(201,162,77,.22);
+background:rgba(255,255,255,.12);
+margin:38px auto 0;
 overflow:hidden;
 position:relative;
-border-radius:2px;
 }
 
-.loader-line span{
-position:absolute;
-left:-45%;
-top:0;
-width:45%;
-height:100%;
-background:#c9a24d;
-animation:loadingBar 1.5s ease-in-out infinite;
-}
-
-.loader-circle{
-position:absolute;
-width:340px;
-height:340px;
-border:1px solid rgba(201,162,77,.15);
-border-radius:50%;
-animation:rotateCircle 18s linear infinite;
-}
-
-.loader-circle::after{
+.loader-line::before{
 content:"";
 position:absolute;
-top:-4px;
-left:50%;
-transform:translateX(-50%);
-width:8px;
-height:8px;
-background:#c9a24d;
-border-radius:50%;
+left:-40%;
+top:0;
+width:40%;
+height:100%;
+background:linear-gradient(90deg,transparent,#c9a24d,transparent);
+animation:loadingMove 1.8s linear infinite;
 }
 
-@keyframes logoFloat{
-0%,100%{transform:translateY(0);}
-50%{transform:translateY(-10px);}
+@keyframes loadingMove{
+100%{
+left:100%;
+}
 }
 
-@keyframes loadingBar{
-0%{left:-45%;}
-100%{left:100%;}
+@keyframes logoFade{
+from{
+transform:translateY(-4px) scale(.98);
+opacity:.88;
+}
+to{
+transform:translateY(4px) scale(1.02);
+opacity:1;
+}
 }
 
-@keyframes rotateCircle{
-from{transform:rotate(0deg);}
-to{transform:rotate(360deg);}
-}
+/* Mobile */
 
 @media(max-width:768px){
 
-.loader-circle{
-width:250px;
-height:250px;
+.loader-box img{
+width:110px;
 }
 
-.loader-logo{
-width:72px;
-height:72px;
+.loader-box h1{
+font-size:36px;
+letter-spacing:5px;
 }
 
-.loader-title{
-font-size:28px;
-letter-spacing:6px;
-}
-
-.loader-subtitle{
-font-size:10px;
+.loader-box p{
+font-size:12px;
 letter-spacing:4px;
 }
 
 .loader-line{
-width:140px;
+width:170px;
 }
 
 }
@@ -2349,6 +2319,26 @@ width:140px;
 </head>
 
 <body>
+
+<!--====================================================
+PREMIUM LOADING SCREEN
+====================================================-->
+
+<div class="loader-screen" id="loader">
+
+<div class="loader-box">
+
+<img src="../logo.jpeg" alt="50 Mirars Logo">
+
+<h1>50 MIRARS</h1>
+
+<p>PRESAGE EDITION</p>
+
+<div class="loader-line"></div>
+
+</div>
+
+</div>
 
 <header class="journal-header">
 
@@ -2361,8 +2351,6 @@ width:140px;
 <div class="logo-text">
 
 <h1>50 MIRARS</h1>
-
-<span>EDITORIAL JOURNAL</span>
 
 </div>
 
