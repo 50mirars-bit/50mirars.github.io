@@ -3453,20 +3453,42 @@ More than seventy years after its creation, the GMT-Master II continues to accom
 
 <script>
 
-const revealElements = document.querySelectorAll(".reveal");
+// Reveal animation
 
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add("visible");
-    }
-  });
+const revealElements=document.querySelectorAll(".reveal");
+
+const observer=new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("visible");
+
+}
+
+});
+
 },{threshold:.15});
 
-revealElements.forEach(el => observer.observe(el));
+revealElements.forEach(el=>observer.observe(el));
+
+// Premium Loader
+
+window.addEventListener("load",()=>{
+
+const loader=document.getElementById("loader");
+
+setTimeout(()=>{
+
+loader.classList.add("hide");
+
+},1200);
+
+});
 
 </script>
 
 </body>
-  
+
 </html>
