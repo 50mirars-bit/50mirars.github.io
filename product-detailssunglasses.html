@@ -337,6 +337,68 @@ body{
         0 5px 15px rgba(0,0,0,0.18);
 }
 
+/* =========================================================
+   PRODUCT GALLERY THUMBNAILS
+========================================================= */
+
+.product-gallery{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.gallery-main{
+    width:100%;
+    height:570px;
+    background:#fff;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 8px 30px rgba(0,0,0,.08);
+}
+
+.gallery-main img,
+.gallery-main video{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    display:block;
+}
+
+.gallery-main video{
+    background:#111;
+}
+
+.gallery-thumbs{
+    display:flex;
+    gap:10px;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.gallery-thumb{
+    width:70px;
+    height:70px;
+    border:2px solid transparent;
+    border-radius:10px;
+    overflow:hidden;
+    cursor:pointer;
+    background:#fff;
+    transition:.25s;
+}
+
+.gallery-thumb.active{
+    border-color:#c9a24d;
+}
+
+.gallery-thumb img,
+.gallery-thumb video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
 
 /* =========================================================
    PRODUCT INFORMATION
@@ -2441,13 +2503,14 @@ const sunglasses = [
     id:61,
     name:"Cartier Sunglasses",
     price:2500,
-    media:"video",
+    media:"gallery",
     file:"Cartier Sunglasses.mp4",
-    backFile:"Cartier Sunglasses 2.jpeg",
-    extraFiles:[
-        "Cartier Sunglasses 3.jpeg",
-        "Cartier Sunglasses 4.jpeg",
-        "Cartier Sunglasses 5.jpeg"
+    gallery:[
+        {type:"video",file:"Cartier Sunglasses.mp4"},
+        {type:"image",file:"Cartier Sunglasses 2.jpeg"},
+        {type:"image",file:"Cartier Sunglasses 3.jpeg"},
+        {type:"image",file:"Cartier Sunglasses 4.jpeg"},
+        {type:"image",file:"Cartier Sunglasses 5.jpeg"}
     ],
     brand:"Cartier",
     outOfStock:false
@@ -2797,43 +2860,89 @@ function loadProduct(){
        MEDIA
     ===================================================== */
 
-    if(product.media === "video"){
+    if(product.media === "gallery"){
 
-        productMedia.innerHTML = `
+    const renderMain=(item)=>{
 
-            <video
-                controls
-                playsinline
-                preload="metadata"
-            >
+        if(item.type==="video"){
+            return `
+                <video controls playsinline preload="metadata" autoplay muted>
+                    <source src="${encodeURI(item.file)}" type="video/mp4">
+                </video>
+            `;
+        }
 
-                <source
-                    src="${encodeURI(product.file)}"
-                    type="video/mp4"
-                >
-
-                Your browser does not support
-                video playback.
-
-            </video>
-
+        return `
+            <img src="${encodeURI(item.file)}" alt="${escapeHTML(product.name)}">
         `;
+    };
 
-    }
+    productMedia.innerHTML=`
+        <div class="product-gallery">
 
-    else{
+            <div class="gallery-main" id="galleryMain">
+                ${renderMain(product.gallery[0])}
+            </div>
 
-        productMedia.innerHTML = `
+            <div class="gallery-thumbs">
+                ${product.gallery.map((item,index)=>`
 
-            <img
-                src="${encodeURI(product.file)}"
-                alt="${escapeHTML(product.name)}"
-            >
+                    <div class="gallery-thumb ${index===0?'active':''}"
+                         data-index="${index}">
 
-        `;
+                        ${
+                            item.type==="video"
+                            ? `<video muted playsinline><source src="${encodeURI(item.file)}" type="video/mp4"></video>`
+                            : `<img src="${encodeURI(item.file)}" alt="">`
+                        }
 
-    }
+                    </div>
 
+                `).join("")}
+            </div>
+
+        </div>
+    `;
+
+    const main=document.getElementById("galleryMain");
+
+    document.querySelectorAll(".gallery-thumb").forEach(thumb=>{
+
+        thumb.addEventListener("click",()=>{
+
+            const index=Number(thumb.dataset.index);
+
+            main.innerHTML=renderMain(product.gallery[index]);
+
+            document.querySelectorAll(".gallery-thumb")
+                .forEach(t=>t.classList.remove("active"));
+
+            thumb.classList.add("active");
+
+        });
+
+    });
+
+}
+
+else if(product.media==="video"){
+
+    productMedia.innerHTML=`
+        <video controls playsinline preload="metadata">
+            <source src="${encodeURI(product.file)}" type="video/mp4">
+        </video>
+    `;
+
+}
+
+else{
+
+    productMedia.innerHTML=`
+        <img src="${encodeURI(product.file)}"
+             alt="${escapeHTML(product.name)}">
+    `;
+
+}
 
     /* =====================================================
        DESCRIPTION
