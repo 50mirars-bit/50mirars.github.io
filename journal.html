@@ -4,17 +4,21 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=1150">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>50 Mirars Journal | Stories Behind Extraordinary Timepieces</title>
 
-<meta name="description"
-content="The official editorial journal of 50 Mirars featuring Rolex, Cartier, Omega, Seiko and luxury watch stories.">
+<meta name="description" content="The official editorial journal of 50 Mirars featuring Rolex, Cartier, Omega, Seiko and luxury watch stories.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
 /*====================================================
-GLOBAL
+RESET
 ====================================================*/
 
 *{
@@ -29,13 +33,68 @@ scroll-behavior:smooth;
 
 body{
 
-font-family:Arial,Helvetica,sans-serif;
-
-background:#faf9f6;
-
-color:#111;
-
+font-family:'Inter',sans-serif;
+background:#050505;
+color:white;
 overflow-x:hidden;
+
+}
+
+/*====================================================
+LUXURY COLOR SYSTEM
+====================================================*/
+
+:root{
+
+--gold:#c9a24d;
+--gold-light:#e6c980;
+--ivory:#f8f5ed;
+--black:#050505;
+--charcoal:#101010;
+--gray:#b8b8b8;
+
+}
+
+/*====================================================
+MARBLE BACKGROUND
+====================================================*/
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+inset:0;
+
+background:
+radial-gradient(circle at 20% 15%,rgba(201,162,77,.07),transparent 35%),
+radial-gradient(circle at 80% 35%,rgba(255,255,255,.04),transparent 45%),
+radial-gradient(circle at 50% 85%,rgba(201,162,77,.05),transparent 40%),
+linear-gradient(135deg,#030303,#0c0c0c,#050505);
+
+z-index:-2;
+
+}
+
+body::after{
+
+content:"";
+
+position:fixed;
+
+inset:0;
+
+opacity:.035;
+
+background-image:radial-gradient(#fff 1px,transparent 1px);
+
+background-size:6px 6px;
+
+z-index:-1;
+
+pointer-events:none;
+
 }
 
 img{
@@ -49,1802 +108,34 @@ color:inherit;
 }
 
 /*====================================================
-HEADER
+READING PROGRESS BAR
 ====================================================*/
 
-.journal-header{
+.progress-bar{
 
 position:fixed;
 
 top:0;
 left:0;
 
-width:100%;
+height:3px;
 
-z-index:1000;
-
-background:rgba(255,255,255,.94);
-
-backdrop-filter:blur(16px);
-
-border-bottom:1px solid rgba(0,0,0,.06);
-}
-
-.header-container{
-
-max-width:1400px;
-
-margin:auto;
-
-padding:18px 40px;
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-}
-
-.logo{
-
-display:flex;
-
-align-items:center;
-
-gap:14px;
-}
-
-.logo img{
-
-height:48px;
-}
-
-.logo-text h1{
-
-font-family:Georgia,serif;
-
-font-size:28px;
-
-letter-spacing:4px;
-}
-
-.logo-text span{
-
-display:block;
-
-font-size:10px;
-
-letter-spacing:3px;
-
-color:#b58a38;
-}
-
-.back-home{
-
-padding:12px 22px;
-
-border:1px solid #c9a24d;
-
-font-weight:700;
-
-transition:.35s;
-}
-
-.back-home:hover{
-
-background:#111;
-
-color:#fff;
-
-border-color:#111;
-}
-
-/*====================================================
-HERO
-====================================================*/
-
-.hero{
-
-min-height:100vh;
-
-display:flex;
-
-align-items:center;
-
-position:relative;
-
-overflow:hidden;
-
-padding:140px 8% 100px;
-}
-
-.hero::before{
-
-content:"";
-
-position:absolute;
-
-inset:0;
+width:0;
 
 background:
 linear-gradient(90deg,
-rgba(250,249,246,.95),
-rgba(250,249,246,.35));
+var(--gold),
+#fff4c9,
+var(--gold));
 
-z-index:1;
-}
+box-shadow:0 0 20px rgba(201,162,77,.8);
 
-.hero-image{
-
-position:absolute;
-
-top:0;
-right:0;
-
-width:55%;
-
-height:100%;
-}
-
-.hero-image img{
-
-width:100%;
-height:100%;
-
-object-fit:cover;
-}
-
-.hero-content{
-
-position:relative;
-
-z-index:2;
-
-max-width:650px;
-}
-
-.hero-content small{
-
-display:block;
-
-color:#b58a38;
-
-letter-spacing:5px;
-
-font-weight:bold;
-
-margin-bottom:18px;
-}
-
-.hero-content h2{
-
-font-family:Georgia,serif;
-
-font-size:74px;
-
-line-height:1.05;
-
-margin-bottom:26px;
-
-font-weight:500;
-}
-
-.hero-content p{
-
-font-size:20px;
-
-line-height:1.8;
-
-color:#555;
-
-margin-bottom:36px;
-}
-
-.hero-buttons{
-
-display:flex;
-
-gap:18px;
-
-flex-wrap:wrap;
-}
-
-.primary-btn{
-
-padding:16px 34px;
-
-background:#111;
-
-color:white;
-
-font-weight:bold;
-
-transition:.35s;
-}
-
-.primary-btn:hover{
-
-background:#b58a38;
-
-color:#111;
-}
-
-.secondary-btn{
-
-padding:16px 34px;
-
-border:1px solid #c9a24d;
-
-font-weight:bold;
-
-transition:.35s;
-}
-
-.secondary-btn:hover{
-
-background:#111;
-
-color:#fff;
-}
-
-/*====================================================
-INTRO
-====================================================*/
-
-.intro{
-
-padding:110px 8%;
-
-text-align:center;
-}
-
-.intro small{
-
-color:#b58a38;
-
-letter-spacing:3px;
-
-font-weight:bold;
-}
-
-.intro h3{
-
-font-family:Georgia,serif;
-
-font-size:54px;
-
-margin:20px auto;
-
-max-width:800px;
-}
-
-.intro p{
-
-max-width:760px;
-
-margin:auto;
-
-color:#666;
-
-line-height:1.9;
-
-font-size:18px;
-}
-
-/*====================================================
-MOBILE
-====================================================*/
-
-@media(max-width:768px){
-
-.header-container{
-
-padding:14px 18px;
-}
-
-.logo img{
-
-height:40px;
-}
-
-.logo-text h1{
-
-font-size:22px;
-}
-
-.back-home{
-
-padding:10px 18px;
-
-font-size:14px;
-}
-
-.hero{
-
-min-height:auto;
-
-padding:120px 18px 70px;
-}
-
-.hero::before{
-
-background:
-linear-gradient(180deg,
-rgba(250,249,246,.92),
-rgba(250,249,246,.75));
-}
-
-.hero-image{
-
-position:relative;
-
-width:100%;
-
-height:360px;
-
-order:-1;
-
-margin-bottom:30px;
-}
-
-.hero{
-
-flex-direction:column;
-}
-
-.hero-content h2{
-
-font-size:42px;
-}
-
-.hero-content p{
-
-font-size:16px;
-}
-
-.intro{
-
-padding:80px 18px;
-}
-
-.intro h3{
-
-font-size:36px;
-}
+z-index:99999;
 
 }
 
 /*====================================================
-FEATURED STORIES
-====================================================*/
-
-.featured-stories{
-
-padding:40px 8% 120px;
-
-background:#fff;
-}
-
-.section-title{
-
-text-align:center;
-
-margin-bottom:70px;
-}
-
-.section-title small{
-
-display:block;
-
-color:#b58a38;
-
-letter-spacing:4px;
-
-font-weight:700;
-
-margin-bottom:14px;
-}
-
-.section-title h2{
-
-font-family:Georgia,serif;
-
-font-size:58px;
-
-font-weight:500;
-
-line-height:1.15;
-
-margin-bottom:18px;
-}
-
-.section-title p{
-
-max-width:700px;
-
-margin:auto;
-
-font-size:18px;
-
-line-height:1.8;
-
-color:#666;
-}
-
-/* Large Featured Story */
-
-.main-feature{
-
-display:grid;
-
-grid-template-columns:1.4fr 1fr;
-
-gap:45px;
-
-align-items:center;
-
-margin-bottom:90px;
-}
-
-.main-feature-image{
-
-position:relative;
-
-overflow:hidden;
-
-border-radius:24px;
-
-box-shadow:
-0 30px 70px rgba(0,0,0,.12);
-}
-
-.main-feature-image img{
-
-width:100%;
-
-height:620px;
-
-object-fit:cover;
-
-transition:transform .9s ease;
-}
-
-.main-feature:hover .main-feature-image img{
-
-transform:scale(1.05);
-}
-
-/* Gold shine */
-
-.main-feature-image::after{
-
-content:"";
-
-position:absolute;
-
-top:0;
-left:-120%;
-
-width:45%;
-
-height:100%;
-
-background:
-linear-gradient(115deg,
-transparent,
-rgba(255,255,255,.35),
-transparent);
-
-transition:1s ease;
-}
-
-.main-feature:hover .main-feature-image::after{
-
-left:130%;
-}
-
-.main-feature-content small{
-
-display:inline-block;
-
-padding:8px 16px;
-
-background:#111;
-
-color:#fff;
-
-font-size:11px;
-
-letter-spacing:2px;
-
-border-radius:50px;
-
-margin-bottom:20px;
-}
-
-.main-feature-content h3{
-
-font-family:Georgia,serif;
-
-font-size:52px;
-
-font-weight:500;
-
-line-height:1.12;
-
-margin-bottom:22px;
-}
-
-.main-feature-content p{
-
-font-size:18px;
-
-line-height:1.9;
-
-color:#555;
-
-margin-bottom:32px;
-}
-
-.story-meta{
-
-display:flex;
-
-gap:18px;
-
-flex-wrap:wrap;
-
-margin-bottom:28px;
-}
-
-.story-meta span{
-
-font-size:14px;
-
-color:#777;
-}
-
-.read-btn{
-
-display:inline-flex;
-
-align-items:center;
-
-gap:10px;
-
-padding:16px 34px;
-
-background:#111;
-
-color:#fff;
-
-font-weight:700;
-
-transition:.35s;
-}
-
-.read-btn:hover{
-
-background:#b58a38;
-
-color:#111;
-}
-
-/* Editorial Grid */
-
-.editorial-grid{
-
-display:grid;
-
-grid-template-columns:repeat(3,1fr);
-
-gap:28px;
-}
-
-.editorial-card{
-
-background:#fff;
-
-border-radius:18px;
-
-overflow:hidden;
-
-box-shadow:
-0 12px 35px rgba(0,0,0,.08);
-
-transition:
-transform .35s ease,
-box-shadow .35s ease;
-}
-
-.editorial-card:hover{
-
-transform:translateY(-10px);
-
-box-shadow:
-0 22px 55px rgba(0,0,0,.13);
-}
-
-.editorial-card-image{
-
-overflow:hidden;
-}
-
-.editorial-card-image img{
-
-width:100%;
-
-height:280px;
-
-object-fit:cover;
-
-transition:transform .8s ease;
-}
-
-.editorial-card:hover .editorial-card-image img{
-
-transform:scale(1.06);
-}
-
-.editorial-card-content{
-
-padding:28px;
-}
-
-.editorial-card-content small{
-
-display:block;
-
-color:#b58a38;
-
-font-size:12px;
-
-letter-spacing:3px;
-
-font-weight:700;
-
-margin-bottom:12px;
-}
-
-.editorial-card-content h4{
-
-font-family:Georgia,serif;
-
-font-size:31px;
-
-line-height:1.25;
-
-margin-bottom:14px;
-}
-
-.editorial-card-content p{
-
-color:#666;
-
-font-size:15px;
-
-line-height:1.8;
-
-margin-bottom:20px;
-}
-
-.editorial-link{
-
-font-weight:700;
-
-display:inline-flex;
-
-align-items:center;
-
-gap:8px;
-
-transition:.3s;
-}
-
-.editorial-link:hover{
-
-color:#b58a38;
-}
-
-/* Mobile */
-
-@media(max-width:768px){
-
-.featured-stories{
-
-padding:20px 18px 80px;
-}
-
-.section-title h2{
-
-font-size:38px;
-}
-
-.main-feature{
-
-grid-template-columns:1fr;
-}
-
-.main-feature-image img{
-
-height:360px;
-}
-
-.main-feature-content h3{
-
-font-size:34px;
-}
-
-.editorial-grid{
-
-grid-template-columns:1fr;
-}
-
-.editorial-card-image img{
-
-height:230px;
-}
-
-}
-
-/*====================================================
-EDITOR'S PICKS
-====================================================*/
-
-.editors-picks{
-
-padding:120px 8%;
-
-background:#f8f6f2;
-
-position:relative;
-}
-
-.editors-picks::before{
-
-content:"";
-
-position:absolute;
-
-top:0;
-left:50%;
-
-transform:translateX(-50%);
-
-width:160px;
-height:2px;
-
-background:linear-gradient(90deg,transparent,#c9a24d,transparent);
-}
-
-.picks-header{
-
-text-align:center;
-
-max-width:760px;
-
-margin:0 auto 70px;
-}
-
-.picks-header small{
-
-display:block;
-
-color:#c9a24d;
-
-letter-spacing:4px;
-
-font-weight:700;
-
-margin-bottom:16px;
-}
-
-.picks-header h2{
-
-font-family:Georgia,serif;
-
-font-size:54px;
-
-font-weight:500;
-
-margin-bottom:18px;
-}
-
-.picks-header p{
-
-color:#666;
-
-font-size:18px;
-
-line-height:1.8;
-}
-
-/* Horizontal Gallery */
-
-.picks-gallery{
-
-display:grid;
-
-grid-template-columns:repeat(4,1fr);
-
-gap:22px;
-}
-
-.pick-card{
-
-position:relative;
-
-overflow:hidden;
-
-border-radius:20px;
-
-background:#111;
-
-box-shadow:
-0 20px 45px rgba(0,0,0,.12);
-
-transition:.4s ease;
-}
-
-.pick-card:hover{
-
-transform:translateY(-10px);
-}
-
-.pick-card img{
-
-width:100%;
-
-height:420px;
-
-object-fit:cover;
-
-transition:transform .8s ease;
-}
-
-.pick-card:hover img{
-
-transform:scale(1.08);
-}
-
-.pick-overlay{
-
-position:absolute;
-
-left:0;
-right:0;
-bottom:0;
-
-padding:28px;
-
-background:
-linear-gradient(transparent,rgba(0,0,0,.9));
-
-color:white;
-}
-
-.pick-overlay small{
-
-display:block;
-
-color:#d7b15a;
-
-letter-spacing:2px;
-
-font-size:12px;
-
-margin-bottom:8px;
-}
-
-.pick-overlay h3{
-
-font-family:Georgia,serif;
-
-font-size:28px;
-
-line-height:1.2;
-}
-
-/*====================================================
-LUXURY SPOTLIGHT
-====================================================*/
-
-.luxury-spotlight{
-
-padding:140px 8%;
-
-background:#fff;
-}
-
-.spotlight-card{
-
-position:relative;
-
-border-radius:28px;
-
-overflow:hidden;
-
-min-height:700px;
-
-display:flex;
-
-align-items:flex-end;
-
-box-shadow:
-0 35px 80px rgba(0,0,0,.18);
-}
-
-.spotlight-card img{
-
-position:absolute;
-
-inset:0;
-
-width:100%;
-height:100%;
-
-object-fit:cover;
-}
-
-.spotlight-card::after{
-
-content:"";
-
-position:absolute;
-
-inset:0;
-
-background:
-linear-gradient(180deg,
-rgba(0,0,0,.08),
-rgba(0,0,0,.82));
-}
-
-.spotlight-content{
-
-position:relative;
-
-z-index:2;
-
-padding:70px;
-
-max-width:700px;
-
-color:white;
-}
-
-.spotlight-content small{
-
-display:block;
-
-color:#d7b15a;
-
-letter-spacing:4px;
-
-margin-bottom:18px;
-}
-
-.spotlight-content h2{
-
-font-family:Georgia,serif;
-
-font-size:62px;
-
-font-weight:500;
-
-line-height:1.05;
-
-margin-bottom:24px;
-}
-
-.spotlight-content p{
-
-font-size:20px;
-
-line-height:1.8;
-
-margin-bottom:34px;
-
-color:#ededed;
-}
-
-.spotlight-button{
-
-display:inline-flex;
-
-align-items:center;
-
-gap:10px;
-
-padding:16px 34px;
-
-border:1px solid rgba(255,255,255,.6);
-
-transition:.35s ease;
-}
-
-.spotlight-button:hover{
-
-background:white;
-
-color:#111;
-}
-
-/*====================================================
-THE LANGUAGE OF TIME
-====================================================*/
-
-.language-time{
-
-padding:130px 8%;
-
-background:
-linear-gradient(180deg,#faf9f6,#f4efe3);
-
-text-align:center;
-
-position:relative;
-}
-
-.language-time::before{
-
-content:"“";
-
-position:absolute;
-
-top:25px;
-left:50%;
-
-transform:translateX(-50%);
-
-font-size:170px;
-
-font-family:Georgia,serif;
-
-color:rgba(201,162,77,.18);
-}
-
-.language-time blockquote{
-
-max-width:900px;
-
-margin:auto;
-
-font-family:Georgia,serif;
-
-font-size:44px;
-
-line-height:1.45;
-
-font-style:italic;
-
-color:#111;
-}
-
-.language-time cite{
-
-display:block;
-
-margin-top:30px;
-
-font-size:15px;
-
-letter-spacing:3px;
-
-color:#b58a38;
-
-font-style:normal;
-}
-
-/*====================================================
-FADE-UP ANIMATION
-====================================================*/
-
-.reveal{
-
-opacity:0;
-
-transform:translateY(40px);
-
-transition:1s ease;
-}
-
-.reveal.visible{
-
-opacity:1;
-
-transform:translateY(0);
-}
-
-/*====================================================
-RESPONSIVE
-====================================================*/
-
-@media(max-width:992px){
-
-.picks-gallery{
-
-grid-template-columns:repeat(2,1fr);
-}
-
-}
-
-@media(max-width:768px){
-
-.editors-picks,
-.luxury-spotlight,
-.language-time{
-
-padding:80px 18px;
-}
-
-.picks-header h2{
-
-font-size:36px;
-}
-
-.picks-gallery{
-
-grid-template-columns:1fr;
-}
-
-.pick-card img{
-
-height:320px;
-}
-
-.spotlight-card{
-
-min-height:480px;
-}
-
-.spotlight-content{
-
-padding:32px;
-}
-
-.spotlight-content h2{
-
-font-size:38px;
-}
-
-.spotlight-content p{
-
-font-size:16px;
-}
-
-.language-time blockquote{
-
-font-size:28px;
-}
-
-.language-time::before{
-
-font-size:110px;
-
-top:10px;
-}
-
-}
-
-/*====================================================
-JOURNAL CATEGORIES
-====================================================*/
-
-.journal-categories{
-
-padding:120px 8%;
-
-background:#fff;
-}
-
-.categories-header{
-
-text-align:center;
-
-margin-bottom:70px;
-}
-
-.categories-header small{
-
-display:block;
-
-color:#c9a24d;
-
-letter-spacing:4px;
-
-font-weight:700;
-
-margin-bottom:16px;
-}
-
-.categories-header h2{
-
-font-family:Georgia,serif;
-
-font-size:54px;
-
-font-weight:500;
-
-margin-bottom:18px;
-}
-
-.categories-header p{
-
-max-width:720px;
-
-margin:auto;
-
-font-size:18px;
-
-line-height:1.8;
-
-color:#666;
-}
-
-.category-grid{
-
-display:grid;
-
-grid-template-columns:repeat(5,1fr);
-
-gap:22px;
-}
-
-.category-box{
-
-background:#faf8f3;
-
-padding:40px 24px;
-
-border-radius:18px;
-
-text-align:center;
-
-transition:.35s ease;
-
-border:1px solid transparent;
-}
-
-.category-box:hover{
-
-transform:translateY(-8px);
-
-border-color:#c9a24d;
-
-box-shadow:0 18px 45px rgba(0,0,0,.08);
-}
-
-.category-box .icon{
-
-font-size:40px;
-
-margin-bottom:20px;
-}
-
-.category-box h3{
-
-font-family:Georgia,serif;
-
-font-size:24px;
-
-margin-bottom:12px;
-}
-
-.category-box p{
-
-font-size:15px;
-
-line-height:1.7;
-
-color:#666;
-}
-
-/*====================================================
-JOURNAL STATS
-====================================================*/
-
-.journal-stats{
-
-padding:120px 8%;
-
-background:#111;
-
-color:white;
-
-text-align:center;
-}
-
-.journal-stats small{
-
-display:block;
-
-color:#d7b15a;
-
-letter-spacing:4px;
-
-margin-bottom:18px;
-}
-
-.journal-stats h2{
-
-font-family:Georgia,serif;
-
-font-size:52px;
-
-font-weight:500;
-
-margin-bottom:70px;
-}
-
-.stats-grid{
-
-display:grid;
-
-grid-template-columns:repeat(4,1fr);
-
-gap:30px;
-}
-
-.stat-card h3{
-
-font-size:64px;
-
-color:#d7b15a;
-
-margin-bottom:10px;
-}
-
-.stat-card p{
-
-font-size:18px;
-
-color:#ddd;
-}
-
-/*====================================================
-JOIN THE JOURNAL
-====================================================*/
-
-.join-journal{
-
-padding:130px 8%;
-
-background:linear-gradient(135deg,#faf8f3,#f3ecdd);
-
-text-align:center;
-}
-
-.join-card{
-
-max-width:900px;
-
-margin:auto;
-
-padding:70px 60px;
-
-background:white;
-
-border-radius:28px;
-
-box-shadow:0 30px 70px rgba(0,0,0,.08);
-}
-
-.join-card small{
-
-display:block;
-
-color:#c9a24d;
-
-letter-spacing:4px;
-
-font-weight:700;
-
-margin-bottom:18px;
-}
-
-.join-card h2{
-
-font-family:Georgia,serif;
-
-font-size:50px;
-
-font-weight:500;
-
-margin-bottom:22px;
-}
-
-.join-card p{
-
-font-size:18px;
-
-line-height:1.8;
-
-color:#666;
-
-margin-bottom:40px;
-}
-
-.join-buttons{
-
-display:flex;
-
-justify-content:center;
-
-gap:20px;
-
-flex-wrap:wrap;
-}
-
-.join-dark{
-
-padding:17px 36px;
-
-background:#111;
-
-color:white;
-
-font-weight:bold;
-
-transition:.35s;
-}
-
-.join-dark:hover{
-
-background:#c9a24d;
-
-color:#111;
-}
-
-.join-light{
-
-padding:17px 36px;
-
-border:1px solid #c9a24d;
-
-font-weight:bold;
-
-transition:.35s;
-}
-
-.join-light:hover{
-
-background:#111;
-
-color:white;
-}
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-.main-footer{
-    background:#111;
-
-    color:#fff;
-
-    margin-top:40px;
-}
-
-.footer-container{
-    width:100%;
-
-    max-width:1400px;
-
-    margin:0 auto;
-
-    padding:
-        60px
-        50px
-        0;
-}
-
-
-/* =========================================================
-   FOOTER TOP
-========================================================= */
-
-.footer-top{
-    display:grid;
-
-    grid-template-columns:
-        1fr
-        1fr
-        1fr;
-
-    gap:50px;
-
-    padding-bottom:50px;
-
-    border-bottom:
-        1px solid
-        rgba(255,255,255,0.15);
-}
-
-.footer-top > h2{
-    grid-column:1 / -1;
-
-    text-align:center;
-
-    margin:0 0 10px;
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size:38px;
-
-    font-weight:600;
-
-    color:#c9a24d;
-}
-
-
-/* =========================================================
-   FOOTER CONTACT
-========================================================= */
-
-.contact-column{
-    text-align:left;
-}
-
-.contact-column h3,
-.whatsapp-column h3,
-.footer-links-column h3,
-.footer-social h3{
-    color:#c9a24d;
-
-    font-size:20px;
-
-    margin:0 0 18px;
-}
-
-.contact-column p{
-    color:#bbb;
-
-    font-size:15px;
-
-    line-height:1.6;
-}
-
-.footer-link{
-    display:block;
-
-    color:#fff;
-
-    text-decoration:none;
-
-    margin-bottom:12px;
-
-    transition:0.3s ease;
-}
-
-.footer-link:hover{
-    color:#c9a24d;
-}
-
-
-/* =========================================================
-   WHATSAPP
-========================================================= */
-
-.whatsapp-column{
-    text-align:center;
-}
-
-.whatsapp-title{
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:10px;
-}
-
-.whatsapp-icon{
-    width:28px !important;
-
-    height:28px !important;
-
-    object-fit:contain !important;
-}
-
-.whatsapp-button{
-    display:inline-block;
-
-    background:#c9a24d;
-
-    color:#111;
-
-    text-decoration:none;
-
-    padding:13px 30px;
-
-    border-radius:6px;
-
-    font-weight:bold;
-
-    transition:0.3s ease;
-}
-
-.whatsapp-button:hover{
-    background:#fff;
-
-    color:#111;
-}
-
-
-/* =========================================================
-   FOOTER MIDDLE
-========================================================= */
-
-.footer-middle{
-    display:grid;
-
-    grid-template-columns:
-        1fr
-        1fr
-        1fr;
-
-    gap:50px;
-
-    padding:50px 0;
-}
-
-.footer-links-column{
-    display:flex;
-
-    flex-direction:column;
-}
-
-.footer-links-column a{
-    color:#ccc;
-
-    text-decoration:none;
-
-    margin-bottom:13px;
-
-    transition:0.3s ease;
-}
-
-.footer-links-column a:hover{
-    color:#c9a24d;
-}
-
-
-/* =========================================================
-   INSTAGRAM
-========================================================= */
-
-.footer-social{
-    text-align:center;
-}
-
-.footer-social p{
-    color:#bbb;
-
-    margin-bottom:15px;
-}
-
-.instagram-button{
-    display:inline-flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    width:50px;
-
-    height:50px;
-
-    border:
-        1px solid
-        #c9a24d;
-
-    border-radius:50%;
-
-    transition:0.3s ease;
-}
-
-.instagram-button:hover{
-    background:#c9a24d;
-}
-
-.instagram-button img{
-    width:28px;
-
-    height:28px;
-
-    object-fit:contain;
-}
-
-
-/* =========================================================
-   COPYRIGHT
-========================================================= */
-
-.footer-bottom{
-    border-top:
-        1px solid
-        rgba(255,255,255,0.15);
-
-    text-align:center;
-
-    padding:25px 10px;
-}
-
-.footer-bottom p{
-    margin:0;
-
-    color:#999;
-
-    font-size:14px;
-
-    line-height:1.6;
-}
-
-
-/*====================================================
-RESPONSIVE
-====================================================*/
-
-@media(max-width:992px){
-
-.category-grid{
-
-grid-template-columns:repeat(2,1fr);
-}
-
-.stats-grid{
-
-grid-template-columns:repeat(2,1fr);
-}
-
-.footer-top{
-
-grid-template-columns:1fr;
-}
-
-}
-
-@media(max-width:768px){
-
-.journal-categories,
-.journal-stats,
-.join-journal{
-
-padding:80px 18px;
-}
-
-.categories-header h2,
-.journal-stats h2,
-.join-card h2{
-
-font-size:36px;
-}
-
-.category-grid,
-.stats-grid{
-
-grid-template-columns:1fr;
-}
-
-.join-card{
-
-padding:40px 28px;
-}
-
-.footer-wrap{
-
-padding:60px 18px 25px;
-}
-
-}
-
-/*====================================================
-   LUXURY LOADING SCREEN
+LUXURY LOADER
 ====================================================*/
 
 body.loading{
@@ -1856,17 +147,16 @@ overflow:hidden;
 position:fixed;
 inset:0;
 
-background:#050505;
+background:#030303;
 
 display:flex;
 align-items:center;
 justify-content:center;
 
-z-index:99999;
+z-index:99998;
 
-transition:
-opacity 1s ease,
-visibility 1s ease;
+transition:opacity 1s ease,visibility 1s ease;
+
 }
 
 #luxury-loader.hide{
@@ -1874,46 +164,49 @@ visibility 1s ease;
 opacity:0;
 visibility:hidden;
 pointer-events:none;
+
 }
 
 .loader-content{
 
 text-align:center;
-animation:loaderFade 1.2s ease;
+
 }
 
 .loader-logo{
 
 width:130px;
-height:auto;
 
-margin:0 auto 28px;
+margin:auto auto 28px;
 
-filter:drop-shadow(0 0 18px rgba(201,162,77,.18));
+filter:drop-shadow(0 0 20px rgba(201,162,77,.35));
+
+animation:logoFloat 3s ease-in-out infinite;
+
 }
 
 .loader-title{
 
-font-family:Georgia,"Times New Roman",serif;
+font-family:'Cormorant Garamond',serif;
 
-font-size:34px;
+font-size:36px;
 
-letter-spacing:6px;
+letter-spacing:7px;
 
-color:#ffffff;
+margin-bottom:12px;
 
-margin-bottom:10px;
 }
 
 .loader-subtitle{
 
 font-size:11px;
 
-letter-spacing:4px;
+letter-spacing:5px;
 
-color:#c9a24d;
+color:var(--gold);
 
-margin-bottom:35px;
+margin-bottom:34px;
+
 }
 
 .loader-line{
@@ -1928,6 +221,7 @@ background:rgba(255,255,255,.08);
 overflow:hidden;
 
 position:relative;
+
 }
 
 .loader-line::after{
@@ -1936,63 +230,2201 @@ content:"";
 
 position:absolute;
 
-left:-45%;
 top:0;
+left:-45%;
 
 width:45%;
 height:100%;
 
-background:linear-gradient(
-90deg,
+background:
+linear-gradient(90deg,
 transparent,
-#c9a24d,
-#fff3cf,
-#c9a24d,
-transparent
-);
+var(--gold),
+#fff4c9,
+var(--gold),
+transparent);
 
-animation:goldSweep 1.8s linear infinite;
+animation:loaderSweep 1.8s linear infinite;
+
 }
 
-@keyframes goldSweep{
+@keyframes loaderSweep{
 
-0%{left:-45%;}
 100%{left:100%;}
 
 }
 
-@keyframes loaderFade{
+@keyframes logoFloat{
 
-from{
-opacity:0;
-transform:translateY(20px);
+50%{transform:translateY(-8px);}
+
 }
 
-to{
+/*====================================================
+GLASS HEADER
+====================================================*/
+
+.journal-header{
+
+position:fixed;
+
+top:18px;
+left:50%;
+
+transform:translateX(-50%);
+
+width:94%;
+max-width:1450px;
+
+background:rgba(10,10,10,.58);
+
+backdrop-filter:blur(22px);
+
+border:1px solid rgba(201,162,77,.25);
+
+border-radius:24px;
+
+z-index:9999;
+
+}
+
+.header-container{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:16px 28px;
+
+}
+
+.logo{
+
+display:flex;
+align-items:center;
+gap:14px;
+
+}
+
+.logo img{
+
+height:46px;
+
+filter:drop-shadow(0 0 14px rgba(201,162,77,.25));
+
+}
+
+.logo-text h1{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:30px;
+
+letter-spacing:5px;
+
+font-weight:600;
+
+}
+
+.logo-text span{
+
+display:block;
+
+font-size:10px;
+
+letter-spacing:4px;
+
+color:var(--gold);
+
+text-transform:uppercase;
+
+}
+
+.back-home{
+
+padding:12px 24px;
+
+border-radius:50px;
+
+border:1px solid rgba(201,162,77,.4);
+
+font-size:13px;
+
+letter-spacing:1px;
+
+transition:.35s;
+
+}
+
+.back-home:hover{
+
+background:var(--gold);
+
+color:black;
+
+}
+
+/*====================================================
+MAGAZINE COVER HERO
+====================================================*/
+
+.hero{
+
+position:relative;
+
+height:100vh;
+
+display:flex;
+
+align-items:flex-end;
+
+padding:0 8% 90px;
+
+overflow:hidden;
+
+}
+
+.hero-image{
+
+position:absolute;
+
+inset:0;
+
+}
+
+.hero-image img{
+
+width:100%;
+height:100%;
+
+object-fit:cover;
+
+transform:scale(1.08);
+
+animation:heroZoom 15s ease forwards;
+
+}
+
+@keyframes heroZoom{
+
+to{transform:scale(1);}
+
+}
+
+.hero::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+linear-gradient(180deg,
+rgba(0,0,0,.25),
+rgba(0,0,0,.45),
+rgba(0,0,0,.92));
+
+}
+
+.hero-content{
+
+position:relative;
+
+z-index:2;
+
+max-width:720px;
+
+}
+
+.issue-label{
+
+display:inline-flex;
+
+align-items:center;
+gap:12px;
+
+padding:8px 18px;
+
+background:rgba(255,255,255,.06);
+
+border:1px solid rgba(201,162,77,.25);
+
+border-radius:50px;
+
+backdrop-filter:blur(10px);
+
+margin-bottom:30px;
+
+}
+
+.issue-dot{
+
+width:8px;
+height:8px;
+
+border-radius:50%;
+
+background:var(--gold);
+
+box-shadow:0 0 12px var(--gold);
+
+}
+
+.issue-label span{
+
+font-size:11px;
+
+letter-spacing:3px;
+
+}
+
+.hero-content small{
+
+display:block;
+
+font-size:12px;
+
+letter-spacing:6px;
+
+color:var(--gold-light);
+
+margin-bottom:18px;
+
+}
+
+.hero-content h2{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:92px;
+
+font-weight:500;
+
+line-height:.95;
+
+margin-bottom:28px;
+
+text-shadow:0 10px 35px rgba(0,0,0,.45);
+
+}
+
+.hero-content p{
+
+font-size:20px;
+
+line-height:1.9;
+
+color:#d8d8d8;
+
+margin-bottom:36px;
+
+max-width:620px;
+
+}
+
+.primary-btn{
+
+display:inline-flex;
+
+align-items:center;
+gap:12px;
+
+padding:18px 34px;
+
+border-radius:50px;
+
+background:linear-gradient(135deg,var(--gold),#ebcf8b);
+
+color:black;
+
+font-weight:600;
+
+transition:.35s;
+
+box-shadow:0 15px 40px rgba(201,162,77,.3);
+
+}
+
+.primary-btn:hover{
+
+transform:translateY(-4px);
+
+box-shadow:0 22px 55px rgba(201,162,77,.45);
+
+}
+
+/* Floating Issue */
+
+.issue-circle{
+
+position:absolute;
+
+right:8%;
+top:52%;
+
+transform:translateY(-50%);
+
+width:150px;
+height:150px;
+
+border-radius:50%;
+
+border:1px solid rgba(201,162,77,.45);
+
+background:rgba(0,0,0,.35);
+
+backdrop-filter:blur(12px);
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+
+z-index:2;
+
+}
+
+.issue-circle span{
+
+font-size:12px;
+
+letter-spacing:3px;
+
+color:var(--gold);
+
+}
+
+.issue-circle strong{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:52px;
+
+font-weight:500;
+
+}
+
+/* Scroll Indicator */
+
+.scroll-indicator{
+
+position:absolute;
+
+bottom:28px;
+left:50%;
+
+transform:translateX(-50%);
+
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:10px;
+
+z-index:2;
+
+}
+
+.scroll-indicator span{
+
+font-size:11px;
+
+letter-spacing:3px;
+
+color:#ccc;
+
+}
+
+.scroll-line{
+
+width:2px;
+height:56px;
+
+background:rgba(255,255,255,.18);
+
+overflow:hidden;
+
+position:relative;
+
+}
+
+.scroll-line::after{
+
+content:"";
+
+position:absolute;
+
+top:-20px;
+
+width:100%;
+height:20px;
+
+background:var(--gold);
+
+animation:scrollMove 2s infinite;
+
+}
+
+@keyframes scrollMove{
+
+100%{transform:translateY(82px);}
+
+}
+
+/*====================================================
+ISSUE STRIP
+====================================================*/
+
+.issue-strip{
+
+background:#080808;
+
+padding:32px 8%;
+
+border-top:1px solid rgba(201,162,77,.15);
+border-bottom:1px solid rgba(201,162,77,.15);
+
+display:grid;
+grid-template-columns:repeat(4,1fr);
+
+gap:24px;
+
+}
+
+.issue-item{
+
+text-align:center;
+
+}
+
+.issue-item h4{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:36px;
+
+color:var(--gold);
+
+margin-bottom:8px;
+
+}
+
+.issue-item p{
+
+font-size:12px;
+
+letter-spacing:2px;
+
+text-transform:uppercase;
+
+color:#999;
+
+}
+
+/*====================================================
+EDITOR'S LETTER
+====================================================*/
+
+.intro{
+
+padding:130px 8%;
+
+background:linear-gradient(180deg,#090909,#111);
+
+display:flex;
+justify-content:center;
+
+}
+
+.editor-letter{
+
+max-width:980px;
+
+background:
+linear-gradient(180deg,#f8f5ed,#efe7d8);
+
+color:#111;
+
+padding:80px;
+
+border-radius:8px;
+
+box-shadow:0 40px 100px rgba(0,0,0,.35);
+
+position:relative;
+
+}
+
+.editor-letter::before{
+
+content:"EDITOR'S LETTER";
+
+position:absolute;
+
+top:26px;
+right:32px;
+
+font-size:10px;
+
+letter-spacing:4px;
+
+color:#8f7747;
+
+}
+
+.editor-letter small{
+
+display:block;
+
+color:#9b762c;
+
+letter-spacing:4px;
+
+margin-bottom:18px;
+
+font-weight:600;
+
+}
+
+.editor-letter h3{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:60px;
+
+font-weight:500;
+
+line-height:1.08;
+
+margin-bottom:28px;
+
+}
+
+.editor-letter p{
+
+font-size:19px;
+
+line-height:2;
+
+color:#444;
+
+}
+
+.editor-letter p::first-letter{
+
+float:left;
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:84px;
+
+line-height:.9;
+
+padding-right:12px;
+
+color:var(--gold);
+
+}
+
+.signature{
+
+margin-top:38px;
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:28px;
+
+color:#9b762c;
+
+}
+
+/*====================================================
+SECTION TITLE (Used Later)
+====================================================*/
+
+.section-title{
+
+text-align:center;
+
+margin-bottom:70px;
+
+}
+
+.section-title small{
+
+display:block;
+
+color:var(--gold);
+
+letter-spacing:4px;
+
+margin-bottom:16px;
+
+}
+
+.section-title h2{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:60px;
+
+font-weight:500;
+
+margin-bottom:20px;
+
+}
+
+.section-title p{
+
+max-width:720px;
+
+margin:auto;
+
+line-height:1.8;
+
+color:#aaa;
+
+}
+
+/*====================================================
+REVEAL ANIMATION
+====================================================*/
+
+.reveal{
+
+opacity:0;
+
+transform:translateY(40px);
+
+transition:1s ease;
+
+}
+
+.reveal.visible{
+
 opacity:1;
+
 transform:translateY(0);
+
+}
+
+/*====================================================
+RESPONSIVE
+====================================================*/
+
+@media(max-width:768px){
+
+.journal-header{
+
+top:10px;
+width:96%;
+
+}
+
+.header-container{
+
+padding:14px 16px;
+
+}
+
+.logo img{
+
+height:36px;
+
+}
+
+.logo-text h1{
+
+font-size:22px;
+
+}
+
+.logo-text span{
+
+font-size:8px;
+
+letter-spacing:2px;
+
+}
+
+.back-home{
+
+padding:9px 14px;
+
+font-size:11px;
+
+}
+
+.hero{
+
+padding:0 22px 80px;
+
+}
+
+.hero-content h2{
+
+font-size:52px;
+
+}
+
+.hero-content p{
+
+font-size:16px;
+
+}
+
+.issue-circle{
+
+width:95px;
+height:95px;
+
+right:20px;
+top:140px;
+
+transform:none;
+
+}
+
+.issue-circle strong{
+
+font-size:34px;
+
+}
+
+.issue-strip{
+
+grid-template-columns:repeat(2,1fr);
+
+padding:24px;
+
+}
+
+.editor-letter{
+
+padding:46px 28px;
+
+}
+
+.editor-letter h3{
+
+font-size:38px;
+
+}
+
+.editor-letter p{
+
+font-size:17px;
+
+}
+
+}
+
+/*====================================================
+PART 2 — EDITORIAL SPREADS
+====================================================*/
+
+.featured-stories{
+
+padding:140px 7%;
+
+background:
+linear-gradient(180deg,#050505,#0b0b0b);
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.featured-stories::before{
+
+content:"";
+
+position:absolute;
+
+top:80px;
+right:-120px;
+
+width:420px;
+height:420px;
+
+background:radial-gradient(circle,
+rgba(201,162,77,.08),
+transparent 70%);
+
+border-radius:50%;
+
+pointer-events:none;
+
+}
+
+.chapter-number{
+
+position:absolute;
+
+left:7%;
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:140px;
+
+color:rgba(201,162,77,.06);
+
+font-weight:600;
+
+user-select:none;
+
+}
+
+.chapter-one{
+
+top:120px;
+
+}
+
+.section-title{
+
+position:relative;
+
+z-index:2;
+
+text-align:center;
+
+margin-bottom:90px;
+
+}
+
+.section-title small{
+
+display:block;
+
+font-size:12px;
+
+letter-spacing:5px;
+
+color:var(--gold);
+
+margin-bottom:18px;
+
+text-transform:uppercase;
+
+}
+
+.section-title h2{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:68px;
+
+font-weight:500;
+
+line-height:1;
+
+margin-bottom:22px;
+
+}
+
+.section-title p{
+
+max-width:760px;
+
+margin:auto;
+
+font-size:19px;
+
+line-height:1.9;
+
+color:#b8b8b8;
+
+}
+
+/*================ COVER STORY ================*/
+
+.cover-story{
+
+display:grid;
+
+grid-template-columns:1.45fr .95fr;
+
+gap:55px;
+
+align-items:center;
+
+margin-bottom:130px;
+
+position:relative;
+
+}
+
+.cover-image{
+
+position:relative;
+
+overflow:hidden;
+
+border-radius:30px;
+
+box-shadow:
+0 35px 90px rgba(0,0,0,.45);
+
+}
+
+.cover-image img{
+
+width:100%;
+
+height:720px;
+
+object-fit:cover;
+
+transition:transform 1.1s ease;
+
+}
+
+.cover-story:hover .cover-image img{
+
+transform:scale(1.05);
+
+}
+
+.cover-image::after{
+
+content:"";
+
+position:absolute;
+
+top:0;
+left:-120%;
+
+width:40%;
+height:100%;
+
+background:
+linear-gradient(115deg,
+transparent,
+rgba(255,255,255,.25),
+transparent);
+
+transition:1.2s ease;
+
+}
+
+.cover-story:hover .cover-image::after{
+
+left:130%;
+
+}
+
+.cover-content{
+
+position:relative;
+
+}
+
+.cover-tag{
+
+display:inline-block;
+
+padding:9px 18px;
+
+background:rgba(201,162,77,.12);
+
+border:1px solid rgba(201,162,77,.3);
+
+border-radius:50px;
+
+font-size:11px;
+
+letter-spacing:3px;
+
+color:var(--gold);
+
+margin-bottom:24px;
+
+}
+
+.cover-content h3{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:58px;
+
+font-weight:500;
+
+line-height:1.04;
+
+margin-bottom:26px;
+
+}
+
+.cover-meta{
+
+display:flex;
+
+gap:22px;
+
+flex-wrap:wrap;
+
+margin-bottom:24px;
+
+}
+
+.cover-meta span{
+
+font-size:13px;
+
+letter-spacing:2px;
+
+color:#999;
+
+text-transform:uppercase;
+
+}
+
+.cover-content p{
+
+font-size:18px;
+
+line-height:1.95;
+
+color:#c8c8c8;
+
+margin-bottom:34px;
+
+}
+
+.read-btn{
+
+display:inline-flex;
+
+align-items:center;
+
+gap:12px;
+
+padding:17px 34px;
+
+border-radius:50px;
+
+background:linear-gradient(135deg,var(--gold),#ecd08f);
+
+color:black;
+
+font-weight:600;
+
+transition:.35s;
+
+}
+
+.read-btn:hover{
+
+transform:translateY(-3px);
+
+box-shadow:0 18px 45px rgba(201,162,77,.35);
+
+}
+
+/* Decorative vertical line */
+
+.cover-content::before{
+
+content:"";
+
+position:absolute;
+
+left:-28px;
+top:10px;
+
+width:2px;
+height:140px;
+
+background:linear-gradient(180deg,var(--gold),transparent);
+
+}
+
+/*================ EDITORIAL GRID ================*/
+
+.editorial-grid{
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:30px;
+
+}
+
+.editorial-card{
+
+background:
+linear-gradient(180deg,
+rgba(255,255,255,.03),
+rgba(255,255,255,.015));
+
+border:1px solid rgba(201,162,77,.12);
+
+border-radius:24px;
+
+overflow:hidden;
+
+transition:
+transform .45s ease,
+box-shadow .45s ease,
+border-color .45s ease;
+
+position:relative;
+
+backdrop-filter:blur(8px);
+
+}
+
+.editorial-card:hover{
+
+transform:translateY(-12px);
+
+border-color:rgba(201,162,77,.45);
+
+box-shadow:
+0 30px 70px rgba(0,0,0,.35);
+
+}
+
+.page-number{
+
+position:absolute;
+
+top:18px;
+right:18px;
+
+width:42px;
+height:42px;
+
+border-radius:50%;
+
+background:rgba(0,0,0,.55);
+
+backdrop-filter:blur(8px);
+
+border:1px solid rgba(201,162,77,.35);
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:18px;
+
+color:var(--gold);
+
+z-index:5;
+
+}
+
+.editorial-image{
+
+overflow:hidden;
+
+}
+
+.editorial-image img{
+
+width:100%;
+
+height:300px;
+
+object-fit:cover;
+
+transition:transform 1s ease;
+
+}
+
+.editorial-card:hover .editorial-image img{
+
+transform:scale(1.08);
+
+}
+
+.editorial-content{
+
+padding:28px;
+
+}
+
+.editorial-content small{
+
+display:block;
+
+font-size:11px;
+
+letter-spacing:3px;
+
+color:var(--gold);
+
+margin-bottom:14px;
+
+text-transform:uppercase;
+
+}
+
+.editorial-content h4{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:34px;
+
+font-weight:500;
+
+line-height:1.12;
+
+margin-bottom:16px;
+
+}
+
+.editorial-content p{
+
+font-size:15px;
+
+line-height:1.9;
+
+color:#bcbcbc;
+
+margin-bottom:24px;
+
+}
+
+.editorial-link{
+
+display:inline-flex;
+
+align-items:center;
+
+gap:8px;
+
+font-size:14px;
+
+letter-spacing:1px;
+
+color:white;
+
+transition:.3s;
+
+}
+
+.editorial-link:hover{
+
+color:var(--gold);
+
+transform:translateX(6px);
+
+}
+
+/*================ RESPONSIVE ================*/
+
+@media(max-width:992px){
+
+.cover-story{
+
+grid-template-columns:1fr;
+
+}
+
+.cover-image img{
+
+height:520px;
+
+}
+
+.editorial-grid{
+
+grid-template-columns:repeat(2,1fr);
+
 }
 
 }
 
 @media(max-width:768px){
 
-.loader-logo{
-width:95px;
+.featured-stories{
+
+padding:90px 22px;
+
 }
 
-.loader-title{
-font-size:26px;
-letter-spacing:4px;
+.chapter-number{
+
+display:none;
+
 }
 
-.loader-subtitle{
-font-size:9px;
+.section-title h2{
+
+font-size:42px;
+
+}
+
+.cover-content::before{
+
+display:none;
+
+}
+
+.cover-content h3{
+
+font-size:40px;
+
+}
+
+.editorial-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.editorial-image img{
+
+height:260px;
+
+}
+
+}
+
+/*====================================================
+PART 3 — COLLECTOR EDITORIAL EXPERIENCE
+====================================================*/
+
+/* SECTION SPACING */
+
+.editorial-section{
+padding:140px 7%;
+position:relative;
+overflow:hidden;
+}
+
+/*==============================
+EDITOR'S PICKS
+==============================*/
+
+.editors-picks{
+background:linear-gradient(180deg,#0a0a0a,#121212);
+}
+
+.chapter-two{
+top:90px;
+}
+
+.picks-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:22px;
+}
+
+.pick-card{
+position:relative;
+overflow:hidden;
+border-radius:24px;
+background:#111;
+aspect-ratio:4/6;
+transition:.45s ease;
+box-shadow:0 20px 45px rgba(0,0,0,.35);
+}
+
+.pick-card:hover{
+transform:translateY(-12px);
+box-shadow:0 35px 80px rgba(0,0,0,.5);
+}
+
+.pick-card img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:transform 1s ease;
+}
+
+.pick-card:hover img{
+transform:scale(1.08);
+}
+
+.pick-overlay{
+position:absolute;
+inset:0;
+display:flex;
+flex-direction:column;
+justify-content:flex-end;
+padding:28px;
+background:linear-gradient(transparent,rgba(0,0,0,.92));
+}
+
+.pick-overlay small{
+font-size:11px;
 letter-spacing:3px;
+color:var(--gold);
+margin-bottom:10px;
 }
 
-.loader-line{
-width:140px;
+.pick-overlay h3{
+font-family:'Cormorant Garamond',serif;
+font-size:30px;
+font-weight:500;
+line-height:1.1;
+}
+
+/*==============================
+LUXURY SPOTLIGHT
+==============================*/
+
+.luxury-spotlight{
+background:#050505;
+padding:0;
+}
+
+.spotlight-card{
+position:relative;
+min-height:850px;
+display:flex;
+align-items:flex-end;
+overflow:hidden;
+}
+
+.spotlight-card img{
+position:absolute;
+inset:0;
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.spotlight-card::before{
+content:"";
+position:absolute;
+inset:0;
+background:
+linear-gradient(180deg,
+rgba(0,0,0,.15),
+rgba(0,0,0,.55),
+rgba(0,0,0,.95));
+}
+
+.spotlight-content{
+position:relative;
+z-index:2;
+max-width:720px;
+padding:90px;
+}
+
+.spotlight-content small{
+display:block;
+color:var(--gold);
+letter-spacing:5px;
+margin-bottom:20px;
+}
+
+.spotlight-content h2{
+font-family:'Cormorant Garamond',serif;
+font-size:72px;
+font-weight:500;
+line-height:.98;
+margin-bottom:28px;
+}
+
+.spotlight-content p{
+font-size:20px;
+line-height:1.9;
+color:#ddd;
+margin-bottom:36px;
+}
+
+.spotlight-button{
+display:inline-flex;
+align-items:center;
+gap:12px;
+padding:18px 34px;
+border-radius:50px;
+border:1px solid rgba(255,255,255,.35);
+backdrop-filter:blur(10px);
+transition:.35s;
+}
+
+.spotlight-button:hover{
+background:white;
+color:black;
+}
+
+/*==============================
+PULL QUOTE
+==============================*/
+
+.language-time{
+padding:160px 8%;
+background:
+linear-gradient(180deg,#050505,#0b0b0b);
+text-align:center;
+position:relative;
+}
+
+.language-time::before{
+content:"“";
+position:absolute;
+top:10px;
+left:50%;
+transform:translateX(-50%);
+font-size:220px;
+font-family:'Cormorant Garamond',serif;
+color:rgba(201,162,77,.12);
+}
+
+.language-time blockquote{
+max-width:920px;
+margin:auto;
+font-family:'Cormorant Garamond',serif;
+font-size:52px;
+font-style:italic;
+line-height:1.4;
+}
+
+.language-time cite{
+display:block;
+margin-top:34px;
+font-size:14px;
+letter-spacing:4px;
+color:var(--gold);
+font-style:normal;
+}
+
+/*==============================
+LUXURY BRAND WALL
+==============================*/
+
+.brand-wall{
+padding:140px 7%;
+background:#090909;
+}
+
+.brand-grid{
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:22px;
+}
+
+.brand-card{
+padding:45px 25px;
+border-radius:22px;
+background:rgba(255,255,255,.02);
+border:1px solid rgba(201,162,77,.08);
+text-align:center;
+transition:.4s;
+backdrop-filter:blur(8px);
+}
+
+.brand-card:hover{
+transform:translateY(-10px);
+border-color:rgba(201,162,77,.45);
+box-shadow:0 20px 45px rgba(0,0,0,.35);
+}
+
+.brand-icon{
+width:70px;
+height:70px;
+margin:0 auto 22px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+border:1px solid rgba(201,162,77,.35);
+color:var(--gold);
+}
+
+.brand-card h3{
+font-family:'Cormorant Garamond',serif;
+font-size:30px;
+margin-bottom:10px;
+font-weight:500;
+}
+
+.brand-card p{
+font-size:14px;
+line-height:1.8;
+color:#aaa;
+}
+
+/*==============================
+JOURNAL STATS
+==============================*/
+
+.journal-stats{
+padding:140px 7%;
+background:
+linear-gradient(180deg,#0a0a0a,#050505);
+text-align:center;
+position:relative;
+}
+
+.journal-stats::before{
+content:"";
+position:absolute;
+top:0;
+left:50%;
+transform:translateX(-50%);
+width:220px;
+height:2px;
+background:linear-gradient(90deg,transparent,var(--gold),transparent);
+}
+
+.stats-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:30px;
+margin-top:70px;
+}
+
+.stat-card{
+padding:40px 20px;
+border-radius:22px;
+background:rgba(255,255,255,.02);
+border:1px solid rgba(201,162,77,.08);
+transition:.35s;
+}
+
+.stat-card:hover{
+transform:translateY(-8px);
+border-color:rgba(201,162,77,.35);
+}
+
+.stat-card h3{
+font-family:'Cormorant Garamond',serif;
+font-size:72px;
+font-weight:500;
+color:var(--gold);
+margin-bottom:12px;
+}
+
+.stat-card p{
+letter-spacing:2px;
+font-size:13px;
+text-transform:uppercase;
+color:#aaa;
+}
+
+/*==============================
+RESPONSIVE
+==============================*/
+
+@media(max-width:992px){
+
+.picks-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.brand-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.stats-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media(max-width:768px){
+
+.editorial-section,
+.brand-wall,
+.journal-stats{
+padding:90px 22px;
+}
+
+.spotlight-card{
+min-height:580px;
+}
+
+.spotlight-content{
+padding:36px;
+}
+
+.spotlight-content h2{
+font-size:44px;
+}
+
+.spotlight-content p{
+font-size:16px;
+}
+
+.language-time{
+padding:100px 24px;
+}
+
+.language-time blockquote{
+font-size:30px;
+}
+
+.language-time::before{
+font-size:140px;
+}
+
+.picks-grid,
+.brand-grid,
+.stats-grid{
+grid-template-columns:1fr;
+}
+
+}
+
+/*====================================================
+PART 4 — LUXURY ENDING
+====================================================*/
+
+/*==============================
+MAGAZINE BACK COVER
+==============================*/
+
+.back-cover{
+
+padding:170px 8%;
+
+background:
+radial-gradient(circle at top,
+rgba(201,162,77,.08),
+transparent 40%),
+linear-gradient(180deg,#050505,#080808);
+
+text-align:center;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.back-cover::before{
+
+content:"";
+
+position:absolute;
+
+top:60px;
+left:50%;
+
+transform:translateX(-50%);
+
+width:220px;
+height:2px;
+
+background:
+linear-gradient(90deg,
+transparent,
+var(--gold),
+transparent);
+
+}
+
+.back-cover::after{
+
+content:"01";
+
+position:absolute;
+
+right:7%;
+bottom:60px;
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:180px;
+
+color:rgba(201,162,77,.05);
+
+font-weight:600;
+
+}
+
+.back-cover small{
+
+display:block;
+
+color:var(--gold);
+
+letter-spacing:5px;
+
+margin-bottom:24px;
+
+}
+
+.back-cover h2{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:76px;
+
+font-weight:500;
+
+line-height:1;
+
+margin-bottom:30px;
+
+}
+
+.back-cover p{
+
+max-width:760px;
+
+margin:auto;
+
+font-size:20px;
+
+line-height:1.9;
+
+color:#c9c9c9;
+
+margin-bottom:50px;
+
+}
+
+.back-buttons{
+
+display:flex;
+
+justify-content:center;
+
+gap:20px;
+
+flex-wrap:wrap;
+
+}
+
+.back-dark{
+
+padding:18px 36px;
+
+background:linear-gradient(135deg,var(--gold),#ecd08f);
+
+color:black;
+
+border-radius:50px;
+
+font-weight:600;
+
+transition:.35s;
+
+}
+
+.back-dark:hover{
+
+transform:translateY(-4px);
+
+box-shadow:0 20px 45px rgba(201,162,77,.35);
+
+}
+
+.back-light{
+
+padding:18px 36px;
+
+border:1px solid rgba(201,162,77,.35);
+
+border-radius:50px;
+
+transition:.35s;
+
+}
+
+.back-light:hover{
+
+background:white;
+
+color:black;
+
+}
+
+/*==============================
+FOOTER (UNCHANGED DESIGN)
+==============================*/
+
+.main-footer{
+
+background:#111;
+
+color:#fff;
+
+}
+
+.footer-container{
+
+max-width:1400px;
+
+margin:auto;
+
+padding:60px 50px 0;
+
+}
+
+.footer-top{
+
+display:grid;
+
+grid-template-columns:1fr 1fr 1fr;
+
+gap:50px;
+
+padding-bottom:50px;
+
+border-bottom:1px solid rgba(255,255,255,.15);
+
+}
+
+.footer-top>h2{
+
+grid-column:1/-1;
+
+text-align:center;
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:40px;
+
+color:var(--gold);
+
+margin-bottom:10px;
+
+}
+
+.contact-column h3,
+.whatsapp-column h3,
+.footer-links-column h3,
+.footer-social h3{
+
+color:var(--gold);
+
+font-size:20px;
+
+margin-bottom:18px;
+
+}
+
+.contact-column p{
+
+color:#bbb;
+
+font-size:15px;
+
+line-height:1.6;
+
+}
+
+.footer-link{
+
+display:block;
+
+margin-bottom:12px;
+
+transition:.3s;
+
+}
+
+.footer-link:hover{
+
+color:var(--gold);
+
+}
+
+.whatsapp-column{
+
+text-align:center;
+
+}
+
+.whatsapp-title{
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+gap:10px;
+
+}
+
+.whatsapp-icon{
+
+width:28px;
+
+height:28px;
+
+object-fit:contain;
+
+}
+
+.whatsapp-button{
+
+display:inline-block;
+
+padding:13px 30px;
+
+background:var(--gold);
+
+color:black;
+
+border-radius:8px;
+
+font-weight:600;
+
+transition:.3s;
+
+}
+
+.whatsapp-button:hover{
+
+background:white;
+
+}
+
+.footer-middle{
+
+display:grid;
+
+grid-template-columns:1fr 1fr 1fr;
+
+gap:50px;
+
+padding:50px 0;
+
+}
+
+.footer-links-column{
+
+display:flex;
+
+flex-direction:column;
+
+}
+
+.footer-links-column a{
+
+color:#ccc;
+
+margin-bottom:13px;
+
+transition:.3s;
+
+}
+
+.footer-links-column a:hover{
+
+color:var(--gold);
+
+}
+
+.footer-social{
+
+text-align:center;
+
+}
+
+.footer-social p{
+
+color:#bbb;
+
+margin-bottom:15px;
+
+}
+
+.instagram-button{
+
+display:inline-flex;
+
+align-items:center;
+
+justify-content:center;
+
+width:52px;
+
+height:52px;
+
+border:1px solid var(--gold);
+
+border-radius:50%;
+
+transition:.3s;
+
+}
+
+.instagram-button:hover{
+
+background:var(--gold);
+
+}
+
+.instagram-button img{
+
+width:28px;
+
+height:28px;
+
+}
+
+.footer-bottom{
+
+border-top:1px solid rgba(255,255,255,.15);
+
+text-align:center;
+
+padding:25px 10px;
+
+}
+
+.footer-bottom p{
+
+color:#999;
+
+font-size:14px;
+
+line-height:1.6;
+
+}
+
+/*==============================
+RESPONSIVE
+==============================*/
+
+@media(max-width:992px){
+
+.footer-top,
+.footer-middle{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.back-cover{
+
+padding:110px 24px;
+
+}
+
+.back-cover h2{
+
+font-size:46px;
+
+}
+
+.back-cover p{
+
+font-size:16px;
+
+}
+
+.footer-container{
+
+padding:50px 24px 0;
+
+}
+
+.back-cover::after{
+
+font-size:100px;
+
 }
 
 }
@@ -2001,34 +2433,36 @@ width:140px;
 
 </head>
 
-<body>
+<body class="loading">
 
-<!--====================================================
-     LUXURY LOADING SCREEN
-=====================================================-->
+<!-- Reading Progress -->
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- Luxury Loader -->
 
 <div id="luxury-loader">
 
-    <div class="loader-content">
+<div class="loader-content">
 
-        <img src="logo.jpeg"
-             alt="50 Mirars"
-             class="loader-logo">
+<img src="logo.jpeg" alt="50 Mirars" class="loader-logo">
 
-        <div class="loader-title">
-            50 MIRARS
-        </div>
+<div class="loader-title">
+50 MIRARS
+</div>
 
-        <div class="loader-subtitle">
-            EDITORIAL JOURNAL
-        </div>
+<div class="loader-subtitle">
+EDITORIAL JOURNAL
+</div>
 
-        <div class="loader-line"></div>
-
-    </div>
+<div class="loader-line"></div>
 
 </div>
-   
+
+</div>
+
+<!-- Header -->
+
 <header class="journal-header">
 
 <div class="header-container">
@@ -2049,7 +2483,7 @@ width:140px;
 
 <a href="index.html" class="back-home">
 
-←Back to Home
+← Back to Home
 
 </a>
 
@@ -2057,56 +2491,138 @@ width:140px;
 
 </header>
 
+<!-- Magazine Cover -->
+
 <section class="hero">
 
 <div class="hero-image">
 
-<img src="Rolex Daytona Rainbow.jpeg"
-alt="Rolex Daytona">
+<img src="Rolex Daytona Rainbow.jpeg" alt="Rolex Daytona Rainbow">
 
 </div>
 
 <div class="hero-content">
 
+<div class="issue-label">
+
+<div class="issue-dot"></div>
+
+<span>ISSUE NO.01 · COLLECTOR'S EDITION</span>
+
+</div>
+
 <small>ESTABLISHED BY 50 MIRARS</small>
 
-<h2>Stories Behind Extraordinary Timepieces</h2>
+<h2>
+Stories Behind
+Extraordinary
+Timepieces
+</h2>
 
 <p>
 
-The 50 Mirars Journal celebrates the craftsmanship, heritage and timeless beauty of the world's most iconic watches. From legendary Rolex racing chronographs to elegant Cartier masterpieces, every story explores what makes these creations more than instruments of time.
+The official editorial journal of 50 Mirars explores the craftsmanship,
+heritage and timeless beauty of the world's most iconic watches through
+cinematic photography, luxury storytelling and collector-grade insights.
 
 </p>
 
-<div class="hero-buttons">
-
 <a href="#featured" class="primary-btn">
 
-Start Reading
+Begin the Journey →
 
 </a>
 
 </div>
 
+<div class="issue-circle">
+
+<span>ISSUE</span>
+
+<strong>01</strong>
+
+</div>
+
+<div class="scroll-indicator">
+
+<span>SCROLL</span>
+
+<div class="scroll-line"></div>
+
 </div>
 
 </section>
 
+<!-- Issue Strip -->
+
+<section class="issue-strip">
+
+<div class="issue-item">
+
+<h4>2026</h4>
+
+<p>Collector's Edition</p>
+
+</div>
+
+<div class="issue-item">
+
+<h4>20+</h4>
+
+<p>Luxury Stories</p>
+
+</div>
+
+<div class="issue-item">
+
+<h4>Rolex</h4>
+
+<p>Cover Story</p>
+
+</div>
+
+<div class="issue-item">
+
+<h4>45 Min</h4>
+
+<p>Editorial Reading</p>
+
+</div>
+
+</section>
+
+<!-- Editor's Letter -->
+
 <section class="intro">
 
-<small>THE EDITOR'S NOTE</small>
+<div class="editor-letter">
+
+<small>LETTER FROM THE EDITOR</small>
 
 <h3>
-
-A Curated Collection of Luxury Watch Stories
-
+Every Great Watch
+Deserves a Great Story.
 </h3>
 
 <p>
 
-Every watch carries more than hours and minutes—it carries history, engineering, artistry and emotion. The 50 Mirars Journal is designed as an editorial destination where collectors and enthusiasts can discover remarkable timepieces through beautifully written stories and premium visuals.
+Every extraordinary timepiece carries far more than hours and minutes—it
+carries ambition, craftsmanship, heritage and emotion. The 50 Mirars Journal
+was created as an editorial destination where collectors and enthusiasts can
+experience luxury watches through thoughtfully written stories, cinematic
+imagery and timeless design. Rather than simply displaying products, we
+celebrate the legacy behind each creation, allowing every page to feel like
+opening a beautifully printed luxury magazine.
 
 </p>
+
+<div class="signature">
+
+— 50 Mirars Editorial Team
+
+</div>
+
+</div>
 
 </section>
 
@@ -2114,7 +2630,11 @@ Every watch carries more than hours and minutes—it carries history, engineerin
 FEATURED STORIES
 ====================================================-->
 
-<section id="featured" class="featured-stories">
+<section id="featured" class="featured-stories reveal">
+
+<div class="chapter-number chapter-one">
+01
+</div>
 
 <div class="section-title">
 
@@ -2124,35 +2644,41 @@ FEATURED STORIES
 
 <p>
 
-Explore iconic timepieces through beautifully crafted editorial stories,
-from legendary racing chronographs to timeless luxury classics.
+Every extraordinary timepiece deserves more than a product page—it deserves
+an editorial. Discover iconic watches through cinematic photography, timeless
+design and beautifully crafted storytelling.
 
 </p>
 
 </div>
 
-<!-- Main Featured Story -->
+<!-- COVER STORY -->
 
-<article class="main-feature">
+<article class="cover-story">
 
-<div class="main-feature-image">
+<div class="cover-image">
 
-<img src="Rolex daytona Journal 2.jpg"
-alt="Rolex Daytona">
+<img src="Rolex daytona Journal 2.jpg" alt="Rolex Daytona">
 
 </div>
 
-<div class="main-feature-content">
+<div class="cover-content">
 
-<small>COVER STORY</small>
+<div class="cover-tag">
+COVER STORY
+</div>
 
-<h3>The Rolex Daytona — A Legend Forged on the Racetrack</h3>
+<h3>
+The Rolex Daytona —
+A Legend Forged
+on the Racetrack
+</h3>
 
-<div class="story-meta">
+<div class="cover-meta">
 
 <span>Luxury Editorial</span>
 
-<span>10 min read</span>
+<span>10 Min Read</span>
 
 <span>Rolex Collection</span>
 
@@ -2160,15 +2686,14 @@ alt="Rolex Daytona">
 
 <p>
 
-Few watches command the same admiration as the Cosmograph Daytona.
-Born from motorsport, refined through decades of innovation and elevated
-by collectors around the world, the Daytona represents the perfect union
-of precision engineering and timeless elegance.
+Few watches command admiration quite like the Cosmograph Daytona. Born from
+motorsport, refined through decades of innovation and elevated by collectors
+across the world, the Daytona represents the perfect union of precision
+engineering, racing heritage and timeless elegance.
 
 </p>
 
-<a href="journal/rolex-daytona.html"
-class="read-btn">
+<a href="journal/rolex-daytona.html" class="read-btn">
 
 Read the Complete Story →
 
@@ -2178,22 +2703,23 @@ Read the Complete Story →
 
 </article>
 
-<!-- Editorial Grid -->
+<!-- EDITORIAL GRID -->
 
 <div class="editorial-grid">
 
-<!-- Cartier -->
+<!-- PAGE 02 -->
 
 <article class="editorial-card">
 
-<div class="editorial-card-image">
+<div class="page-number">02</div>
 
-<img src="Cartier Santos Journal.webp"
-alt="Cartier Santos">
+<div class="editorial-image">
+
+<img src="Cartier Santos Journal.webp" alt="Cartier Santos">
 
 </div>
 
-<div class="editorial-card-content">
+<div class="editorial-content">
 
 <small>HERITAGE</small>
 
@@ -2201,13 +2727,12 @@ alt="Cartier Santos">
 
 <p>
 
-The pioneering square watch that transformed aviation history into
-one of luxury's most recognizable designs.
+The pioneering square watch that transformed aviation history into one of
+luxury's most recognizable designs.
 
 </p>
 
-<a href="journal/cartier-santos.html"
-class="editorial-link">
+<a href="journal/cartier-santos.html" class="editorial-link">
 
 Read Story →
 
@@ -2217,32 +2742,32 @@ Read Story →
 
 </article>
 
-<!-- Omega -->
+<!-- PAGE 03 -->
 
 <article class="editorial-card">
 
-<div class="editorial-card-image">
+<div class="page-number">03</div>
 
-<img src="Omega Speedmaster James Bond.jpeg"
-alt="Omega Speedmaster">
+<div class="editorial-image">
+
+<img src="Omega Speedmaster James Bond.jpeg" alt="Omega Speedmaster">
 
 </div>
 
-<div class="editorial-card-content">
+<div class="editorial-content">
 
 <small>SPACE LEGACY</small>
 
-<h4>Omega</h4>
+<h4>Omega Speedmaster</h4>
 
 <p>
 
-The Moonwatch that accompanied astronauts beyond Earth and became
+The legendary Moonwatch that accompanied astronauts beyond Earth and became
 an enduring symbol of exploration.
 
 </p>
 
-<a href="journal/omega-speedmaster.html"
-class="editorial-link">
+<a href="journal/omega-speedmaster.html" class="editorial-link">
 
 Read Story →
 
@@ -2252,18 +2777,19 @@ Read Story →
 
 </article>
 
-<!-- Seiko -->
+<!-- PAGE 04 -->
 
 <article class="editorial-card">
 
-<div class="editorial-card-image">
+<div class="page-number">04</div>
 
-<img src="Seiko Presage SRPE15.jpeg"
-alt="Seiko Presage">
+<div class="editorial-image">
+
+<img src="Seiko Presage SRPE15.jpeg" alt="Seiko Presage">
 
 </div>
 
-<div class="editorial-card-content">
+<div class="editorial-content">
 
 <small>JAPANESE ARTISTRY</small>
 
@@ -2271,13 +2797,12 @@ alt="Seiko Presage">
 
 <p>
 
-Traditional Japanese craftsmanship meets modern mechanical excellence
-inside an elegant open-heart masterpiece.
+Traditional Japanese craftsmanship meets modern mechanical excellence inside
+an elegant open-heart masterpiece.
 
 </p>
 
-<a href="journal/seiko-presage.html"
-class="editorial-link">
+<a href="journal/seiko-presage.html" class="editorial-link">
 
 Read Story →
 
@@ -2287,18 +2812,19 @@ Read Story →
 
 </article>
 
-<!-- Tissot -->
+<!-- PAGE 05 -->
 
 <article class="editorial-card">
 
-<div class="editorial-card-image">
+<div class="page-number">05</div>
 
-<img src="Tissot T-Race Chronograph Watch 2.jpeg"
-alt="Tissot T-Race">
+<div class="editorial-image">
+
+<img src="Tissot T-Race Chronograph Watch 2.jpeg" alt="Tissot T-Race">
 
 </div>
 
-<div class="editorial-card-content">
+<div class="editorial-content">
 
 <small>MOTORSPORT</small>
 
@@ -2306,13 +2832,12 @@ alt="Tissot T-Race">
 
 <p>
 
-Inspired by high-performance motorcycles, this chronograph brings
-speed and precision to everyday luxury.
+Inspired by high-performance motorcycles, this chronograph brings speed,
+precision and modern luxury into everyday wear.
 
 </p>
 
-<a href="journal/tissot-t-race.html"
-class="editorial-link">
+<a href="journal/tissot-t-race.html" class="editorial-link">
 
 Read Story →
 
@@ -2322,18 +2847,19 @@ Read Story →
 
 </article>
 
-<!-- Rolex GMT -->
+<!-- PAGE 06 -->
 
 <article class="editorial-card">
 
-<div class="editorial-card-image">
+<div class="page-number">06</div>
 
-<img src="Rolex GMT-Master II Simple Dial.jpeg"
-alt="Rolex GMT">
+<div class="editorial-image">
+
+<img src="Rolex GMT-Master II Simple Dial.jpeg" alt="Rolex GMT-Master II">
 
 </div>
 
-<div class="editorial-card-content">
+<div class="editorial-content">
 
 <small>TRAVEL ICON</small>
 
@@ -2341,13 +2867,12 @@ alt="Rolex GMT">
 
 <p>
 
-Created for international travelers, the GMT-Master II remains one
-of Rolex's most recognizable achievements.
+Created for international travelers, the GMT-Master II remains one of
+Rolex's greatest achievements in functional luxury.
 
 </p>
 
-<a href="journal/rolex-gmt-master-II.html"
-class="editorial-link">
+<a href="journal/rolex-gmt-master-II.html" class="editorial-link">
 
 Read Story →
 
@@ -2357,18 +2882,19 @@ Read Story →
 
 </article>
 
-<!-- Cartier Sunglasses -->
+<!-- PAGE 07 -->
 
 <article class="editorial-card">
 
-<div class="editorial-card-image">
+<div class="page-number">07</div>
 
-<img src="Cartier Sky Blue Jaguar Sunglasses.jpeg"
-alt="Cartier Sunglasses">
+<div class="editorial-image">
+
+<img src="Cartier Sky Blue Jaguar Sunglasses.jpeg" alt="Cartier Eyewear">
 
 </div>
 
-<div class="editorial-card-content">
+<div class="editorial-content">
 
 <small>STYLE EDITION</small>
 
@@ -2376,13 +2902,12 @@ alt="Cartier Sunglasses">
 
 <p>
 
-Luxury extends beyond watches. Discover Cartier's signature eyewear
-where craftsmanship meets unmistakable elegance.
+Luxury extends beyond the wrist. Discover Cartier's signature eyewear where
+craftsmanship meets unmistakable elegance.
 
 </p>
 
-<a href="journal/cartier-eyewear.html"
-class="editorial-link">
+<a href="journal/cartier-eyewear.html" class="editorial-link">
 
 Read Story →
 
@@ -2400,9 +2925,11 @@ Read Story →
 EDITOR'S PICKS
 ====================================================-->
 
-<section class="editors-picks reveal">
+<section class="editorial-section editors-picks reveal">
 
-<div class="picks-header">
+<div class="chapter-number chapter-two">02</div>
+
+<div class="section-title">
 
 <small>EDITOR'S PICKS</small>
 
@@ -2410,19 +2937,18 @@ EDITOR'S PICKS
 
 <p>
 
-Four exceptional creations selected for their craftsmanship,
-heritage and timeless presence.
+Four exceptional creations selected for their craftsmanship, heritage and
+timeless presence.
 
 </p>
 
 </div>
 
-<div class="picks-gallery">
+<div class="picks-grid">
 
 <div class="pick-card">
 
-<img src="Rolex Oyster Perpetual Day-Date.jpeg"
-alt="Rolex Day-Date">
+<img src="Rolex Oyster Perpetual Day-Date.jpeg" alt="Rolex Day-Date">
 
 <div class="pick-overlay">
 
@@ -2436,8 +2962,7 @@ alt="Rolex Day-Date">
 
 <div class="pick-card">
 
-<img src="Cartier Aqua Green Karan Aujla Edition.jpeg"
-alt="Cartier">
+<img src="Cartier Aqua Green Karan Aujla Edition.jpeg" alt="Cartier">
 
 <div class="pick-overlay">
 
@@ -2451,8 +2976,7 @@ alt="Cartier">
 
 <div class="pick-card">
 
-<img src="Seiko Blue Moon SSA347J1.jpeg"
-alt="Seiko">
+<img src="Seiko Blue Moon SSA347J1.jpeg" alt="Seiko">
 
 <div class="pick-overlay">
 
@@ -2466,8 +2990,7 @@ alt="Seiko">
 
 <div class="pick-card">
 
-<img src="MayBach Sunglasses 2735.jpeg"
-alt="Maybach Eyewear">
+<img src="MayBach Sunglasses 2735.jpeg" alt="Maybach">
 
 <div class="pick-overlay">
 
@@ -2491,25 +3014,27 @@ LUXURY SPOTLIGHT
 
 <div class="spotlight-card">
 
-<img src="Rolex GMT-Master II Simple Dial.jpeg"
-alt="Rolex GMT-Master II">
+<img src="Rolex GMT-Master II Simple Dial.jpeg" alt="GMT-Master II">
 
 <div class="spotlight-content">
 
 <small>LUXURY SPOTLIGHT</small>
 
-<h2>The GMT-Master II — Designed for Those Who Cross Time Zones</h2>
+<h2>
+The GMT-Master II —
+Designed for Those
+Who Cross Time Zones
+</h2>
 
 <p>
 
-Created for international travelers and refined into one of Rolex's
-most celebrated watches, the GMT-Master II combines technical innovation
-with unmistakable elegance.
+Created for international travelers and refined into one of Rolex's most
+celebrated watches, the GMT-Master II combines technical innovation with
+unmistakable elegance.
 
 </p>
 
-<a href="journal.html"
-class="spotlight-button">
+<a href="journal/rolex-gmt-master-II.html" class="spotlight-button">
 
 Discover More →
 
@@ -2529,9 +3054,9 @@ THE LANGUAGE OF TIME
 
 <blockquote>
 
-“A truly remarkable timepiece does more than measure time—it preserves
+A truly remarkable timepiece does more than measure time—it preserves
 memories, celebrates milestones and becomes part of the story of the person
-who wears it.”
+who wears it.
 
 </blockquote>
 
@@ -2540,74 +3065,95 @@ who wears it.”
 </section>
 
 <!--====================================================
-JOURNAL CATEGORIES
+LUXURY BRAND WALL
 ====================================================-->
 
-<section class="journal-categories reveal">
+<section class="brand-wall reveal">
 
-<div class="categories-header">
+<div class="section-title">
 
-<small>EXPLORE MORE</small>
+<small>THE COLLECTION</small>
 
-<h2>Browse by Category</h2>
+<h2>Icons of Luxury</h2>
 
 <p>
 
-Discover luxury stories organized by heritage, innovation and timeless design.
+The world's most celebrated names brought together in one editorial
+destination.
 
 </p>
 
 </div>
 
-<div class="category-grid">
+<div class="brand-grid">
 
-<div class="category-box">
+<div class="brand-card">
 
-<div class="icon">👑</div>
+<div class="brand-icon">
+
+<icon name=crown color=warning size=2xl/>
+
+</div>
 
 <h3>Rolex</h3>
 
-<p>Icons of prestige and precision.</p>
+<p>Prestige, precision and timeless achievement.</p>
 
 </div>
 
-<div class="category-box">
+<div class="brand-card">
 
-<div class="icon">✈️</div>
+<div class="brand-icon">
+
+<icon name=diamond color=warning size=2xl/>
+
+</div>
 
 <h3>Cartier</h3>
 
-<p>Elegant designs that shaped history.</p>
+<p>Jewelry craftsmanship transformed into iconic watches.</p>
 
 </div>
 
-<div class="category-box">
+<div class="brand-card">
 
-<div class="icon">🌙</div>
+<div class="brand-icon">
+
+<icon name=moon color=warning size=2xl/>
+
+</div>
 
 <h3>Omega</h3>
 
-<p>Exploration beyond Earth.</p>
+<p>The legendary Moonwatch and decades of exploration.</p>
 
 </div>
 
-<div class="category-box">
+<div class="brand-card">
 
-<div class="icon">🎌</div>
+<div class="brand-icon">
+
+<icon name=mountain color=warning size=2xl/>
+
+</div>
 
 <h3>Seiko</h3>
 
-<p>Japanese craftsmanship at its finest.</p>
+<p>Japanese artistry blended with mechanical excellence.</p>
 
 </div>
 
-<div class="category-box">
+<div class="brand-card">
 
-<div class="icon">🕶️</div>
+<div class="brand-icon">
+
+<icon name=glasses color=warning size=2xl/>
+
+</div>
 
 <h3>Eyewear</h3>
 
-<p>Luxury beyond the wrist.</p>
+<p>Luxury extends beyond the wrist.</p>
 
 </div>
 
@@ -2621,9 +3167,20 @@ JOURNAL STATS
 
 <section class="journal-stats reveal">
 
+<div class="section-title">
+
 <small>50 MIRARS JOURNAL</small>
 
 <h2>In Numbers</h2>
+
+<p>
+
+A growing editorial destination built for collectors, enthusiasts and lovers
+of timeless craftsmanship.
+
+</p>
+
+</div>
 
 <div class="stats-grid">
 
@@ -2664,33 +3221,35 @@ JOURNAL STATS
 </section>
 
 <!--====================================================
-JOIN THE JOURNAL
+MAGAZINE BACK COVER
 ====================================================-->
 
-<section class="join-journal reveal">
+<section class="back-cover reveal">
 
-<div class="join-card">
+<small>THE END OF THIS ISSUE</small>
 
-<small>CONTINUE THE JOURNEY</small>
-
-<h2>Experience More with 50 Mirars</h2>
+<h2>
+Until the
+Next Story
+</h2>
 
 <p>
 
-Continue exploring our world of luxury watches and premium eyewear through
-exclusive collections and beautifully curated stories.
+Every masterpiece has another chapter. Continue discovering exceptional
+watches, remarkable craftsmanship and timeless design through the world of
+50 Mirars.
 
 </p>
 
-<div class="join-buttons">
+<div class="back-buttons">
 
-<a href="index.html" class="join-dark">
+<a href="index.html" class="back-dark">
 
-Return to Home
+Return Home
 
 </a>
 
-<a href="watches.html" class="join-light">
+<a href="watches.html" class="back-light">
 
 Explore Watches
 
@@ -2698,144 +3257,162 @@ Explore Watches
 
 </div>
 
-</div>
-
 </section>
 
-<!-- =========================================================
-     FOOTER
-========================================================= -->
+<!--====================================================
+FOOTER
+====================================================-->
 
 <footer class="main-footer">
 
-    <div class="footer-container">
+<div class="footer-container">
 
-        <div class="footer-top">
+<div class="footer-top">
 
-            <h2>Contact Us</h2>
+<h2>Contact Us</h2>
 
-            <div class="contact-column">
+<div class="contact-column">
 
-                <h3>For Customers:</h3>
+<h3>For Customers:</h3>
 
-                <a href="mailto:50mirars@gmail.com" class="footer-link">
-                    50mirars@gmail.com
-                </a>
+<a href="mailto:50mirars@gmail.com" class="footer-link">
+50mirars@gmail.com
+</a>
 
-                <a href="tel:+918209989013" class="footer-link">
-                    82099 89013
-                </a>
+<a href="tel:+918209989013" class="footer-link">
+82099 89013
+</a>
 
-                <p>09:00 - 21:30 | Monday to Sunday</p>
+<p>09:00 - 21:30 | Monday to Sunday</p>
 
-            </div>
+</div>
 
-            <div class="contact-column">
+<div class="contact-column">
 
-                <h3>For Sales/Watch Service:</h3>
+<h3>For Sales/Watch Service:</h3>
 
-                <a href="mailto:50mirars@gmail.com" class="footer-link">
-                    50mirars@gmail.com
-                </a>
+<a href="mailto:50mirars@gmail.com" class="footer-link">
+50mirars@gmail.com
+</a>
 
-                <a href="tel:+918209989013" class="footer-link">
-                    82099 89013
-                </a>
+<a href="tel:+918209989013" class="footer-link">
+82099 89013
+</a>
 
-                <p>09:00 - 21:30 | Monday to Sunday</p>
+<p>09:00 - 21:30 | Monday to Sunday</p>
 
-            </div>
+</div>
 
-            <div class="whatsapp-column">
+<div class="whatsapp-column">
 
-                <h3 class="whatsapp-title">
+<h3 class="whatsapp-title">
 
-                    <span>View Products on WhatsApp</span>
+<span>View Products on WhatsApp</span>
 
-                    <img
-                        src="whatsapplogo.png"
-                        alt="WhatsApp"
-                        class="whatsapp-icon"
-                    >
+<img
+src="whatsapplogo.png"
+alt="WhatsApp"
+class="whatsapp-icon">
 
-                </h3>
+</h3>
 
-                <a
-                    href="https://wa.me/918209989013"
-                    target="_blank"
-                    rel="noopener"
-                    class="whatsapp-button"
-                >
-                    View Products
-                </a>
+<a
+href="https://wa.me/918209989013"
+target="_blank"
+rel="noopener"
+class="whatsapp-button">
 
-            </div>
+View Products
 
-        </div>
+</a>
 
-        <div class="footer-middle">
+</div>
 
-            <div class="footer-links-column">
+</div>
 
-                <h3>Know 50 Mirars</h3>
+<div class="footer-middle">
 
-                <a href="about.html">About Us</a>
+<div class="footer-links-column">
 
-                <a href="faq.html">FAQ</a>
+<h3>Know 50 Mirars</h3>
 
-            </div>
+<a href="about.html">About Us</a>
 
-            <div class="footer-links-column">
+<a href="faq.html">FAQ</a>
 
-                <h3>Terms & Conditions</h3>
+</div>
 
-                <a href="terms.html">Terms & Conditions</a>
+<div class="footer-links-column">
 
-                <a href="privacypolicy.html">Privacy Policy</a>
+<h3>Terms & Conditions</h3>
 
-            </div>
+<a href="terms.html">Terms & Conditions</a>
 
-            <div class="footer-social">
+<a href="privacypolicy.html">Privacy Policy</a>
 
-                <h3>50 Mirars</h3>
+</div>
 
-                <p>Follow Us On</p>
+<div class="footer-social">
 
-                <a
-                    href="https://instagram.com/50mirars"
-                    target="_blank"
-                    rel="noopener"
-                    class="instagram-button"
-                    aria-label="Follow 50 Mirars on Instagram"
-                >
+<h3>50 Mirars</h3>
 
-                    <img
-                        src="instagramimage.webp"
-                        alt="Instagram"
-                    >
+<p>Follow Us On</p>
 
-                </a>
+<a
+href="https://instagram.com/50mirars"
+target="_blank"
+rel="noopener"
+class="instagram-button"
+aria-label="Follow 50 Mirars on Instagram">
 
-            </div>
+<img
+src="instagramimage.webp"
+alt="Instagram">
 
-        </div>
+</a>
 
-        <div class="footer-bottom">
+</div>
 
-            <p>
-                © 2026 50 Mirars - The Watch & Sunglasses Store.
-                All Rights Reserved.
-            </p>
+</div>
 
-        </div>
+<div class="footer-bottom">
 
-    </div>
+<p>
+
+© 2026 50 Mirars - The Watch & Sunglasses Store.
+All Rights Reserved.
+
+</p>
+
+</div>
+
+</div>
 
 </footer>
 
 <script>
 
-/* Reveal Animation */
+/*==============================
+Reading Progress Bar
+==============================*/
+
+const progressBar=document.getElementById("progressBar");
+
+window.addEventListener("scroll",()=>{
+
+const scrollTop=document.documentElement.scrollTop;
+
+const height=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+
+const progress=(scrollTop/height)*100;
+
+progressBar.style.width=progress+"%";
+
+});
+
+/*==============================
+Reveal Animation
+==============================*/
 
 const revealElements=document.querySelectorAll(".reveal");
 
@@ -2855,9 +3432,9 @@ entry.target.classList.add("visible");
 
 revealElements.forEach(el=>revealObserver.observe(el));
 
-/* Luxury Loader */
-
-document.body.classList.add("loading");
+/*==============================
+Luxury Loader
+==============================*/
 
 window.addEventListener("load",()=>{
 
@@ -2869,12 +3446,11 @@ loader.classList.add("hide");
 
 document.body.classList.remove("loading");
 
-},1400);
+},1500);
 
 });
 
 </script>
-   
-</body>
 
+</body>
 </html>
