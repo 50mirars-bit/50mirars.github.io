@@ -71,260 +71,584 @@ textarea {
     font-family: inherit;
 }
 
-
 /* =====================================================
-   HEADER
+   CROWN LINE
 ===================================================== */
 
-.top-header {
+.crown-line{
 
-    width: 100%;
-    height: 118px; /* Increased from 92px */
+    position:fixed;
 
-    display: grid;
+    top:8px;
+    left:50%;
 
-    grid-template-columns:
-        1fr
-        1fr
-        1fr;
+    transform:translateX(-50%);
 
-    align-items: center;
+    width:220px;
 
-    padding:
-        12px
-        55px
-        20px; /* Extra bottom padding creates the gap */
+    height:14px;
 
-    background: #ffffff;
+    z-index:5100;
 
-    border-bottom:
-        1px solid
-        #eeeeee;
+    pointer-events:none;
+}
 
-    position: relative;
+.crown-line::before,
+.crown-line::after{
 
-    z-index: 1000;
+    content:"";
+
+    position:absolute;
+
+    top:50%;
+
+    width:96px;
+
+    height:1px;
+
+    background:linear-gradient(90deg,
+        transparent,
+        rgba(201,162,77,.95),
+        transparent);
+}
+
+.crown-line::before{
+    left:0;
+}
+
+.crown-line::after{
+    right:0;
+}
+
+.crown-line span{
+
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    width:8px;
+    height:8px;
+
+    transform:translate(-50%,-50%) rotate(45deg);
+
+    background:#D4AF37;
+
+    box-shadow:0 0 12px rgba(212,175,55,.55);
 }
 
 
-.header-left {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
+/* =====================================================
+   FLOATING GLASS HEADER
+===================================================== */
+
+.top-header{
+
+    position:fixed;
+    top:18px;
+    left:50%;
+    transform:translateX(-50%);
+
+    width:92%;
+    max-width:1400px;
+
+    height:86px;
+
+    display:grid;
+    grid-template-columns:auto 1fr auto;
+
+    align-items:center;
+
+    padding:0 28px;
+
+    background:rgba(12,12,12,.30);
+
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    border:1px solid rgba(201,162,77,.35);
+    border-radius:28px;
+
+   box-shadow:
+    0 18px 45px rgba(0,0,0,.25),
+    inset 0 1px rgba(255,255,255,.08),
+    0 0 35px rgba(201,162,77,.08);
+
+    z-index:5000;
+
+    overflow:hidden;
+
+    transition:.35s ease;
 }
 
-.header-logo {
-    display: flex;
-    align-items: center;
+/* ==========================================
+   Luxury Glass Shimmer
+========================================== */
+
+.top-header::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-120%;
+
+    width:45%;
+    height:100%;
+
+    background:linear-gradient(
+        115deg,
+        transparent,
+        rgba(255,255,255,.12),
+        transparent
+    );
+
+    animation:glassShimmer 8s ease-in-out infinite;
 }
 
-.header-logo img {
+@keyframes glassShimmer{
 
-    height: 68px;
-    width: auto;
+    0%{
+        left:-120%;
+    }
 
-    max-width: 170px;
+    45%{
+        left:120%;
+    }
 
-    object-fit: contain;
+    100%{
+        left:120%;
+    }
 }
 
-.header-brand {
-    display: flex;
-    justify-content: center;
-    text-align: center;
+/* Header shrink on scroll */
+
+.top-header.scrolled{
+
+    top:10px;
+    height:74px;
+
+    background:rgba(8,8,8,.82);
+
+    border-color:rgba(201,162,77,.55);
 }
 
-.header-brand h1 {
+/* Logo */
 
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size: 31px;
-
-    letter-spacing: 5px;
-
-    line-height: 1;
+.header-left{
+    display:flex;
+    align-items:center;
 }
 
-.header-brand span {
+.header-logo{
 
-    display: block;
+    width:64px;
+    height:64px;
 
-    margin-top: 6px;
+    border-radius:18px;
 
-    font-size: 8px;
+    overflow:hidden;
 
-    font-weight: 600;
+    border:1px solid rgba(201,162,77,.45);
 
-    letter-spacing: 4px;
-
-    color: #a7833c;
+    background:rgba(255,255,255,.04);
 }
 
-.header-right{
+.header-logo img{
+
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* Brand */
+
+.header-brand{
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.header-brand h1{
+
+    font-family:Georgia,"Times New Roman",serif;
+
+    color:#ffffff;
+
+    font-size:34px;
+
+    letter-spacing:7px;
+
+    line-height:1;
+}
+
+.header-brand span{
+
+    display:block;
+
+    margin-top:6px;
+
+    color:#c9a24d;
+
+    font-size:10px;
+
+    letter-spacing:5px;
+}
+
+/* =====================================================
+   LUXURY NAVIGATION
+===================================================== */
+
+.header-center{
+
     display:flex;
     flex-direction:column;
-    align-items:flex-end;
+    align-items:center;
     justify-content:center;
-    gap:14px;
+    gap:10px;
 }
-    
+
+.luxury-nav{
+
+    display:flex;
+    align-items:center;
+    gap:36px;
+}
+
+.luxury-nav a{
+
+    position:relative;
+
+    color:rgba(255,255,255,.90);
+
+    font-size:12px;
+
+    font-weight:600;
+
+    letter-spacing:1.6px;
+
+    text-transform:uppercase;
+
+    transition:.35s ease;
+}
+
+.luxury-nav a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+    bottom:-8px;
+
+    transform:translateX(-50%);
+
+    width:0;
+
+    height:1.5px;
+
+    background:#D4AF37;
+
+    transition:.35s ease;
+}
+
+.luxury-nav a{
+
+    display:inline-block;
+}
+
+.luxury-nav a:hover{
+
+    color:#ffffff;
+
+    transform:translateY(-2px);
+
+    text-shadow:0 0 10px rgba(212,175,55,.35);
+}
+
+.luxury-nav a:hover::after{
+
+    width:100%;
+}
+
+/* Right */
+
+.header-right{
+
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+
+/* Search */
+
+.search-container{
+
+    width:270px;
+}
+
+.search-box{
+
+    display:flex;
+    align-items:center;
+
+    background:rgba(255,255,255,.06);
+
+    border:1px solid rgba(201,162,77,.45);
+
+    border-radius:999px;
+
+    overflow:hidden;
+}
+
+.search-box input{
+
+    flex:1;
+
+    background:transparent;
+
+    border:none;
+
+    outline:none;
+
+    color:#ffffff;
+
+    padding:11px 16px;
+
+    font-size:14px;
+}
+
+.search-box input::placeholder{
+    color:rgba(255,255,255,.60);
+}
+
+.search-box button{
+
+    width:46px;
+    height:42px;
+
+    background:transparent;
+
+    border:none;
+
+    color:#c9a24d;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    transition:.3s;
+}
+
+.search-box button:hover{
+    transform:scale(1.08);
+}
+
+/* Icons */
 
 .header-icons{
 
     display:flex;
     align-items:center;
     gap:12px;
-
 }
 
-    
-/* =====================================================
-     Cart Button
-===================================================== */
-.header-cart {
-  width: 52px;
-  height: 52px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-}
+.header-profile,
+.header-cart{
 
-.cart-icon {
-  font-size: 26px;
-}
+    width:46px;
+    height:46px;
 
-/* =====================================================
-     Profile Button (Aligned with Cart)
-===================================================== */
-.header-profile {
-  width: 52px;
-  height: 52px; /* same height as cart */
-  display: flex;
-  align-items: center; /* center vertically */
-  justify-content: center; /* center horizontally */
-  border-radius: 50%;
-}
-
-.profile-icon {
-  font-size: 26px;
-}
-
-/* =====================================================
-   OFFER BAR
-===================================================== */
-
-.headline-bar {
-
-    width: 100%;
-
-    overflow: hidden;
-
-    white-space: nowrap;
-
-    background: #ffffff;
-
-    border-bottom:
-        1px solid
-        #eeeeee;
-}
-
-.headline-text {
-
-    display: inline-flex;
-
-    align-items: center;
-
-    width: max-content;
-
-    padding:
-        10px
-        0;
-
-    font-size: 16px;
-
-    font-weight: 600;
-
-    animation:
-        offer-scroll
-        17s
-        linear
-        infinite;
-}
-
-.headline-text strong {
-
-    color: #b38a38;
-
-    margin:
-        0
-        5px;
-}
-
-.headline-text img {
-
-    width: 20px !important;
-    height: auto !important;
-
-    margin:
-        0
-        5px;
-}
-
-@keyframes offer-scroll {
-
-    0% {
-        transform: translateX(100%);
-    }
-
-    100% {
-        transform: translateX(-100%);
-    }
-}
-
-/* =====================================================
-     Search Button
-===================================================== */
-
-
-.search-container{
-    width:420px;
-}
-
-.search-box{
     display:flex;
     align-items:center;
-    border:1.5px solid #c9a24d;
-    border-radius:30px;
-    overflow:hidden;
-    background:#fff;
+    justify-content:center;
+
+    border-radius:50%;
+
+    border:1px solid rgba(201,162,77,.35);
+
+    background:rgba(255,255,255,.05);
+
+    transition:.35s;
 }
 
-.search-box input{
-    flex:1;
-    border:none;
-    outline:none;
-    padding:13px 18px;
-    font-size:15px;
+.header-profile:hover,
+.header-cart:hover{
+
+    background:#D4AF37;
+
+    border-color:#D4AF37;
+
+    transform:translateY(-3px) scale(1.05);
+
+    box-shadow:
+        0 12px 30px rgba(212,175,55,.28),
+        0 0 18px rgba(212,175,55,.18);
 }
 
-.search-box button{
-    width:52px;
-    height:46px;
-    border:none;
-    background:#fff;
-    cursor:pointer;
-    font-size:20px;
-    color:#555;
+.profile-icon,
+.cart-icon{
+
+    width:20px;
+    height:20px;
+
+    transition:.35s ease;
 }
 
-.search-box button:hover{
-    color:#c9a24d;
+.header-profile:hover .profile-icon,
+.header-cart:hover .cart-icon{
+
+    transform:scale(1.08);
+}
+
+.header-profile:hover svg *,
+.header-cart:hover svg *{
+
+    stroke:#111;
+    fill:#111;
 }
     
+/* Space for fixed header */
+
+body{
+    padding-top:110px;
+} 
+
+/* ==========================================
+   LUXURY MOBILE MENU
+========================================== */
+
+.menu-toggle{
+
+    display:none;
+
+    width:46px;
+    height:46px;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(201,162,77,.35);
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    position:relative;
+
+    transition:.35s;
+}
+
+.menu-toggle span{
+
+    position:absolute;
+
+    left:50%;
+
+    width:18px;
+    height:2px;
+
+    background:#D4AF37;
+
+    transform:translateX(-50%);
+
+    transition:.35s;
+}
+
+.menu-toggle span:nth-child(1){top:15px;}
+.menu-toggle span:nth-child(2){top:22px;}
+.menu-toggle span:nth-child(3){top:29px;}
+
+.menu-toggle.active span:nth-child(1){
+
+    transform:translateX(-50%) rotate(45deg);
+    top:22px;
+}
+
+.menu-toggle.active span:nth-child(2){
+
+    opacity:0;
+}
+
+.menu-toggle.active span:nth-child(3){
+
+    transform:translateX(-50%) rotate(-45deg);
+    top:22px;
+}
+
+/* Full Screen Menu */
+
+.mobile-menu{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(8,8,8,.88);
+
+    backdrop-filter:blur(22px);
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.45s ease;
+
+    z-index:4500;
+}
+
+.mobile-menu.active{
+
+    opacity:1;
+    visibility:visible;
+}
+
+.mobile-menu nav{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:28px;
+
+    text-align:center;
+}
+
+.mobile-menu nav a{
+
+    font-family:Georgia,"Times New Roman",serif;
+
+    font-size:34px;
+
+    color:white;
+
+    letter-spacing:2px;
+
+    position:relative;
+}
+
+.mobile-menu nav a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+    bottom:-10px;
+
+    transform:translateX(-50%);
+
+    width:70px;
+    height:1px;
+
+    background:#D4AF37;
+}
 
 /* =====================================================
    HERO SLIDER
@@ -3142,6 +3466,9 @@ textarea {
 
 <body>
 
+<div class="crown-line">
+    <span></span>
+</div>
 
 <!-- =====================================================
      HEADER
@@ -3149,94 +3476,111 @@ textarea {
 
 <header class="top-header">
 
+    <!-- Left -->
     <div class="header-left">
-
-        <a
-            href="index.html"
-            class="header-logo"
-        >
-
-            <img
-                src="logo.jpeg"
-                alt="50 Mirars Logo"
-            >
-
+        <a href="index.html" class="header-logo">
+            <img src="logo.jpeg" alt="50 Mirars Logo">
         </a>
+    </div>
+
+    <!-- Center -->
+    <div class="header-center">
+
+        <div class="header-brand">
+            <div>
+                <h1>50 MIRARS</h1>
+                <span>WATCHES • SUNGLASSES</span>
+            </div>
+        </div>
+
+        <nav class="luxury-nav">
+            <a href="watches.html">Watches</a>
+            <a href="sunglasses.html">Sunglasses</a>
+            <a href="journal.html">Journal</a>
+            <a href="luxury-care-guide.html">Care Guide</a>
+            <a href="limited-edition.html">Limited</a>
+        </nav>
 
     </div>
 
+    <!-- Right -->
+   <div class="header-right">
 
-    <div class="header-brand">
+    <!-- Search -->
+    <div class="search-container">
 
-        <div>
+        <div class="search-box">
 
-            <h1>
-                50 MIRARS
-            </h1>
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search Watches & Eyewear"
+                autocomplete="off">
 
-            <span>
-                WATCHES • SUNGLASSES
-            </span>
+            <button id="searchBtn" type="button">⌕</button>
 
         </div>
 
     </div>
 
+    <!-- Icons -->
 
-   <div class="header-right">
-
-    <!-- Top Row -->
     <div class="header-icons">
 
-        <a href="profile.html"
-           class="header-profile"
-           aria-label="My Profile">
-
-            <span class="profile-icon">👤</span>
-
+        <a href="profile.html" class="header-profile" aria-label="My Profile">
+            <!-- Keep your existing SVG -->
+            <svg class="profile-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="8" r="4" stroke="#D4AF37" stroke-width="1.8"/>
+                <path d="M5 20C5 16.7 7.7 14 11 14H13C16.3 14 19 16.7 19 20"
+                      stroke="#D4AF37"
+                      stroke-width="1.8"
+                      stroke-linecap="round"/>
+            </svg>
         </a>
 
-        <a href="cart.html"
-           class="header-cart"
-           aria-label="Shopping Cart">
-
-            <span class="cart-icon">🛒</span>
-
+        <a href="cart.html" class="header-cart" aria-label="Shopping Cart">
+            <!-- Keep your existing SVG -->
+            <svg class="cart-icon" width="21" height="21" viewBox="0 0 24 24" fill="none">
+                <path d="M3 5H5L7 15H18L20 8H8"
+                      stroke="#D4AF37"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"/>
+                <circle cx="9" cy="20" r="1.5" fill="#D4AF37"/>
+                <circle cx="18" cy="20" r="1.5" fill="#D4AF37"/>
+            </svg>
         </a>
 
     </div>
 
-    <!-- Bottom Row -->
-   <div class="search-container">
+    <!-- Hamburger -->
 
-    <div class="search-box">
+    <button class="menu-toggle" id="menuToggle" aria-label="Open Menu">
 
-        <input
-            type="text"
-            id="searchInput"
-            placeholder="Search Products..."
-            autocomplete="off">
+        <span></span>
+        <span></span>
+        <span></span>
 
-        <button id="searchBtn" type="button">🔍</button>
-
-    </div>
+    </button>
 
 </div>
-    
 </header>
 
+<div class="mobile-menu" id="mobileMenu">
 
-<!-- =====================================================
-     OFFER BAR - 1st Anniversary
-===================================================== -->
+    <nav>
 
-<div class="headline-bar">
+        <a href="watches.html">Watches</a>
 
-    <div class="headline-text">
+        <a href="sunglasses.html">Sunglasses</a>
 
-        ✦ Celebrating 1 Year of 50 Mirars • Thank You for Being Part of Our Journey • Enjoy <strong>10% OFF</strong> Storewide • Use Code <strong>10OFF10</strong> • Limited Anniversary Offer ✦
+        <a href="journal.html">Journal</a>
 
-    </div>
+        <a href="luxury-care-guide.html">Care Guide</a>
+
+        <a href="limited-editions.html">Limited Editions</a>
+
+    </nav>
 
 </div>
 
@@ -5351,6 +5695,55 @@ searchInput.addEventListener("keydown",function(e){
     }
 
 });
+</script>
+
+<script>
+
+window.addEventListener("scroll",function(){
+
+    const header=document.querySelector(".top-header");
+
+    if(window.scrollY>40){
+
+        header.classList.add("scrolled");
+
+    }else{
+
+        header.classList.remove("scrolled");
+
+    }
+
+});
+
+</script>
+
+<script>
+
+const menuToggle=document.getElementById("menuToggle");
+const mobileMenu=document.getElementById("mobileMenu");
+
+menuToggle.addEventListener("click",function(){
+
+    menuToggle.classList.toggle("active");
+
+    mobileMenu.classList.toggle("active");
+
+    document.body.classList.toggle("menu-open");
+
+});
+
+mobileMenu.querySelectorAll("a").forEach(link=>{
+
+    link.addEventListener("click",function(){
+
+        menuToggle.classList.remove("active");
+        mobileMenu.classList.remove("active");
+        document.body.classList.remove("menu-open");
+
+    });
+
+});
+
 </script>
     
 </body>
