@@ -605,41 +605,78 @@ nav{
 }
    
 /* =========================================================
-   PREMIUM RESPONSIVE FOOTER
+   FOOTER
 ========================================================= */
 
 .main-footer{
     background:#111;
+
     color:#fff;
-    margin-top:60px;
+
+    margin-top:40px;
 }
 
 .footer-container{
-    max-width:1280px;
+    width:100%;
+
+    max-width:1400px;
+
     margin:0 auto;
-    padding:60px 24px 0;
+
+    padding:
+        60px
+        50px
+        0;
 }
+
+
+/* =========================================================
+   FOOTER TOP
+========================================================= */
 
 .footer-top{
     display:grid;
-    grid-template-columns:repeat(3,minmax(240px,1fr));
+
+    grid-template-columns:
+        1fr
+        1fr
+        1fr;
+
     gap:50px;
+
     padding-bottom:50px;
-    border-bottom:1px solid rgba(255,255,255,.12);
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,0.15);
 }
 
-.footer-top>h2{
-    grid-column:1/-1;
+.footer-top > h2{
+    grid-column:1 / -1;
+
     text-align:center;
-    font-family:'Cormorant Garamond',serif;
-    font-size:52px;
+
+    margin:0 0 10px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:38px;
+
+    font-weight:600;
+
     color:#c9a24d;
-    margin-bottom:20px;
 }
 
-.contact-column,
-.whatsapp-column{
-    min-width:0;
+
+/* =========================================================
+   FOOTER CONTACT
+========================================================= */
+
+.contact-column{
+    text-align:left;
 }
 
 .contact-column h3,
@@ -647,30 +684,40 @@ nav{
 .footer-links-column h3,
 .footer-social h3{
     color:#c9a24d;
-    font-size:22px;
-    margin-bottom:18px;
+
+    font-size:20px;
+
+    margin:0 0 18px;
 }
 
-.footer-link,
-.footer-links-column a{
+.contact-column p{
+    color:#bbb;
+
+    font-size:15px;
+
+    line-height:1.6;
+}
+
+.footer-link{
     display:block;
+
     color:#fff;
+
     text-decoration:none;
-    margin-bottom:14px;
-    transition:.3s;
-    word-break:break-word;
+
+    margin-bottom:12px;
+
+    transition:0.3s ease;
 }
 
-.footer-link:hover,
-.footer-links-column a:hover{
+.footer-link:hover{
     color:#c9a24d;
 }
 
-.contact-column p,
-.footer-social p{
-    color:#bbb;
-    line-height:1.7;
-}
+
+/* =========================================================
+   WHATSAPP
+========================================================= */
 
 .whatsapp-column{
     text-align:center;
@@ -678,54 +725,117 @@ nav{
 
 .whatsapp-title{
     display:flex;
+
     align-items:center;
+
     justify-content:center;
+
     gap:10px;
-    flex-wrap:wrap;
 }
 
 .whatsapp-icon{
-    width:28px;
-    height:28px;
+    width:28px !important;
+
+    height:28px !important;
+
+    object-fit:contain !important;
 }
 
 .whatsapp-button{
     display:inline-block;
-    margin-top:18px;
+
     background:#c9a24d;
+
     color:#111;
+
     text-decoration:none;
-    padding:14px 32px;
-    border-radius:8px;
-    font-weight:600;
-    transition:.3s;
+
+    padding:13px 30px;
+
+    border-radius:6px;
+
+    font-weight:bold;
+
+    transition:0.3s ease;
 }
 
 .whatsapp-button:hover{
     background:#fff;
+
+    color:#111;
 }
+
+
+/* =========================================================
+   FOOTER MIDDLE
+========================================================= */
 
 .footer-middle{
     display:grid;
-    grid-template-columns:repeat(3,minmax(220px,1fr));
+
+    grid-template-columns:
+        1fr
+        1fr
+        1fr;
+
     gap:50px;
+
     padding:50px 0;
-    border-bottom:1px solid rgba(255,255,255,.12);
 }
+
+.footer-links-column{
+    display:flex;
+
+    flex-direction:column;
+}
+
+.footer-links-column a{
+    color:#ccc;
+
+    text-decoration:none;
+
+    margin-bottom:13px;
+
+    transition:0.3s ease;
+}
+
+.footer-links-column a:hover{
+    color:#c9a24d;
+}
+
+
+/* =========================================================
+   INSTAGRAM
+========================================================= */
 
 .footer-social{
     text-align:center;
 }
 
+.footer-social p{
+    color:#bbb;
+
+    margin-bottom:15px;
+}
+
 .instagram-button{
     display:inline-flex;
-    justify-content:center;
+
     align-items:center;
-    width:54px;
-    height:54px;
-    border:1px solid #c9a24d;
+
+    justify-content:center;
+
+    width:50px;
+
+    height:50px;
+
+    border:
+        1px solid
+        #c9a24d;
+
     border-radius:50%;
-    transition:.3s;
+
+    transition:0.3s ease;
 }
 
 .instagram-button:hover{
@@ -734,32 +844,37 @@ nav{
 
 .instagram-button img{
     width:28px;
+
     height:28px;
+
+    object-fit:contain;
 }
 
+
+/* =========================================================
+   COPYRIGHT
+========================================================= */
+
 .footer-bottom{
+    border-top:
+        1px solid
+        rgba(255,255,255,0.15);
+
     text-align:center;
-    padding:24px 10px;
+
+    padding:25px 10px;
 }
 
 .footer-bottom p{
+    margin:0;
+
     color:#999;
+
+    font-size:14px;
+
     line-height:1.6;
 }
-
-/* Laptop */
-@media (max-width:1200px){
-
-.footer-top,
-.footer-middle{
-    grid-template-columns:repeat(2,minmax(250px,1fr));
-}
-
-.whatsapp-column{
-    grid-column:1/-1;
-}
-}
-
+   
 /* Mobile */
 @media (max-width:768px){
 
