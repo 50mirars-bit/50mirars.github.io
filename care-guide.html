@@ -368,23 +368,16 @@ box-shadow:0 18px 45px rgba(212,175,55,.22);
 }
 
 .section-title{
-
-font-family:'Cormorant Garamond',serif;
-
-font-size:58px;
-
-text-align:center;
-
-margin-bottom:20px;
-
-position:relative;
-
-display:inline-block;
-
-left:50%;
-
-transform:translateX(-50%);
-
+    font-family:'Cormorant Garamond',serif;
+    font-size:58px;
+    text-align:center;
+    margin:0 auto 20px;
+    display:block;
+    max-width:100%;
+    padding:0 20px;
+    line-height:1.1;
+    word-break:normal;
+    overflow-wrap:break-word;
 }
 
 .section-title::after{
@@ -612,78 +605,41 @@ nav{
 }
    
 /* =========================================================
-   FOOTER
+   PREMIUM RESPONSIVE FOOTER
 ========================================================= */
 
 .main-footer{
     background:#111;
-
     color:#fff;
-
-    margin-top:40px;
+    margin-top:60px;
 }
 
 .footer-container{
-    width:100%;
-
-    max-width:1400px;
-
+    max-width:1280px;
     margin:0 auto;
-
-    padding:
-        60px
-        50px
-        0;
+    padding:60px 24px 0;
 }
-
-
-/* =========================================================
-   FOOTER TOP
-========================================================= */
 
 .footer-top{
     display:grid;
-
-    grid-template-columns:
-        1fr
-        1fr
-        1fr;
-
+    grid-template-columns:repeat(3,minmax(240px,1fr));
     gap:50px;
-
     padding-bottom:50px;
-
-    border-bottom:
-        1px solid
-        rgba(255,255,255,0.15);
+    border-bottom:1px solid rgba(255,255,255,.12);
 }
 
-.footer-top > h2{
-    grid-column:1 / -1;
-
+.footer-top>h2{
+    grid-column:1/-1;
     text-align:center;
-
-    margin:0 0 10px;
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size:38px;
-
-    font-weight:600;
-
+    font-family:'Cormorant Garamond',serif;
+    font-size:52px;
     color:#c9a24d;
+    margin-bottom:20px;
 }
 
-
-/* =========================================================
-   FOOTER CONTACT
-========================================================= */
-
-.contact-column{
-    text-align:left;
+.contact-column,
+.whatsapp-column{
+    min-width:0;
 }
 
 .contact-column h3,
@@ -691,40 +647,30 @@ nav{
 .footer-links-column h3,
 .footer-social h3{
     color:#c9a24d;
-
-    font-size:20px;
-
-    margin:0 0 18px;
+    font-size:22px;
+    margin-bottom:18px;
 }
 
-.contact-column p{
-    color:#bbb;
-
-    font-size:15px;
-
-    line-height:1.6;
-}
-
-.footer-link{
+.footer-link,
+.footer-links-column a{
     display:block;
-
     color:#fff;
-
     text-decoration:none;
-
-    margin-bottom:12px;
-
-    transition:0.3s ease;
+    margin-bottom:14px;
+    transition:.3s;
+    word-break:break-word;
 }
 
-.footer-link:hover{
+.footer-link:hover,
+.footer-links-column a:hover{
     color:#c9a24d;
 }
 
-
-/* =========================================================
-   WHATSAPP
-========================================================= */
+.contact-column p,
+.footer-social p{
+    color:#bbb;
+    line-height:1.7;
+}
 
 .whatsapp-column{
     text-align:center;
@@ -732,117 +678,54 @@ nav{
 
 .whatsapp-title{
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
     gap:10px;
+    flex-wrap:wrap;
 }
 
 .whatsapp-icon{
-    width:28px !important;
-
-    height:28px !important;
-
-    object-fit:contain !important;
+    width:28px;
+    height:28px;
 }
 
 .whatsapp-button{
     display:inline-block;
-
+    margin-top:18px;
     background:#c9a24d;
-
     color:#111;
-
     text-decoration:none;
-
-    padding:13px 30px;
-
-    border-radius:6px;
-
-    font-weight:bold;
-
-    transition:0.3s ease;
+    padding:14px 32px;
+    border-radius:8px;
+    font-weight:600;
+    transition:.3s;
 }
 
 .whatsapp-button:hover{
     background:#fff;
-
-    color:#111;
 }
-
-
-/* =========================================================
-   FOOTER MIDDLE
-========================================================= */
 
 .footer-middle{
     display:grid;
-
-    grid-template-columns:
-        1fr
-        1fr
-        1fr;
-
+    grid-template-columns:repeat(3,minmax(220px,1fr));
     gap:50px;
-
     padding:50px 0;
+    border-bottom:1px solid rgba(255,255,255,.12);
 }
-
-.footer-links-column{
-    display:flex;
-
-    flex-direction:column;
-}
-
-.footer-links-column a{
-    color:#ccc;
-
-    text-decoration:none;
-
-    margin-bottom:13px;
-
-    transition:0.3s ease;
-}
-
-.footer-links-column a:hover{
-    color:#c9a24d;
-}
-
-
-/* =========================================================
-   INSTAGRAM
-========================================================= */
 
 .footer-social{
     text-align:center;
 }
 
-.footer-social p{
-    color:#bbb;
-
-    margin-bottom:15px;
-}
-
 .instagram-button{
     display:inline-flex;
-
-    align-items:center;
-
     justify-content:center;
-
-    width:50px;
-
-    height:50px;
-
-    border:
-        1px solid
-        #c9a24d;
-
+    align-items:center;
+    width:54px;
+    height:54px;
+    border:1px solid #c9a24d;
     border-radius:50%;
-
-    transition:0.3s ease;
+    transition:.3s;
 }
 
 .instagram-button:hover{
@@ -851,35 +734,52 @@ nav{
 
 .instagram-button img{
     width:28px;
-
     height:28px;
-
-    object-fit:contain;
 }
 
-
-/* =========================================================
-   COPYRIGHT
-========================================================= */
-
 .footer-bottom{
-    border-top:
-        1px solid
-        rgba(255,255,255,0.15);
-
     text-align:center;
-
-    padding:25px 10px;
+    padding:24px 10px;
 }
 
 .footer-bottom p{
-    margin:0;
-
     color:#999;
-
-    font-size:14px;
-
     line-height:1.6;
+}
+
+/* Laptop */
+@media (max-width:1200px){
+
+.footer-top,
+.footer-middle{
+    grid-template-columns:repeat(2,minmax(250px,1fr));
+}
+
+.whatsapp-column{
+    grid-column:1/-1;
+}
+}
+
+/* Mobile */
+@media (max-width:768px){
+
+.footer-container{
+    padding:50px 20px 0;
+}
+
+.footer-top,
+.footer-middle{
+    grid-template-columns:1fr;
+    text-align:center;
+}
+
+.contact-column{
+    text-align:center;
+}
+
+.footer-top>h2{
+    font-size:42px;
+}
 }
    
 </style>
