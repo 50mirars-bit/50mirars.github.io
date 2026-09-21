@@ -361,13 +361,10 @@ box-shadow:0 18px 45px rgba(212,175,55,.22);
 ========================================================= */
 
 .section{
-
-max-width:1220px;
-
-margin:auto;
-
-padding:110px 26px;
-
+    width:100%;
+    max-width:1220px;
+    margin:0 auto;
+    padding:110px 24px;
 }
 
 .section-title{
@@ -558,40 +555,59 @@ transform:translateY(0);
    MOBILE
 ========================================================= */
 
-@media(max-width:900px){
+@media (max-width:900px){
 
 nav{
-padding:18px;
+    padding:16px;
+    flex-wrap:wrap;
+    gap:12px;
 }
 
 .logo{
-font-size:28px;
+    font-size:26px;
+}
+
+.back-btn{
+    font-size:13px;
+    padding:10px 18px;
+}
+
+.hero{
+    min-height:90vh;
+    padding:90px 18px 40px;
+}
+
+.hero h1{
+    font-size:clamp(40px,12vw,60px);
 }
 
 .hero p{
-font-size:17px;
+    font-size:16px;
 }
 
 .section{
-padding:80px 18px;
+    padding:70px 18px;
 }
 
 .section-title{
-font-size:40px;
+    font-size:36px;
 }
 
 .editorial,
 .editorial.reverse{
-grid-template-columns:1fr;
-gap:30px;
+    grid-template-columns:1fr;
+    gap:28px;
+}
+
+.editorial h2{
+    font-size:34px;
 }
 
 .full-image img{
-height:340px;
+    height:280px;
 }
-
 }
-
+   
 /* =========================================================
    FOOTER
 ========================================================= */
