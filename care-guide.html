@@ -419,23 +419,26 @@ color:#BDB6AB;
 ========================================================= */
 
 .editorial{
-
-display:grid;
-
-grid-template-columns:1.08fr 1fr;
-
-gap:60px;
-
-align-items:center;
-
-margin:100px 0;
-
+    display:grid;
+    grid-template-columns:minmax(0,1.08fr) minmax(0,1fr);
+    gap:60px;
+    align-items:center;
+    margin:100px 0;
 }
 
 .editorial.reverse{
+    grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);
+}
 
-grid-template-columns:1fr 1.08fr;
+/* Prevent text from getting cut on laptop screens */
+.editorial > div{
+    min-width:0;
+}
 
+.editorial h2,
+.editorial p{
+    overflow-wrap:anywhere;
+    word-break:normal;
 }
 
 .editorial img{
