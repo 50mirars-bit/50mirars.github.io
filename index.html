@@ -72,219 +72,303 @@ textarea {
 }
 
 
-/* =====================================================
-   HEADER
-===================================================== */
+/*=====================================================
+   50 MIRARS — DESIGN 3 GLASS HEADER
+=====================================================*/
 
-.top-header {
-
-    width: 100%;
-    height: 118px; /* Increased from 92px */
-
-    display: grid;
-
-    grid-template-columns:
-        1fr
-        1fr
-        1fr;
-
-    align-items: center;
-
-    padding:
-        12px
-        55px
-        20px; /* Extra bottom padding creates the gap */
-
-    background: #ffffff;
-
-    border-bottom:
-        1px solid
-        #eeeeee;
-
-    position: relative;
-
-    z-index: 1000;
+.glass-header-wrapper{
+    position:relative;
+    width:100%;
+    padding:14px;
+    background:#050505;
+    overflow:hidden;
 }
 
+/* Blurred Background */
 
-.header-left {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
+.glass-header-wrapper::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),
+        url("header-glass-bg.jpg") center center/cover no-repeat;
+    filter:blur(10px);
+    transform:scale(1.08);
 }
 
-.header-logo {
-    display: flex;
-    align-items: center;
+/* Main Glass Panel */
+
+.glass-header{
+
+    position:relative;
+    z-index:5;
+
+    width:100%;
+    max-width:1540px;
+    margin:auto;
+
+    height:148px;
+
+    display:grid;
+    grid-template-columns:170px 1fr 210px;
+
+    align-items:center;
+
+    padding:0 38px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(22px);
+
+    border:1px solid rgba(255,255,255,.25);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.20),
+        0 25px 80px rgba(0,0,0,.45);
 }
 
-.header-logo img {
+/* Thin Gold Reflection */
 
-    height: 68px;
-    width: auto;
-
-    max-width: 170px;
-
-    object-fit: contain;
+.glass-header::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:10%;
+    width:80%;
+    height:1px;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(212,175,55,.95),
+        transparent);
 }
 
-.header-brand {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-}
+/* Left */
 
-.header-brand h1 {
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size: 31px;
-
-    letter-spacing: 5px;
-
-    line-height: 1;
-}
-
-.header-brand span {
-
-    display: block;
-
-    margin-top: 6px;
-
-    font-size: 8px;
-
-    font-weight: 600;
-
-    letter-spacing: 4px;
-
-    color: #a7833c;
-}
-
-.header-right{
-    display:flex;
-    flex-direction:column;
-    align-items:flex-end;
-    justify-content:center;
-    gap:14px;
-}
-    
-
-.header-icons{
+.glass-left{
 
     display:flex;
     align-items:center;
-    gap:12px;
-
+    gap:26px;
 }
 
+.glass-left img{
+    height:84px;
+    width:auto;
+    object-fit:contain;
+}
+
+.glass-divider{
+    width:1px;
+    height:72px;
+    background:rgba(255,255,255,.28);
+}
+
+/* Center */
+
+.glass-center{
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+
+.glass-brand h1{
+
+    font-family:Georgia,"Times New Roman",serif;
+
+    font-size:64px;
+    font-weight:500;
+
+    letter-spacing:2px;
+
+    color:#fff;
+
+    line-height:1;
+}
+
+.glass-brand span{
+
+    display:block;
+
+    margin-top:9px;
+
+    text-align:center;
+
+    font-size:13px;
+
+    letter-spacing:8px;
+
+    color:#c9a24d;
+}
+
+/* Navigation */
+
+.glass-nav{
+
+    display:flex;
+
+    gap:34px;
+
+    margin-top:22px;
+}
+
+.glass-nav a{
+
+    color:#fff;
+
+    font-size:15px;
+
+    letter-spacing:.8px;
+
+    position:relative;
+
+    transition:.3s;
+}
+
+.glass-nav a:hover{
+
+    color:#d7b05a;
+}
+
+.glass-nav a.active::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-10px;
+
+    width:42px;
+
+    height:2px;
+
+    background:#fff;
+}
+
+/* Right Icons */
+
+.glass-right{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:14px;
+}
+
+.glass-icon{
+
+    width:58px;
+    height:58px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.09);
+
+    border:1px solid rgba(255,255,255,.18);
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    color:#fff;
+
+    position:relative;
+
+    transition:.35s ease;
+}
+
+.glass-icon:hover{
+
+    background:rgba(201,162,77,.18);
+
+    border-color:#c9a24d;
+
+    transform:translateY(-2px);
+}
+
+/* Cart Badge */
+
+.cart-count{
+
+    position:absolute;
+
+    top:-5px;
+    right:-3px;
+
+    width:24px;
+    height:24px;
+
+    border-radius:50%;
+
+    background:#c9a24d;
+
+    color:#111;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+}
+
+/* Mobile */
+
+@media(max-width:900px){
+
+.glass-header{
+
+    grid-template-columns:1fr;
+
+    height:auto;
+
+    gap:24px;
+
+    padding:30px;
+}
+
+.glass-left{
+
+    justify-content:center;
+}
+
+.glass-divider{
+
+    display:none;
+}
+
+.glass-brand h1{
+
+    font-size:40px;
+}
+
+.glass-nav{
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    gap:18px;
+}
+
+.glass-right{
+
+    justify-content:center;
+}
+
+}
     
-/* =====================================================
-     Cart Button
-===================================================== */
-.header-cart {
-  width: 52px;
-  height: 52px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-}
-
-.cart-icon {
-  font-size: 26px;
-}
-
-/* =====================================================
-     Profile Button (Aligned with Cart)
-===================================================== */
-.header-profile {
-  width: 52px;
-  height: 52px; /* same height as cart */
-  display: flex;
-  align-items: center; /* center vertically */
-  justify-content: center; /* center horizontally */
-  border-radius: 50%;
-}
-
-.profile-icon {
-  font-size: 26px;
-}
-
-/* =====================================================
-   OFFER BAR
-===================================================== */
-
-.headline-bar {
-
-    width: 100%;
-
-    overflow: hidden;
-
-    white-space: nowrap;
-
-    background: #ffffff;
-
-    border-bottom:
-        1px solid
-        #eeeeee;
-}
-
-.headline-text {
-
-    display: inline-flex;
-
-    align-items: center;
-
-    width: max-content;
-
-    padding:
-        10px
-        0;
-
-    font-size: 16px;
-
-    font-weight: 600;
-
-    animation:
-        offer-scroll
-        17s
-        linear
-        infinite;
-}
-
-.headline-text strong {
-
-    color: #b38a38;
-
-    margin:
-        0
-        5px;
-}
-
-.headline-text img {
-
-    width: 20px !important;
-    height: auto !important;
-
-    margin:
-        0
-        5px;
-}
-
-@keyframes offer-scroll {
-
-    0% {
-        transform: translateX(100%);
-    }
-
-    100% {
-        transform: translateX(-100%);
-    }
-}
-
 /* =====================================================
    50 MIRARS SIGNATURE LUXURY SEARCH
 ===================================================== */
@@ -3267,64 +3351,79 @@ textarea {
      HEADER
 ===================================================== -->
 
-<header class="top-header">
+<header class="glass-header-wrapper">
 
-    <div class="header-left">
+<div class="glass-header">
 
-        <a
-            href="index.html"
-            class="header-logo"
-        >
+    <!-- LEFT -->
 
-            <img
-                src="logo.jpeg"
-                alt="50 Mirars Logo"
-            >
+    <div class="glass-left">
 
-        </a>
+        <img src="logo.jpeg" alt="50 Mirars">
+
+        <div class="glass-divider"></div>
 
     </div>
 
+    <!-- CENTER -->
 
-    <div class="header-brand">
+    <div class="glass-center">
 
-        <div>
+        <div class="glass-brand">
 
-            <h1>
-                50 MIRARS
-            </h1>
+            <h1>50 MIRARS</h1>
 
-            <span>
-                WATCHES • SUNGLASSES
-            </span>
+            <span>WATCHES • SUNGLASSES</span>
 
         </div>
 
+        <nav class="glass-nav">
+
+            <a href="index.html" class="active">HOME</a>
+
+            <a href="watches.html">WATCHES</a>
+
+            <a href="sunglasses.html">SUNGLASSES</a>
+
+            <a href="collections.html">COLLECTIONS</a>
+
+            <a href="journal.html">JOURNAL</a>
+
+            <a href="about.html">ABOUT</a>
+
+            <a href="#contact">CONTACT</a>
+
+        </nav>
+
     </div>
 
+    <!-- RIGHT -->
 
-   <div class="header-right">
+    <div class="glass-right">
 
-    <!-- Top Row -->
-    <div class="header-icons">
+        <a href="#" class="glass-icon">
 
-        <a href="profile.html"
-           class="header-profile"
-           aria-label="My Profile">
-
-            <span class="profile-icon">👤</span>
+            <icon name=search size=md/>
 
         </a>
 
-        <a href="cart.html"
-           class="header-cart"
-           aria-label="Shopping Cart">
+        <a href="profile.html" class="glass-icon">
 
-            <span class="cart-icon">🛒</span>
+            <icon name=circle-user size=md/>
+
+        </a>
+
+        <a href="cart.html" class="glass-icon">
+
+            <icon name=shopping-bag size=md/>
+
+            <span class="cart-count" id="cartCount">0</span>
 
         </a>
 
     </div>
+
+</div>
 
     <!-- Bottom Row -->
    <div class="search-container">
