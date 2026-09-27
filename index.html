@@ -5,3774 +5,3901 @@
 
 <meta charset="UTF-8">
 
-<meta
-    name="viewport"
-    content="width=1000"
->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta
-    name="theme-color"
-    content="#ffffff"
->
+<meta name="theme-color" content="#111111">
 
-<meta
-    name="description"
-    content="50 Mirars - Premium Watches and Sunglasses"
->
+<meta name="description" content="50 Mirars - Premium Watches & Sunglasses">
 
-<title>50 Mirars | Watches & Sunglasses</title>
+<title>50 Mirars | Luxury Watches & Sunglasses</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
-/* =====================================================
-   GLOBAL
-===================================================== */
+/* =========================================================
+   RESET
+========================================================= */
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-    overflow-x: hidden;
+html{
+scroll-behavior:smooth;
+overflow-x:hidden;
 }
 
-body {
-    width: 100%;
-    min-width: 0;
+body{
 
-    overflow-x: hidden;
+font-family:Inter,sans-serif;
 
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
+background:#111;
 
-    background: #ffffff;
-    color: #111111;
+color:#fff;
+
+overflow-x:hidden;
+
+line-height:1.6;
 }
 
-img {
-    display: block;
-    max-width: 100%;
+img{
+display:block;
+max-width:100%;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
+a{
+text-decoration:none;
+color:inherit;
 }
 
-button,
-input,
-textarea {
-    font-family: inherit;
+:root{
+
+--gold:#C9A24D;
+--gold-light:#F2D48C;
+--cream:#F8F5ED;
+--champagne:#E8DCC3;
+--black:#111111;
+--glass:rgba(255,255,255,.08);
+
 }
 
+/* =========================================================
+   FLOATING GLASS HEADER
+========================================================= */
 
-/* =====================================================
-   HEADER
-===================================================== */
+.top-header{
 
-.top-header {
+position:fixed;
 
-    width: 100%;
-    height: 118px; /* Increased from 92px */
+top:20px;
+left:50%;
 
-    display: grid;
+transform:translateX(-50%);
 
-    grid-template-columns:
-        1fr
-        1fr
-        1fr;
+width:min(96%,1400px);
 
-    align-items: center;
+height:82px;
 
-    padding:
-        12px
-        55px
-        20px; /* Extra bottom padding creates the gap */
+display:grid;
 
-    background: #ffffff;
+grid-template-columns:auto 1fr auto;
 
-    border-bottom:
-        1px solid
-        #eeeeee;
+align-items:center;
 
-    position: relative;
+padding:0 26px;
 
-    z-index: 1000;
+background:rgba(15,15,15,.55);
+
+backdrop-filter:blur(18px);
+
+border:1px solid rgba(201,162,77,.22);
+
+border-radius:28px;
+
+box-shadow:
+
+0 25px 70px rgba(0,0,0,.35),
+
+inset 0 1px 0 rgba(255,255,255,.08);
+
+z-index:9999;
+
+transition:.45s ease;
+
+overflow:hidden;
+
 }
 
+.top-header::before{
 
-.header-left {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
+content:"";
+
+position:absolute;
+
+top:0;
+left:12%;
+
+width:76%;
+height:1px;
+
+background:linear-gradient(90deg,transparent,var(--gold-light),transparent);
+
 }
 
-.header-logo {
-    display: flex;
-    align-items: center;
+.top-header.scrolled{
+
+top:10px;
+
+height:72px;
+
+background:rgba(10,10,10,.82);
+
 }
 
-.header-logo img {
+/* Logo */
 
-    height: 68px;
-    width: auto;
+.header-logo img{
 
-    max-width: 170px;
+height:54px;
 
-    object-fit: contain;
+transition:.4s;
 }
 
-.header-brand {
-    display: flex;
-    justify-content: center;
-    text-align: center;
+.top-header.scrolled .header-logo img{
+
+height:46px;
 }
 
-.header-brand h1 {
+/* Center Brand */
 
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
+.header-brand{
 
-    font-size: 31px;
-
-    letter-spacing: 5px;
-
-    line-height: 1;
+text-align:center;
 }
 
-.header-brand span {
+.header-brand h1{
 
-    display: block;
+font-family:"Cormorant Garamond",serif;
 
-    margin-top: 6px;
+font-size:34px;
 
-    font-size: 8px;
+font-weight:600;
 
-    font-weight: 600;
-
-    letter-spacing: 4px;
-
-    color: #a7833c;
+letter-spacing:7px;
 }
+
+.header-brand span{
+
+display:block;
+
+margin-top:3px;
+
+font-size:10px;
+
+letter-spacing:4px;
+
+color:var(--gold);
+}
+
+/* Right Side */
 
 .header-right{
-    display:flex;
-    flex-direction:column;
-    align-items:flex-end;
-    justify-content:center;
-    gap:14px;
-}
-    
 
-.header-icons{
+display:flex;
 
-    display:flex;
-    align-items:center;
-    gap:12px;
+align-items:center;
 
+gap:14px;
 }
 
-    
-/* =====================================================
-     Cart Button
-===================================================== */
-.header-cart {
-  width: 52px;
-  height: 52px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-}
-
-.cart-icon {
-  font-size: 26px;
-}
-
-/* =====================================================
-     Profile Button (Aligned with Cart)
-===================================================== */
-.header-profile {
-  width: 52px;
-  height: 52px; /* same height as cart */
-  display: flex;
-  align-items: center; /* center vertically */
-  justify-content: center; /* center horizontally */
-  border-radius: 50%;
-}
-
-.profile-icon {
-  font-size: 26px;
-}
-
-/* =====================================================
-   OFFER BAR
-===================================================== */
-
-.headline-bar {
-
-    width: 100%;
-
-    overflow: hidden;
-
-    white-space: nowrap;
-
-    background: #ffffff;
-
-    border-bottom:
-        1px solid
-        #eeeeee;
-}
-
-.headline-text {
-
-    display: inline-flex;
-
-    align-items: center;
-
-    width: max-content;
-
-    padding:
-        10px
-        0;
-
-    font-size: 16px;
-
-    font-weight: 600;
-
-    animation:
-        offer-scroll
-        17s
-        linear
-        infinite;
-}
-
-.headline-text strong {
-
-    color: #b38a38;
-
-    margin:
-        0
-        5px;
-}
-
-.headline-text img {
-
-    width: 20px !important;
-    height: auto !important;
-
-    margin:
-        0
-        5px;
-}
-
-@keyframes offer-scroll {
-
-    0% {
-        transform: translateX(100%);
-    }
-
-    100% {
-        transform: translateX(-100%);
-    }
-}
-
-/* =====================================================
-   50 MIRARS SIGNATURE LUXURY SEARCH
-===================================================== */
-
-.search-container{
-    width:460px;
-    display:flex;
-    justify-content:flex-end;
-    position:relative;
-}
-
-/* Floating Capsule */
+/* Search */
 
 .search-box{
 
-    position:relative;
+display:flex;
 
-    width:100%;
-    height:58px;
+align-items:center;
 
-    display:flex;
-    align-items:center;
+width:280px;
 
-    border-radius:999px;
+height:48px;
 
-    overflow:hidden;
+padding:0 5px 0 16px;
 
-    background:
-        linear-gradient(135deg,
-        rgba(255,255,255,.96),
-        rgba(248,245,237,.96));
+border-radius:999px;
 
-    border:1px solid rgba(201,162,77,.45);
+background:rgba(255,255,255,.05);
 
-    backdrop-filter:blur(14px);
+border:1px solid rgba(201,162,77,.22);
 
-    box-shadow:
-        0 18px 45px rgba(0,0,0,.10),
-        inset 0 1px 0 rgba(255,255,255,.95);
+backdrop-filter:blur(10px);
 
-    transition:.45s ease;
-}
-
-/* Gold Accent Line */
-
-.search-box::before{
-
-    content:"";
-
-    position:absolute;
-
-    top:0;
-    left:12%;
-
-    width:76%;
-    height:1px;
-
-    background:
-        linear-gradient(90deg,
-        transparent,
-        rgba(242,212,140,.95),
-        transparent);
-
-    transition:.45s ease;
-}
-
-/* Shine Effect */
-
-.search-box::after{
-
-    content:"";
-
-    position:absolute;
-
-    top:0;
-    left:-120%;
-
-    width:45%;
-    height:100%;
-
-    transform:skewX(-22deg);
-
-    background:
-        linear-gradient(90deg,
-        transparent,
-        rgba(255,255,255,.55),
-        transparent);
-
-    transition:.8s ease;
+transition:.35s;
 }
 
 .search-box:hover{
 
-    transform:translateY(-3px);
-
-    border-color:#c9a24d;
-
-    box-shadow:
-        0 24px 55px rgba(0,0,0,.14),
-        0 0 28px rgba(201,162,77,.18);
+border-color:var(--gold);
 }
-
-.search-box:hover::after{
-    left:150%;
-}
-
-.search-box:hover::before{
-    width:84%;
-    left:8%;
-}
-
-/* Focus */
 
 .search-box:focus-within{
 
-    border-color:#c9a24d;
+border-color:var(--gold);
 
-    box-shadow:
-        0 0 0 4px rgba(201,162,77,.12),
-        0 24px 55px rgba(0,0,0,.15);
+box-shadow:0 0 0 3px rgba(201,162,77,.12);
 }
-
-/* Input */
 
 .search-box input{
 
-    flex:1;
+flex:1;
 
-    border:none;
-    outline:none;
+background:none;
 
-    background:transparent;
+border:none;
 
-    padding:0 24px;
+outline:none;
 
-    font-size:15px;
+color:#fff;
 
-    font-family:Inter,Arial,sans-serif;
-
-    letter-spacing:.6px;
-
-    color:#111;
+font-size:14px;
 }
 
 .search-box input::placeholder{
 
-    color:#8d8d8d;
-
-    letter-spacing:1px;
+color:#bbb;
 }
-
-/* Luxury Button */
 
 .search-box button{
 
-    position:relative;
+width:38px;
+height:38px;
 
-    width:48px;
-    height:48px;
+border:none;
 
-    margin-right:5px;
+border-radius:50%;
 
-    border:none;
-    border-radius:50%;
+background:linear-gradient(145deg,#1d1d1d,#0d0d0d);
 
-    cursor:pointer;
+color:var(--gold);
 
-    background:
-        radial-gradient(circle at 30% 30%,
-        #2d2d2d,
-        #111111);
+display:flex;
 
-    color:#d4af37;
+align-items:center;
+justify-content:center;
 
-    font-size:18px;
+cursor:pointer;
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    box-shadow:
-        inset 0 1px 2px rgba(255,255,255,.15),
-        0 8px 18px rgba(0,0,0,.22);
-
-    transition:.35s ease;
-}
-
-/* Gold Ring */
-
-.search-box button::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:-2px;
-
-    border-radius:50%;
-
-    border:1px solid rgba(212,175,55,.35);
+transition:.3s;
 }
 
 .search-box button:hover{
 
-    transform:scale(1.08);
+background:linear-gradient(145deg,var(--gold-light),var(--gold));
 
-    background:
-        radial-gradient(circle at 30% 30%,
-        #f3d58b,
-        #c9a24d);
+color:#111;
 
-    color:#111;
-
-    box-shadow:
-        0 12px 25px rgba(201,162,77,.35);
-}
-
-.search-box button:active{
-
-    transform:scale(.96);
-}    
-
-/* =====================================================
-   HERO SLIDER
-===================================================== */
-
-.hero-slider-section {
-
-    width: 100%;
-
-    position: relative;
-
-    background: #000000;
-
-    overflow: hidden;
-
-    user-select: none;
-
-    touch-action: pan-y;
-
-    margin: 0;
-    padding: 0;
-}
-
-.hero-slider {
-
-    width: 100%;
-
-    position: relative;
-
-    overflow: hidden;
-
-    cursor: grab;
-
-    margin: 0;
-    padding: 0;
-
-    line-height: 0;
-}
-
-.hero-slider.dragging {
-    cursor: grabbing;
-}
-
-.hero-track {
-
-    display: flex;
-
-    width: 100%;
-
-    margin: 0;
-    padding: 0;
-
-    transition:
-        transform
-        0.7s
-        cubic-bezier(
-            0.77,
-            0,
-            0.175,
-            1
-        );
-}
-
-.hero-slide {
-
-    flex:
-        0 0 100%;
-
-    width: 100%;
-
-    position: relative;
-
-    display: block;
-
-    background: #000000;
-
-    overflow: hidden;
-
-    margin: 0;
-    padding: 0;
-
-    line-height: 0;
-}
-
-.hero-slide img {
-
-    display: block;
-
-    width: 100%;
-
-    height: auto;
-
-    aspect-ratio: 2 / 1;
-
-    object-fit: cover;
-
-    object-position: center;
-
-    max-width: none;
-
-    margin: 0;
-    padding: 0;
-
-    pointer-events: none;
-
-    user-select: none;
-
-    -webkit-user-drag: none;
-}
-
-
-/* =====================================================
-   HERO ARROWS
-===================================================== */
-
-.hero-arrow {
-
-    position: absolute;
-
-    top: 50%;
-
-    transform:
-        translateY(-50%);
-
-    width: 50px;
-    height: 50px;
-
-    border:
-        1px solid
-        rgba(
-            255,
-            255,
-            255,
-            0.7
-        );
-
-    border-radius: 50%;
-
-    background:
-        rgba(
-            0,
-            0,
-            0,
-            0.35
-        );
-
-    color: #ffffff;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    font-size: 34px;
-
-    line-height: 1;
-
-    cursor: pointer;
-
-    z-index: 20;
-
-    transition:
-        background
-        0.25s
-        ease,
-        transform
-        0.25s
-        ease;
-}
-
-.hero-arrow:hover {
-
-    background:
-        rgba(
-            0,
-            0,
-            0,
-            0.75
-        );
-
-    transform:
-        translateY(-50%)
-        scale(1.05);
-}
-
-.hero-prev {
-    left: 22px;
-}
-
-.hero-next {
-    right: 22px;
-}
-
-
-/* =====================================================
-   HERO DOTS
-===================================================== */
-
-.hero-dots {
-
-    position: absolute;
-
-    left: 50%;
-
-    bottom: 20px;
-
-    transform:
-        translateX(-50%);
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    gap: 9px;
-
-    z-index: 30;
-
-    padding:
-        8px
-        13px;
-
-    border-radius: 30px;
-
-    background:
-        rgba(
-            0,
-            0,
-            0,
-            0.28
-        );
-
-    backdrop-filter:
-        blur(5px);
-}
-
-.hero-dot {
-
-    width: 9px;
-    height: 9px;
-
-    padding: 0;
-
-    border: none;
-
-    border-radius: 50%;
-
-    background:
-        rgba(
-            255,
-            255,
-            255,
-            0.55
-        );
-
-    cursor: pointer;
-
-    transition:
-        all
-        0.3s
-        ease;
-}
-
-.hero-dot.active {
-
-    width: 28px;
-
-    border-radius: 20px;
-
-    background: #ffffff;
-}
-
-
-/* =====================================================
-   PRODUCT SHOWCASE
-===================================================== */
-
-.product-showcase {
-
-    width: 100%;
-
-    padding:
-        80px
-        5%
-        90px;
-
-    background: #ffffff;
-
-    text-align: center;
-
-    overflow: hidden;
-}
-
-.product-showcase-header {
-    margin-bottom: 45px;
-}
-
-.product-showcase-header small {
-
-    display: block;
-
-    color: #c9a24d;
-
-    font-size: 14px;
-
-    font-weight: 700;
-
-    letter-spacing: 3px;
-
-    margin-bottom: 12px;
+transform:scale(1.06);
 }
 
-.product-showcase-header h2 {
+/* Premium Icons */
 
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
+.icon-btn{
 
-    font-size: 48px;
+width:44px;
+height:44px;
 
-    line-height: 1.15;
+display:flex;
 
-    margin-bottom: 12px;
-}
-
-.product-showcase-header p {
-
-    color: #777777;
-
-    font-size: 16px;
-}
-
-
-/* =====================================================
-   PRODUCT SLIDER
-===================================================== */
-
-.product-slider {
-
-    width: 100%;
-
-    overflow: hidden;
-
-    position: relative;
-
-    touch-action: pan-y;
-
-    user-select: none;
-
-    cursor: grab;
-}
+align-items:center;
+justify-content:center;
 
-.product-slider.dragging {
-    cursor: grabbing;
-}
-
-.product-track {
-
-    display: flex;
-
-    width: max-content;
-
-    gap: 22px;
-
-    transition:
-        transform
-        0.55s
-        cubic-bezier(
-            0.77,
-            0,
-            0.175,
-            1
-        );
-}
-
-.product-slide {
+border-radius:50%;
 
-    flex:
-        0 0 calc(
-            (100vw - 10vw - 44px) / 3
-        );
+background:rgba(255,255,255,.05);
 
-    max-width: 480px;
+border:1px solid rgba(201,162,77,.18);
 
-    overflow: hidden;
-
-    background: #f5f5f5;
-
-    position: relative;
+transition:.3s;
 }
-
-.product-slide img {
-
-    width: 100%;
 
-    height: 380px;
+.icon-btn svg{
 
-    object-fit: cover;
+width:22px;
+height:22px;
 
-    object-position: center;
+stroke:var(--gold);
 
-    display: block;
+fill:none;
 
-    transition:
-        transform
-        0.6s
-        ease;
-
-    pointer-events: none;
-}
-
-.product-slide:hover img {
-    transform: scale(1.035);
+stroke-width:1.8;
 }
-
 
-/* =====================================================
-   PRODUCT ARROWS
-===================================================== */
+.icon-btn:hover{
 
-.product-arrow {
+background:var(--gold);
 
-    position: absolute;
-
-    top: 50%;
-
-    transform:
-        translateY(-50%);
-
-    width: 48px;
-    height: 48px;
-
-    border:
-        1px solid
-        #dddddd;
-
-    border-radius: 50%;
-
-    background:
-        rgba(
-            255,
-            255,
-            255,
-            0.95
-        );
-
-    color: #111111;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    font-size: 28px;
-
-    cursor: pointer;
-
-    z-index: 10;
-
-    box-shadow:
-        0 5px 20px
-        rgba(
-            0,
-            0,
-            0,
-            0.12
-        );
-}
-
-.product-arrow:hover {
-
-    background: #111111;
-    color: #ffffff;
+transform:translateY(-2px);
 }
 
-.product-prev {
-    left: 15px;
-}
+.icon-btn:hover svg{
 
-.product-next {
-    right: 15px;
+stroke:#111;
 }
-
-
-/* =====================================================
-   PRODUCT DOTS
-===================================================== */
-
-.product-dots {
 
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-
-    gap: 8px;
-
-    margin-top: 28px;
-}
+/* =========================================================
+   HERO
+========================================================= */
 
-.product-dot {
+.hero{
 
-    width: 8px;
-    height: 8px;
+position:relative;
 
-    border: none;
+width:100%;
 
-    border-radius: 50%;
+height:100vh;
 
-    background: #cccccc;
+overflow:hidden;
 
-    cursor: pointer;
+background:#000;
 }
 
-.product-dot.active {
+.hero-bg{
 
-    width: 28px;
+position:absolute;
 
-    border-radius: 20px;
-
-    background: #c9a24d;
+inset:0;
 }
-
-/* =====================================================
-   COLLECTIONS
-===================================================== */
 
-.collections {
+.hero-bg img{
 
-    width: 100%;
+width:100%;
+height:100%;
 
-    padding:
-        100px
-        7%;
+object-fit:cover;
 
-    text-align: center;
-
-    overflow: hidden;
+filter:brightness(.45);
 }
-
-.collections > small {
-
-    display: block;
-
-    color: #c9a24d;
-
-    font-size: 16px;
-
-    font-weight: 700;
 
-    letter-spacing: 2px;
+/* Gradient */
 
-    margin-bottom: 14px;
-}
+.hero::after{
 
-.collections > h2 {
+content:"";
 
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
+position:absolute;
 
-    font-size: 50px;
+inset:0;
 
-    margin-bottom: 50px;
-}
+background:
 
-.categories-grid {
+linear-gradient(180deg,
 
-    display: grid;
+rgba(0,0,0,.35) 0%,
 
-    grid-template-columns:
-        repeat(
-            2,
-            minmax(0, 1fr)
-        );
+rgba(0,0,0,.18) 35%,
 
-    gap: 25px;
-}
+rgba(0,0,0,.62) 100%);
 
-.categories-grid > a {
-    display: block;
 }
 
-.card {
-
-    position: relative;
-
-    overflow: hidden;
-
-    background: #111111;
-}
+/* Floating Gold Dust */
 
-.card img {
+.gold-dust{
 
-    width: 100%;
+position:absolute;
 
-    height: 500px;
+inset:0;
 
-    object-fit: cover;
+pointer-events:none;
 
-    transition:
-        transform
-        0.5s
-        ease;
+z-index:2;
 }
 
-.card:hover img {
-    transform: scale(1.04);
-}
+.gold-dust span{
 
-.card-content {
+position:absolute;
 
-    position: absolute;
+width:4px;
+height:4px;
 
-    left: 30px;
-    right: 20px;
+background:var(--gold-light);
 
-    bottom: 30px;
+border-radius:50%;
 
-    color: #ffffff;
+opacity:.55;
 
-    text-align: left;
+animation:floatDust linear infinite;
 }
-
-.card-content h3 {
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size: 38px;
 
-    margin-bottom: 8px;
-}
+.gold-dust span:nth-child(1){left:12%;top:22%;animation-duration:12s;}
+.gold-dust span:nth-child(2){left:28%;top:40%;animation-duration:18s;}
+.gold-dust span:nth-child(3){left:52%;top:18%;animation-duration:14s;}
+.gold-dust span:nth-child(4){left:70%;top:55%;animation-duration:20s;}
+.gold-dust span:nth-child(5){left:82%;top:30%;animation-duration:16s;}
+.gold-dust span:nth-child(6){left:45%;top:72%;animation-duration:15s;}
 
-.card-content p {
-    font-size: 17px;
-}
+@keyframes floatDust{
 
-/* =====================================================
-   SIGNATURE CARE GUIDE
-===================================================== */
-
-.care-guide-signature{
-    padding:110px 6%;
-    background:
-        radial-gradient(circle at 50% 20%,#faf7ef 0%,#ffffff 72%);
+0%{transform:translateY(0) scale(1);}
+50%{transform:translateY(-25px) scale(1.4);}
+100%{transform:translateY(-50px) scale(.8);}
 }
-
-.care-guide-frame{
-
-    position:relative;
-    overflow:hidden;
 
-    max-width:1320px;
-    margin:auto;
+/* Hero Content */
 
-    border-radius:34px;
+.hero-content{
 
-    background:
-        linear-gradient(145deg,#ffffff,#fbf8f1);
+position:relative;
 
-    border:1px solid rgba(201,162,77,.28);
+z-index:3;
 
-    box-shadow:
-        0 30px 90px rgba(0,0,0,.10);
-}
-
-/* Gold top line */
+height:100%;
 
-.care-guide-frame::before{
+display:flex;
 
-    content:"";
+flex-direction:column;
 
-    position:absolute;
+justify-content:center;
 
-    top:0;
-    left:0;
+padding:0 8%;
 
-    width:100%;
-    height:2px;
-
-    background:
-        linear-gradient(90deg,
-        transparent,
-        #c9a24d,
-        #f2d48c,
-        #c9a24d,
-        transparent);
+max-width:900px;
 }
-
-/* Decorative circle */
 
-.care-guide-frame::after{
+.hero-label{
 
-    content:"";
+display:flex;
 
-    position:absolute;
+align-items:center;
 
-    width:520px;
-    height:520px;
-
-    right:-170px;
-    top:-140px;
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(circle,
-        rgba(201,162,77,.13),
-        transparent 72%);
-}
+gap:14px;
 
-.care-guide-inner{
+margin-bottom:24px;
 
-    position:relative;
-    z-index:2;
+color:var(--gold);
 
-    display:grid;
-    grid-template-columns:1.25fr .75fr;
+font-size:13px;
 
-    align-items:center;
-    gap:40px;
+letter-spacing:4px;
 
-    padding:80px;
+text-transform:uppercase;
 }
 
-/* Left */
+.hero-label::before{
 
-.care-tag{
+content:"";
 
-    display:inline-flex;
-    align-items:center;
-    gap:10px;
+width:55px;
+height:1px;
 
-    color:#c9a24d;
-
-    font-size:13px;
-    font-weight:700;
-
-    letter-spacing:4px;
-
-    margin-bottom:22px;
-}
-
-.care-tag span{
-
-    width:40px;
-    height:1px;
-
-    background:#c9a24d;
+background:var(--gold);
 }
-
-.care-title{
 
-    font-family:Georgia,"Times New Roman",serif;
+.hero-content h1{
 
-    font-size:58px;
-    font-weight:500;
+font-family:"Cormorant Garamond",serif;
 
-    line-height:1.08;
+font-size:clamp(60px,10vw,110px);
 
-    color:#111;
+font-weight:500;
 
-    margin-bottom:24px;
-}
-
-.care-description{
-
-    max-width:620px;
-
-    color:#5f5f5f;
+line-height:.95;
 
-    font-size:18px;
+letter-spacing:2px;
 
-    line-height:1.9;
-
-    margin-bottom:38px;
+margin-bottom:28px;
 }
-
-/* Premium Button */
-
-.care-premium-btn{
-
-    position:relative;
 
-    display:inline-flex;
-    align-items:center;
-    gap:14px;
+.hero-content p{
 
-    padding:18px 36px;
+max-width:620px;
 
-    border-radius:60px;
+font-size:19px;
 
-    background:#111;
+color:#d8d8d8;
 
-    color:#fff;
+line-height:1.8;
 
-    font-weight:700;
-    letter-spacing:1.2px;
-
-    overflow:hidden;
-
-    transition:.45s ease;
+margin-bottom:36px;
 }
 
-.care-premium-btn::before{
+/* Gold CTA */
 
-    content:"";
+.hero-btn{
 
-    position:absolute;
+display:inline-flex;
 
-    top:0;
-    left:-120%;
+align-items:center;
 
-    width:80%;
-    height:100%;
+gap:14px;
 
-    transform:skewX(-25deg);
+width:max-content;
 
-    background:
-        linear-gradient(90deg,
-        transparent,
-        rgba(255,255,255,.45),
-        transparent);
+padding:18px 34px;
 
-    transition:.7s;
-}
+border-radius:999px;
 
-.care-premium-btn:hover::before{
+background:rgba(255,255,255,.05);
 
-    left:150%;
-}
+border:1px solid rgba(201,162,77,.28);
 
-.care-premium-btn:hover{
+backdrop-filter:blur(10px);
 
-    background:#c9a24d;
-    color:#111;
+font-weight:600;
 
-    transform:translateY(-5px);
+letter-spacing:1px;
 
-    box-shadow:
-        0 18px 35px rgba(201,162,77,.35);
+transition:.4s;
 }
 
-.care-premium-btn .arrow{
+.hero-btn:hover{
 
-    transition:.35s;
-}
+background:var(--gold);
 
-.care-premium-btn:hover .arrow{
+color:#111;
 
-    transform:translateX(5px);
+transform:translateY(-4px);
 }
-
-/* Right Visual */
 
-.care-visual{
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
+/* Scroll */
 
-.watch-circle{
+.scroll-indicator{
 
-    position:relative;
+position:absolute;
 
-    width:320px;
-    height:320px;
+bottom:32px;
+left:50%;
 
-    border-radius:50%;
+transform:translateX(-50%);
 
-    background:
-        radial-gradient(circle,#f7f2e6,#ece3cc);
+display:flex;
 
-    border:1px solid rgba(201,162,77,.25);
+flex-direction:column;
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
+align-items:center;
 
-.watch-circle img{
+gap:10px;
 
-    width:220px;
+z-index:3;
 
-    filter:
-        drop-shadow(0 20px 35px rgba(0,0,0,.25));
+color:#ddd;
 
-    transition:.6s ease;
-}
+font-size:11px;
 
-.care-guide-frame:hover .watch-circle img{
+letter-spacing:3px;
 
-    transform:rotate(-8deg) scale(1.05);
+text-transform:uppercase;
 }
-
-.watch-circle::before{
-
-    content:"";
 
-    position:absolute;
+.scroll-mouse{
 
-    inset:22px;
+width:28px;
+height:46px;
 
-    border-radius:50%;
+border:1px solid rgba(255,255,255,.5);
 
-    border:1px dashed rgba(201,162,77,.35);
+border-radius:20px;
 
-    animation:spinRing 22s linear infinite;
-}
-
-@keyframes spinRing{
+display:flex;
 
-    to{
+justify-content:center;
 
-        transform:rotate(360deg);
-    }
-
+padding-top:8px;
 }
-
-/* Floating Labels */
 
-.floating-chip{
+.scroll-mouse span{
 
-    position:absolute;
+width:4px;
+height:9px;
 
-    padding:10px 18px;
-
-    background:#fff;
-
-    border:1px solid rgba(201,162,77,.25);
-
-    border-radius:999px;
-
-    font-size:12px;
-
-    font-weight:700;
-
-    color:#444;
-
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
-}
+background:var(--gold);
 
-.chip-one{
+border-radius:3px;
 
-    top:28px;
-    right:30px;
+animation:scrollDown 1.6s infinite;
 }
 
-.chip-two{
+@keyframes scrollDown{
 
-    bottom:30px;
-    right:40px;
+0%{opacity:0;transform:translateY(0);}
+30%{opacity:1;}
+100%{opacity:0;transform:translateY(14px);}
 }
 
-/* Mobile */
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media(max-width:768px){
 
-    .care-guide-signature{
+.top-header{
 
-        padding:70px 14px;
-    }
+width:95%;
 
-    .care-guide-inner{
+height:70px;
 
-        grid-template-columns:1fr;
+padding:0 16px;
 
-        padding:40px 28px;
+grid-template-columns:auto 1fr auto;
 
-        text-align:center;
-    }
+}
 
-    .care-title{
+.header-brand h1{
 
-        font-size:38px;
-    }
+font-size:22px;
 
-    .care-description{
+letter-spacing:3px;
+}
 
-        margin:auto auto 30px;
+.header-brand span{
 
-        font-size:15px;
-    }
+font-size:7px;
 
-    .care-tag{
-
-        justify-content:center;
-    }
-
-    .care-premium-btn{
-
-        width:100%;
-        justify-content:center;
-    }
-
-.search-container{
-    width:100%;
+letter-spacing:2px;
 }
 
 .search-box{
-    height:44px;
+
+display:none;
 }
 
-.search-box input{
-    padding:0 16px;
-    font-size:14px;
+.header-logo img{
+
+height:42px;
 }
 
-.search-box button{
-    width:38px;
-    height:38px;
-    font-size:16px;
+.hero-content{
+
+padding:0 24px;
+
+text-align:left;
 }
 
-    .watch-circle{
+.hero-content p{
 
-        width:230px;
-        height:230px;
-    }
-
-    .watch-circle img{
-
-        width:150px;
-    }
-
-    .floating-chip{
-
-        display:none;
-    }
-
-}
-    
-/* =====================================================
-   LUXURY JOURNAL PREVIEW
-===================================================== */
-
-.journal-preview{
-
-    width:100%;
-
-    padding:120px 7%;
-
-    background:
-        radial-gradient(circle at top,#faf8f3 0%,#ffffff 45%,#ffffff 100%);
-
-    position:relative;
-
-    overflow:hidden;
+font-size:16px;
 }
 
-/* Gold decorative line */
+.hero-btn{
 
-.journal-preview::before{
-
-    content:"";
-
-    position:absolute;
-
-    top:70px;
-    left:50%;
-
-    transform:translateX(-50%);
-
-    width:120px;
-    height:2px;
-
-    background:linear-gradient(90deg,transparent,#c9a24d,transparent);
+padding:16px 26px;
 }
 
-.journal-header{
-
-    text-align:center;
-
-    max-width:760px;
-
-    margin:0 auto 70px;
 }
 
-.journal-header small{
+/* =========================================================
+   ROYAL INTRODUCTION
+========================================================= */
 
-    display:block;
+.royal-intro{
 
-    color:#c9a24d;
+background:var(--cream);
 
-    font-size:14px;
+color:#111;
 
-    font-weight:700;
+padding:120px 7%;
 
-    letter-spacing:4px;
+position:relative;
 
-    margin-bottom:16px;
+overflow:hidden;
+
 }
 
-.journal-header h2{
+.royal-intro::before{
 
-    font-family:Georgia,"Times New Roman",serif;
+content:"";
 
-    font-size:54px;
+position:absolute;
 
-    font-weight:500;
+top:90px;
+left:50%;
 
-    line-height:1.15;
+transform:translateX(-50%);
 
-    margin-bottom:18px;
+width:120px;
+height:2px;
 
-    color:#111;
+background:linear-gradient(90deg,transparent,var(--gold),transparent);
+
 }
 
-.journal-header p{
+.royal-grid{
 
-    color:#666;
+max-width:1400px;
 
-    font-size:17px;
+margin:auto;
 
-    line-height:1.8;
+display:grid;
+
+grid-template-columns:1.1fr .9fr;
+
+gap:70px;
+
+align-items:center;
+
 }
 
-/* Featured Article */
+.royal-label{
 
-.featured-journal{
+display:flex;
 
-    display:grid;
+align-items:center;
 
-    grid-template-columns:1.35fr 1fr;
+gap:14px;
 
-    gap:40px;
+color:var(--gold);
 
-    align-items:center;
+font-size:13px;
 
-    margin-bottom:70px;
+font-weight:700;
+
+letter-spacing:4px;
+
+text-transform:uppercase;
+
+margin-bottom:24px;
+
 }
 
-.featured-image{
+.royal-label::before{
 
-    overflow:hidden;
+content:"";
 
-    border-radius:18px;
+width:48px;
+height:1px;
 
-    box-shadow:
-        0 25px 60px rgba(0,0,0,.12);
+background:var(--gold);
+
 }
 
-.featured-image img{
+.royal-grid h2{
 
-    width:100%;
+font-family:"Cormorant Garamond",serif;
 
-    height:560px;
+font-size:clamp(44px,6vw,74px);
 
-    object-fit:cover;
+font-weight:500;
 
-    transition:transform .8s ease;
+line-height:1.02;
+
+margin-bottom:28px;
+
 }
 
-.featured-journal:hover .featured-image img{
+.royal-grid p{
 
-    transform:scale(1.05);
+font-size:18px;
+
+line-height:1.95;
+
+color:#555;
+
+margin-bottom:18px;
+
 }
 
-.featured-content small{
+.signature{
 
-    color:#c9a24d;
+margin-top:28px;
 
-    letter-spacing:3px;
+font-family:"Cormorant Garamond",serif;
 
-    font-size:13px;
+font-size:26px;
 
-    font-weight:700;
+font-style:italic;
+
+color:var(--gold);
+
 }
 
-.featured-content h3{
+.royal-image{
 
-    font-family:Georgia,"Times New Roman",serif;
+position:relative;
 
-    font-size:44px;
+border-radius:28px;
 
-    line-height:1.15;
+overflow:hidden;
 
-    margin:18px 0;
+box-shadow:
+
+0 30px 80px rgba(0,0,0,.18);
+
 }
 
-.featured-content p{
+.royal-image img{
 
-    color:#555;
+width:100%;
+height:700px;
 
-    font-size:17px;
+object-fit:cover;
 
-    line-height:1.8;
+transition:.8s ease;
 
-    margin-bottom:28px;
 }
 
-.read-story{
+.royal-image:hover img{
 
-    display:inline-flex;
+transform:scale(1.06);
 
-    align-items:center;
-
-    gap:10px;
-
-    padding:15px 28px;
-
-    border:1px solid #c9a24d;
-
-    color:#111;
-
-    font-weight:700;
-
-    transition:.35s ease;
 }
 
-.read-story:hover{
+.royal-image::after{
 
-    background:#111;
+content:"";
 
-    color:#fff;
+position:absolute;
 
-    border-color:#111;
+inset:0;
+
+background:linear-gradient(180deg,transparent,rgba(0,0,0,.18));
+
 }
 
-/* Editorial Cards */
+/* Floating Quote */
 
-.journal-grid{
+.quote-chip{
 
-    display:grid;
+position:absolute;
 
-    grid-template-columns:repeat(3,1fr);
+bottom:24px;
+left:24px;
 
-    gap:26px;
+background:rgba(17,17,17,.82);
+
+backdrop-filter:blur(14px);
+
+color:#fff;
+
+padding:16px 22px;
+
+border:1px solid rgba(201,162,77,.25);
+
+border-radius:18px;
+
+max-width:280px;
+
 }
 
-.journal-card{
+.quote-chip strong{
 
-    background:#fff;
+display:block;
 
-    border-radius:16px;
+color:var(--gold);
 
-    overflow:hidden;
+margin-bottom:6px;
 
-    box-shadow:0 12px 35px rgba(0,0,0,.08);
+font-size:13px;
 
-    transition:.35s ease;
+letter-spacing:2px;
+
+text-transform:uppercase;
+
 }
 
-.journal-card:hover{
+.quote-chip p{
 
-    transform:translateY(-8px);
+font-size:13px;
+
+line-height:1.6;
+
+color:#ddd;
+
 }
 
-.journal-card img{
+/* =========================================================
+   SIGNATURE COLLECTIONS
+========================================================= */
 
-    width:100%;
+.signature-collections{
 
-    height:260px;
+background:#111;
 
-    object-fit:cover;
+padding:130px 6%;
+
+position:relative;
+
+overflow:hidden;
+
 }
 
-.journal-card-content{
+.signature-collections::before{
 
-    padding:24px;
+content:"";
+
+position:absolute;
+
+top:0;
+left:0;
+
+width:100%;
+height:1px;
+
+background:linear-gradient(90deg,transparent,var(--gold),transparent);
+
 }
 
-.journal-card-content small{
+.collections-header{
 
-    color:#c9a24d;
+text-align:center;
 
-    letter-spacing:2px;
+margin-bottom:70px;
 
-    font-size:12px;
-
-    font-weight:700;
 }
 
-.journal-card-content h4{
+.collections-header small{
 
-    font-family:Georgia,"Times New Roman",serif;
+color:var(--gold);
 
-    font-size:28px;
+font-size:13px;
 
-    line-height:1.25;
+font-weight:700;
 
-    margin:14px 0;
+letter-spacing:4px;
+
+display:block;
+
+margin-bottom:18px;
+
 }
 
-.journal-card-content p{
+.collections-header h2{
 
-    color:#666;
+font-family:"Cormorant Garamond",serif;
 
-    font-size:15px;
+font-size:clamp(46px,6vw,72px);
 
-    line-height:1.7;
+font-weight:500;
 
-    margin-bottom:20px;
+margin-bottom:18px;
+
 }
 
-.card-link{
+.collections-header p{
 
-    display:inline-flex;
+color:#bdbdbd;
 
-    align-items:center;
+font-size:18px;
 
-    gap:8px;
+max-width:720px;
 
-    font-weight:700;
+margin:auto;
 
-    color:#111;
+line-height:1.8;
+
 }
 
-.card-link:hover{
+.luxury-grid{
 
-    color:#c9a24d;
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+gap:28px;
+
+max-width:1450px;
+
+margin:auto;
+
 }
 
-/* Bottom CTA */
+.luxury-card{
 
-.journal-footer{
+position:relative;
 
-    text-align:center;
+border-radius:28px;
 
-    margin-top:70px;
+overflow:hidden;
+
+min-height:560px;
+
+cursor:pointer;
+
 }
 
-.journal-button{
+.luxury-card img{
 
-    display:inline-block;
+position:absolute;
 
-    padding:18px 42px;
+inset:0;
 
-    background:#111;
+width:100%;
+height:100%;
 
-    color:#fff;
+object-fit:cover;
 
-    letter-spacing:1px;
+transition:1s ease;
 
-    font-weight:700;
-
-    transition:.35s ease;
 }
 
-.journal-button:hover{
+.luxury-card::before{
 
-    background:#c9a24d;
+content:"";
 
-    color:#111;
+position:absolute;
+
+inset:0;
+
+background:linear-gradient(180deg,
+
+rgba(0,0,0,.08),
+
+rgba(0,0,0,.72));
+
+z-index:1;
+
+}
+
+.luxury-card:hover img{
+
+transform:scale(1.08);
+
+}
+
+.luxury-content{
+
+position:absolute;
+
+left:36px;
+right:36px;
+bottom:34px;
+
+z-index:2;
+
+}
+
+.luxury-content small{
+
+display:block;
+
+color:var(--gold-light);
+
+letter-spacing:3px;
+
+font-size:12px;
+
+font-weight:700;
+
+margin-bottom:12px;
+
+}
+
+.luxury-content h3{
+
+font-family:"Cormorant Garamond",serif;
+
+font-size:44px;
+
+font-weight:500;
+
+line-height:1.05;
+
+margin-bottom:14px;
+
+}
+
+.luxury-content p{
+
+color:#ddd;
+
+font-size:15px;
+
+line-height:1.7;
+
+margin-bottom:18px;
+
+}
+
+.explore-line{
+
+display:inline-flex;
+
+align-items:center;
+
+gap:10px;
+
+color:var(--gold);
+
+font-weight:600;
+
+letter-spacing:1px;
+
+}
+
+.explore-line span{
+
+transition:.35s;
+
+}
+
+.luxury-card:hover .explore-line span{
+
+transform:translateX(8px);
+
+}
+
+/* Featured Large Card */
+
+.luxury-card.large{
+
+grid-column:span 2;
+
+min-height:700px;
+
+}
+
+.luxury-card.large .luxury-content h3{
+
+font-size:66px;
+
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:768px){
+
+.royal-intro{
+
+padding:80px 22px;
+
+}
+
+.royal-grid{
+
+grid-template-columns:1fr;
+
+gap:40px;
+
+}
+
+.royal-image img{
+
+height:440px;
+
+}
+
+.quote-chip{
+
+left:18px;
+right:18px;
+
+max-width:none;
+
+}
+
+.signature-collections{
+
+padding:90px 18px;
+
+}
+
+.luxury-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.luxury-card.large{
+
+grid-column:span 1;
+
+min-height:520px;
+
+}
+
+.luxury-card{
+
+min-height:420px;
+
+}
+
+.luxury-content{
+
+left:22px;
+right:22px;
+bottom:24px;
+
+}
+
+.luxury-content h3{
+
+font-size:34px;
+
+}
+
+.luxury-card.large .luxury-content h3{
+
+font-size:42px;
+
+}
+
+}
+
+/* =========================================================
+   FEATURED COLLECTION SHOWCASE
+========================================================= */
+
+.editorial-showcase{
+
+background:linear-gradient(180deg,#111 0%,#181818 100%);
+
+padding:120px 5%;
+
+overflow:hidden;
+
+}
+
+.showcase-header{
+
+text-align:center;
+
+margin-bottom:65px;
+
+}
+
+.showcase-header small{
+
+display:block;
+
+color:var(--gold);
+
+font-size:13px;
+
+font-weight:700;
+
+letter-spacing:4px;
+
+margin-bottom:18px;
+
+}
+
+.showcase-header h2{
+
+font-family:"Cormorant Garamond",serif;
+
+font-size:clamp(48px,6vw,74px);
+
+font-weight:500;
+
+margin-bottom:18px;
+
+}
+
+.showcase-header p{
+
+max-width:700px;
+
+margin:auto;
+
+color:#bdbdbd;
+
+font-size:18px;
+
+line-height:1.8;
+
+}
+
+/* Slider */
+
+.showcase-slider{
+
+position:relative;
+
+max-width:1500px;
+
+margin:auto;
+
+overflow:hidden;
+
+}
+
+.showcase-track{
+
+display:flex;
+
+gap:28px;
+
+transition:transform .7s cubic-bezier(.77,0,.175,1);
+
+}
+
+.showcase-card{
+
+flex:0 0 calc((100% - 56px)/3);
+
+position:relative;
+
+border-radius:28px;
+
+overflow:hidden;
+
+background:#1a1a1a;
+
+border:1px solid rgba(201,162,77,.12);
+
+box-shadow:0 25px 60px rgba(0,0,0,.22);
+
+transition:.45s ease;
+
+}
+
+.showcase-card:hover{
+
+transform:translateY(-10px);
+
+border-color:rgba(201,162,77,.45);
+
+box-shadow:0 35px 70px rgba(0,0,0,.32);
+
+}
+
+.showcase-card img{
+
+width:100%;
+
+height:430px;
+
+object-fit:cover;
+
+transition:transform .8s ease;
+
+}
+
+.showcase-card:hover img{
+
+transform:scale(1.06);
+
+}
+
+.showcase-info{
+
+padding:28px;
+
+}
+
+.showcase-info small{
+
+display:block;
+
+color:var(--gold);
+
+font-size:12px;
+
+letter-spacing:3px;
+
+margin-bottom:10px;
+
+}
+
+.showcase-info h3{
+
+font-family:"Cormorant Garamond",serif;
+
+font-size:34px;
+
+font-weight:500;
+
+margin-bottom:12px;
+
+}
+
+.showcase-info p{
+
+color:#b8b8b8;
+
+font-size:15px;
+
+line-height:1.7;
+
+margin-bottom:18px;
+
+}
+
+.showcase-link{
+
+display:inline-flex;
+
+align-items:center;
+
+gap:10px;
+
+font-weight:600;
+
+color:var(--gold);
+
+}
+
+.showcase-link span{
+
+transition:.35s;
+
+}
+
+.showcase-card:hover .showcase-link span{
+
+transform:translateX(8px);
+
+}
+
+/* Arrows */
+
+.showcase-arrow{
+
+position:absolute;
+
+top:50%;
+
+transform:translateY(-50%);
+
+width:56px;
+height:56px;
+
+border-radius:50%;
+
+border:1px solid rgba(201,162,77,.25);
+
+background:rgba(17,17,17,.82);
+
+backdrop-filter:blur(14px);
+
+display:flex;
+
+align-items:center;
+justify-content:center;
+
+cursor:pointer;
+
+z-index:5;
+
+transition:.35s;
+
+}
+
+.showcase-arrow:hover{
+
+background:var(--gold);
+
+}
+
+.showcase-arrow:hover svg{
+
+stroke:#111;
+
+}
+
+.showcase-arrow svg{
+
+width:22px;
+
+stroke:var(--gold);
+
+fill:none;
+
+stroke-width:2;
+
+}
+
+.showcase-prev{
+
+left:16px;
+
+}
+
+.showcase-next{
+
+right:16px;
+
+}
+
+/* Dots */
+
+.showcase-dots{
+
+display:flex;
+
+justify-content:center;
+
+gap:10px;
+
+margin-top:34px;
+
+}
+
+.showcase-dot{
+
+width:8px;
+height:8px;
+
+border-radius:50%;
+
+background:#555;
+
+cursor:pointer;
+
+transition:.35s;
+
+}
+
+.showcase-dot.active{
+
+width:30px;
+
+border-radius:20px;
+
+background:var(--gold);
+
+}
+
+/* =========================================================
+   COLLECTOR'S WALL
+========================================================= */
+
+.collector-wall{
+
+background:var(--cream);
+
+color:#111;
+
+padding:120px 7%;
+
+position:relative;
+
+}
+
+.wall-header{
+
+text-align:center;
+
+margin-bottom:70px;
+
+}
+
+.wall-header small{
+
+display:block;
+
+color:var(--gold);
+
+font-size:13px;
+
+letter-spacing:4px;
+
+font-weight:700;
+
+margin-bottom:16px;
+
+}
+
+.wall-header h2{
+
+font-family:"Cormorant Garamond",serif;
+
+font-size:clamp(46px,6vw,70px);
+
+font-weight:500;
+
+margin-bottom:16px;
+
+}
+
+.wall-header p{
+
+max-width:720px;
+
+margin:auto;
+
+font-size:18px;
+
+color:#666;
+
+line-height:1.8;
+
+}
+
+/* Brand Grid */
+
+.brand-grid{
+
+display:grid;
+
+grid-template-columns:repeat(4,1fr);
+
+gap:22px;
+
+max-width:1400px;
+
+margin:auto;
+
+}
+
+.brand-box{
+
+padding:42px 20px;
+
+text-align:center;
+
+background:#fff;
+
+border:1px solid rgba(201,162,77,.16);
+
+border-radius:24px;
+
+transition:.35s ease;
+
+}
+
+.brand-box:hover{
+
+transform:translateY(-8px);
+
+border-color:rgba(201,162,77,.45);
+
+box-shadow:0 22px 45px rgba(0,0,0,.10);
+
+}
+
+.brand-box h3{
+
+font-family:"Cormorant Garamond",serif;
+
+font-size:34px;
+
+font-weight:500;
+
+margin-bottom:10px;
+
+}
+
+.brand-box p{
+
+color:#666;
+
+font-size:14px;
+
+line-height:1.6;
+
+}
+
+/* =========================================================
+   LIMITED EDITION SPOTLIGHT
+========================================================= */
+
+.limited-spotlight{
+
+position:relative;
+
+min-height:820px;
+
+display:flex;
+
+align-items:center;
+
+overflow:hidden;
+
+background:#000;
+
+}
+
+.limited-bg{
+
+position:absolute;
+
+inset:0;
+
+}
+
+.limited-bg img{
+
+width:100%;
+height:100%;
+
+object-fit:cover;
+
+filter:brightness(.42);
+
+}
+
+.limited-spotlight::after{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:linear-gradient(90deg,rgba(0,0,0,.78),rgba(0,0,0,.32));
+
+}
+
+.limited-content{
+
+position:relative;
+
+z-index:2;
+
+padding:120px 8%;
+
+max-width:720px;
+
+}
+
+.limited-content small{
+
+display:block;
+
+color:var(--gold);
+
+letter-spacing:4px;
+
+font-size:13px;
+
+font-weight:700;
+
+margin-bottom:20px;
+
+}
+
+.limited-content h2{
+
+font-family:"Cormorant Garamond",serif;
+
+font-size:clamp(56px,8vw,90px);
+
+font-weight:500;
+
+line-height:.95;
+
+margin-bottom:26px;
+
+}
+
+.limited-content p{
+
+font-size:18px;
+
+color:#ddd;
+
+line-height:1.9;
+
+margin-bottom:36px;
+
+}
+
+.limited-btn{
+
+display:inline-flex;
+
+align-items:center;
+
+gap:14px;
+
+padding:18px 34px;
+
+border-radius:999px;
+
+background:rgba(255,255,255,.05);
+
+border:1px solid rgba(201,162,77,.28);
+
+backdrop-filter:blur(12px);
+
+font-weight:600;
+
+transition:.4s ease;
+
+}
+
+.limited-btn:hover{
+
+background:var(--gold);
+
+color:#111;
+
+transform:translateY(-4px);
+
 }
 
 /* Mobile */
 
 @media(max-width:768px){
 
-    .journal-preview{
+.editorial-showcase{
 
-        padding:80px 14px;
-    }
-
-    .journal-header h2{
-
-        font-size:36px;
-    }
-
-    .featured-journal{
-
-        grid-template-columns:1fr;
-
-        gap:28px;
-    }
-
-    .featured-image img{
-
-        height:360px;
-    }
-
-    .featured-content h3{
-
-        font-size:32px;
-    }
-
-    .journal-grid{
-
-        grid-template-columns:1fr;
-    }
-
-    .journal-card img{
-
-        height:220px;
-    }
+padding:80px 18px;
 
 }
 
+.showcase-card{
 
-/* =====================================================
-   GET IN TOUCH
-===================================================== */
+flex:0 0 100%;
 
-.get-touch {
-
-    width: 100%;
-
-    padding:
-        90px
-        7%;
-
-    background: #f8f8f8;
-
-    text-align: center;
 }
 
-.get-touch h2 {
+.showcase-card img{
 
-    color: #c9a24d;
+height:360px;
 
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size: 54px;
-
-    margin-bottom: 20px;
 }
 
-.get-touch > p {
+.showcase-arrow{
 
-    max-width: 750px;
+width:46px;
 
-    margin:
-        0
-        auto
-        45px;
+height:46px;
 
-    color: #666666;
-
-    font-size: 20px;
-
-    line-height: 1.6;
 }
 
-.touch-form {
+.brand-grid{
 
-    width: 100%;
+grid-template-columns:repeat(2,1fr);
 
-    max-width: 900px;
-
-    margin: 0 auto;
-
-    padding: 40px;
-
-    background: #ffffff;
-
-    border-radius: 12px;
-
-    box-shadow:
-        0 0 25px
-        rgba(
-            0,
-            0,
-            0,
-            0.08
-        );
 }
 
-.touch-form input,
-.touch-form textarea {
+.brand-box{
 
-    width: 100%;
+padding:30px 16px;
 
-    display: block;
-
-    padding: 17px;
-
-    margin-bottom: 18px;
-
-    border:
-        1px solid
-        #dddddd;
-
-    border-radius: 7px;
-
-    font-size: 16px;
-
-    outline: none;
 }
 
-.touch-form textarea {
+.brand-box h3{
 
-    min-height: 180px;
+font-size:28px;
 
-    resize: vertical;
 }
 
-.touch-form button {
+.limited-spotlight{
 
-    padding:
-        15px
-        35px;
+min-height:620px;
 
-    border: none;
-
-    border-radius: 7px;
-
-    background: #c9a24d;
-
-    color: #ffffff;
-
-    font-size: 16px;
-
-    font-weight: 700;
-
-    cursor: pointer;
 }
 
+.limited-content{
 
-/* =====================================================
+padding:80px 22px;
+
+}
+
+}
+
+/* =========================================================
+   COUPLE COLLECTION CAMPAIGN
+========================================================= */
+
+.couple-campaign{
+
+position:relative;
+
+min-height:780px;
+
+display:flex;
+
+align-items:center;
+
+overflow:hidden;
+
+background:#000;
+
+}
+
+.couple-bg{
+
+position:absolute;
+
+inset:0;
+
+}
+
+.couple-bg img{
+
+width:100%;
+height:100%;
+
+object-fit:cover;
+
+filter:brightness(.45);
+
+}
+
+.couple-campaign::after{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+linear-gradient(90deg,
+
+rgba(0,0,0,.78),
+
+rgba(0,0,0,.28));
+
+}
+
+.couple-content{
+
+position:relative;
+
+z-index:2;
+
+padding:120px 8%;
+
+max-width:700px;
+
+}
+
+.couple-content small{
+
+display:block;
+
+color:var(--gold);
+
+letter-spacing:4px;
+
+font-size:13px;
+
+font-weight:700;
+
+margin-bottom:22px;
+
+}
+
+.couple-content h2{
+
+font-family:"Cormorant Garamond",serif;
+
+font-size:clamp(56px,8vw,92px);
+
+font-weight:500;
+
+line-height:.95;
+
+margin-bottom:28px;
+
+}
+
+.couple-content p{
+
+font-size:18px;
+
+line-height:1.9;
+
+color:#ddd;
+
+margin-bottom:36px;
+
+}
+
+.couple-btn{
+
+display:inline-flex;
+
+align-items:center;
+
+gap:14px;
+
+padding:18px 34px;
+
+border-radius:999px;
+
+background:rgba(255,255,255,.06);
+
+border:1px solid rgba(201,162,77,.28);
+
+backdrop-filter:blur(14px);
+
+transition:.4s ease;
+
+font-weight:600;
+
+}
+
+.couple-btn:hover{
+
+background:var(--gold);
+
+color:#111;
+
+transform:translateY(-4px);
+
+}
+
+/* =========================================================
+   JOURNAL EXPERIENCE
+========================================================= */
+
+.journal-experience{
+
+background:linear-gradient(180deg,#090909,#111);
+
+padding:130px 6%;
+
+overflow:hidden;
+
+}
+
+.journal-head{
+
+text-align:center;
+
+margin-bottom:70px;
+
+}
+
+.journal-head small{
+
+display:block;
+
+color:var(--gold);
+
+letter-spacing:4px;
+
+font-size:13px;
+
+font-weight:700;
+
+margin-bottom:18px;
+
+}
+
+.journal-head h2{
+
+font-family:"Cormorant Garamond",serif;
+
+font-size:clamp(50px,7vw,76px);
+
+font-weight:500;
+
+margin-bottom:18px;
+
+}
+
+.journal-head p{
+
+max-width:720px;
+
+margin:auto;
+
+font-size:18px;
+
+color:#bbb;
+
+line-height:1.8;
+
+}
+
+/* Magazine */
+
+.magazine{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:50px;
+
+align-items:center;
+
+max-width:1400px;
+
+margin:auto;
+
+margin-bottom:70px;
+
+}
+
+.magazine-cover{
+
+position:relative;
+
+border-radius:28px;
+
+overflow:hidden;
+
+box-shadow:0 35px 80px rgba(0,0,0,.45);
+
+}
+
+.magazine-cover img{
+
+width:100%;
+height:620px;
+
+object-fit:cover;
+
+transition:.8s;
+
+}
+
+.magazine-cover:hover img{
+
+transform:rotate(-2deg) scale(1.05);
+
+}
+
+.magazine-content small{
+
+color:var(--gold);
+
+letter-spacing:3px;
+
+font-size:13px;
+
+font-weight:700;
+
+}
+
+.magazine-content h3{
+
+font-family:"Cormorant Garamond",serif;
+
+font-size:56px;
+
+font-weight:500;
+
+line-height:1.05;
+
+margin:20px 0;
+
+}
+
+.magazine-content p{
+
+font-size:18px;
+
+line-height:1.9;
+
+color:#cfcfcf;
+
+margin-bottom:32px;
+
+}
+
+.journal-btn{
+
+display:inline-flex;
+
+align-items:center;
+
+gap:14px;
+
+padding:18px 34px;
+
+border-radius:999px;
+
+background:rgba(255,255,255,.05);
+
+border:1px solid rgba(201,162,77,.28);
+
+transition:.4s;
+
+}
+
+.journal-btn:hover{
+
+background:var(--gold);
+
+color:#111;
+
+}
+
+/* Journal Cards */
+
+.editorial-grid{
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:26px;
+
+}
+
+.editorial-card{
+
+background:#141414;
+
+border-radius:24px;
+
+overflow:hidden;
+
+border:1px solid rgba(201,162,77,.12);
+
+transition:.35s;
+
+}
+
+.editorial-card:hover{
+
+transform:translateY(-10px);
+
+border-color:rgba(201,162,77,.35);
+
+}
+
+.editorial-card img{
+
+width:100%;
+height:260px;
+
+object-fit:cover;
+
+transition:.8s;
+
+}
+
+.editorial-card:hover img{
+
+transform:scale(1.06);
+
+}
+
+.editorial-info{
+
+padding:24px;
+
+}
+
+.editorial-info small{
+
+color:var(--gold);
+
+letter-spacing:3px;
+
+font-size:12px;
+
+}
+
+.editorial-info h4{
+
+font-family:"Cormorant Garamond",serif;
+
+font-size:30px;
+
+margin:14px 0;
+
+}
+
+.editorial-info p{
+
+color:#bcbcbc;
+
+line-height:1.7;
+
+margin-bottom:18px;
+
+}
+
+/* =========================================================
+   GRAND CARE GUIDE
+========================================================= */
+
+.grand-care{
+
+background:var(--cream);
+
+color:#111;
+
+padding:130px 6%;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.grand-care::before{
+
+content:"";
+
+position:absolute;
+
+top:70px;
+left:50%;
+
+transform:translateX(-50%);
+
+width:140px;
+height:2px;
+
+background:linear-gradient(90deg,transparent,var(--gold),transparent);
+
+}
+
+.care-header{
+
+text-align:center;
+
+margin-bottom:70px;
+
+}
+
+.care-header small{
+
+display:block;
+
+color:var(--gold);
+
+letter-spacing:4px;
+
+font-size:13px;
+
+font-weight:700;
+
+margin-bottom:18px;
+
+}
+
+.care-header h2{
+
+font-family:"Cormorant Garamond",serif;
+
+font-size:clamp(50px,7vw,76px);
+
+font-weight:500;
+
+margin-bottom:18px;
+
+}
+
+.care-header p{
+
+max-width:760px;
+
+margin:auto;
+
+font-size:18px;
+
+line-height:1.9;
+
+color:#666;
+
+}
+
+/* Split */
+
+.care-split{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:36px;
+
+max-width:1400px;
+
+margin:auto;
+
+margin-bottom:50px;
+
+}
+
+.care-box{
+
+background:#fff;
+
+border-radius:30px;
+
+overflow:hidden;
+
+box-shadow:0 25px 55px rgba(0,0,0,.08);
+
+transition:.35s;
+
+}
+
+.care-box:hover{
+
+transform:translateY(-8px);
+
+}
+
+.care-box img{
+
+width:100%;
+height:360px;
+
+object-fit:cover;
+
+}
+
+.care-text{
+
+padding:34px;
+
+}
+
+.care-text h3{
+
+font-family:"Cormorant Garamond",serif;
+
+font-size:40px;
+
+margin-bottom:16px;
+
+}
+
+.care-text p{
+
+font-size:17px;
+
+line-height:1.9;
+
+color:#555;
+
+}
+
+/* Luxury Principles */
+
+.principles{
+
+display:grid;
+
+grid-template-columns:repeat(4,1fr);
+
+gap:22px;
+
+max-width:1400px;
+
+margin:40px auto;
+
+}
+
+.principle{
+
+padding:30px;
+
+background:#fff;
+
+border-radius:22px;
+
+text-align:center;
+
+border:1px solid rgba(201,162,77,.12);
+
+}
+
+.principle span{
+
+display:block;
+
+font-size:34px;
+
+color:var(--gold);
+
+font-family:"Cormorant Garamond",serif;
+
+margin-bottom:12px;
+
+}
+
+.principle h4{
+
+font-size:18px;
+
+margin-bottom:10px;
+
+}
+
+.principle p{
+
+font-size:14px;
+
+color:#666;
+
+line-height:1.7;
+
+}
+
+.care-footer{
+
+text-align:center;
+
+margin-top:60px;
+
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:768px){
+
+.couple-campaign{
+
+min-height:620px;
+
+}
+
+.couple-content{
+
+padding:80px 24px;
+
+}
+
+.magazine{
+
+grid-template-columns:1fr;
+
+gap:36px;
+
+}
+
+.magazine-cover img{
+
+height:420px;
+
+}
+
+.magazine-content h3{
+
+font-size:40px;
+
+}
+
+.editorial-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.care-split{
+
+grid-template-columns:1fr;
+
+}
+
+.care-box img{
+
+height:280px;
+
+}
+
+.principles{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+/* =========================================================
    WHY CHOOSE
-===================================================== */
+========================================================= */
 
-.why-choose {
+.why-luxury{
 
-    width: 100%;
+background:#111;
 
-    padding:
-        100px
-        7%;
+padding:130px 6%;
 
-    background: #f8f6f2;
+position:relative;
 
-    text-align: center;
+overflow:hidden;
+
 }
 
-.why-choose > h2 {
+.why-luxury::before{
 
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
+content:"";
 
-    font-size: 50px;
+position:absolute;
 
-    margin-bottom: 55px;
+top:0;
+left:50%;
+
+transform:translateX(-50%);
+
+width:160px;
+height:2px;
+
+background:linear-gradient(90deg,transparent,var(--gold),transparent);
+
 }
 
-.why-grid {
+.why-header{
 
-    max-width: 1200px;
+text-align:center;
 
-    margin: auto;
+margin-bottom:70px;
 
-    display: grid;
-
-    grid-template-columns:
-        repeat(
-            4,
-            minmax(0, 1fr)
-        );
-
-    gap: 25px;
 }
 
-.why-box {
+.why-header small{
 
-    padding:
-        35px
-        25px;
+display:block;
 
-    background: #ffffff;
+color:var(--gold);
 
-    border-radius: 12px;
+letter-spacing:4px;
 
-    box-shadow:
-        0 5px 20px
-        rgba(
-            0,
-            0,
-            0,
-            0.08
-        );
+font-size:13px;
+
+font-weight:700;
+
+margin-bottom:18px;
+
 }
 
-.why-box h3 {
+.why-header h2{
 
-    color: #c9a24d;
+font-family:"Cormorant Garamond",serif;
 
-    font-size: 21px;
+font-size:clamp(52px,7vw,78px);
 
-    margin-bottom: 15px;
+font-weight:500;
+
+margin-bottom:18px;
+
 }
 
-.why-box p {
+.why-header p{
 
-    color: #666666;
+max-width:720px;
 
-    font-size: 15px;
+margin:auto;
 
-    line-height: 1.7;
+font-size:18px;
+
+color:#bdbdbd;
+
+line-height:1.8;
+
 }
 
+.why-grid{
 
-/* =====================================================
+display:grid;
+
+grid-template-columns:repeat(4,1fr);
+
+gap:22px;
+
+max-width:1450px;
+
+margin:auto;
+
+}
+
+.why-card{
+
+background:rgba(255,255,255,.04);
+
+backdrop-filter:blur(14px);
+
+border:1px solid rgba(201,162,77,.15);
+
+border-radius:26px;
+
+padding:36px 28px;
+
+transition:.4s;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.why-card::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+left:-120%;
+
+width:60%;
+height:100%;
+
+background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent);
+
+transition:.8s;
+
+}
+
+.why-card:hover::before{
+
+left:150%;
+
+}
+
+.why-card:hover{
+
+transform:translateY(-10px);
+
+border-color:rgba(201,162,77,.35);
+
+}
+
+.why-number{
+
+font-family:"Cormorant Garamond",serif;
+
+font-size:46px;
+
+color:var(--gold);
+
+margin-bottom:14px;
+
+}
+
+.why-card h3{
+
+font-size:22px;
+
+margin-bottom:12px;
+
+}
+
+.why-card p{
+
+color:#bdbdbd;
+
+line-height:1.8;
+
+font-size:15px;
+
+}
+
+/* =========================================================
    STATS
-===================================================== */
-
-.stats-section {
-
-    width: 100%;
-
-    padding:
-        90px
-        7%;
-
-    background: #111111;
-
-    color: #ffffff;
-
-    text-align: center;
-}
-
-.stats-section > h2 {
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size: 50px;
-
-    margin-bottom: 55px;
-}
-
-.stats-grid {
-
-    max-width: 1200px;
-
-    margin: auto;
-
-    display: grid;
-
-    grid-template-columns: repeat(4, 1fr);
-
-    gap: 20px;
-}
-    
-.stat-box h3 {
-
-    color: #c9a24d;
-
-    font-size: 60px;
-
-    margin-bottom: 12px;
-}
-
-.stat-box p {
-
-    color: #dddddd;
-
-    font-size: 19px;
-}
-
-
-/* =========================================================
-   FOOTER
 ========================================================= */
 
-.main-footer{
-    background:#111;
+.luxury-stats{
 
-    color:#fff;
+background:linear-gradient(180deg,#090909,#111);
 
-    margin-top:40px;
+padding:120px 6%;
+
+text-align:center;
+
 }
 
-.footer-container{
-    width:100%;
+.luxury-stats h2{
 
-    max-width:1400px;
+font-family:"Cormorant Garamond",serif;
 
-    margin:0 auto;
+font-size:clamp(50px,7vw,76px);
 
-    padding:
-        60px
-        50px
-        0;
+margin-bottom:60px;
+
 }
 
+.stats-grid{
+
+display:grid;
+
+grid-template-columns:repeat(4,1fr);
+
+gap:30px;
+
+max-width:1400px;
+
+margin:auto;
+
+}
+
+.stat-card{
+
+padding:28px;
+
+}
+
+.stat-number{
+
+font-family:"Cormorant Garamond",serif;
+
+font-size:72px;
+
+color:var(--gold);
+
+margin-bottom:12px;
+
+}
+
+.stat-card p{
+
+color:#cfcfcf;
+
+font-size:17px;
+
+}
 
 /* =========================================================
-   FOOTER TOP
+   CONTACT
 ========================================================= */
 
-.footer-top{
-    display:grid;
+.contact-editorial{
 
-    grid-template-columns:
-        1fr
-        1fr
-        1fr;
+background:var(--cream);
 
-    gap:50px;
+color:#111;
 
-    padding-bottom:50px;
+padding:130px 6%;
 
-    border-bottom:
-        1px solid
-        rgba(255,255,255,0.15);
 }
 
-.footer-top > h2{
-    grid-column:1 / -1;
+.contact-grid{
 
-    text-align:center;
+display:grid;
 
-    margin:0 0 10px;
+grid-template-columns:.9fr 1.1fr;
 
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
+gap:60px;
 
-    font-size:38px;
+max-width:1450px;
 
-    font-weight:600;
+margin:auto;
 
-    color:#c9a24d;
 }
 
+.contact-info small{
 
-/* =========================================================
-   FOOTER CONTACT
-========================================================= */
+display:block;
 
-.contact-column{
-    text-align:left;
+color:var(--gold);
+
+letter-spacing:4px;
+
+font-size:13px;
+
+font-weight:700;
+
+margin-bottom:18px;
+
 }
 
-.contact-column h3,
-.whatsapp-column h3,
-.footer-links-column h3,
-.footer-social h3{
-    color:#c9a24d;
+.contact-info h2{
 
-    font-size:20px;
+font-family:"Cormorant Garamond",serif;
 
-    margin:0 0 18px;
+font-size:clamp(50px,7vw,72px);
+
+font-weight:500;
+
+margin-bottom:24px;
+
 }
 
-.contact-column p{
-    color:#bbb;
+.contact-info p{
 
-    font-size:15px;
+font-size:18px;
 
-    line-height:1.6;
+line-height:1.9;
+
+color:#555;
+
+margin-bottom:30px;
+
 }
 
-.footer-link{
-    display:block;
+.contact-detail{
 
-    color:#fff;
+margin-bottom:22px;
 
-    text-decoration:none;
-
-    margin-bottom:12px;
-
-    transition:0.3s ease;
 }
 
-.footer-link:hover{
-    color:#c9a24d;
+.contact-detail strong{
+
+display:block;
+
+margin-bottom:6px;
+
+font-size:18px;
+
 }
 
+.contact-form{
 
-/* =========================================================
-   WHATSAPP
-========================================================= */
+background:#fff;
 
-.whatsapp-column{
-    text-align:center;
+padding:40px;
+
+border-radius:30px;
+
+box-shadow:0 30px 60px rgba(0,0,0,.08);
+
 }
 
-.whatsapp-title{
-    display:flex;
+.contact-form input,
+.contact-form textarea{
 
-    align-items:center;
+width:100%;
 
-    justify-content:center;
+padding:18px;
 
-    gap:10px;
+margin-bottom:18px;
+
+border:1px solid rgba(201,162,77,.22);
+
+border-radius:16px;
+
+font-size:15px;
+
+outline:none;
+
+transition:.3s;
+
 }
 
-.whatsapp-icon{
-    width:28px !important;
+.contact-form input:focus,
+.contact-form textarea:focus{
 
-    height:28px !important;
+border-color:var(--gold);
 
-    object-fit:contain !important;
+box-shadow:0 0 0 3px rgba(201,162,77,.12);
+
 }
 
-.whatsapp-button{
-    display:inline-block;
+.contact-form textarea{
 
-    background:#c9a24d;
+min-height:180px;
 
-    color:#111;
+resize:vertical;
 
-    text-decoration:none;
-
-    padding:13px 30px;
-
-    border-radius:6px;
-
-    font-weight:bold;
-
-    transition:0.3s ease;
 }
 
-.whatsapp-button:hover{
-    background:#fff;
+.contact-form button{
 
-    color:#111;
+width:100%;
+
+padding:18px;
+
+border:none;
+
+border-radius:999px;
+
+background:#111;
+
+color:#fff;
+
+font-weight:600;
+
+letter-spacing:1px;
+
+cursor:pointer;
+
+transition:.35s;
+
 }
 
+.contact-form button:hover{
 
-/* =========================================================
-   FOOTER MIDDLE
-========================================================= */
+background:var(--gold);
 
-.footer-middle{
-    display:grid;
+color:#111;
 
-    grid-template-columns:
-        1fr
-        1fr
-        1fr;
-
-    gap:50px;
-
-    padding:50px 0;
 }
-
-.footer-links-column{
-    display:flex;
-
-    flex-direction:column;
-}
-
-.footer-links-column a{
-    color:#ccc;
-
-    text-decoration:none;
-
-    margin-bottom:13px;
-
-    transition:0.3s ease;
-}
-
-.footer-links-column a:hover{
-    color:#c9a24d;
-}
-
 
 /* =========================================================
    INSTAGRAM
 ========================================================= */
 
-.footer-social{
-    text-align:center;
+.instagram-luxury{
+
+background:#111;
+
+padding:120px 6%;
+
 }
 
-.footer-social p{
-    color:#bbb;
+.instagram-header{
 
-    margin-bottom:15px;
+text-align:center;
+
+margin-bottom:60px;
+
 }
 
-.instagram-button{
-    display:inline-flex;
+.instagram-header small{
 
-    align-items:center;
+display:block;
 
-    justify-content:center;
+color:var(--gold);
 
-    width:50px;
+letter-spacing:4px;
 
-    height:50px;
+font-size:13px;
 
-    border:
-        1px solid
-        #c9a24d;
+margin-bottom:16px;
 
-    border-radius:50%;
-
-    transition:0.3s ease;
 }
 
-.instagram-button:hover{
-    background:#c9a24d;
+.instagram-header h2{
+
+font-family:"Cormorant Garamond",serif;
+
+font-size:clamp(48px,7vw,72px);
+
+margin-bottom:18px;
+
 }
 
-.instagram-button img{
-    width:28px;
+.instagram-header p{
 
-    height:28px;
+max-width:680px;
 
-    object-fit:contain;
+margin:auto;
+
+color:#bdbdbd;
+
+line-height:1.8;
+
 }
 
+.instagram-grid{
+
+display:grid;
+
+grid-template-columns:repeat(4,1fr);
+
+gap:20px;
+
+max-width:1400px;
+
+margin:auto;
+
+}
+
+.instagram-grid a{
+
+overflow:hidden;
+
+border-radius:24px;
+
+}
+
+.instagram-grid img{
+
+width:100%;
+
+height:340px;
+
+object-fit:cover;
+
+transition:.8s;
+
+}
+
+.instagram-grid a:hover img{
+
+transform:scale(1.08);
+
+}
 
 /* =========================================================
-   COPYRIGHT
+   NEWSLETTER
 ========================================================= */
 
+.newsletter{
+
+background:linear-gradient(180deg,#111,#080808);
+
+padding:100px 6%;
+
+text-align:center;
+
+border-top:1px solid rgba(201,162,77,.12);
+
+}
+
+.newsletter h2{
+
+font-family:"Cormorant Garamond",serif;
+
+font-size:clamp(48px,6vw,68px);
+
+margin-bottom:18px;
+
+}
+
+.newsletter p{
+
+max-width:640px;
+
+margin:auto;
+
+color:#bdbdbd;
+
+line-height:1.8;
+
+margin-bottom:36px;
+
+}
+
+.newsletter-box{
+
+display:flex;
+
+max-width:620px;
+
+margin:auto;
+
+background:rgba(255,255,255,.05);
+
+border:1px solid rgba(201,162,77,.18);
+
+border-radius:999px;
+
+overflow:hidden;
+
+}
+
+.newsletter-box input{
+
+flex:1;
+
+padding:18px 24px;
+
+background:none;
+
+border:none;
+
+color:#fff;
+
+outline:none;
+
+}
+
+.newsletter-box button{
+
+padding:18px 34px;
+
+background:var(--gold);
+
+border:none;
+
+font-weight:600;
+
+cursor:pointer;
+
+}
+
+/* =========================================================
+   PREMIUM FOOTER
+========================================================= */
+
+.royal-footer{
+
+background:#050505;
+
+color:#fff;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.royal-footer::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+left:0;
+
+width:100%;
+height:2px;
+
+background:linear-gradient(90deg,transparent,var(--gold),transparent);
+
+}
+
+.footer-wrap{
+
+max-width:1450px;
+
+margin:auto;
+
+padding:90px 6% 35px;
+
+}
+
+.footer-top{
+
+display:grid;
+
+grid-template-columns:1.2fr 1fr 1fr 1fr;
+
+gap:40px;
+
+padding-bottom:50px;
+
+border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+.footer-brand h2{
+
+font-family:"Cormorant Garamond",serif;
+
+font-size:46px;
+
+color:var(--gold);
+
+margin-bottom:18px;
+
+}
+
+.footer-brand p{
+
+color:#aaa;
+
+line-height:1.9;
+
+font-size:15px;
+
+}
+
+.footer-column h3{
+
+color:var(--gold);
+
+margin-bottom:20px;
+
+font-size:20px;
+
+}
+
+.footer-column a{
+
+display:block;
+
+margin-bottom:14px;
+
+color:#bbb;
+
+transition:.3s;
+
+}
+
+.footer-column a:hover{
+
+color:var(--gold);
+
+}
+
+.whatsapp-btn{
+
+display:inline-flex;
+
+align-items:center;
+
+gap:10px;
+
+padding:15px 24px;
+
+border-radius:999px;
+
+background:var(--gold);
+
+color:#111;
+
+font-weight:600;
+
+margin-top:12px;
+
+transition:.35s;
+
+}
+
+.whatsapp-btn:hover{
+
+transform:translateY(-3px);
+
+}
+
+.whatsapp-btn img{
+
+width:22px;
+
+}
+
 .footer-bottom{
-    border-top:
-        1px solid
-        rgba(255,255,255,0.15);
 
-    text-align:center;
+display:flex;
 
-    padding:25px 10px;
+justify-content:space-between;
+
+align-items:center;
+
+padding-top:30px;
+
+flex-wrap:wrap;
+
+gap:18px;
+
 }
 
 .footer-bottom p{
-    margin:0;
 
-    color:#999;
+color:#777;
 
-    font-size:14px;
-
-    line-height:1.6;
-}
-
-
-/* =====================================================
-   TABLET
-===================================================== */
-
-@media screen and (max-width: 1024px) {
-
-    .top-header {
-        padding:
-            8px
-            30px;
-    }
-
-    .product-slide {
-        flex-basis:
-            calc(
-                (100vw - 10vw - 22px) / 2
-            );
-    }
-
-    .product-slide img {
-        height: 330px;
-    }
-
-    .why-grid {
-        grid-template-columns:
-            repeat(
-                2,
-                1fr
-            );
-    }
-
-    .hero-arrow {
-        width: 44px;
-        height: 44px;
-        font-size: 29px;
-    }
+font-size:14px;
 
 }
 
+.footer-social{
 
-/* =====================================================
-   MOBILE
-   DESKTOP-STYLE RESPONSIVE LAYOUT
-===================================================== */
+display:flex;
 
-@media screen and (max-width: 768px) {
-
-    html,
-    body {
-        width: 100%;
-        max-width: 100%;
-        overflow-x: hidden;
-    }
-
-
-    /* HEADER */
-
-    .top-header {
-
-        width: 100%;
-        height: 70px;
-
-        grid-template-columns:
-            1fr
-            auto
-            1fr;
-
-        padding:
-            5px
-            10px;
-    }
-
-    .header-logo img {
-
-        height: 50px;
-
-        max-width: 120px;
-    }
-
-    .header-brand {
-
-        padding:
-            0
-            6px;
-    }
-
-    .header-brand h1 {
-
-        font-size: 20px;
-
-        letter-spacing: 2.5px;
-
-        white-space: nowrap;
-    }
-
-    .header-brand span {
-
-        font-size: 5.5px;
-
-        letter-spacing: 1.7px;
-
-        white-space: nowrap;
-    }
-
-    .header-cart {
-
-        width: 44px;
-        height: 44px;
-    }
-
-    .cart-icon {
-        font-size: 22px;
-    }
-
-
-    /* OFFER */
-
-    .headline-text {
-
-        font-size: 11px;
-
-        padding:
-            8px
-            0;
-
-        animation-duration: 15s;
-    }
-
-    .headline-text img {
-
-        width: 17px !important;
-    }
-
-
-    /* HERO */
-
-    .hero-slider-section,
-    .hero-slider,
-    .hero-track {
-
-        width: 100%;
-        max-width: 100%;
-    }
-
-    .hero-slide {
-
-        flex:
-            0 0 100%;
-
-        width: 100%;
-        min-width: 100%;
-    }
-
-    .hero-slide img {
-
-        width: 100%;
-
-        height: auto;
-
-        aspect-ratio: 2 / 1;
-
-        object-fit: cover;
-    }
-
-    .hero-arrow {
-
-        width: 34px;
-        height: 34px;
-
-        font-size: 23px;
-    }
-
-    .hero-prev {
-        left: 7px;
-    }
-
-    .hero-next {
-        right: 7px;
-    }
-
-    .hero-dots {
-
-        bottom: 8px;
-
-        gap: 6px;
-
-        padding:
-            5px
-            9px;
-    }
-
-    .hero-dot {
-
-        width: 7px;
-        height: 7px;
-    }
-
-    .hero-dot.active {
-        width: 22px;
-    }
-
-
-    /* FEATURED */
-
-    .product-showcase {
-
-        width: 100%;
-
-        padding:
-            60px
-            0
-            70px;
-    }
-
-    .product-showcase-header {
-
-        padding:
-            0
-            16px;
-
-        margin-bottom: 30px;
-    }
-
-    .product-showcase-header small {
-
-        font-size: 11px;
-
-        letter-spacing: 2px;
-    }
-
-    .product-showcase-header h2 {
-
-        font-size: 32px;
-
-        line-height: 1.2;
-    }
-
-    .product-showcase-header p {
-
-        font-size: 14px;
-
-        line-height: 1.5;
-    }
-
-
-    /* PRODUCT SLIDER */
-
-    .product-slider {
-
-        width: 100%;
-
-        overflow: hidden;
-    }
-
-    .product-track {
-
-        gap: 14px;
-    }
-
-    .product-slide {
-
-        flex:
-            0 0 calc(100vw - 28px);
-
-        width:
-            calc(100vw - 28px);
-
-        max-width: none;
-    }
-
-    .product-slide img {
-
-        width: 100%;
-
-        height: auto;
-
-        aspect-ratio: 4 / 5;
-
-        object-fit: cover;
-    }
-
-    .product-arrow {
-
-        width: 38px;
-        height: 38px;
-
-        font-size: 22px;
-    }
-
-    .product-prev {
-        left: 7px;
-    }
-
-    .product-next {
-        right: 7px;
-    }
-
-    .product-dots {
-
-        margin-top: 22px;
-
-        gap: 6px;
-    }
-
-    .product-dot {
-
-        width: 7px;
-        height: 7px;
-    }
-
-    .product-dot.active {
-        width: 23px;
-    }
-
-
-    /* BRANDS */
-
-    .watch-brands {
-
-        padding:
-            60px
-            0
-            70px;
-    }
-
-    .watch-brands-header {
-
-        padding:
-            0
-            16px;
-
-        margin-bottom: 30px;
-    }
-
-    .watch-brands-header small {
-        font-size: 11px;
-    }
-
-    .watch-brands-header h2 {
-
-        font-size: 34px;
-
-        line-height: 1.2;
-    }
-
-    .watch-brands-header p {
-
-        font-size: 14px;
-    }
-
-    .watch-brands-image {
-
-        width: 100% !important;
-
-        max-width: 100% !important;
-
-        height: auto;
-    }
-
-
-    /* COLLECTIONS */
-
-    .collections {
-
-        padding:
-            70px
-            14px
-            75px;
-    }
-
-    .collections > small {
-
-        font-size: 11px;
-    }
-
-    .collections > h2 {
-
-        font-size: 32px;
-
-        line-height: 1.2;
-
-        margin-bottom: 35px;
-    }
-
-    .categories-grid {
-
-        grid-template-columns: 1fr;
-
-        gap: 18px;
-    }
-
-    .card {
-
-        width: 100%;
-    }
-
-    .card img {
-
-        width: 100%;
-
-        height: auto;
-
-        aspect-ratio: 4 / 3;
-
-        object-fit: cover;
-    }
-
-    .card-content {
-
-        left: 18px;
-
-        right: 15px;
-
-        bottom: 18px;
-    }
-
-    .card-content h3 {
-
-        font-size: 25px;
-
-        line-height: 1.1;
-    }
-
-    .card-content p {
-
-        font-size: 13px;
-
-        line-height: 1.4;
-    }
-
-
-    /* LANGUAGE OF TIME */
-
-    .language-of-time-section img {
-
-        width: 100%;
-
-        height: auto;
-    }
-
-
-    /* GET IN TOUCH */
-
-    .get-touch {
-
-        padding:
-            65px
-            14px
-            70px;
-    }
-
-    .get-touch h2 {
-
-        font-size: 36px;
-
-        line-height: 1.2;
-    }
-
-    .get-touch > p {
-
-        font-size: 15px;
-
-        line-height: 1.6;
-
-        margin-bottom: 32px;
-    }
-
-    .touch-form {
-
-        width: 100%;
-
-        padding:
-            25px
-            18px;
-    }
-
-    .touch-form input,
-    .touch-form textarea {
-
-        padding: 15px;
-
-        font-size: 15px;
-    }
-
-    .touch-form textarea {
-
-        min-height: 160px;
-    }
-
-    .touch-form button {
-
-        width: 100%;
-
-        padding:
-            15px
-            20px;
-    }
-
-
-    /* WHY CHOOSE */
-
-    .why-choose {
-
-        padding:
-            70px
-            14px
-            75px;
-    }
-
-    .why-choose > h2 {
-
-        font-size: 35px;
-
-        line-height: 1.2;
-
-        margin-bottom: 35px;
-    }
-
-    .why-grid {
-
-        grid-template-columns: 1fr;
-
-        gap: 15px;
-    }
-
-    .why-box {
-
-        padding:
-            28px
-            20px;
-    }
-
-
-    /* STATS */
-
-    .stats-section {
-
-        padding:
-            70px
-            14px
-            75px;
-    }
-
-    .stats-section > h2 {
-
-        font-size: 35px;
-
-        line-height: 1.2;
-
-        margin-bottom: 40px;
-    }
-
-    .stats-grid {
-
-        grid-template-columns: 1fr;
-
-        gap: 34px;
-    }
-
-    .stat-box h3 {
-
-        font-size: 50px;
-    }
-
-    .stat-box p {
-
-        font-size: 16px;
-    }
-
-
-    /* FOOTER */
-
-    .main-footer {
-
-        padding:
-            55px
-            16px
-            22px;
-    }
-
-    .footer-top {
-
-        grid-template-columns: 1fr;
-
-        gap: 36px;
-    }
-
-    .footer-top > h2 {
-
-        font-size: 34px;
-
-        line-height: 1.2;
-    }
-
-    .contact-column h3,
-    .whatsapp-column h3 {
-
-        font-size: 18px;
-    }
-
-    .footer-link {
-
-        font-size: 15px;
-    }
-
-    .contact-column p {
-
-        font-size: 13px;
-
-        line-height: 1.5;
-    }
-
-    .whatsapp-button {
-
-        width: 100%;
-
-        max-width: 280px;
-    }
-
-    .footer-middle {
-
-        grid-template-columns: 1fr;
-
-        gap: 34px;
-
-        margin-top: 48px;
-
-        padding-top: 38px;
-    }
-
-    .footer-links-column h3,
-    .footer-social h3 {
-
-        font-size: 17px;
-    }
-
-    .footer-links-column a {
-
-        font-size: 14px;
-    }
-
-    .footer-social p {
-
-        font-size: 14px;
-    }
-
-    .footer-bottom {
-
-        margin-top: 42px;
-
-        padding-top: 19px;
-    }
-
-    .footer-bottom p {
-
-        font-size: 11px;
-
-        line-height: 1.6;
-    }
+gap:16px;
 
 }
 
+.footer-social a{
 
-/* =====================================================
-   SMALL PHONES
-===================================================== */
+width:48px;
 
-@media screen and (max-width: 480px) {
+height:48px;
 
-    .top-header {
+border-radius:50%;
 
-        height: 66px;
+border:1px solid rgba(201,162,77,.22);
 
-        padding:
-            4px
-            8px;
-    }
+display:flex;
 
-    .header-logo img {
+align-items:center;
 
-        height: 47px;
+justify-content:center;
 
-        max-width: 112px;
-    }
-
-    .header-brand h1 {
-
-        font-size: 18px;
-
-        letter-spacing: 2px;
-    }
-
-    .header-brand span {
-        display: none;
-    }
-
-    .header-cart {
-
-        width: 40px;
-        height: 40px;
-    }
-
-    .cart-icon {
-        font-size: 21px;
-    }
-
-    .headline-text {
-
-        font-size: 10px;
-
-        padding:
-            7px
-            0;
-    }
-
-    .hero-arrow {
-
-        width: 31px;
-        height: 31px;
-
-        font-size: 20px;
-    }
-
-    .hero-prev {
-        left: 5px;
-    }
-
-    .hero-next {
-        right: 5px;
-    }
-
-    .product-slide {
-
-        flex:
-            0 0 calc(100vw - 24px);
-
-        width:
-            calc(100vw - 24px);
-    }
-
-    .product-slide img {
-
-        aspect-ratio: 4 / 5;
-
-        height: auto;
-    }
-
-    .collections > h2,
-    .watch-brands-header h2,
-    .get-touch h2,
-    .partner-header h2,
-    .why-choose > h2,
-    .stats-section > h2 {
-
-        font-size: 29px;
-    }
-
-    .card-content h3 {
-        font-size: 22px;
-    }
-
-    .card-content p {
-        font-size: 12px;
-    }
+transition:.35s;
 
 }
 
+.footer-social a:hover{
 
-/* =====================================================
-   VERY SMALL PHONES
-===================================================== */
-
-@media screen and (max-width: 360px) {
-
-    .header-brand h1 {
-
-        font-size: 16px;
-
-        letter-spacing: 1.7px;
-    }
-
-    .header-logo img {
-
-        height: 43px;
-
-        max-width: 98px;
-    }
-
-    .headline-text {
-        font-size: 9px;
-    }
-
-    .product-slide {
-
-        flex:
-            0 0 calc(100vw - 20px);
-
-        width:
-            calc(100vw - 20px);
-    }
-
-    .collections > h2,
-    .watch-brands-header h2,
-    .get-touch h2,
-    .partner-header h2,
-    .why-choose > h2,
-    .stats-section > h2 {
-
-        font-size: 27px;
-    }
+background:var(--gold);
 
 }
 
+.footer-social img{
+
+width:24px;
+
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.why-grid,
+.stats-grid,
+.instagram-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+.contact-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.newsletter-box{
+
+flex-direction:column;
+
+border-radius:22px;
+
+}
+
+.footer-top{
+
+grid-template-columns:1fr;
+
+}
+
+.footer-bottom{
+
+flex-direction:column;
+
+text-align:center;
+
+}
+
+}
+
+@media(max-width:520px){
+
+.why-grid,
+.stats-grid,
+.instagram-grid{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+/* =========================================================
+   FINAL LUXURY POLISH
+========================================================= */
+
+/* Scroll Reveal */
+
+.reveal{
+
+opacity:0;
+
+transform:translateY(60px);
+
+transition:
+opacity .9s ease,
+transform .9s cubic-bezier(.22,1,.36,1);
+
+}
+
+.reveal.show{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+/* Image Fade */
+
+img{
+
+opacity:0;
+
+transition:opacity .8s ease;
+
+}
+
+img.loaded{
+
+opacity:1;
+
+}
+
+/* Gold Cursor Glow */
+
+.cursor-glow{
+
+position:fixed;
+
+width:260px;
+height:260px;
+
+border-radius:50%;
+
+pointer-events:none;
+
+background:radial-gradient(circle,
+rgba(201,162,77,.08),
+transparent 70%);
+
+transform:translate(-50%,-50%);
+
+z-index:1;
+
+transition:
+left .12s linear,
+top .12s linear;
+
+}
+
+/* Loading Screen */
+
+.loader{
+
+position:fixed;
+
+inset:0;
+
+background:#050505;
+
+display:flex;
+
+align-items:center;
+justify-content:center;
+
+flex-direction:column;
+
+z-index:99999;
+
+transition:opacity .7s ease;
+
+}
+
+.loader.hide{
+
+opacity:0;
+
+pointer-events:none;
+
+}
+
+.loader-logo{
+
+font-family:"Cormorant Garamond",serif;
+
+font-size:56px;
+
+letter-spacing:8px;
+
+color:var(--gold);
+
+margin-bottom:18px;
+
+}
+
+.loader-line{
+
+width:180px;
+height:2px;
+
+background:rgba(255,255,255,.08);
+
+overflow:hidden;
+
+}
+
+.loader-line span{
+
+display:block;
+
+width:60%;
+height:100%;
+
+background:linear-gradient(90deg,
+transparent,
+var(--gold),
+transparent);
+
+animation:loaderMove 1.5s linear infinite;
+
+}
+
+@keyframes loaderMove{
+
+0%{
+
+transform:translateX(-100%);
+
+}
+
+100%{
+
+transform:translateX(220%);
+
+}
+
+}
+
+/* Floating Gold Divider */
+
+.gold-divider{
+
+width:160px;
+height:2px;
+
+margin:80px auto;
+
+background:linear-gradient(90deg,
+transparent,
+var(--gold),
+transparent);
+
+position:relative;
+
+}
+
+.gold-divider::after{
+
+content:"";
+
+position:absolute;
+
+left:50%;
+top:50%;
+
+transform:translate(-50%,-50%);
+
+width:10px;
+height:10px;
+
+border-radius:50%;
+
+background:var(--gold);
+
+box-shadow:0 0 15px rgba(201,162,77,.5);
+
+}
+
+/* Hover Lift */
+
+.hero-btn,
+.couple-btn,
+.journal-btn,
+.limited-btn{
+
+transition:
+transform .35s ease,
+box-shadow .35s ease;
+
+}
+
+.hero-btn:hover,
+.couple-btn:hover,
+.journal-btn:hover,
+.limited-btn:hover{
+
+box-shadow:0 20px 40px rgba(201,162,77,.25);
+
+}
+
+/* Better Mobile */
+
+@media(max-width:768px){
+
+.cursor-glow{
+
+display:none;
+
+}
+
+.loader-logo{
+
+font-size:38px;
+
+letter-spacing:4px;
+
+}
+
+}
+    
 </style>
 
 </head>
 
-
 <body>
 
+<!-- =========================================================
+     LUXURY LOADER
+========================================================= -->
 
-<!-- =====================================================
-     HEADER
-===================================================== -->
+<div class="loader" id="loader">
 
-<header class="top-header">
+<div class="loader-logo">
 
-    <div class="header-left">
-
-        <a
-            href="index.html"
-            class="header-logo"
-        >
-
-            <img
-                src="logo.jpeg"
-                alt="50 Mirars Logo"
-            >
-
-        </a>
-
-    </div>
-
-
-    <div class="header-brand">
-
-        <div>
-
-            <h1>
-                50 MIRARS
-            </h1>
-
-            <span>
-                WATCHES • SUNGLASSES
-            </span>
-
-        </div>
-
-    </div>
-
-
-   <div class="header-right">
-
-    <!-- Top Row -->
-    <div class="header-icons">
-
-        <a href="profile.html"
-           class="header-profile"
-           aria-label="My Profile">
-
-            <span class="profile-icon">👤</span>
-
-        </a>
-
-        <a href="cart.html"
-           class="header-cart"
-           aria-label="Shopping Cart">
-
-            <span class="cart-icon">🛒</span>
-
-        </a>
-
-    </div>
-
-    <!-- Bottom Row -->
-   <div class="search-container">
-
-    <div class="search-box">
-
-        <input
-            type="text"
-            id="searchInput"
-            placeholder="Search Products..."
-            autocomplete="off">
-
-        <button id="searchBtn" type="button">🔍</button>
-
-    </div>
+50 MIRARS
 
 </div>
-    
+
+<div class="loader-line">
+
+<span></span>
+
+</div>
+
+</div>
+
+<!-- Cursor Glow -->
+
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<!-- =========================================================
+     FLOATING GLASS HEADER
+========================================================= -->
+
+<header class="top-header" id="header">
+
+<a href="index.html" class="header-logo">
+
+<img src="logo.jpeg" alt="50 Mirars">
+
+</a>
+
+<div class="header-brand">
+
+<h1>50 MIRARS</h1>
+
+<span>WATCHES • SUNGLASSES</span>
+
+</div>
+
+<div class="header-right">
+
+<div class="search-box">
+
+<input id="searchInput"
+placeholder="Search Products...">
+
+<button id="searchBtn">
+
+<svg viewBox="0 0 24 24">
+
+<circle cx="11" cy="11" r="7"></circle>
+
+<line x1="16.65" y1="16.65" x2="21" y2="21"></line>
+
+</svg>
+
+</button>
+
+</div>
+
+<a href="profile.html" class="icon-btn" aria-label="Profile">
+
+<svg viewBox="0 0 24 24">
+
+<path d="M20 21c0-3.3-2.7-6-6-6H10c-3.3 0-6 2.7-6 6"></path>
+
+<circle cx="12" cy="8" r="4"></circle>
+
+</svg>
+
+</a>
+
+<a href="cart.html" class="icon-btn" aria-label="Cart">
+
+<svg viewBox="0 0 24 24">
+
+<circle cx="9" cy="20" r="1"></circle>
+
+<circle cx="18" cy="20" r="1"></circle>
+
+<path d="M3 4h2l2.2 10.4a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.6L21 7H7"></path>
+
+</svg>
+
+</a>
+
+</div>
+
 </header>
 
-<!-- =====================================================
-     PRODUCT SHOWCASE
-===================================================== -->
+<!-- =========================================================
+     CINEMATIC HERO
+========================================================= -->
 
-<section class="product-showcase">
+<section class="hero">
 
-    <div class="product-showcase-header">
+<div class="hero-bg">
 
-        <small>
-            FEATURED COLLECTION
-        </small>
+<img src="hero-main.webp" alt="50 Mirars Luxury Collection">
 
-        <h2>
-            Discover Our Collection
-        </h2>
+</div>
 
-        <p>
-            Explore timeless watches and premium accessories from 50 Mirars.
-        </p>
+<div class="gold-dust">
 
-    </div>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
 
+</div>
 
-    <div
-        class="product-slider"
-        id="productSlider"
-    >
+<div class="hero-content">
 
-        <div
-            class="product-track"
-            id="productTrack"
-        >
+<div class="hero-label">
 
+Royal Editorial Collection
 
-            <a
-                href="watches.html"
-                class="product-slide"
-            >
+</div>
 
-                <img
-                    src="Guess Waygene.jpeg"
-                    alt="Featured Watch"
-                >
+<h1>
 
-            </a>
+TIME.<br>
+STYLE.<br>
+LEGACY.
 
+</h1>
 
-            <a
-                href="couple-watches.html"
-                class="product-slide"
-            >
+<p>
 
-                <img
-                    src="Rolex Sky-Dewller Couple Watch.jpeg"
-                    alt="Featured Couple Watch"
-                >
+Discover a curated world of luxury watches and premium sunglasses—
+crafted for collectors who appreciate timeless design, remarkable
+craftsmanship and unforgettable first impressions.
 
-            </a>
+</p>
 
+<a href="#collections" class="hero-btn">
 
-            <a
-                href="luxury-articles.html"
-                class="product-slide"
-            >
+Explore the Collection →
 
-                <img
-                    src="Rolex GMT-Master II Simple Dial.jpeg"
-                    alt="Featured Luxury Watch"
-                >
+</a>
 
-            </a>
+</div>
 
+<div class="scroll-indicator">
 
-            <a
-                href="most-selling.html"
-                class="product-slide"
-            >
+<div class="scroll-mouse">
 
-                <img
-                    src="Cartier Aqua Green Karan Aujla Edition.jpeg"
-                    alt="Featured Product"
-                >
+<span></span>
 
-            </a>
+</div>
 
+SCROLL
 
-            <a
-                href="limited-editions.html"
-                class="product-slide"
-            >
-
-                <img
-                    src="Seiko Mod Date-Just.jpeg"
-                    alt="Limited Edition Watch"
-                >
-
-            </a>
-
-
-            <a
-                href="sunglasses.html"
-                class="product-slide"
-            >
-
-                <img
-                    src="Cartier Sky Blue Jaguar Sunglasses.jpeg"
-                    alt="Premium Sunglasses"
-                >
-
-            </a>
-
-
-        </div>
-
-
-        <button
-            type="button"
-            class="product-arrow product-prev"
-            id="productPrev"
-            aria-label="Previous Products"
-        >
-            ‹
-        </button>
-
-
-        <button
-            type="button"
-            class="product-arrow product-next"
-            id="productNext"
-            aria-label="Next Products"
-        >
-            ›
-        </button>
-
-    </div>
-
-
-    <div
-        class="product-dots"
-        id="productDots"
-    >
-
-        <button
-            class="product-dot active"
-            type="button"
-            aria-label="Product Slide 1"
-        ></button>
-
-        <button
-            class="product-dot"
-            type="button"
-            aria-label="Product Slide 2"
-        ></button>
-
-        <button
-            class="product-dot"
-            type="button"
-            aria-label="Product Slide 3"
-        ></button>
-
-        <button
-            class="product-dot"
-            type="button"
-            aria-label="Product Slide 4"
-        ></button>
-
-        <button
-            class="product-dot"
-            type="button"
-            aria-label="Product Slide 5"
-        ></button>
-
-        <button
-            class="product-dot"
-            type="button"
-            aria-label="Product Slide 6"
-        ></button>
-
-    </div>
+</div>
 
 </section>
 
+<!-- =========================================================
+     ROYAL INTRODUCTION
+========================================================= -->
 
-<!-- =====================================================
-     COLLECTIONS
-===================================================== -->
+<section class="royal-intro">
 
-<section
-    class="collections"
-    id="collections"
->
+<div class="royal-grid">
 
-    <small>
-        OUR COLLECTIONS
-    </small>
+<div>
 
-    <h2>
-        EXPLORE OUR COLLECTIONS
-    </h2>
+<div class="royal-label">
 
+The House of 50 Mirars
 
-    <div class="categories-grid">
-
-
-        <a href="watches.html">
-
-            <div class="card">
-
-                <img
-                    src="Seiko Blue Moon SSA347J1.jpeg"
-                    alt="Watches"
-                    loading="lazy"
-                >
-
-                <div class="card-content">
-
-                    <h3>
-                        WATCHES
-                    </h3>
-
-                    <p>
-                        Luxury. Precision. Elegance.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </a>
-
-
-        <a href="sunglasses.html">
-
-            <div class="card">
-
-                <img
-                    src="Voyage Unisex Sunglasses.jpeg"
-                    alt="Sunglasses"
-                    loading="lazy"
-                >
-
-                <div class="card-content">
-
-                    <h3>
-                        SUNGLASSES
-                    </h3>
-
-                    <p>
-                        Luxury. Style. Confidence.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </a>
-
-
-        <a href="most-selling.html">
-
-            <div class="card">
-
-                <img
-                    src="MayBach Sunglasses 2735.jpeg"
-                    alt="Most Selling Articles"
-                    loading="lazy"
-                >
-
-                <div class="card-content">
-
-                    <h3>
-                        MOST SELLING ARTICLES
-                    </h3>
-
-                    <p>
-                        Our most popular watches loved by customers.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </a>
-
-
-        <a href="couple-watches.html">
-
-            <div class="card">
-
-                <img
-                    src="Citizen Classic Couple Watch.jpeg"
-                    alt="Couple Watches"
-                    loading="lazy"
-                >
-
-                <div class="card-content">
-
-                    <h3>
-                        COUPLE WATCHES
-                    </h3>
-
-                    <p>
-                        Elegant timepieces designed for couples.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </a>
-
-
-        <a href="limited-editions.html">
-
-            <div class="card">
-
-                <img
-                    src="Casio Edifice ECB-2000DD.jpeg"
-                    alt="Limited Editions"
-                    loading="lazy"
-                >
-
-                <div class="card-content">
-
-                    <h3>
-                        LIMITED EDITIONS
-                    </h3>
-
-                    <p>
-                        Rare and exclusive collectible pieces.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </a>
-
-
-        <a href="luxury-articles.html">
-
-            <div class="card">
-
-                <img
-                    src="Rolex Oyster Perpetual Day-Date.jpeg"
-                    alt="Luxury Articles"
-                    loading="lazy"
-                >
-
-                <div class="card-content">
-
-                    <h3>
-                        LUXURY ARTICLES
-                    </h3>
-
-                    <p>
-                        Exclusive luxury accessories and collectibles.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </a>
-
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     SIGNATURE CARE GUIDE
-===================================================== -->
-
-<section class="care-guide-signature">
-
-<div class="care-guide-frame">
-
-<div class="floating-chip chip-one">
-    Luxury Care
 </div>
 
-<div class="floating-chip chip-two">
-    Premium Finish
+<h2>
+
+Where Time Meets
+Timeless Style.
+
+</h2>
+
+<p>
+
+At 50 Mirars, every watch and every pair of sunglasses is selected with
+the mindset of a collector—not simply for appearance, but for the
+character each piece carries. Inspired by iconic craftsmanship and
+modern luxury, our collection celebrates confidence, precision and
+lasting elegance.
+
+</p>
+
+<p>
+
+From legendary silhouettes to contemporary statements, each creation is
+presented as part of an editorial experience—where exceptional design
+becomes part of everyday life.
+
+</p>
+
+<div class="signature">
+
+— Curated for Modern Collectors
+
 </div>
 
-<div class="care-guide-inner">
+</div>
 
-    <!-- Left Content -->
+<div class="royal-image">
 
-    <div>
+<img src="hero-detail.webp" alt="Luxury Editorial Watch">
 
-        <div class="care-tag">
-            <span></span>
-            PRESERVE YOUR LUXURY
-        </div>
+<div class="quote-chip">
 
-        <h2 class="care-title">
-            Every Icon Deserves Timeless Care
-        </h2>
+<strong>Editor's Note</strong>
 
-        <p class="care-description">
-            Exceptional craftsmanship deserves exceptional preservation.
-            Discover professional care techniques trusted for luxury watches
-            and premium eyewear—from cleaning and storage to everyday protection—
-            ensuring every piece retains its brilliance for years.
-        </p>
+<p>
 
-        <a href="care-guide.html" class="care-premium-btn">
-            Explore the Care Guide
-            <span class="arrow">→</span>
-        </a>
+Luxury is never loud. It is remembered through details, craftsmanship
+and the confidence it quietly leaves behind.
 
-    </div>
+</p>
 
-    <!-- Right Visual -->
-
-    <div class="care-visual">
-
-        <div class="sunglass-circle">
-
-            <img src="care-guideofwatches.webp"
-                 alt="Luxury Watch">
-
-        </div>
-
-    </div>
+</div>
 
 </div>
 
@@ -3780,1367 +3907,1544 @@ textarea {
 
 </section>
 
-<!-- =====================================================
-     LUXURY JOURNAL PREVIEW
-===================================================== -->
+<!-- =========================================================
+     SIGNATURE COLLECTIONS
+========================================================= -->
 
-<section class="journal-preview">
+<section class="signature-collections" id="collections">
 
-    <div class="journal-header">
+<div class="collections-header">
 
-        <small>50 MIRARS MAGAZINE</small>
+<small>CURATED COLLECTIONS</small>
 
-        <h2>Stories Behind Extraordinary Timepieces</h2>
+<h2>Explore the House of Luxury</h2>
 
-        <p>
-            Discover the craftsmanship, heritage and design philosophy behind
-            the world's most iconic watches through our editorial journal.
-        </p>
+<p>
 
-    </div>
+A carefully curated journey through our finest watches, premium
+eyewear, collector editions and editorial favorites.
 
-    
-    <!-- Bottom CTA -->
+</p>
 
-    <div class="journal-footer">
+</div>
 
-        <a href="journal.html"
-           class="journal-button">
+<div class="luxury-grid">
 
-            Explore the Complete Journal
+<!-- Watches -->
 
-        </a>
+<a href="watches.html" class="luxury-card">
 
-    </div>
+<img src="royal-watch.webp" alt="Luxury Watches">
+
+<div class="luxury-content">
+
+<small>01 · WATCHES</small>
+
+<h3>Timeless Precision</h3>
+
+<p>
+
+Discover iconic designs that celebrate craftsmanship and enduring
+elegance.
+
+</p>
+
+<div class="explore-line">
+
+Explore Collection <span>→</span>
+
+</div>
+
+</div>
+
+</a>
+
+<!-- Sunglasses -->
+
+<a href="sunglasses.html" class="luxury-card">
+
+<img src="royal-sunglasses.webp" alt="Luxury Sunglasses">
+
+<div class="luxury-content">
+
+<small>02 · SUNGLASSES</small>
+
+<h3>Modern Statements</h3>
+
+<p>
+
+Bold silhouettes and refined luxury designed to leave unforgettable
+first impressions.
+
+</p>
+
+<div class="explore-line">
+
+Explore Collection <span>→</span>
+
+</div>
+
+</div>
+
+</a>
+
+<!-- Large Couple -->
+
+<a href="couple-watches.html" class="luxury-card large">
+
+<img src="royal-couple.webp" alt="Couple Watches">
+
+<div class="luxury-content">
+
+<small>03 · COUPLE WATCHES</small>
+
+<h3>Moments Shared Through Time</h3>
+
+<p>
+
+Elegant matching timepieces created for unforgettable memories and
+lasting connections.
+
+</p>
+
+<div class="explore-line">
+
+Discover Together <span>→</span>
+
+</div>
+
+</div>
+
+</a>
+
+<!-- Limited -->
+
+<a href="limited-editions.html" class="luxury-card">
+
+<img src="royal-limited.webp" alt="Limited Editions">
+
+<div class="luxury-content">
+
+<small>04 · LIMITED EDITIONS</small>
+
+<h3>Rare by Design</h3>
+
+<p>
+
+Exclusive collector pieces crafted for those who appreciate rarity and
+distinction.
+
+</p>
+
+<div class="explore-line">
+
+View Editions <span>→</span>
+
+</div>
+
+</div>
+
+</a>
+
+<!-- Most Selling -->
+
+<a href="most-selling.html" class="luxury-card">
+
+<img src="royal-bestseller.webp" alt="Most Selling">
+
+<div class="luxury-content">
+
+<small>05 · BEST SELLERS</small>
+
+<h3>Chosen Again & Again</h3>
+
+<p>
+
+Our most admired luxury pieces loved by customers and collectors alike.
+
+</p>
+
+<div class="explore-line">
+
+See Favorites <span>→</span>
+
+</div>
+
+</div>
+
+</a>
+
+<!-- Luxury Articles -->
+
+<a href="luxury-articles.html" class="luxury-card large">
+
+<img src="royal-luxury.webp" alt="Luxury Articles">
+
+<div class="luxury-content">
+
+<small>06 · LUXURY ARTICLES</small>
+
+<h3>Beyond Timepieces</h3>
+
+<p>
+
+A world of exceptional luxury where iconic designs, rare inspirations
+and editorial storytelling come together.
+
+</p>
+
+<div class="explore-line">
+
+Enter the Gallery <span>→</span>
+
+</div>
+
+</div>
+
+</a>
+
+</div>
 
 </section>
 
+<!-- =========================================================
+     FEATURED COLLECTION SHOWCASE
+========================================================= -->
 
-<!-- =====================================================
-     GET IN TOUCH
-===================================================== -->
+<section class="editorial-showcase">
 
-<section class="get-touch">
+<div class="showcase-header">
 
-    <h2>
-        Get In Touch
-    </h2>
+<small>FEATURED COLLECTION</small>
 
-    <p>
-        Have a question, enquiry, feedback or complaint?
-        We are here to help.
-    </p>
+<h2>Icons Worth Remembering</h2>
 
+<p>
 
-    <form
-        class="touch-form"
-        action="https://formspree.io/f/mlgqpono"
-        method="POST"
-    >
+Discover a curated selection of remarkable watches and premium eyewear
+presented through a cinematic editorial experience.
 
-        <input
-            type="text"
-            name="name"
-            placeholder="Your Name"
-            required
-        >
+</p>
 
-        <input
-            type="email"
-            name="email"
-            placeholder="Your Email"
-            required
-        >
+</div>
 
-        <input
-            type="tel"
-            name="phone"
-            placeholder="Your Phone Number"
-        >
+<div class="showcase-slider" id="showcaseSlider">
 
-        <textarea
-            name="message"
-            placeholder="Write your enquiry or complaint here..."
-            required
-        ></textarea>
+<div class="showcase-track" id="showcaseTrack">
 
-        <button type="submit">
-            Send Message
-        </button>
+<a href="watches.html" class="showcase-card">
 
-    </form>
+<img src="showcase-watch.webp" alt="Luxury Watch">
+
+<div class="showcase-info">
+
+<small>TIMEPIECE</small>
+
+<h3>Royal Precision</h3>
+
+<p>Elegant craftsmanship designed for modern collectors.</p>
+
+<div class="showcase-link">
+
+Explore <span>→</span>
+
+</div>
+
+</div>
+
+</a>
+
+<a href="couple-watches.html" class="showcase-card">
+
+<img src="showcase-couple.webp" alt="Couple Watch">
+
+<div class="showcase-info">
+
+<small>COUPLE</small>
+
+<h3>Shared Legacy</h3>
+
+<p>Timeless pieces created for unforgettable moments together.</p>
+
+<div class="showcase-link">
+
+Discover <span>→</span>
+
+</div>
+
+</div>
+
+</a>
+
+<a href="luxury-articles.html" class="showcase-card">
+
+<img src="showcase-gmt.webp" alt="Luxury Article">
+
+<div class="showcase-info">
+
+<small>EDITORIAL</small>
+
+<h3>Collector's Choice</h3>
+
+<p>Where iconic design meets timeless storytelling.</p>
+
+<div class="showcase-link">
+
+Read More <span>→</span>
+
+</div>
+
+</div>
+
+</a>
+
+<a href="most-selling.html" class="showcase-card">
+
+<img src="showcase-cartier.webp" alt="Best Seller">
+
+<div class="showcase-info">
+
+<small>BEST SELLER</small>
+
+<h3>Modern Icon</h3>
+
+<p>Admired by collectors for its distinctive presence.</p>
+
+<div class="showcase-link">
+
+View <span>→</span>
+
+</div>
+
+</div>
+
+</a>
+
+<a href="limited-editions.html" class="showcase-card">
+
+<img src="showcase-seiko.webp" alt="Limited Edition">
+
+<div class="showcase-info">
+
+<small>LIMITED</small>
+
+<h3>Rare by Design</h3>
+
+<p>Exclusive collector pieces crafted for distinction.</p>
+
+<div class="showcase-link">
+
+Explore <span>→</span>
+
+</div>
+
+</div>
+
+</a>
+
+<a href="sunglasses.html" class="showcase-card">
+
+<img src="showcase-sunglasses.webp" alt="Luxury Sunglasses">
+
+<div class="showcase-info">
+
+<small>EYEWEAR</small>
+
+<h3>Signature Vision</h3>
+
+<p>Luxury eyewear that elevates every first impression.</p>
+
+<div class="showcase-link">
+
+Discover <span>→</span>
+
+</div>
+
+</div>
+
+</a>
+
+</div>
+
+<button class="showcase-arrow showcase-prev" id="showcasePrev">
+
+<svg viewBox="0 0 24 24">
+
+<polyline points="15 18 9 12 15 6"></polyline>
+
+</svg>
+
+</button>
+
+<button class="showcase-arrow showcase-next" id="showcaseNext">
+
+<svg viewBox="0 0 24 24">
+
+<polyline points="9 18 15 12 9 6"></polyline>
+
+</svg>
+
+</button>
+
+</div>
+
+<div class="showcase-dots" id="showcaseDots">
+
+<div class="showcase-dot active"></div>
+
+<div class="showcase-dot"></div>
+
+<div class="showcase-dot"></div>
+
+<div class="showcase-dot"></div>
+
+</div>
 
 </section>
 
-<!-- =====================================================
+<!-- =========================================================
+     COLLECTOR'S WALL
+========================================================= -->
+
+<section class="collector-wall">
+
+<div class="wall-header">
+
+<small>THE COLLECTOR'S WALL</small>
+
+<h2>Inspired by Icons</h2>
+
+<p>
+
+Our curated collection draws inspiration from the world's most admired
+watchmakers and luxury eyewear houses.
+
+</p>
+
+</div>
+
+<div class="brand-grid">
+
+<div class="brand-box">
+
+<h3>Rolex</h3>
+
+<p>Timeless prestige and iconic craftsmanship.</p>
+
+</div>
+
+<div class="brand-box">
+
+<h3>Cartier</h3>
+
+<p>French elegance with enduring character.</p>
+
+</div>
+
+<div class="brand-box">
+
+<h3>Omega</h3>
+
+<p>Legendary innovation and remarkable heritage.</p>
+
+</div>
+
+<div class="brand-box">
+
+<h3>Seiko</h3>
+
+<p>Japanese precision refined through generations.</p>
+
+</div>
+
+<div class="brand-box">
+
+<h3>Burberry</h3>
+
+<p>Modern British luxury with distinctive style.</p>
+
+</div>
+
+<div class="brand-box">
+
+<h3>Ray-Ban</h3>
+
+<p>Iconic eyewear that never fades.</p>
+
+</div>
+
+<div class="brand-box">
+
+<h3>Dior</h3>
+
+<p>Fashion-forward elegance with bold identity.</p>
+
+</div>
+
+<div class="brand-box">
+
+<h3>Versace</h3>
+
+<p>Confident luxury inspired by timeless glamour.</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================================================
+     LIMITED EDITION SPOTLIGHT
+========================================================= -->
+
+<section class="limited-spotlight">
+
+<div class="limited-bg">
+
+<img src="limited-hero.webp" alt="Limited Edition Collection">
+
+</div>
+
+<div class="limited-content">
+
+<small>LIMITED EDITION COLLECTION</small>
+
+<h2>Rare. Remarkable. Reserved.</h2>
+
+<p>
+
+Some pieces are admired. Others become part of a collector's story.
+Explore our exclusive collection of limited editions created for those
+who appreciate rarity, distinction and timeless presence.
+
+</p>
+
+<a href="limited-editions.html" class="limited-btn">
+
+Enter the Collection →
+
+</a>
+
+</div>
+
+</section>
+
+<!-- =========================================================
+     COUPLE COLLECTION CAMPAIGN
+========================================================= -->
+
+<section class="couple-campaign">
+
+<div class="couple-bg">
+
+<img src="couple-hero.webp" alt="Couple Collection">
+
+</div>
+
+<div class="couple-content">
+
+<small>COUPLE COLLECTION</small>
+
+<h2>
+
+Every Moment.
+Every Memory.
+
+</h2>
+
+<p>
+
+True luxury is often shared. Our Couple Collection celebrates timeless
+design through elegant matching timepieces created for unforgettable
+journeys together.
+
+</p>
+
+<a href="couple-watches.html" class="couple-btn">
+
+Discover the Collection →
+
+</a>
+
+</div>
+
+</section>
+
+<!-- =========================================================
+     JOURNAL EXPERIENCE
+========================================================= -->
+
+<section class="journal-experience">
+
+<div class="journal-head">
+
+<small>50 MIRARS JOURNAL</small>
+
+<h2>Stories Behind Extraordinary Icons</h2>
+
+<p>
+
+A magazine dedicated to legendary timepieces, remarkable craftsmanship
+and the design philosophies that shaped the world's most admired luxury
+creations.
+
+</p>
+
+</div>
+
+<div class="magazine">
+
+<div class="magazine-cover">
+
+<img src="journal-cover.webp" alt="50 Mirars Journal">
+
+</div>
+
+<div class="magazine-content">
+
+<small>ISSUE No. 01</small>
+
+<h3>
+
+The Magazine
+of Collectors
+
+</h3>
+
+<p>
+
+Explore in-depth stories featuring Rolex Daytona, Cartier Santos,
+Omega Speedmaster and other legendary creations presented through an
+editorial experience designed exclusively for 50 Mirars.
+
+</p>
+
+<a href="journal.html" class="journal-btn">
+
+Open the Journal →
+
+</a>
+
+</div>
+
+</div>
+
+<div class="editorial-grid">
+
+<a href="journal/rolex-daytona.html" class="editorial-card">
+
+<img src="journal-card1.webp" alt="Rolex Daytona">
+
+<div class="editorial-info">
+
+<small>ROLEX</small>
+
+<h4>Daytona</h4>
+
+<p>The racing icon that became one of the world's most admired watches.</p>
+
+<div class="showcase-link">
+
+Read Story <span>→</span>
+
+</div>
+
+</div>
+
+</a>
+
+<a href="journal/cartier-santos.html" class="editorial-card">
+
+<img src="journal-card2.webp" alt="Cartier Santos">
+
+<div class="editorial-info">
+
+<small>CARTIER</small>
+
+<h4>Santos</h4>
+
+<p>The pioneering square watch that changed luxury watchmaking forever.</p>
+
+<div class="showcase-link">
+
+Read Story <span>→</span>
+
+</div>
+
+</div>
+
+</a>
+
+<a href="journal/omega-speedmaster.html" class="editorial-card">
+
+<img src="journal-card3.webp" alt="Omega Speedmaster">
+
+<div class="editorial-info">
+
+<small>OMEGA</small>
+
+<h4>Speedmaster</h4>
+
+<p>A legendary chronograph whose story extends far beyond Earth.</p>
+
+<div class="showcase-link">
+
+Read Story <span>→</span>
+
+</div>
+
+</div>
+
+</a>
+
+</div>
+
+</section>
+
+<!-- =========================================================
+     GRAND CARE GUIDE
+========================================================= -->
+
+<section class="grand-care">
+
+<div class="care-header">
+
+<small>THE ART OF PRESERVATION</small>
+
+<h2>Luxury Deserves Timeless Care</h2>
+
+<p>
+
+Exceptional craftsmanship deserves exceptional preservation. Learn how
+to protect the brilliance of your watches and premium eyewear with
+editorial-quality care techniques curated by 50 Mirars.
+
+</p>
+
+</div>
+
+<div class="care-split">
+
+<div class="care-box">
+
+<img src="care-watch.webp" alt="Watch Care">
+
+<div class="care-text">
+
+<h3>Preserve Every Second</h3>
+
+<p>
+
+From cleaning routines to proper storage and magnetic protection,
+discover the habits that help preserve exceptional timepieces for years
+to come.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="care-box">
+
+<img src="care-sunglasses.webp" alt="Sunglasses Care">
+
+<div class="care-text">
+
+<h3>Protect Every Reflection</h3>
+
+<p>
+
+Keep premium eyewear looking remarkable with proper cleaning, careful
+handling and storage practices that maintain lasting brilliance.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="principles">
+
+<div class="principle">
+
+<span>01</span>
+
+<h4>Clean Gently</h4>
+
+<p>Use soft microfiber cloths after every wear.</p>
+
+</div>
+
+<div class="principle">
+
+<span>02</span>
+
+<h4>Store Carefully</h4>
+
+<p>Keep every piece inside a premium protective case.</p>
+
+</div>
+
+<div class="principle">
+
+<span>03</span>
+
+<h4>Avoid Magnets</h4>
+
+<p>Protect watch movements from strong magnetic fields.</p>
+
+</div>
+
+<div class="principle">
+
+<span>04</span>
+
+<h4>Preserve Finish</h4>
+
+<p>Handle luxury eyewear with care to maintain lasting elegance.</p>
+
+</div>
+
+</div>
+
+<div class="care-footer">
+
+<a href="luxury-care-guide.html" class="hero-btn">
+
+Explore the Complete Care Guide →
+
+</a>
+
+</div>
+
+</section>
+
+<!-- =========================================================
      WHY CHOOSE
-===================================================== -->
+========================================================= -->
 
-<section class="why-choose">
+<section class="why-luxury">
 
-    <h2>
-        Why Choose 50 Mirars?
-    </h2>
+<div class="why-header">
 
+<small>WHY 50 MIRARS</small>
 
-    <div class="why-grid">
+<h2>Crafted Around Trust</h2>
 
+<p>
 
-        <div class="why-box">
+Luxury is defined by details, service and confidence. Every experience
+at 50 Mirars is built around thoughtful curation and lasting customer
+relationships.
 
-            <h3>
-                100% Authentic Products
-            </h3>
+</p>
 
-            <p>
-                Premium watches, sunglasses and luxury accessories.
-            </p>
+</div>
 
-        </div>
+<div class="why-grid">
 
+<div class="why-card">
 
-        <div class="why-box">
+<div class="why-number">01</div>
 
-            <h3>
-                Trusted Service
-            </h3>
+<h3>Premium Selection</h3>
 
-            <p>
-                Dedicated customer support for every enquiry.
-            </p>
+<p>Curated watches and luxury eyewear chosen for timeless appeal.</p>
 
-        </div>
+</div>
 
+<div class="why-card">
 
-        <div class="why-box">
+<div class="why-number">02</div>
 
-            <h3>
-                Fast Response
-            </h3>
+<h3>Trusted Support</h3>
 
-            <p>
-                Quick assistance through WhatsApp and email.
-            </p>
+<p>Personal assistance through WhatsApp, email and dedicated service.</p>
 
-        </div>
+</div>
 
+<div class="why-card">
 
-        <div class="why-box">
+<div class="why-number">03</div>
 
-            <h3>
-                Customer Satisfaction
-            </h3>
+<h3>Luxury Experience</h3>
 
-            <p>
-                Your trust and satisfaction are our top priorities.
-            </p>
+<p>Editorial presentation that celebrates craftsmanship beyond shopping.</p>
 
-        </div>
+</div>
 
+<div class="why-card">
 
-    </div>
+<div class="why-number">04</div>
+
+<h3>Collector Focus</h3>
+
+<p>Designed for those who appreciate lasting style and remarkable details.</p>
+
+</div>
+
+</div>
 
 </section>
 
-
-<!-- =====================================================
+<!-- =========================================================
      STATS
-===================================================== -->
+========================================================= -->
 
-<section class="stats-section">
+<section class="luxury-stats">
 
-    <h2>
-        50 Mirars In Numbers
-    </h2>
+<h2>50 Mirars in Numbers</h2>
 
+<div class="stats-grid">
 
-    <div class="stats-grid">
+<div class="stat-card">
 
+<div class="stat-number" data-target="980">980+</div>
 
-        <div class="stat-box">
+<p>Happy Customers</p>
 
-            <h3>
-                980+
-            </h3>
+</div>
 
-            <p>
-                Happy Customers
-            </p>
+<div class="stat-card">
 
-        </div>
+<div class="stat-number" data-target="1000">1000+</div>
 
+<p>Products Sold</p>
 
-        <div class="stat-box">
+</div>
 
-            <h3>
-                1000+
-            </h3>
+<div class="stat-card">
 
-            <p>
-                Products Sold
-            </p>
+<div class="stat-number" data-target="96">96%</div>
 
-        </div>
+<p>Returning Customers</p>
 
-    <div class="stat-box">
+</div>
 
-            <h3>
-                96%+
-            </h3>
+<div class="stat-card">
 
-            <p>
-                Returning Customers
-            </p>
+<div class="stat-number">1 Year</div>
 
-        </div>
+<p>Celebrating Our Journey</p>
 
+</div>
 
-        <div class="stat-box">
-
-            <h3>
-                24/7
-            </h3>
-
-            <p>
-                Support
-            </p>
-
-        </div>
-
-
-    </div>
+</div>
 
 </section>
 
+<!-- =========================================================
+     CONTACT
+========================================================= -->
 
-<!-- =====================================================
-     FOOTER
-===================================================== -->
+<section class="contact-editorial">
 
-<footer class="main-footer">
+<div class="contact-grid">
 
-    <div class="footer-container">
+<div class="contact-info">
 
+<small>GET IN TOUCH</small>
 
-        <div class="footer-top">
+<h2>Let's Begin a Conversation</h2>
 
-            <h2>
-                Contact Us
-            </h2>
+<p>
 
+Whether you're searching for your next signature timepiece, premium
+eyewear or simply have a question, we're here to help.
 
-            <div class="contact-column">
+</p>
 
-                <h3>
-                    For Customers:
-                </h3>
+<div class="contact-detail">
 
-                <a
-                    href="mailto:50mirars@gmail.com"
-                    class="footer-link"
-                >
-                    50mirars@gmail.com
-                </a>
+<strong>Email</strong>
 
-                <a
-                    href="tel:+918209989013"
-                    class="footer-link"
-                >
-                    82099 89013
-                </a>
+50mirars@gmail.com
 
-                <p>
-                    09:00 - 21:30 | Monday to Sunday
-                </p>
+</div>
 
-            </div>
+<div class="contact-detail">
 
+<strong>Phone</strong>
 
-            <div class="contact-column">
+82099 89013
 
-                <h3>
-                    For Sales/Watch Service:
-                </h3>
+</div>
 
-                <a
-                    href="mailto:50mirars@gmail.com"
-                    class="footer-link"
-                >
-                    50mirars@gmail.com
-                </a>
+<div class="contact-detail">
 
-                <a
-                    href="tel:+918209989013"
-                    class="footer-link"
-                >
-                    82099 89013
-                </a>
+<strong>Hours</strong>
 
-                <p>
-                    09:00 - 21:30 | Monday to Sunday
-                </p>
+09:00 – 21:30 · Monday to Sunday
 
-            </div>
+</div>
 
+</div>
 
-            <div class="whatsapp-column">
+<form class="contact-form"
+action="https://formspree.io/f/mlgqpono"
+method="POST">
 
-                <h3 class="whatsapp-title">
+<input type="text"
+name="name"
+placeholder="Your Name"
+required>
 
-                    View Products on WhatsApp
+<input type="email"
+name="email"
+placeholder="Your Email"
+required>
 
-                    <img
-                        src="whatsapplogo.png"
-                        alt="WhatsApp"
-                        class="whatsapp-icon"
-                    >
+<input type="tel"
+name="phone"
+placeholder="Phone Number">
 
-                </h3>
+<textarea
+name="message"
+placeholder="Tell us about your enquiry..."
+required></textarea>
 
-                <a
-                    href="https://wa.me/c/918209989013"
-                    target="_blank"
-                    rel="noopener"
-                    class="whatsapp-button"
-                >
-                    View Products
-                </a>
+<button type="submit">
 
-            </div>
+Send Message
 
+</button>
 
-        </div>
+</form>
 
+</div>
 
-        <div class="footer-middle">
+</section>
 
+<!-- =========================================================
+     INSTAGRAM
+========================================================= -->
 
-            <div class="footer-links-column">
+<section class="instagram-luxury">
 
-                <h3>
-                    Know 50 Mirars
-                </h3>
+<div class="instagram-header">
 
-                <a href="about.html">
-                    About Us
-                </a>
+<small>FOLLOW THE JOURNEY</small>
 
-                <a href="faq.html">
-                    FAQ
-                </a>
+<h2>Inside 50 Mirars</h2>
 
-            </div>
+<p>
 
+A glimpse into our world of watches, premium eyewear and editorial
+luxury.
 
-            <div class="footer-links-column">
+</p>
 
-                <h3>
-                    Terms & Conditions
-                </h3>
+</div>
 
-                <a href="terms.html">
-                    Terms & Conditions
-                </a>
+<div class="instagram-grid">
 
-                <a href="privacypolicy.html">
-                    Privacy Policy
-                </a>
+<a href="https://instagram.com/50mirars" target="_blank">
 
-            </div>
+<img src="instagram1.webp" alt="Instagram">
 
+</a>
 
-            <div class="footer-social">
+<a href="https://instagram.com/50mirars" target="_blank">
 
-                <h3>
-                    50 Mirars
-                </h3>
+<img src="instagram2.webp" alt="Instagram">
 
-                <p>
-                    Follow Us On
-                </p>
+</a>
 
-                <a
-                    href="https://instagram.com/50mirars"
-                    target="_blank"
-                    rel="noopener"
-                    class="instagram-button"
-                    aria-label="Follow 50 Mirars on Instagram"
-                >
+<a href="https://instagram.com/50mirars" target="_blank">
 
-                    <img
-                        src="instagramimage.webp"
-                        alt="Instagram"
-                    >
+<img src="instagram3.webp" alt="Instagram">
 
-                </a>
+</a>
 
-            </div>
+<a href="https://instagram.com/50mirars" target="_blank">
 
+<img src="instagram4.webp" alt="Instagram">
 
-        </div>
+</a>
 
+</div>
 
-        <div class="footer-bottom">
+</section>
 
-            <p>
-                © 2026 50 Mirars - The Watch &amp; Sunglasses Store.
-                All Rights Reserved.
-            </p>
+<!-- =========================================================
+     NEWSLETTER
+========================================================= -->
 
-        </div>
+<section class="newsletter">
 
+<h2>Stay Close to Luxury</h2>
 
-    </div>
+<p>
+
+Receive editorial stories, new arrivals and exclusive collection
+updates from 50 Mirars.
+
+</p>
+
+<div class="newsletter-box">
+
+<input type="email" placeholder="Enter your email">
+
+<button>Subscribe</button>
+
+</div>
+
+</section>
+
+<!-- =========================================================
+     PREMIUM FOOTER
+========================================================= -->
+
+<footer class="royal-footer">
+
+<div class="footer-wrap">
+
+<div class="footer-top">
+
+<div class="footer-brand">
+
+<h2>50 Mirars</h2>
+
+<p>
+
+Luxury watches, premium sunglasses and editorial craftsmanship curated
+for modern collectors who appreciate timeless design.
+
+</p>
+
+</div>
+
+<div class="footer-column">
+
+<h3>Know 50 Mirars</h3>
+
+<a href="about.html">About Us</a>
+
+<a href="faq.html">FAQs</a>
+
+<a href="journal.html">Journal</a>
+
+<a href="luxury-care-guide.html">Care Guide</a>
+
+</div>
+
+<div class="footer-column">
+
+<h3>Support</h3>
+
+<a href="terms.html">Terms & Conditions</a>
+
+<a href="privacypolicy.html">Privacy Policy</a>
+
+<a href="delivery.html">Delivery</a>
+
+<a href="profile.html">My Account</a>
+
+</div>
+
+<div class="footer-column">
+
+<h3>Connect</h3>
+
+<p>50mirars@gmail.com</p>
+
+<p>82099 89013</p>
+
+<a href="https://wa.me/c/918209989013"
+target="_blank"
+class="whatsapp-btn">
+
+<img src="whatsapplogo.png">
+
+View Products
+
+</a>
+
+</div>
+
+</div>
+
+<div class="footer-bottom">
+
+<p>
+
+© 2026 50 Mirars — The Watch & Sunglasses Store. All Rights Reserved.
+
+</p>
+
+<div class="footer-social">
+
+<a href="https://instagram.com/50mirars" target="_blank">
+
+<img src="instagramimage.webp" alt="Instagram">
+
+</a>
+
+</div>
+
+</div>
+
+</div>
 
 </footer>
 
-
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
-
 <script>
 
-/* =====================================================
-   HERO SLIDER
-   AUTO CHANGE EVERY 15 SECONDS
-===================================================== */
+/* =========================================================
+   LOADER
+========================================================= */
 
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
+window.addEventListener("load",()=>{
 
-        const heroSlider =
-            document.getElementById(
-                "heroSlider"
-            );
+setTimeout(()=>{
 
-        const heroTrack =
-            document.getElementById(
-                "heroTrack"
-            );
+document.getElementById("loader").classList.add("hide");
 
-        const heroSlides =
-            document.querySelectorAll(
-                ".hero-slide"
-            );
+},700);
 
-        const heroDots =
-            document.querySelectorAll(
-                ".hero-dot"
-            );
+});
 
-        const heroPrev =
-            document.getElementById(
-                "heroPrev"
-            );
+/* =========================================================
+   IMAGE FADE
+========================================================= */
 
-        const heroNext =
-            document.getElementById(
-                "heroNext"
-            );
+document.querySelectorAll("img").forEach(img=>{
 
+if(img.complete){
 
-        let heroCurrent = 0;
+img.classList.add("loaded");
 
-        let heroStartX = 0;
-        let heroEndX = 0;
+}else{
 
-        let heroDragging = false;
-        let heroDragged = false;
+img.addEventListener("load",()=>{
 
-        let heroTimer;
+img.classList.add("loaded");
 
+});
 
-        function updateHero(index) {
+}
 
-            if (index < 0) {
-                index =
-                    heroSlides.length - 1;
-            }
+});
 
-            if (
-                index >=
-                heroSlides.length
-            ) {
-                index = 0;
-            }
+/* =========================================================
+   CURSOR GLOW
+========================================================= */
 
-            heroCurrent = index;
+const glow=document.getElementById("cursorGlow");
 
+document.addEventListener("mousemove",e=>{
 
-            heroTrack.style.transform =
-                "translateX(-" +
-                (
-                    heroCurrent * 100
-                ) +
-                "%)";
+glow.style.left=e.clientX+"px";
 
+glow.style.top=e.clientY+"px";
 
-            heroDots.forEach(
-                function (
-                    dot,
-                    dotIndex
-                ) {
+});
 
-                    dot.classList.toggle(
-                        "active",
-                        dotIndex ===
-                        heroCurrent
-                    );
+/* =========================================================
+   HEADER SHRINK
+========================================================= */
 
-                }
-            );
+const header=document.getElementById("header");
 
-        }
+window.addEventListener("scroll",()=>{
 
+if(window.scrollY>60){
 
-        function nextHero() {
+header.classList.add("scrolled");
 
-            updateHero(
-                heroCurrent + 1
-            );
+}else{
 
-        }
+header.classList.remove("scrolled");
 
+}
 
-        function previousHero() {
+});
 
-            updateHero(
-                heroCurrent - 1
-            );
+/* =========================================================
+   SEARCH
+========================================================= */
 
-        }
-
-
-        function resetHeroTimer() {
-
-            clearInterval(
-                heroTimer
-            );
-
-            heroTimer =
-                setInterval(
-                    function () {
-
-                        nextHero();
-
-                    },
-                    15000
-                );
-
-        }
-
-
-        heroNext.addEventListener(
-            "click",
-            function (event) {
-
-                event.preventDefault();
-                event.stopPropagation();
-
-                nextHero();
-
-                resetHeroTimer();
-
-            }
-        );
-
-
-        heroPrev.addEventListener(
-            "click",
-            function (event) {
-
-                event.preventDefault();
-                event.stopPropagation();
-
-                previousHero();
-
-                resetHeroTimer();
-
-            }
-        );
-
-
-        heroDots.forEach(
-            function (
-                dot,
-                index
-            ) {
-
-                dot.addEventListener(
-                    "click",
-                    function (event) {
-
-                        event.preventDefault();
-                        event.stopPropagation();
-
-                        updateHero(index);
-
-                        resetHeroTimer();
-
-                    }
-                );
-
-            }
-        );
-
-
-        /* TOUCH */
-
-        heroSlider.addEventListener(
-            "touchstart",
-            function (event) {
-
-                heroStartX =
-                    event.touches[0].clientX;
-
-                heroEndX =
-                    heroStartX;
-
-                heroDragging = true;
-                heroDragged = false;
-
-                heroSlider.classList.add(
-                    "dragging"
-                );
-
-                clearInterval(
-                    heroTimer
-                );
-
-            },
-            {
-                passive: true
-            }
-        );
-
-
-        heroSlider.addEventListener(
-            "touchmove",
-            function (event) {
-
-                if (!heroDragging) {
-                    return;
-                }
-
-                heroEndX =
-                    event.touches[0].clientX;
-
-                if (
-                    Math.abs(
-                        heroStartX -
-                        heroEndX
-                    ) > 10
-                ) {
-
-                    heroDragged = true;
-
-                }
-
-            },
-            {
-                passive: true
-            }
-        );
-
-
-        heroSlider.addEventListener(
-            "touchend",
-            function () {
-
-                if (!heroDragging) {
-                    return;
-                }
-
-                const difference =
-                    heroStartX -
-                    heroEndX;
-
-
-                if (
-                    Math.abs(
-                        difference
-                    ) > 50
-                ) {
-
-                    if (
-                        difference > 0
-                    ) {
-
-                        nextHero();
-
-                    } else {
-
-                        previousHero();
-
-                    }
-
-                }
-
-
-                heroDragging = false;
-
-                heroSlider.classList.remove(
-                    "dragging"
-                );
-
-                resetHeroTimer();
-
-            }
-        );
-
-
-        /* MOUSE */
-
-        heroSlider.addEventListener(
-            "mousedown",
-            function (event) {
-
-                heroStartX =
-                    event.clientX;
-
-                heroEndX =
-                    heroStartX;
-
-                heroDragging = true;
-                heroDragged = false;
-
-                heroSlider.classList.add(
-                    "dragging"
-                );
-
-                clearInterval(
-                    heroTimer
-                );
-
-            }
-        );
-
-
-        heroSlider.addEventListener(
-            "mousemove",
-            function (event) {
-
-                if (!heroDragging) {
-                    return;
-                }
-
-                heroEndX =
-                    event.clientX;
-
-                if (
-                    Math.abs(
-                        heroStartX -
-                        heroEndX
-                    ) > 10
-                ) {
-
-                    heroDragged = true;
-
-                }
-
-            }
-        );
-
-
-        heroSlider.addEventListener(
-            "mouseup",
-            function () {
-
-                if (!heroDragging) {
-                    return;
-                }
-
-                const difference =
-                    heroStartX -
-                    heroEndX;
-
-
-                if (
-                    Math.abs(
-                        difference
-                    ) > 50
-                ) {
-
-                    if (
-                        difference > 0
-                    ) {
-
-                        nextHero();
-
-                    } else {
-
-                        previousHero();
-
-                    }
-
-                }
-
-
-                heroDragging = false;
-
-                heroSlider.classList.remove(
-                    "dragging"
-                );
-
-                resetHeroTimer();
-
-            }
-        );
-
-
-        heroSlider.addEventListener(
-            "mouseleave",
-            function () {
-
-                if (heroDragging) {
-
-                    heroDragging = false;
-
-                    heroSlider.classList.remove(
-                        "dragging"
-                    );
-
-                    resetHeroTimer();
-
-                }
-
-            }
-        );
-
-
-        heroSlides.forEach(
-            function (slide) {
-
-                slide.addEventListener(
-                    "click",
-                    function (event) {
-
-                        if (heroDragged) {
-
-                            event.preventDefault();
-
-                            heroDragged = false;
-
-                        }
-
-                    }
-                );
-
-            }
-        );
-
-
-        updateHero(0);
-
-        resetHeroTimer();
-
-    }
-);
-
-
-/* =====================================================
-   PRODUCT SLIDER
-===================================================== */
-
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
-
-        const slider =
-            document.getElementById(
-                "productSlider"
-            );
-
-        const track =
-            document.getElementById(
-                "productTrack"
-            );
-
-        const slides =
-            document.querySelectorAll(
-                ".product-slide"
-            );
-
-        const dots =
-            document.querySelectorAll(
-                ".product-dot"
-            );
-
-        const previousButton =
-            document.getElementById(
-                "productPrev"
-            );
-
-        const nextButton =
-            document.getElementById(
-                "productNext"
-            );
-
-
-        let currentSlide = 0;
-
-        let startX = 0;
-        let endX = 0;
-
-        let isDragging = false;
-        let dragged = false;
-
-
-        function getVisibleSlides() {
-
-            if (
-                window.innerWidth <= 768
-            ) {
-                return 1;
-            }
-
-            if (
-                window.innerWidth <= 1024
-            ) {
-                return 2;
-            }
-
-            return 3;
-        }
-
-
-        function updateSlider(index) {
-
-            const visible =
-                getVisibleSlides();
-
-            const maxIndex =
-                Math.max(
-                    0,
-                    slides.length -
-                    visible
-                );
-
-
-            if (index < 0) {
-                index = maxIndex;
-            }
-
-            if (index > maxIndex) {
-                index = 0;
-            }
-
-
-            currentSlide = index;
-
-
-            if (!slides.length) {
-                return;
-            }
-
-
-            const slideWidth =
-                slides[0]
-                    .getBoundingClientRect()
-                    .width;
-
-
-            const gap =
-                parseFloat(
-                    getComputedStyle(
-                        track
-                    ).gap
-                ) || 0;
-
-
-            const movement =
-                currentSlide *
-                (
-                    slideWidth +
-                    gap
-                );
-
-
-            track.style.transform =
-                "translateX(-" +
-                movement +
-                "px)";
-
-
-            dots.forEach(
-                function (
-                    dot,
-                    dotIndex
-                ) {
-
-                    dot.classList.toggle(
-                        "active",
-                        dotIndex ===
-                        currentSlide
-                    );
-
-
-                    if (
-                        dotIndex <=
-                        maxIndex
-                    ) {
-
-                        dot.style.display =
-                            "";
-
-                    } else {
-
-                        dot.style.display =
-                            "none";
-
-                    }
-
-                }
-            );
-
-        }
-
-
-        function nextSlide() {
-
-            updateSlider(
-                currentSlide + 1
-            );
-
-        }
-
-
-        function previousSlide() {
-
-            updateSlider(
-                currentSlide - 1
-            );
-
-        }
-
-
-        nextButton.addEventListener(
-            "click",
-            function () {
-
-                nextSlide();
-
-            }
-        );
-
-
-        previousButton.addEventListener(
-            "click",
-            function () {
-
-                previousSlide();
-
-            }
-        );
-
-
-        dots.forEach(
-            function (
-                dot,
-                index
-            ) {
-
-                dot.addEventListener(
-                    "click",
-                    function () {
-
-                        updateSlider(
-                            index
-                        );
-
-                    }
-                );
-
-            }
-        );
-
-
-        /* TOUCH */
-
-        slider.addEventListener(
-            "touchstart",
-            function (event) {
-
-                startX =
-                    event.touches[0].clientX;
-
-                endX =
-                    startX;
-
-                isDragging = true;
-                dragged = false;
-
-                slider.classList.add(
-                    "dragging"
-                );
-
-            },
-            {
-                passive: true
-            }
-        );
-
-
-        slider.addEventListener(
-            "touchmove",
-            function (event) {
-
-                if (!isDragging) {
-                    return;
-                }
-
-                endX =
-                    event.touches[0].clientX;
-
-                if (
-                    Math.abs(
-                        startX -
-                        endX
-                    ) > 10
-                ) {
-
-                    dragged = true;
-
-                }
-
-            },
-            {
-                passive: true
-            }
-        );
-
-
-        slider.addEventListener(
-            "touchend",
-            function () {
-
-                if (!isDragging) {
-                    return;
-                }
-
-                const difference =
-                    startX -
-                    endX;
-
-
-                if (
-                    Math.abs(
-                        difference
-                    ) > 50
-                ) {
-
-                    if (
-                        difference > 0
-                    ) {
-
-                        nextSlide();
-
-                    } else {
-
-                        previousSlide();
-
-                    }
-
-                }
-
-
-                isDragging = false;
-
-                slider.classList.remove(
-                    "dragging"
-                );
-
-            }
-        );
-
-
-        /* MOUSE */
-
-        slider.addEventListener(
-            "mousedown",
-            function (event) {
-
-                startX =
-                    event.clientX;
-
-                endX =
-                    startX;
-
-                isDragging = true;
-                dragged = false;
-
-                slider.classList.add(
-                    "dragging"
-                );
-
-            }
-        );
-
-
-        slider.addEventListener(
-            "mousemove",
-            function (event) {
-
-                if (!isDragging) {
-                    return;
-                }
-
-                endX =
-                    event.clientX;
-
-                if (
-                    Math.abs(
-                        startX -
-                        endX
-                    ) > 10
-                ) {
-
-                    dragged = true;
-
-                }
-
-            }
-        );
-
-
-        slider.addEventListener(
-            "mouseup",
-            function () {
-
-                if (!isDragging) {
-                    return;
-                }
-
-                const difference =
-                    startX -
-                    endX;
-
-
-                if (
-                    Math.abs(
-                        difference
-                    ) > 50
-                ) {
-
-                    if (
-                        difference > 0
-                    ) {
-
-                        nextSlide();
-
-                    } else {
-
-                        previousSlide();
-
-                    }
-
-                }
-
-
-                isDragging = false;
-
-                slider.classList.remove(
-                    "dragging"
-                );
-
-            }
-        );
-
-
-        slider.addEventListener(
-            "mouseleave",
-            function () {
-
-                if (isDragging) {
-
-                    isDragging = false;
-
-                    slider.classList.remove(
-                        "dragging"
-                    );
-
-                }
-
-            }
-        );
-
-
-        slides.forEach(
-            function (slide) {
-
-                slide.addEventListener(
-                    "click",
-                    function (event) {
-
-                        if (dragged) {
-
-                            event.preventDefault();
-
-                            dragged = false;
-
-                        }
-
-                    }
-                );
-
-            }
-        );
-
-
-        window.addEventListener(
-            "resize",
-            function () {
-
-                updateSlider(
-                    currentSlide
-                );
-
-            }
-        );
-
-
-        updateSlider(0);
-
-    }
-);
-
-</script>
-
-
-/* Search Bar */
-
-    
-<script>
-    
 const searchInput=document.getElementById("searchInput");
+
 const searchBtn=document.getElementById("searchBtn");
 
 function searchProducts(){
 
-    const query=searchInput.value.trim();
+const query=searchInput.value.trim();
 
-    if(query==="") return;
+if(query==="") return;
 
-    window.location.href=
-        "search.html?q="+encodeURIComponent(query);
+window.location.href="search.html?q="+encodeURIComponent(query);
 
 }
 
 searchBtn.addEventListener("click",searchProducts);
 
-searchInput.addEventListener("keydown",function(e){
+searchInput.addEventListener("keydown",e=>{
 
-    if(e.key==="Enter"){
+if(e.key==="Enter"){
 
-        searchProducts();
+searchProducts();
 
-    }
+}
 
 });
-</script>
-    
-</body>
 
-</html>
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const reveals=document.querySelectorAll(
+
+"section,.why-card,.brand-box,.showcase-card,.editorial-card,.care-box,.stat-card"
+
+);
+
+const observer=new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("show");
+
+}
+
+});
+
+},{threshold:.15});
+
+reveals.forEach(el=>{
+
+el.classList.add("reveal");
+
+observer.observe(el);
+
+});
+
+/* =========================================================
+   STATS COUNTER
+========================================================= */
+
+const counters=document.querySelectorAll("[data-target]");
+
+const counterObserver=new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(!entry.isIntersecting) return;
+
+const el=entry.target;
+
+const target=+el.dataset.target;
+
+let current=0;
+
+const step=Math.ceil(target/70);
+
+const suffix=el.textContent.includes("%")?"%":"+";
+
+const timer=setInterval(()=>{
+
+current+=step;
+
+if(current>=target){
+
+current=target;
+
+clearInterval(timer);
+
+}
+
+el.textContent=current+suffix;
+
+},20);
+
+counterObserver.unobserve(el);
+
+});
+
+},{threshold:.5});
+
+counters.forEach(c=>counterObserver.observe(c));
+
+/* =========================================================
+   SHOWCASE SLIDER
+========================================================= */
+
+const track=document.getElementById("showcaseTrack");
+const cards=document.querySelectorAll(".showcase-card");
+const prev=document.getElementById("showcasePrev");
+const next=document.getElementById("showcaseNext");
+const dots=document.querySelectorAll(".showcase-dot");
+
+let current=0;
+let autoSlide;
+
+function visible(){
+
+return window.innerWidth<=768?1:3;
+
+}
+
+function maxIndex(){
+
+return Math.max(0,cards.length-visible());
+
+}
+
+function update(i){
+
+if(i<0)i=maxIndex();
+
+if(i>maxIndex())i=0;
+
+current=i;
+
+const gap=28;
+const width=cards[0].getBoundingClientRect().width+gap;
+
+track.style.transform=`translateX(-${width*current}px)`;
+
+dots.forEach((d,n)=>{
+
+d.classList.toggle("active",n===current);
+
+});
+
+}
+
+function startAuto(){
+
+clearInterval(autoSlide);
+
+autoSlide=setInterval(()=>{
+
+update(current+1);
+
+},4500);
+
+}
+
+next.addEventListener("click",()=>{
+
+update(current+1);
+
+startAuto();
+
+});
+
+prev.addEventListener("click",()=>{
+
+update(current-1);
+
+startAuto();
+
+});
+
+dots.forEach((d,n)=>{
+
+d.addEventListener("click",()=>{
+
+update(n);
+
+startAuto();
+
+});
+
+});
+
+/* Swipe */
+
+let startX=0;
+
+track.addEventListener("touchstart",e=>{
+
+startX=e.touches[0].clientX;
+
+},{passive:true});
+
+track.addEventListener("touchend",e=>{
+
+const diff=startX-e.changedTouches[0].clientX;
+
+if(Math.abs(diff)>50){
+
+if(diff>0){
+
+update(current+1);
+
+}else{
+
+update(current-1);
+
+}
+
+startAuto();
+
+}
+
+},{passive:true});
+
+window.addEventListener("resize",()=>{
+
+update(current);
+
+});
+
+update(0);
+
+startAuto();
+
+/* Pause on Hover */
+
+const slider=document.getElementById("showcaseSlider");
+
+slider.addEventListener("mouseenter",()=>clearInterval(autoSlide));
+
+slider.addEventListener("mouseleave",startAuto);
+
+/* =========================================================
+   PARALLAX HERO
+========================================================= */
+
+const hero=document.querySelector(".hero-bg img");
+
+window.addEventListener("scroll",()=>{
+
+const y=window.scrollY*.25;
+
+hero.style.transform=`translateY(${y}px) scale(1.05)`;
+
+});
+
+/* =========================================================
+   SMOOTH ANCHORS
+========================================================= */
+
+document.querySelectorAll('a[href^="#"]').forEach(link=>{
+
+link.addEventListener("click",e=>{
+
+const target=document.querySelector(link.getAttribute("href"));
+
+if(target){
+
+e.preventDefault();
+
+target.scrollIntoView({
+
+behavior:"smooth"
+
+});
+
+}
+
+});
+
+});
+
+</script>
