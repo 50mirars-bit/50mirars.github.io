@@ -3167,211 +3167,275 @@ cursor:pointer;
 }
 
 /* =========================================================
-   PREMIUM FOOTER
+   FOOTER
 ========================================================= */
 
-.royal-footer{
+.main-footer{
+    background:#111;
 
-background:#050505;
+    color:#fff;
 
-color:#fff;
-
-position:relative;
-
-overflow:hidden;
-
+    margin-top:40px;
 }
 
-.royal-footer::before{
+.footer-container{
+    width:100%;
 
-content:"";
+    max-width:1400px;
 
-position:absolute;
+    margin:0 auto;
 
-top:0;
-left:0;
-
-width:100%;
-height:2px;
-
-background:linear-gradient(90deg,transparent,var(--gold),transparent);
-
+    padding:
+        60px
+        50px
+        0;
 }
 
-.footer-wrap{
 
-max-width:1450px;
-
-margin:auto;
-
-padding:90px 6% 35px;
-
-}
+/* =========================================================
+   FOOTER TOP
+========================================================= */
 
 .footer-top{
+    display:grid;
 
-display:grid;
+    grid-template-columns:
+        1fr
+        1fr
+        1fr;
 
-grid-template-columns:1.2fr 1fr 1fr 1fr;
+    gap:50px;
 
-gap:40px;
+    padding-bottom:50px;
 
-padding-bottom:50px;
-
-border-bottom:1px solid rgba(255,255,255,.08);
-
+    border-bottom:
+        1px solid
+        rgba(255,255,255,0.15);
 }
 
-.footer-brand h2{
+.footer-top > h2{
+    grid-column:1 / -1;
 
-font-family:"Cormorant Garamond",serif;
+    text-align:center;
 
-font-size:46px;
+    margin:0 0 10px;
 
-color:var(--gold);
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 
-margin-bottom:18px;
+    font-size:38px;
 
+    font-weight:600;
+
+    color:#c9a24d;
 }
 
-.footer-brand p{
 
-color:#aaa;
+/* =========================================================
+   FOOTER CONTACT
+========================================================= */
 
-line-height:1.9;
-
-font-size:15px;
-
+.contact-column{
+    text-align:left;
 }
 
-.footer-column h3{
+.contact-column h3,
+.whatsapp-column h3,
+.footer-links-column h3,
+.footer-social h3{
+    color:#c9a24d;
 
-color:var(--gold);
+    font-size:20px;
 
-margin-bottom:20px;
-
-font-size:20px;
-
+    margin:0 0 18px;
 }
 
-.footer-column a{
+.contact-column p{
+    color:#bbb;
 
-display:block;
+    font-size:15px;
 
-margin-bottom:14px;
-
-color:#bbb;
-
-transition:.3s;
-
+    line-height:1.6;
 }
 
-.footer-column a:hover{
+.footer-link{
+    display:block;
 
-color:var(--gold);
+    color:#fff;
 
+    text-decoration:none;
+
+    margin-bottom:12px;
+
+    transition:0.3s ease;
 }
 
-.whatsapp-btn{
-
-display:inline-flex;
-
-align-items:center;
-
-gap:10px;
-
-padding:15px 24px;
-
-border-radius:999px;
-
-background:var(--gold);
-
-color:#111;
-
-font-weight:600;
-
-margin-top:12px;
-
-transition:.35s;
-
+.footer-link:hover{
+    color:#c9a24d;
 }
 
-.whatsapp-btn:hover{
 
-transform:translateY(-3px);
+/* =========================================================
+   WHATSAPP
+========================================================= */
 
+.whatsapp-column{
+    text-align:center;
 }
 
-.whatsapp-btn img{
+.whatsapp-title{
+    display:flex;
 
-width:22px;
+    align-items:center;
 
+    justify-content:center;
+
+    gap:10px;
 }
+
+.whatsapp-icon{
+    width:28px !important;
+
+    height:28px !important;
+
+    object-fit:contain !important;
+}
+
+.whatsapp-button{
+    display:inline-block;
+
+    background:#c9a24d;
+
+    color:#111;
+
+    text-decoration:none;
+
+    padding:13px 30px;
+
+    border-radius:6px;
+
+    font-weight:bold;
+
+    transition:0.3s ease;
+}
+
+.whatsapp-button:hover{
+    background:#fff;
+
+    color:#111;
+}
+
+
+/* =========================================================
+   FOOTER MIDDLE
+========================================================= */
+
+.footer-middle{
+    display:grid;
+
+    grid-template-columns:
+        1fr
+        1fr
+        1fr;
+
+    gap:50px;
+
+    padding:50px 0;
+}
+
+.footer-links-column{
+    display:flex;
+
+    flex-direction:column;
+}
+
+.footer-links-column a{
+    color:#ccc;
+
+    text-decoration:none;
+
+    margin-bottom:13px;
+
+    transition:0.3s ease;
+}
+
+.footer-links-column a:hover{
+    color:#c9a24d;
+}
+
+
+/* =========================================================
+   INSTAGRAM
+========================================================= */
+
+.footer-social{
+    text-align:center;
+}
+
+.footer-social p{
+    color:#bbb;
+
+    margin-bottom:15px;
+}
+
+.instagram-button{
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    width:50px;
+
+    height:50px;
+
+    border:
+        1px solid
+        #c9a24d;
+
+    border-radius:50%;
+
+    transition:0.3s ease;
+}
+
+.instagram-button:hover{
+    background:#c9a24d;
+}
+
+.instagram-button img{
+    width:28px;
+
+    height:28px;
+
+    object-fit:contain;
+}
+
+
+/* =========================================================
+   COPYRIGHT
+========================================================= */
 
 .footer-bottom{
+    border-top:
+        1px solid
+        rgba(255,255,255,0.15);
 
-display:flex;
+    text-align:center;
 
-justify-content:space-between;
-
-align-items:center;
-
-padding-top:30px;
-
-flex-wrap:wrap;
-
-gap:18px;
-
+    padding:25px 10px;
 }
 
 .footer-bottom p{
+    margin:0;
 
-color:#777;
+    color:#999;
 
-font-size:14px;
+    font-size:14px;
 
+    line-height:1.6;
 }
-
-.footer-social{
-
-display:flex;
-
-gap:16px;
-
-}
-
-.footer-social a{
-
-width:48px;
-
-height:48px;
-
-border-radius:50%;
-
-border:1px solid rgba(201,162,77,.22);
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-transition:.35s;
-
-}
-
-.footer-social a:hover{
-
-background:var(--gold);
-
-}
-
-.footer-social img{
-
-width:24px;
-
-}
-
 /* Mobile */
 
 @media(max-width:768px){
@@ -4502,8 +4566,6 @@ creations.
 
 <div class="magazine-content">
 
-<small>ISSUE No. 01</small>
-
 <h3>
 
 The Magazine
@@ -4995,99 +5057,133 @@ updates from 50 Mirars.
 </section>
 
 <!-- =========================================================
-     PREMIUM FOOTER
+     FOOTER
 ========================================================= -->
 
-<footer class="royal-footer">
+<footer class="main-footer">
 
-<div class="footer-wrap">
+    <div class="footer-container">
 
-<div class="footer-top">
+        <div class="footer-top">
 
-<div class="footer-brand">
+            <h2>Contact Us</h2>
 
-<h2>50 Mirars</h2>
+            <div class="contact-column">
 
-<p>
+                <h3>For Customers:</h3>
 
-Luxury watches, premium sunglasses and editorial craftsmanship curated
-for modern collectors who appreciate timeless design.
+                <a href="mailto:50mirars@gmail.com" class="footer-link">
+                    50mirars@gmail.com
+                </a>
 
-</p>
+                <a href="tel:+918209989013" class="footer-link">
+                    82099 89013
+                </a>
 
-</div>
+                <p>09:00 - 21:30 | Monday to Sunday</p>
 
-<div class="footer-column">
+            </div>
 
-<h3>Know 50 Mirars</h3>
+            <div class="contact-column">
 
-<a href="about.html">About Us</a>
+                <h3>For Sales/Watch Service:</h3>
 
-<a href="faq.html">FAQs</a>
+                <a href="mailto:50mirars@gmail.com" class="footer-link">
+                    50mirars@gmail.com
+                </a>
 
-<a href="journal.html">Journal</a>
+                <a href="tel:+918209989013" class="footer-link">
+                    82099 89013
+                </a>
 
-<a href="luxury-care-guide.html">Care Guide</a>
+                <p>09:00 - 21:30 | Monday to Sunday</p>
 
-</div>
+            </div>
 
-<div class="footer-column">
+            <div class="whatsapp-column">
 
-<h3>Support</h3>
+                <h3 class="whatsapp-title">
 
-<a href="terms.html">Terms & Conditions</a>
+                    <span>View Products on WhatsApp</span>
 
-<a href="privacypolicy.html">Privacy Policy</a>
+                    <img
+                        src="whatsapplogo.png"
+                        alt="WhatsApp"
+                        class="whatsapp-icon"
+                    >
 
-<a href="delivery.html">Delivery</a>
+                </h3>
 
-<a href="profile.html">My Account</a>
+                <a
+                    href="https://wa.me/918209989013"
+                    target="_blank"
+                    rel="noopener"
+                    class="whatsapp-button"
+                >
+                    View Products
+                </a>
 
-</div>
+            </div>
 
-<div class="footer-column">
+        </div>
 
-<h3>Connect</h3>
+        <div class="footer-middle">
 
-<p>50mirars@gmail.com</p>
+            <div class="footer-links-column">
 
-<p>82099 89013</p>
+                <h3>Know 50 Mirars</h3>
 
-<a href="https://wa.me/c/918209989013"
-target="_blank"
-class="whatsapp-btn">
+                <a href="about.html">About Us</a>
 
-<img src="whatsapplogo.png">
+                <a href="faq.html">FAQ</a>
 
-View Products
+            </div>
 
-</a>
+            <div class="footer-links-column">
 
-</div>
+                <h3>Terms & Conditions</h3>
 
-</div>
+                <a href="terms.html">Terms & Conditions</a>
 
-<div class="footer-bottom">
+                <a href="privacypolicy.html">Privacy Policy</a>
 
-<p>
+            </div>
 
-© 2026 50 Mirars — The Watch & Sunglasses Store. All Rights Reserved.
+            <div class="footer-social">
 
-</p>
+                <h3>50 Mirars</h3>
 
-<div class="footer-social">
+                <p>Follow Us On</p>
 
-<a href="https://instagram.com/50mirars" target="_blank">
+                <a
+                    href="https://instagram.com/50mirars"
+                    target="_blank"
+                    rel="noopener"
+                    class="instagram-button"
+                    aria-label="Follow 50 Mirars on Instagram"
+                >
 
-<img src="instagramimage.webp" alt="Instagram">
+                    <img
+                        src="instagramimage.webp"
+                        alt="Instagram"
+                    >
 
-</a>
+                </a>
 
-</div>
+            </div>
 
-</div>
+        </div>
 
-</div>
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 50 Mirars - The Watch & Sunglasses Store.
+                All Rights Reserved.
+            </p>
+
+        </div>
+
+    </div>
 
 </footer>
 
@@ -5448,3 +5544,7 @@ behavior:"smooth"
 });
 
 </script>
+
+</body>
+    
+</html>
