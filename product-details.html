@@ -162,20 +162,55 @@ video{
 
 .product-container{
     display:grid;
-    grid-template-columns:
-        minmax(0,1.05fr)
-        minmax(0,0.95fr);
+    grid-template-columns:1.1fr 0.9fr;
+    gap:70px;
 
-    gap:60px;
+    padding:50px;
 
-    background:#fff;
+    border-radius:35px;
 
-    padding:42px;
+    background:
+    linear-gradient(
+    135deg,
+    rgba(255,255,255,0.95),
+    rgba(248,246,242,0.95)
+    );
 
-    border:1px solid rgba(180,150,100,0.25);
+    backdrop-filter:blur(20px);
+
+    border:
+    1px solid
+    rgba(201,164,93,0.25);
 
     box-shadow:
-        0 18px 50px rgba(0,0,0,0.07);
+    0 30px 80px rgba(0,0,0,0.08);
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.product-container::before{
+    content:"";
+
+    position:absolute;
+
+    top:-250px;
+    right:-250px;
+
+    width:500px;
+    height:500px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(
+    circle,
+    rgba(201,164,93,0.15),
+    transparent 70%
+    );
+
+    pointer-events:none;
 }
 
 
@@ -189,25 +224,34 @@ video{
 
 .main-media{
     width:100%;
-    min-height:550px;
+    min-height:650px;
 
     background:
-        radial-gradient(
-            circle,
-            #ffffff 0%,
-            #f3f0eb 100%
-        );
+    linear-gradient(
+    145deg,
+    #faf8f4,
+    #ffffff
+    );
 
-    border:1px solid #e4ddd2;
+    border-radius:30px;
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    border:
+    1px solid
+    rgba(201,164,93,0.15);
+
+    overflow:hidden;
 
     position:relative;
-    overflow:hidden;
-}
 
+    box-shadow:
+    inset 0 2px 20px rgba(255,255,255,0.5),
+    0 15px 60px rgba(0,0,0,0.08);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+    
 .main-media img,
 .main-media video{
     width:100%;
@@ -335,17 +379,19 @@ video{
     margin-bottom:13px;
 }
 
-.product-title{
-    font-size:38px;
-    line-height:1.18;
+.product-price::before{
+    content:"Luxury Collection";
+    display:block;
 
-    margin:0 0 18px;
+    font-size:12px;
 
-    font-weight:700;
+    letter-spacing:3px;
 
-    color:#111;
+    color:#c9a45d;
+
+    margin-bottom:8px;
 }
-
+    
 .product-price{
     font-size:29px;
     font-weight:700;
@@ -481,29 +527,22 @@ video{
 }
 
 .action-btn{
-    width:100%;
-
-    min-height:52px;
-
-    border:none;
-
-    cursor:pointer;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-size:14px;
+    min-height:60px;
+    font-size:15px;
     font-weight:700;
-
-    letter-spacing:0.5px;
-
-    transition:0.3s ease;
 }
 
 .add-cart-btn{
-    background:#111;
-    color:#fff;
+    background:
+    linear-gradient(
+    90deg,
+    #111,
+    #2a2a2a
+    );
+
+    color:white;
+
+    border-radius:16px;
 }
 
 .add-cart-btn:hover{
@@ -512,8 +551,16 @@ video{
 }
 
 .buy-now-btn{
-    background:#c9a45d;
+    background:
+    linear-gradient(
+    90deg,
+    #c9a45d,
+    #e6c785
+    );
+
     color:#111;
+
+    border-radius:16px;
 }
 
 .buy-now-btn:hover{
@@ -623,20 +670,27 @@ video{
 }
 
 .related-card{
-    background:#fff;
+    background:white;
 
-    border:1px solid #e3ddd3;
+    border-radius:25px;
 
-    padding:15px;
+    overflow:hidden;
 
-    transition:0.3s ease;
+    border:
+    1px solid
+    rgba(201,164,93,.15);
+
+    transition:.4s;
+
+    padding:20px;
 }
-
+    
 .related-card:hover{
-    transform:translateY(-5px);
+    transform:
+    translateY(-12px);
 
     box-shadow:
-        0 12px 30px rgba(0,0,0,0.08);
+    0 25px 70px rgba(0,0,0,.12);
 }
 
 .related-image{
