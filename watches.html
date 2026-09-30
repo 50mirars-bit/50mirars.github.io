@@ -6,7 +6,7 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=1200">
+<meta name="viewport" content="width=1000">
 
 <meta name="theme-color" content="#f4f0e8">
 
@@ -567,6 +567,14 @@ body{
 }
     
 .product-media-slider img.product-slide{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    background:#ebe6dc;
+}
+
+.product-single-image{
     width:100%;
     height:100%;
     object-fit:cover;
@@ -1138,6 +1146,276 @@ body{
     background: rgba(0,0,0,.65);
 }
 
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.main-footer{
+    background:#111;
+
+    color:#fff;
+
+    margin-top:40px;
+}
+
+.footer-container{
+    width:100%;
+
+    max-width:1400px;
+
+    margin:0 auto;
+
+    padding:
+        60px
+        50px
+        0;
+}
+
+
+/* =========================================================
+   FOOTER TOP
+========================================================= */
+
+.footer-top{
+    display:grid;
+
+    grid-template-columns:
+        1fr
+        1fr
+        1fr;
+
+    gap:50px;
+
+    padding-bottom:50px;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,0.15);
+}
+
+.footer-top > h2{
+    grid-column:1 / -1;
+
+    text-align:center;
+
+    margin:0 0 10px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:38px;
+
+    font-weight:600;
+
+    color:#c9a24d;
+}
+
+
+/* =========================================================
+   FOOTER CONTACT
+========================================================= */
+
+.contact-column{
+    text-align:left;
+}
+
+.contact-column h3,
+.whatsapp-column h3,
+.footer-links-column h3,
+.footer-social h3{
+    color:#c9a24d;
+
+    font-size:20px;
+
+    margin:0 0 18px;
+}
+
+.contact-column p{
+    color:#bbb;
+
+    font-size:15px;
+
+    line-height:1.6;
+}
+
+.footer-link{
+    display:block;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    margin-bottom:12px;
+
+    transition:0.3s ease;
+}
+
+.footer-link:hover{
+    color:#c9a24d;
+}
+
+
+/* =========================================================
+   WHATSAPP
+========================================================= */
+
+.whatsapp-column{
+    text-align:center;
+}
+
+.whatsapp-title{
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+}
+
+.whatsapp-icon{
+    width:28px !important;
+
+    height:28px !important;
+
+    object-fit:contain !important;
+}
+
+.whatsapp-button{
+    display:inline-block;
+
+    background:#c9a24d;
+
+    color:#111;
+
+    text-decoration:none;
+
+    padding:13px 30px;
+
+    border-radius:6px;
+
+    font-weight:bold;
+
+    transition:0.3s ease;
+}
+
+.whatsapp-button:hover{
+    background:#fff;
+
+    color:#111;
+}
+
+
+/* =========================================================
+   FOOTER MIDDLE
+========================================================= */
+
+.footer-middle{
+    display:grid;
+
+    grid-template-columns:
+        1fr
+        1fr
+        1fr;
+
+    gap:50px;
+
+    padding:50px 0;
+}
+
+.footer-links-column{
+    display:flex;
+
+    flex-direction:column;
+}
+
+.footer-links-column a{
+    color:#ccc;
+
+    text-decoration:none;
+
+    margin-bottom:13px;
+
+    transition:0.3s ease;
+}
+
+.footer-links-column a:hover{
+    color:#c9a24d;
+}
+
+
+/* =========================================================
+   INSTAGRAM
+========================================================= */
+
+.footer-social{
+    text-align:center;
+}
+
+.footer-social p{
+    color:#bbb;
+
+    margin-bottom:15px;
+}
+
+.instagram-button{
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    width:50px;
+
+    height:50px;
+
+    border:
+        1px solid
+        #c9a24d;
+
+    border-radius:50%;
+
+    transition:0.3s ease;
+}
+
+.instagram-button:hover{
+    background:#c9a24d;
+}
+
+.instagram-button img{
+    width:28px;
+
+    height:28px;
+
+    object-fit:contain;
+}
+
+
+/* =========================================================
+   COPYRIGHT
+========================================================= */
+
+.footer-bottom{
+    border-top:
+        1px solid
+        rgba(255,255,255,0.15);
+
+    text-align:center;
+
+    padding:25px 10px;
+}
+
+.footer-bottom p{
+    margin:0;
+
+    color:#999;
+
+    font-size:14px;
+
+    line-height:1.6;
+}
 
 </style>
 
@@ -1574,12 +1852,20 @@ body{
                         Emporio Armani
                         </button>
 
+                     <button
+                        class="brand-button"
+                        data-brand="Fossil"
+                        type="button"
+                    >
+                        FOSSIL
+                    </button>
+
                         <button
                         class="brand-button"
                         data-brand="Franck Muller"
                         type="button"
                     >
-                        Franck Muller
+                        FRANCK MULLER
                         </button>
 
                      <button
@@ -1603,7 +1889,7 @@ body{
                         data-brand="Rado"
                         type="button"
                     >
-                        Rado
+                        RADO
                         </button>
 
                        <button
@@ -1611,7 +1897,7 @@ body{
                         data-brand="Rolex"
                         type="button"
                     >
-                        Rolex
+                        ROLEX
                         </button>
 
                     <button
@@ -1627,7 +1913,7 @@ body{
                         data-brand="Tag Heuer"
                         type="button"
                     >
-                        Tag Heuer
+                        TAG HEUER
                     </button>
 
                     <button
@@ -1635,8 +1921,16 @@ body{
                         data-brand="Tommy Hilfiger"
                         type="button"
                     >
-                        Tommy Hilfiger
+                        TOMMY HILFIGER
                     </button>
+
+                    <button
+                        class="brand-button"
+                        data-brand="Versace"
+                        type="button"
+                    >
+                        VERSACE
+                        </button>
 
                 </nav>
 
@@ -1710,6 +2004,136 @@ body{
 
 </main>
 
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="main-footer">
+
+    <div class="footer-container">
+
+        <div class="footer-top">
+
+            <h2>Contact Us</h2>
+
+            <div class="contact-column">
+
+                <h3>For Customers:</h3>
+
+                <a href="mailto:50mirars@gmail.com" class="footer-link">
+                    50mirars@gmail.com
+                </a>
+
+                <a href="tel:+918209989013" class="footer-link">
+                    82099 89013
+                </a>
+
+                <p>09:00 - 21:30 | Monday to Sunday</p>
+
+            </div>
+
+            <div class="contact-column">
+
+                <h3>For Sales/Watch Service:</h3>
+
+                <a href="mailto:50mirars@gmail.com" class="footer-link">
+                    50mirars@gmail.com
+                </a>
+
+                <a href="tel:+918209989013" class="footer-link">
+                    82099 89013
+                </a>
+
+                <p>09:00 - 21:30 | Monday to Sunday</p>
+
+            </div>
+
+            <div class="whatsapp-column">
+
+                <h3 class="whatsapp-title">
+
+                    <span>View Products on WhatsApp</span>
+
+                    <img
+                        src="whatsapplogo.png"
+                        alt="WhatsApp"
+                        class="whatsapp-icon"
+                    >
+
+                </h3>
+
+                <a
+                    href="https://wa.me/918209989013"
+                    target="_blank"
+                    rel="noopener"
+                    class="whatsapp-button"
+                >
+                    View Products
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="footer-middle">
+
+            <div class="footer-links-column">
+
+                <h3>Know 50 Mirars</h3>
+
+                <a href="about.html">About Us</a>
+
+                <a href="faq.html">FAQ</a>
+
+            </div>
+
+            <div class="footer-links-column">
+
+                <h3>Terms & Conditions</h3>
+
+                <a href="terms.html">Terms & Conditions</a>
+
+                <a href="privacypolicy.html">Privacy Policy</a>
+
+            </div>
+
+            <div class="footer-social">
+
+                <h3>50 Mirars</h3>
+
+                <p>Follow Us On</p>
+
+                <a
+                    href="https://instagram.com/50mirars"
+                    target="_blank"
+                    rel="noopener"
+                    class="instagram-button"
+                    aria-label="Follow 50 Mirars on Instagram"
+                >
+
+                    <img
+                        src="instagramimage.webp"
+                        alt="Instagram"
+                    >
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 50 Mirars - The Watch & Sunglasses Store.
+                All Rights Reserved.
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
 
 
 <script>
@@ -2493,6 +2917,884 @@ const watches = [
         media: "Fossil Ring watch.mp4",
         type: "video",
         link: "product-details.html?id=73"
+    },
+
+    /* =========================
+       7
+      ========================= */
+
+    {
+        id: 7,
+        name: "Versace Hellenyium Chrono Watch",
+        brand: "Versace",
+        price: 4000,
+        media: [
+            "Versace Hellenyium Chrono Watch.jpeg",
+            "Versace Hellenyium Chrono Watch 2.jpeg"
+        ],
+        type: "image-slider",
+        link: "product-details.html?id=7"
+    },
+
+    {
+        id: 8,
+        name: "Tommy Hilfiger Legend Series",
+        brand: "Tommy Hilfiger",
+        price: 4000,
+        media: "Tommy Hilfiger Legend Series.mp4",
+        type: "video",
+        link: "product-details.html?id=8"
+    },
+
+    {
+        id: 72,
+        name: "Emporio Armani AR70010",
+        brand: "Emporio Armani",
+        price: 4000,
+        media: "Emporio Armani AR70010.mp4",
+        type: "video",
+        link: "product-details.html?id=72"
+    },
+
+    {
+        id: 9,
+        name: "Tommy Hilfiger Dual Tone Watch TH1781644",
+        brand: "Tommy Hilfiger",
+        price: 3500,
+        media: "Tommy Hilfiger Dual Tone Watch TH1781644.mp4",
+        type: "video",
+        link: "product-details.html?id=9"
+    },
+
+    {
+        id: 10,
+        name: "Versace Tonneau Skeleton Watch",
+        brand: "Versace",
+        price: 4000,
+        media: [
+            "Versace Tonneau Skeleton Watch.jpeg",
+            "Versace Tonneau Skeleton Watch 2.jpeg"
+        ],
+        type: "image-slider",
+        link: "product-details.html?id=10"
+    },
+
+    {
+        id: 74,
+        name: "Guess Collection Watch",
+        brand: "Guess",
+        price: 4000,
+        media: "Guess Collection watch.mp4",
+        type: "video",
+        link: "product-details.html?id=74"
+    },
+
+    {
+        id: 11,
+        name: "Seiko 5 Sports Red Blood",
+        brand: "Seiko",
+        price: 4500,
+        media: "Seiko 5 Sports Red Blood.mp4",
+        type: "video",
+        link: "product-details.html?id=11"
+    },
+
+    {
+        id: 75,
+        name: "Guess Edge GW0539G1",
+        brand: "Guess",
+        price: 4000,
+        media: "Guess Edge GW0539G1.mp4",
+        type: "video",
+        link: "product-details.html?id=75"
+    },
+
+    {
+        id: 12,
+        name: "Omega Seamaster Diver 300M Co-Axial Master",
+        brand: "Omega",
+        price: 3500,
+        media: "Omega Seamaster Diver 300M Co-Axial Master.mp4",
+        type: "video",
+        link: "product-details.html?id=12"
+    },
+
+    {
+        id: 13,
+        name: "Casio Edifice EFR-539SG-1AUDF",
+        brand: "Casio",
+        price: 3000,
+        media: "Casio Edifice EFR-539SG-1AUDF.mp4",
+        type: "video",
+        link: "product-details.html?id=13"
+    },
+
+    {
+        id: 77,
+        name: "Guess Jet Multifunctional Watch",
+        brand: "Guess",
+        price: 4500,
+        media: [
+            "Guess Jet Multifunctional Watch.mp4",
+            "Guess Jet Multifunctional Watch 2.mp4"
+        ],
+        type: "slider",
+        link: "product-details.html?id=77"
+    },
+
+    {
+        id: 14,
+        name: "Tommy Hilfiger Model 1792196",
+        brand: "Tommy Hilfiger",
+        price: 4000,
+        media: "Tommy Hilfiger Model 1792196.mp4",
+        type: "video",
+        link: "product-details.html?id=14"
+    },
+
+    {
+        id: 15,
+        name: "Rolex Datejust 41 Wimbledon Dial",
+        brand: "Rolex",
+        price: 3500,
+        media: "Rolex Datejust 41 Wimbledon Dial.mp4",
+        type: "video",
+        link: "product-details.html?id=15"
+    },
+
+    {
+        id: 16,
+        name: "Rolex Cosmograph Daytona John Mayer 116508",
+        brand: "Rolex",
+        price: 3500,
+        media: "Rolex Cosmograph Daytona John Mayer 116508.mp4",
+        type: "video",
+        link: "product-details.html?id=16"
+    },
+
+    {
+        id: 76,
+        name: "Guess GW0984G4",
+        brand: "Guess",
+        price: 4000,
+        media: "Guess GW0984G4.mp4",
+        type: "video",
+        link: "product-details.html?id=76"
+    },
+
+    {
+        id: 82,
+        name: "Seiko Presage Open Heart Collection",
+        brand: "Seiko",
+        price: 4500,
+        media: "Seiko Presage Open Heart Collection.mp4",
+        type: "video",
+        link: "product-details.html?id=82"
+    },
+
+    {
+        id: 17,
+        name: "Breitling Navitimer",
+        brand: "Breitling",
+        price: 6000,
+        media: "Breitling Navitimer .mp4",
+        type: "video",
+        link: "product-details.html?id=17"
+    },
+
+    {
+        id: 18,
+        name: "Tommy Hilfiger Henry Skeleton Automatic Watch",
+        brand: "Tommy Hilfiger",
+        price: 4000,
+        media: "Tommy Hilfiger Henry Skeleton Automatic Watch.mp4",
+        type: "video",
+        link: "product-details.html?id=18"
+    },
+
+    {
+        id: 19,
+        name: "Guess Camden Multifunction GW1051G2",
+        brand: "Guess",
+        price: 3500,
+        media: [
+            "Guess Camden Multifunction GW1051G2 1.jpeg",
+            "Guess Camden Multifunction GW1051G2.jpeg"
+        ],
+        type: "image-slider",
+        link: "product-details.html?id=19"
+    },
+
+    {
+        id: 20,
+        name: "Seiko Presage SRPE15",
+        brand: "Seiko",
+        price: 5500,
+        media: "Seiko Presage SRPE15.jpeg",
+        type: "image",
+        link: "product-details.html?id=20"
+    },
+
+    {
+        id: 21,
+        name: "Tommy Hilfiger Baker Watch",
+        brand: "Tommy Hilfiger",
+        price: 3500,
+        media: "Tommy Hilfiger Baker Watch.mp4",
+        type: "video",
+        link: "product-details.html?id=21"
+    },
+
+    {
+        id: 78,
+        name: "Guess Pheonix GW0203G3",
+        brand: "Guess",
+        price: 4000,
+        media: [
+            "Guess Jet Multifunctional Watch 3.mp4",
+            "Guess Pheonix GW0203G3.mp4"
+        ],
+        type: "slider",
+        link: "product-details.html?id=78"
+    },
+
+    {
+        id: 79,
+        name: "Guess-3D Dragon Watch",
+        brand: "Guess",
+        price: 4000,
+        media: [
+            "Guess-3D Dragon Watch.mp4",
+            "Guess-3D Dragon Watch 2.mp4",
+            "Guess-3D Dragon Watch 3.mp4",
+            "Guess-3D Dragon Watch 4.mp4",
+            "Guess-3D Dragon Watch 5.mp4"
+        ],
+        type: "slider",
+        link: "product-details.html?id=79"
+    },
+
+    {
+        id: 83,
+        name: "Seiko Redshift SSH137J1",
+        brand: "Seiko",
+        price: 4000,
+        media: "Seiko Redshift SSH137J1.mp4",
+        type: "video",
+        link: "product-details.html?id=83"
+    },
+
+    {
+        id: 22,
+        name: "Seiko 5 Sports GMT SSK035K1",
+        brand: "Seiko",
+        price: 4000,
+        media: "Seiko 5 Sports GMT SSK035K1.jpeg",
+        type: "image",
+        link: "product-details.html?id=22"
+    },
+
+    {
+        id: 23,
+        name: "Seiko 5 Sports Quartz GMT SSK035K1",
+        brand: "Seiko",
+        price: 3500,
+        media: "Seiko 5 Sports Quartz GMT SSK035K1.jpeg",
+        type: "image",
+        link: "product-details.html?id=23"
+    },
+
+    {
+        id: 24,
+        name: "Seiko Prospex Speedtimer SPB513",
+        brand: "Seiko",
+        price: 3500,
+        media: "Seiko Prospex Speedtimer SPB513.jpeg",
+        type: "image",
+        link: "product-details.html?id=24"
+    },
+
+    {
+        id: 25,
+        name: "Seiko 5 Sports Group",
+        brand: "Seiko",
+        price: 4000,
+        media: "Seiko 5 Sports Group.mp4",
+        type: "video",
+        link: "product-details.html?id=25"
+    },
+
+    {
+        id: 84,
+        name: "Tag Heuer Carrera 160 Year Anniversary Limited Edition",
+        brand: "Tag Heuer",
+        price: 4500,
+        media: "Tag Heuer Carrera 160 Year Anniversary Limited Edition.mp4",
+        type: "video",
+        link: "product-details.html?id=84"
+    },
+
+    {
+        id: 26,
+        name: "Seiko Presage Cocktail SRPG23J1",
+        brand: "Seiko",
+        price: 4000,
+        media: "Seiko Presage Cocktail SRPG23J1.mp4",
+        type: "video",
+        link: "product-details.html?id=26"
+    },
+
+    {
+        id: 27,
+        name: "Armani Exchange Automatic Skeleton",
+        brand: "Armani Exchange",
+        price: 4000,
+        media: "Armani Exchange Automatic Skeleton.jpeg",
+        type: "image",
+        link: "product-details.html?id=27"
+    },
+
+    {
+        id: 28,
+        name: "Tudor Pelagos 39",
+        brand: "Tudor",
+        price: 5000,
+        media: "Tudor Pelagos 39.mp4",
+        type: "video",
+        link: "product-details.html?id=28"
+    },
+
+    {
+        id: 29,
+        name: "Seiko Mod Watches",
+        brand: "Seiko",
+        price: 5500,
+        media: "Seiko Mod Watches.jpeg",
+        type: "image",
+        link: "product-details.html?id=29"
+    },
+
+    {
+        id: 30,
+        name: "Guess Arc Champagne",
+        brand: "Guess",
+        price: 4000,
+        media: "Guess Arc Champagne.jpeg",
+        type: "image",
+        link: "product-details.html?id=30"
+    },
+
+    {
+        id: 80,
+        name: "Richard Mille RM055",
+        brand: "Richard Mille",
+        price: 4000,
+        media: "Richard Mille RM055.mp4",
+        type: "video",
+        link: "product-details.html?id=80"
+    },
+
+    {
+        id: 31,
+        name: "Rolex Yatch-Master 42",
+        brand: "Rolex",
+        price: 5000,
+        media: "Rolex Yatch-Master 42.jpeg",
+        type: "image",
+        link: "product-details.html?id=31"
+    },
+
+    {
+        id: 32,
+        name: "Seiko Blue Moon SSA347J1",
+        brand: "Seiko",
+        price: 6000,
+        media: "Seiko Blue Moon SSA347J1.jpeg",
+        type: "image",
+        link: "product-details.html?id=32"
+    },
+
+    {
+        id: 33,
+        name: "Seiko Mod",
+        brand: "Seiko",
+        price: 5000,
+        media: "Seiko Mod .jpeg",
+        type: "image",
+        link: "product-details.html?id=33"
+    },
+
+    {
+        id: 34,
+        name: "Rolex GMT-Master II Root Beer",
+        brand: "Rolex",
+        price: 3500,
+        media: "Rolex GMT-Master II Root Beer.mp4",
+        type: "video",
+        link: "product-details.html?id=34"
+    },
+
+    {
+        id: 81,
+        name: "Seiko Astron GPS Watch",
+        brand: "Seiko",
+        price: 4000,
+        media: "Seiko Astron GPS Watch.mp4",
+        type: "video",
+        link: "product-details.html?id=81"
+    },
+
+    {
+        id: 35,
+        name: "Seiko Mod Yatch-Master Rose Gold",
+        brand: "Seiko",
+        price: 5000,
+        media: "Seiko Mod Yatch-Master Rose Gold.mp4",
+        type: "video",
+        link: "product-details.html?id=35"
+    },
+
+    {
+        id: 36,
+        name: "Guess Waygene",
+        brand: "Guess",
+        price: 3500,
+        media: "Guess Waygene.jpeg",
+        type: "image",
+        link: "product-details.html?id=36"
+    },
+
+    {
+        id: 37,
+        name: "Seiko Pepsi Edition",
+        brand: "Seiko",
+        price: 6000,
+        media: "Seiko Pepsi Edition.jpeg",
+        type: "image",
+        link: "product-details.html?id=37"
+    },
+
+    {
+        id: 38,
+        name: "Cartier 21L 71-6-151",
+        brand: "Cartier",
+        price: 6000,
+        media: "Cartier 21L 71-6-151.mp4",
+        type: "video",
+        link: "product-details.html?id=38"
+    },
+
+    {
+        id: 39,
+        name: "Swatch X Audemars Piguet Royal Pop",
+        brand: "Swatch X Audemars Piguet",
+        price: 4000,
+        media: "Swatch X Audemars Piguet Royal Pop.jpeg",
+        type: "image",
+        link: "product-details.html?id=39"
+    },
+
+    {
+        id: 40,
+        name: "Seiko Mod Watches",
+        brand: "Seiko",
+        price: 4500,
+        media: "Seiko Mod Watches Video.mp4",
+        type: "video",
+        link: "product-details.html?id=40"
+    },
+
+    {
+        id: 41,
+        name: "Tag Heuer Grand Carrera CR7",
+        brand: "Tag Heuer",
+        price: 4000,
+        media: "Tag Heuer Grand Carrera CR7 .jpeg",
+        type: "image",
+        link: "product-details.html?id=41"
+    },
+
+    {
+        id: 42,
+        name: "Audemars Piguet Royal Oak",
+        brand: "Audemars Piguet",
+        price: 6000,
+        media: [
+            "Audemars Piguet Royal Oak 1.jpeg",
+            "Audemars Piguet Royal Oak 2.jpeg",
+            "Audemars Piguet Royal Oak 3.jpeg"
+        ],
+        type: "image-slider",
+        link: "product-details.html?id=42"
+    },
+
+    /* =========================
+       ADDITIONAL WATCHES
+       IDs 43–63
+       ========================= */
+
+    {
+        id: 43,
+        name: "Bannon Automatic Analog (ME3207)",
+        brand: "Fossil",
+        price: 4500,
+        media: "Bannon Automatic Analog (ME3207).jpeg",
+        type: "image",
+        link: "product-details.html?id=43"
+    },
+
+    {
+        id: 44,
+        name: "Armani Exchange Hampton AX2418",
+        brand: "Armani Exchange",
+        price: 4500,
+        media: "Armani Exchange Hampton AX2418.jpeg",
+        type: "image",
+        link: "product-details.html?id=44"
+    },
+
+    {
+        id: 45,
+        name: "Seiko Datejust Mod",
+        brand: "Seiko",
+        price: 5000,
+        media: "Seiko Datejust Mod.mp4",
+        type: "video",
+        link: "product-details.html?id=45"
+    },
+
+    {
+        id: 46,
+        name: "Casio G-Shock",
+        brand: "Casio",
+        price: 4000,
+        media: [
+            "Casio G-Shock 1.jpeg",
+            "Casio G-Shock 2.jpeg",
+            "Casio G-Shock 3.jpeg",
+            "Casio G-Shock 4.jpeg"
+        ],
+        type: "image-slider",
+        link: "product-details.html?id=46"
+    },
+
+    {
+        id: 47,
+        name: "Tommy Hilfiger TW001863-001",
+        brand: "Tommy Hilfiger",
+        price: 4000,
+        media: "Tommy Hilfiger TW001863-001.jpeg",
+        type: "image",
+        link: "product-details.html?id=47"
+    },
+
+    {
+        id: 48,
+        name: "Jacob & Co CR7 Watch",
+        brand: "Jacob & Co",
+        price: 4000,
+        media: [
+            "Jacob & Co CR7 Watch.jpeg",
+            "Jacob & Co CR7 Watch 2.jpeg",
+            "Jacob & Co CR7 Watch 3.jpeg"
+        ],
+        type: "image-slider",
+        link: "product-details.html?id=48"
+    },
+
+    {
+        id: 49,
+        name: "Omega X Swatch Moon's Watch",
+        brand: "Omega X Swatch",
+        price: 4000,
+        media: [
+            "Omega X Swatch Moon's Watch.jpeg",
+            "Omega X Swatch Moon's Watch 2.jpeg",
+            "Omega X Swatch Moon's Watch 3.jpeg",
+            "Omega X Swatch Moon's Watch 4.jpeg",
+            "Omega X Swatch Moon's Watch 5.jpeg",
+            "Omega X Swatch Moon's Watch 6.jpeg",
+            "Omega X Swatch Moon's Watch 7.jpeg",
+            "Omega X Swatch Moon's Watch 8.jpeg",
+            "Omega X Swatch Moon's Watch 9.jpeg",
+            "Omega X Swatch Moon's Watch 10.jpeg",
+            "Omega X Swatch Moon's Watch 11.jpeg"
+        ],
+        type: "image-slider",
+        link: "product-details.html?id=49"
+    },
+
+    {
+        id: 50,
+        name: "Casio Edifice ECB-2000DD",
+        brand: "Casio",
+        price: 6000,
+        media: "Casio Edifice ECB-2000DD.jpeg",
+        type: "image",
+        link: "product-details.html?id=50"
+    },
+
+    {
+        id: 51,
+        name: "Emporio Armani Luigi AR1808",
+        brand: "Emporio Armani",
+        price: 4500,
+        media: "Emporio Armani Luigi AR1808.jpeg",
+        type: "image",
+        link: "product-details.html?id=51"
+    },
+
+    {
+        id: 52,
+        name: "Patek Philippe Nautilus Chain",
+        brand: "Patek Philippe",
+        price: 6500,
+        media: [
+            "Patek Philippe Nautilus Chain 1.jpeg",
+            "Patek Philippe Nautilus Chain 2.jpeg",
+            "Patek Philippe Nautilus Chain 3.jpeg"
+        ],
+        type: "image-slider",
+        link: "product-details.html?id=52"
+    },
+
+    {
+        id: 53,
+        name: "Longiness Master Collection",
+        brand: "Longines",
+        price: 4000,
+        media: "Longiness Master Collection.jpeg",
+        type: "image",
+        link: "product-details.html?id=53"
+    },
+
+    {
+        id: 54,
+        name: "Patek Philippe Nautilus Band",
+        brand: "Patek Philippe",
+        price: 5000,
+        media: [
+            "Patek Philippe Nautilus Band.jpeg",
+            "Patek Philippe Nautilus Band 2.jpeg"
+        ],
+        type: "image-slider",
+        link: "product-details.html?id=54"
+    },
+
+    {
+        id: 55,
+        name: "Maserati R8853100027 Competizione Plain",
+        brand: "Maserati",
+        price: 5000,
+        media: "Maserati R8853100027 Competizione Plain.jpeg",
+        type: "image",
+        link: "product-details.html?id=55"
+    },
+
+    {
+        id: 56,
+        name: "Emporio Armani BSF954",
+        brand: "Emporio Armani",
+        price: 4000,
+        media: "Emporio Armani BSF954.jpeg",
+        type: "image",
+        link: "product-details.html?id=56"
+    },
+
+    {
+        id: 57,
+        name: "Seiko Presage Cocktail Time",
+        brand: "Seiko",
+        price: 4500,
+        media: [
+            "Seiko Presage Cocktail Time.jpeg",
+            "Seiko Presage Cocktail Time 2.jpeg",
+            "Seiko Presage Cocktail Time 3.jpeg",
+            "Seiko Presage Cocktail Time 4.jpeg",
+            "Seiko Presage Cocktail Time 5.jpeg",
+            "Seiko Presage Cocktail Time 6.jpeg"
+        ],
+        type: "image-slider",
+        link: "product-details.html?id=57"
+    },
+
+    {
+        id: 58,
+        name: "Seiko Prospex Diver",
+        brand: "Seiko",
+        price: 4000,
+        media: "Seiko Prospex Diver .mp4",
+        type: "video",
+        link: "product-details.html?id=58"
+    },
+
+    {
+        id: 59,
+        name: "Emporio Armani Ceramica",
+        brand: "Emporio Armani",
+        price: 4000,
+        media: "Emporio Armani Ceramica.jpeg",
+        type: "image",
+        link: "product-details.html?id=59"
+    },
+
+    {
+        id: 60,
+        name: "Seiko SRPL64",
+        brand: "Seiko",
+        price: 4500,
+        media: [
+            "Seiko SRPL64.jpeg",
+            "Seiko SRPL64 1.jpeg",
+            "Seiko SRPL64 2.jpeg",
+            "Seiko SRPL64 3.jpeg",
+            "Seiko SRPL64 4.jpeg",
+            "Seiko SRPL64 5.jpeg",
+            "Seiko SRPL64 6.jpeg"
+        ],
+        type: "image-slider",
+        link: "product-details.html?id=60"
+    },
+
+    {
+        id: 61,
+        name: "Rolex Cosmograph",
+        brand: "Rolex",
+        price: 5000,
+        media: "Rolex Cosmograph .jpeg",
+        type: "image",
+        link: "product-details.html?id=61"
+    },
+
+    {
+        id: 62,
+        name: "Emporio Armani Luigi AR187",
+        brand: "Emporio Armani",
+        price: 4000,
+        media: "Emporio Armani Luigi AR187.jpeg",
+        type: "image",
+        link: "product-details.html?id=62"
+    },
+
+    {
+        id: 63,
+        name: "Rolex Cosmograph Daytona Green",
+        brand: "Rolex",
+        price: 5000,
+        media: "Rolex Cosmograph Dayona Green.jpeg",
+        type: "image",
+        link: "product-details.html?id=63"
+    },
+
+    // 64
+    {
+        id: 64,
+        name: "Tissot Carson",
+        brand: "Tissot",
+        category: "Watches",
+        price: 4500,
+        type: "image-slider",
+        media: [
+            "Tissot Carson.jpeg",
+            "Tissot Carson 2.jpeg"
+        ],
+        link: "product-details.html?id=64"
+    },
+
+    // 65
+    {
+        id: 65,
+        name: "Rolex Cosmograph Daytona John Walker",
+        brand: "Rolex",
+        category: "Watches",
+        price: 5000,
+        type: "image",
+        media: "Rolex Cosmograph Daytona John Walker.jpeg",
+        link: "product-details.html?id=65"
+    },
+
+    // 66
+    {
+        id: 66,
+        name: "Rolex Daytona Rainbow",
+        brand: "Rolex",
+        category: "Watches",
+        price: 5000,
+        type: "image",
+        media: "Rolex Daytona Rainbow.jpeg",
+        link: "product-details.html?id=66"
+    },
+
+    // 67
+    {
+        id: 67,
+        name: "Tissot Gentleman Powermatic 80",
+        brand: "Tissot",
+        category: "Watches",
+        price: 5000,
+        type: "image-slider",
+        media: [
+            "Tissot Gentelman Powermatic 80.jpeg",
+            "Tissot Gentelman Powermatic 80 2.jpeg"
+        ],
+        link: "product-details.html?id=67"
+    },
+
+    // 68
+    {
+        id: 68,
+        name: "Tommy Hilfiger Automatic Skeleton Watch",
+        brand: "Tommy Hilfiger",
+        category: "Watches",
+        price: 4500,
+        type: "image-slider",
+        media: [
+            "Tommy Hilfiger Automatic Skeleton Watch 1.jpeg",
+            "Tommy Hilfiger Automatic Skeleton Watch 2.jpeg",
+            "Tommy Hilfiger Automatic Skeleton Watch 3.jpeg"
+        ],
+        link: "product-details.html?id=68"
+    },
+
+    // 69
+    {
+        id: 69,
+        name: "Casio Edifice EFR-539SG-1AVUDF",
+        brand: "Casio",
+        category: "Watches",
+        price: 3500,
+        type: "image-slider",
+        media: [
+            "Casio Edifice EFR-539SG-1AVUDF 1.jpeg",
+            "Casio Edifice EFR-539SG-1AVUDF 2.jpeg",
+            "Casio Edifice EFR-539SG-1AVUDF 3.jpeg",
+            "Casio Edifice EFR-539SG-1AVUDF 4.jpeg",
+            "Casio Edifice EFR-539SG-1AVUDF 5.jpeg",
+            "Casio Edifice EFR-539SG-1AVUDF 6.jpeg"
+        ],
+        link: "product-details.html?id=69"
+    },
+
+    // 70
+    {
+        id: 70,
+        name: "Tissot PRX",
+        brand: "Tissot",
+        category: "Watches",
+        price: 4000,
+        type: "image-slider",
+        media: [
+            "Tissot PRX 1.jpeg",
+            "Tissot PRX 2.jpeg",
+            "Tissot PRX 3.jpeg",
+            "Tissot PRX 4.jpeg",
+            "Tissot PRX 5.jpeg",
+            "Tissot PRX 6.jpeg",
+            "Tissot PRX 7.jpeg",
+            "Tissot PRX 8.jpeg",
+            "Tissot PRX 9.jpeg"
+        ],
+        link: "product-details.html?id=70"
     }
 
 ];
@@ -2816,12 +4118,8 @@ function sortProducts(products){
 
 function createProductMedia(product){
 
-    /* =====================================================
-       SINGLE VIDEO
-    ===================================================== */
-
+    /* SINGLE VIDEO */
     if(product.type === "video"){
-
         return `
             <video
                 class="product-video"
@@ -2835,37 +4133,26 @@ function createProductMedia(product){
                 >
             </video>
         `;
-
     }
 
 
-    /* =====================================================
-       VIDEO SLIDER
-    ===================================================== */
-
+    /* VIDEO SLIDER */
     if(product.type === "slider"){
-
         return `
-
             <div class="product-media-slider">
 
                 ${product.media.map((video,index) => `
-
                     <video
                         class="product-slide ${index === 0 ? "active" : ""}"
                         playsinline
                         preload="metadata"
                     >
-
                         <source
                             src="${video}"
                             type="video/mp4"
                         >
-
                     </video>
-
                 `).join("")}
-
 
                 <button
                     class="media-prev"
@@ -2874,7 +4161,6 @@ function createProductMedia(product){
                 >
                     ‹
                 </button>
-
 
                 <button
                     class="media-next"
@@ -2885,60 +4171,65 @@ function createProductMedia(product){
                 </button>
 
             </div>
-
         `;
-
     }
 
 
-    /* =====================================================
-       IMAGE SLIDER
-    ===================================================== */
-
+    /* IMAGE SLIDER */
     if(product.type === "image-slider"){
-
         return `
-
             <div class="product-media-slider image-product-slider">
 
                 ${product.media.map((image,index) => `
-
                     <img
                         class="product-slide ${index === 0 ? "active" : ""}"
                         src="${image}"
                         alt="${product.name}"
                     >
-
                 `).join("")}
 
+                ${
+                    product.media.length > 1
+                    ? `
+                        <button
+                            class="media-prev"
+                            type="button"
+                            onclick="changeProductSlide(this,-1)"
+                        >
+                            ‹
+                        </button>
 
-                <button
-                    class="media-prev"
-                    type="button"
-                    onclick="changeProductSlide(this,-1)"
-                >
-                    ‹
-                </button>
-
-
-                <button
-                    class="media-next"
-                    type="button"
-                    onclick="changeProductSlide(this,1)"
-                >
-                    ›
-                </button>
+                        <button
+                            class="media-next"
+                            type="button"
+                            onclick="changeProductSlide(this,1)"
+                        >
+                            ›
+                        </button>
+                    `
+                    : ""
+                }
 
             </div>
-
         `;
+    }
 
+
+    /* SINGLE IMAGE */
+    if(product.type === "image"){
+        return `
+            <img
+                class="product-single-image"
+                src="${product.media}"
+                alt="${product.name}"
+            >
+        `;
     }
 
 
     return "";
-
 }
+    
 /* =========================================================
    Slider
 ========================================================= */
