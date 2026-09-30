@@ -1147,6 +1147,72 @@ body{
     }
 }
 
+.product-media-slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #eeeae1;
+}
+
+.product-slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .4s ease;
+}
+
+.product-slide.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.media-prev,
+.media-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 38px;
+    height: 38px;
+
+    border: 1px solid rgba(255,255,255,.7);
+    border-radius: 50%;
+
+    background: rgba(0,0,0,.35);
+    color: white;
+
+    font-size: 25px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    z-index: 5;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    backdrop-filter: blur(5px);
+}
+
+.media-prev {
+    left: 12px;
+}
+
+.media-next {
+    right: 12px;
+}
+
+.media-prev:hover,
+.media-next:hover {
+    background: rgba(0,0,0,.65);
+}
+
 
 </style>
 
@@ -1749,82 +1815,287 @@ body{
 
 <script>
 
-/* =========================================================
-   PRODUCT DATA
-========================================================= */
-
 const watches = [
 
+    /* =========================
+       120
+    ========================= */
+
     {
-        id:125,
-
-        name:"Seiko 5 Sports GMT SSK001K1",
-
-        brand:"Seiko",
-
-        price:4500,
-
-        movement:"Automatic",
-
-        strap:"Stainless Steel",
-
-        type:"video",
-
-        media:[
-            "Seiko 5 Sports GMT SSK001K1.mp4"
-        ],
-
-        link:"product-details.html?id=125"
+        id: 120,
+        brand: "Cartier",
+        name: "Cartier Santos Watch",
+        price: 4000,
+        media: "Cartier Santos Watch.mp4",
+        type: "video",
+        link: "product-details.html?id=120"
     },
 
+    /* =========================
+       121
+    ========================= */
 
     {
-        id:126,
-
-        name:"Seiko 5 Sports SRPD51K2",
-
-        brand:"Seiko",
-
-        price:4500,
-
-        movement:"Automatic",
-
-        strap:"Stainless Steel",
-
-        type:"video",
-
-        media:[
-            "Seiko 5 Sports SRPD51K2.mp4"
-        ],
-
-        link:"product-details.html?id=126"
+        id: 121,
+        brand: "Emporio Armani",
+        name: "Emporio Armani AR60093",
+        price: 4500,
+        media: "Emporio Armani AR60093.mp4",
+        type: "video",
+        link: "product-details.html?id=121"
     },
 
+    /* =========================
+       122
+    ========================= */
 
     {
-        id:127,
+        id: 122,
+        brand: "Franck Muller",
+        name: "Franck Muller Vanguard",
+        price: 4500,
+        media: "Franck Muller Vanguard.mp4",
+        type: "video",
+        link: "product-details.html?id=122"
+    },
 
-        name:"Seiko 5 Sports SRPDK1",
+    /* =========================
+       123
+    ========================= */
 
-        brand:"Seiko",
+    {
+        id: 123,
+        brand: "Rado",
+        name: "Rado Capital Cook",
+        price: 4500,
+        media: "Rado Capital Cook.mp4",
+        type: "video",
+        link: "product-details.html?id=123"
+    },
 
-        price:4000,
+    /* =========================
+       124
+    ========================= */
 
-        movement:"Automatic",
+    {
+        id: 124,
+        brand: "Rolex",
+        name: "Rolex Daytona Tiffany Blue",
+        price: 4000,
+        media: "Rolex Daytona Tiffany Blue.mp4",
+        type: "video",
+        link: "product-details.html?id=124"
+    },
 
-        strap:"Stainless Steel",
+    /* =========================
+       125
+    ========================= */
 
-        type:"video",
+    {
+        id: 125,
+        brand: "Seiko",
+        name: "Seiko 5 Sports GMT SSK001K1",
+        price: 4500,
+        media: "Seiko 5 Sports GMT SSK001K1.mp4",
+        type: "video",
+        link: "product-details.html?id=125"
+    },
 
-        media:[
-            "Seiko 5 Sports SRPDK1.mp4"
+    /* =========================
+       126
+    ========================= */
+
+    {
+        id: 126,
+        brand: "Seiko",
+        name: "Seiko 5 Sports SRPD51K2",
+        price: 4500,
+        media: "Seiko 5 Sports SRPD51K2.mp4",
+        type: "video",
+        link: "product-details.html?id=126"
+    },
+
+    /* =========================
+       127
+    ========================= */
+
+    {
+        id: 127,
+        brand: "Seiko",
+        name: "Seiko 5 Sports SRPDK1",
+        price: 4000,
+        media: "Seiko 5 Sports SRPDK1.mp4",
+        type: "video",
+        link: "product-details.html?id=127"
+    },
+
+    /* =========================
+       110
+    ========================= */
+
+    {
+        id: 110,
+        brand: "Emporio Armani",
+        name: "Emporio Armani Luigi AR60029",
+        price: 4000,
+        media: "Emporio Armani Luigi AR60029.mp4",
+        type: "video",
+        link: "product-details.html?id=110"
+    },
+
+    /* =========================
+       111
+    ========================= */
+
+    {
+        id: 111,
+        brand: "Omega",
+        name: "Omega Seamaster Diver 300M",
+        price: 4500,
+        media: "Omega Seamaster Diver 300M.mp4",
+        type: "video",
+        link: "product-details.html?id=111"
+    },
+
+    /* =========================
+       112
+    ========================= */
+
+    {
+        id: 112,
+        brand: "Rolex",
+        name: "Rolex Panda Watch",
+        price: 4500,
+        media: "Rolex Panda Watch.mp4",
+        type: "video",
+        link: "product-details.html?id=112"
+    },
+
+    /* =========================
+       113
+    ========================= */
+
+    {
+        id: 113,
+        brand: "Seiko",
+        name: "Seiko King Seiko Black",
+        price: 4500,
+        media: "Seiko King Seiko Black.mp4",
+        type: "video",
+        link: "product-details.html?id=113"
+    },
+
+    /* =========================
+       114
+    ========================= */
+
+    {
+        id: 114,
+        brand: "Seiko",
+        name: "Seiko Prospex Baby Alpinist",
+        price: 4500,
+        media: "Seiko Prospex Baby Alpinist.mp4",
+        type: "video",
+        link: "product-details.html?id=114"
+    },
+
+    /* =========================
+       115
+    ========================= */
+
+    {
+        id: 115,
+        brand: "Seiko",
+        name: "Seiko Prospex Speedtimer SSC915",
+        price: 4500,
+        media: "Seiko Prospex Speedtimer SSC915.mp4",
+        type: "video",
+        link: "product-details.html?id=115"
+    },
+
+    /* =========================
+       116
+    ========================= */
+
+    {
+        id: 116,
+        brand: "Seiko",
+        name: "Seiko Vintage Tank Dress",
+        price: 4000,
+        media: "Seiko Vintage Tank Dress.mp4",
+        type: "video",
+        link: "product-details.html?id=116"
+    },
+
+    /* =========================
+       117
+    ========================= */
+
+    {
+        id: 117,
+        brand: "Tag Heuer",
+        name: "Tag Heuer Carrera Sport CBN2A1A",
+        price: 4000,
+        media: "Tag Heuer Carrera Sport CBN2A1A.mp4",
+        type: "video",
+        link: "product-details.html?id=117"
+    },
+
+    /* =========================
+       118
+    ========================= */
+
+    {
+        id: 118,
+        brand: "Tag Heuer",
+        name: "Tag Heuer Formula 1 X Mario Kart Limited Edition",
+        price: 5000,
+        media: "Tag Heuer Formula 1 X Mario Kart.mp4",
+        type: "video",
+        link: "product-details.html?id=118"
+    },
+
+    /* =========================
+       119
+       TWO VIDEO SLIDES
+    ========================= */
+
+    {
+        id: 119,
+        brand: "Tommy Hilfiger",
+        name: "Tommy Hilfiger Jordan 1792094",
+        price: 4500,
+
+        media: [
+            "Tommy Hilfiger Jordan 1792094.mp4",
+            "Tommy Hilfiger Jordan 1792094 2.mp4"
         ],
 
-        link:"product-details.html?id=127"
+        type: "slider",
+
+        link: "product-details.html?id=119"
+    },
+
+    /* =========================
+       97
+    ========================= */
+
+    {
+        id: 97,
+        brand: "Casio",
+        name: "Casio Edifice EFR-303D World Map Series",
+        price: 4500,
+        media: "Casio Edifice EFR-303D World Map Series.mp4",
+        type: "video",
+        link: "product-details.html?id=97"
     }
 
 ];
 
+</script>
+
+<script>
+ 
 
 /* =========================================================
    STATE
@@ -1943,40 +2214,40 @@ function priceMatches(price, selectedPrices){
 
     return selectedPrices.some(range => {
 
-        if(range === "under25000"){
+        if(range === "under2500"){
 
-            return price < 25000;
-
-        }
-
-
-        if(range === "25000-50000"){
-
-            return price >= 25000 &&
-                   price <= 50000;
+            return price < 2500;
 
         }
 
 
-        if(range === "50000-100000"){
+        if(range === "2500-5000"){
 
-            return price >= 50000 &&
-                   price <= 100000;
-
-        }
-
-
-        if(range === "100000-200000"){
-
-            return price >= 100000 &&
-                   price <= 200000;
+            return price >= 2500 &&
+                   price <= 5000;
 
         }
 
 
-        if(range === "above200000"){
+        if(range === "5000-10000"){
 
-            return price > 200000;
+            return price >= 5000 &&
+                   price <= 10000;
+
+        }
+
+
+        if(range === "10000-20000"){
+
+            return price >= 10000 &&
+                   price <= 20000;
+
+        }
+
+
+        if(range === "above25000"){
+
+            return price > 25000;
 
         }
 
@@ -2127,112 +2398,103 @@ function sortProducts(products){
    PRODUCT CARD
 ========================================================= */
 
-function createProductCard(product){
+function createProductMedia(product) {
 
-    const card =
-        document.createElement("article");
+    /* NORMAL SINGLE VIDEO */
 
-    card.className =
-        "product-card";
+    if (product.type === "video") {
 
-
-    card.dataset.id =
-        product.id;
-
-
-    card.innerHTML = `
-
-        <div class="product-media">
-
+        return `
             <video
-                src="${product.media[0]}"
-                autoplay
-                muted
-                loop
+                class="product-video"
+                controls
                 playsinline
                 preload="metadata"
-            ></video>
-
-
-            <button
-                class="wishlist-button"
-                type="button"
-                aria-label="Add to wishlist"
-                data-wishlist-id="${product.id}"
             >
+                <source src="${product.media}" type="video/mp4">
+            </video>
+        `;
+    }
 
-                <svg
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
+
+    /* MULTI VIDEO SLIDER */
+
+    if (product.type === "slider") {
+
+        return `
+            <div class="product-media-slider">
+
+                ${product.media.map((video, index) => `
+                    <video
+                        class="product-slide ${index === 0 ? "active" : ""}"
+                        playsinline
+                        preload="metadata"
+                    >
+                        <source src="${video}" type="video/mp4">
+                    </video>
+                `).join("")}
+
+                <button
+                    class="media-prev"
+                    onclick="changeProductSlide(this, -1)"
+                    aria-label="Previous video"
                 >
+                    ‹
+                </button>
 
-                    <path
-                        d="
-                        M20.84 4.61
-                        a5.5 5.5 0 0 0-7.78 0
-                        L12 5.67
-                        l-1.06-1.06
-                        a5.5 5.5 0 0 0-7.78 7.78
-                        l1.06 1.06
-                        L12 21.23
-                        l7.78-7.78
-                        1.06-1.06
-                        a5.5 5.5 0 0 0 0-7.78z
-                        "
-                    ></path>
+                <button
+                    class="media-next"
+                    onclick="changeProductSlide(this, 1)"
+                    aria-label="Next video"
+                >
+                    ›
+                </button>
 
-                </svg>
-
-            </button>
-
-        </div>
-
-
-        <div class="product-information">
-
-            <div class="product-brand">
-                ${product.brand}
             </div>
+        `;
+    }
 
-
-            <div class="product-name">
-                ${product.name}
-            </div>
-
-
-            <div class="product-specification">
-                ${product.movement} | ${product.strap}
-            </div>
-
-
-            <div class="product-price">
-                ${formatPrice(product.price)}
-            </div>
-
-
-            <a
-                class="view-product-button"
-                href="${product.link}"
-            >
-
-                VIEW PRODUCT
-
-                <span class="view-arrow">
-                    →
-                </span>
-
-            </a>
-
-        </div>
-
-    `;
-
-
-    return card;
-
+    return "";
 }
 
+/* =========================================================
+   Slider
+========================================================= */
 
+    function changeProductSlide(button, direction) {
+
+    const slider =
+        button.closest(".product-media-slider");
+
+    const slides =
+        slider.querySelectorAll(".product-slide");
+
+    let current =
+        Array.from(slides).findIndex(
+            slide => slide.classList.contains("active")
+        );
+
+    slides[current].pause();
+
+    slides[current].classList.remove("active");
+
+    current += direction;
+
+    if (current < 0) {
+        current = slides.length - 1;
+    }
+
+    if (current >= slides.length) {
+        current = 0;
+    }
+
+    slides[current].classList.add("active");
+
+    slides[current].currentTime = 0;
+    slides[current].play().catch(() => {});
+}
+
+    
 /* =========================================================
    RENDER PRODUCTS
 ========================================================= */
