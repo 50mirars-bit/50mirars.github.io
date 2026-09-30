@@ -102,15 +102,31 @@ body{
 
 .filters-sidebar{
 
-    width:100%;
+    width:208px;
 
     border-right:1px solid #d9d4ca;
 
-    min-height:1040px;
+    min-height:100vh;
 
     padding-right:28px;
 
-    position:relative;
+    position:fixed;
+
+    top:24px;
+
+    left:36px;
+
+    z-index:100;
+
+    overflow-y:auto;
+
+    scrollbar-width:none;
+}
+
+
+.filters-sidebar::-webkit-scrollbar{
+
+    display:none;
 }
 
 
@@ -315,6 +331,78 @@ body{
     border-width:0 1px 1px 0;
 
     transform:rotate(45deg);
+}
+
+/* =========================================================
+   BACK TO HOME BUTTON
+========================================================= */
+
+.back-home-button{
+
+    width:100%;
+
+    min-height:42px;
+
+    margin-top:22px;
+
+    padding:0 10px;
+
+    border:1px solid #cfc8bc;
+
+    background:transparent;
+
+    color:#3d3933;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:9px;
+
+    text-decoration:none;
+
+    font-size:9px;
+
+    font-weight:500;
+
+    letter-spacing:1.5px;
+
+    transition:
+        background .25s ease,
+        color .25s ease,
+        border-color .25s ease,
+        transform .25s ease;
+}
+
+
+.back-home-arrow{
+
+    font-size:15px;
+
+    line-height:1;
+
+    transition:
+        transform .25s ease;
+}
+
+
+.back-home-button:hover{
+
+    background:#25231f;
+
+    border-color:#25231f;
+
+    color:#f7f3eb;
+
+}
+
+
+.back-home-button:hover .back-home-arrow{
+
+    transform:translateX(-3px);
+
 }
 
 
@@ -890,10 +978,16 @@ body{
         column-gap:28px;
     }
 
-    .filters-sidebar{
+   .filters-sidebar{
 
-        padding-right:22px;
-    }
+    width:190px;
+
+    left:24px;
+
+    top:22px;
+
+    padding-right:22px;
+}
 
     .brand-navigation{
 
@@ -1561,214 +1655,27 @@ body{
 
             </div>
 
-
-            <!-- =============================================
-                 MOVEMENT
+             <!-- =============================================
+                 BACK TO HOME
             ============================================== -->
 
-            <div class="filter-group">
-
-                <div class="filter-group-header">
-
-                    <span class="filter-group-title">
-                        MOVEMENT
-                    </span>
-
-                    <span class="filter-chevron">
-                        ⌃
-                    </span>
-
-                </div>
-
-
-                <div class="filter-options">
-
-
-                    <label class="filter-option">
-
-                        <input
-                            type="checkbox"
-                            name="movement"
-                            value="Quartz"
-                        >
-
-                        <span>
-                            Quartz
-                        </span>
-
-                    </label>
-
-
-                    <label class="filter-option">
-
-                        <input
-                            type="checkbox"
-                            name="movement"
-                            value="Automatic"
-                        >
-
-                        <span>
-                            Automatic
-                        </span>
-
-                    </label>
-
-
-                    <label class="filter-option">
-
-                        <input
-                            type="checkbox"
-                            name="movement"
-                            value="Mechanical"
-                        >
-
-                        <span>
-                            Mechanical
-                        </span>
-
-                    </label>
-
-
-                    <label class="filter-option">
-
-                        <input
-                            type="checkbox"
-                            name="movement"
-                            value="Solar"
-                        >
-
-                        <span>
-                            Solar
-                        </span>
-
-                    </label>
-
-
-                </div>
-
-            </div>
-
-
-            <!-- =============================================
-                 STRAP TYPE
-            ============================================== -->
-
-            <div class="filter-group">
-
-                <div class="filter-group-header">
-
-                    <span class="filter-group-title">
-                        STRAP TYPE
-                    </span>
-
-                    <span class="filter-chevron">
-                        ⌃
-                    </span>
-
-                </div>
-
-
-                <div class="filter-options">
-
-
-                    <label class="filter-option">
-
-                        <input
-                            type="checkbox"
-                            name="strap"
-                            value="Stainless Steel"
-                        >
-
-                        <span>
-                            Stainless Steel
-                        </span>
-
-                    </label>
-
-
-                    <label class="filter-option">
-
-                        <input
-                            type="checkbox"
-                            name="strap"
-                            value="Leather"
-                        >
-
-                        <span>
-                            Leather
-                        </span>
-
-                    </label>
-
-
-                    <label class="filter-option">
-
-                        <input
-                            type="checkbox"
-                            name="strap"
-                            value="Rubber"
-                        >
-
-                        <span>
-                            Rubber
-                        </span>
-
-                    </label>
-
-
-                    <label class="filter-option">
-
-                        <input
-                            type="checkbox"
-                            name="strap"
-                            value="Titanium"
-                        >
-
-                        <span>
-                            Titanium
-                        </span>
-
-                    </label>
-
-
-                    <label class="filter-option">
-
-                        <input
-                            type="checkbox"
-                            name="strap"
-                            value="NATO"
-                        >
-
-                        <span>
-                            NATO
-                        </span>
-
-                    </label>
-
-
-                    <label class="filter-option">
-
-                        <input
-                            type="checkbox"
-                            name="strap"
-                            value="Two Tone"
-                        >
-
-                        <span>
-                            Two Tone
-                        </span>
-
-                    </label>
-
-
-                </div>
-
-            </div>
+            <a
+                href="index.html"
+                class="back-home-button"
+            >
+
+                <span class="back-home-arrow">
+                    ←
+                </span>
+
+                <span>
+                    BACK TO HOME
+                </span>
+
+            </a>
 
 
         </aside>
-
-
 
         <!-- MOBILE OVERLAY -->
 
@@ -1776,7 +1683,6 @@ body{
             class="filter-overlay"
             id="filterOverlay"
         ></div>
-
 
 
         <!-- =================================================
@@ -3876,33 +3782,11 @@ function getSelectedFilters(){
             input => input.value
         );
 
+   return {
 
-    const selectedMovements =
-        [...document.querySelectorAll(
-            'input[name="movement"]:checked'
-        )].map(
-            input => input.value
-        );
+    prices:selectedPrices
 
-
-    const selectedStraps =
-        [...document.querySelectorAll(
-            'input[name="strap"]:checked'
-        )].map(
-            input => input.value
-        );
-
-
-    return {
-
-        prices:selectedPrices,
-
-        movements:selectedMovements,
-
-        straps:selectedStraps
-
-    };
-
+};
 }
 
 
@@ -4015,45 +3899,6 @@ function getFilteredProducts(){
                 return false;
 
             }
-
-
-            /* MOVEMENT */
-
-            if(
-                filters.movements.length > 0 &&
-                !filters.movements.includes(
-                    product.movement
-                )
-            ){
-
-                return false;
-
-            }
-
-
-            /* STRAP */
-
-            if(
-                filters.straps.length > 0 &&
-                !filters.straps.includes(
-                    product.strap
-                )
-            ){
-
-                return false;
-
-            }
-
-
-            return true;
-
-        });
-
-
-    return result;
-
-}
-
 
 /* =========================================================
    SORT PRODUCTS
