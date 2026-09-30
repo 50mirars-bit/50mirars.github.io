@@ -671,76 +671,6 @@ body{
     background:#ebe6dc;
 }
 
-/* ---------------------------------------------------------
-   WISHLIST BUTTON
---------------------------------------------------------- */
-
-.wishlist-button{
-
-    position:absolute;
-
-    top:11px;
-
-    right:11px;
-
-    z-index:5;
-
-    width:24px;
-
-    height:24px;
-
-    border:none;
-
-    background:transparent;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    cursor:pointer;
-
-    color:#45423d;
-
-    transition:.2s ease;
-}
-
-
-.wishlist-button svg{
-
-    width:14px;
-
-    height:14px;
-
-    fill:none;
-
-    stroke:currentColor;
-
-    stroke-width:1.3;
-
-    transition:.2s ease;
-}
-
-
-.wishlist-button:hover{
-
-    color:#9c7a37;
-}
-
-
-.wishlist-button.active{
-
-    color:#9c7a37;
-}
-
-
-.wishlist-button.active svg{
-
-    fill:#9c7a37;
-}
-
-
 /* =========================================================
    PRODUCT INFORMATION
 ========================================================= */
@@ -4255,33 +4185,6 @@ function createProductCard(product){
 
             ${mediaHTML}
 
-            <button
-                class="wishlist-button"
-                type="button"
-                data-wishlist-id="${product.id}"
-                aria-label="Add ${product.name} to wishlist"
-            >
-
-                <svg
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                >
-                    <path
-                        d="M20.84 4.61
-                           a5.5 5.5 0 0 0-7.78 0
-                           L12 5.67
-                           l-1.06-1.06
-                           a5.5 5.5 0 0 0-7.78 7.78
-                           l1.06 1.06
-                           L12 21.23
-                           l7.78-7.78
-                           1.06-1.06
-                           a5.5 5.5 0 0 0 0-7.78z"
-                    />
-                </svg>
-
-            </button>
-
         </div>
 
 
@@ -4373,97 +4276,6 @@ function renderProducts(){
     initializeWishlistButtons();
 
 }
-
-
-/* =========================================================
-   WISHLIST
-========================================================= */
-
-function initializeWishlistButtons(){
-
-    const buttons =
-        document.querySelectorAll(
-            ".wishlist-button"
-        );
-
-
-    buttons.forEach(button => {
-
-        const id =
-            button.dataset.wishlistId;
-
-
-        let wishlist =
-            JSON.parse(
-                localStorage.getItem(
-                    "50mirars-wishlist"
-                ) || "[]"
-            );
-
-
-        if(
-            wishlist.includes(id)
-        ){
-
-            button.classList.add(
-                "active"
-            );
-
-        }
-
-
-        button.addEventListener(
-            "click",
-            function(){
-
-                let currentWishlist =
-                    JSON.parse(
-                        localStorage.getItem(
-                            "50mirars-wishlist"
-                        ) || "[]"
-                    );
-
-
-                if(
-                    currentWishlist.includes(id)
-                ){
-
-                    currentWishlist =
-                        currentWishlist.filter(
-                            item => item !== id
-                        );
-
-                    button.classList.remove(
-                        "active"
-                    );
-
-                }
-
-                else{
-
-                    currentWishlist.push(id);
-
-                    button.classList.add(
-                        "active"
-                    );
-
-                }
-
-
-                localStorage.setItem(
-                    "50mirars-wishlist",
-                    JSON.stringify(
-                        currentWishlist
-                    )
-                );
-
-            }
-        );
-
-    });
-
-}
-
 
 /* =========================================================
    BRAND BUTTONS
