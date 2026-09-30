@@ -1299,7 +1299,7 @@ body{
                         <input
                             type="checkbox"
                             name="price"
-                            value="3000-5000"
+                            value="2500-5000"
                         >
 
                         <span>
@@ -1619,30 +1619,6 @@ body{
 
                     <button
                         class="brand-button"
-                        data-brand="Cartier"
-                        type="button"
-                    >
-                        CARTIER
-                    </button>
-
-                    <button
-                        class="brand-button"
-                        data-brand="Omega"
-                        type="button"
-                    >
-                        OMEGA
-                    </button>
-
-                    <button
-                        class="brand-button"
-                        data-brand="Seiko"
-                        type="button"
-                    >
-                        SEIKO
-                    </button>
-
-                    <button
-                        class="brand-button"
                         data-brand="Audemars Piguet"
                         type="button"
                     >
@@ -1651,18 +1627,74 @@ body{
 
                     <button
                         class="brand-button"
+                        data-brand="Cartier"
+                        type="button"
+                    >
+                        CARTIER
+                        </button>
+
+                     <button
+                        class="brand-button"
+                        data-brand="Casio"
+                        type="button"
+                    >
+                        CASIO
+                    </button>
+
+                        <button
+                        class="brand-button"
+                        data-brand="Emporio Armani"
+                        type="button"
+                    >
+                        Emporio Armani
+                        </button>
+
+                        <button
+                        class="brand-button"
+                        data-brand="Franck Muller"
+                        type="button"
+                    >
+                        Franck Muller
+                        </button>
+
+                     <button
+                        class="brand-button"
+                        data-brand="Omega"
+                        type="button"
+                    >
+                        OMEGA
+                    </button>
+
+                     <button
+                        class="brand-button"
                         data-brand="Patek Philippe"
                         type="button"
                     >
                         PATEK PHILIPPE
                     </button>
 
-                    <button
+                        <button
                         class="brand-button"
-                        data-brand="Casio"
+                        data-brand="Rado"
                         type="button"
                     >
-                        CASIO
+                        Rado
+                        </button>
+
+                       <button
+                        class="brand-button"
+                        data-brand="Rolex"
+                        type="button"
+                    >
+                        Rolex
+                        </button>
+
+                    <button
+                        class="brand-button"
+                        data-brand="Seiko"
+                        type="button"
+                    >
+                        SEIKO
                     </button>
 
                 </nav>
@@ -2214,12 +2246,17 @@ function priceMatches(price, selectedPrices){
 
     return selectedPrices.some(range => {
 
+
+        /* UNDER ₹2,500 */
+
         if(range === "under2500"){
 
             return price < 2500;
 
         }
 
+
+        /* ₹2,500 - ₹5,000 */
 
         if(range === "2500-5000"){
 
@@ -2229,21 +2266,27 @@ function priceMatches(price, selectedPrices){
         }
 
 
+        /* ₹5,000 - ₹10,000 */
+
         if(range === "5000-10000"){
 
-            return price >= 5000 &&
+            return price > 5000 &&
                    price <= 10000;
 
         }
 
 
-        if(range === "10000-20000"){
+        /* ₹10,000 - ₹25,000 */
 
-            return price >= 10000 &&
-                   price <= 20000;
+        if(range === "10000-25000"){
+
+            return price > 10000 &&
+                   price <= 25000;
 
         }
 
+
+        /* ABOVE ₹25,000 */
 
         if(range === "above25000"){
 
@@ -2252,12 +2295,12 @@ function priceMatches(price, selectedPrices){
         }
 
 
-        return true;
+        return false;
 
     });
 
 }
-
+    
 
 /* =========================================================
    FILTER PRODUCTS
@@ -2492,6 +2535,107 @@ function createProductMedia(product) {
 
     slides[current].currentTime = 0;
     slides[current].play().catch(() => {});
+}
+
+
+/* =========================================================
+   CREATE PRODUCT CARD
+========================================================= */
+
+function createProductCard(product){
+
+    const card =
+        document.createElement("article");
+
+    card.className = "product-card";
+
+
+    /* -----------------------------------------------------
+       PRODUCT MEDIA
+    ----------------------------------------------------- */
+
+    const mediaHTML =
+        createProductMedia(product);
+
+
+    /* -----------------------------------------------------
+       PRODUCT CARD HTML
+    ----------------------------------------------------- */
+
+    card.innerHTML = `
+
+        <div class="product-media">
+
+            ${mediaHTML}
+
+            <button
+                class="wishlist-button"
+                type="button"
+                data-wishlist-id="${product.id}"
+                aria-label="Add ${product.name} to wishlist"
+            >
+
+                <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                >
+                    <path
+                        d="M20.84 4.61
+                           a5.5 5.5 0 0 0-7.78 0
+                           L12 5.67
+                           l-1.06-1.06
+                           a5.5 5.5 0 0 0-7.78 7.78
+                           l1.06 1.06
+                           L12 21.23
+                           l7.78-7.78
+                           1.06-1.06
+                           a5.5 5.5 0 0 0 0-7.78z"
+                    />
+                </svg>
+
+            </button>
+
+        </div>
+
+
+        <div class="product-information">
+
+            <div class="product-brand">
+                ${product.brand}
+            </div>
+
+            <div class="product-name">
+                ${product.name}
+            </div>
+
+            <div class="product-specification">
+                ${product.specification || "Luxury Timepiece"}
+            </div>
+
+            <div class="product-price">
+                ${formatPrice(product.price)}
+            </div>
+
+            <a
+                href="${product.link}"
+                class="view-product-button"
+            >
+
+                VIEW PRODUCT
+
+                <span class="view-arrow">
+                    →
+                </span>
+
+            </a>
+
+        </div>
+
+    `;
+
+
+    return card;
+
 }
 
     
