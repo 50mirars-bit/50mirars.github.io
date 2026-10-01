@@ -4214,7 +4214,7 @@ body{
         <button class="media-arrow media-prev" type="button">‹</button>
         <button class="media-arrow media-next" type="button">›</button>
         <div class="media-counter">1 / 1</div>
-        <div="media-dots"></div>
+        <div class="media-dots"></div>
     </div>
 
     <div class="product-info">
@@ -8360,140 +8360,233 @@ body{
 
 <script>
 
-/* =========================================================
-   50 MIRARS — WATCH GALLERY JAVASCRIPT
-   ========================================================= */
+document.addEventListener("DOMContentLoaded", function () {
+
+    /* =====================================================
+       ELEMENTS
+    ===================================================== */
+
+    const productGrid =
+        document.getElementById("productsGrid");
+
+    const productCards =
+        Array.from(
+            document.querySelectorAll(".product-card")
+        );
+
+    const priceFilters =
+        Array.from(
+            document.querySelectorAll(".price-filter")
+        );
+
+    const clearFilters =
+        document.getElementById("clearFilters");
+
+    const sortProducts =
+        document.getElementById("sortProducts");
+
+    const resultsCount =
+        document.getElementById("resultsCount");
+
+    const noProducts =
+        document.getElementById("noProducts");
 
 
-/* ---------------------------------------------------------
-   ELEMENTS
---------------------------------------------------------- */
+    /* =====================================================
+       UNIVERSAL MEDIA SLIDER
+    ===================================================== */
 
-const productGrid =
-    document.getElementById("productsGrid");
+    productCards.forEach(function(card){
 
-const productCards =
-    Array.from(
-        document.querySelectorAll(".product-card")
-    );
+        const mediaBox =
+            card.querySelector(".product-media");
 
-const priceFilters =
-    Array.from(
-        document.querySelectorAll(".price-filter")
-    );
-
-const clearFilters =
-    document.getElementById("clearFilters");
-
-const sortProducts =
-    document.getElementById("sortProducts");
-
-const resultsCount =
-    document.getElementById("resultsCount");
-
-const noProducts =
-    document.getElementById("noProducts");
+        if(!mediaBox) return;
 
 
-    /* ---------------------------------------------
-       TOTAL
-    --------------------------------------------- */
+        const track =
+            mediaBox.querySelector(".media-track");
 
-    totalNumber.textContent =
-        slides.length;
+        if(!track) return;
 
 
-    /* ---------------------------------------------
-       REMOVE CONTROLS IF ONLY ONE MEDIA ITEM
-    --------------------------------------------- */
+        const slides =
+            Array.from(
+                track.querySelectorAll(".media-slide")
+            );
 
-    if(slides.length <= 1){
-
-        previous.style.display = "none";
-
-        next.style.display = "none";
-
-        dotsContainer.style.display = "none";
-
-    }
+        if(!slides.length) return;
 
 
-    /* ---------------------------------------------
-       CREATE DOTS
-    --------------------------------------------- */
+        const previous =
+            mediaBox.querySelector(".media-prev");
 
-    slides.forEach(
-        function(slide,index){
+        const next =
+            mediaBox.querySelector(".media-next");
 
-            const dot =
-                document.createElement("button");
+        const counter =
+            mediaBox.querySelector(".media-counter");
 
-            dot.type = "button";
+        const dotsContainer =
+            mediaBox.querySelector(".media-dots");
 
-            dot.className =
-                "media-dot";
 
-            if(index === 0){
+        let currentIndex = 0;
 
-                dot.classList.add("active");
+
+        /* =================================================
+           FORCE FIRST SLIDE
+        ================================================= */
+
+        slides.forEach(function(slide, index){
+
+            slide.classList.remove(
+                "active",
+                "is-active"
+            );
+
+            slide.style.display =
+                index === 0
+                    ? "block"
+                    : "none";
+
+        });
+
+
+        slides[0].classList.add("active");
+        slides[0].classList.add("is-active");
+
+
+        /* =================================================
+           CREATE DOTS
+        ================================================= */
+
+        if(dotsContainer){
+
+            dotsContainer.innerHTML = "";
+
+            slides.forEach(function(slide, index){
+
+                const dot =
+                    document.createElement("button");
+
+                dot.type = "button";
+
+                dot.className =
+                    "media-dot";
+
+                if(index === 0){
+                    dot.classList.add(
+                        "active",
+                        "is-active"
+                    );
+                }
+
+                dot.setAttribute(
+                    "aria-label",
+                    "View media " + (index + 1)
+                );
+
+                dot.addEventListener(
+                    "click",
+                    function(event){
+
+                        event.preventDefault();
+                        event.stopPropagation();
+
+                        showSlide(index);
+
+                    }
+                );
+
+                dotsContainer.appendChild(dot);
+
+            });
+
+        }
+
+
+        const dots =
+            dotsContainer
+                ? Array.from(
+                    dotsContainer.querySelectorAll(
+                        ".media-dot"
+                    )
+                )
+                : [];
+
+
+        /* =================================================
+           UPDATE COUNTER
+        ================================================= */
+
+        function updateCounter(){
+
+            if(!counter) return;
+
+            const current =
+                counter.querySelector(
+                    ".current-media"
+                );
+
+            const total =
+                counter.querySelector(
+                    ".total-media"
+                );
+
+
+            if(current){
+
+                current.textContent =
+                    currentIndex + 1;
+
+            }else{
+
+                counter.textContent =
+                    (currentIndex + 1) +
+                    " / " +
+                    slides.length;
 
             }
 
-            dot.setAttribute(
-                "aria-label",
-                "View media " + (index + 1)
-            );
 
+            if(total){
 
-            dot.addEventListener(
-                "click",
-                function(){
+                total.textContent =
+                    slides.length;
 
-                    showSlide(index);
-
-                }
-            );
-
-
-            dotsContainer.appendChild(dot);
-
-        }
-    );
-
-
-    const dots =
-        Array.from(
-            dotsContainer.querySelectorAll(".media-dot")
-        );
-
-
-    /* ---------------------------------------------
-       SHOW SLIDE
-    --------------------------------------------- */
-
-    function showSlide(index){
-
-        if(slides.length === 0) return;
-
-
-        if(index < 0){
-
-            index = slides.length - 1;
+            }
 
         }
 
 
-        if(index >= slides.length){
+        /* =================================================
+           SHOW SLIDE
+        ================================================= */
 
-            index = 0;
+        function showSlide(index){
 
-        }
+            if(slides.length === 0) return;
 
 
-        /* Pause all videos */
+            if(index < 0){
 
-        slides.forEach(
-            function(slide){
+                index =
+                    slides.length - 1;
+
+            }
+
+
+            if(index >= slides.length){
+
+                index = 0;
+
+            }
+
+
+            /* Pause ALL videos */
+
+            slides.forEach(function(slide){
 
                 const video =
                     slide.querySelector("video");
@@ -8504,239 +8597,398 @@ const noProducts =
 
                 }
 
-            }
-        );
+            });
 
 
-        /* Remove active */
+            /* Hide ALL slides */
 
-        slides.forEach(
-            function(slide){
+            slides.forEach(function(slide){
 
-                slide.classList.remove("active");
-
-            }
-        );
-
-
-        dots.forEach(
-            function(dot){
-
-                dot.classList.remove("active");
-
-            }
-        );
-
-
-        /* Activate */
-
-        slides[index].classList.add("active");
-
-        dots[index].classList.add("active");
-
-
-        currentIndex = index;
-
-
-        currentNumber.textContent =
-            index + 1;
-
-    }
-
-
-    /* ---------------------------------------------
-       PREVIOUS
-    --------------------------------------------- */
-
-    previous.addEventListener(
-        "click",
-        function(){
-
-            showSlide(
-                currentIndex - 1
-            );
-
-        }
-    );
-
-
-    /* ---------------------------------------------
-       NEXT
-    --------------------------------------------- */
-
-    next.addEventListener(
-        "click",
-        function(){
-
-            showSlide(
-                currentIndex + 1
-            );
-
-        }
-    );
-
-
-    /* ---------------------------------------------
-       SWIPE SUPPORT
-    --------------------------------------------- */
-
-    let touchStartX = 0;
-
-    let touchEndX = 0;
-
-
-    mediaArea.addEventListener(
-        "touchstart",
-        function(event){
-
-            touchStartX =
-                event.changedTouches[0].screenX;
-
-        },
-        {
-            passive:true
-        }
-    );
-
-
-    mediaArea.addEventListener(
-        "touchend",
-        function(event){
-
-            touchEndX =
-                event.changedTouches[0].screenX;
-
-            const difference =
-                touchStartX - touchEndX;
-
-
-            if(Math.abs(difference) < 45){
-
-                return;
-
-            }
-
-
-            if(difference > 0){
-
-                showSlide(
-                    currentIndex + 1
+                slide.classList.remove(
+                    "active",
+                    "is-active"
                 );
 
-            }else{
+                slide.style.display =
+                    "none";
 
-                showSlide(
-                    currentIndex - 1
+            });
+
+
+            /* Remove active dots */
+
+            dots.forEach(function(dot){
+
+                dot.classList.remove(
+                    "active",
+                    "is-active"
+                );
+
+            });
+
+
+            /* Activate selected slide */
+
+            slides[index].classList.add(
+                "active",
+                "is-active"
+            );
+
+            slides[index].style.display =
+                "block";
+
+
+            if(dots[index]){
+
+                dots[index].classList.add(
+                    "active",
+                    "is-active"
                 );
 
             }
 
-        },
-        {
-            passive:true
+
+            currentIndex = index;
+
+
+            updateCounter();
+
         }
-    );
 
 
-}
+        /* =================================================
+           PREVIOUS
+        ================================================= */
+
+        if(previous){
+
+            previous.addEventListener(
+                "click",
+                function(event){
+
+                    event.preventDefault();
+                    event.stopPropagation();
+
+                    showSlide(
+                        currentIndex - 1
+                    );
+
+                }
+            );
+
+        }
 
 
-/* ---------------------------------------------------------
-   INITIALISE ALL PRODUCT SLIDERS
---------------------------------------------------------- */
+        /* =================================================
+           NEXT
+        ================================================= */
 
-productCards.forEach(
-    function(card){
+        if(next){
 
-        initialiseMediaSlider(card);
+            next.addEventListener(
+                "click",
+                function(event){
+
+                    event.preventDefault();
+                    event.stopPropagation();
+
+                    showSlide(
+                        currentIndex + 1
+                    );
+
+                }
+            );
+
+        }
+
+
+        /* =================================================
+           VIDEO PROTECTION
+        ================================================= */
+
+        mediaBox
+            .querySelectorAll("video")
+            .forEach(function(video){
+
+                video.addEventListener(
+                    "click",
+                    function(event){
+
+                        event.stopPropagation();
+
+                    }
+                );
+
+                video.addEventListener(
+                    "pointerdown",
+                    function(event){
+
+                        event.stopPropagation();
+
+                    }
+                );
+
+            });
+
+
+        /* =================================================
+           SWIPE
+        ================================================= */
+
+        let touchStartX = 0;
+        let touchStartY = 0;
+
+
+        mediaBox.addEventListener(
+            "touchstart",
+            function(event){
+
+                if(
+                    !event.touches ||
+                    !event.touches.length
+                ){
+
+                    return;
+
+                }
+
+                touchStartX =
+                    event.touches[0].clientX;
+
+                touchStartY =
+                    event.touches[0].clientY;
+
+            },
+            {
+                passive:true
+            }
+        );
+
+
+        mediaBox.addEventListener(
+            "touchend",
+            function(event){
+
+                if(
+                    !event.changedTouches ||
+                    !event.changedTouches.length
+                ){
+
+                    return;
+
+                }
+
+
+                const touchEndX =
+                    event.changedTouches[0].clientX;
+
+                const touchEndY =
+                    event.changedTouches[0].clientY;
+
+
+                const differenceX =
+                    touchEndX -
+                    touchStartX;
+
+                const differenceY =
+                    touchEndY -
+                    touchStartY;
+
+
+                /* Ignore vertical swipe */
+
+                if(
+                    Math.abs(differenceX) <
+                    Math.abs(differenceY)
+                ){
+
+                    return;
+
+                }
+
+
+                /* Ignore tiny movement */
+
+                if(
+                    Math.abs(differenceX) < 45
+                ){
+
+                    return;
+
+                }
+
+
+                if(differenceX < 0){
+
+                    showSlide(
+                        currentIndex + 1
+                    );
+
+                }else{
+
+                    showSlide(
+                        currentIndex - 1
+                    );
+
+                }
+
+            },
+            {
+                passive:true
+            }
+        );
+
+
+        /* =================================================
+           SINGLE MEDIA
+        ================================================= */
+
+        if(slides.length <= 1){
+
+            if(previous){
+
+                previous.style.display =
+                    "none";
+
+            }
+
+            if(next){
+
+                next.style.display =
+                    "none";
+
+            }
+
+            if(counter){
+
+                counter.style.display =
+                    "none";
+
+            }
+
+            if(dotsContainer){
+
+                dotsContainer.style.display =
+                    "none";
+
+            }
+
+        }else{
+
+            if(previous){
+
+                previous.style.display =
+                    "flex";
+
+            }
+
+            if(next){
+
+                next.style.display =
+                    "flex";
+
+            }
+
+            if(counter){
+
+                counter.style.display =
+                    "block";
+
+            }
+
+            if(dotsContainer){
+
+                dotsContainer.style.display =
+                    "flex";
+
+            }
+
+        }
+
+
+        updateCounter();
+
+    });
+
+
+    /* =====================================================
+       PRICE FILTER
+    ===================================================== */
+
+    function matchesPriceFilter(
+        price,
+        filter
+    ){
+
+        switch(filter){
+
+            case "under2499":
+
+                return price <= 2499;
+
+
+            case "2500-4999":
+
+                return (
+                    price >= 2500 &&
+                    price <= 4999
+                );
+
+
+            case "5000-9999":
+
+                return (
+                    price >= 5000 &&
+                    price <= 9999
+                );
+
+
+            case "10000-24999":
+
+                return (
+                    price >= 10000 &&
+                    price <= 24999
+                );
+
+
+            case "25000plus":
+
+                return price >= 25000;
+
+
+            default:
+
+                return true;
+
+        }
 
     }
-);
 
 
-/* =========================================================
-   PRICE FILTER
-   ========================================================= */
+    /* =====================================================
+       FILTER
+    ===================================================== */
 
-function matchesPriceFilter(
-    price,
-    filter
-){
+    function filterProducts(){
 
-    switch(filter){
-
-        case "under2499":
-
-            return price <= 2499;
-
-
-        case "2500-4999":
-
-            return (
-                price >= 2500 &&
-                price <= 4999
-            );
-
-
-        case "5000-9999":
-
-            return (
-                price >= 5000 &&
-                price <= 9999
-            );
-
-
-        case "10000-24999":
-
-            return (
-                price >= 10000 &&
-                price <= 24999
-            );
-
-
-        case "25000plus":
-
-            return price >= 25000;
-
-
-        default:
-
-            return true;
-
-    }
-
-}
-
-
-/* =========================================================
-   FILTER PRODUCTS
-   ========================================================= */
-
-function filterProducts(){
-
-    const selectedFilters =
-        priceFilters
-            .filter(
-                function(input){
+        const selectedFilters =
+            priceFilters
+                .filter(function(input){
 
                     return input.checked;
 
-                }
-            )
-            .map(
-                function(input){
+                })
+                .map(function(input){
 
                     return input.value;
 
-                }
-            );
+                });
 
 
-    let visibleCount = 0;
+        let visibleCount = 0;
 
 
-    productCards.forEach(
-        function(card){
+        productCards.forEach(function(card){
 
             const price =
                 Number(
@@ -8747,12 +8999,9 @@ function filterProducts(){
             let shouldShow = true;
 
 
-            /*
-             If no filters are selected,
-             show everything.
-            */
-
-            if(selectedFilters.length > 0){
+            if(
+                selectedFilters.length > 0
+            ){
 
                 shouldShow =
                     selectedFilters.some(
@@ -8785,824 +9034,219 @@ function filterProducts(){
 
             }
 
+        });
+
+
+        if(resultsCount){
+
+            resultsCount.textContent =
+                visibleCount +
+                (
+                    visibleCount === 1
+                        ? " Timepiece"
+                        : " Timepieces"
+                );
+
         }
-    );
 
 
-    /* Results count */
+        if(noProducts){
 
-    resultsCount.textContent =
-        visibleCount +
-        (
-            visibleCount === 1
-                ? " Timepiece"
-                : " Timepieces"
-        );
+            if(visibleCount === 0){
 
+                noProducts.classList.add(
+                    "visible"
+                );
 
-    /* Empty */
+            }else{
 
-    if(visibleCount === 0){
+                noProducts.classList.remove(
+                    "visible"
+                );
 
-        noProducts.classList.add(
-            "visible"
-        );
+            }
 
-    }else{
-
-        noProducts.classList.remove(
-            "visible"
-        );
+        }
 
     }
 
-}
 
+    /* =====================================================
+       FILTER EVENTS
+    ===================================================== */
 
-/* =========================================================
-   FILTER EVENTS
-   ========================================================= */
-
-priceFilters.forEach(
-    function(filter){
+    priceFilters.forEach(function(filter){
 
         filter.addEventListener(
             "change",
             filterProducts
         );
 
-    }
-);
-
-
-/* =========================================================
-   CLEAR FILTERS
-   ========================================================= */
-
-clearFilters.addEventListener(
-    "click",
-    function(){
-
-        priceFilters.forEach(
-            function(filter){
-
-                filter.checked = false;
-
-            }
-        );
-
-
-        filterProducts();
-
-    }
-);
-
-
-/* =========================================================
-   SORT
-   ========================================================= */
-
-sortProducts.addEventListener(
-    "change",
-    function(){
-
-        const sortValue =
-            sortProducts.value;
-
-
-        const cards =
-            Array.from(
-                productCards
-            );
-
-
-        cards.sort(
-            function(a,b){
-
-                const priceA =
-                    Number(
-                        a.dataset.price
-                    );
-
-                const priceB =
-                    Number(
-                        b.dataset.price
-                    );
-
-
-                const nameA =
-                    a.dataset.name
-                    .toLowerCase();
-
-                const nameB =
-                    b.dataset.name
-                    .toLowerCase();
-
-
-                const popularityA =
-                    Number(
-                        a.dataset.popularity
-                    );
-
-                const popularityB =
-                    Number(
-                        b.dataset.popularity
-                    );
-
-
-                switch(sortValue){
-
-                    case "price-low":
-
-                        return priceA - priceB;
-
-
-                    case "price-high":
-
-                        return priceB - priceA;
-
-
-                    case "name-az":
-
-                        return nameA.localeCompare(
-                            nameB
-                        );
-
-
-                    case "name-za":
-
-                        return nameB.localeCompare(
-                            nameA
-                        );
-
-
-                    case "popularity":
-
-                    default:
-
-                        return popularityA -
-                               popularityB;
-
-                }
-
-            }
-        );
-
-
-        cards.forEach(
-            function(card){
-
-                productGrid.appendChild(
-                    card
-                );
-
-            }
-        );
-
-
-        /*
-         Re-run filtering after sorting
-         so hidden products remain hidden.
-        */
-
-        filterProducts();
-
-    }
-);
-
-
-/* =========================================================
-   INITIAL FILTER
-   ========================================================= */
-
-filterProducts();
-
-<script>
-/* =========================================================
-   50 MIRARS
-   UNIVERSAL WATCH GALLERY MEDIA SYSTEM
-   Images + Videos + Multiple Media + Mobile Swipe
-========================================================= */
-
-document.addEventListener("DOMContentLoaded", function () {
-
-    const cards = document.querySelectorAll(".product-card");
-
-
-    /* =====================================================
-       INITIALISE EVERY PRODUCT
-    ===================================================== */
-
-    cards.forEach(function (card) {
-
-        const mediaBox = card.querySelector(".product-media");
-
-        if (!mediaBox) return;
-
-
-        const track = mediaBox.querySelector(".media-track");
-
-        if (!track) return;
-
-
-        const slides =
-            Array.from(
-                track.querySelectorAll(".media-slide")
-            );
-
-
-        if (!slides.length) return;
-
-
-        const prev =
-            mediaBox.querySelector(".media-prev");
-
-        const next =
-            mediaBox.querySelector(".media-next");
-
-        const counter =
-            mediaBox.querySelector(".media-counter");
-
-        const dotsContainer =
-            mediaBox.querySelector(".media-dots");
-
-
-        let currentIndex = 0;
-
-
-        /* ================================================
-           CLEAN INITIAL STATE
-        ================================================= */
-
-        slides.forEach(function (slide, index) {
-
-            slide.classList.remove("is-active");
-
-            slide.style.display =
-                index === 0
-                    ? "block"
-                    : "none";
-
-        });
-
-
-        slides[0].classList.add("is-active");
-
-
-        /* ================================================
-           CREATE DOTS
-        ================================================= */
-
-        if (dotsContainer) {
-
-            dotsContainer.innerHTML = "";
-
-            slides.forEach(function (slide, index) {
-
-                const dot =
-                    document.createElement("button");
-
-                dot.type = "button";
-
-                dot.className =
-                    "media-dot" +
-                    (index === 0
-                        ? " is-active"
-                        : "");
-
-                dot.setAttribute(
-                    "aria-label",
-                    "View media " + (index + 1)
-                );
-
-
-                dot.addEventListener(
-                    "click",
-                    function (event) {
-
-                        event.preventDefault();
-                        event.stopPropagation();
-
-                        showSlide(index);
-
-                    }
-                );
-
-
-                dotsContainer.appendChild(dot);
-
-            });
-
-        }
-
-
-        /* ================================================
-           UPDATE COUNTER
-        ================================================= */
-
-        function updateCounter() {
-
-            if (!counter) return;
-
-            counter.textContent =
-                (currentIndex + 1) +
-                " / " +
-                slides.length;
-
-        }
-
-
-        /* ================================================
-           UPDATE DOTS
-        ================================================= */
-
-        function updateDots() {
-
-            if (!dotsContainer) return;
-
-            const dots =
-                dotsContainer.querySelectorAll(
-                    ".media-dot"
-                );
-
-
-            dots.forEach(function (dot, index) {
-
-                dot.classList.toggle(
-                    "is-active",
-                    index === currentIndex
-                );
-
-            });
-
-        }
-
-
-        /* ================================================
-           PAUSE ALL VIDEOS
-        ================================================= */
-
-        function pauseAllVideos() {
-
-            slides.forEach(function (slide) {
-
-                const video =
-                    slide.querySelector("video");
-
-                if (video) {
-
-                    try {
-
-                        video.pause();
-
-                    } catch (error) {
-
-                        console.warn(
-                            "Video pause error:",
-                            error
-                        );
-
-                    }
-
-                }
-
-            });
-
-        }
-
-
-        /* ================================================
-           SHOW SLIDE
-        ================================================= */
-
-        function showSlide(index) {
-
-            if (!slides.length) return;
-
-
-            if (index < 0) {
-
-                index =
-                    slides.length - 1;
-
-            }
-
-
-            if (index >= slides.length) {
-
-                index = 0;
-
-            }
-
-
-            pauseAllVideos();
-
-
-            slides.forEach(function (slide, i) {
-
-                slide.classList.toggle(
-                    "is-active",
-                    i === index
-                );
-
-
-                slide.style.display =
-                    i === index
-                        ? "block"
-                        : "none";
-
-            });
-
-
-            currentIndex = index;
-
-
-            updateCounter();
-
-            updateDots();
-
-        }
-
-
-        /* ================================================
-           NEXT BUTTON
-        ================================================= */
-
-        if (next) {
-
-            next.addEventListener(
-                "click",
-                function (event) {
-
-                    event.preventDefault();
-
-                    event.stopPropagation();
-
-
-                    showSlide(
-                        currentIndex + 1
-                    );
-
-                }
-            );
-
-        }
-
-
-        /* ================================================
-           PREVIOUS BUTTON
-        ================================================= */
-
-        if (prev) {
-
-            prev.addEventListener(
-                "click",
-                function (event) {
-
-                    event.preventDefault();
-
-                    event.stopPropagation();
-
-
-                    showSlide(
-                        currentIndex - 1
-                    );
-
-                }
-            );
-
-        }
-
-
-        /* ================================================
-           VIDEO CONTROL PROTECTION
-        ================================================= */
-
-        const videos =
-            mediaBox.querySelectorAll("video");
-
-
-        videos.forEach(function (video) {
-
-            /*
-             * Prevent the parent product link from
-             * opening when using video controls.
-             */
-
-            video.addEventListener(
-                "click",
-                function (event) {
-
-                    event.stopPropagation();
-
-                }
-            );
-
-
-            video.addEventListener(
-                "pointerdown",
-                function (event) {
-
-                    event.stopPropagation();
-
-                }
-            );
-
-
-            video.addEventListener(
-                "touchstart",
-                function (event) {
-
-                    event.stopPropagation();
-
-                },
-                {
-                    passive: true
-                }
-            );
-
-        });
-
-
-        /* ================================================
-           MEDIA BOX PROTECTION
-        ================================================= */
-
-        if (prev) {
-
-            prev.addEventListener(
-                "pointerdown",
-                function (event) {
-
-                    event.stopPropagation();
-
-                }
-            );
-
-        }
-
-
-        if (next) {
-
-            next.addEventListener(
-                "pointerdown",
-                function (event) {
-
-                    event.stopPropagation();
-
-                }
-            );
-
-        }
-
-
-        /* ================================================
-           MOBILE SWIPE
-        ================================================= */
-
-        let touchStartX = 0;
-
-        let touchStartY = 0;
-
-        let touchEndX = 0;
-
-        let touchEndY = 0;
-
-
-        mediaBox.addEventListener(
-            "touchstart",
-            function (event) {
-
-                if (!event.touches.length) return;
-
-
-                touchStartX =
-                    event.touches[0].clientX;
-
-                touchStartY =
-                    event.touches[0].clientY;
-
-            },
-            {
-                passive: true
-            }
-        );
-
-
-        mediaBox.addEventListener(
-            "touchend",
-            function (event) {
-
-                if (!event.changedTouches.length)
-                    return;
-
-
-                touchEndX =
-                    event.changedTouches[0].clientX;
-
-                touchEndY =
-                    event.changedTouches[0].clientY;
-
-
-                const differenceX =
-                    touchEndX - touchStartX;
-
-
-                const differenceY =
-                    touchEndY - touchStartY;
-
-
-                /*
-                 * Ignore mostly vertical swipes.
-                 */
-
-                if (
-                    Math.abs(differenceX) <
-                    Math.abs(differenceY)
-                ) {
-
-                    return;
-
-                }
-
-
-                /*
-                 * Minimum swipe distance.
-                 */
-
-                if (
-                    Math.abs(differenceX) < 45
-                ) {
-
-                    return;
-
-                }
-
-
-                if (differenceX < 0) {
-
-                    showSlide(
-                        currentIndex + 1
-                    );
-
-                } else {
-
-                    showSlide(
-                        currentIndex - 1
-                    );
-
-                }
-
-            },
-            {
-                passive: true
-            }
-        );
-
-
-        /* ================================================
-           HIDE NAVIGATION FOR SINGLE MEDIA
-        ================================================= */
-
-        if (slides.length <= 1) {
-
-            if (prev) {
-
-                prev.style.display =
-                    "none";
-
-            }
-
-
-            if (next) {
-
-                next.style.display =
-                    "none";
-
-            }
-
-
-            if (counter) {
-
-                counter.style.display =
-                    "none";
-
-            }
-
-
-            if (dotsContainer) {
-
-                dotsContainer.style.display =
-                    "none";
-
-            }
-
-        } else {
-
-            if (prev) {
-
-                prev.style.display =
-                    "flex";
-
-            }
-
-
-            if (next) {
-
-                next.style.display =
-                    "flex";
-
-            }
-
-
-            if (counter) {
-
-                counter.style.display =
-                    "block";
-
-            }
-
-
-            if (dotsContainer) {
-
-                dotsContainer.style.display =
-                    "flex";
-
-            }
-
-        }
-
-
-        /* ================================================
-           INITIAL UPDATE
-        ================================================= */
-
-        updateCounter();
-
-        updateDots();
-
     });
 
 
     /* =====================================================
-       PRODUCT MEDIA LINK
-       Clicking empty media area opens product details.
-       Video/arrows/dots are protected above.
+       CLEAR FILTERS
     ===================================================== */
 
-    document
-        .querySelectorAll(".product-media")
-        .forEach(function (mediaBox) {
+    if(clearFilters){
 
-            mediaBox.addEventListener(
-                "click",
-                function (event) {
+        clearFilters.addEventListener(
+            "click",
+            function(){
 
-                    /*
-                     * Don't redirect if the user clicked
-                     * an interactive media element.
-                     */
+                priceFilters.forEach(
+                    function(filter){
 
-                    if (
-                        event.target.closest(
-                            "video"
-                        )
-                    ) {
-                        return;
+                        filter.checked =
+                            false;
+
                     }
+                );
+
+                filterProducts();
+
+            }
+        );
+
+    }
 
 
-                    if (
-                        event.target.closest(
-                            ".media-arrow"
-                        )
-                    ) {
-                        return;
+    /* =====================================================
+       SORT
+    ===================================================== */
+
+    if(sortProducts){
+
+        sortProducts.addEventListener(
+            "change",
+            function(){
+
+                const sortValue =
+                    sortProducts.value;
+
+
+                const cards =
+                    Array.from(
+                        productCards
+                    );
+
+
+                cards.sort(
+                    function(a,b){
+
+                        const priceA =
+                            Number(
+                                a.dataset.price
+                            );
+
+                        const priceB =
+                            Number(
+                                b.dataset.price
+                            );
+
+
+                        const nameA =
+                            (
+                                a.dataset.name ||
+                                ""
+                            ).toLowerCase();
+
+
+                        const nameB =
+                            (
+                                b.dataset.name ||
+                                ""
+                            ).toLowerCase();
+
+
+                        const popularityA =
+                            Number(
+                                a.dataset.popularity ||
+                                9999
+                            );
+
+
+                        const popularityB =
+                            Number(
+                                b.dataset.popularity ||
+                                9999
+                            );
+
+
+                        switch(sortValue){
+
+                            case "price-low":
+
+                                return (
+                                    priceA -
+                                    priceB
+                                );
+
+
+                            case "price-high":
+
+                                return (
+                                    priceB -
+                                    priceA
+                                );
+
+
+                            case "name-az":
+
+                                return nameA.localeCompare(
+                                    nameB
+                                );
+
+
+                            case "name-za":
+
+                                return nameB.localeCompare(
+                                    nameA
+                                );
+
+
+                            case "popularity":
+
+                            default:
+
+                                return (
+                                    popularityA -
+                                    popularityB
+                                );
+
+                        }
+
                     }
+                );
 
 
-                    if (
-                        event.target.closest(
-                            ".media-dot"
-                        )
-                    ) {
-                        return;
-                    }
+                cards.forEach(function(card){
+
+                    productGrid.appendChild(
+                        card
+                    );
+
+                });
 
 
-                    /*
-                     * Existing anchor cards:
-                     * allow normal browser navigation.
-                     */
+                filterProducts();
 
-                }
-            );
+            }
+        );
 
-        });
+    }
+
+
+    /* =====================================================
+       INITIAL FILTER
+    ===================================================== */
+
+    filterProducts();
 
 });
-</script>
 
+</script>
 
 </body>
 
