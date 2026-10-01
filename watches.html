@@ -1189,6 +1189,120 @@ body{
 }
 
 /* =========================================================
+   UNIVERSAL PRODUCT INFORMATION LAYOUT
+   Makes every product use the same Watch Gallery design
+========================================================= */
+
+.product-info{
+    position:relative;
+    padding-bottom:54px;
+}
+
+
+/* Product name */
+
+.product-info h3{
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:19px;
+
+    font-weight:400;
+
+    line-height:1.15;
+
+    letter-spacing:-.01em;
+
+    margin:0;
+}
+
+
+/* Luxury Timepiece */
+
+.product-info .product-meta{
+    font-size:10px;
+
+    color:var(--grey);
+
+    margin-top:7px;
+
+    min-height:14px;
+
+    line-height:1.4;
+}
+
+
+/* Price + View Product row */
+
+.product-info .product-bottom{
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:15px;
+
+    margin-top:17px;
+}
+
+
+/* Price */
+
+.product-info .product-price{
+    font-size:13px;
+
+    letter-spacing:.02em;
+
+    white-space:nowrap;
+}
+
+
+/* View Product button */
+
+.product-info .product-details-btn{
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    min-height:42px;
+
+    padding:0 16px;
+
+    border:1px solid rgba(17,17,17,.25);
+
+    background:transparent;
+
+    color:var(--black);
+
+    text-decoration:none;
+
+    font-size:9px;
+
+    letter-spacing:.13em;
+
+    text-transform:uppercase;
+
+    transition:
+        background .25s ease,
+        color .25s ease,
+        border-color .25s ease;
+}
+
+
+.product-info .product-details-btn:hover{
+    background:#111;
+
+    color:#fff;
+
+    border-color:#111;
+}
+
+/* =========================================================
    50 MIRARS
    UNIVERSAL MEDIA SLIDER FIX
 ========================================================= */
@@ -8504,6 +8618,286 @@ document.addEventListener("DOMContentLoaded", function () {
         Array.from(
             document.querySelectorAll(".product-card")
         );
+
+/* =========================================================
+   STANDARDIZE ALL PRODUCT INFORMATION
+
+   Converts older product cards into the same
+   Watch Gallery layout used by the newest products.
+========================================================= */
+
+productCards.forEach(function(card){
+
+    const productInfo =
+        card.querySelector(".product-info");
+
+    if(!productInfo){
+        return;
+    }
+
+
+    /*
+       If this product already uses the new layout,
+       leave it exactly as it is.
+    */
+
+    if(
+        productInfo.querySelector(".product-name") &&
+        productInfo.querySelector(".product-bottom")
+    ){
+        return;
+    }
+
+
+    /* =====================================================
+       GET EXISTING PRODUCT INFORMATION
+    ===================================================== */
+
+    const brandElement =
+        productInfo.querySelector(
+            ".product-brand"
+        );
+
+
+    const oldNameElement =
+        productInfo.querySelector("h3");
+
+
+    const oldMeta =
+        productInfo.querySelector(
+            ".product-meta"
+        );
+
+
+    const oldButton =
+        productInfo.querySelector(
+            ".product-details-btn"
+        );
+
+
+    if(!oldNameElement){
+        return;
+    }
+
+
+    /* =====================================================
+       PRODUCT NAME
+    ===================================================== */
+
+    const productName =
+        oldNameElement.textContent.trim();
+
+
+    /* =====================================================
+       PRODUCT PRICE
+    ===================================================== */
+
+    let productPrice = "";
+
+
+    if(oldMeta){
+
+        const priceElement =
+            oldMeta.querySelector(
+                "strong"
+            );
+
+
+        if(priceElement){
+
+            productPrice =
+                priceElement.textContent.trim();
+
+        }else{
+
+            const metaSpans =
+                oldMeta.querySelectorAll(
+                    "span"
+                );
+
+
+            if(metaSpans.length > 1){
+
+                productPrice =
+                    metaSpans[
+                        metaSpans.length - 1
+                    ]
+                    .textContent
+                    .trim();
+
+            }
+
+        }
+
+    }
+
+
+    /*
+       Extra safety:
+       If price wasn't found in product-meta,
+       try the old .price class.
+    */
+
+    if(!productPrice){
+
+        const oldPrice =
+            productInfo.querySelector(
+                ".price"
+            );
+
+        if(oldPrice){
+
+            productPrice =
+                oldPrice.textContent.trim();
+
+        }
+
+    }
+
+
+    /* =====================================================
+       BRAND
+    ===================================================== */
+
+    const brandName =
+        brandElement
+            ? brandElement.textContent.trim()
+            : "";
+
+
+    /* =====================================================
+       CREATE NEW PRODUCT NAME
+    ===================================================== */
+
+    const newName =
+        document.createElement("h2");
+
+    newName.className =
+        "product-name";
+
+    newName.textContent =
+        productName;
+
+
+    /* =====================================================
+       CREATE LUXURY TIMEPIECE LABEL
+    ===================================================== */
+
+    const newMeta =
+        document.createElement("div");
+
+    newMeta.className =
+        "product-meta";
+
+    newMeta.textContent =
+        "Luxury Timepiece";
+
+
+    /* =====================================================
+       CREATE PRICE + BUTTON ROW
+    ===================================================== */
+
+    const newBottom =
+        document.createElement("div");
+
+    newBottom.className =
+        "product-bottom";
+
+
+    /* PRICE */
+
+    const newPrice =
+        document.createElement("span");
+
+    newPrice.className =
+        "product-price";
+
+    newPrice.textContent =
+        productPrice;
+
+
+    /* BUTTON */
+
+    let newButton = null;
+
+
+    if(oldButton){
+
+        newButton =
+            oldButton.cloneNode(true);
+
+        newButton.textContent =
+            "View Product →";
+
+    }
+
+
+    /* =====================================================
+       BUILD BOTTOM ROW
+    ===================================================== */
+
+    newBottom.appendChild(
+        newPrice
+    );
+
+
+    if(newButton){
+
+        newBottom.appendChild(
+            newButton
+        );
+
+    }
+
+
+    /* =====================================================
+       REBUILD PRODUCT INFO
+    ===================================================== */
+
+    productInfo.innerHTML = "";
+
+
+    /* BRAND */
+
+    if(brandName){
+
+        const newBrand =
+            document.createElement("span");
+
+        newBrand.className =
+            "product-brand";
+
+        newBrand.textContent =
+            brandName;
+
+        productInfo.appendChild(
+            newBrand
+        );
+
+    }
+
+
+    /* PRODUCT NAME */
+
+    productInfo.appendChild(
+        newName
+    );
+
+
+    /* LUXURY TIMEPIECE */
+
+    productInfo.appendChild(
+        newMeta
+    );
+
+
+    /* PRICE + VIEW PRODUCT */
+
+    productInfo.appendChild(
+        newBottom
+    );
+
+});
 
     const priceFilters =
         Array.from(
