@@ -389,6 +389,105 @@ body{
 
 }
 
+/* =========================================================
+   BRAND FILTER
+========================================================= */
+
+.brand-options{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+    max-height:320px;
+
+    overflow-y:auto;
+
+    padding-right:6px;
+
+}
+
+
+/* Individual brand */
+
+.brand-option{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:10px;
+
+    font-size:13px;
+
+    line-height:1.4;
+
+    color:#222;
+
+    cursor:pointer;
+
+}
+
+
+/* Checkbox */
+
+.brand-option input{
+
+    width:15px;
+
+    height:15px;
+
+    margin-top:2px;
+
+    flex-shrink:0;
+
+    accent-color:#111;
+
+    cursor:pointer;
+
+}
+
+
+/* Brand name */
+
+.brand-option span{
+
+    cursor:pointer;
+
+}
+
+
+/* Scrollbar */
+
+.brand-options::-webkit-scrollbar{
+
+    width:3px;
+
+}
+
+
+.brand-options::-webkit-scrollbar-track{
+
+    background:transparent;
+
+}
+
+
+.brand-options::-webkit-scrollbar-thumb{
+
+    background:#b9b2a5;
+
+}
+
+
+.brand-options::-webkit-scrollbar-thumb:hover{
+
+    background:#777;
+
+}
+
 
 /* Sidebar divider */
 
@@ -1987,6 +2086,25 @@ body{
 
 
             </div>
+
+      <!-- =====================================================
+     BRAND FILTER
+===================================================== -->
+
+<div class="sidebar-divider"></div>
+
+<div class="filter-section-title">
+
+    <span>Brand</span>
+
+    <span class="filter-arrow">⌃</span>
+
+</div>
+
+<div
+    class="brand-options"
+    id="brandOptions"
+></div>
 
 
             <div class="sidebar-divider"></div>
@@ -8392,6 +8510,95 @@ document.addEventListener("DOMContentLoaded", function () {
             document.querySelectorAll(".price-filter")
         );
 
+      const brandOptions =
+    document.getElementById(
+        "brandOptions"
+    );
+
+const brandKeywords = {
+
+    "Audemars Piguet": [
+        "Audemars Piguet"
+    ],
+
+    "Cartier": [
+        "Cartier"
+    ],
+
+    "Fossil": [
+        "Fossil"
+    ],
+
+    "Patek Philippe": [
+        "Patek Philippe"
+    ],
+
+    "Armani Exchange": [
+        "Armani Exchange"
+    ],
+
+    "Emporio Armani": [
+        "Emporio Armani"
+    ],
+
+    "Rolex": [
+        "Rolex"
+    ],
+
+    "Seiko": [
+        "Seiko"
+    ],
+
+    "Tissot": [
+        "Tissot"
+    ],
+
+    "Tag Heuer": [
+        "Tag Heuer"
+    ],
+
+    "Tommy Hilfiger": [
+        "Tommy Hilfiger"
+    ],
+
+    "Guess": [
+        "Guess"
+    ],
+
+    "Omega": [
+        "Omega"
+    ],
+
+    "Versace": [
+        "Versace"
+    ],
+
+    "Casio": [
+        "Casio"
+    ],
+
+    "Jacob & Co.": [
+        "Jacob & Co"
+    ],
+
+    "Richard Mille": [
+        "Richard Mille"
+    ],
+
+    "Breitling": [
+        "Breitling"
+    ],
+
+    "Tudor": [
+        "Tudor"
+    ],
+
+    "Swatch": [
+        "Swatch"
+    ]
+
+};
+
     const clearFilters =
         document.getElementById("clearFilters");
 
@@ -8924,6 +9131,66 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
+/* =====================================================
+   CREATE BRAND FILTERS
+===================================================== */
+
+if(brandOptions){
+
+    Object.keys(brandKeywords).forEach(
+        function(brand){
+
+            const label =
+                document.createElement(
+                    "label"
+                );
+
+            label.className =
+                "brand-option";
+
+
+            const checkbox =
+                document.createElement(
+                    "input"
+                );
+
+            checkbox.type =
+                "checkbox";
+
+            checkbox.className =
+                "brand-filter";
+
+            checkbox.value =
+                brand;
+
+
+            const name =
+                document.createElement(
+                    "span"
+                );
+
+            name.textContent =
+                brand;
+
+
+            label.appendChild(
+                checkbox
+            );
+
+            label.appendChild(
+                name
+            );
+
+
+            brandOptions.appendChild(
+                label
+            );
+
+        }
+    );
+
+}
+
     /* =====================================================
        PRICE FILTER
     ===================================================== */
@@ -9009,27 +9276,86 @@ document.addEventListener("DOMContentLoaded", function () {
                 );
 
 
-            let shouldShow = true;
+           /* =====================================================
+   SELECTED BRAND FILTERS
+===================================================== */
+
+const selectedBrands =
+    Array.from(
+        document.querySelectorAll(
+            ".brand-filter:checked"
+        )
+    ).map(
+        function(input){
+
+            return input.value;
+
+        }
+    );
 
 
-            if(
-                selectedFilters.length > 0
-            ){
+/* =====================================================
+   PRICE MATCH
+===================================================== */
 
-                shouldShow =
-                    selectedFilters.some(
-                        function(filter){
+const matchesPrice =
+    selectedFilters.length === 0 ||
 
-                            return matchesPriceFilter(
-                                price,
-                                filter
-                            );
+    selectedFilters.some(
+        function(filter){
 
-                        }
+            return matchesPriceFilter(
+                price,
+                filter
+            );
+
+        }
+    );
+
+
+/* =====================================================
+   BRAND MATCH
+===================================================== */
+
+const productName =
+    (
+        card.dataset.name || ""
+    ).toLowerCase();
+
+
+const matchesBrand =
+    selectedBrands.length === 0 ||
+
+    selectedBrands.some(
+        function(brand){
+
+            const keywords =
+                brandKeywords[
+                    brand
+                ] || [];
+
+
+            return keywords.some(
+                function(keyword){
+
+                    return productName.includes(
+                        keyword.toLowerCase()
                     );
 
-            }
+                }
+            );
 
+        }
+    );
+
+
+/* =====================================================
+   FINAL RESULT
+===================================================== */
+
+const shouldShow =
+    matchesPrice &&
+    matchesBrand;
 
             if(shouldShow){
 
@@ -9098,17 +9424,54 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-    /* =====================================================
-       CLEAR FILTERS
-    ===================================================== */
+/* =====================================================
+   BRAND FILTER EVENTS
+===================================================== */
 
-    if(clearFilters){
+document
+    .querySelectorAll(
+        ".brand-filter"
+    )
+    .forEach(
+        function(filter){
 
-        clearFilters.addEventListener(
-            "click",
-            function(){
+            filter.addEventListener(
+                "change",
+                filterProducts
+            );
 
-                priceFilters.forEach(
+        }
+    );
+
+ /* =====================================================
+   CLEAR ALL FILTERS
+===================================================== */
+
+if(clearFilters){
+
+    clearFilters.addEventListener(
+        "click",
+        function(){
+
+            /* Clear price filters */
+
+            priceFilters.forEach(
+                function(filter){
+
+                    filter.checked =
+                        false;
+
+                }
+            );
+
+
+            /* Clear brand filters */
+
+            document
+                .querySelectorAll(
+                    ".brand-filter"
+                )
+                .forEach(
                     function(filter){
 
                         filter.checked =
@@ -9117,14 +9480,16 @@ document.addEventListener("DOMContentLoaded", function () {
                     }
                 );
 
-                filterProducts();
 
-            }
-        );
+            /* Refresh products */
 
-    }
+            filterProducts();
 
+        }
+    );
 
+}
+      
     /* =====================================================
        SORT
     ===================================================== */
