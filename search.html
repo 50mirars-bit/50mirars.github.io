@@ -1543,6 +1543,12 @@ header h1{
 
 <script>
 
+/* =====================================================
+   50 MIRARS — SEARCH ENGINE
+   Reads the current product-card structure used by
+   the new Watch Gallery as well as older product cards.
+===================================================== */
+
 const searchParams = new URLSearchParams(window.location.search);
 
 const searchTerm = searchParams.get("q");
@@ -1585,7 +1591,7 @@ async function searchAllProducts(){
 
 
     /* =================================================
-       YOUR EXISTING PRODUCT PAGES
+       ALL PRODUCT SOURCE PAGES
     ================================================= */
 
     const pages = [
@@ -1593,13 +1599,13 @@ async function searchAllProducts(){
         "sunglasses.html",
 
         "most-selling.html",
-        
+
         "couple-watches.html",
 
         "limited-editions.html",
-        
-        "luxury-articles.html",  
-        
+
+        "luxury-articles.html",
+
         "rolex.html",
 
         "tissot.html",
@@ -1607,13 +1613,273 @@ async function searchAllProducts(){
         "omega.html",
 
         "seiko.html",
-        
+
         "watches.html"
 
     ];
 
 
     let allProducts = [];
+
+
+    /* =================================================
+       HELPER — RESOLVE A FILE RELATIVE TO THE SOURCE PAGE
+    ================================================= */
+
+    function resolveSourceURL(sourcePage, source){
+
+        if(!source){
+            return "";
+        }
+
+        try{
+
+            return new URL(
+                source,
+                new URL(
+                    sourcePage,
+                    window.location.href
+                ).href
+            ).href;
+
+        }
+        catch(error){
+
+            return source;
+
+        }
+
+    }
+
+
+    /* =================================================
+       HELPER — READ MEDIA FROM THE NEW WATCH GALLERY
+
+       New watches.html uses:
+
+       .product-media
+           .media-track
+               .media-slide
+                   img / video
+
+       Older pages may use:
+
+       .slider
+       video
+       img
+    ================================================= */
+
+    function getProductMedia(card, page){
+
+        const media = [];
+
+
+        /* ---------------------------------------------
+           NEW WATCH GALLERY MEDIA
+        --------------------------------------------- */
+
+        const productMedia =
+            card.querySelector(".product-media");
+
+
+        if(productMedia){
+
+            const slides =
+                productMedia.querySelectorAll(
+                    ".media-slide"
+                );
+
+
+            slides.forEach(slide => {
+
+                const video =
+                    slide.querySelector("video");
+
+
+                if(video){
+
+                    let src = "";
+
+                    const source =
+                        video.querySelector("source");
+
+
+                    if(source){
+
+                        src =
+                            source.getAttribute("src") || "";
+
+                    }
+
+
+                    if(!src){
+
+                        src =
+                            video.getAttribute("src") || "";
+
+                    }
+
+
+                    if(src){
+
+                        media.push({
+                            type:"video",
+                            src:resolveSourceURL(page,src)
+                        });
+
+                    }
+
+
+                    return;
+
+                }
+
+
+                const image =
+                    slide.querySelector("img");
+
+
+                if(image){
+
+                    const src =
+                        image.getAttribute("src");
+
+
+                    if(src){
+
+                        media.push({
+                            type:"image",
+                            src:resolveSourceURL(page,src)
+                        });
+
+                    }
+
+                }
+
+            });
+
+        }
+
+
+        /* ---------------------------------------------
+           OLD SLIDER STRUCTURE
+        --------------------------------------------- */
+
+        if(media.length === 0){
+
+            const slider =
+                card.querySelector(".slider");
+
+
+            if(slider){
+
+                const images =
+                    slider.querySelectorAll("img");
+
+
+                images.forEach(img => {
+
+                    const src =
+                        img.getAttribute("src");
+
+
+                    if(src){
+
+                        media.push({
+                            type:"image",
+                            src:resolveSourceURL(page,src)
+                        });
+
+                    }
+
+                });
+
+            }
+
+        }
+
+
+        /* ---------------------------------------------
+           DIRECT VIDEO
+        --------------------------------------------- */
+
+        if(media.length === 0){
+
+            const video =
+                card.querySelector("video");
+
+
+            if(video){
+
+                let src = "";
+
+                const source =
+                    video.querySelector("source");
+
+
+                if(source){
+
+                    src =
+                        source.getAttribute("src") || "";
+
+                }
+
+
+                if(!src){
+
+                    src =
+                        video.getAttribute("src") || "";
+
+                }
+
+
+                if(src){
+
+                    media.push({
+                        type:"video",
+                        src:resolveSourceURL(page,src)
+                    });
+
+                }
+
+            }
+
+        }
+
+
+        /* ---------------------------------------------
+           DIRECT NORMAL IMAGE
+        --------------------------------------------- */
+
+        if(media.length === 0){
+
+            const image =
+                card.querySelector("img");
+
+
+            if(image){
+
+                const src =
+                    image.getAttribute("src");
+
+
+                if(src){
+
+                    media.push({
+                        type:"image",
+                        src:resolveSourceURL(page,src)
+                    });
+
+                }
+
+            }
+
+        }
+
+
+        return media;
+
+    }
 
 
     /* =================================================
@@ -1625,7 +1891,18 @@ async function searchAllProducts(){
         try{
 
             const response =
-                await fetch(page);
+                await fetch(page, {
+                    cache:"no-store"
+                });
+
+
+            if(!response.ok){
+
+                throw new Error(
+                    `HTTP ${response.status}`
+                );
+
+            }
 
 
             const html =
@@ -1653,22 +1930,119 @@ async function searchAllProducts(){
 
                 /* =====================================
                    PRODUCT NAME
+
+                   New cards have both:
+
+                   data-name="..."
+                   <h3>...</h3>
+
+                   Use data-name first so the search
+                   remains reliable even if the visual
+                   markup changes later.
                 ===================================== */
 
-                const nameElement =
-                    card.querySelector("h3");
+                const name =
+                    (
+                        card.getAttribute("data-name") ||
+                        card.querySelector("h3")?.textContent ||
+                        card.querySelector(".product-name")?.textContent ||
+                        ""
+                    ).trim();
+
+
+                /* =====================================
+                   PRODUCT BRAND
+                ===================================== */
+
+                const brand =
+                    (
+                        card.getAttribute("data-brand") ||
+                        card.querySelector(".product-brand")?.textContent ||
+                        ""
+                    ).trim();
 
 
                 /* =====================================
                    PRODUCT PRICE
+
+                   Supports both the old .price system
+                   and the new .product-meta system.
                 ===================================== */
 
-                const priceElement =
+                let price = "";
+
+
+                const oldPrice =
                     card.querySelector(".price");
 
 
+                if(oldPrice){
+
+                    price =
+                        oldPrice.textContent.trim();
+
+                }
+                else{
+
+                    const strongPrice =
+                        card.querySelector(
+                            ".product-meta strong"
+                        );
+
+
+                    if(strongPrice){
+
+                        price =
+                            strongPrice.textContent.trim();
+
+                    }
+                    else{
+
+                        const meta =
+                            card.querySelector(
+                                ".product-meta"
+                            );
+
+
+                        if(meta){
+
+                            const metaParts =
+                                Array.from(
+                                    meta.children
+                                );
+
+
+                            const pricePart =
+                                metaParts
+                                .find(element =>
+                                    /₹|rs\.?|inr/i.test(
+                                        element.textContent
+                                    )
+                                );
+
+
+                            if(pricePart){
+
+                                price =
+                                    pricePart.textContent.trim();
+
+                            }
+                            else{
+
+                                price =
+                                    meta.textContent.trim();
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+
                 /* =====================================
-                   PRODUCT LINK
+                   PRODUCT DETAIL LINK
                 ===================================== */
 
                 const linkElement =
@@ -1677,199 +2051,40 @@ async function searchAllProducts(){
                     );
 
 
-                if(
-                    !nameElement ||
-                    !linkElement
-                ){
+                if(!linkElement || !name){
 
                     return;
 
                 }
 
 
-                const name =
-                    nameElement.textContent.trim();
-
-
-                const price =
-                    priceElement
-                    ? priceElement.textContent.trim()
-                    : "";
-
-
-                let link =
+                const rawLink =
                     linkElement.getAttribute("href");
 
 
-                if(link){
+                if(!rawLink){
 
-                    link =
+                    return;
+
+                }
+
+
+                const link =
+                    new URL(
+                        rawLink,
                         new URL(
-                            link,
+                            page,
                             window.location.href
-                        ).href;
-
-                }
-
-
-                /* =====================================
-                   CHECK FOR SLIDER
-                ===================================== */
-
-                const slider =
-                    card.querySelector(".slider");
-
-
-                let sliderImages = [];
-
-
-                if(slider){
-
-                    const images =
-                        slider.querySelectorAll(
-                            "img"
-                        );
-
-
-                    images.forEach(img => {
-
-                        const src =
-                            img.getAttribute("src");
-
-
-                        if(src){
-
-                            sliderImages.push(
-
-                                new URL(
-                                    src,
-                                    new URL(
-                                        page,
-                                        window.location.href
-                                    ).href
-                                ).href
-
-                            );
-
-                        }
-
-                    });
-
-                }
+                        ).href
+                    ).href;
 
 
                 /* =====================================
-                   CHECK FOR VIDEO
+                   PRODUCT MEDIA
                 ===================================== */
 
-                const video =
-                    card.querySelector("video");
-
-
-                let videoSource = "";
-
-
-                if(video){
-
-                    const source =
-                        video.querySelector("source");
-
-
-                    if(source){
-
-                        const src =
-                            source.getAttribute("src");
-
-
-                        if(src){
-
-                            videoSource =
-                                new URL(
-                                    src,
-                                    new URL(
-                                        page,
-                                        window.location.href
-                                    ).href
-                                ).href;
-
-                        }
-
-                    }
-
-
-                    /*
-
-                       Some products may use:
-
-                       <video src="example.mp4">
-
-                       instead of:
-
-                       <video>
-                           <source src="example.mp4">
-                       </video>
-
-                    */
-
-                    if(
-                        !videoSource &&
-                        video.getAttribute("src")
-                    ){
-
-                        videoSource =
-                            new URL(
-                                video.getAttribute("src"),
-                                new URL(
-                                    page,
-                                    window.location.href
-                                ).href
-                            ).href;
-
-                    }
-
-                }
-
-
-                /* =====================================
-                   CHECK FOR NORMAL IMAGE
-                ===================================== */
-
-                let normalImage = "";
-
-
-                if(
-                    !slider &&
-                    !video
-                ){
-
-                    const imageElement =
-                        card.querySelector("img");
-
-
-                    if(imageElement){
-
-                        const src =
-                            imageElement.getAttribute(
-                                "src"
-                            );
-
-
-                        if(src){
-
-                            normalImage =
-                                new URL(
-                                    src,
-                                    new URL(
-                                        page,
-                                        window.location.href
-                                    ).href
-                                ).href;
-
-                        }
-
-                    }
-
-                }
+                const media =
+                    getProductMedia(card,page);
 
 
                 /* =====================================
@@ -1880,22 +2095,13 @@ async function searchAllProducts(){
 
                     name:name,
 
+                    brand:brand,
+
                     price:price,
 
                     link:link,
 
-                    type:
-                        slider
-                        ? "slider"
-                        : video
-                        ? "video"
-                        : "image",
-
-                    images:sliderImages,
-
-                    video:videoSource,
-
-                    image:normalImage
+                    media:media
 
                 });
 
@@ -1918,15 +2124,63 @@ async function searchAllProducts(){
 
 
     /* =================================================
+       REMOVE DUPLICATES
+
+       A product may exist in watches.html and also in
+       rolex.html / seiko.html / most-selling.html etc.
+
+       The product-detail URL contains its unique ID,
+       so use that as the primary duplicate key.
+    ================================================= */
+
+    const uniqueProducts = [];
+
+    const seenProducts = new Set();
+
+
+    allProducts.forEach(product => {
+
+        const key =
+            product.link ||
+            `${product.name}|${product.price}`;
+
+
+        if(seenProducts.has(key)){
+
+            return;
+
+        }
+
+
+        seenProducts.add(key);
+
+        uniqueProducts.push(product);
+
+    });
+
+
+    /* =================================================
        SEARCH PRODUCTS
+
+       Keep the original name-based search behavior,
+       while also allowing the brand to be searched.
+       This makes searches such as "Seiko" work across
+       the new Watch Gallery cards as well.
     ================================================= */
 
     const results =
-        allProducts.filter(product => {
+        uniqueProducts.filter(product => {
 
-            return product.name
-                .toLowerCase()
-                .includes(searchText);
+            const nameText =
+                product.name.toLowerCase();
+
+            const brandText =
+                product.brand.toLowerCase();
+
+            return (
+                nameText.includes(searchText) ||
+                brandText.includes(searchText)
+            );
 
         });
 
@@ -1944,16 +2198,18 @@ async function searchAllProducts(){
 
     if(results.length === 0){
 
-        productsGrid.innerHTML = `
+        const noResults =
+            document.createElement("div");
 
-            <div class="no-results">
+        noResults.className = "no-results";
 
-                No products found for
-                "<strong>${searchTerm}</strong>"
+        noResults.innerHTML =
+            `No products found for <strong></strong>`;
 
-            </div>
+        noResults.querySelector("strong").textContent =
+            `"${searchTerm}"`;
 
-        `;
+        productsGrid.appendChild(noResults);
 
         return;
 
@@ -1981,20 +2237,62 @@ async function searchAllProducts(){
         let mediaHTML = "";
 
 
-        /* =============================================
-           SLIDER PRODUCT
-        ============================================= */
-
-        if(
-            product.type === "slider" &&
-            product.images.length > 0
-        ){
+        if(product.media.length > 1){
 
             const sliderId =
-                "slider-" +
+                "search-slider-" +
                 Math.random()
                 .toString(36)
                 .substring(2,10);
+
+
+            const slidesHTML =
+                product.media.map(
+                    (item,index) => {
+
+                        if(item.type === "video"){
+
+                            return `
+
+                                <video
+                                    class="search-slide ${
+                                        index === 0
+                                        ? "active"
+                                        : ""
+                                    }"
+                                    controls
+                                    playsinline
+                                    preload="metadata"
+                                >
+
+                                    <source
+                                        src="${item.src}"
+                                    >
+
+                                </video>
+
+                            `;
+
+                        }
+
+
+                        return `
+
+                            <img
+                                src="${item.src}"
+                                class="search-slide ${
+                                    index === 0
+                                    ? "active"
+                                    : ""
+                                }"
+                                alt="${product.name}"
+                            >
+
+                        `;
+
+                    }
+                )
+                .join("");
 
 
             mediaHTML = `
@@ -2004,66 +2302,33 @@ async function searchAllProducts(){
                     id="${sliderId}"
                 >
 
-                    ${product.images.map(
-                        (image,index) => `
+                    ${slidesHTML}
 
-                        <img
-                            src="${image}"
-                            class="search-slide ${
-                                index === 0
-                                ? "active"
-                                : ""
-                            }"
-                            alt="${product.name}"
-                        >
-
-                    `
-                    ).join("")}
+                    <button
+                        class="search-slider-prev"
+                        type="button"
+                        aria-label="Previous product image"
+                    >
+                        ❮
+                    </button>
 
 
-                    ${
-                        product.images.length > 1
-                        ?
-
-                        `
-
-                        <button
-                            class="search-slider-prev"
-                            type="button"
-                        >
-                            ❮
-                        </button>
-
-
-                        <button
-                            class="search-slider-next"
-                            type="button"
-                        >
-                            ❯
-                        </button>
-
-                        `
-
-                        :
-
-                        ""
-
-                    }
+                    <button
+                        class="search-slider-next"
+                        type="button"
+                        aria-label="Next product image"
+                    >
+                        ❯
+                    </button>
 
                 </div>
 
             `;
 
         }
-
-
-        /* =============================================
-           VIDEO PRODUCT
-        ============================================= */
-
         else if(
-            product.type === "video" &&
-            product.video
+            product.media.length === 1 &&
+            product.media[0].type === "video"
         ){
 
             mediaHTML = `
@@ -2076,8 +2341,7 @@ async function searchAllProducts(){
                 >
 
                     <source
-                        src="${product.video}"
-                        type="video/mp4"
+                        src="${product.media[0].src}"
                     >
 
                     Your browser does not support
@@ -2088,31 +2352,20 @@ async function searchAllProducts(){
             `;
 
         }
-
-
-        /* =============================================
-           NORMAL IMAGE PRODUCT
-        ============================================= */
-
-        else if(product.image){
+        else if(product.media.length === 1){
 
             mediaHTML = `
 
                 <img
-                    src="${product.image}"
+                    src="${product.media[0].src}"
                     class="product-image"
                     alt="${product.name}"
+                    loading="lazy"
                 >
 
             `;
 
         }
-
-
-        /* =============================================
-           FALLBACK
-        ============================================= */
-
         else{
 
             mediaHTML = `
@@ -2126,9 +2379,7 @@ async function searchAllProducts(){
                         color:#777;
                     "
                 >
-
                     50 Mirars
-
                 </div>
 
             `;
@@ -2147,17 +2398,18 @@ async function searchAllProducts(){
 
             <div class="product-info">
 
+                <div class="product-brand">
+                    ${product.brand || "50 Mirars"}
+                </div>
+
+
                 <div class="product-name">
-
                     ${product.name}
-
                 </div>
 
 
                 <div class="product-price">
-
                     ${product.price}
-
                 </div>
 
 
@@ -2165,9 +2417,7 @@ async function searchAllProducts(){
                     href="${product.link}"
                     class="view-product"
                 >
-
                     View Product
-
                 </a>
 
             </div>
@@ -2179,13 +2429,10 @@ async function searchAllProducts(){
 
 
         /* =============================================
-           START SLIDER
+           START SEARCH SLIDER
         ============================================= */
 
-        if(
-            product.type === "slider" &&
-            product.images.length > 1
-        ){
+        if(product.media.length > 1){
 
             const slider =
                 card.querySelector(
@@ -2222,6 +2469,13 @@ async function searchAllProducts(){
                         "active"
                     );
 
+
+                    if(slide.tagName === "VIDEO"){
+
+                        slide.pause();
+
+                    }
+
                 });
 
 
@@ -2234,9 +2488,14 @@ async function searchAllProducts(){
 
             next.addEventListener(
                 "click",
-                function(){
+                function(event){
+
+                    event.preventDefault();
+
+                    event.stopPropagation();
 
                     currentSlide++;
+
 
                     if(
                         currentSlide >=
@@ -2256,9 +2515,14 @@ async function searchAllProducts(){
 
             prev.addEventListener(
                 "click",
-                function(){
+                function(event){
+
+                    event.preventDefault();
+
+                    event.stopPropagation();
 
                     currentSlide--;
+
 
                     if(currentSlide < 0){
 
@@ -2287,6 +2551,7 @@ async function searchAllProducts(){
 searchAllProducts();
 
 </script>
+
     
 </body>
 
