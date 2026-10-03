@@ -177,7 +177,6 @@ button{
    ========================================================= */
 
 .crumbs{
-
     width:100%;
     max-width:var(--max);
 
@@ -205,8 +204,8 @@ button{
 }
 
 .crumbs span{
-
     display:inline;
+
 
     overflow-wrap:anywhere;
 
@@ -257,17 +256,22 @@ button{
 
 /* LABEL IS NOW OUTSIDE THE IMAGE / VIDEO */
 .gallery-label {
+    display:block;
+    position:relative;
+    z-index:2;
     font-size: 9px;
     letter-spacing: .24em;
     text-transform: uppercase;
     color: var(--muted);
-    margin-bottom: 14px;
+    margin-bottom: 18px;
     padding-left: 2px;
+    min-height:14px;
 }
 
 /* MAIN MEDIA BOX */
 .main-media {
     position: relative;
+    isolation:isolate;
     background: var(--paper);
     min-height: 680px;
     height: 680px;
@@ -915,7 +919,6 @@ button{
    ========================================================= */
 
 .details-grid{
-
     display:grid;
 
     grid-template-columns:
@@ -932,7 +935,6 @@ button{
 
 
 .detail{
-
     min-width:0;
 
     padding:22px 0;
@@ -1518,6 +1520,7 @@ button{
     }
 
     .gallery-label {
+        margin-bottom:14px;
         font-size: 8px;
         letter-spacing: .19em;
         margin-bottom: 10px;
@@ -1625,14 +1628,373 @@ button{
         height: 290px;
     }
 
-    .footer {
-        padding: 28px 18px;
-        flex-direction: column;
-        gap: 12px;
-        line-height: 1.7;
-    }
+   /* =========================================================
+   FOOTER
+========================================================= */
+
+.main-footer{
+
+    margin-top:0;
+
+    background:#111;
+
+    color:#fff;
+
+    border-top:
+        1px solid
+        rgba(17,17,17,.12);
+
 }
 
+
+.footer-container{
+
+    width:100%;
+
+    max-width:1400px;
+
+    margin:0 auto;
+
+    padding:
+        60px
+        50px
+        0;
+
+}
+
+
+/* Footer top */
+
+.footer-top{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr
+        1fr
+        1fr;
+
+    gap:50px;
+
+    padding-bottom:50px;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.15);
+
+}
+
+
+.footer-top > h2{
+
+    grid-column:
+        1 / -1;
+
+    text-align:center;
+
+    margin:
+        0
+        0
+        10px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:38px;
+
+    font-weight:400;
+
+    color:#c9a24d;
+
+}
+
+
+/* Footer headings */
+
+.contact-column h3,
+.whatsapp-column h3,
+.footer-links-column h3,
+.footer-social h3{
+
+    color:#c9a24d;
+
+    font-size:12px;
+
+    letter-spacing:.12em;
+
+    text-transform:uppercase;
+
+    margin:
+        0
+        0
+        18px;
+
+}
+
+
+/* Contact */
+
+.contact-column{
+
+    text-align:left;
+
+}
+
+
+.contact-column p{
+
+    color:#999;
+
+    font-size:13px;
+
+    line-height:1.7;
+
+}
+
+
+.footer-link{
+
+    display:block;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    margin-bottom:12px;
+
+    font-size:13px;
+
+    transition:.25s ease;
+
+}
+
+
+.footer-link:hover{
+
+    color:#c9a24d;
+
+}
+
+
+/* =========================================================
+   WHATSAPP
+========================================================= */
+
+.whatsapp-column{
+
+    text-align:center;
+
+}
+
+
+.whatsapp-title{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+}
+
+
+.whatsapp-icon{
+
+    width:28px !important;
+
+    height:28px !important;
+
+    object-fit:contain !important;
+
+}
+
+
+.whatsapp-button{
+
+    display:inline-block;
+
+    background:#c9a24d;
+
+    color:#111;
+
+    text-decoration:none;
+
+    padding:
+        12px
+        28px;
+
+    border-radius:0;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    letter-spacing:.08em;
+
+    text-transform:uppercase;
+
+    transition:.25s ease;
+
+}
+
+
+.whatsapp-button:hover{
+
+    background:#fff;
+
+    color:#111;
+
+}
+
+
+/* =========================================================
+   FOOTER MIDDLE
+========================================================= */
+
+.footer-middle{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr
+        1fr
+        1fr;
+
+    gap:50px;
+
+    padding:50px 0;
+
+}
+
+
+.footer-links-column{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+
+.footer-links-column a{
+
+    color:#bbb;
+
+    text-decoration:none;
+
+    margin-bottom:13px;
+
+    font-size:13px;
+
+    transition:.25s ease;
+
+}
+
+
+.footer-links-column a:hover{
+
+    color:#c9a24d;
+
+}
+
+
+/* =========================================================
+   INSTAGRAM
+========================================================= */
+
+.footer-social{
+
+    text-align:center;
+
+}
+
+
+.footer-social p{
+
+    color:#999;
+
+    margin-bottom:15px;
+
+    font-size:13px;
+
+}
+
+
+.instagram-button{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    width:50px;
+
+    height:50px;
+
+    border:
+        1px solid
+        #c9a24d;
+
+    border-radius:50%;
+
+    transition:.25s ease;
+
+}
+
+
+.instagram-button:hover{
+
+    background:#c9a24d;
+
+}
+
+
+.instagram-button img{
+
+    width:28px;
+
+    height:28px;
+
+    object-fit:contain;
+
+}
+
+
+/* =========================================================
+   COPYRIGHT
+========================================================= */
+
+.footer-bottom{
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.15);
+
+    text-align:center;
+
+    padding:
+        25px
+        10px;
+
+}
+
+
+.footer-bottom p{
+
+    margin:0;
+
+    color:#777;
+
+    font-size:12px;
+
+    line-height:1.6;
+
+}
 
 /* =========================================================
    VERY SMALL PHONES
@@ -2148,617 +2510,401 @@ function mediaHTML(file, large = false){
 function render(){
 
     if(!product){
-
         app.innerHTML = `
-
             <main class="empty">
-
                 <div>
-
-                    <div class="eyebrow">
-                        50 Mirars
-                    </div>
-
-                    <h1>
-                        Piece Not Found
-                    </h1>
-
-                    <p>
-                        The requested product is not in
-                        the current catalogue.
-                    </p>
-
-                    <a href="watches.html">
-                        Return to Watches
-                    </a>
-
+                    <div class="eyebrow">50 Mirars</div>
+                    <h1>Piece Not Found</h1>
+                    <p>The requested product is not in the current catalogue.</p>
+                    <a href="watches.html">Return to Watches</a>
                 </div>
-
             </main>
-
         `;
-
         return;
-
     }
 
+    document.title = product.name + " | 50 Mirars";
 
-    document.title =
-        product.name +
-        " | 50 Mirars";
-
-
-    const brand =
-        getBrand(product.name);
-
-    const media =
-        product.media || [];
-
+    const brand = getBrand(product.name);
+    const media = product.media || [];
 
     app.innerHTML = `
 
-        <!-- =========================================
-             BREADCRUMBS
-             ========================================= -->
-
         <div class="crumbs">
-
-            <a href="index.html">
-                Home
-            </a>
-
-            /
-
-            <a href="watches.html">
-                Watches
-            </a>
-
-            /
-
-            <span>
-                ${esc(product.name)}
-            </span>
-
+            <a href="index.html">Home</a>
+            <span class="crumb-separator">/</span>
+            <a href="watches.html">Watches</a>
+            <span class="crumb-separator">/</span>
+            <span>${esc(product.name)}</span>
         </div>
-
-
-        <!-- =========================================
-             MAIN ATELIER
-             ========================================= -->
 
         <main class="atelier">
 
-
-            <!-- =====================================
-                 PRODUCT HERO
-                 ===================================== -->
-
             <section class="hero-grid">
-
-
-                <!-- GALLERY -->
 
                 <div class="gallery">
 
-    <!-- LABEL IS OUTSIDE THE IMAGE / VIDEO -->
-    <div class="gallery-label">
-        50 Mirars / Royal Watch Atelier
-    </div>
+                    <div class="gallery-label">
+                        50 Mirars / Royal Watch Atelier
+                    </div>
 
-    <div class="main-media">
+                    <div class="main-media">
+                        <div id="mainMediaContent"></div>
 
-        <div id="mainMediaContent"></div>
-
-        <div
-            class="media-count"
-            id="mediaCount">
-        </div>
-
-        ${
-            m.length > 1
-            ? `
-            <div class="gallery-nav">
-
-                <button
-                    class="gallery-arrow"
-                    id="prevMedia"
-                    aria-label="Previous media">
-
-                    <svg viewBox="0 0 24 24">
-                        <path d="M15 5l-7 7 7 7"/>
-                    </svg>
-
-                </button>
-
-                <button
-                    class="gallery-arrow"
-                    id="nextMedia"
-                    aria-label="Next media">
-
-                    <svg viewBox="0 0 24 24">
-                        <path d="M9 5l7 7-7 7"/>
-                    </svg>
-
-                </button>
-
-            </div>
-            `
-            : ""
-        }
-
-    </div>
-
-    <div
-        class="thumbs"
-        id="thumbs">
-    </div>
-
-</div>
+                        <div class="media-count" id="mediaCount"></div>
 
                         ${
                             media.length > 1
-
-                            ?
-
-                            `
+                            ? `
                                 <div class="gallery-nav">
-
-                                    <button
-                                        class="gallery-arrow"
-                                        id="prevMedia"
-                                        aria-label="Previous media"
-                                    >
-
-                                        <svg viewBox="0 0 24 24">
+                                    <button class="gallery-arrow" id="prevMedia" type="button" aria-label="Previous media">
+                                        <svg viewBox="0 0 24 24" aria-hidden="true">
                                             <path d="M15 5l-7 7 7 7"/>
                                         </svg>
-
                                     </button>
 
-
-                                    <button
-                                        class="gallery-arrow"
-                                        id="nextMedia"
-                                        aria-label="Next media"
-                                    >
-
-                                        <svg viewBox="0 0 24 24">
+                                    <button class="gallery-arrow" id="nextMedia" type="button" aria-label="Next media">
+                                        <svg viewBox="0 0 24 24" aria-hidden="true">
                                             <path d="M9 5l7 7-7 7"/>
                                         </svg>
-
                                     </button>
-
                                 </div>
                             `
-
-                            :
-
-                            ""
+                            : ""
                         }
-
                     </div>
 
-
-                    <div
-                        class="thumbs"
-                        id="thumbs"
-                    ></div>
+                    <div class="thumbs" id="thumbs"></div>
 
                 </div>
-
-
-                <!-- PRODUCT INFORMATION -->
 
                 <div class="product-copy">
 
-                    <div class="eyebrow">
-                        ${esc(brand)}
-                    </div>
+                    <div class="eyebrow">${esc(brand)}</div>
 
-
-                    <h1 class="product-title">
-                        ${esc(product.name)}
-                    </h1>
-
+                    <h1 class="product-title">${esc(product.name)}</h1>
 
                     <div class="product-rule"></div>
 
-
-                    <div class="price">
-                        ${money(product.price)}
-                    </div>
-
+                    <div class="price">${money(product.price)}</div>
 
                     <div class="availability">
-
                         <span class="availability-dot"></span>
-
                         Available for order
-
                     </div>
 
-
                     <p class="lead">
-
-                        A carefully presented piece from
-                        the 50 Mirars collection, displayed
-                        through the Royal Watch Atelier
-                        experience.
-
+                        A carefully presented piece from the 50 Mirars collection,
+                        displayed through the Royal Watch Atelier experience.
                     </p>
-
-
-                    <!-- PURCHASE -->
 
                     <div class="purchase">
 
-
                         <div class="quantity-row">
-
-                            <span class="quantity-label">
-                                Quantity
-                            </span>
-
+                            <span class="quantity-label">Quantity</span>
 
                             <div class="qty">
-
-                                <button
-                                    id="qtyMinus"
-                                    type="button"
-                                    aria-label="Decrease quantity"
-                                >
-                                    −
-                                </button>
-
-
-                                <span id="qtyValue">
-                                    1
-                                </span>
-
-
-                                <button
-                                    id="qtyPlus"
-                                    type="button"
-                                    aria-label="Increase quantity"
-                                >
-                                    +
-                                </button>
-
+                                <button id="qtyMinus" type="button" aria-label="Decrease quantity">−</button>
+                                <span id="qtyValue">1</span>
+                                <button id="qtyPlus" type="button" aria-label="Increase quantity">+</button>
                             </div>
-
                         </div>
-
 
                         <div class="primary-actions">
-
-                            <button
-                                class="action primary"
-                                id="addCart"
-                                type="button"
-                            >
-                                Add to Cart
-                            </button>
-
-
-                            <button
-                                class="action secondary"
-                                id="buyNow"
-                                type="button"
-                            >
-                                Buy Now
-                            </button>
-
+                            <button class="action primary" id="addCart" type="button">Add to Cart</button>
+                            <button class="action secondary" id="buyNow" type="button">Buy Now</button>
                         </div>
-
 
                         <div class="secondary-actions">
-
-                            <button
-                                class="text-action"
-                                id="whatsappBtn"
-                                type="button"
-                            >
-                                WhatsApp Enquire
-                            </button>
-
+                            <button class="text-action" id="whatsappBtn" type="button">WhatsApp Enquire</button>
                         </div>
-
 
                     </div>
 
-
-                    <!-- TRUST -->
-
                     <div class="trust">
-
-                        <div class="trust-item">
-                            Secure<br>
-                            Order Experience
-                        </div>
-
-
-                        <div class="trust-item">
-                            Premium<br>
-                            Presentation
-                        </div>
-
-
-                        <div class="trust-item">
-                            Personal<br>
-                            Assistance
-                        </div>
-
+                        <div class="trust-item">Secure<br>Order Experience</div>
+                        <div class="trust-item">Premium<br>Presentation</div>
+                        <div class="trust-item">Personal<br>Assistance</div>
                     </div>
 
                 </div>
 
             </section>
-
-
-            <!-- =====================================
-                 DETAILS
-                 ===================================== -->
 
             <section class="editorial">
 
-
                 <div class="section-head">
-
-                    <div class="section-number">
-                        01 / The Piece
-                    </div>
-
+                    <div class="section-number">01 / The Piece</div>
 
                     <div>
-
-                        <h2 class="section-title">
-                            The Details
-                        </h2>
-
-
+                        <h2 class="section-title">The Details</h2>
                         <p class="section-intro">
-
-                            The product information below
-                            is generated directly from the
-                            current 50 Mirars catalogue
-                            database.
-
+                            The product information below is generated directly from the current 50 Mirars catalogue database.
                         </p>
-
                     </div>
-
                 </div>
-
 
                 <div class="details-grid">
 
-
                     <div class="detail">
-
-                        <strong>
-                            Collection
-                        </strong>
-
-                        <span>
-                            50 Mirars Watches
-                        </span>
-
+                        <strong>Collection</strong>
+                        <span>50 Mirars Watches</span>
                     </div>
 
-
                     <div class="detail">
-
-                        <strong>
-                            Brand
-                        </strong>
-
-                        <span>
-                            ${esc(brand)}
-                        </span>
-
+                        <strong>Brand</strong>
+                        <span>${esc(brand)}</span>
                     </div>
 
-
                     <div class="detail">
-
-                        <strong>
-                            Product
-                        </strong>
-
-                        <span>
-                            ${esc(product.name)}
-                        </span>
-
+                        <strong>Product</strong>
+                        <span>${esc(product.name)}</span>
                     </div>
 
-
                     <div class="detail">
-
-                        <strong>
-                            Price
-                        </strong>
-
-                        <span>
-                            ${money(product.price)}
-                        </span>
-
+                        <strong>Price</strong>
+                        <span>${money(product.price)}</span>
                     </div>
 
-
                     <div class="detail">
-
-                        <strong>
-                            Media
-                        </strong>
-
-                        <span>
-                            ${media.length}
-                            ${media.length === 1 ? "item" : "items"}
-                        </span>
-
+                        <strong>Media</strong>
+                        <span>${media.length} ${media.length === 1 ? "item" : "items"}</span>
                     </div>
 
-
                     <div class="detail">
-
-                        <strong>
-                            Format
-                        </strong>
-
-                        <span>
-                            ${
-                                product.type === "video"
-                                ? "Video presentation"
-                                : "Image gallery"
-                            }
-                        </span>
-
+                        <strong>Format</strong>
+                        <span>${product.type === "video" ? "Video presentation" : "Image gallery"}</span>
                     </div>
 
-
                     <div class="detail">
-
-                        <strong>
-                            Catalogue ID
-                        </strong>
-
-                        <span>
-                            #${product.id}
-                        </span>
-
+                        <strong>Catalogue ID</strong>
+                        <span>#${product.id}</span>
                     </div>
 
-
                     <div class="detail">
-
-                        <strong>
-                            Availability
-                        </strong>
-
-                        <span>
-                            Available for order
-                        </span>
-
+                        <strong>Availability</strong>
+                        <span>Available for order</span>
                     </div>
-
 
                 </div>
 
             </section>
-
-
-            <!-- =====================================
-                 STATEMENT
-                 ===================================== -->
 
             <section class="statement">
-
                 <div class="statement-inner">
-
-                    <div class="statement-small">
-                        50 Mirars / The Watch Atelier
-                    </div>
-
-
-                    <h2>
-                        More Than Time.
-                        <br>
-                        A Statement of Style.
-                    </h2>
-
-
+                    <div class="statement-small">50 Mirars / The Watch Atelier</div>
+                    <h2>More Than Time.<br>A Statement of Style.</h2>
                     <p>
-
-                        Every piece is presented with
-                        the visual restraint and attention
-                        to detail that define the
-                        50 Mirars collection.
-
+                        Every piece is presented with the visual restraint and attention to detail that define the 50 Mirars collection.
                     </p>
-
                 </div>
-
             </section>
-
-
-            <!-- =====================================
-                 RELATED
-                 ===================================== -->
 
             <section class="related">
 
-
                 <div class="section-head">
-
-                    <div class="section-number">
-                        02 / The Collection
-                    </div>
-
+                    <div class="section-number">02 / The Collection</div>
 
                     <div>
-
-                        <h2 class="section-title">
-                            You May Also Like
-                        </h2>
-
-
+                        <h2 class="section-title">You May Also Like</h2>
                         <p class="section-intro">
-
-                            Explore a few neighbouring
-                            pieces from the same watch
-                            collection.
-
+                            Explore a few neighbouring pieces from the same watch collection.
                         </p>
-
                     </div>
-
                 </div>
 
-
-                <div
-                    class="related-grid"
-                    id="relatedGrid"
-                ></div>
-
+                <div class="related-grid" id="relatedGrid"></div>
 
             </section>
 
-
         </main>
 
+       <!-- =========================================================
+     FOOTER
+========================================================= -->
 
-        <!-- =========================================
-             FOOTER
-             ========================================= -->
+<footer class="main-footer">
 
-        <footer class="footer">
+    <div class="footer-container">
 
-            <span>
-                © 2026 50 Mirars —
-                The Watch &amp; Sunglasses Store
-            </span>
+        <div class="footer-top">
 
-            <span>
-                Luxury Watch Atelier
-            </span>
+            <h2>
+                Contact Us
+            </h2>
 
-        </footer>
 
-    `;
+            <div class="contact-column">
 
+                <h3>
+                    For Customers:
+                </h3>
+
+                <a
+                    href="mailto:50mirars@gmail.com"
+                    class="footer-link"
+                >
+                    50mirars@gmail.com
+                </a>
+
+                <a
+                    href="tel:+918209989013"
+                    class="footer-link"
+                >
+                    82099 89013
+                </a>
+
+                <p>
+                    09:00 - 21:30 | Monday to Sunday
+                </p>
+
+            </div>
+
+
+            <div class="contact-column">
+
+                <h3>
+                    For Sales/Watch Service:
+                </h3>
+
+                <a
+                    href="mailto:50mirars@gmail.com"
+                    class="footer-link"
+                >
+                    50mirars@gmail.com
+                </a>
+
+                <a
+                    href="tel:+918209989013"
+                    class="footer-link"
+                >
+                    82099 89013
+                </a>
+
+                <p>
+                    09:00 - 21:30 | Monday to Sunday
+                </p>
+
+            </div>
+
+
+            <div class="whatsapp-column">
+
+                <h3 class="whatsapp-title">
+
+                    <span>
+                        View Products on WhatsApp
+                    </span>
+
+                    <img
+                        src="whatsapplogo.png"
+                        alt="WhatsApp"
+                        class="whatsapp-icon"
+                    >
+
+                </h3>
+
+                <a
+                    href="https://wa.me/918209989013"
+                    target="_blank"
+                    rel="noopener"
+                    class="whatsapp-button"
+                >
+                    View Products
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="footer-middle">
+
+            <div class="footer-links-column">
+
+                <h3>
+                    Know 50 Mirars
+                </h3>
+
+                <a href="about.html">
+                    About Us
+                </a>
+
+                <a href="faq.html">
+                    FAQ
+                </a>
+
+            </div>
+
+
+            <div class="footer-links-column">
+
+                <h3>
+                    Terms &amp; Conditions
+                </h3>
+
+                <a href="terms.html">
+                    Terms &amp; Conditions
+                </a>
+
+                <a href="privacypolicy.html">
+                    Privacy Policy
+                </a>
+
+            </div>
+
+
+            <div class="footer-social">
+
+                <h3>
+                    50 Mirars
+                </h3>
+
+                <p>
+                    Follow Us On
+                </p>
+
+                <a
+                    href="https://instagram.com/50mirars"
+                    target="_blank"
+                    rel="noopener"
+                    class="instagram-button"
+                    aria-label="Follow 50 Mirars on Instagram"
+                >
+
+                    <img
+                        src="instagramimage.webp"
+                        alt="Instagram"
+                    >
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 50 Mirars - The Watch &amp; Sunglasses Store.
+                All Rights Reserved.
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+`;
 
     buildGallery(media);
-
     buildRelated();
-
     bindActions();
-
 }
-
-
-/* =========================================================
-   GALLERY
-   ========================================================= */
 
 function buildGallery(media){
 
