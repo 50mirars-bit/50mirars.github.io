@@ -249,46 +249,46 @@ button{
 
 /* =========================================================
    GALLERY
-   ========================================================= */
+========================================================= */
 
-.gallery{
-    width:100%;
-    min-width:0;
+.gallery {
+    min-width: 0;
 }
 
-
-.main-media{
-
-    position:relative;
-
-    width:100%;
-
-    min-height:680px;
-
-    background:var(--paper);
-
-    border:1px solid rgba(17,17,17,.08);
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    overflow:hidden;
-
+/* LABEL IS NOW OUTSIDE THE IMAGE / VIDEO */
+.gallery-label {
+    font-size: 9px;
+    letter-spacing: .24em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 14px;
+    padding-left: 2px;
 }
 
+/* MAIN MEDIA BOX */
+.main-media {
+    position: relative;
+    background: var(--paper);
+    min-height: 680px;
+    height: 680px;
+    border: 1px solid rgba(17,17,17,.08);
 
-.main-media::before{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    content:"";
+    overflow: hidden;
+}
 
-    position:absolute;
+/* Soft luxury background glow */
+.main-media::before {
+    content: "";
+    position: absolute;
 
-    width:72%;
-    height:72%;
+    width: 72%;
+    height: 72%;
 
-    border-radius:50%;
+    border-radius: 50%;
 
     background:
         radial-gradient(
@@ -297,241 +297,155 @@ button{
             transparent 68%
         );
 
+    pointer-events: none;
 }
 
-
+/* IMAGE + VIDEO */
 .main-media img,
-.main-media video{
+.main-media video {
+    position: relative;
+    z-index: 1;
 
-    position:relative;
+    width: 100%;
+    height: 100%;
 
-    z-index:1;
-
-    display:block;
-
-    width:100%;
-    height:680px;
-
-    object-fit:contain;
-
+    object-fit: contain;
+    display: block;
 }
 
+/* MEDIA COUNTER */
+.media-count {
+    position: absolute;
+    z-index: 3;
 
-.media-label{
+    right: 22px;
+    bottom: 20px;
 
-    position:absolute;
+    font-size: 9px;
+    letter-spacing: .16em;
 
-    z-index:3;
+    color: var(--muted);
 
-    top:22px;
-    left:24px;
-
-    font-size:9px;
-
-    letter-spacing:.24em;
-
-    text-transform:uppercase;
-
-    color:var(--muted);
-
+    background: rgba(251,249,244,.78);
+    padding: 6px 9px;
 }
 
+/* NAVIGATION */
+.gallery-nav {
+    position: absolute;
+    z-index: 5;
 
-.media-count{
+    left: 18px;
+    right: 18px;
+    top: 50%;
 
-    position:absolute;
+    transform: translateY(-50%);
 
-    z-index:3;
+    display: flex;
+    justify-content: space-between;
 
-    right:22px;
-    bottom:20px;
-
-    font-size:9px;
-
-    letter-spacing:.16em;
-
-    color:var(--muted);
-
+    pointer-events: none;
 }
 
+.gallery-arrow {
+    pointer-events: auto;
 
-/* =========================================================
-   GALLERY NAVIGATION
-   ========================================================= */
+    width: 42px;
+    height: 42px;
 
-.gallery-nav{
+    border: 1px solid var(--line);
+    border-radius: 50%;
 
-    position:absolute;
+    background: rgba(251,249,244,.88);
 
-    z-index:5;
+    cursor: pointer;
 
-    left:18px;
-    right:18px;
+    display: grid;
+    place-items: center;
 
-    top:50%;
-
-    transform:translateY(-50%);
-
-    display:flex;
-
-    justify-content:space-between;
-
-    pointer-events:none;
-
+    transition: .25s;
 }
 
-
-.gallery-arrow{
-
-    pointer-events:auto;
-
-    width:44px;
-    height:44px;
-
-    border:1px solid var(--line);
-
-    border-radius:50%;
-
-    background:rgba(251,249,244,.90);
-
-    cursor:pointer;
-
-    display:grid;
-
-    place-items:center;
-
-    transition:
-        border-color .25s ease,
-        background .25s ease,
-        transform .25s ease;
-
+.gallery-arrow:hover {
+    border-color: var(--gold);
+    transform: scale(1.04);
 }
 
+.gallery-arrow svg {
+    width: 17px;
+    height: 17px;
 
-.gallery-arrow:hover{
-
-    border-color:var(--gold);
-
-    background:#fffaf0;
-
-    transform:scale(1.04);
-
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 1.4;
 }
 
+/* THUMBNAILS */
+.thumbs {
+    display: flex;
+    gap: 10px;
 
-.gallery-arrow svg{
+    overflow-x: auto;
 
-    width:17px;
-    height:17px;
+    padding: 16px 0 4px;
 
-    stroke:currentColor;
-
-    fill:none;
-
-    stroke-width:1.4;
-
+    scrollbar-width: thin;
 }
 
+.thumb {
+    flex: 0 0 86px;
 
-/* =========================================================
-   THUMBNAILS
-   ========================================================= */
+    height: 86px;
 
-.thumbs{
+    background: var(--paper);
 
-    display:flex;
+    border: 1px solid var(--line);
 
-    gap:10px;
+    cursor: pointer;
 
-    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    overflow-x:auto;
+    position: relative;
 
-    overflow-y:hidden;
-
-    padding:
-        16px
-        0
-        5px;
-
-    scrollbar-width:thin;
-
+    overflow: hidden;
 }
 
-
-.thumb{
-
-    flex:0 0 86px;
-
-    width:86px;
-    height:86px;
-
-    background:var(--paper);
-
-    border:1px solid var(--line);
-
-    cursor:pointer;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    position:relative;
-
-    overflow:hidden;
-
-    transition:
-        border-color .2s ease,
-        box-shadow .2s ease;
-
-}
-
-
-.thumb.active{
-
-    border-color:var(--gold);
+.thumb.active {
+    border-color: var(--gold);
 
     box-shadow:
         inset 0 0 0 1px var(--gold);
-
 }
-
 
 .thumb img,
-.thumb video{
+.thumb video {
+    width: 100%;
+    height: 100%;
 
-    width:100%;
-    height:100%;
-
-    object-fit:contain;
-
+    object-fit: contain;
 }
 
+.thumb-video-mark {
+    position: absolute;
 
-.thumb-video-mark{
+    right: 7px;
+    bottom: 7px;
 
-    position:absolute;
+    width: 19px;
+    height: 19px;
 
-    right:7px;
-    bottom:7px;
+    border-radius: 50%;
 
-    width:19px;
-    height:19px;
+    background: #111;
+    color: #fff;
 
-    border-radius:50%;
+    display: grid;
+    place-items: center;
 
-    background:#111;
-
-    color:#fff;
-
-    display:grid;
-    place-items:center;
-
-    font-size:8px;
-
+    font-size: 8px;
 }
-
 
 /* =========================================================
    PRODUCT COPY
@@ -2387,21 +2301,12 @@ button{
      ======================================================= -->
 
 <header class="site-header">
-
-    <a href="index.html" aria-label="50 Mirars Home">
-
+    <a href="index.html" class="brand-link">
         <div class="brand">
-
             50 MIRARS
-
-            <span class="brand-sub">
-                THE WATCH &amp; SUNGLASSES STORE
-            </span>
-
+            <span class="brand-sub">THE WATCH &amp; SUNGLASSES STORE</span>
         </div>
-
     </a>
-
 </header>
 
 
@@ -2957,21 +2862,60 @@ function render(){
 
                 <div class="gallery">
 
-                    <div class="main-media">
+    <!-- LABEL IS OUTSIDE THE IMAGE / VIDEO -->
+    <div class="gallery-label">
+        50 Mirars / Royal Watch Atelier
+    </div>
 
-                        <div class="media-label">
-                            50 Mirars / Royal Watch Atelier
-                        </div>
+    <div class="main-media">
 
-                        <div
-                            id="mainMediaContent"
-                        ></div>
+        <div id="mainMediaContent"></div>
 
-                        <div
-                            class="media-count"
-                            id="mediaCount"
-                        ></div>
+        <div
+            class="media-count"
+            id="mediaCount">
+        </div>
 
+        ${
+            m.length > 1
+            ? `
+            <div class="gallery-nav">
+
+                <button
+                    class="gallery-arrow"
+                    id="prevMedia"
+                    aria-label="Previous media">
+
+                    <svg viewBox="0 0 24 24">
+                        <path d="M15 5l-7 7 7 7"/>
+                    </svg>
+
+                </button>
+
+                <button
+                    class="gallery-arrow"
+                    id="nextMedia"
+                    aria-label="Next media">
+
+                    <svg viewBox="0 0 24 24">
+                        <path d="M9 5l7 7-7 7"/>
+                    </svg>
+
+                </button>
+
+            </div>
+            `
+            : ""
+        }
+
+    </div>
+
+    <div
+        class="thumbs"
+        id="thumbs">
+    </div>
+
+</div>
 
                         ${
                             media.length > 1
