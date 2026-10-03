@@ -7,25 +7,75 @@
 
 <meta
     name="viewport"
-    content="width=1250"
+    content="width=1000"
+>
+
+<meta
+    name="theme-color"
+    content="#f7f3e9"
 >
 
 <meta
     name="description"
-    content="Premium couple watches product details at 50 Mirars."
+    content="50 Mirars — Royal Watch Atelier. Explore premium couple watches through an elegant editorial product experience."
 >
 
-<title>Couple Watches | 50 Mirars</title>
+<title>Couple Watch Details | 50 Mirars</title>
 
+<link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+>
+
+<link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+>
 
 <style>
 
 /* =========================================================
-   GLOBAL
+   ROOT
+========================================================= */
+
+:root{
+
+    --ivory:#f7f3e9;
+    --paper:#fbf9f4;
+
+    --ink:#111111;
+    --soft-ink:#252525;
+
+    --muted:#716d64;
+
+    --gold:#c9a24d;
+    --gold-dark:#9b762c;
+
+    --line:rgba(17,17,17,.14);
+    --soft-line:rgba(17,17,17,.08);
+
+    --white:#ffffff;
+    --black:#090909;
+
+    --max:1380px;
+
+}
+
+
+/* =========================================================
+   RESET
 ========================================================= */
 
 *{
     box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
 html{
@@ -33,854 +83,1336 @@ html{
 }
 
 body{
-    margin:0;
+
+    background:var(--ivory);
+
+    color:var(--ink);
 
     font-family:
+        Inter,
         Arial,
-        Helvetica,
         sans-serif;
 
-    color:#222;
+    font-weight:400;
 
-    background:
-        radial-gradient(
-            circle at 50% 10%,
-            rgba(201,162,77,0.12),
-            transparent 30%
-        ),
-        linear-gradient(
-            135deg,
-            #f7f3e9 0%,
-            #eee8d9 50%,
-            #f8f5ed 100%
-        );
+    line-height:1.6;
+
+    -webkit-font-smoothing:antialiased;
+
+}
+
+img,
+video{
+    display:block;
+    max-width:100%;
+}
+
+button,
+input{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
 }
 
 
 /* =========================================================
-   TOP HEADER
+   HEADER
 ========================================================= */
 
-.top-bar{
-    width:100%;
+.site-header{
 
-    padding:25px 80px;
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+    height:74px;
 
     display:flex;
 
-    justify-content:space-between;
-
     align-items:center;
 
-    background:#fff;
+    padding:0 42px;
 
-    border-bottom:1px solid #e5e5e5;
-}
+    background:rgba(247,243,233,.94);
 
-.brand-logo{
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
+    backdrop-filter:blur(16px);
 
-    font-size:28px;
+    -webkit-backdrop-filter:blur(16px);
 
-    font-weight:700;
+    border-bottom:1px solid var(--line);
 
-    letter-spacing:4px;
-
-    color:#111;
-
-    line-height:1;
-}
-
-.back-btn{
-    display:inline-flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    background:transparent;
-
-    color:#111;
-
-    text-decoration:none;
-
-    border:none;
-
-    font-size:16px;
-
-    font-weight:600;
-
-    transition:
-        color 0.3s ease;
-}
-
-.back-btn:hover{
-    color:#c9a24d;
 }
 
 
-/* =========================================================
-   PAGE HEADER
-========================================================= */
-
-.page-header{
-    text-align:center;
-
-    padding:
-        25px
-        20px
-        40px;
+.brand-link{
+    display:inline-block;
 }
 
-.page-header h1{
-    margin:0 0 18px;
+
+.brand{
 
     font-family:
+        Cormorant Garamond,
         Georgia,
-        "Times New Roman",
         serif;
 
-    font-size:54px;
+    font-size:27px;
 
     font-weight:600;
 
-    color:#111;
+    letter-spacing:.16em;
+
+    line-height:1;
+
 }
 
-.title-line{
-    width:150px;
 
-    height:2px;
+.brand-sub{
 
-    background:#c9a24d;
+    display:block;
 
-    margin:auto;
+    margin-top:7px;
 
-    position:relative;
-}
+    font-family:
+        Inter,
+        Arial,
+        sans-serif;
 
-.title-line::after{
-    content:"";
+    font-size:8px;
 
-    position:absolute;
+    font-weight:500;
 
-    width:11px;
+    letter-spacing:.25em;
 
-    height:11px;
+    color:var(--muted);
 
-    background:#c9a24d;
-
-    left:50%;
-
-    top:50%;
-
-    transform:
-        translate(-50%,-50%)
-        rotate(45deg);
 }
 
 
 /* =========================================================
-   PRODUCT SECTION
+   APP
 ========================================================= */
 
-.product-detail-section{
-    width:100%;
+#app{
+    min-height:500px;
+}
 
-    max-width:1400px;
+
+/* =========================================================
+   PAGE CONTAINER
+========================================================= */
+
+.page-wrap{
+
+    width:min(
+        calc(100% - 64px),
+        var(--max)
+    );
 
     margin:0 auto;
 
-    padding:
-        10px
-        40px
-        80px;
 }
 
-.product-detail-card{
-    background:#fff;
 
-    border-radius:22px;
+/* =========================================================
+   BREADCRUMBS
+========================================================= */
 
-    overflow:hidden;
+.crumbs{
 
-    box-shadow:
-        0 15px 50px rgba(0,0,0,0.10);
+    display:flex;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    padding:25px 0 24px;
+
+    font-size:11px;
+
+    letter-spacing:.04em;
+
+    color:var(--muted);
+
+}
+
+.crumbs a{
+
+    transition:.25s ease;
+
+}
+
+.crumbs a:hover{
+    color:var(--ink);
+}
+
+.crumb-separator{
+    opacity:.45;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.product-hero{
 
     display:grid;
 
     grid-template-columns:
-        1fr
-        1fr;
+        minmax(0,1.12fr)
+        minmax(360px,.88fr);
 
-    min-height:650px;
+    gap:70px;
+
+    align-items:start;
+
+    padding-bottom:115px;
+
 }
 
 
 /* =========================================================
-   MEDIA
+   GALLERY
 ========================================================= */
 
-.product-media-area{
-    background:
-        linear-gradient(
-            145deg,
-            #f8f5ed,
-            #e9e3d3
-        );
+.gallery{
 
-    min-height:650px;
+    min-width:0;
 
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    padding:40px;
-
-    position:relative;
 }
 
-.product-media-wrapper{
-    width:100%;
+.gallery-label{
 
-    max-width:650px;
+    margin-bottom:15px;
 
-    height:570px;
+    font-size:9px;
 
-    display:flex;
+    font-weight:600;
 
-    align-items:center;
-
-    justify-content:center;
-
-    background:#fff;
-
-    border-radius:18px;
-
-    overflow:hidden;
-
-    box-shadow:
-        0 8px 30px rgba(0,0,0,0.08);
-}
-
-.product-media-wrapper img,
-.product-media-wrapper video{
-    width:100%;
-
-    height:100%;
-
-    object-fit:contain;
-
-    display:block;
-}
-
-.product-media-wrapper video{
-    background:#111;
-}
-
-.media-badge{
-    position:absolute;
-
-    top:25px;
-
-    left:25px;
-
-    background:#111;
-
-    color:#c9a24d;
-
-    padding:9px 15px;
-
-    border-radius:30px;
-
-    font-size:13px;
-
-    font-weight:bold;
-
-    letter-spacing:0.5px;
-}
-
-
-/* =========================================================
-   PRODUCT INFORMATION
-========================================================= */
-
-.product-info{
-    padding:
-        60px
-        55px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-}
-
-.product-brand{
-    color:#9b762c;
-
-    font-size:14px;
-
-    font-weight:bold;
+    letter-spacing:.22em;
 
     text-transform:uppercase;
 
-    letter-spacing:2px;
+    color:var(--muted);
 
-    margin-bottom:15px;
 }
 
-.product-name{
-    margin:0 0 18px;
 
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
+.main-media-wrap{
 
-    font-size:43px;
+    position:relative;
 
-    line-height:1.15;
-
-    color:#111;
-
-    font-weight:600;
-}
-
-.product-id{
-    color:#777;
-
-    font-size:14px;
-
-    margin-bottom:25px;
-}
-
-.product-price{
-    color:#c9a24d;
-
-    font-size:32px;
-
-    font-weight:bold;
-
-    margin-bottom:28px;
-}
-
-.divider{
     width:100%;
 
-    height:1px;
-
-    background:#ddd;
-
-    margin-bottom:28px;
 }
 
 
-/* =========================================================
-   DESCRIPTION
-========================================================= */
+.main-media{
 
-.product-description{
-    color:#555;
+    position:relative;
 
-    font-size:17px;
+    display:flex;
 
-    line-height:1.75;
+    align-items:center;
 
-    margin:0 0 30px;
+    justify-content:center;
+
+    overflow:hidden;
+
+    min-height:600px;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(201,162,77,.13),
+            transparent 42%
+        ),
+
+        var(--paper);
+
+    border:1px solid var(--soft-line);
+
 }
 
 
-/* =========================================================
-   FEATURES
-========================================================= */
+.main-media img,
+.main-media video{
 
-.feature-list{
-    margin:0 0 30px;
+    width:100%;
+
+    height:600px;
+
+    object-fit:contain;
+
+    padding:34px;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+
+.main-media video{
+
+    background:#000;
+
+    object-fit:contain;
 
     padding:0;
 
-    list-style:none;
 }
 
-.feature-list li{
-    margin-bottom:12px;
 
-    color:#444;
+/* =========================================================
+   GALLERY CONTROLS
+========================================================= */
 
-    font-size:15px;
+.media-counter{
 
-    display:flex;
+    position:absolute;
 
-    align-items:center;
+    top:20px;
 
-    gap:10px;
-}
+    right:22px;
 
-.feature-list li::before{
-    content:"◆";
+    z-index:5;
 
-    color:#c9a24d;
+    padding:6px 10px;
+
+    background:rgba(251,249,244,.85);
+
+    border:1px solid var(--line);
 
     font-size:9px;
+
+    letter-spacing:.12em;
+
+    color:var(--muted);
+
 }
 
 
-/* =========================================================
-   QUANTITY
-========================================================= */
+.gallery-arrow{
 
-.quantity-title{
-    font-size:14px;
+    position:absolute;
 
-    font-weight:bold;
+    top:50%;
 
-    margin-bottom:10px;
+    z-index:8;
 
-    color:#333;
-}
+    width:43px;
 
-.quantity-box{
-    display:flex;
+    height:43px;
 
-    align-items:center;
-
-    width:max-content;
-
-    border:1px solid #ccc;
-
-    border-radius:6px;
-
-    overflow:hidden;
-
-    margin-bottom:25px;
-}
-
-.quantity-box button{
-    width:42px;
-
-    height:42px;
-
-    border:0;
-
-    background:#f4f4f4;
-
-    font-size:20px;
-
-    cursor:pointer;
-
-    transition:
-        background 0.2s ease;
-}
-
-.quantity-box button:hover{
-    background:#c9a24d;
-}
-
-.quantity-box input{
-    width:55px;
-
-    height:42px;
-
-    border:0;
-
-    border-left:1px solid #ddd;
-
-    border-right:1px solid #ddd;
-
-    text-align:center;
-
-    font-size:16px;
-
-    font-weight:bold;
-
-    outline:none;
-}
-
-
-/* =========================================================
-   ACTION BUTTONS
-========================================================= */
-
-.action-buttons{
-    display:grid;
-
-    grid-template-columns:
-        1fr
-        1fr;
-
-    gap:12px;
-
-    margin-bottom:15px;
-}
-
-.add-cart-btn,
-.buy-now-btn{
-    min-height:54px;
-
-    border-radius:6px;
-
-    font-size:16px;
-
-    font-weight:bold;
-
-    cursor:pointer;
-
-    transition:0.3s ease;
-}
-
-.add-cart-btn{
-    background:#fff;
-
-    color:#111;
-
-    border:2px solid #111;
-}
-
-.add-cart-btn:hover{
-    background:#111;
-
-    color:#fff;
-}
-
-.buy-now-btn{
-    background:#111;
-
-    color:#fff;
-
-    border:2px solid #111;
-}
-
-.buy-now-btn:hover{
-    background:#c9a24d;
-
-    color:#111;
-
-    border-color:#c9a24d;
-}
-
-
-/* =========================================================
-   WHATSAPP
-========================================================= */
-
-.whatsapp-product-btn{
-    width:100%;
-
-    min-height:52px;
+    transform:translateY(-50%);
 
     display:flex;
 
     align-items:center;
 
     justify-content:center;
+
+    border:1px solid rgba(17,17,17,.18);
+
+    background:rgba(251,249,244,.9);
+
+    color:var(--ink);
+
+    font-size:21px;
+
+    transition:.25s ease;
+
+}
+
+
+.gallery-arrow:hover{
+
+    background:var(--ink);
+
+    color:var(--white);
+
+}
+
+
+.gallery-arrow.prev{
+    left:18px;
+}
+
+.gallery-arrow.next{
+    right:18px;
+}
+
+
+.gallery-arrow.hidden{
+    display:none;
+}
+
+
+/* =========================================================
+   THUMBNAILS
+========================================================= */
+
+.thumbnails{
+
+    display:flex;
 
     gap:10px;
 
-    background:#c9a24d;
+    overflow-x:auto;
 
-    color:#111;
+    padding-top:12px;
 
-    text-decoration:none;
+    scrollbar-width:thin;
 
-    border-radius:6px;
-
-    font-weight:bold;
-
-    border:2px solid #c9a24d;
-
-    transition:0.3s ease;
 }
 
-.whatsapp-product-btn:hover{
-    background:#111;
+.thumb{
 
-    color:#fff;
-
-    border-color:#111;
-}
-
-.whatsapp-product-btn img{
-    width:25px;
-
-    height:25px;
-
-    object-fit:contain;
-}
-
-
-/* =========================================================
-   CART MESSAGE
-========================================================= */
-
-.cart-message{
-    min-height:24px;
-
-    color:#2d8a43;
-
-    font-size:14px;
-
-    font-weight:bold;
-
-    margin-top:10px;
-}
-
-.product-slider{
-    width:100%;
-    height:100%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
     position:relative;
+
+    flex:0 0 78px;
+
+    width:78px;
+
+    height:78px;
+
+    overflow:hidden;
+
+    border:1px solid var(--line);
+
+    background:var(--paper);
+
+    opacity:.62;
+
+    transition:.25s ease;
+
 }
 
-.product-slider-image{
+.thumb.active{
+
+    opacity:1;
+
+    border-color:var(--gold);
+
+}
+
+.thumb img,
+.thumb video{
+
     width:100%;
+
     height:100%;
-    object-fit:contain;
-    display:block;
+
+    object-fit:cover;
+
 }
 
-.slider-arrow{
+.thumb-video{
+
     position:absolute;
-    top:50%;
-    transform:translateY(-50%);
-    width:45px;
-    height:45px;
-    border:none;
-    border-radius:50%;
-    background:rgba(17,17,17,.85);
-    color:#c9a24d;
-    font-size:28px;
+
+    inset:0;
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
-    cursor:pointer;
-    z-index:5;
-}
 
-.slider-prev{left:15px;}
-.slider-next{right:15px;}
+    background:rgba(0,0,0,.28);
 
-.slider-dots{
-    position:absolute;
-    bottom:15px;
-    left:50%;
-    transform:translateX(-50%);
-    display:flex;
-    gap:8px;
-}
-
-.slider-dot{
-    width:9px;
-    height:9px;
-    border-radius:50%;
-    border:1px solid #111;
-    background:#fff;
-    cursor:pointer;
-}
-
-.slider-dot.active{
-    background:#c9a24d;
-    border-color:#c9a24d;
-}
-
-
-/* =========================================================
-   DELIVERY
-========================================================= */
-
-.delivery-info{
-    margin-top:25px;
-
-    padding-top:20px;
-
-    border-top:1px solid #ddd;
-}
-
-.delivery-info strong{
-    color:#111;
+    color:white;
 
     font-size:16px;
-}
 
-.delivery-info p{
-    margin:10px 0 0;
+    pointer-events:none;
 
-    color:#666;
-
-    font-size:14px;
-
-    line-height:1.6;
 }
 
 
 /* =========================================================
-   RELATED PRODUCTS
+   PRODUCT COPY
 ========================================================= */
 
-.related-section{
-    width:100%;
+.product-copy{
 
-    max-width:1400px;
+    position:sticky;
 
-    margin:0 auto;
+    top:105px;
 
-    padding:
-        20px
-        40px
-        80px;
 }
 
-.related-heading{
-    text-align:center;
 
-    margin-bottom:40px;
+.eyebrow{
+
+    margin-bottom:16px;
+
+    font-size:10px;
+
+    font-weight:600;
+
+    letter-spacing:.25em;
+
+    text-transform:uppercase;
+
+    color:var(--gold-dark);
+
 }
 
-.related-heading h2{
-    margin:0 0 12px;
+
+.product-title{
+
+    max-width:650px;
 
     font-family:
+        Cormorant Garamond,
         Georgia,
-        "Times New Roman",
         serif;
 
-    font-size:38px;
+    font-size:clamp(
+        46px,
+        5vw,
+        78px
+    );
 
-    color:#111;
+    font-weight:500;
+
+    line-height:.94;
+
+    letter-spacing:-.025em;
+
 }
 
-.related-heading p{
-    margin:0;
 
-    color:#666;
+.gold-rule{
 
-    font-size:16px;
+    width:70px;
+
+    height:1px;
+
+    margin:29px 0 25px;
+
+    background:var(--gold);
+
 }
 
-.related-grid{
-    display:grid;
 
-    grid-template-columns:
-        repeat(4,1fr);
+.price{
 
-    gap:25px;
+    font-family:
+        Cormorant Garamond,
+        Georgia,
+        serif;
+
+    font-size:37px;
+
+    font-weight:600;
+
+    line-height:1;
+
 }
 
-.related-card{
-    background:#fff;
 
-    border-radius:15px;
-
-    overflow:hidden;
-
-    box-shadow:
-        0 8px 25px rgba(0,0,0,0.08);
-
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-}
-
-.related-card:hover{
-    transform:translateY(-5px);
-
-    box-shadow:
-        0 14px 35px rgba(0,0,0,0.13);
-}
-
-.related-media{
-    width:100%;
-
-    height:260px;
-
-    background:#f5f5f5;
+.availability{
 
     display:flex;
 
     align-items:center;
 
-    justify-content:center;
+    gap:8px;
 
-    overflow:hidden;
+    margin-top:12px;
+
+    font-size:10px;
+
+    letter-spacing:.13em;
+
+    text-transform:uppercase;
+
+    color:var(--muted);
+
 }
 
-.related-media img,
-.related-media video{
-    width:100%;
 
-    height:100%;
+.availability-dot{
 
-    object-fit:contain;
+    width:7px;
+
+    height:7px;
+
+    border-radius:50%;
+
+    background:var(--gold);
+
 }
 
-.related-media video{
-    background:#111;
+
+.lead{
+
+    max-width:570px;
+
+    margin-top:29px;
+
+    font-size:14px;
+
+    line-height:1.9;
+
+    color:#555149;
+
 }
 
-.related-info{
-    padding:20px;
 
-    text-align:center;
+/* =========================================================
+   PURCHASE
+========================================================= */
+
+.purchase{
+
+    margin-top:34px;
+
+    padding-top:28px;
+
+    border-top:1px solid var(--line);
+
 }
 
-.related-info h3{
-    margin:0 0 12px;
 
-    font-size:17px;
+.quantity-row{
 
-    line-height:1.4;
+    display:flex;
 
-    min-height:48px;
+    align-items:center;
 
-    color:#111;
+    justify-content:space-between;
+
+    margin-bottom:15px;
+
 }
 
-.related-price{
-    color:#c9a24d;
+
+.quantity-label{
+
+    font-size:9px;
+
+    font-weight:600;
+
+    letter-spacing:.18em;
+
+    text-transform:uppercase;
+
+    color:var(--muted);
+
+}
+
+
+.quantity-control{
+
+    display:flex;
+
+    align-items:center;
+
+    border:1px solid var(--line);
+
+    background:var(--paper);
+
+}
+
+
+.quantity-control button{
+
+    width:39px;
+
+    height:39px;
+
+    border:0;
+
+    background:transparent;
+
+    color:var(--ink);
 
     font-size:18px;
 
-    font-weight:bold;
-
-    margin-bottom:15px;
 }
 
-.related-btn{
-    display:inline-flex;
 
-    align-items:center;
+.quantity-control input{
 
-    justify-content:center;
+    width:42px;
+
+    height:39px;
+
+    text-align:center;
+
+    border:0;
+
+    border-left:1px solid var(--line);
+
+    border-right:1px solid var(--line);
+
+    background:transparent;
+
+    outline:none;
+
+}
+
+
+.primary-actions{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:10px;
+
+}
+
+
+.action{
+
+    min-height:53px;
+
+    border:1px solid var(--ink);
+
+    font-size:10px;
+
+    font-weight:600;
+
+    letter-spacing:.17em;
+
+    text-transform:uppercase;
+
+    transition:.25s ease;
+
+}
+
+
+.action.primary{
+
+    background:var(--ink);
+
+    color:white;
+
+}
+
+
+.action.primary:hover{
+
+    background:var(--gold-dark);
+
+    border-color:var(--gold-dark);
+
+}
+
+
+.action.secondary{
+
+    background:transparent;
+
+    color:var(--ink);
+
+}
+
+
+.action.secondary:hover{
+
+    background:var(--ink);
+
+    color:white;
+
+}
+
+
+.secondary-actions{
+
+    margin-top:12px;
+
+}
+
+
+.text-action{
 
     width:100%;
 
     min-height:45px;
 
-    background:#111;
+    border:0;
 
-    color:#fff;
+    background:transparent;
 
-    text-decoration:none;
+    font-size:10px;
 
-    border-radius:5px;
+    font-weight:600;
 
-    font-weight:bold;
+    letter-spacing:.17em;
 
-    transition:0.3s ease;
+    text-transform:uppercase;
+
+    color:var(--gold-dark);
+
 }
 
-.related-btn:hover{
-    background:#c9a24d;
 
-    color:#111;
+.text-action:hover{
+    text-decoration:underline;
+}
+
+
+/* =========================================================
+   TRUST
+========================================================= */
+
+.trust{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    margin-top:30px;
+
+    border-top:1px solid var(--line);
+
+    border-bottom:1px solid var(--line);
+
+}
+
+
+.trust-item{
+
+    padding:17px 12px;
+
+    font-size:9px;
+
+    line-height:1.6;
+
+    letter-spacing:.08em;
+
+    text-transform:uppercase;
+
+    color:var(--muted);
+
+}
+
+
+.trust-item + .trust-item{
+
+    border-left:1px solid var(--line);
+
+}
+
+
+/* =========================================================
+   EDITORIAL SECTION
+========================================================= */
+
+.editorial{
+
+    padding:100px 0 120px;
+
+    border-top:1px solid var(--line);
+
+}
+
+
+.section-head{
+
+    display:grid;
+
+    grid-template-columns:
+        230px
+        minmax(0,1fr);
+
+    gap:55px;
+
+    margin-bottom:55px;
+
+}
+
+
+.section-number{
+
+    padding-top:8px;
+
+    font-size:9px;
+
+    font-weight:600;
+
+    letter-spacing:.2em;
+
+    text-transform:uppercase;
+
+    color:var(--gold-dark);
+
+}
+
+
+.section-title{
+
+    font-family:
+        Cormorant Garamond,
+        Georgia,
+        serif;
+
+    font-size:clamp(
+        42px,
+        5vw,
+        67px
+    );
+
+    font-weight:500;
+
+    line-height:.95;
+
+}
+
+
+.section-intro{
+
+    max-width:650px;
+
+    margin-top:18px;
+
+    font-size:13px;
+
+    line-height:1.9;
+
+    color:var(--muted);
+
+}
+
+
+/* =========================================================
+   DETAILS GRID
+========================================================= */
+
+.details-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    border-top:1px solid var(--line);
+
+    border-left:1px solid var(--line);
+
+}
+
+
+.detail{
+
+    min-height:145px;
+
+    padding:25px;
+
+    border-right:1px solid var(--line);
+
+    border-bottom:1px solid var(--line);
+
+}
+
+
+.detail-label{
+
+    margin-bottom:18px;
+
+    font-size:8px;
+
+    font-weight:600;
+
+    letter-spacing:.18em;
+
+    text-transform:uppercase;
+
+    color:var(--gold-dark);
+
+}
+
+
+.detail-value{
+
+    font-family:
+        Cormorant Garamond,
+        Georgia,
+        serif;
+
+    font-size:21px;
+
+    line-height:1.2;
+
+    word-break:break-word;
+
+}
+
+
+/* =========================================================
+   DESCRIPTION + FEATURES
+========================================================= */
+
+.description-block{
+
+    display:grid;
+
+    grid-template-columns:
+        1.1fr
+        .9fr;
+
+    gap:80px;
+
+    margin-top:80px;
+
+}
+
+
+.description-title{
+
+    margin-bottom:20px;
+
+    font-family:
+        Cormorant Garamond,
+        Georgia,
+        serif;
+
+    font-size:38px;
+
+    font-weight:500;
+
+}
+
+
+.description-text{
+
+    max-width:700px;
+
+    font-size:14px;
+
+    line-height:2;
+
+    color:#555149;
+
+}
+
+
+.features-title{
+
+    margin-bottom:22px;
+
+    font-family:
+        Cormorant Garamond,
+        Georgia,
+        serif;
+
+    font-size:38px;
+
+    font-weight:500;
+
+}
+
+
+.features-list{
+
+    list-style:none;
+
+}
+
+
+.features-list li{
+
+    position:relative;
+
+    padding:12px 0 12px 21px;
+
+    border-bottom:1px solid var(--soft-line);
+
+    font-size:12px;
+
+    color:#4e4b45;
+
+}
+
+
+.features-list li::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:21px;
+
+    width:5px;
+
+    height:5px;
+
+    border-radius:50%;
+
+    background:var(--gold);
+
+}
+
+
+/* =========================================================
+   STATEMENT
+========================================================= */
+
+.statement{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:var(--black);
+
+    color:white;
+
+}
+
+
+.statement::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:500px;
+
+    height:500px;
+
+    border-radius:50%;
+
+    background:radial-gradient(
+        circle,
+        rgba(201,162,77,.13),
+        transparent 70%
+    );
+
+    top:-220px;
+
+    right:-120px;
+
+}
+
+
+.statement-inner{
+
+    position:relative;
+
+    z-index:2;
+
+    width:min(
+        calc(100% - 64px),
+        var(--max)
+    );
+
+    margin:auto;
+
+    padding:125px 0 135px;
+
+}
+
+
+.statement-small{
+
+    margin-bottom:25px;
+
+    font-size:9px;
+
+    font-weight:600;
+
+    letter-spacing:.23em;
+
+    text-transform:uppercase;
+
+    color:#bca36d;
+
+}
+
+
+.statement h2{
+
+    font-family:
+        Cormorant Garamond,
+        Georgia,
+        serif;
+
+    font-size:clamp(
+        50px,
+        7vw,
+        100px
+    );
+
+    font-weight:400;
+
+    line-height:.9;
+
+    letter-spacing:-.025em;
+
+}
+
+
+.statement p{
+
+    max-width:530px;
+
+    margin-top:30px;
+
+    font-size:13px;
+
+    line-height:1.9;
+
+    color:#aaa59b;
+
+}
+
+
+/* =========================================================
+   RELATED
+========================================================= */
+
+.related{
+
+    padding:110px 0 120px;
+
+}
+
+
+.related-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:20px;
+
+}
+
+
+.related-card{
+
+    display:block;
+
+    background:var(--paper);
+
+    border:1px solid var(--soft-line);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+
+}
+
+
+.related-card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:
+        0 15px 40px rgba(17,17,17,.07);
+
+}
+
+
+.related-media{
+
+    position:relative;
+
+    height:330px;
+
+    overflow:hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(201,162,77,.10),
+            transparent 50%
+        ),
+
+        var(--paper);
+
+}
+
+
+.related-media img,
+.related-media video{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:contain;
+
+    padding:18px;
+
+}
+
+
+.related-info{
+
+    padding:20px 20px 23px;
+
+    border-top:1px solid var(--soft-line);
+
+}
+
+
+.related-brand{
+
+    margin-bottom:7px;
+
+    font-size:8px;
+
+    font-weight:600;
+
+    letter-spacing:.18em;
+
+    text-transform:uppercase;
+
+    color:var(--gold-dark);
+
+}
+
+
+.related-name{
+
+    min-height:45px;
+
+    font-family:
+        Cormorant Garamond,
+        Georgia,
+        serif;
+
+    font-size:21px;
+
+    line-height:1.05;
+
+}
+
+
+.related-price{
+
+    margin-top:13px;
+
+    font-size:11px;
+
+    color:var(--muted);
+
 }
 
 
@@ -888,427 +1420,591 @@ body{
    FOOTER
 ========================================================= */
 
-.main-footer{
-    background:#111;
+.site-footer{
 
-    color:#fff;
+    background:#eee8d9;
 
-    margin-top:20px;
+    border-top:1px solid var(--line);
+
 }
 
-.footer-container{
-    width:100%;
 
-    max-width:1400px;
+.footer-inner{
 
-    margin:0 auto;
+    width:min(
+        calc(100% - 64px),
+        var(--max)
+    );
 
-    padding:
-        60px
-        50px
-        0;
+    margin:auto;
+
+    padding:70px 0 35px;
+
 }
 
-.footer-top{
+
+.footer-grid{
+
     display:grid;
 
     grid-template-columns:
+        1.4fr
         1fr
         1fr
         1fr;
 
     gap:50px;
 
-    padding-bottom:50px;
+    padding-bottom:55px;
 
-    border-bottom:
-        1px solid
-        rgba(255,255,255,0.15);
+    border-bottom:1px solid var(--line);
+
 }
 
-.footer-top > h2{
-    grid-column:1 / -1;
 
-    text-align:center;
+.footer-title{
 
-    margin:0 0 10px;
+    margin-bottom:17px;
 
     font-family:
+        Cormorant Garamond,
         Georgia,
-        "Times New Roman",
         serif;
 
-    font-size:38px;
+    font-size:25px;
 
-    color:#c9a24d;
+    font-weight:600;
+
 }
 
-.contact-column h3,
-.whatsapp-column h3,
-.footer-links-column h3,
-.footer-social h3{
-    color:#c9a24d;
 
-    font-size:20px;
+.footer-heading{
 
-    margin:0 0 18px;
+    margin-bottom:17px;
+
+    font-size:9px;
+
+    font-weight:600;
+
+    letter-spacing:.18em;
+
+    text-transform:uppercase;
+
 }
 
-.contact-column p{
-    color:#bbb;
 
-    font-size:15px;
+.footer-text{
 
-    line-height:1.6;
+    max-width:300px;
+
+    font-size:11px;
+
+    line-height:1.9;
+
+    color:var(--muted);
+
 }
 
-.footer-link{
-    display:block;
 
-    color:#fff;
+.footer-links{
 
-    text-decoration:none;
-
-    margin-bottom:12px;
-
-    transition:0.3s ease;
-}
-
-.footer-link:hover{
-    color:#c9a24d;
-}
-
-.whatsapp-column{
-    text-align:center;
-}
-
-.whatsapp-title{
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:10px;
-}
-
-.whatsapp-icon{
-    width:28px !important;
-
-    height:28px !important;
-
-    object-fit:contain !important;
-}
-
-.whatsapp-button{
-    display:inline-block;
-
-    background:#c9a24d;
-
-    color:#111;
-
-    text-decoration:none;
-
-    padding:13px 30px;
-
-    border-radius:6px;
-
-    font-weight:bold;
-
-    transition:0.3s ease;
-}
-
-.whatsapp-button:hover{
-    background:#fff;
-
-    color:#111;
-}
-
-.footer-middle{
-    display:grid;
-
-    grid-template-columns:
-        1fr
-        1fr
-        1fr;
-
-    gap:50px;
-
-    padding:50px 0;
-}
-
-.footer-links-column{
     display:flex;
 
     flex-direction:column;
+
+    gap:9px;
+
 }
 
-.footer-links-column a{
-    color:#ccc;
 
-    text-decoration:none;
+.footer-links a{
 
-    margin-bottom:13px;
+    width:max-content;
 
-    transition:0.3s ease;
+    font-size:11px;
+
+    color:var(--muted);
+
+    transition:.2s ease;
+
 }
 
-.footer-links-column a:hover{
-    color:#c9a24d;
+
+.footer-links a:hover{
+
+    color:var(--ink);
+
 }
+
+
+.contact-line{
+
+    margin-bottom:8px;
+
+    font-size:11px;
+
+    color:var(--muted);
+
+}
+
 
 .footer-social{
-    text-align:center;
+
+    display:flex;
+
+    gap:10px;
+
+    margin-top:15px;
+
 }
 
-.footer-social p{
-    color:#bbb;
 
-    margin-bottom:15px;
-}
+.footer-social img{
 
-.instagram-button{
-    display:inline-flex;
+    width:32px;
 
-    align-items:center;
-
-    justify-content:center;
-
-    width:50px;
-
-    height:50px;
-
-    border:
-        1px solid
-        #c9a24d;
-
-    border-radius:50%;
-
-    transition:0.3s ease;
-}
-
-.instagram-button:hover{
-    background:#c9a24d;
-}
-
-.instagram-button img{
-    width:28px;
-
-    height:28px;
+    height:32px;
 
     object-fit:contain;
+
 }
+
 
 .footer-bottom{
-    border-top:
-        1px solid
-        rgba(255,255,255,0.15);
 
-    text-align:center;
+    display:flex;
 
-    padding:25px 10px;
-}
+    justify-content:space-between;
 
-.footer-bottom p{
-    margin:0;
+    gap:25px;
 
-    color:#999;
+    padding-top:25px;
 
-    font-size:14px;
+    font-size:9px;
 
     line-height:1.6;
+
+    letter-spacing:.04em;
+
+    color:var(--muted);
+
 }
 
 
 /* =========================================================
-   TABLET
+   TOAST
+========================================================= */
+
+.toast{
+
+    position:fixed;
+
+    right:25px;
+
+    bottom:25px;
+
+    z-index:5000;
+
+    max-width:320px;
+
+    padding:15px 19px;
+
+    background:var(--ink);
+
+    color:white;
+
+    border-left:3px solid var(--gold);
+
+    font-size:11px;
+
+    line-height:1.5;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transform:translateY(12px);
+
+    transition:.3s ease;
+
+}
+
+
+.toast.show{
+
+    opacity:1;
+
+    visibility:visible;
+
+    transform:translateY(0);
+
+}
+
+
+/* =========================================================
+   EMPTY / ERROR
+========================================================= */
+
+.error-page{
+
+    min-height:60vh;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:80px 20px;
+
+}
+
+
+.error-page h1{
+
+    font-family:
+        Cormorant Garamond,
+        Georgia,
+        serif;
+
+    font-size:60px;
+
+    font-weight:500;
+
+}
+
+
+.error-page p{
+
+    margin-top:15px;
+
+    color:var(--muted);
+
+}
+
+
+.back-link{
+
+    display:inline-block;
+
+    margin-top:30px;
+
+    padding:13px 22px;
+
+    background:var(--ink);
+
+    color:white;
+
+    font-size:10px;
+
+    font-weight:600;
+
+    letter-spacing:.15em;
+
+    text-transform:uppercase;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
 ========================================================= */
 
 @media(max-width:1100px){
 
-    .product-detail-card{
-        grid-template-columns:1fr;
+    .product-hero{
+
+        grid-template-columns:
+            1fr
+            1fr;
+
+        gap:40px;
+
     }
 
-    .product-media-area{
-        min-height:550px;
-    }
+    .main-media,
+    .main-media img,
+    .main-media video{
 
-    .product-media-wrapper{
+        min-height:500px;
+
         height:500px;
+
     }
 
     .related-grid{
+
         grid-template-columns:
             repeat(2,1fr);
+
+    }
+
+    .details-grid{
+
+        grid-template-columns:
+            repeat(2,1fr);
+
     }
 
 }
 
 
-/* =========================================================
-   MOBILE
-========================================================= */
+@media(max-width:850px){
 
-@media(max-width:768px){
-
-    .top-bar{
-        padding:
-            20px
-            25px;
+    .site-header{
+        padding:0 25px;
     }
 
-    .brand-logo{
-        font-size:22px;
+    .page-wrap,
+    .footer-inner,
+    .statement-inner{
 
-        letter-spacing:3px;
+        width:min(
+            calc(100% - 40px),
+            var(--max)
+        );
+
     }
 
-    .back-btn{
-        font-size:14px;
-    }
+    .product-hero{
 
-    .page-header{
-        padding:
-            20px
-            15px
-            30px;
-    }
-
-    .page-header h1{
-        font-size:40px;
-    }
-
-    .product-detail-section{
-        padding:
-            10px
-            15px
-            50px;
-    }
-
-    .product-media-area{
-        min-height:400px;
-
-        padding:25px;
-    }
-
-    .product-media-wrapper{
-        height:360px;
-    }
-
-    .product-info{
-        padding:
-            40px
-            25px;
-    }
-
-    .product-name{
-        font-size:34px;
-    }
-
-    .product-price{
-        font-size:28px;
-    }
-
-    .action-buttons{
         grid-template-columns:1fr;
+
+        padding-bottom:80px;
+
     }
 
-    .related-section{
-        padding:
-            20px
-            15px
-            60px;
+    .product-copy{
+
+        position:static;
+
+    }
+
+    .main-media,
+    .main-media img,
+    .main-media video{
+
+        min-height:480px;
+
+        height:480px;
+
+    }
+
+    .section-head{
+
+        grid-template-columns:1fr;
+
+        gap:12px;
+
+    }
+
+    .description-block{
+
+        grid-template-columns:1fr;
+
+        gap:50px;
+
+    }
+
+    .footer-grid{
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+    }
+
+}
+
+
+@media(max-width:620px){
+
+    .site-header{
+
+        height:68px;
+
+        padding:0 18px;
+
+    }
+
+    .brand{
+
+        font-size:23px;
+
+    }
+
+    .brand-sub{
+
+        font-size:7px;
+
+        letter-spacing:.18em;
+
+    }
+
+    .page-wrap,
+    .footer-inner,
+    .statement-inner{
+
+        width:calc(100% - 28px);
+
+    }
+
+    .crumbs{
+
+        padding-top:19px;
+
+        font-size:9px;
+
+    }
+
+    .product-title{
+
+        font-size:48px;
+
+    }
+
+    .main-media,
+    .main-media img,
+    .main-media video{
+
+        min-height:390px;
+
+        height:390px;
+
+    }
+
+    .main-media img{
+
+        padding:20px;
+
+    }
+
+    .gallery-arrow{
+
+        width:37px;
+
+        height:37px;
+
+    }
+
+    .thumb{
+
+        flex-basis:64px;
+
+        width:64px;
+
+        height:64px;
+
+    }
+
+    .primary-actions{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .trust-item{
+
+        font-size:8px;
+
+        padding:14px 8px;
+
+    }
+
+    .editorial{
+
+        padding:75px 0 85px;
+
+    }
+
+    .details-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .detail{
+
+        min-height:auto;
+
+    }
+
+    .related{
+
+        padding:80px 0;
+
     }
 
     .related-grid{
-        grid-template-columns:1fr;
-    }
 
-    .footer-container{
-        padding:
-            45px
-            25px
-            0;
-    }
-
-    .footer-top{
         grid-template-columns:1fr;
 
-        gap:35px;
     }
 
-    .footer-top > h2{
-        font-size:32px;
+    .related-media{
+
+        height:390px;
+
     }
 
-    .footer-middle{
+    .footer-grid{
+
         grid-template-columns:1fr;
 
         gap:35px;
 
-        text-align:center;
     }
 
-    .footer-links-column{
-        align-items:center;
+    .footer-bottom{
+
+        flex-direction:column;
+
+    }
+
+    .statement-inner{
+
+        padding:90px 0 100px;
+
+    }
+
+    .statement h2{
+
+        font-size:57px;
+
     }
 
 }
 
 
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
+@media(max-width:380px){
 
-@media(max-width:450px){
+    .product-title{
 
-    .top-bar{
-        padding:
-            18px
-            15px;
+        font-size:42px;
+
     }
 
-    .brand-logo{
-        font-size:18px;
+    .price{
 
-        letter-spacing:2px;
+        font-size:32px;
+
     }
 
-    .back-btn{
-        font-size:13px;
+    .main-media,
+    .main-media img,
+    .main-media video{
+
+        min-height:340px;
+
+        height:340px;
+
     }
 
-    .page-header h1{
-        font-size:34px;
-    }
+    .statement h2{
 
-    .product-media-area{
-        min-height:330px;
+        font-size:48px;
 
-        padding:15px;
-    }
-
-    .product-media-wrapper{
-        height:300px;
-    }
-
-    .product-info{
-        padding:
-            30px
-            20px;
-    }
-
-    .product-name{
-        font-size:29px;
-    }
-
-    .product-description{
-        font-size:15px;
-    }
-
-    .related-heading h2{
-        font-size:30px;
     }
 
 }
@@ -1321,425 +2017,45 @@ body{
 <body>
 
 
-<!-- =========================================================
-     TOP HEADER
-========================================================= -->
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
-<div class="top-bar">
+<header class="site-header">
 
-    <div class="brand-logo">
-        50 MIRARS
-    </div>
+    <a href="index.html" class="brand-link">
 
-    <a
-        href="couple-watches.html"
-        class="back-btn"
-    >
-        ← Back to Couple Watches
+        <div class="brand">
+
+            50 MIRARS
+
+            <span class="brand-sub">
+                THE WATCH &amp; SUNGLASSES STORE
+            </span>
+
+        </div>
+
     </a>
-
-</div>
-
-
-<!-- =========================================================
-     PAGE HEADER
-========================================================= -->
-
-<header class="page-header">
-
-    <h1>
-        Couple Watches
-    </h1>
-
-    <div class="title-line"></div>
 
 </header>
 
 
-<!-- =========================================================
-     PRODUCT DETAIL
-========================================================= -->
+<!-- =====================================================
+     APP
+===================================================== -->
 
-<section class="product-detail-section">
+<div id="app"></div>
 
-    <div class="product-detail-card">
 
+<!-- =====================================================
+     TOAST
+===================================================== -->
 
-        <div class="product-media-area">
-
-            <div
-                class="media-badge"
-                id="mediaBadge"
-            >
-                50 MIRARS
-            </div>
-
-            <div
-                class="product-media-wrapper"
-                id="productMedia"
-            >
-            </div>
-
-        </div>
-
-
-        <div class="product-info">
-
-            <div
-                class="product-brand"
-                id="productBrand"
-            >
-                Couple Watches
-            </div>
-
-
-            <h2
-                class="product-name"
-                id="productName"
-            >
-                Loading Product...
-            </h2>
-
-
-            <div
-                class="product-id"
-                id="productId"
-            >
-                Product ID
-            </div>
-
-
-            <div
-                class="product-price"
-                id="productPrice"
-            >
-                ₹0
-            </div>
-
-
-            <div class="divider"></div>
-
-
-            <p
-                class="product-description"
-                id="productDescription"
-            >
-                Loading product information...
-            </p>
-
-
-            <ul
-                class="feature-list"
-                id="featureList"
-            >
-            </ul>
-
-
-            <div class="quantity-title">
-                Quantity
-            </div>
-
-
-            <div class="quantity-box">
-
-                <button
-                    type="button"
-                    id="minusBtn"
-                >
-                    −
-                </button>
-
-                <input
-                    type="number"
-                    id="quantity"
-                    value="1"
-                    min="1"
-                    max="10"
-                >
-
-                <button
-                    type="button"
-                    id="plusBtn"
-                >
-                    +
-                </button>
-
-            </div>
-
-
-            <div class="action-buttons">
-
-                <button
-                    type="button"
-                    class="add-cart-btn"
-                    id="addCartBtn"
-                >
-                    Add to Cart
-                </button>
-
-
-                <button
-                    type="button"
-                    class="buy-now-btn"
-                    id="buyNowBtn"
-                >
-                    Buy Now
-                </button>
-
-            </div>
-
-
-            <a
-                href="#"
-                target="_blank"
-                rel="noopener"
-                class="whatsapp-product-btn"
-                id="whatsappBtn"
-            >
-
-                <img
-                    src="whatsapplogo.png"
-                    alt="WhatsApp"
-                >
-
-                Enquire on WhatsApp
-
-            </a>
-
-
-            <div
-                class="cart-message"
-                id="cartMessage"
-            >
-            </div>
-
-
-            <div class="delivery-info">
-
-                <strong>
-                    Delivery Information
-                </strong>
-
-                <p>
-                    Full payment is required before delivery.
-                    Delivery availability and estimated delivery
-                    time may vary depending on your location.
-                    Contact 50 Mirars for assistance.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     SIMILAR PRODUCTS
-========================================================= -->
-
-<section class="related-section">
-
-    <div class="related-heading">
-
-        <h2>
-            You May Also Like
-        </h2>
-
-        <p>
-            Explore more couple watches from the 50 Mirars collection.
-        </p>
-
-    </div>
-
-    <div
-        class="related-grid"
-        id="relatedGrid"
-    >
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     FOOTER
-========================================================= -->
-
-<footer class="main-footer">
-
-    <div class="footer-container">
-
-        <div class="footer-top">
-
-            <h2>
-                Contact Us
-            </h2>
-
-
-            <div class="contact-column">
-
-                <h3>
-                    For Customers:
-                </h3>
-
-                <a
-                    href="mailto:50mirars@gmail.com"
-                    class="footer-link"
-                >
-                    50mirars@gmail.com
-                </a>
-
-                <a
-                    href="tel:+918209989013"
-                    class="footer-link"
-                >
-                    82099 89013
-                </a>
-
-                <p>
-                    09:00 - 21:30 | Monday to Sunday
-                </p>
-
-            </div>
-
-
-            <div class="contact-column">
-
-                <h3>
-                    For Sales/Watch Service:
-                </h3>
-
-                <a
-                    href="mailto:50mirars@gmail.com"
-                    class="footer-link"
-                >
-                    50mirars@gmail.com
-                </a>
-
-                <a
-                    href="tel:+918209989013"
-                    class="footer-link"
-                >
-                    82099 89013
-                </a>
-
-                <p>
-                    09:00 - 21:30 | Monday to Sunday
-                </p>
-
-            </div>
-
-
-            <div class="whatsapp-column">
-
-                <h3 class="whatsapp-title">
-
-                    <span>
-                        View Products on WhatsApp
-                    </span>
-
-                    <img
-                        src="whatsapplogo.png"
-                        alt="WhatsApp"
-                        class="whatsapp-icon"
-                    >
-
-                </h3>
-
-                <a
-                    href="https://wa.me/918209989013"
-                    target="_blank"
-                    rel="noopener"
-                    class="whatsapp-button"
-                >
-                    View Products
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <div class="footer-middle">
-
-            <div class="footer-links-column">
-
-                <h3>
-                    Know 50 Mirars
-                </h3>
-
-                <a href="about.html">
-                    About Us
-                </a>
-
-                <a href="faq.html">
-                    FAQ
-                </a>
-
-            </div>
-
-
-            <div class="footer-links-column">
-
-                <h3>
-                    Terms &amp; Conditions
-                </h3>
-
-                <a href="terms.html">
-                    Terms &amp; Conditions
-                </a>
-
-                <a href="privacypolicy.html">
-                    Privacy Policy
-                </a>
-
-            </div>
-
-
-            <div class="footer-social">
-
-                <h3>
-                    50 Mirars
-                </h3>
-
-                <p>
-                    Follow Us On
-                </p>
-
-                <a
-                    href="https://instagram.com/50mirars"
-                    target="_blank"
-                    rel="noopener"
-                    class="instagram-button"
-                    aria-label="Follow 50 Mirars on Instagram"
-                >
-
-                    <img
-                        src="instagramimage.webp"
-                        alt="Instagram"
-                    >
-
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <div class="footer-bottom">
-
-            <p>
-                © 2026 50 Mirars - The Watch &amp; Sunglasses Store.
-                All Rights Reserved.
-            </p>
-
-        </div>
-
-    </div>
-
-</footer>
+<div
+    class="toast"
+    id="toast"
+    aria-live="polite"
+></div>
 
 
 <script>
@@ -1929,10 +2245,11 @@ const coupleWatches = [
 
         media:"image",
 
-files:[
-    "Fossil Nick Jonas Couple Watch .jpeg",
-    "Fossil Nick Jonas Couple Watch 2.jpeg"
-],
+        files:[
+            "Fossil Nick Jonas Couple Watch .jpeg",
+            "Fossil Nick Jonas Couple Watch 2.jpeg"
+        ],
+
         brand:"Fossil",
 
         description:
@@ -2169,10 +2486,11 @@ files:[
 
         media:"image",
 
-files:[
-    "Danial Wellington Couple Watch.jpeg",
-    "Danial Wellington Couple 2.jpeg"
-],
+        files:[
+            "Danial Wellington Couple Watch.jpeg",
+            "Danial Wellington Couple 2.jpeg"
+        ],
+
         brand:"Daniel Wellington",
 
         description:
@@ -2205,19 +2523,20 @@ files:[
 
         media:"image",
 
-files:[
-    "Rolex Day-Date Couple Watch.jpeg",
-    "Rolex Day-Date Couple Watch 2.jpeg",
-    "Rolex Day-Date Couple Watch 3.jpeg",
-    "Rolex Day-Date Couple Watch 4.jpeg",
-    "Rolex Day-Date Couple Watch 5.jpeg",
-    "Rolex Day-Date Couple Watch 6.jpeg",
-    "Rolex Day-Date Couple Watch 7.jpeg",
-    "Rolex Day-Date Couple Watch 8.jpeg",
-    "Rolex Day-Date Couple Watch 9.jpeg",
-    "Rolex Day-Date Couple Watch 10.jpeg",
-    "Rolex Day-Date Couple Watch 11.jpeg"
-],
+        files:[
+            "Rolex Day-Date Couple Watch.jpeg",
+            "Rolex Day-Date Couple Watch 2.jpeg",
+            "Rolex Day-Date Couple Watch 3.jpeg",
+            "Rolex Day-Date Couple Watch 4.jpeg",
+            "Rolex Day-Date Couple Watch 5.jpeg",
+            "Rolex Day-Date Couple Watch 6.jpeg",
+            "Rolex Day-Date Couple Watch 7.jpeg",
+            "Rolex Day-Date Couple Watch 8.jpeg",
+            "Rolex Day-Date Couple Watch 9.jpeg",
+            "Rolex Day-Date Couple Watch 10.jpeg",
+            "Rolex Day-Date Couple Watch 11.jpeg"
+        ],
+
         brand:"Rolex",
 
         description:
@@ -2244,7 +2563,7 @@ files:[
 
 
 /* =========================================================
-   GET PRODUCT SLUG
+   URL / PRODUCT
 ========================================================= */
 
 const params =
@@ -2253,521 +2572,430 @@ const params =
     );
 
 const productSlug =
-    params.get("product");
+    params.get("slug");
 
-
-/* =========================================================
-   FIND PRODUCT
-========================================================= */
 
 const product =
     coupleWatches.find(
-        item =>
-            item.slug ===
-            productSlug
+        item => item.slug === productSlug
     );
 
 
 /* =========================================================
-   ELEMENTS
+   HELPERS
 ========================================================= */
 
-const productMedia =
-    document.getElementById(
-        "productMedia"
-    );
-
-const productBrand =
-    document.getElementById(
-        "productBrand"
-    );
-
-const productName =
-    document.getElementById(
-        "productName"
-    );
-
-const productIdElement =
-    document.getElementById(
-        "productId"
-    );
-
-const productPrice =
-    document.getElementById(
-        "productPrice"
-    );
-
-const productDescription =
-    document.getElementById(
-        "productDescription"
-    );
-
-const featureList =
-    document.getElementById(
-        "featureList"
-    );
-
-const quantity =
-    document.getElementById(
-        "quantity"
-    );
-
-const cartMessage =
-    document.getElementById(
-        "cartMessage"
-    );
-
-const relatedGrid =
-    document.getElementById(
-        "relatedGrid"
-    );
-
-const whatsappBtn =
-    document.getElementById(
-        "whatsappBtn"
-    );
-
-
-/* =========================================================
-   FORMAT PRICE
-========================================================= */
-
-function formatPrice(price){
+function money(value){
 
     return "₹" +
-        Number(price)
-            .toLocaleString("en-IN");
-
-}
-
-
-/* =========================================================
-   ESCAPE HTML
-========================================================= */
-
-function escapeHTML(value){
-
-    const div =
-        document.createElement(
-            "div"
+        Number(value).toLocaleString(
+            "en-IN"
         );
 
-    div.textContent =
-        String(value);
+}
 
-    return div.innerHTML;
+
+function esc(value){
+
+    return String(value ?? "")
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+
+function url(value){
+
+    return encodeURI(value);
+
+}
+
+
+function isVideo(file){
+
+    return /\.(mp4|webm|ogg)$/i.test(
+        String(file)
+    );
+
 }
 
 
 /* =========================================================
-   LOAD PRODUCT
+   MEDIA NORMALIZATION
 ========================================================= */
 
-function loadProduct(){
+function getMedia(product){
 
-    if(!product){
+    if(
+        Array.isArray(product.files) &&
+        product.files.length
+    ){
 
-        document.title =
-            "Product Not Found | 50 Mirars";
+        return product.files;
 
-        productBrand.textContent =
-            "Couple Watches";
-
-        productName.textContent =
-            "Product Not Found";
-
-        productIdElement.textContent =
-            productSlug
-                ? "Product: " + productSlug
-                : "No Product Provided";
-
-        productPrice.textContent =
-            "";
-
-        productDescription.textContent =
-            "The requested couple watch product could not be found. Please return to the Couple Watches section and select a product again.";
-
-        featureList.innerHTML =
-            "";
-
-        productMedia.innerHTML = `
-
-            <div
-                style="
-                    text-align:center;
-                    padding:40px;
-                    font-weight:bold;
-                    color:#555;
-                "
-            >
-                Product could not be found.
-            </div>
-
-        `;
-
-        relatedGrid.innerHTML =
-            "";
-
-        return;
     }
 
+    if(product.file){
 
-    /* =====================================================
-       PAGE TITLE
-    ===================================================== */
+        return [product.file];
 
-    document.title =
-        product.name +
-        " | 50 Mirars";
+    }
 
+    return [];
 
-    /* =====================================================
-       PRODUCT BRAND
-    ===================================================== */
-
-    productBrand.textContent =
-        product.brand;
+}
 
 
-    /* =====================================================
-       PRODUCT NAME
-    ===================================================== */
+/* =========================================================
+   MEDIA HTML
+========================================================= */
 
-    productName.textContent =
-        product.name;
+function mediaHTML(file, large = false){
 
+    const safeFile = url(file);
 
-    /* =====================================================
-       PRODUCT ID
-    ===================================================== */
+    if(isVideo(file)){
 
-    const productNumber =
-        coupleWatches.indexOf(
-            product
-        ) + 1;
+        return `
 
-    productIdElement.textContent =
-        "Product ID: CW-" +
-        String(productNumber)
-            .padStart(3,"0");
+            <video
+                ${large ? 'id="mainVideo"' : ''}
+                src="${safeFile}"
+                controls
+                playsinline
+                preload="metadata"
+            ></video>
 
-
-    /* =====================================================
-       PRICE
-    ===================================================== */
-
-    productPrice.textContent =
-        formatPrice(
-            product.price
-        );
-
-
-    /* =====================================================
-   PRODUCT MEDIA
-===================================================== */
-
-if(product.media === "video"){
-
-    productMedia.innerHTML = `
-        <video controls playsinline preload="metadata">
-            <source src="${encodeURI(product.file)}" type="video/mp4">
-            Your browser does not support video playback.
-        </video>
-    `;
-
-}else{
-
-    const images = product.files || [product.file];
-
-    if(images.length === 1){
-
-        productMedia.innerHTML = `
-            <img src="${encodeURI(images[0])}" alt="${escapeHTML(product.name)}">
         `;
 
-   }else{
+    }
 
-    let currentSlide = 0;
+    return `
 
-    productMedia.innerHTML = `
-        <div class="product-slider">
+        <img
+            src="${safeFile}"
+            alt="${esc(product.name)}"
+            ${large ? 'id="mainImage"' : ''}
+        >
 
-            <img
-                id="sliderImage"
-                class="product-slider-image"
-                src="${encodeURI(images[0])}"
-                alt="${escapeHTML(product.name)}"
+    `;
+
+}
+
+
+/* =========================================================
+   BUILD GALLERY
+========================================================= */
+
+function buildGallery(media){
+
+    const galleryId =
+        "gallery-" +
+        Date.now();
+
+    return `
+
+        <div class="gallery-label">
+            50 Mirars / Royal Watch Atelier
+        </div>
+
+        <div class="main-media-wrap">
+
+            <div
+                class="main-media"
+                id="${galleryId}"
             >
 
-            <button type="button" class="slider-arrow slider-prev" id="sliderPrev">‹</button>
-            <button type="button" class="slider-arrow slider-next" id="sliderNext">›</button>
+                <div
+                    class="media-counter"
+                    id="mediaCounter"
+                >
+                    1 / ${media.length}
+                </div>
 
-            <div class="slider-dots" id="sliderDots">
-                ${images.map((_,i)=>`
-                    <button class="slider-dot ${i===0?"active":""}" data-slide="${i}"></button>
-                `).join("")}
+                <button
+                    class="gallery-arrow prev ${
+                        media.length <= 1 ? "hidden" : ""
+                    }"
+                    id="prevMedia"
+                    aria-label="Previous media"
+                >
+                    ‹
+                </button>
+
+                <div id="mainMediaContent">
+                    ${mediaHTML(media[0], true)}
+                </div>
+
+                <button
+                    class="gallery-arrow next ${
+                        media.length <= 1 ? "hidden" : ""
+                    }"
+                    id="nextMedia"
+                    aria-label="Next media"
+                >
+                    ›
+                </button>
+
             </div>
 
         </div>
-    `;
 
-    const sliderImage = document.getElementById("sliderImage");
-    const sliderDots = document.querySelectorAll(".slider-dot");
+        ${
+            media.length > 1
+            ?
+            `
 
-    function showSlide(index){
-        currentSlide = (index + images.length) % images.length;
-        sliderImage.src = encodeURI(images[currentSlide]);
-        sliderDots.forEach((dot,i)=>
-            dot.classList.toggle("active", i===currentSlide)
-        );
-    }
+            <div
+                class="thumbnails"
+                id="thumbnails"
+            >
 
-    document.getElementById("sliderPrev").onclick = () => showSlide(currentSlide-1);
-    document.getElementById("sliderNext").onclick = () => showSlide(currentSlide+1);
+                ${media.map((file,index)=>`
 
-    sliderDots.forEach(dot=>{
-        dot.onclick = () => showSlide(Number(dot.dataset.slide));
-    });
+                    <button
+                        class="thumb ${
+                            index === 0
+                            ? "active"
+                            : ""
+                        }"
+                        data-index="${index}"
+                        aria-label="View media ${index + 1}"
+                    >
 
-    let startX = 0;
+                        ${
+                            isVideo(file)
+                            ?
 
-    sliderImage.addEventListener("touchstart",e=>{
-        startX = e.changedTouches[0].screenX;
-    },{passive:true});
+                            `
 
-    sliderImage.addEventListener("touchend",e=>{
-        const endX = e.changedTouches[0].screenX;
-        if(Math.abs(startX-endX)>50){
-            if(startX>endX){
-                showSlide(currentSlide+1);
-            }else{
-                showSlide(currentSlide-1);
-            }
+                            <video
+                                src="${url(file)}"
+                                muted
+                                preload="metadata"
+                            ></video>
+
+                            <span class="thumb-video">
+                                ▶
+                            </span>
+
+                            `
+
+                            :
+
+                            `
+
+                            <img
+                                src="${url(file)}"
+                                alt=""
+                            >
+
+                            `
+                        }
+
+                    </button>
+
+                `).join("")}
+
+            </div>
+
+            `
+            :
+            ""
         }
-    },{passive:true});
 
-}
-}    
-
-    /* =====================================================
-       PRODUCT DESCRIPTION
-    ===================================================== */
-
-    productDescription.textContent =
-        product.description;
-
-
-    /* =====================================================
-       PRODUCT FEATURES
-    ===================================================== */
-
-    featureList.innerHTML =
-        product.features
-            .map(
-                feature => `
-
-                    <li>
-                        ${escapeHTML(feature)}
-                    </li>
-
-                `
-            )
-            .join("");
-
-
-    /* =====================================================
-       WHATSAPP
-    ===================================================== */
-
-    const whatsappText =
-        "Hello 50 Mirars, I am interested in " +
-        product.name +
-        " (" +
-        formatPrice(product.price) +
-        "). Please share more details.";
-
-    whatsappBtn.href =
-        "https://wa.me/918209989013?text=" +
-        encodeURIComponent(
-            whatsappText
-        );
-
-
-    /* =====================================================
-       SIMILAR PRODUCTS
-    ===================================================== */
-
-    loadSimilarProducts();
+    `;
 
 }
 
 
 /* =========================================================
-   LOAD SIMILAR PRODUCTS
+   RELATED PRODUCTS
 ========================================================= */
 
-function loadSimilarProducts(){
+function buildRelated(){
 
-    if(!product){
+    const grid =
+        document.getElementById(
+            "relatedGrid"
+        );
 
-        relatedGrid.innerHTML =
-            "";
-
+    if(!grid){
         return;
     }
 
 
-    const similarProducts =
-        product.similar
-            .map(
-                slug =>
-                    coupleWatches.find(
-                        item =>
-                            item.slug ===
-                            slug
-                    )
+    let related = [];
+
+
+    /*
+       First use the exact similar
+       products supplied in database.
+    */
+
+    if(
+        Array.isArray(product.similar)
+    ){
+
+        product.similar.forEach(slug => {
+
+            const item =
+                coupleWatches.find(
+                    p => p.slug === slug
+                );
+
+            if(
+                item &&
+                item.slug !== product.slug &&
+                !related.some(
+                    p => p.slug === item.slug
+                )
+            ){
+
+                related.push(item);
+
+            }
+
+        });
+
+    }
+
+
+    /*
+       If fewer than 4 are available,
+       fill from the remaining collection.
+    */
+
+    coupleWatches.forEach(item => {
+
+        if(
+            related.length >= 4
+        ){
+            return;
+        }
+
+        if(
+            item.slug === product.slug
+        ){
+            return;
+        }
+
+        if(
+            !related.some(
+                p => p.slug === item.slug
             )
-            .filter(Boolean);
+        ){
+
+            related.push(item);
+
+        }
+
+    });
 
 
-    relatedGrid.innerHTML =
-        similarProducts
-            .map(
-                item => {
-
-                    let mediaHTML =
-                        "";
+    related =
+        related.slice(0,4);
 
 
-                    /* =====================================
-                       VIDEO
-                    ===================================== */
+    grid.innerHTML =
+        related.map(item => {
 
-                    if(
-                        item.media ===
-                        "video"
-                    ){
+            const media =
+                getMedia(item)[0];
 
-                        mediaHTML = `
+            return `
 
-                            <video
-                                muted
-                                playsinline
-                                preload="metadata"
-                            >
+                <a
+                    class="related-card"
+                    href="couple-watchesproduct-details.html?slug=${encodeURIComponent(item.slug)}"
+                >
 
-                                <source
-                                    src="${encodeURI(item.files ? item.files[0] : item.file)}"
-                                    type="video/mp4"
+                    <div class="related-media">
+
+                        ${
+                            media
+                            ?
+
+                            (
+                                isVideo(media)
+
+                                ?
+
+                                `
+                                <video
+                                    src="${url(media)}"
+                                    muted
+                                    autoplay
+                                    loop
+                                    playsinline
+                                    preload="metadata"
+                                ></video>
+                                `
+
+                                :
+
+                                `
+                                <img
+                                    src="${url(media)}"
+                                    alt="${esc(item.name)}"
+                                    loading="lazy"
                                 >
+                                `
+                            )
 
-                            </video>
+                            :
 
-                        `;
+                            ""
+                        }
 
-                    }
+                    </div>
 
+                    <div class="related-info">
 
-                    /* =====================================
-                       IMAGE
-                    ===================================== */
-
-                    else{
-
-                        mediaHTML = `
-
-                            <img
-                                src="${encodeURI(item.files ? item.files[0] : item.file)}"
-                                alt="${escapeHTML(item.name)}"
-                            >
-
-                        `;
-
-                    }
-
-
-                    return `
-
-                        <div class="related-card">
-
-                            <div class="related-media">
-
-                                ${mediaHTML}
-
-                            </div>
-
-
-                            <div class="related-info">
-
-                                <h3>
-                                    ${escapeHTML(item.name)}
-                                </h3>
-
-
-                                <div class="related-price">
-                                    ${formatPrice(item.price)}
-                                </div>
-
-
-                                <a
-                                    href="product-detailscouple-watches.html?product=${encodeURIComponent(item.slug)}"
-                                    class="related-btn"
-                                >
-                                    View Details
-                                </a>
-
-                            </div>
-
+                        <div class="related-brand">
+                            ${esc(item.brand)}
                         </div>
 
-                    `;
+                        <div class="related-name">
+                            ${esc(item.name)}
+                        </div>
 
-                }
-            )
-            .join("");
+                        <div class="related-price">
+                            ${money(item.price)}
+                        </div>
+
+                    </div>
+
+                </a>
+
+            `;
+
+        }).join("");
 
 }
 
 
 /* =========================================================
-   GET CART
+   CART
 ========================================================= */
 
 function getCart(){
 
     try{
 
-        const stored =
-            localStorage.getItem(
-                "cart"
-            );
-
-
-        if(!stored){
-
-            return [];
-
-        }
-
-
-        const parsed =
+        const cart =
             JSON.parse(
-                stored
+                localStorage.getItem("cart")
             );
 
-
-        return Array.isArray(parsed)
-            ? parsed
+        return Array.isArray(cart)
+            ? cart
             : [];
 
-    }
-
-    catch(error){
-
-        console.error(
-            "Cart loading error:",
-            error
-        );
+    }catch(error){
 
         return [];
 
@@ -2775,10 +3003,6 @@ function getCart(){
 
 }
 
-
-/* =========================================================
-   SAVE CART
-========================================================= */
 
 function saveCart(cart){
 
@@ -2791,154 +3015,71 @@ function saveCart(cart){
 
 
 /* =========================================================
-   CREATE CART ITEM
-========================================================= */
-
-function createCartItem(
-    selectedQuantity
-){
-
-    return {
-
-        id:
-            "couple-watches-" +
-            product.slug,
-
-        productId:
-            product.slug,
-
-        name:
-            product.name,
-
-        price:
-            product.price,
-
-        quantity:
-            selectedQuantity,
-
-       image:
-    product.media === "image"
-        ? (product.files ? product.files[0] : product.file)
-        : "",
-
-        media:
-            product.media,
-
-        video:
-            product.media === "video"
-                ? product.file
-                : "",
-
-        category:
-            "Couple Watches",
-
-        brand:
-            product.brand
-
-    };
-
-}
-
-
-/* =========================================================
-   GET SELECTED QUANTITY
-========================================================= */
-
-function getSelectedQuantity(){
-
-    let value =
-        Number(
-            quantity.value
-        );
-
-
-    if(!Number.isFinite(value)){
-
-        value = 1;
-
-    }
-
-
-    value =
-        Math.floor(value);
-
-
-    if(value < 1){
-
-        value = 1;
-
-    }
-
-
-    if(value > 10){
-
-        value = 10;
-
-    }
-
-
-    quantity.value =
-        value;
-
-
-    return value;
-
-}
-
-
-/* =========================================================
    ADD TO CART
 ========================================================= */
 
 function addToCart(){
 
-    if(!product){
+    const quantityInput =
+        document.getElementById(
+            "quantity"
+        );
 
-        return;
+    let quantity =
+        Number(
+            quantityInput?.value || 1
+        );
 
-    }
-
-
-    const selectedQuantity =
-        getSelectedQuantity();
+    quantity =
+        Math.max(
+            1,
+            Math.min(
+                10,
+                quantity
+            )
+        );
 
 
     const cart =
         getCart();
 
 
-    const cartProductId =
-        "couple-watches-" +
-        product.slug;
-
-
     const existing =
         cart.find(
             item =>
-                String(item.id) ===
-                String(cartProductId)
+                String(item.slug) ===
+                String(product.slug)
         );
 
 
     if(existing){
 
         existing.quantity =
-            (
-                Number(
-                    existing.quantity
-                ) || 0
-            ) +
-            selectedQuantity;
+            Math.min(
+                10,
+                Number(existing.quantity || 0)
+                + quantity
+            );
 
-    }
+    }else{
 
-    else{
+        cart.push({
 
-        cart.push(
-            createCartItem(
-                selectedQuantity
-            )
-        );
+            slug:product.slug,
+
+            name:product.name,
+
+            price:product.price,
+
+            quantity:quantity,
+
+            media:getMedia(product)[0] || "",
+
+            brand:product.brand,
+
+            category:"Couple Watches"
+
+        });
 
     }
 
@@ -2946,18 +3087,8 @@ function addToCart(){
     saveCart(cart);
 
 
-    cartMessage.textContent =
-        "✓ Added to your cart";
-
-
-    setTimeout(
-        function(){
-
-            cartMessage.textContent =
-                "";
-
-        },
-        3000
+    toast(
+        `${product.name} added to your cart.`
     );
 
 }
@@ -2969,53 +3100,66 @@ function addToCart(){
 
 function buyNow(){
 
-    if(!product){
+    const quantityInput =
+        document.getElementById(
+            "quantity"
+        );
 
-        return;
+    let quantity =
+        Number(
+            quantityInput?.value || 1
+        );
 
-    }
-
-
-    const selectedQuantity =
-        getSelectedQuantity();
+    quantity =
+        Math.max(
+            1,
+            Math.min(
+                10,
+                quantity
+            )
+        );
 
 
     const cart =
         getCart();
 
 
-    const cartProductId =
-        "couple-watches-" +
-        product.slug;
-
-
     const existing =
         cart.find(
             item =>
-                String(item.id) ===
-                String(cartProductId)
+                String(item.slug) ===
+                String(product.slug)
         );
 
 
     if(existing){
 
         existing.quantity =
-            (
-                Number(
-                    existing.quantity
-                ) || 0
-            ) +
-            selectedQuantity;
+            Math.min(
+                10,
+                Number(existing.quantity || 0)
+                + quantity
+            );
 
-    }
+    }else{
 
-    else{
+        cart.push({
 
-        cart.push(
-            createCartItem(
-                selectedQuantity
-            )
-        );
+            slug:product.slug,
+
+            name:product.name,
+
+            price:product.price,
+
+            quantity:quantity,
+
+            media:getMedia(product)[0] || "",
+
+            brand:product.brand,
+
+            category:"Couple Watches"
+
+        });
 
     }
 
@@ -3030,115 +3174,1147 @@ function buyNow(){
 
 
 /* =========================================================
-   MINUS BUTTON
+   WHATSAPP
 ========================================================= */
 
-document
-    .getElementById(
-        "minusBtn"
-    )
-    .addEventListener(
-        "click",
-        function(){
+function enquireWhatsApp(){
 
-            let value =
-                Number(
-                    quantity.value
-                ) || 1;
+    const quantity =
+        Number(
+            document.getElementById(
+                "quantity"
+            )?.value || 1
+        );
 
 
-            value =
-                Math.max(
-                    1,
-                    value - 1
-                );
+    const message =
+`Hello 50 Mirars,
+
+I am interested in the following Couple Watch:
+
+Product: ${product.name}
+Brand: ${product.brand}
+Price: ${money(product.price)}
+Quantity: ${quantity}
+
+Please provide me with more details regarding availability and ordering.`;
 
 
-            quantity.value =
-                value;
+    const whatsappURL =
+        "https://wa.me/918209989013?text=" +
+        encodeURIComponent(message);
 
-        }
+
+    window.open(
+        whatsappURL,
+        "_blank",
+        "noopener"
     );
+
+}
 
 
 /* =========================================================
-   PLUS BUTTON
+   TOAST
 ========================================================= */
 
-document
-    .getElementById(
-        "plusBtn"
-    )
-    .addEventListener(
-        "click",
-        function(){
-
-            let value =
-                Number(
-                    quantity.value
-                ) || 1;
+let toastTimer;
 
 
-            value =
-                Math.min(
-                    10,
-                    value + 1
-                );
+function toast(message){
+
+    const element =
+        document.getElementById(
+            "toast"
+        );
+
+    if(!element){
+        return;
+    }
 
 
-            quantity.value =
-                value;
+    element.textContent =
+        message;
 
-        }
+
+    element.classList.add(
+        "show"
     );
 
 
+    clearTimeout(
+        toastTimer
+    );
+
+
+    toastTimer =
+        setTimeout(() => {
+
+            element.classList.remove(
+                "show"
+            );
+
+        },3000);
+
+}
+
+
 /* =========================================================
-   QUANTITY INPUT
+   GALLERY BINDING
 ========================================================= */
 
-quantity.addEventListener(
-    "change",
-    function(){
+function bindGallery(media){
 
-        getSelectedQuantity();
+    let currentIndex = 0;
+
+
+    const content =
+        document.getElementById(
+            "mainMediaContent"
+        );
+
+    const counter =
+        document.getElementById(
+            "mediaCounter"
+        );
+
+    const previous =
+        document.getElementById(
+            "prevMedia"
+        );
+
+    const next =
+        document.getElementById(
+            "nextMedia"
+        );
+
+    const thumbs =
+        document.querySelectorAll(
+            ".thumb"
+        );
+
+
+    function renderMedia(){
+
+        if(!content){
+            return;
+        }
+
+
+        const file =
+            media[currentIndex];
+
+
+        content.innerHTML =
+            mediaHTML(
+                file,
+                true
+            );
+
+
+        if(counter){
+
+            counter.textContent =
+                `${currentIndex + 1} / ${media.length}`;
+
+        }
+
+
+        thumbs.forEach(
+            (thumb,index) => {
+
+                thumb.classList.toggle(
+                    "active",
+                    index === currentIndex
+                );
+
+            }
+        );
+
+
+        const video =
+            content.querySelector(
+                "video"
+            );
+
+
+        if(video){
+
+            video.addEventListener(
+                "loadeddata",
+                () => {
+
+                    video.play()
+                        .catch(
+                            () => {}
+                        );
+
+                }
+            );
+
+        }
 
     }
-);
 
 
-/* =========================================================
-   BUTTON EVENTS
-========================================================= */
+    function move(direction){
 
-document
-    .getElementById(
-        "addCartBtn"
-    )
-    .addEventListener(
-        "click",
-        addToCart
+        if(media.length <= 1){
+            return;
+        }
+
+
+        currentIndex =
+            (
+                currentIndex +
+                direction +
+                media.length
+            ) %
+            media.length;
+
+
+        renderMedia();
+
+    }
+
+
+    if(previous){
+
+        previous.addEventListener(
+            "click",
+            () => move(-1)
+        );
+
+    }
+
+
+    if(next){
+
+        next.addEventListener(
+            "click",
+            () => move(1)
+        );
+
+    }
+
+
+    thumbs.forEach(
+        (thumb,index) => {
+
+            thumb.addEventListener(
+                "click",
+                () => {
+
+                    currentIndex =
+                        index;
+
+                    renderMedia();
+
+                }
+            );
+
+        }
     );
 
 
-document
-    .getElementById(
-        "buyNowBtn"
-    )
-    .addEventListener(
-        "click",
-        buyNow
+    /*
+       Keyboard gallery navigation
+    */
+
+    document.addEventListener(
+        "keydown",
+        event => {
+
+            if(event.key === "ArrowLeft"){
+
+                move(-1);
+
+            }
+
+            if(event.key === "ArrowRight"){
+
+                move(1);
+
+            }
+
+        }
     );
+
+}
 
 
 /* =========================================================
-   INITIALIZE
+   ACTION BINDING
 ========================================================= */
 
-loadProduct();
+function bindActions(){
+
+    const quantity =
+        document.getElementById(
+            "quantity"
+        );
+
+
+    const minus =
+        document.getElementById(
+            "quantityMinus"
+        );
+
+
+    const plus =
+        document.getElementById(
+            "quantityPlus"
+        );
+
+
+    if(minus){
+
+        minus.addEventListener(
+            "click",
+            () => {
+
+                let value =
+                    Number(
+                        quantity.value || 1
+                    );
+
+                value =
+                    Math.max(
+                        1,
+                        value - 1
+                    );
+
+                quantity.value =
+                    value;
+
+            }
+        );
+
+    }
+
+
+    if(plus){
+
+        plus.addEventListener(
+            "click",
+            () => {
+
+                let value =
+                    Number(
+                        quantity.value || 1
+                    );
+
+                value =
+                    Math.min(
+                        10,
+                        value + 1
+                    );
+
+                quantity.value =
+                    value;
+
+            }
+        );
+
+    }
+
+
+    if(quantity){
+
+        quantity.addEventListener(
+            "change",
+            () => {
+
+                let value =
+                    Number(
+                        quantity.value || 1
+                    );
+
+                value =
+                    Math.max(
+                        1,
+                        Math.min(
+                            10,
+                            value
+                        )
+                    );
+
+                quantity.value =
+                    value;
+
+            }
+        );
+
+    }
+
+
+    const add =
+        document.getElementById(
+            "addCart"
+        );
+
+
+    const buy =
+        document.getElementById(
+            "buyNow"
+        );
+
+
+    const whatsapp =
+        document.getElementById(
+            "whatsappBtn"
+        );
+
+
+    if(add){
+
+        add.addEventListener(
+            "click",
+            addToCart
+        );
+
+    }
+
+
+    if(buy){
+
+        buy.addEventListener(
+            "click",
+            buyNow
+        );
+
+    }
+
+
+    if(whatsapp){
+
+        whatsapp.addEventListener(
+            "click",
+            enquireWhatsApp
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   RENDER
+========================================================= */
+
+function render(){
+
+    const app =
+        document.getElementById(
+            "app"
+        );
+
+
+    if(!product){
+
+        app.innerHTML = `
+
+            <main class="error-page">
+
+                <div>
+
+                    <h1>
+                        Couple Watch Not Found
+                    </h1>
+
+                    <p>
+                        The requested product could not be found in the 50 Mirars Couple Watches collection.
+                    </p>
+
+                    <a
+                        href="couple-watches.html"
+                        class="back-link"
+                    >
+                        Back to Couple Watches
+                    </a>
+
+                </div>
+
+            </main>
+
+        `;
+
+        return;
+
+    }
+
+
+    const media =
+        getMedia(product);
+
+
+    const brand =
+        product.brand || "50 Mirars";
+
+
+    const mediaFormat =
+        media.some(isVideo)
+        ? "Image / Video Presentation"
+        : "Image Gallery";
+
+
+    app.innerHTML = `
+
+        <main>
+
+            <div class="page-wrap">
+
+
+                <!-- =========================================
+                     BREADCRUMBS
+                ========================================== -->
+
+                <div class="crumbs">
+
+                    <a href="index.html">
+                        Home
+                    </a>
+
+                    <span class="crumb-separator">
+                        /
+                    </span>
+
+                    <a href="couple-watches.html">
+                        Couple Watches
+                    </a>
+
+                    <span class="crumb-separator">
+                        /
+                    </span>
+
+                    <span>
+                        ${esc(product.name)}
+                    </span>
+
+                </div>
+
+
+                <!-- =========================================
+                     HERO
+                ========================================== -->
+
+                <section class="product-hero">
+
+
+                    <!-- GALLERY -->
+
+                    <div class="gallery">
+
+                        ${buildGallery(media)}
+
+                    </div>
+
+
+                    <!-- PRODUCT COPY -->
+
+                    <div class="product-copy">
+
+                        <div class="eyebrow">
+                            ${esc(brand)}
+                        </div>
+
+
+                        <h1 class="product-title">
+                            ${esc(product.name)}
+                        </h1>
+
+
+                        <div class="gold-rule"></div>
+
+
+                        <div class="price">
+                            ${money(product.price)}
+                        </div>
+
+
+                        <div class="availability">
+
+                            <span
+                                class="availability-dot"
+                            ></span>
+
+                            Available for order
+
+                        </div>
+
+
+                        <p class="lead">
+                            ${esc(product.description)}
+                        </p>
+
+
+                        <!-- PURCHASE -->
+
+                        <div class="purchase">
+
+
+                            <div class="quantity-row">
+
+                                <span class="quantity-label">
+                                    Quantity
+                                </span>
+
+
+                                <div class="quantity-control">
+
+                                    <button
+                                        type="button"
+                                        id="quantityMinus"
+                                        aria-label="Decrease quantity"
+                                    >
+                                        −
+                                    </button>
+
+
+                                    <input
+                                        id="quantity"
+                                        type="number"
+                                        min="1"
+                                        max="10"
+                                        value="1"
+                                        inputmode="numeric"
+                                    >
+
+
+                                    <button
+                                        type="button"
+                                        id="quantityPlus"
+                                        aria-label="Increase quantity"
+                                    >
+                                        +
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="primary-actions">
+
+                                <button
+                                    class="action primary"
+                                    id="addCart"
+                                    type="button"
+                                >
+                                    Add to Cart
+                                </button>
+
+
+                                <button
+                                    class="action secondary"
+                                    id="buyNow"
+                                    type="button"
+                                >
+                                    Buy Now
+                                </button>
+
+                            </div>
+
+
+                            <div class="secondary-actions">
+
+                                <button
+                                    class="text-action"
+                                    id="whatsappBtn"
+                                    type="button"
+                                >
+                                    WhatsApp Enquire
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- TRUST -->
+
+                        <div class="trust">
+
+                            <div class="trust-item">
+                                Secure<br>
+                                Order Experience
+                            </div>
+
+                            <div class="trust-item">
+                                Premium<br>
+                                Presentation
+                            </div>
+
+                            <div class="trust-item">
+                                Personal<br>
+                                Assistance
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =========================================
+                     EDITORIAL DETAILS
+                ========================================== -->
+
+                <section class="editorial">
+
+
+                    <div class="section-head">
+
+                        <div class="section-number">
+                            01 / The Piece
+                        </div>
+
+
+                        <div>
+
+                            <h2 class="section-title">
+                                The Details
+                            </h2>
+
+
+                            <p class="section-intro">
+                                The product information below is generated directly from the current 50 Mirars Couple Watches catalogue database.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="details-grid">
+
+
+                        <div class="detail">
+
+                            <div class="detail-label">
+                                Collection
+                            </div>
+
+                            <div class="detail-value">
+                                50 Mirars Couple Watches
+                            </div>
+
+                        </div>
+
+
+                        <div class="detail">
+
+                            <div class="detail-label">
+                                Brand
+                            </div>
+
+                            <div class="detail-value">
+                                ${esc(brand)}
+                            </div>
+
+                        </div>
+
+
+                        <div class="detail">
+
+                            <div class="detail-label">
+                                Product
+                            </div>
+
+                            <div class="detail-value">
+                                ${esc(product.name)}
+                            </div>
+
+                        </div>
+
+
+                        <div class="detail">
+
+                            <div class="detail-label">
+                                Price
+                            </div>
+
+                            <div class="detail-value">
+                                ${money(product.price)}
+                            </div>
+
+                        </div>
+
+
+                        <div class="detail">
+
+                            <div class="detail-label">
+                                Media
+                            </div>
+
+                            <div class="detail-value">
+                                ${media.length} ${
+                                    media.length === 1
+                                    ? "Item"
+                                    : "Items"
+                                }
+                            </div>
+
+                        </div>
+
+
+                        <div class="detail">
+
+                            <div class="detail-label">
+                                Format
+                            </div>
+
+                            <div class="detail-value">
+                                ${mediaFormat}
+                            </div>
+
+                        </div>
+
+
+                        <div class="detail">
+
+                            <div class="detail-label">
+                                Catalogue Slug
+                            </div>
+
+                            <div class="detail-value">
+                                ${esc(product.slug)}
+                            </div>
+
+                        </div>
+
+
+                        <div class="detail">
+
+                            <div class="detail-label">
+                                Availability
+                            </div>
+
+                            <div class="detail-value">
+                                Available for order
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- DESCRIPTION + FEATURES -->
+
+                    <div class="description-block">
+
+
+                        <div>
+
+                            <h3 class="description-title">
+                                About The Piece
+                            </h3>
+
+                            <p class="description-text">
+                                ${esc(product.description)}
+                            </p>
+
+                        </div>
+
+
+                        <div>
+
+                            <h3 class="features-title">
+                                Features
+                            </h3>
+
+                            <ul class="features-list">
+
+                                ${
+                                    Array.isArray(product.features)
+                                    ?
+                                    product.features.map(
+                                        feature => `
+                                            <li>
+                                                ${esc(feature)}
+                                            </li>
+                                        `
+                                    ).join("")
+                                    :
+                                    ""
+                                }
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+            </div>
+
+
+            <!-- =========================================
+                 BLACK STATEMENT
+            ========================================== -->
+
+            <section class="statement">
+
+                <div class="statement-inner">
+
+                    <div class="statement-small">
+                        50 Mirars / The Watch Atelier
+                    </div>
+
+
+                    <h2>
+                        Together in Time.<br>
+                        A Statement of Style.
+                    </h2>
+
+
+                    <p>
+                        Every couple piece is presented with the visual restraint and attention to detail that define the 50 Mirars collection.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================================
+                 RELATED COLLECTION
+            ========================================== -->
+
+            <div class="page-wrap">
+
+                <section class="related">
+
+
+                    <div class="section-head">
+
+                        <div class="section-number">
+                            02 / The Collection
+                        </div>
+
+
+                        <div>
+
+                            <h2 class="section-title">
+                                You May Also Like
+                            </h2>
+
+
+                            <p class="section-intro">
+                                Explore a few neighbouring pieces from the 50 Mirars Couple Watches collection.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="related-grid"
+                        id="relatedGrid"
+                    ></div>
+
+
+                </section>
+
+            </div>
+
+        </main>
+
+
+        <!-- =========================================
+             FOOTER
+        ========================================== -->
+
+        <footer class="site-footer">
+
+            <div class="footer-inner">
+
+
+                <div class="footer-grid">
+
+
+                    <!-- ABOUT / CONTACT -->
+
+                    <div>
+
+                        <div class="footer-title">
+                            50 MIRARS
+                        </div>
+
+                        <p class="footer-text">
+                            The Watch &amp; Sunglasses Store — a curated destination for distinctive timepieces and refined accessories.
+                        </p>
+
+
+                        <div class="footer-social">
+
+                            <a
+                                href="https://instagram.com/50mirars"
+                                target="_blank"
+                                rel="noopener"
+                                aria-label="Instagram"
+                            >
+
+                                <img
+                                    src="instagramimage.webp"
+                                    alt="50 Mirars Instagram"
+                                >
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CONTACT -->
+
+                    <div>
+
+                        <div class="footer-heading">
+                            Contact Us
+                        </div>
+
+
+                        <div class="contact-line">
+                            50mirars@gmail.com
+                        </div>
+
+
+                        <div class="contact-line">
+                            <a href="tel:+918209989013">
+                                82099 89013
+                            </a>
+                        </div>
+
+
+                        <div class="contact-line">
+                            09:00 - 21:30
+                        </div>
+
+
+                        <div class="contact-line">
+                            Monday to Sunday
+                        </div>
+
+                    </div>
+
+
+                    <!-- CUSTOMERS -->
+
+                    <div>
+
+                        <div class="footer-heading">
+                            For Customers
+                        </div>
+
+
+                        <div class="footer-links">
+
+                            <a href="about.html">
+                                About 50 Mirars
+                            </a>
+
+                            <a href="faq.html">
+                                FAQ
+                            </a>
+
+                            <a href="terms.html">
+                                Terms &amp; Conditions
+                            </a>
+
+                            <a href="privacypolicy.html">
+                                Privacy Policy
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SALES -->
+
+                    <div>
+
+                        <div class="footer-heading">
+                            For Sales / Watch Service
+                        </div>
+
+
+                        <div class="footer-links">
+
+                            <a
+                                href="https://wa.me/918209989013"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                View Products on WhatsApp
+                            </a>
+
+
+                            <a href="couple-watches.html">
+                                Couple Watches
+                            </a>
+
+
+                            <a href="watches.html">
+                                Watches
+                            </a>
+
+
+                            <a href="sunglasses.html">
+                                Sunglasses
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="footer-bottom">
+
+                    <div>
+                        © 2026 50 Mirars - The Watch &amp; Sunglasses Store. All Rights Reserved.
+                    </div>
+
+
+                    <div>
+                        Royal Watch Atelier
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </footer>
+
+    `;
+
+
+    buildRelated();
+
+    bindActions();
+
+    bindGallery(media);
+
+}
+
+
+/* =========================================================
+   START
+========================================================= */
+
+render();
 
 </script>
-
 
 </body>
 
