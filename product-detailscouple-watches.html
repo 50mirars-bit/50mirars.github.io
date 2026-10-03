@@ -38,6 +38,7 @@
     rel="stylesheet"
 >
 
+
 <style>
 
 /* =========================================================
@@ -134,13 +135,13 @@ a{
 
     z-index:1000;
 
-    height:74px;
+    min-height:74px;
 
     display:flex;
 
     align-items:center;
 
-    padding:0 42px;
+    padding:12px 42px;
 
     background:rgba(247,243,233,.94);
 
@@ -288,9 +289,7 @@ a{
 ========================================================= */
 
 .gallery{
-
     min-width:0;
-
 }
 
 .gallery-label{
@@ -311,11 +310,8 @@ a{
 
 
 .main-media-wrap{
-
     position:relative;
-
     width:100%;
-
 }
 
 
@@ -348,25 +344,34 @@ a{
 }
 
 
-.main-media img,
-.main-media video{
+#mainMediaContent{
+
+    width:100%;
+    height:600px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+}
+
+
+#mainMediaContent img,
+#mainMediaContent video{
 
     width:100%;
 
-    height:600px;
+    height:100%;
 
     object-fit:contain;
 
     padding:34px;
 
-    position:relative;
-
-    z-index:2;
-
 }
 
 
-.main-media video{
+#mainMediaContent video{
 
     background:#000;
 
@@ -389,11 +394,11 @@ a{
 
     right:22px;
 
-    z-index:5;
+    z-index:20;
 
     padding:6px 10px;
 
-    background:rgba(251,249,244,.85);
+    background:rgba(251,249,244,.88);
 
     border:1px solid var(--line);
 
@@ -412,7 +417,7 @@ a{
 
     top:50%;
 
-    z-index:8;
+    z-index:30;
 
     width:43px;
 
@@ -456,7 +461,6 @@ a{
     right:18px;
 }
 
-
 .gallery-arrow.hidden{
     display:none;
 }
@@ -480,6 +484,7 @@ a{
 
 }
 
+
 .thumb{
 
     position:relative;
@@ -500,7 +505,10 @@ a{
 
     transition:.25s ease;
 
+    padding:0;
+
 }
+
 
 .thumb.active{
 
@@ -509,6 +517,7 @@ a{
     border-color:var(--gold);
 
 }
+
 
 .thumb img,
 .thumb video{
@@ -520,6 +529,7 @@ a{
     object-fit:cover;
 
 }
+
 
 .thumb-video{
 
@@ -653,6 +663,8 @@ a{
     width:7px;
 
     height:7px;
+
+    flex:0 0 7px;
 
     border-radius:50%;
 
@@ -837,9 +849,7 @@ a{
 
 
 .secondary-actions{
-
     margin-top:12px;
-
 }
 
 
@@ -916,7 +926,7 @@ a{
 
 
 /* =========================================================
-   EDITORIAL SECTION
+   EDITORIAL
 ========================================================= */
 
 .editorial{
@@ -1060,7 +1070,7 @@ a{
 
 
 /* =========================================================
-   DESCRIPTION + FEATURES
+   DESCRIPTION
 ========================================================= */
 
 .description-block{
@@ -1078,7 +1088,8 @@ a{
 }
 
 
-.description-title{
+.description-title,
+.features-title{
 
     margin-bottom:20px;
 
@@ -1103,22 +1114,6 @@ a{
     line-height:2;
 
     color:#555149;
-
-}
-
-
-.features-title{
-
-    margin-bottom:22px;
-
-    font-family:
-        Cormorant Garamond,
-        Georgia,
-        serif;
-
-    font-size:38px;
-
-    font-weight:500;
 
 }
 
@@ -1195,11 +1190,13 @@ a{
 
     border-radius:50%;
 
-    background:radial-gradient(
-        circle,
-        rgba(201,162,77,.13),
-        transparent 70%
-    );
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(201,162,77,.13),
+            transparent 70%
+        );
 
     top:-220px;
 
@@ -1363,6 +1360,12 @@ a{
 }
 
 
+.related-media video{
+    background:#000;
+    padding:0;
+}
+
+
 .related-info{
 
     padding:20px 20px 23px;
@@ -1422,8 +1425,6 @@ a{
 
 .main-footer{
 
-    margin-top:0;
-
     background:#111;
 
     color:#fff;
@@ -1450,8 +1451,6 @@ a{
 
 }
 
-
-/* Footer top */
 
 .footer-top{
 
@@ -1499,8 +1498,6 @@ a{
 }
 
 
-/* Footer headings */
-
 .contact-column h3,
 .whatsapp-column h3,
 .footer-links-column h3,
@@ -1522,12 +1519,8 @@ a{
 }
 
 
-/* Contact */
-
 .contact-column{
-
     text-align:left;
-
 }
 
 
@@ -1560,9 +1553,7 @@ a{
 
 
 .footer-link:hover{
-
     color:#c9a24d;
-
 }
 
 
@@ -1571,9 +1562,7 @@ a{
 ========================================================= */
 
 .whatsapp-column{
-
     text-align:center;
-
 }
 
 
@@ -1684,9 +1673,7 @@ a{
 
 
 .footer-links-column a:hover{
-
     color:#c9a24d;
-
 }
 
 
@@ -1695,9 +1682,7 @@ a{
 ========================================================= */
 
 .footer-social{
-
     text-align:center;
-
 }
 
 
@@ -1736,9 +1721,7 @@ a{
 
 
 .instagram-button:hover{
-
     background:#c9a24d;
-
 }
 
 
@@ -1783,6 +1766,7 @@ a{
     line-height:1.6;
 
 }
+
 
 /* =========================================================
    TOAST
@@ -1835,7 +1819,7 @@ a{
 
 
 /* =========================================================
-   EMPTY / ERROR
+   ERROR
 ========================================================= */
 
 .error-page{
@@ -1902,7 +1886,7 @@ a{
 
 
 /* =========================================================
-   RESPONSIVE
+   RESPONSIVE — 1100
 ========================================================= */
 
 @media(max-width:1100px){
@@ -1917,13 +1901,15 @@ a{
 
     }
 
-    .main-media,
-    .main-media img,
-    .main-media video{
-
-        min-height:500px;
+    #mainMediaContent{
 
         height:500px;
+
+    }
+
+    .main-media{
+
+        min-height:500px;
 
     }
 
@@ -1944,14 +1930,17 @@ a{
 }
 
 
+/* =========================================================
+   RESPONSIVE — 850
+========================================================= */
+
 @media(max-width:850px){
 
     .site-header{
-        padding:0 25px;
+        padding:12px 25px;
     }
 
     .page-wrap,
-    .footer-inner,
     .statement-inner{
 
         width:min(
@@ -1970,18 +1959,18 @@ a{
     }
 
     .product-copy{
-
         position:static;
+    }
+
+    #mainMediaContent{
+
+        height:480px;
 
     }
 
-    .main-media,
-    .main-media img,
-    .main-media video{
+    .main-media{
 
         min-height:480px;
-
-        height:480px;
 
     }
 
@@ -2001,30 +1990,37 @@ a{
 
     }
 
-    .footer-grid{
+    .footer-top,
+    .footer-middle{
 
         grid-template-columns:
             repeat(2,1fr);
 
     }
 
+    .footer-top > h2{
+        grid-column:1 / -1;
+    }
+
 }
 
+
+/* =========================================================
+   RESPONSIVE — 620
+========================================================= */
 
 @media(max-width:620px){
 
     .site-header{
 
-        height:68px;
+        min-height:68px;
 
-        padding:0 18px;
+        padding:10px 18px;
 
     }
 
     .brand{
-
         font-size:23px;
-
     }
 
     .brand-sub{
@@ -2036,7 +2032,6 @@ a{
     }
 
     .page-wrap,
-    .footer-inner,
     .statement-inner{
 
         width:calc(100% - 28px);
@@ -2052,31 +2047,24 @@ a{
     }
 
     .product-title{
-
         font-size:48px;
-
     }
 
-    .main-media,
-    .main-media img,
-    .main-media video{
-
-        min-height:390px;
-
+    #mainMediaContent{
         height:390px;
-
     }
 
-    .main-media img{
+    .main-media{
+        min-height:390px;
+    }
 
+    #mainMediaContent img{
         padding:20px;
-
     }
 
     .gallery-arrow{
 
         width:37px;
-
         height:37px;
 
     }
@@ -2092,9 +2080,7 @@ a{
     }
 
     .primary-actions{
-
         grid-template-columns:1fr;
-
     }
 
     .trust-item{
@@ -2112,36 +2098,36 @@ a{
     }
 
     .details-grid{
-
         grid-template-columns:1fr;
-
     }
 
     .detail{
-
         min-height:auto;
-
     }
 
     .related{
-
         padding:80px 0;
-
     }
 
     .related-grid{
-
         grid-template-columns:1fr;
-
     }
 
     .related-media{
-
         height:390px;
+    }
+
+    .footer-container{
+
+        padding:
+            45px
+            20px
+            0;
 
     }
 
-    .footer-grid{
+    .footer-top,
+    .footer-middle{
 
         grid-template-columns:1fr;
 
@@ -2149,10 +2135,28 @@ a{
 
     }
 
-    .footer-bottom{
+    .footer-top > h2{
 
-        flex-direction:column;
+        grid-column:1;
 
+        font-size:32px;
+
+    }
+
+    .contact-column,
+    .whatsapp-column,
+    .footer-social{
+
+        text-align:center;
+
+    }
+
+    .footer-middle{
+        text-align:center;
+    }
+
+    .footer-links-column{
+        align-items:center;
     }
 
     .statement-inner{
@@ -2162,42 +2166,48 @@ a{
     }
 
     .statement h2{
-
         font-size:57px;
+    }
+
+    .toast{
+
+        left:14px;
+
+        right:14px;
+
+        bottom:14px;
+
+        max-width:none;
 
     }
 
 }
 
 
+/* =========================================================
+   RESPONSIVE — 380
+========================================================= */
+
 @media(max-width:380px){
 
     .product-title{
-
         font-size:42px;
-
     }
 
     .price{
-
         font-size:32px;
-
     }
 
-    .main-media,
-    .main-media img,
-    .main-media video{
-
-        min-height:340px;
-
+    #mainMediaContent{
         height:340px;
+    }
 
+    .main-media{
+        min-height:340px;
     }
 
     .statement h2{
-
         font-size:48px;
-
     }
 
 }
@@ -2216,7 +2226,11 @@ a{
 
 <header class="site-header">
 
-    <a href="index.html" class="brand-link">
+    <a
+        href="index.html"
+        class="brand-link"
+        aria-label="50 Mirars Home"
+    >
 
         <div class="brand">
 
@@ -2255,7 +2269,6 @@ a{
 
 /* =========================================================
    COUPLE WATCHES DATABASE
-   SAME STRUCTURE AS PRODUCT-DETAILS.HTML
 ========================================================= */
 
 const coupleWatches = [
@@ -2266,7 +2279,9 @@ const coupleWatches = [
         name:"Cartier Santos Dumont Couple Watch",
         price:4500,
         type:"images",
-        media:["Cartier Santos Dumont Couple Watch.jpeg"],
+        media:[
+            "Cartier Santos Dumont Couple Watch.jpeg"
+        ],
         brand:"Cartier",
         description:"The Cartier Santos Dumont Couple Watch is an elegant coordinated timepiece designed for couples who appreciate a sophisticated and timeless appearance. Its refined Santos-inspired styling gives both watches a distinctive presence, making the set suitable for everyday wear, special occasions and meaningful gifting.",
         features:[
@@ -2277,7 +2292,12 @@ const coupleWatches = [
             "Carefully selected by 50 Mirars",
             "Premium presentation and packaging"
         ],
-        similar:["cartier-santos-roman","rolex-automatic","omega-constellation","citizen-classic"]
+        similar:[
+            "cartier-santos-roman",
+            "rolex-automatic",
+            "omega-constellation",
+            "citizen-classic"
+        ]
     },
 
     {
@@ -2286,7 +2306,9 @@ const coupleWatches = [
         name:"Rolex All Black Couple Watch",
         price:4000,
         type:"video",
-        media:["Rolex All Black Couple Watch.mp4"],
+        media:[
+            "Rolex All Black Couple Watch.mp4"
+        ],
         brand:"Rolex",
         description:"The Rolex All Black Couple Watch offers a bold and sophisticated coordinated appearance for couples. Its striking all-black styling creates a modern and powerful look while remaining versatile enough for everyday outfits, evening occasions and special events.",
         features:[
@@ -2297,7 +2319,12 @@ const coupleWatches = [
             "Carefully selected by 50 Mirars",
             "Premium presentation and packaging"
         ],
-        similar:["rolex-automatic","rolex-sky-dweller","rolex-day-date","omega-constellation"]
+        similar:[
+            "rolex-automatic",
+            "rolex-sky-dweller",
+            "rolex-day-date",
+            "omega-constellation"
+        ]
     },
 
     {
@@ -2306,7 +2333,9 @@ const coupleWatches = [
         name:"Rolex Automatic Couple Watch",
         price:5000,
         type:"images",
-        media:["Rolex Automatic Couple Watch.jpeg"],
+        media:[
+            "Rolex Automatic Couple Watch.jpeg"
+        ],
         brand:"Rolex",
         description:"The Rolex Automatic Couple Watch is a refined coordinated timepiece created for couples who prefer a classic luxury-inspired appearance. Its distinctive automatic-style presentation gives the matching set an elegant character suitable for formal occasions, celebrations and everyday styling.",
         features:[
@@ -2317,7 +2346,12 @@ const coupleWatches = [
             "Carefully selected by 50 Mirars",
             "Premium presentation and packaging"
         ],
-        similar:["rolex-all-black","rolex-sky-dweller","rolex-day-date","tissot-gentel"]
+        similar:[
+            "rolex-all-black",
+            "rolex-sky-dweller",
+            "rolex-day-date",
+            "tissot-gentel"
+        ]
     },
 
     {
@@ -2326,7 +2360,9 @@ const coupleWatches = [
         name:"Rolex Sky-Dweller Couple Watch",
         price:5000,
         type:"images",
-        media:["Rolex Sky-Dewller Couple Watch.jpeg"],
+        media:[
+            "Rolex Sky-Dewller Couple Watch.jpeg"
+        ],
         brand:"Rolex",
         description:"The Rolex Sky-Dweller Couple Watch offers a polished coordinated appearance inspired by the distinctive character of a premium luxury timepiece. Designed for couples, the matching set creates an elegant look suitable for celebrations, special occasions and sophisticated everyday styling.",
         features:[
@@ -2337,7 +2373,12 @@ const coupleWatches = [
             "Suitable for special occasions and everyday wear",
             "Premium presentation and packaging"
         ],
-        similar:["rolex-all-black","rolex-automatic","rolex-day-date","omega-constellation"]
+        similar:[
+            "rolex-all-black",
+            "rolex-automatic",
+            "rolex-day-date",
+            "omega-constellation"
+        ]
     },
 
     {
@@ -2346,7 +2387,9 @@ const coupleWatches = [
         name:"Rado Diastar Couple Watch",
         price:5000,
         type:"images",
-        media:["Rado Diastar Couple Watch.jpeg"],
+        media:[
+            "Rado Diastar Couple Watch.jpeg"
+        ],
         brand:"Rado",
         description:"The Rado Diastar Couple Watch brings a distinctive and elegant character to a coordinated couple's collection. Its refined appearance makes it an excellent choice for couples looking for matching watches with a sophisticated presence for everyday wear, celebrations and gifting.",
         features:[
@@ -2357,7 +2400,12 @@ const coupleWatches = [
             "Carefully selected by 50 Mirars",
             "Premium presentation and packaging"
         ],
-        similar:["rado-centrix-jubile","tissot-gentel","omega-constellation","cartier-santos-dumont"]
+        similar:[
+            "rado-centrix-jubile",
+            "tissot-gentel",
+            "omega-constellation",
+            "cartier-santos-dumont"
+        ]
     },
 
     {
@@ -2366,7 +2414,10 @@ const coupleWatches = [
         name:"Fossil Nick Jonas Couple Watch",
         price:4500,
         type:"images",
-        media:["Fossil Nick Jonas Couple Watch .jpeg","Fossil Nick Jonas Couple Watch 2.jpeg"],
+        media:[
+            "Fossil Nick Jonas Couple Watch .jpeg",
+            "Fossil Nick Jonas Couple Watch 2.jpeg"
+        ],
         brand:"Fossil",
         description:"The Fossil Nick Jonas Couple Watch combines a fashionable contemporary appearance with a coordinated design for couples. The matching set is an ideal choice for couples who want a stylish timepiece that complements modern everyday outfits while remaining suitable for special occasions.",
         features:[
@@ -2377,7 +2428,12 @@ const coupleWatches = [
             "Carefully selected by 50 Mirars",
             "Premium presentation and packaging"
         ],
-        similar:["rado-centrix-jubile","tissot-gentel","citizen-classic","casio-vintage"]
+        similar:[
+            "rado-centrix-jubile",
+            "tissot-gentel",
+            "citizen-classic",
+            "casio-vintage"
+        ]
     },
 
     {
@@ -2386,7 +2442,9 @@ const coupleWatches = [
         name:"Rado Centrix Jubile Couple Watch",
         price:4500,
         type:"images",
-        media:["Rado Centrix Jubile Couple Watch.jpeg"],
+        media:[
+            "Rado Centrix Jubile Couple Watch.jpeg"
+        ],
         brand:"Rado",
         description:"The Rado Centrix Jubile Couple Watch is designed for couples who prefer an elegant and coordinated timepiece. Its refined appearance creates a sophisticated matching look that works beautifully for celebrations, gifting and everyday wear.",
         features:[
@@ -2397,7 +2455,12 @@ const coupleWatches = [
             "Carefully selected by 50 Mirars",
             "Premium presentation and packaging"
         ],
-        similar:["rado-diastar","fossil-nick-jonas","tissot-gentel","omega-constellation"]
+        similar:[
+            "rado-diastar",
+            "fossil-nick-jonas",
+            "tissot-gentel",
+            "omega-constellation"
+        ]
     },
 
     {
@@ -2406,7 +2469,9 @@ const coupleWatches = [
         name:"Tissot Gentel Couple Watch",
         price:5000,
         type:"images",
-        media:["Tissot Gentel Couple Watch.jpeg"],
+        media:[
+            "Tissot Gentel Couple Watch.jpeg"
+        ],
         brand:"Tissot",
         description:"The Tissot Gentel Couple Watch offers a classic and sophisticated coordinated appearance for couples. Its timeless styling makes it suitable for customers who prefer an elegant matching watch set that can transition easily between formal occasions and everyday wear.",
         features:[
@@ -2417,7 +2482,12 @@ const coupleWatches = [
             "Carefully selected by 50 Mirars",
             "Premium presentation and packaging"
         ],
-        similar:["rado-centrix-jubile","rado-diastar","rolex-automatic","citizen-classic"]
+        similar:[
+            "rado-centrix-jubile",
+            "rado-diastar",
+            "rolex-automatic",
+            "citizen-classic"
+        ]
     },
 
     {
@@ -2426,7 +2496,9 @@ const coupleWatches = [
         name:"Omega Constellation Couple Watch",
         price:4500,
         type:"images",
-        media:["Omega Constellation Couple Watch.jpeg"],
+        media:[
+            "Omega Constellation Couple Watch.jpeg"
+        ],
         brand:"Omega",
         description:"The Omega Constellation Couple Watch delivers a sophisticated coordinated look inspired by the distinctive character of the Constellation style. Designed for couples, it offers an elegant presence suitable for celebrations, special occasions and everyday wear.",
         features:[
@@ -2437,7 +2509,12 @@ const coupleWatches = [
             "Carefully selected by 50 Mirars",
             "Premium presentation and packaging"
         ],
-        similar:["rolex-automatic","rolex-sky-dweller","tissot-gentel","cartier-santos-roman"]
+        similar:[
+            "rolex-automatic",
+            "rolex-sky-dweller",
+            "tissot-gentel",
+            "cartier-santos-roman"
+        ]
     },
 
     {
@@ -2446,7 +2523,9 @@ const coupleWatches = [
         name:"Cartier Santos Roman Couple Watch",
         price:4500,
         type:"images",
-        media:["Cartier Santos Roman Couple Watch.jpeg"],
+        media:[
+            "Cartier Santos Roman Couple Watch.jpeg"
+        ],
         brand:"Cartier",
         description:"The Cartier Santos Roman Couple Watch combines a classic Roman-numeral-inspired appearance with an elegant coordinated design for couples. It is designed for customers who appreciate a sophisticated and timeless-looking matching watch set.",
         features:[
@@ -2457,7 +2536,12 @@ const coupleWatches = [
             "Suitable for formal and occasion wear",
             "Premium presentation and packaging"
         ],
-        similar:["cartier-santos-dumont","omega-constellation","rado-diastar","citizen-classic"]
+        similar:[
+            "cartier-santos-dumont",
+            "omega-constellation",
+            "rado-diastar",
+            "citizen-classic"
+        ]
     },
 
     {
@@ -2466,7 +2550,9 @@ const coupleWatches = [
         name:"Citizen Classic Couple Watch",
         price:4500,
         type:"images",
-        media:["Citizen Classic Couple Watch.jpeg"],
+        media:[
+            "Citizen Classic Couple Watch.jpeg"
+        ],
         brand:"Citizen",
         description:"The Citizen Classic Couple Watch is designed for couples who prefer a timeless and understated coordinated appearance. Its classic styling makes it versatile for everyday use, gifting and special occasions.",
         features:[
@@ -2477,7 +2563,12 @@ const coupleWatches = [
             "Carefully selected by 50 Mirars",
             "Premium presentation and packaging"
         ],
-        similar:["tissot-gentel","rado-centrix-jubile","omega-constellation","cartier-santos-roman"]
+        similar:[
+            "tissot-gentel",
+            "rado-centrix-jubile",
+            "omega-constellation",
+            "cartier-santos-roman"
+        ]
     },
 
     {
@@ -2486,7 +2577,9 @@ const coupleWatches = [
         name:"Casio Vintage Couple Watch",
         price:4500,
         type:"images",
-        media:["Casio Vintage Couple Watch.jpeg"],
+        media:[
+            "Casio Vintage Couple Watch.jpeg"
+        ],
         brand:"Casio",
         description:"The Casio Vintage Couple Watch brings a distinctive retro-inspired character to a coordinated couple's collection. Its vintage styling makes it a great choice for couples who prefer a fashionable and recognizable everyday timepiece.",
         features:[
@@ -2497,7 +2590,12 @@ const coupleWatches = [
             "Carefully selected by 50 Mirars",
             "Premium presentation and packaging"
         ],
-        similar:["fossil-nick-jonas","citizen-classic","tissot-gentel","danial-wellington"]
+        similar:[
+            "fossil-nick-jonas",
+            "citizen-classic",
+            "tissot-gentel",
+            "danial-wellington"
+        ]
     },
 
     {
@@ -2506,7 +2604,10 @@ const coupleWatches = [
         name:"Danial Wellington Couple",
         price:4500,
         type:"images",
-        media:["Danial Wellington Couple Watch.jpeg","Danial Wellington Couple 2.jpeg"],
+        media:[
+            "Danial Wellington Couple Watch.jpeg",
+            "Danial Wellington Couple 2.jpeg"
+        ],
         brand:"Daniel Wellington",
         description:"The Danial Wellington Couple offers a clean and elegant coordinated appearance for couples. Its minimalist-inspired styling makes it easy to pair with both casual and formal outfits, making it a versatile matching set for couples.",
         features:[
@@ -2517,7 +2618,12 @@ const coupleWatches = [
             "Carefully selected by 50 Mirars",
             "Premium presentation and packaging"
         ],
-        similar:["casio-vintage","fossil-nick-jonas","citizen-classic","tissot-gentel"]
+        similar:[
+            "casio-vintage",
+            "fossil-nick-jonas",
+            "citizen-classic",
+            "tissot-gentel"
+        ]
     },
 
     {
@@ -2549,21 +2655,76 @@ const coupleWatches = [
             "Suitable for formal and special occasions",
             "Premium presentation and packaging"
         ],
-        similar:["rolex-automatic","rolex-sky-dweller","rolex-all-black","omega-constellation"]
+        similar:[
+            "rolex-automatic",
+            "rolex-sky-dweller",
+            "rolex-all-black",
+            "omega-constellation"
+        ]
     }
+
 ];
 
+
 /* =========================================================
-   URL / PRODUCT
+   URL / PRODUCT LOOKUP
+   SUPPORTS:
+   ?id=1
+   ?slug=cartier-santos-dumont
 ========================================================= */
 
-const params = new URLSearchParams(window.location.search);
+const params =
+    new URLSearchParams(
+        window.location.search
+    );
 
-const productId = Number(params.get("id"));
+const requestedId =
+    params.get("id");
 
-const product = coupleWatches.find(
-    item => item.id === productId
-);
+const requestedSlug =
+    params.get("slug");
+
+
+let product = null;
+
+
+/* First try numeric ID */
+
+if(requestedId){
+
+    const numericId =
+        Number(requestedId);
+
+    if(
+        Number.isFinite(numericId)
+    ){
+
+        product =
+            coupleWatches.find(
+                item =>
+                    Number(item.id) === numericId
+            );
+
+    }
+
+}
+
+
+/* If ID failed, try slug */
+
+if(
+    !product &&
+    requestedSlug
+){
+
+    product =
+        coupleWatches.find(
+            item =>
+                String(item.slug).toLowerCase() ===
+                String(requestedSlug).toLowerCase()
+        );
+
+}
 
 
 /* =========================================================
@@ -2573,7 +2734,7 @@ const product = coupleWatches.find(
 function money(value){
 
     return "₹" +
-        Number(value).toLocaleString(
+        Number(value || 0).toLocaleString(
             "en-IN"
         );
 
@@ -2592,9 +2753,11 @@ function esc(value){
 }
 
 
-function url(value){
+function fileURL(value){
 
-    return encodeURI(value);
+    return encodeURI(
+        String(value || "")
+    );
 
 }
 
@@ -2602,7 +2765,7 @@ function url(value){
 function isVideo(file){
 
     return /\.(mp4|webm|ogg)$/i.test(
-        String(file)
+        String(file || "")
     );
 
 }
@@ -2612,27 +2775,44 @@ function isVideo(file){
    MEDIA NORMALIZATION
 ========================================================= */
 
-function getMedia(product){
+function getMedia(item){
 
     if(
-        Array.isArray(product.media) &&
-        product.media.length
+        item &&
+        Array.isArray(item.media) &&
+        item.media.length
     ){
-        return product.media;
+
+        return item.media.filter(Boolean);
+
     }
+
 
     if(
-        Array.isArray(product.files) &&
-        product.files.length
+        item &&
+        Array.isArray(item.files) &&
+        item.files.length
     ){
-        return product.files;
+
+        return item.files.filter(Boolean);
+
     }
 
-    if(product.file){
-        return [product.file];
+
+    if(
+        item &&
+        item.file
+    ){
+
+        return [
+            item.file
+        ];
+
     }
+
 
     return [];
+
 }
 
 
@@ -2640,9 +2820,19 @@ function getMedia(product){
    MEDIA HTML
 ========================================================= */
 
-function mediaHTML(file, large = false){
+function mediaHTML(
+    file,
+    large = false
+){
 
-    const safeFile = url(file);
+    if(!file){
+        return "";
+    }
+
+
+    const safeFile =
+        fileURL(file);
+
 
     if(isVideo(file)){
 
@@ -2660,12 +2850,14 @@ function mediaHTML(file, large = false){
 
     }
 
+
     return `
 
         <img
-            src="${safeFile}"
-            alt="${esc(product.name)}"
             ${large ? 'id="mainImage"' : ''}
+            src="${safeFile}"
+            alt="${esc(product?.name || "50 Mirars Couple Watch")}"
+            loading="${large ? "eager" : "lazy"}"
         >
 
     `;
@@ -2679,9 +2871,32 @@ function mediaHTML(file, large = false){
 
 function buildGallery(media){
 
-    const galleryId =
-        "gallery-" +
-        Date.now();
+    if(!media.length){
+
+        return `
+
+            <div class="gallery-label">
+                50 Mirars / Royal Watch Atelier
+            </div>
+
+            <div class="main-media">
+
+                <div
+                    style="
+                        padding:50px;
+                        text-align:center;
+                        color:#716d64;
+                    "
+                >
+                    Product media unavailable.
+                </div>
+
+            </div>
+
+        `;
+
+    }
+
 
     return `
 
@@ -2693,7 +2908,7 @@ function buildGallery(media){
 
             <div
                 class="main-media"
-                id="${galleryId}"
+                id="mainGallery"
             >
 
                 <div
@@ -2703,25 +2918,39 @@ function buildGallery(media){
                     1 / ${media.length}
                 </div>
 
+
                 <button
                     class="gallery-arrow prev ${
-                        media.length <= 1 ? "hidden" : ""
+                        media.length <= 1
+                            ? "hidden"
+                            : ""
                     }"
                     id="prevMedia"
+                    type="button"
                     aria-label="Previous media"
                 >
                     ‹
                 </button>
 
+
                 <div id="mainMediaContent">
-                    ${mediaHTML(media[0], true)}
+
+                    ${mediaHTML(
+                        media[0],
+                        true
+                    )}
+
                 </div>
+
 
                 <button
                     class="gallery-arrow next ${
-                        media.length <= 1 ? "hidden" : ""
+                        media.length <= 1
+                            ? "hidden"
+                            : ""
                     }"
                     id="nextMedia"
+                    type="button"
                     aria-label="Next media"
                 >
                     ›
@@ -2730,6 +2959,7 @@ function buildGallery(media){
             </div>
 
         </div>
+
 
         ${
             media.length > 1
@@ -2741,28 +2971,32 @@ function buildGallery(media){
                 id="thumbnails"
             >
 
-                ${media.map((file,index)=>`
+                ${media.map(
+                    (file,index) => `
 
                     <button
                         class="thumb ${
                             index === 0
-                            ? "active"
-                            : ""
+                                ? "active"
+                                : ""
                         }"
+                        type="button"
                         data-index="${index}"
                         aria-label="View media ${index + 1}"
                     >
 
                         ${
                             isVideo(file)
+
                             ?
 
                             `
 
                             <video
-                                src="${url(file)}"
+                                src="${fileURL(file)}"
                                 muted
                                 preload="metadata"
+                                playsinline
                             ></video>
 
                             <span class="thumb-video">
@@ -2776,8 +3010,9 @@ function buildGallery(media){
                             `
 
                             <img
-                                src="${url(file)}"
+                                src="${fileURL(file)}"
                                 alt=""
+                                loading="lazy"
                             >
 
                             `
@@ -2785,7 +3020,8 @@ function buildGallery(media){
 
                     </button>
 
-                `).join("")}
+                `
+                ).join("")}
 
             </div>
 
@@ -2810,7 +3046,8 @@ function buildRelated(){
             "relatedGrid"
         );
 
-    if(!grid){
+
+    if(!grid || !product){
         return;
     }
 
@@ -2818,27 +3055,60 @@ function buildRelated(){
     let related = [];
 
 
-    /*
-       First use the exact similar
-       products supplied in database.
-    */
-
     if(
         Array.isArray(product.similar)
     ){
 
-        product.similar.forEach(slug => {
+        product.similar.forEach(
+            slug => {
 
-            const item =
-                coupleWatches.find(
-                    p => p.slug === slug
-                );
+                const item =
+                    coupleWatches.find(
+                        p =>
+                            p.slug === slug
+                    );
+
+
+                if(
+                    item &&
+                    item.slug !== product.slug &&
+                    !related.some(
+                        p =>
+                            p.slug === item.slug
+                    )
+                ){
+
+                    related.push(item);
+
+                }
+
+            }
+        );
+
+    }
+
+
+    coupleWatches.forEach(
+        item => {
 
             if(
-                item &&
-                item.slug !== product.slug &&
+                related.length >= 4
+            ){
+                return;
+            }
+
+
+            if(
+                item.slug === product.slug
+            ){
+                return;
+            }
+
+
+            if(
                 !related.some(
-                    p => p.slug === item.slug
+                    p =>
+                        p.slug === item.slug
                 )
             ){
 
@@ -2846,41 +3116,8 @@ function buildRelated(){
 
             }
 
-        });
-
-    }
-
-
-    /*
-       If fewer than 4 are available,
-       fill from the remaining collection.
-    */
-
-    coupleWatches.forEach(item => {
-
-        if(
-            related.length >= 4
-        ){
-            return;
         }
-
-        if(
-            item.slug === product.slug
-        ){
-            return;
-        }
-
-        if(
-            !related.some(
-                p => p.slug === item.slug
-            )
-        ){
-
-            related.push(item);
-
-        }
-
-    });
+    );
 
 
     related =
@@ -2888,79 +3125,99 @@ function buildRelated(){
 
 
     grid.innerHTML =
-        related.map(item => {
+        related.map(
+            item => {
 
-            const media =
-                getMedia(item)[0];
+                const media =
+                    getMedia(item)[0];
 
-            return `
 
-                <a
-                    class="related-card"
-                    href="product-detailscouple-watches.html?id=${item.id}"
-                >
+                return `
 
-                    <div class="related-media">
+                    <a
+                        class="related-card"
+                        href="product-detailscouple-watches.html?id=${encodeURIComponent(item.id)}"
+                    >
 
-                        ${
-                            media
-                            ?
+                        <div class="related-media">
 
-                            (
-                                isVideo(media)
+                            ${
+                                media
 
                                 ?
 
-                                `
-                                <video
-                                    src="${url(media)}"
-                                    muted
-                                    autoplay
-                                    loop
-                                    playsinline
-                                    preload="metadata"
-                                ></video>
-                                `
+                                (
+                                    isVideo(media)
+
+                                    ?
+
+                                    `
+
+                                    <video
+                                        src="${fileURL(media)}"
+                                        muted
+                                        autoplay
+                                        loop
+                                        playsinline
+                                        preload="metadata"
+                                    ></video>
+
+                                    `
+
+                                    :
+
+                                    `
+
+                                    <img
+                                        src="${fileURL(media)}"
+                                        alt="${esc(item.name)}"
+                                        loading="lazy"
+                                    >
+
+                                    `
+                                )
 
                                 :
 
                                 `
-                                <img
-                                    src="${url(media)}"
-                                    alt="${esc(item.name)}"
-                                    loading="lazy"
+                                <div
+                                    style="
+                                        padding:30px;
+                                        text-align:center;
+                                        color:#716d64;
+                                    "
                                 >
+                                    Image unavailable
+                                </div>
                                 `
-                            )
 
-                            :
+                            }
 
-                            ""
-                        }
-
-                    </div>
-
-                    <div class="related-info">
-
-                        <div class="related-brand">
-                            ${esc(item.brand)}
                         </div>
 
-                        <div class="related-name">
-                            ${esc(item.name)}
+
+                        <div class="related-info">
+
+                            <div class="related-brand">
+                                ${esc(item.brand)}
+                            </div>
+
+                            <div class="related-name">
+                                ${esc(item.name)}
+                            </div>
+
+                            <div class="related-price">
+                                ${money(item.price)}
+                            </div>
+
                         </div>
 
-                        <div class="related-price">
-                            ${money(item.price)}
-                        </div>
+                    </a>
 
-                    </div>
+                `;
 
-                </a>
-
-            `;
-
-        }).join("");
+            }
+        ).join("");
 
 }
 
@@ -2973,16 +3230,31 @@ function getCart(){
 
     try{
 
-        const cart =
-            JSON.parse(
-                localStorage.getItem("cart")
+        const raw =
+            localStorage.getItem(
+                "cart"
             );
+
+
+        if(!raw){
+            return [];
+        }
+
+
+        const cart =
+            JSON.parse(raw);
+
 
         return Array.isArray(cart)
             ? cart
             : [];
 
     }catch(error){
+
+        console.error(
+            "Cart read error:",
+            error
+        );
 
         return [];
 
@@ -2993,10 +3265,60 @@ function getCart(){
 
 function saveCart(cart){
 
-    localStorage.setItem(
-        "cart",
-        JSON.stringify(cart)
-    );
+    try{
+
+        localStorage.setItem(
+            "cart",
+            JSON.stringify(cart)
+        );
+
+        return true;
+
+    }catch(error){
+
+        console.error(
+            "Cart save error:",
+            error
+        );
+
+        toast(
+            "Unable to save your cart. Please try again."
+        );
+
+        return false;
+
+    }
+
+}
+
+
+/* =========================================================
+   CART ITEM
+========================================================= */
+
+function createCartItem(quantity){
+
+    return {
+
+        id:product.id,
+
+        productId:product.id,
+
+        slug:product.slug,
+
+        name:product.name,
+
+        price:Number(product.price),
+
+        quantity:Number(quantity),
+
+        media:getMedia(product)[0] || "",
+
+        brand:product.brand,
+
+        category:"Couple Watches"
+
+    };
 
 }
 
@@ -3007,22 +3329,34 @@ function saveCart(cart){
 
 function addToCart(){
 
+    if(!product){
+        return;
+    }
+
+
     const quantityInput =
         document.getElementById(
             "quantity"
         );
+
 
     let quantity =
         Number(
             quantityInput?.value || 1
         );
 
+
+    if(!Number.isFinite(quantity)){
+        quantity = 1;
+    }
+
+
     quantity =
         Math.max(
             1,
             Math.min(
                 10,
-                quantity
+                Math.floor(quantity)
             )
         );
 
@@ -3034,8 +3368,14 @@ function addToCart(){
     const existing =
         cart.find(
             item =>
+
                 String(item.slug) ===
                 String(product.slug)
+
+                ||
+
+                String(item.id) ===
+                String(product.id)
         );
 
 
@@ -3044,39 +3384,36 @@ function addToCart(){
         existing.quantity =
             Math.min(
                 10,
-                Number(existing.quantity || 0)
-                + quantity
+                Number(
+                    existing.quantity || 0
+                ) + quantity
             );
+
+
+        existing.id =
+            existing.id ??
+            product.id;
 
     }else{
 
-        cart.push({
-
-            slug:product.slug,
-
-            name:product.name,
-
-            price:product.price,
-
-            quantity:quantity,
-
-            media:getMedia(product)[0] || "",
-
-            brand:product.brand,
-
-            category:"Couple Watches"
-
-        });
+        cart.push(
+            createCartItem(
+                quantity
+            )
+        );
 
     }
 
 
-    saveCart(cart);
+    if(
+        saveCart(cart)
+    ){
 
+        toast(
+            `${product.name} added to your cart.`
+        );
 
-    toast(
-        `${product.name} added to your cart.`
-    );
+    }
 
 }
 
@@ -3087,22 +3424,34 @@ function addToCart(){
 
 function buyNow(){
 
+    if(!product){
+        return;
+    }
+
+
     const quantityInput =
         document.getElementById(
             "quantity"
         );
+
 
     let quantity =
         Number(
             quantityInput?.value || 1
         );
 
+
+    if(!Number.isFinite(quantity)){
+        quantity = 1;
+    }
+
+
     quantity =
         Math.max(
             1,
             Math.min(
                 10,
-                quantity
+                Math.floor(quantity)
             )
         );
 
@@ -3114,8 +3463,14 @@ function buyNow(){
     const existing =
         cart.find(
             item =>
+
                 String(item.slug) ===
                 String(product.slug)
+
+                ||
+
+                String(item.id) ===
+                String(product.id)
         );
 
 
@@ -3124,38 +3479,30 @@ function buyNow(){
         existing.quantity =
             Math.min(
                 10,
-                Number(existing.quantity || 0)
-                + quantity
+                Number(
+                    existing.quantity || 0
+                ) + quantity
             );
 
     }else{
 
-        cart.push({
-
-            slug:product.slug,
-
-            name:product.name,
-
-            price:product.price,
-
-            quantity:quantity,
-
-            media:getMedia(product)[0] || "",
-
-            brand:product.brand,
-
-            category:"Couple Watches"
-
-        });
+        cart.push(
+            createCartItem(
+                quantity
+            )
+        );
 
     }
 
 
-    saveCart(cart);
+    if(
+        saveCart(cart)
+    ){
 
+        window.location.href =
+            "cart.html";
 
-    window.location.href =
-        "cart.html";
+    }
 
 }
 
@@ -3166,15 +3513,40 @@ function buyNow(){
 
 function enquireWhatsApp(){
 
-    const quantity =
+    if(!product){
+        return;
+    }
+
+
+    const quantityInput =
+        document.getElementById(
+            "quantity"
+        );
+
+
+    let quantity =
         Number(
-            document.getElementById(
-                "quantity"
-            )?.value || 1
+            quantityInput?.value || 1
+        );
+
+
+    if(!Number.isFinite(quantity)){
+        quantity = 1;
+    }
+
+
+    quantity =
+        Math.max(
+            1,
+            Math.min(
+                10,
+                Math.floor(quantity)
+            )
         );
 
 
     const message =
+
 `Hello 50 Mirars,
 
 I am interested in the following Couple Watch:
@@ -3205,7 +3577,7 @@ Please provide me with more details regarding availability and ordering.`;
    TOAST
 ========================================================= */
 
-let toastTimer;
+let toastTimer = null;
 
 
 function toast(message){
@@ -3214,6 +3586,7 @@ function toast(message){
         document.getElementById(
             "toast"
         );
+
 
     if(!element){
         return;
@@ -3235,13 +3608,16 @@ function toast(message){
 
 
     toastTimer =
-        setTimeout(() => {
+        setTimeout(
+            () => {
 
-            element.classList.remove(
-                "show"
-            );
+                element.classList.remove(
+                    "show"
+                );
 
-        },3000);
+            },
+            3000
+        );
 
 }
 
@@ -3252,6 +3628,11 @@ function toast(message){
 
 function bindGallery(media){
 
+    if(!media.length){
+        return;
+    }
+
+
     let currentIndex = 0;
 
 
@@ -3260,20 +3641,24 @@ function bindGallery(media){
             "mainMediaContent"
         );
 
+
     const counter =
         document.getElementById(
             "mediaCounter"
         );
+
 
     const previous =
         document.getElementById(
             "prevMedia"
         );
 
+
     const next =
         document.getElementById(
             "nextMedia"
         );
+
 
     const thumbs =
         document.querySelectorAll(
@@ -3281,11 +3666,33 @@ function bindGallery(media){
         );
 
 
+    function stopCurrentVideo(){
+
+        const video =
+            content?.querySelector(
+                "video"
+            );
+
+
+        if(video){
+
+            video.pause();
+
+            video.currentTime = 0;
+
+        }
+
+    }
+
+
     function renderMedia(){
 
         if(!content){
             return;
         }
+
+
+        stopCurrentVideo();
 
 
         const file =
@@ -3336,6 +3743,9 @@ function bindGallery(media){
                             () => {}
                         );
 
+                },
+                {
+                    once:true
                 }
             );
 
@@ -3404,21 +3814,22 @@ function bindGallery(media){
     );
 
 
-    /*
-       Keyboard gallery navigation
-    */
-
     document.addEventListener(
         "keydown",
         event => {
 
-            if(event.key === "ArrowLeft"){
+            if(
+                event.key === "ArrowLeft"
+            ){
 
                 move(-1);
 
             }
 
-            if(event.key === "ArrowRight"){
+
+            if(
+                event.key === "ArrowRight"
+            ){
 
                 move(1);
 
@@ -3462,14 +3873,21 @@ function bindActions(){
 
                 let value =
                     Number(
-                        quantity.value || 1
+                        quantity?.value || 1
                     );
+
+
+                if(!Number.isFinite(value)){
+                    value = 1;
+                }
+
 
                 value =
                     Math.max(
                         1,
-                        value - 1
+                        Math.floor(value - 1)
                     );
+
 
                 quantity.value =
                     value;
@@ -3488,14 +3906,21 @@ function bindActions(){
 
                 let value =
                     Number(
-                        quantity.value || 1
+                        quantity?.value || 1
                     );
+
+
+                if(!Number.isFinite(value)){
+                    value = 1;
+                }
+
 
                 value =
                     Math.min(
                         10,
-                        value + 1
+                        Math.floor(value + 1)
                     );
+
 
                 quantity.value =
                     value;
@@ -3517,14 +3942,21 @@ function bindActions(){
                         quantity.value || 1
                     );
 
+
+                if(!Number.isFinite(value)){
+                    value = 1;
+                }
+
+
                 value =
                     Math.max(
                         1,
                         Math.min(
                             10,
-                            value
+                            Math.floor(value)
                         )
                     );
+
 
                 quantity.value =
                     value;
@@ -3586,6 +4018,193 @@ function bindActions(){
 
 
 /* =========================================================
+   FOOTER HTML
+========================================================= */
+
+function footerHTML(){
+
+    return `
+
+        <footer class="main-footer">
+
+            <div class="footer-container">
+
+                <div class="footer-top">
+
+                    <h2>
+                        Contact Us
+                    </h2>
+
+
+                    <div class="contact-column">
+
+                        <h3>
+                            For Customers:
+                        </h3>
+
+                        <a
+                            href="mailto:50mirars@gmail.com"
+                            class="footer-link"
+                        >
+                            50mirars@gmail.com
+                        </a>
+
+                        <a
+                            href="tel:+918209989013"
+                            class="footer-link"
+                        >
+                            82099 89013
+                        </a>
+
+                        <p>
+                            09:00 - 21:30 | Monday to Sunday
+                        </p>
+
+                    </div>
+
+
+                    <div class="contact-column">
+
+                        <h3>
+                            For Sales/Watch Service:
+                        </h3>
+
+                        <a
+                            href="mailto:50mirars@gmail.com"
+                            class="footer-link"
+                        >
+                            50mirars@gmail.com
+                        </a>
+
+                        <a
+                            href="tel:+918209989013"
+                            class="footer-link"
+                        >
+                            82099 89013
+                        </a>
+
+                        <p>
+                            09:00 - 21:30 | Monday to Sunday
+                        </p>
+
+                    </div>
+
+
+                    <div class="whatsapp-column">
+
+                        <h3 class="whatsapp-title">
+
+                            <span>
+                                View Products on WhatsApp
+                            </span>
+
+                            <img
+                                src="whatsapplogo.png"
+                                alt="WhatsApp"
+                                class="whatsapp-icon"
+                            >
+
+                        </h3>
+
+                        <a
+                            href="https://wa.me/918209989013"
+                            target="_blank"
+                            rel="noopener"
+                            class="whatsapp-button"
+                        >
+                            View Products
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="footer-middle">
+
+                    <div class="footer-links-column">
+
+                        <h3>
+                            Know 50 Mirars
+                        </h3>
+
+                        <a href="about.html">
+                            About Us
+                        </a>
+
+                        <a href="faq.html">
+                            FAQ
+                        </a>
+
+                    </div>
+
+
+                    <div class="footer-links-column">
+
+                        <h3>
+                            Terms &amp; Conditions
+                        </h3>
+
+                        <a href="terms.html">
+                            Terms &amp; Conditions
+                        </a>
+
+                        <a href="privacypolicy.html">
+                            Privacy Policy
+                        </a>
+
+                    </div>
+
+
+                    <div class="footer-social">
+
+                        <h3>
+                            50 Mirars
+                        </h3>
+
+                        <p>
+                            Follow Us On
+                        </p>
+
+                        <a
+                            href="https://instagram.com/50mirars"
+                            target="_blank"
+                            rel="noopener"
+                            class="instagram-button"
+                            aria-label="Follow 50 Mirars on Instagram"
+                        >
+
+                            <img
+                                src="instagramimage.webp"
+                                alt="Instagram"
+                            >
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="footer-bottom">
+
+                    <p>
+                        © 2026 50 Mirars - The Watch &amp; Sunglasses Store.
+                        All Rights Reserved.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </footer>
+
+    `;
+
+}
+
+
+/* =========================================================
    RENDER
 ========================================================= */
 
@@ -3596,6 +4215,15 @@ function render(){
             "app"
         );
 
+
+    if(!app){
+        return;
+    }
+
+
+    /* =========================================
+       PRODUCT NOT FOUND
+    ========================================= */
 
     if(!product){
 
@@ -3624,6 +4252,8 @@ function render(){
 
             </main>
 
+            ${footerHTML()}
+
         `;
 
         return;
@@ -3636,13 +4266,14 @@ function render(){
 
 
     const brand =
-        product.brand || "50 Mirars";
+        product.brand ||
+        "50 Mirars";
 
 
     const mediaFormat =
         media.some(isVideo)
-        ? "Image / Video Presentation"
-        : "Image Gallery";
+            ? "Image / Video Presentation"
+            : "Image Gallery";
 
 
     app.innerHTML = `
@@ -3688,16 +4319,12 @@ function render(){
                 <section class="product-hero">
 
 
-                    <!-- GALLERY -->
-
                     <div class="gallery">
 
                         ${buildGallery(media)}
 
                     </div>
 
-
-                    <!-- PRODUCT COPY -->
 
                     <div class="product-copy">
 
@@ -3735,8 +4362,6 @@ function render(){
                         </p>
 
 
-                        <!-- PURCHASE -->
-
                         <div class="purchase">
 
 
@@ -3765,6 +4390,7 @@ function render(){
                                         max="10"
                                         value="1"
                                         inputmode="numeric"
+                                        aria-label="Quantity"
                                     >
 
 
@@ -3818,8 +4444,6 @@ function render(){
                         </div>
 
 
-                        <!-- TRUST -->
-
                         <div class="trust">
 
                             <div class="trust-item">
@@ -3849,7 +4473,6 @@ function render(){
                 ========================================== -->
 
                 <section class="editorial">
-
 
                     <div class="section-head">
 
@@ -3936,10 +4559,11 @@ function render(){
                             </div>
 
                             <div class="detail-value">
-                                ${media.length} ${
+                                ${media.length}
+                                ${
                                     media.length === 1
-                                    ? "Item"
-                                    : "Items"
+                                        ? "Item"
+                                        : "Items"
                                 }
                             </div>
 
@@ -3987,8 +4611,6 @@ function render(){
                     </div>
 
 
-                    <!-- DESCRIPTION + FEATURES -->
-
                     <div class="description-block">
 
 
@@ -4014,16 +4636,24 @@ function render(){
                             <ul class="features-list">
 
                                 ${
-                                    Array.isArray(product.features)
+                                    Array.isArray(
+                                        product.features
+                                    )
+
                                     ?
-                                    product.features.map(
-                                        feature => `
-                                            <li>
-                                                ${esc(feature)}
-                                            </li>
-                                        `
-                                    ).join("")
+
+                                    product.features
+                                        .map(
+                                            feature => `
+                                                <li>
+                                                    ${esc(feature)}
+                                                </li>
+                                            `
+                                        )
+                                        .join("")
+
                                     :
+
                                     ""
                                 }
 
@@ -4034,7 +4664,6 @@ function render(){
                     </div>
 
                 </section>
-
 
             </div>
 
@@ -4068,13 +4697,12 @@ function render(){
 
 
             <!-- =========================================
-                 RELATED COLLECTION
+                 RELATED
             ========================================== -->
 
             <div class="page-wrap">
 
                 <section class="related">
-
 
                     <div class="section-head">
 
@@ -4104,7 +4732,6 @@ function render(){
                         id="relatedGrid"
                     ></div>
 
-
                 </section>
 
             </div>
@@ -4112,191 +4739,32 @@ function render(){
         </main>
 
 
-       <!-- =========================================================
-     FOOTER
-========================================================= -->
+        ${footerHTML()}
 
-<footer class="main-footer">
-
-    <div class="footer-container">
-
-        <div class="footer-top">
-
-            <h2>
-                Contact Us
-            </h2>
+    `;
 
 
-            <div class="contact-column">
+    /* =========================================
+       BIND EVERYTHING AFTER HTML EXISTS
+    ========================================== */
 
-                <h3>
-                    For Customers:
-                </h3>
+    bindGallery(media);
 
-                <a
-                    href="mailto:50mirars@gmail.com"
-                    class="footer-link"
-                >
-                    50mirars@gmail.com
-                </a>
+    bindActions();
 
-                <a
-                    href="tel:+918209989013"
-                    class="footer-link"
-                >
-                    82099 89013
-                </a>
+    buildRelated();
 
-                <p>
-                    09:00 - 21:30 | Monday to Sunday
-                </p>
+}
 
-            </div>
-
-
-            <div class="contact-column">
-
-                <h3>
-                    For Sales/Watch Service:
-                </h3>
-
-                <a
-                    href="mailto:50mirars@gmail.com"
-                    class="footer-link"
-                >
-                    50mirars@gmail.com
-                </a>
-
-                <a
-                    href="tel:+918209989013"
-                    class="footer-link"
-                >
-                    82099 89013
-                </a>
-
-                <p>
-                    09:00 - 21:30 | Monday to Sunday
-                </p>
-
-            </div>
-
-
-            <div class="whatsapp-column">
-
-                <h3 class="whatsapp-title">
-
-                    <span>
-                        View Products on WhatsApp
-                    </span>
-
-                    <img
-                        src="whatsapplogo.png"
-                        alt="WhatsApp"
-                        class="whatsapp-icon"
-                    >
-
-                </h3>
-
-                <a
-                    href="https://wa.me/918209989013"
-                    target="_blank"
-                    rel="noopener"
-                    class="whatsapp-button"
-                >
-                    View Products
-                </a>
-
-            </div>
-
-        </div>
-
-
-
-        <div class="footer-middle">
-
-            <div class="footer-links-column">
-
-                <h3>
-                    Know 50 Mirars
-                </h3>
-
-                <a href="about.html">
-                    About Us
-                </a>
-
-                <a href="faq.html">
-                    FAQ
-                </a>
-
-            </div>
-
-
-            <div class="footer-links-column">
-
-                <h3>
-                    Terms &amp; Conditions
-                </h3>
-
-                <a href="terms.html">
-                    Terms &amp; Conditions
-                </a>
-
-                <a href="privacypolicy.html">
-                    Privacy Policy
-                </a>
-
-            </div>
-
-
-            <div class="footer-social">
-
-                <h3>
-                    50 Mirars
-                </h3>
-
-                <p>
-                    Follow Us On
-                </p>
-
-                <a
-                    href="https://instagram.com/50mirars"
-                    target="_blank"
-                    rel="noopener"
-                    class="instagram-button"
-                    aria-label="Follow 50 Mirars on Instagram"
-                >
-
-                    <img
-                        src="instagramimage.webp"
-                        alt="Instagram"
-                    >
-
-                </a>
-
-            </div>
-
-        </div>
-
-
-
-        <div class="footer-bottom">
-
-            <p>
-                © 2026 50 Mirars - The Watch &amp; Sunglasses Store.
-                All Rights Reserved.
-            </p>
-
-        </div>
-
-    </div>
-
-</footer>
 
 /* =========================================================
    START
 ========================================================= */
 
-render();
+document.addEventListener(
+    "DOMContentLoaded",
+    render
+);
 
 </script>
 
