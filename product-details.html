@@ -1337,41 +1337,371 @@ button{
 
 /* =========================================================
    FOOTER
-   ========================================================= */
+========================================================= */
 
-.footer{
+.main-footer{
+
+    margin-top:0;
+
+    background:#111;
+
+    color:#fff;
+
+    border-top:
+        1px solid
+        rgba(17,17,17,.12);
+
+}
+
+
+.footer-container{
 
     width:100%;
 
-    border-top:1px solid var(--line);
+    max-width:1400px;
 
-    margin-top:100px;
+    margin:0 auto;
 
     padding:
-        35px
-        42px;
+        60px
+        50px
+        0;
 
-    display:flex;
+}
 
-    justify-content:space-between;
 
-    gap:30px;
+/* Footer top */
 
-    color:var(--muted);
+.footer-top{
 
-    font-size:9px;
+    display:grid;
 
-    letter-spacing:.13em;
+    grid-template-columns:
+        1fr
+        1fr
+        1fr;
+
+    gap:50px;
+
+    padding-bottom:50px;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.15);
+
+}
+
+
+.footer-top > h2{
+
+    grid-column:
+        1 / -1;
+
+    text-align:center;
+
+    margin:
+        0
+        0
+        10px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:38px;
+
+    font-weight:400;
+
+    color:#c9a24d;
+
+}
+
+
+/* Footer headings */
+
+.contact-column h3,
+.whatsapp-column h3,
+.footer-links-column h3,
+.footer-social h3{
+
+    color:#c9a24d;
+
+    font-size:12px;
+
+    letter-spacing:.12em;
 
     text-transform:uppercase;
 
+    margin:
+        0
+        0
+        18px;
+
 }
 
 
-.footer span{
-    min-width:0;
+/* Contact */
+
+.contact-column{
+
+    text-align:left;
+
 }
 
+
+.contact-column p{
+
+    color:#999;
+
+    font-size:13px;
+
+    line-height:1.7;
+
+}
+
+
+.footer-link{
+
+    display:block;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    margin-bottom:12px;
+
+    font-size:13px;
+
+    transition:.25s ease;
+
+}
+
+
+.footer-link:hover{
+
+    color:#c9a24d;
+
+}
+
+
+/* =========================================================
+   WHATSAPP
+========================================================= */
+
+.whatsapp-column{
+
+    text-align:center;
+
+}
+
+
+.whatsapp-title{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+}
+
+
+.whatsapp-icon{
+
+    width:28px !important;
+
+    height:28px !important;
+
+    object-fit:contain !important;
+
+}
+
+
+.whatsapp-button{
+
+    display:inline-block;
+
+    background:#c9a24d;
+
+    color:#111;
+
+    text-decoration:none;
+
+    padding:
+        12px
+        28px;
+
+    border-radius:0;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    letter-spacing:.08em;
+
+    text-transform:uppercase;
+
+    transition:.25s ease;
+
+}
+
+
+.whatsapp-button:hover{
+
+    background:#fff;
+
+    color:#111;
+
+}
+
+
+/* =========================================================
+   FOOTER MIDDLE
+========================================================= */
+
+.footer-middle{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr
+        1fr
+        1fr;
+
+    gap:50px;
+
+    padding:50px 0;
+
+}
+
+
+.footer-links-column{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+
+.footer-links-column a{
+
+    color:#bbb;
+
+    text-decoration:none;
+
+    margin-bottom:13px;
+
+    font-size:13px;
+
+    transition:.25s ease;
+
+}
+
+
+.footer-links-column a:hover{
+
+    color:#c9a24d;
+
+}
+
+
+/* =========================================================
+   INSTAGRAM
+========================================================= */
+
+.footer-social{
+
+    text-align:center;
+
+}
+
+
+.footer-social p{
+
+    color:#999;
+
+    margin-bottom:15px;
+
+    font-size:13px;
+
+}
+
+
+.instagram-button{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    width:50px;
+
+    height:50px;
+
+    border:
+        1px solid
+        #c9a24d;
+
+    border-radius:50%;
+
+    transition:.25s ease;
+
+}
+
+
+.instagram-button:hover{
+
+    background:#c9a24d;
+
+}
+
+
+.instagram-button img{
+
+    width:28px;
+
+    height:28px;
+
+    object-fit:contain;
+
+}
+
+
+/* =========================================================
+   COPYRIGHT
+========================================================= */
+
+.footer-bottom{
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.15);
+
+    text-align:center;
+
+    padding:
+        25px
+        10px;
+
+}
+
+
+.footer-bottom p{
+
+    margin:0;
+
+    color:#777;
+
+    font-size:12px;
+
+    line-height:1.6;
+
+}
 
 /* =========================================================
    TABLET / SMALL LAPTOP
