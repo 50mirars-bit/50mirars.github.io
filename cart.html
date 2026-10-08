@@ -7,7 +7,7 @@
 
 <meta
     name="viewport"
-    content="width=device-width, initial-scale=1.0"
+    content="width=1000"
 >
 
 <meta
@@ -3341,56 +3341,47 @@ function saveLocalCart(cart){
 function normalizeCartItem(item){
 
     if(!item){
-
         return null;
-
     }
-
 
     const name =
         String(
             item.name || ""
         ).trim();
 
-
     if(!name){
-
         return null;
-
     }
-
 
     let price =
         item.price;
-
 
     if(
         price === undefined ||
         price === null
     ){
-
         price = "0";
-
     }
-
 
     let quantity =
         Number(
             item.quantity
         );
 
-
     if(
         !Number.isFinite(quantity) ||
         quantity < 1
     ){
-
         quantity = 1;
-
     }
 
-
     return {
+
+        id:
+            item.id || "",
+
+        productId:
+            item.productId || item.id || "",
 
         name:
             name,
@@ -3398,8 +3389,32 @@ function normalizeCartItem(item){
         price:
             String(price),
 
+        /*
+         * Sunglasses / newer cart format
+         */
         image:
             item.image || "",
+
+        /*
+         * Watches / older cart format
+         */
+        media:
+            item.media || "",
+
+        /*
+         * Video support
+         */
+        video:
+            item.video || "",
+
+        type:
+            item.type || "",
+
+        category:
+            item.category || "",
+
+        brand:
+            item.brand || "",
 
         quantity:
             quantity
@@ -3407,7 +3422,6 @@ function normalizeCartItem(item){
     };
 
 }
-
 
 
 /* =========================================================
@@ -4179,11 +4193,585 @@ function escapeHTML(text){
 
 
 
+
+/* =========================================================
+   PRODUCT CATALOGUE MEDIA RESOLVER
+   ---------------------------------------------------------
+   Some older watch cart records contain:
+       id + name + price + type + media
+   where media is only "images" or "video".
+
+   The real filenames live in the existing
+   product-details.html catalogue.
+
+   This resolver reads that catalogue once and restores
+   the correct media for old cart items without requiring
+   the customer to add the product again.
+========================================================= */
+
+let catalogueProducts = null;
+let catalogueLoadPromise = null;
+
+function getProductDetailsPage(){
+
+    return "product-details.html";
+
+}
+
+function extractProductsArray(source){
+
+    try{
+
+        const match =
+            source.match(
+                /const\s+products\s*=\s*(\[[\s\S]*?\]);/
+            );
+
+        if(!match || !match[1]){
+
+            return [];
+
+        }
+
+        /*
+         * The catalogue is trusted site code created by
+         * 50 Mirars. Function() lets us read the existing
+         * JavaScript array without duplicating the whole
+         * product database inside cart.html.
+         */
+        const parsed =
+            Function(
+                "\"use strict\"; return (" +
+                match[1] +
+                ");"
+            )();
+
+        return Array.isArray(parsed)
+            ? parsed
+            : [];
+
+    }
+
+    catch(error){
+
+        console.error(
+            "Could not parse product catalogue:",
+            error
+        );
+
+        return [];
+
+    }
+
+}
+
+async function loadCatalogueProducts(){
+
+    if(
+        Array.isArray(
+            catalogueProducts
+        )
+    ){
+
+        return catalogueProducts;
+
+    }
+
+    if(catalogueLoadPromise){
+
+        return catalogueLoadPromise;
+
+    }
+
+    catalogueLoadPromise =
+        fetch(
+            getProductDetailsPage(),
+            {
+                cache:"no-store"
+            }
+        )
+
+        .then(
+            response => {
+
+                if(!response.ok){
+
+                    throw new Error(
+                        "Product catalogue could not be loaded."
+                    );
+
+                }
+
+                return response.text();
+
+            }
+        )
+
+        .then(
+            source => {
+
+                catalogueProducts =
+                    extractProductsArray(
+                        source
+                    );
+
+                return catalogueProducts;
+
+            }
+        )
+
+        .catch(
+            error => {
+
+                console.error(
+                    "Catalogue media resolver error:",
+                    error
+                );
+
+                catalogueProducts = [];
+
+                return [];
+
+            }
+        );
+
+    return catalogueLoadPromise;
+
+}
+
+function findCatalogueProduct(item){
+
+    if(
+        !item ||
+        !Array.isArray(
+            catalogueProducts
+        )
+    ){
+
+        return null;
+
+    }
+
+    const itemId =
+        Number(
+            item.productId ||
+            item.id
+        );
+
+    if(
+        Number.isFinite(itemId) &&
+        itemId > 0
+    ){
+
+        const byId =
+            catalogueProducts.find(
+                product =>
+                    Number(
+                        product.id
+                    ) === itemId
+            );
+
+        if(byId){
+
+            return byId;
+
+        }
+
+    }
+
+    const itemName =
+        String(
+            item.name || ""
+        )
+        .trim()
+        .toLowerCase();
+
+    if(!itemName){
+
+        return null;
+
+    }
+
+    return (
+        catalogueProducts.find(
+            product =>
+                String(
+                    product.name || ""
+                )
+                .trim()
+                .toLowerCase() ===
+                itemName
+        ) || null
+    );
+
+}
+
+function getCatalogueMedia(product){
+
+    if(!product){
+
+        return [];
+
+    }
+
+    let media =
+        product.media;
+
+    if(
+        typeof media === "string"
+    ){
+
+        media =
+            [media];
+
+    }
+
+    if(!Array.isArray(media)){
+
+        media = [];
+
+    }
+
+    return media
+        .filter(
+            file =>
+                typeof file === "string" &&
+                file.trim()
+        )
+        .map(
+            file =>
+                file.trim()
+        );
+
+}
+
+function getCartMediaCandidates(item){
+
+    const candidates = [];
+
+    function add(value){
+
+        if(
+            typeof value !== "string"
+        ){
+
+            return;
+
+        }
+
+        const clean =
+            value.trim();
+
+        if(!clean){
+
+            return;
+
+        }
+
+        if(
+            !candidates.includes(
+                clean
+            )
+        ){
+
+            candidates.push(
+                clean
+            );
+
+        }
+
+    }
+
+    /*
+     * Newer sunglasses / legacy image format.
+     */
+    add(item.image);
+
+    /*
+     * Explicit video filename if present.
+     */
+    add(item.video);
+
+    /*
+     * media can be an actual filename,
+     * an array of filenames, or only a
+     * media type such as "images"/"video".
+     */
+    if(
+        Array.isArray(
+            item.media
+        )
+    ){
+
+        item.media.forEach(
+            add
+        );
+
+    }
+    else{
+
+        add(item.media);
+
+    }
+
+    /*
+     * If the cart record only contains a media type,
+     * resolve the actual filenames from product-details.html.
+     */
+    const catalogueProduct =
+        findCatalogueProduct(
+            item
+        );
+
+    getCatalogueMedia(
+        catalogueProduct
+    )
+    .forEach(
+        add
+    );
+
+    return candidates;
+
+}
+
+function getCartMedia(item){
+
+    const candidates =
+        getCartMediaCandidates(
+            item
+        );
+
+    return (
+        candidates[0] || ""
+    );
+
+}
+
+function isVideoFile(file){
+
+    if(!file){
+
+        return false;
+
+    }
+
+    return /\.(mp4|webm|ogg|mov|m4v)(\?.*)?$/i.test(
+        String(file)
+    );
+
+}
+
+function renderMediaHTML(
+    item
+){
+
+    const cartMedia =
+        getCartMedia(
+            item
+        );
+
+    if(!cartMedia){
+
+        return `
+            <div class="image-placeholder">
+                50 Mirars
+            </div>
+        `;
+
+    }
+
+    if(
+        isVideoFile(
+            cartMedia
+        )
+    ){
+
+        return `
+            <video
+                class="item-image"
+                src="${escapeHTML(cartMedia)}"
+                muted
+                autoplay
+                loop
+                playsinline
+                preload="metadata"
+                aria-label="${escapeHTML(item.name)}"
+            ></video>
+        `;
+
+    }
+
+    return `
+        <img
+            src="${escapeHTML(cartMedia)}"
+            alt="${escapeHTML(item.name)}"
+            class="item-image"
+            loading="lazy"
+            onerror="
+                this.style.display='none';
+                this.nextElementSibling.style.display='flex';
+            "
+        >
+
+        <div
+            class="image-placeholder"
+            style="display:none;"
+        >
+            50 Mirars
+        </div>
+    `;
+
+}
+
+async function repairCartMedia(){
+
+    const catalogue =
+        await loadCatalogueProducts();
+
+    if(
+        !Array.isArray(
+            catalogue
+        ) ||
+        catalogue.length === 0
+    ){
+
+        return false;
+
+    }
+
+    let changed = false;
+
+    customerCart =
+        customerCart.map(
+            item => {
+
+                const product =
+                    findCatalogueProduct(
+                        item
+                    );
+
+                if(!product){
+
+                    return item;
+
+                }
+
+                const media =
+                    getCatalogueMedia(
+                        product
+                    );
+
+                if(
+                    media.length === 0
+                ){
+
+                    return item;
+
+                }
+
+                /*
+                 * Save the actual media array back into
+                 * the cart so the problem is permanently
+                 * fixed for future page loads.
+                 */
+                const firstMedia =
+                    media[0];
+
+                const currentMedia =
+                    Array.isArray(
+                        item.media
+                    )
+                    ? item.media
+                    : item.media;
+
+                const shouldRepair =
+                    !item.image &&
+                    (
+                        !currentMedia ||
+                        currentMedia === "images" ||
+                        currentMedia === "image" ||
+                        currentMedia === "video" ||
+                        (
+                            Array.isArray(
+                                currentMedia
+                            ) &&
+                            currentMedia.length === 0
+                        )
+                    );
+
+                if(
+                    shouldRepair ||
+                    (
+                        !item.image &&
+                        !item.video &&
+                        Array.isArray(media)
+                    )
+                ){
+
+                    changed = true;
+
+                    return {
+                        ...item,
+
+                        media:
+                            media,
+
+                        video:
+                            isVideoFile(
+                                firstMedia
+                            )
+                            ? firstMedia
+                            : (
+                                item.video || ""
+                            )
+
+                    };
+
+                }
+
+                return item;
+
+            }
+        );
+
+    if(changed){
+
+        customerCart =
+            normalizeCart(
+                customerCart
+            );
+
+        saveCartLocally();
+
+        if(currentUser){
+
+            saveCustomerCartInBackground();
+
+        }
+
+    }
+
+    return changed;
+
+}
+
+
 /* =========================================================
    RENDER CART
 ========================================================= */
 
-function renderCart(){
+async function renderCart(){
+
+    customerCart =
+        normalizeCart(
+            customerCart
+        );
+
+    /*
+     * Restore real product filenames before rendering.
+     * This fixes both newly-added and older cart items.
+     */
+    await repairCartMedia();
 
     customerCart =
         normalizeCart(
@@ -4286,32 +4874,9 @@ function renderCart(){
 
 
             const productImage =
-                item.image
-                    ? `
-
-                        <img
-                            src="${escapeHTML(item.image)}"
-                            alt="${escapeHTML(item.name)}"
-                            class="item-image"
-                            loading="lazy"
-                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-                        >
-
-                        <div
-                            class="image-placeholder"
-                            style="display:none;"
-                        >
-                            50 Mirars
-                        </div>
-
-                    `
-                    : `
-
-                        <div class="image-placeholder">
-                            50 Mirars
-                        </div>
-
-                    `;
+                renderMediaHTML(
+                    item
+                );
 
 
             cartItems.innerHTML += `
@@ -4637,7 +5202,7 @@ function(
 
     saveCustomerCartInBackground();
 
-    renderCart();
+    void renderCart();
 
 };
 
@@ -4698,7 +5263,7 @@ function(
 
     saveCustomerCartInBackground();
 
-    renderCart();
+    void renderCart();
 
 };
 
@@ -5073,7 +5638,7 @@ onAuthStateChanged(
 
             /* RENDER */
 
-            renderCart();
+            void renderCart();
 
 
             console.log(
@@ -5118,7 +5683,7 @@ onAuthStateChanged(
                 true;
 
 
-            renderCart();
+            void renderCart();
 
         }
 
