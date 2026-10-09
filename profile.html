@@ -2,667 +2,665 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=1200">
-<meta name="theme-color" content="#111111">
-<meta name="description" content="My Account - 50 Mirars">
+<meta name="viewport" content="width=1000">
+<meta name="theme-color" content="#f4f0e8">
+<meta name="description" content="Manage your 50 Mirars account, delivery details and orders.">
 <title>My Account | 50 Mirars</title>
+
 <style>
-*{box-sizing:border-box}html{scroll-behavior:smooth}
-:root{--bg:#0a0a0a;--card:#121212;--line:rgba(198,163,91,.18);--gold:#c6a35b;--text:#f6f4ef;--muted:#a8a29e}
-body{margin:0;font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--text)}
-header{position:sticky;top:0;z-index:50;background:#0a0a0a;border-bottom:1px solid var(--line);padding:22px 5%;display:flex;justify-content:space-between;align-items:center}
-.logo{font:700 32px Georgia,serif;letter-spacing:6px;color:var(--text);text-decoration:none}
-.back-home{color:var(--muted);text-decoration:none;border:1px solid var(--line);padding:11px 18px;border-radius:999px;transition:.25s}
-.back-home:hover{border-color:var(--gold);color:var(--text)}
-main{padding:56px 20px}.account-container{max-width:1180px;margin:auto}
-.login-card,.card,.orders-card{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:32px;box-shadow:0 12px 40px rgba(0,0,0,.28)}
-#login-section{max-width:620px;margin:24px auto}#profile-section{display:none}
-.profile-header{border:1px solid var(--line);border-radius:24px;padding:38px;display:flex;gap:22px;align-items:center;margin-bottom:26px}
-.profile-image{width:96px;height:96px;border-radius:50%;border:2px solid var(--gold);object-fit:cover}
-.profile-header h1,.card h2,.orders-card h2,.login-card h1{font-family:Georgia,serif;font-weight:500;letter-spacing:.3px;margin:0 0 8px}
-.profile-header p,.orders-card p{color:var(--muted);margin:0}
-.profile-grid{
-    display:grid;
-    grid-template-columns:1.55fr 0.75fr;
-    gap:28px;
-    align-items:start;
+:root{
+  --ivory:#f4f0e8;
+  --paper:#fbf9f4;
+  --white:#fffefa;
+  --ink:#171613;
+  --muted:#77736b;
+  --gold:#b28a43;
+  --gold-dark:#8f6b2e;
+  --line:#e4dccd;
+  --soft-gold:#eee4d1;
+  --success-bg:#e8f3e9;
+  --success:#246438;
+  --error-bg:#f8e9e7;
+  --error:#922e26;
+  --shadow:0 12px 35px rgba(48,38,20,.055);
+  --serif:Georgia,"Times New Roman",serif;
+  --sans:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
 }
-
-.delivery-card{
-    min-height:100%;
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ivory);color:var(--ink);font-family:var(--sans);line-height:1.5}
+a{color:inherit}
+button,input,textarea{font:inherit}
+button,a{-webkit-tap-highlight-color:transparent}
+.site-header{
+  position:sticky;top:0;z-index:50;min-height:78px;padding:16px clamp(18px,5vw,76px);
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+  background:rgba(251,249,244,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(14px)
 }
-    
-.right-column{display:flex;flex-direction:column;gap:22px}
-.form-group{margin-bottom:18px}.form-group label{display:block;margin-bottom:8px;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
-input,textarea{width:100%;padding:15px;background:#181818;border:1px solid rgba(255,255,255,.08);border-radius:12px;color:var(--text);font-size:15px}
-input:focus,textarea:focus{outline:none;border-color:var(--gold)}
-.readonly-field{background:#151515;color:#cfcfcf}.address-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.primary-button,.orders-button{display:flex;align-items:center;justify-content:center;width:100%;min-height:50px;border-radius:999px;border:none;background:var(--gold);color:#111;font-weight:700;text-decoration:none;cursor:pointer;transition:.2s}
-.primary-button:hover,.orders-button:hover{filter:brightness(1.05);transform:translateY(-1px)}
-.logout-button{width:100%;margin-top:12px;background:transparent;border:1px solid var(--line);color:var(--text);min-height:50px;border-radius:999px;cursor:pointer}
-.account-actions{display:grid;gap:10px}.action-link{display:flex;align-items:center;justify-content:center;min-height:46px;border:1px solid var(--line);border-radius:12px;color:var(--text);text-decoration:none}
-.status{display:none;margin-top:14px;padding:14px;border-radius:12px}.success{display:block;background:#16341f;color:#9fe3b3}.error{display:block;background:#3a1818;color:#ffb4b4}
-/* ===============================
-   MY ACCOUNT PANEL
-=============================== */
-
-.account-panel{
-    display:flex;
-    flex-direction:column;
-    gap:20px;
-    position:sticky;
-    top:110px;
+.logo{font:600 clamp(20px,2.1vw,29px)/1 var(--serif);letter-spacing:.18em;text-decoration:none;white-space:nowrap}
+.header-right{display:flex;align-items:center;gap:12px}
+.header-note{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.back-home{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 16px;border:1px solid var(--line);border-radius:3px;text-decoration:none;font-size:12px;letter-spacing:.04em;transition:.2s}
+.back-home:hover{border-color:var(--gold);background:var(--white)}
+main{padding:44px 22px 70px}
+.account-container{width:min(1180px,100%);margin:0 auto}
+.eyebrow{margin:0 0 9px;color:var(--gold-dark);font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase}
+.page-heading{font:500 clamp(30px,4vw,44px)/1.15 var(--serif);letter-spacing:-.025em;margin:0}
+.page-subtitle{color:var(--muted);font-size:14px;margin:10px 0 0;max-width:620px}
+.login-card{max-width:540px;margin:32px auto 20px;padding:clamp(25px,5vw,46px);background:var(--paper);border:1px solid var(--line);box-shadow:var(--shadow)}
+.login-mark{width:58px;height:58px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;margin-bottom:25px;color:var(--gold-dark);font:24px var(--serif)}
+.login-card h1{font:500 34px/1.2 var(--serif);margin:0 0 10px}
+.login-card>p{color:var(--muted);font-size:14px;margin:0 0 25px}
+.google-button{width:100%;min-height:52px;display:flex;align-items:center;justify-content:center;gap:12px;border:1px solid #d8d3ca;background:#fffefa;color:#222;cursor:pointer;font-weight:600;transition:.2s}
+.google-button:hover{border-color:var(--gold);box-shadow:0 5px 16px rgba(0,0,0,.06)}
+.google-g{font:bold 20px Arial,sans-serif;color:#4285f4}
+.login-footnote{font-size:11px!important;line-height:1.7;margin:17px 0 0!important}
+#profile-section{display:none}
+.dashboard-intro{padding:0 0 27px;border-bottom:1px solid var(--line);margin-bottom:26px;display:flex;align-items:flex-end;justify-content:space-between;gap:20px}
+.dashboard-intro .intro-right{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.dashboard-layout{display:grid;grid-template-columns:245px minmax(0,1fr);gap:25px;align-items:start}
+.sidebar{background:var(--paper);border:1px solid var(--line);padding:22px 16px;position:sticky;top:100px}
+.mini-user{display:flex;align-items:center;gap:12px;padding:0 5px 21px;border-bottom:1px solid var(--line);margin-bottom:17px;min-width:0}
+.avatar-small{width:48px;height:48px;border-radius:50%;object-fit:cover;border:1px solid var(--line);background:var(--ivory);flex-shrink:0}
+.mini-user-text{min-width:0}
+.mini-user-name{font:500 17px/1.25 var(--serif);overflow-wrap:anywhere;margin:0 0 3px}
+.mini-user-email{font-size:11px;color:var(--muted);overflow-wrap:anywhere;margin:0}
+.nav-label{margin:0 9px 9px;color:#999184;font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+.account-nav{display:grid;gap:4px}
+.account-nav a,.account-nav button{width:100%;display:flex;align-items:center;gap:11px;padding:12px 11px;border:0;background:transparent;text-decoration:none;text-align:left;color:#57534c;font-size:13px;cursor:pointer;border-radius:3px;transition:.18s}
+.account-nav a:hover,.account-nav button:hover,.account-nav a.active{background:var(--soft-gold);color:var(--ink)}
+.nav-icon{width:18px;text-align:center;color:var(--gold-dark);font-size:15px;flex-shrink:0}
+.sidebar-bottom{margin-top:22px;padding:16px 10px 2px;border-top:1px solid var(--line);color:var(--muted);font:italic 14px var(--serif);text-align:center}
+.content-column{display:grid;gap:20px;min-width:0}
+.welcome-banner{position:relative;overflow:hidden;min-height:150px;background:#e9dfce;display:flex;align-items:center;padding:30px clamp(22px,4vw,40px);border:1px solid var(--line)}
+.welcome-banner:after{content:"50M";position:absolute;right:30px;top:50%;transform:translateY(-50%);font:500 clamp(65px,10vw,115px)/1 var(--serif);letter-spacing:-.08em;color:rgba(142,105,44,.11);pointer-events:none}
+.welcome-copy{position:relative;z-index:1;max-width:70%}
+.welcome-copy h2{font:500 clamp(25px,3vw,36px)/1.15 var(--serif);margin:0 0 8px}
+.welcome-copy p{margin:0;color:#686052;font-size:13px}
+.card{background:var(--paper);border:1px solid var(--line);padding:clamp(20px,3vw,29px);box-shadow:0 5px 20px rgba(48,38,20,.025);min-width:0}
+.card-heading{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:21px}
+.card-heading h2{font:500 23px/1.2 var(--serif);margin:0}
+.card-kicker{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.edit-hint{font-size:11px;color:var(--muted);margin:5px 0 0}
+.profile-details-layout{display:grid;grid-template-columns:88px minmax(0,1fr);gap:22px;align-items:start}
+.profile-avatar{width:82px;height:82px;object-fit:cover;border-radius:50%;border:2px solid var(--soft-gold);background:var(--ivory)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+.form-group{margin-bottom:17px;min-width:0}
+.form-group label{display:block;margin-bottom:7px;color:#8d6b35;font-size:10px;font-weight:700;letter-spacing:.13em;text-transform:uppercase}
+.form-group input,.form-group textarea{display:block;width:100%;min-width:0;min-height:45px;padding:12px 13px;background:var(--white);border:1px solid #e2dbcf;border-radius:2px;color:var(--ink);font-size:13px;outline:none;transition:border-color .2s,box-shadow .2s}
+.form-group textarea{min-height:88px;resize:vertical}
+.form-group input:focus,.form-group textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(178,138,67,.09)}
+.form-group input[readonly]{background:#f0ece4;color:#77736b;cursor:not-allowed}
+.form-group .field-note{display:block;margin-top:6px;color:var(--muted);font-size:10px}
+.full-width{grid-column:1/-1}
+.button-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.primary-button,.secondary-button,.logout-button{min-height:45px;padding:12px 20px;border:1px solid var(--gold);border-radius:2px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.04em;transition:.2s}
+.primary-button{background:var(--gold);color:#fff}
+.primary-button:hover{background:var(--gold-dark);border-color:var(--gold-dark)}
+.primary-button:disabled{opacity:.6;cursor:wait}
+.secondary-button{background:transparent;color:var(--ink);border-color:var(--line)}
+.secondary-button:hover{border-color:var(--gold);background:#fffdf8}
+.logout-button{width:100%;background:transparent;border-color:var(--line);color:#655f55}
+.logout-button:hover{border-color:#b77a69;color:#8c382c;background:#fff9f7}
+.status{display:none;padding:12px 14px;margin-top:14px;font-size:12px;line-height:1.5;border:1px solid transparent}
+.status.success,.status.error{display:block}
+.status.success{background:var(--success-bg);color:var(--success);border-color:#cfe5d1}
+.status.error{background:var(--error-bg);color:var(--error);border-color:#eed0cc}
+.summary-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid var(--line);background:#f8f5ee}
+.summary-item{padding:18px 12px;text-align:center;min-width:0}
+.summary-item+.summary-item{border-left:1px solid var(--line)}
+.summary-icon{font-size:18px;color:var(--gold-dark);margin-bottom:7px}
+.summary-label{font-size:10px;color:var(--muted);margin:0 0 5px}
+.summary-value{font:500 22px/1.1 var(--serif);margin:0;overflow-wrap:anywhere}
+.quick-links{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.quick-link{display:flex;align-items:flex-start;gap:13px;padding:17px;border:1px solid var(--line);background:#fffdf8;text-decoration:none;transition:.2s;min-width:0}
+.quick-link:hover{border-color:var(--gold);transform:translateY(-1px)}
+.quick-icon{width:35px;height:35px;display:grid;place-items:center;background:var(--ivory);color:var(--gold-dark);font-size:17px;flex-shrink:0}
+.quick-link strong{display:block;font:500 17px/1.3 var(--serif);margin:0 0 4px}
+.quick-link span{display:block;font-size:11px;line-height:1.5;color:var(--muted)}
+.account-meta{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.meta-box{padding:14px;background:#f8f5ee;border:1px solid var(--line);min-width:0}
+.meta-box label{display:block;margin-bottom:6px;color:var(--muted);font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.meta-box p{font-size:12px;margin:0;overflow-wrap:anywhere}
+.security-note{display:flex;align-items:flex-start;gap:10px;margin:18px 0 0;color:var(--muted);font-size:11px;line-height:1.6}
+.security-note span{color:var(--gold-dark);font-size:16px}
+.main-footer{background:#171613;color:#f8f5ef;margin-top:0}
+.footer-container{width:min(1320px,100%);margin:0 auto;padding:50px clamp(22px,5vw,60px) 0}
+.footer-top,.footer-middle{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:35px;padding-bottom:34px}
+.footer-top{border-bottom:1px solid rgba(255,255,255,.13)}
+.footer-top>h2{grid-column:1/-1;text-align:center;font:500 31px var(--serif);color:#c9a24d;margin:0 0 4px}
+.contact-column h3,.whatsapp-column h3,.footer-links-column h3,.footer-social h3{font-size:15px;font-weight:600;color:#c9a24d;margin:0 0 15px}
+.footer-link{display:block;width:fit-content;color:#ddd7cc;text-decoration:none;font-size:13px;margin-bottom:10px}
+.footer-link:hover,.footer-links-column a:hover{color:#c9a24d}
+.contact-column p,.footer-social p{color:#aaa49a;font-size:12px;line-height:1.7;margin:10px 0}
+.whatsapp-column,.footer-social{text-align:center}
+.whatsapp-title{display:flex;align-items:center;justify-content:center;gap:9px}
+.whatsapp-icon{width:23px;height:23px;object-fit:contain}
+.whatsapp-button{display:inline-flex;align-items:center;justify-content:center;background:#c9a24d;color:#171613;text-decoration:none;padding:11px 22px;font-size:12px;font-weight:700;border-radius:2px}
+.whatsapp-button:hover{background:#fff}
+.footer-middle{padding:34px 0;border-bottom:1px solid rgba(255,255,255,.13)}
+.footer-links-column{display:flex;flex-direction:column;align-items:flex-start}
+.footer-links-column a{color:#d0cbc2;text-decoration:none;font-size:12px;margin-bottom:10px}
+.instagram-button{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid #c9a24d;border-radius:50%}
+.instagram-button img{width:23px;height:23px;object-fit:contain}
+.footer-bottom{text-align:center;padding:20px 10px}
+.footer-bottom p{margin:0;color:#99938a;font-size:11px;line-height:1.6}
+@media(min-width:1200px){main{padding-top:52px}}
+@media(max-width:820px){
+  main{padding:30px 16px 48px}
+  .dashboard-layout{grid-template-columns:1fr;gap:17px}
+  .sidebar{position:static;padding:15px}
+  .mini-user{padding-bottom:13px;margin-bottom:12px}
+  .account-nav{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .account-nav a,.account-nav button{justify-content:center;flex-direction:column;gap:4px;text-align:center;padding:10px 5px;font-size:11px}
+  .nav-icon{font-size:17px}
+  .nav-label,.sidebar-bottom{display:none}
+  .welcome-banner{min-height:130px}
+  .footer-top,.footer-middle{gap:25px}
 }
-
-.account-panel h2{
-    margin:0;
-    font-family:Georgia,"Times New Roman",serif;
-    font-size:30px;
-    font-weight:500;
-    color:#f6f4ef;
+@media(max-width:600px){
+  .site-header{min-height:66px;padding:13px 16px}
+  .logo{font-size:19px;letter-spacing:.12em}
+  .header-note{display:none}
+  .back-home{padding:9px 11px;font-size:11px}
+  main{padding:25px 13px 42px}
+  .dashboard-intro{align-items:flex-start;flex-direction:column;gap:9px;padding-bottom:19px;margin-bottom:18px}
+  .dashboard-intro .intro-right{font-size:9px}
+  .account-nav{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .content-column{gap:14px}
+  .welcome-banner{padding:23px 19px;min-height:120px}
+  .welcome-copy{max-width:85%}
+  .welcome-banner:after{right:12px;font-size:65px}
+  .card{padding:18px}
+  .card-heading h2{font-size:21px}
+  .profile-details-layout{grid-template-columns:1fr;gap:17px}
+  .profile-avatar{width:68px;height:68px}
+  .form-grid,.quick-links,.account-meta{grid-template-columns:1fr}
+  .summary-item{padding:14px 6px}
+  .summary-value{font-size:19px}
+  .summary-label{font-size:9px}
+  .footer-container{padding:38px 20px 0}
+  .footer-top,.footer-middle{grid-template-columns:1fr;gap:25px}
+  .footer-top>h2{font-size:28px}
+  .whatsapp-column,.footer-social{text-align:left}
+  .whatsapp-title{justify-content:flex-start}
+  .instagram-button{margin-top:2px}
 }
-
-.panel-divider{
-    height:1px;
-    background:rgba(198,163,91,.15);
-    margin:6px 0;
-}
-
-.panel-item{
-    display:flex;
-    flex-direction:column;
-    gap:12px;
-}
-
-.panel-item h3{
-    margin:0;
-    font-family:Georgia,"Times New Roman",serif;
-    font-size:20px;
-    font-weight:500;
-}
-
-.panel-item p{
-    margin:0;
-    color:#a8a29e;
-    font-size:14px;
-    line-height:1.6;
-}
-
-.panel-button{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    height:46px;
-    border-radius:999px;
-    background:#c6a35b;
-    color:#111;
-    text-decoration:none;
-    font-weight:700;
-    transition:.25s ease;
-}
-
-.panel-button:hover{
-    filter:brightness(1.05);
-}
-    
-/* =========================================================
-   FOOTER
-========================================================= */
-
-.main-footer{
-    background:#111;
-
-    color:#fff;
-
-    margin-top:40px;
-}
-
-.footer-container{
-    width:100%;
-
-    max-width:1400px;
-
-    margin:0 auto;
-
-    padding:
-        60px
-        50px
-        0;
-}
-
-
-/* =========================================================
-   FOOTER TOP
-========================================================= */
-
-.footer-top{
-    display:grid;
-
-    grid-template-columns:
-        1fr
-        1fr
-        1fr;
-
-    gap:50px;
-
-    padding-bottom:50px;
-
-    border-bottom:
-        1px solid
-        rgba(255,255,255,0.15);
-}
-
-.footer-top > h2{
-    grid-column:1 / -1;
-
-    text-align:center;
-
-    margin:0 0 10px;
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size:38px;
-
-    font-weight:600;
-
-    color:#c9a24d;
-}
-
-
-/* =========================================================
-   FOOTER CONTACT
-========================================================= */
-
-.contact-column{
-    text-align:left;
-}
-
-.contact-column h3,
-.whatsapp-column h3,
-.footer-links-column h3,
-.footer-social h3{
-    color:#c9a24d;
-
-    font-size:20px;
-
-    margin:0 0 18px;
-}
-
-.contact-column p{
-    color:#bbb;
-
-    font-size:15px;
-
-    line-height:1.6;
-}
-
-.footer-link{
-    display:block;
-
-    color:#fff;
-
-    text-decoration:none;
-
-    margin-bottom:12px;
-
-    transition:0.3s ease;
-}
-
-.footer-link:hover{
-    color:#c9a24d;
-}
-
-
-/* =========================================================
-   WHATSAPP
-========================================================= */
-
-.whatsapp-column{
-    text-align:center;
-}
-
-.whatsapp-title{
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:10px;
-}
-
-.whatsapp-icon{
-    width:28px !important;
-
-    height:28px !important;
-
-    object-fit:contain !important;
-}
-
-.whatsapp-button{
-    display:inline-block;
-
-    background:#c9a24d;
-
-    color:#111;
-
-    text-decoration:none;
-
-    padding:13px 30px;
-
-    border-radius:6px;
-
-    font-weight:bold;
-
-    transition:0.3s ease;
-}
-
-.whatsapp-button:hover{
-    background:#fff;
-
-    color:#111;
-}
-
-
-/* =========================================================
-   FOOTER MIDDLE
-========================================================= */
-
-.footer-middle{
-    display:grid;
-
-    grid-template-columns:
-        1fr
-        1fr
-        1fr;
-
-    gap:50px;
-
-    padding:50px 0;
-}
-
-.footer-links-column{
-    display:flex;
-
-    flex-direction:column;
-}
-
-.footer-links-column a{
-    color:#ccc;
-
-    text-decoration:none;
-
-    margin-bottom:13px;
-
-    transition:0.3s ease;
-}
-
-.footer-links-column a:hover{
-    color:#c9a24d;
-}
-
-
-/* =========================================================
-   INSTAGRAM
-========================================================= */
-
-.footer-social{
-    text-align:center;
-}
-
-.footer-social p{
-    color:#bbb;
-
-    margin-bottom:15px;
-}
-
-.instagram-button{
-    display:inline-flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    width:50px;
-
-    height:50px;
-
-    border:
-        1px solid
-        #c9a24d;
-
-    border-radius:50%;
-
-    transition:0.3s ease;
-}
-
-.instagram-button:hover{
-    background:#c9a24d;
-}
-
-.instagram-button img{
-    width:28px;
-
-    height:28px;
-
-    object-fit:contain;
-}
-
-
-/* =========================================================
-   COPYRIGHT
-========================================================= */
-
-.footer-bottom{
-    border-top:
-        1px solid
-        rgba(255,255,255,0.15);
-
-    text-align:center;
-
-    padding:25px 10px;
-}
-
-.footer-bottom p{
-    margin:0;
-
-    color:#999;
-
-    font-size:14px;
-
-    line-height:1.6;
-}
-
-    @media(max-width:900px){
-
-    .profile-grid,
-    .address-row,
-    .footer-top,
-    .footer-middle{
-        grid-template-columns:1fr;
-    }
-
-    .profile-header{
-        flex-direction:column;
-        text-align:center;
-    }
-
-    .account-panel{
-        position:static;
-    }
-
-    .footer-container{
-        padding:50px 24px 0;
-    }
-
-}
-
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
 </style>
 </head>
+
 <body>
-<header><a href="index.html" class="logo">50 MIRARS</a><a href="index.html" class="back-home">← Back to Home</a></header>
-<main><div class="account-container">
-<section id="login-section" class="login-card">
-<h1>My Account</h1><p>Access your 50 Mirars account to manage delivery details, orders and care guides.</p>
-<button id="google-login" class="primary-button">Continue with Google</button>
-<div id="login-status" class="status"></div></section>
-<section id="profile-section">
-<div class="profile-header"><img id="profile-image" class="profile-image"><div><h1 id="profile-name">Customer</h1><p id="profile-email"></p></div></div>
-<div class="profile-grid">
+<header class="site-header">
+  <a href="index.html" class="logo">50 MIRARS</a>
+  <div class="header-right">
+    <span class="header-note">Your account · Your collection</span>
+    <a href="index.html" class="back-home">← <span>Back to Home</span></a>
+  </div>
+</header>
 
-    <!-- LEFT SIDE -->
-    <div class="card delivery-card">
+<main>
+  <div class="account-container">
+    <section id="login-section" class="login-card" aria-labelledby="login-title">
+      <div class="login-mark" aria-hidden="true">50M</div>
+      <p class="eyebrow">The 50 Mirars Account</p>
+      <h1 id="login-title">Welcome back.</h1>
+      <p>Sign in securely with your Google account to manage your profile, delivery details and orders.</p>
+      <button id="google-login" class="google-button" type="button">
+        <span class="google-g" aria-hidden="true">G</span>
+        <span>Continue with Google</span>
+      </button>
+      <div id="login-status" class="status" role="status" aria-live="polite"></div>
+      <p class="login-footnote">Your Google sign-in is handled by Firebase Authentication. Your account details are used to support your 50 Mirars purchases and deliveries.</p>
+    </section>
 
-        <h2>Delivery Details</h2>
+    <section id="profile-section" aria-label="Customer account dashboard">
+      <div class="dashboard-intro">
+        <div>
+          <p class="eyebrow">My account</p>
+          <h1 class="page-heading">Your personal space.</h1>
+          <p class="page-subtitle">Manage your details, keep delivery information up to date, and find your 50 Mirars orders in one place.</p>
+        </div>
+        <div class="intro-right">50 Mirars · Customer dashboard</div>
+      </div>
 
-        <div class="address-row">
-            <div class="form-group">
-                <label>Full Name</label>
-                <input id="customer-name">
+      <div class="dashboard-layout">
+        <aside class="sidebar" aria-label="Account navigation">
+          <div class="mini-user">
+            <img id="sidebar-avatar" class="avatar-small" alt="Your Google profile photo">
+            <div class="mini-user-text">
+              <p id="sidebar-name" class="mini-user-name">My Account</p>
+              <p id="sidebar-email" class="mini-user-email"></p>
+            </div>
+          </div>
+          <p class="nav-label">Account menu</p>
+          <nav class="account-nav">
+            <a class="active" href="#profile-information"><span class="nav-icon" aria-hidden="true">♙</span><span>My Profile</span></a>
+            <a href="my-orders.html"><span class="nav-icon" aria-hidden="true">▤</span><span>My Orders</span></a>
+            <a href="#delivery-information"><span class="nav-icon" aria-hidden="true">⌖</span><span>Delivery Details</span></a>
+            <a href="care-guide.html"><span class="nav-icon" aria-hidden="true">✧</span><span>Care Guide</span></a>
+            <button id="sidebar-logout" type="button"><span class="nav-icon" aria-hidden="true">↪</span><span>Sign Out</span></button>
+          </nav>
+          <div class="sidebar-bottom">Luxury is a habit.</div>
+        </aside>
+
+        <div class="content-column">
+          <section class="welcome-banner" aria-label="Welcome">
+            <div class="welcome-copy">
+              <p class="eyebrow">A considered collection</p>
+              <h2 id="welcome-heading">Welcome back.</h2>
+              <p>Your account, thoughtfully organised.</p>
+            </div>
+          </section>
+
+          <section class="card" id="profile-information">
+            <div class="card-heading">
+              <div>
+                <h2>Profile Information</h2>
+                <p class="edit-hint">Keep your contact details current.</p>
+              </div>
+              <span class="card-kicker">Personal details</span>
             </div>
 
-            <div class="form-group">
-                <label>Phone</label>
-                <input id="customer-phone">
+            <div class="profile-details-layout">
+              <img id="profile-image" class="profile-avatar" alt="Google profile photo">
+              <div>
+                <div class="form-grid">
+                  <div class="form-group">
+                    <label for="customer-name">Full name</label>
+                    <input id="customer-name" name="customer-name" autocomplete="name" maxlength="120" placeholder="Enter your full name">
+                  </div>
+                  <div class="form-group">
+                    <label for="customer-phone">Phone number</label>
+                    <input id="customer-phone" name="customer-phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="20" placeholder="Enter phone number">
+                  </div>
+                  <div class="form-group full-width">
+                    <label for="customer-email">Google account email</label>
+                    <input id="customer-email" name="customer-email" readonly aria-describedby="email-note">
+                    <span class="field-note" id="email-note">This email comes from your signed-in Google account and cannot be edited here.</span>
+                  </div>
+                </div>
+              </div>
             </div>
-        </div>
+          </section>
 
-        <div class="form-group">
-            <label>Email</label>
-            <input id="customer-email" class="readonly-field" readonly>
-        </div>
-
-        <div class="form-group">
-            <label>Address</label>
-            <textarea id="address-line"></textarea>
-        </div>
-
-        <div class="address-row">
-            <div class="form-group">
-                <label>City</label>
-                <input id="address-city">
+          <section class="card" id="delivery-information">
+            <div class="card-heading">
+              <div>
+                <h2>Delivery Details</h2>
+                <p class="edit-hint">Your default delivery address for future orders.</p>
+              </div>
+              <span class="card-kicker">Shipping details</span>
             </div>
 
-            <div class="form-group">
-                <label>State</label>
-                <input id="address-state">
+            <div class="form-grid">
+              <div class="form-group full-width">
+                <label for="address-line">Street address</label>
+                <textarea id="address-line" name="address-line" autocomplete="street-address" maxlength="500" placeholder="House / flat, street, area"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="address-city">City</label>
+                <input id="address-city" name="address-city" autocomplete="address-level2" maxlength="100" placeholder="City">
+              </div>
+              <div class="form-group">
+                <label for="address-state">State</label>
+                <input id="address-state" name="address-state" autocomplete="address-level1" maxlength="100" placeholder="State">
+              </div>
+              <div class="form-group">
+                <label for="address-pincode">PIN code</label>
+                <input id="address-pincode" name="address-pincode" inputmode="numeric" autocomplete="postal-code" maxlength="6" pattern="[0-9]{6}" placeholder="6-digit PIN code">
+              </div>
             </div>
+
+            <div class="button-row">
+              <button id="save-profile" class="primary-button" type="button">Save Details <span aria-hidden="true">→</span></button>
+              <a class="secondary-button" href="my-orders.html">View My Orders</a>
+            </div>
+            <div id="profile-status" class="status" role="status" aria-live="polite"></div>
+          </section>
+
+          <section class="card" aria-labelledby="account-overview-heading">
+            <div class="card-heading">
+              <div>
+                <h2 id="account-overview-heading">Your Account</h2>
+                <p class="edit-hint">Your sign-in information and account shortcuts.</p>
+              </div>
+              <span class="card-kicker">Account overview</span>
+            </div>
+            <div class="account-meta">
+              <div class="meta-box">
+                <label>Signed in with</label>
+                <p>Google Account</p>
+              </div>
+              <div class="meta-box">
+                <label>Firebase account ID</label>
+                <p id="customer-uid">Available after sign-in</p>
+              </div>
+            </div>
+            <p class="security-note"><span aria-hidden="true">♢</span><span>Your Google email and account ID are displayed for reference. Never share passwords or sign-in verification codes with anyone.</span></p>
+            <div class="quick-links" style="margin-top:20px">
+              <a href="my-orders.html" class="quick-link">
+                <span class="quick-icon" aria-hidden="true">▤</span>
+                <span><strong>My Orders</strong><span>Review your purchases and order updates.</span></span>
+              </a>
+              <a href="care-guide.html" class="quick-link">
+                <span class="quick-icon" aria-hidden="true">✧</span>
+                <span><strong>Care Guide</strong><span>Learn how to care for your watches and sunglasses.</span></span>
+              </a>
+            </div>
+            <button id="logout-button" class="logout-button" type="button" style="margin-top:18px">Sign Out of Your Account</button>
+          </section>
         </div>
-
-        <div class="form-group">
-            <label>PIN Code</label>
-            <input id="address-pincode" maxlength="6">
-        </div>
-
-        <button id="save-profile" class="primary-button">
-            Save Details
-        </button>
-
-        <div id="profile-status" class="status"></div>
-
-    </div>
-
-    <!-- RIGHT SIDE -->
-    <div class="card account-panel">
-
-        <h2>My Account</h2>
-
-        <div class="form-group">
-            <label>Google Account</label>
-            <input id="google-account-display" class="readonly-field" readonly>
-        </div>
-
-        <div class="form-group">
-            <label>Account ID</label>
-            <input id="customer-uid" class="readonly-field" readonly>
-        </div>
-
-        <button id="logout-button" class="logout-button">
-            Logout
-        </button>
-
-        <div class="panel-divider"></div>
-
-        <div class="panel-item">
-            <h3>My Orders</h3>
-            <p>View and track your purchases.</p>
-
-            <a href="my-orders.html" class="panel-button">
-                View Orders
-            </a>
-        </div>
-
-        <div class="panel-divider"></div>
-
-        <div class="panel-item">
-            <h3>Care Guide</h3>
-            <p>Keep your watches and sunglasses in perfect condition.</p>
-
-            <a href="care-guide.html" class="panel-button">
-                Open Guide
-            </a>
-        </div>
-
-    </div>
-
-</div>
-</div></section></div></main>
-  
-<!-- =========================================================
-     FOOTER
-========================================================= -->
+      </div>
+    </section>
+  </div>
+</main>
 
 <footer class="main-footer">
-
-    <div class="footer-container">
-
-        <div class="footer-top">
-
-            <h2>Contact Us</h2>
-
-            <div class="contact-column">
-
-                <h3>For Customers:</h3>
-
-                <a href="mailto:50mirars@gmail.com" class="footer-link">
-                    50mirars@gmail.com
-                </a>
-
-                <a href="tel:+918209989013" class="footer-link">
-                    82099 89013
-                </a>
-
-                <p>09:00 - 21:30 | Monday to Sunday</p>
-
-            </div>
-
-            <div class="contact-column">
-
-                <h3>For Sales/Watch Service:</h3>
-
-                <a href="mailto:50mirars@gmail.com" class="footer-link">
-                    50mirars@gmail.com
-                </a>
-
-                <a href="tel:+918209989013" class="footer-link">
-                    82099 89013
-                </a>
-
-                <p>09:00 - 21:30 | Monday to Sunday</p>
-
-            </div>
-
-            <div class="whatsapp-column">
-
-                <h3 class="whatsapp-title">
-
-                    <span>View Products on WhatsApp</span>
-
-                    <img
-                        src="whatsapplogo.png"
-                        alt="WhatsApp"
-                        class="whatsapp-icon"
-                    >
-
-                </h3>
-
-                <a
-                    href="https://wa.me/918209989013"
-                    target="_blank"
-                    rel="noopener"
-                    class="whatsapp-button"
-                >
-                    View Products
-                </a>
-
-            </div>
-
-        </div>
-
-        <div class="footer-middle">
-
-            <div class="footer-links-column">
-
-                <h3>Know 50 Mirars</h3>
-
-                <a href="about.html">About Us</a>
-
-                <a href="faq.html">FAQ</a>
-
-            </div>
-
-            <div class="footer-links-column">
-
-                <h3>Terms & Conditions</h3>
-
-                <a href="terms.html">Terms & Conditions</a>
-
-                <a href="privacypolicy.html">Privacy Policy</a>
-
-            </div>
-
-            <div class="footer-social">
-
-                <h3>50 Mirars</h3>
-
-                <p>Follow Us On</p>
-
-                <a
-                    href="https://instagram.com/50mirars"
-                    target="_blank"
-                    rel="noopener"
-                    class="instagram-button"
-                    aria-label="Follow 50 Mirars on Instagram"
-                >
-
-                    <img
-                        src="instagramimage.webp"
-                        alt="Instagram"
-                    >
-
-                </a>
-
-            </div>
-
-        </div>
-
-        <div class="footer-bottom">
-
-            <p>
-                © 2026 50 Mirars - The Watch & Sunglasses Store.
-                All Rights Reserved.
-            </p>
-
-        </div>
-
+  <div class="footer-container">
+    <div class="footer-top">
+      <h2>Contact Us</h2>
+      <div class="contact-column">
+        <h3>For Customers</h3>
+        <a href="mailto:50mirars@gmail.com" class="footer-link">50mirars@gmail.com</a>
+        <a href="tel:+918209989013" class="footer-link">82099 89013</a>
+        <p>09:00 - 21:30 | Monday to Sunday</p>
+      </div>
+      <div class="contact-column">
+        <h3>For Sales / Watch Service</h3>
+        <a href="mailto:50mirars@gmail.com" class="footer-link">50mirars@gmail.com</a>
+        <a href="tel:+918209989013" class="footer-link">82099 89013</a>
+        <p>09:00 - 21:30 | Monday to Sunday</p>
+      </div>
+      <div class="whatsapp-column">
+        <h3 class="whatsapp-title"><span>View Products on WhatsApp</span><img src="whatsapplogo.png" alt="" class="whatsapp-icon"></h3>
+        <a href="https://wa.me/918209989013" target="_blank" rel="noopener noreferrer" class="whatsapp-button">View Products</a>
+      </div>
     </div>
-
+    <div class="footer-middle">
+      <div class="footer-links-column">
+        <h3>Know 50 Mirars</h3>
+        <a href="about.html">About Us</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+      <div class="footer-links-column">
+        <h3>Terms &amp; Conditions</h3>
+        <a href="terms.html">Terms &amp; Conditions</a>
+        <a href="privacypolicy.html">Privacy Policy</a>
+      </div>
+      <div class="footer-social">
+        <h3>50 Mirars</h3>
+        <p>Follow Us On</p>
+        <a href="https://instagram.com/50mirars" target="_blank" rel="noopener noreferrer" class="instagram-button" aria-label="Follow 50 Mirars on Instagram">
+          <img src="instagramimage.webp" alt="Instagram">
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 50 Mirars - The Watch &amp; Sunglasses Store. All Rights Reserved.</p>
+    </div>
+  </div>
 </footer>
 
-  <script type="module">
-import {initializeApp} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
-import {getAuth,GoogleAuthProvider,signInWithPopup,signInWithRedirect,getRedirectResult,signOut,onAuthStateChanged} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js";
-import {getFirestore,doc,getDoc,setDoc,collection,addDoc,getDocs,serverTimestamp} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
-const app=initializeApp({apiKey:"AIzaSyD5oZFRZUDnmb2d1_juGTeWAbQcy3gcyjc",authDomain:"mirars-project.firebaseapp.com",projectId:"mirars-project",storageBucket:"mirars-project.firebasestorage.app",messagingSenderId:"947955901957",appId:"1:947955901957:web:67bb04627f25bf2a419e6c",measurementId:"G-HXESQZER5L"});
-const auth=getAuth(app),db=getFirestore(app),provider=new GoogleAuthProvider();provider.setCustomParameters({prompt:"select_account"});
-const $=id=>document.getElementById(id);
-const login=$("login-section"),profile=$("profile-section");
-$("google-login").onclick=async()=>{try{await signInWithPopup(auth,provider)}catch(e){if(e.code==="auth/popup-blocked")await signInWithRedirect(auth,provider);}};
-getRedirectResult(auth).catch(()=>{});
-async function loadProfile(u){
-const ref=doc(db,"customers",u.uid);const s=await getDoc(ref);
-if(s.exists()){const d=s.data();$("customer-name").value=d.name||u.displayName||"";$("customer-phone").value=d.phone||"";}else await setDoc(ref,{name:u.displayName||"",email:u.email||"",phone:"",photoURL:u.photoURL||"",createdAt:serverTimestamp()},{merge:true});
-const ads=await getDocs(collection(db,"customers",u.uid,"addresses"));
-ads.forEach(x=>{const d=x.data();if(d.isDefault){$("address-line").value=d.address||"";$("address-city").value=d.city||"";$("address-state").value=d.state||"";$("address-pincode").value=d.pincode||"";}});
-$("profile-name").innerText=u.displayName||"50 Mirars Customer";$("profile-email").innerText=u.email||"";$("customer-email").value=u.email||"";$("google-account-display").value=u.email||"";$("customer-uid").value=u.uid;$("profile-image").src=u.photoURL||`https://ui-avatars.com/api/?name=${encodeURIComponent(u.displayName||"Customer")}&background=111111&color=ffffff`;}
-onAuthStateChanged(auth,async u=>{if(u){login.style.display="none";profile.style.display="block";await loadProfile(u);}else{login.style.display="block";profile.style.display="none";}});
-$("save-profile").onclick=async()=>{const u=auth.currentUser;if(!u)return alert("Please sign in first.");const p=$("address-pincode").value.trim();if(!/^\d{6}$/.test(p))return alert("Please enter a valid 6-digit PIN Code.");await setDoc(doc(db,"customers",u.uid),{name:$("customer-name").value.trim(),email:u.email||"",phone:$("customer-phone").value.trim(),photoURL:u.photoURL||"",updatedAt:serverTimestamp()},{merge:true});const a=collection(db,"customers",u.uid,"addresses");const s=await getDocs(a);await Promise.all(s.docs.filter(d=>d.data().isDefault).map(d=>setDoc(doc(db,"customers",u.uid,"addresses",d.id),{isDefault:false},{merge:true})));await addDoc(a,{name:$("customer-name").value.trim(),phone:$("customer-phone").value.trim(),address:$("address-line").value.trim(),city:$("address-city").value.trim(),state:$("address-state").value.trim(),pincode:p,isDefault:true,createdAt:serverTimestamp(),updatedAt:serverTimestamp()});const st=$("profile-status");st.className="status success";st.innerText="Details saved successfully.";setTimeout(()=>{if(localStorage.getItem("returnToCheckout")==="true"){localStorage.removeItem("returnToCheckout");location.href="profile.html";}else location.href="profile.html";},1000);};
-$("logout-button").onclick=async()=>{if(confirm("Are you sure you want to logout?")){await signOut(auth);location.href="profile.html";}};
+<script type="module">
+import { initializeApp, getApps, getApp } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
+import {
+  getAuth, GoogleAuthProvider, signInWithPopup, signInWithRedirect,
+  getRedirectResult, signOut, onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js";
+import {
+  getFirestore, doc, getDoc, setDoc, collection, getDocs,
+  addDoc, updateDoc, serverTimestamp, query, where, limit
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+
+/* Keep this Firebase project configuration aligned with the rest of 50 Mirars. */
+const firebaseConfig = {
+  apiKey: "AIzaSyD5oZFRZUDnmb2d1_juGTeWAbQcy3gcyjc",
+  authDomain: "mirars-project.firebaseapp.com",
+  projectId: "mirars-project",
+  storageBucket: "mirars-project.firebasestorage.app",
+  messagingSenderId: "947955901957",
+  appId: "1:947955901957:web:67bb04627f25bf2a419e6c",
+  measurementId: "G-HXESQZER5L"
+};
+
+const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+const provider = new GoogleAuthProvider();
+provider.setCustomParameters({ prompt: "select_account" });
+
+const $ = (id) => document.getElementById(id);
+const loginSection = $("login-section");
+const profileSection = $("profile-section");
+const loginButton = $("google-login");
+const saveButton = $("save-profile");
+let activeUser = null;
+let authReady = false;
+
+function showStatus(element, message, type = "success") {
+  element.textContent = message;
+  element.className = `status ${type}`;
+}
+function clearStatus(element) {
+  element.textContent = "";
+  element.className = "status";
+}
+function fallbackAvatar(name = "50 Mirars Customer") {
+  return `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=eee4d1&color=6f5429&bold=true`;
+}
+function setAvatar(user) {
+  const src = user.photoURL || fallbackAvatar(user.displayName || "Customer");
+  $("profile-image").src = src;
+  $("sidebar-avatar").src = src;
+  $("profile-image").onerror = () => { $("profile-image").src = fallbackAvatar(user.displayName || "Customer"); };
+  $("sidebar-avatar").onerror = () => { $("sidebar-avatar").src = fallbackAvatar(user.displayName || "Customer"); };
+}
+function friendlyError(error) {
+  const code = error?.code || "";
+  if (code.includes("popup-closed-by-user")) return "Sign-in was cancelled. You can try again whenever you're ready.";
+  if (code.includes("unauthorized-domain")) return "This website domain is not authorised for Google sign-in in Firebase. Add this domain under Firebase Authentication settings.";
+  if (code.includes("network-request-failed")) return "A network error occurred. Check your connection and try again.";
+  if (code.includes("permission-denied")) return "Firebase denied this request. Please check your Firestore security rules.";
+  return error?.message || "Something went wrong. Please try again.";
+}
+
+loginButton.addEventListener("click", async () => {
+  clearStatus($("login-status"));
+  loginButton.disabled = true;
+  loginButton.querySelector("span:last-child").textContent = "Connecting to Google…";
+  try {
+    await signInWithPopup(auth, provider);
+  } catch (error) {
+    if (error.code === "auth/popup-blocked") {
+      try {
+        await signInWithRedirect(auth, provider);
+        return;
+      } catch (redirectError) {
+        showStatus($("login-status"), friendlyError(redirectError), "error");
+      }
+    } else if (error.code === "auth/popup-closed-by-user") {
+      showStatus($("login-status"), friendlyError(error), "error");
+    } else {
+      showStatus($("login-status"), friendlyError(error), "error");
+    }
+  } finally {
+    loginButton.disabled = false;
+    loginButton.querySelector("span:last-child").textContent = "Continue with Google";
+  }
+});
+
+getRedirectResult(auth).catch((error) => {
+  showStatus($("login-status"), friendlyError(error), "error");
+});
+
+async function loadProfile(user) {
+  const customerRef = doc(db, "customers", user.uid);
+  const customerSnap = await getDoc(customerRef);
+  const saved = customerSnap.exists() ? customerSnap.data() : {};
+
+  // Initialise a customer record only when needed; preserve all existing saved fields.
+  if (!customerSnap.exists()) {
+    await setDoc(customerRef, {
+      name: user.displayName || "",
+      email: user.email || "",
+      phone: "",
+      photoURL: user.photoURL || "",
+      createdAt: serverTimestamp()
+    }, { merge: true });
+  } else {
+    // Refresh identity fields without replacing customer-entered delivery data.
+    await setDoc(customerRef, {
+      email: user.email || saved.email || "",
+      photoURL: user.photoURL || saved.photoURL || ""
+    }, { merge: true });
+  }
+
+  $("customer-name").value = saved.name || user.displayName || "";
+  $("customer-phone").value = saved.phone || "";
+  $("customer-email").value = user.email || "";
+  $("customer-uid").textContent = user.uid;
+  $("sidebar-name").textContent = user.displayName || saved.name || "My Account";
+  $("sidebar-email").textContent = user.email || "";
+  $("welcome-heading").textContent = `Welcome back${(user.displayName || saved.name) ? `, ${(user.displayName || saved.name).split(" ")[0]}` : ""}.`;
+  setAvatar(user);
+
+  // Load the current default address, if one exists.
+  const addressCollection = collection(db, "customers", user.uid, "addresses");
+  const addressQuery = query(addressCollection, where("isDefault", "==", true), limit(1));
+  const addressSnap = await getDocs(addressQuery);
+  if (!addressSnap.empty) {
+    const address = addressSnap.docs[0].data();
+    $("address-line").value = address.address || "";
+    $("address-city").value = address.city || "";
+    $("address-state").value = address.state || "";
+    $("address-pincode").value = address.pincode || "";
+  } else {
+    $("address-line").value = "";
+    $("address-city").value = "";
+    $("address-state").value = "";
+    $("address-pincode").value = "";
+  }
+}
+
+async function saveProfile() {
+  const user = auth.currentUser;
+  if (!user) {
+    showStatus($("profile-status"), "Please sign in with Google before saving your details.", "error");
+    return;
+  }
+
+  const name = $("customer-name").value.trim();
+  const phone = $("customer-phone").value.trim();
+  const address = $("address-line").value.trim();
+  const city = $("address-city").value.trim();
+  const state = $("address-state").value.trim();
+  const pincode = $("address-pincode").value.trim();
+
+  if (!name) {
+    showStatus($("profile-status"), "Please enter your full name.", "error");
+    $("customer-name").focus();
+    return;
+  }
+  if (phone && !/^[0-9+\-\s()]{7,20}$/.test(phone)) {
+    showStatus($("profile-status"), "Please enter a valid phone number.", "error");
+    $("customer-phone").focus();
+    return;
+  }
+  const hasAnyAddress = address || city || state || pincode;
+  if (hasAnyAddress && (!address || !city || !state || !/^\d{6}$/.test(pincode))) {
+    showStatus($("profile-status"), "Please complete the address, city, state and valid 6-digit PIN code, or leave all delivery address fields blank.", "error");
+    return;
+  }
+
+  saveButton.disabled = true;
+  saveButton.textContent = "Saving details…";
+  clearStatus($("profile-status"));
+
+  try {
+    await setDoc(doc(db, "customers", user.uid), {
+      name,
+      email: user.email || "",
+      phone,
+      photoURL: user.photoURL || "",
+      updatedAt: serverTimestamp()
+    }, { merge: true });
+
+    // Update an existing default address when possible; otherwise create one.
+    // Mark any other defaults false first to avoid multiple default addresses.
+    if (hasAnyAddress) {
+      const addressesRef = collection(db, "customers", user.uid, "addresses");
+      const currentDefaults = await getDocs(query(addressesRef, where("isDefault", "==", true)));
+      const existingDefault = currentDefaults.docs[0] || null;
+
+      await Promise.all(
+        currentDefaults.docs.map((addressDoc) =>
+          updateDoc(doc(db, "customers", user.uid, "addresses", addressDoc.id), {
+            isDefault: false,
+            updatedAt: serverTimestamp()
+          })
+        )
+      );
+
+      const addressData = {
+        name, phone, address, city, state, pincode,
+        isDefault: true,
+        updatedAt: serverTimestamp()
+      };
+
+      if (existingDefault) {
+        await setDoc(doc(db, "customers", user.uid, "addresses", existingDefault.id), addressData, { merge: true });
+      } else {
+        await addDoc(addressesRef, { ...addressData, createdAt: serverTimestamp() });
+      }
+    }
+
+    $("sidebar-name").textContent = name;
+    $("welcome-heading").textContent = `Welcome back, ${name.split(" ")[0]}.`;
+    showStatus($("profile-status"), "Your profile and delivery details have been saved successfully.", "success");
+  } catch (error) {
+    console.error("Unable to save 50 Mirars profile:", error);
+    showStatus($("profile-status"), `We couldn't save your details. ${friendlyError(error)}`, "error");
+  } finally {
+    saveButton.disabled = false;
+    saveButton.innerHTML = 'Save Details <span aria-hidden="true">→</span>';
+  }
+}
+saveButton.addEventListener("click", saveProfile);
+
+async function logOut() {
+  if (!auth.currentUser) return;
+  if (!confirm("Are you sure you want to sign out of your 50 Mirars account?")) return;
+  try {
+    await signOut(auth);
+    // Do not delete saved customer information from Firestore.
+  } catch (error) {
+    showStatus($("profile-status"), `Unable to sign out. ${friendlyError(error)}`, "error");
+  }
+}
+$("logout-button").addEventListener("click", logOut);
+$("sidebar-logout").addEventListener("click", logOut);
+
+onAuthStateChanged(auth, async (user) => {
+  activeUser = user;
+  authReady = true;
+  if (!user) {
+    loginSection.style.display = "block";
+    profileSection.style.display = "none";
+    return;
+  }
+
+  loginSection.style.display = "none";
+  profileSection.style.display = "block";
+  clearStatus($("profile-status"));
+
+  try {
+    await loadProfile(user);
+  } catch (error) {
+    console.error("Unable to load 50 Mirars profile:", error);
+    showStatus($("profile-status"), `Your account is signed in, but some saved details could not be loaded. ${friendlyError(error)}`, "error");
+  }
+});
 </script>
-
 </body>
-
 </html>
