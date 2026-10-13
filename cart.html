@@ -4392,12 +4392,36 @@ function escapeHTML(text){
 let catalogueProducts = null;
 let catalogueLoadPromise = null;
 
-function getProductDetailsPage(){
 
+function getProductDetailsPage(item) {
+    const type = String(
+        item?.type || item?.category || ""
+    ).toLowerCase();
+
+    const name = String(item?.name || "").toLowerCase();
+
+    // Couple-watch products
+    if (
+        type.includes("couple") ||
+        name.includes("couple watch")
+    ) {
+        return "couple-watchesproduct-details.html";
+    }
+
+    // Sunglasses products
+    if (
+        type.includes("sunglass") ||
+        type.includes("eyewear") ||
+        name.includes("sunglasses") ||
+        name.includes("sun glasses")
+    ) {
+        return "product-detailssunglasses.html";
+    }
+
+    // Standard watches
     return "product-details.html";
-
 }
-
+    
 function extractProductsArray(source){
 
     try{
