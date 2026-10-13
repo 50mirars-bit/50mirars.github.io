@@ -4392,363 +4392,140 @@ function escapeHTML(text){
 let catalogueProducts = null;
 let catalogueLoadPromise = null;
 
+/*
+ * Build the cart image catalogue from the actual product-gallery pages.
+ * Product names are matched before IDs because watch, sunglasses and
+ * couple-watch catalogues can reuse numeric IDs.
+ */
+function normalizeProductName(value) {
+    return String(value || "")
+        .normalize("NFKC")
+        .toLowerCase()
+        .replace(/&amp;/g, "&")
+        .replace(/[^a-z0-9]+/g, " ")
+        .trim()
+        .replace(/\s+/g, " ");
+}
 
-function getProductDetailsPage(item) {
-    const type = String(
-        item?.type || item?.category || ""
-    ).toLowerCase();
-
+function getProductCataloguePages(item) {
+    const type = String(item?.type || item?.category || "").toLowerCase();
     const name = String(item?.name || "").toLowerCase();
 
-    // Couple-watch products
-    if (
-        type.includes("couple") ||
-        name.includes("couple watch")
-    ) {
-        return "couple-watchesproduct-details.html";
+    if (type.includes("sunglass") || type.includes("eyewear") || name.includes("sunglass") || name.includes("eyewear")) {
+        return ["sunglasses.html", "couple-watches.html", "watches.html"];
     }
-
-    // Sunglasses products
-    if (
-        type.includes("sunglass") ||
-        type.includes("eyewear") ||
-        name.includes("sunglasses") ||
-        name.includes("sun glasses")
-    ) {
-        return "product-detailssunglasses.html";
+    if (type.includes("couple") || name.includes("couple")) {
+        return ["couple-watches.html", "sunglasses.html", "watches.html"];
     }
-
-    // Standard watches
-    return "product-details.html";
-}
-    
-function extractProductsArray(source){
-
-    try{
-
-        const match =
-            source.match(
-                /const\s+products\s*=\s*(\[[\s\S]*?\]);/
-            );
-
-        if(!match || !match[1]){
-
-            return [];
-
-        }
-
-        /*
-         * The catalogue is trusted site code created by
-         * 50 Mirars. Function() lets us read the existing
-         * JavaScript array without duplicating the whole
-         * product database inside cart.html.
-         */
-        const parsed =
-            Function(
-                "\"use strict\"; return (" +
-                match[1] +
-                ");"
-            )();
-
-        return Array.isArray(parsed)
-            ? parsed
-            : [];
-
-    }
-
-    catch(error){
-
-        console.error(
-            "Could not parse product catalogue:",
-            error
-        );
-
-        return [];
-
-    }
-
+    return ["watches.html", "sunglasses.html", "couple-watches.html"];
 }
 
-async function loadCatalogueProducts(){
+async function loadCatalogueProducts() {
+    if (Array.isArray(catalogueProducts)) return catalogueProducts;
+    if (catalogueLoadPromise) return catalogueLoadPromise;
 
-    if(
-        Array.isArray(
-            catalogueProducts
-        )
-    ){
+    catalogueLoadPromise = Promise.all(
+        ["watches.html", "sunglasses.html", "couple-watches.html"].map(async page => {
+            try {
+                const response = await fetch(page, { cache: "no-store" });
+                if (!response.ok) throw new Error("Could not load " + page);
+                const html = await response.text();
+                const doc = new DOMParser().parseFromString(html, "text/html");
+                const cards = Array.from(doc.querySelectorAll(".product-card"));
 
-        return catalogueProducts;
-
-    }
-
-    if(catalogueLoadPromise){
-
-        return catalogueLoadPromise;
-
-    }
-
-    catalogueLoadPromise =
-        fetch(
-            getProductDetailsPage(),
-            {
-                cache:"no-store"
-            }
-        )
-
-        .then(
-            response => {
-
-                if(!response.ok){
-
-                    throw new Error(
-                        "Product catalogue could not be loaded."
-                    );
-
-                }
-
-                return response.text();
-
-            }
-        )
-
-        .then(
-            source => {
-
-                catalogueProducts =
-                    extractProductsArray(
-                        source
-                    );
-
-                return catalogueProducts;
-
-            }
-        )
-
-        .catch(
-            error => {
-
-                console.error(
-                    "Catalogue media resolver error:",
-                    error
-                );
-
-                catalogueProducts = [];
-
+                return cards.map(card => {
+                    const name = card.getAttribute("data-name") || card.querySelector(".product-name, h2, h3")?.textContent || "";
+                    const media = Array.from(card.querySelectorAll(".media-slide img, .media-slide video, .product-media img, .product-media video"))
+                        .map(el => el.getAttribute("src"))
+                        .filter(Boolean)
+                        .map(src => src.trim());
+                    return {
+                        name: name.trim(),
+                        normalizedName: normalizeProductName(name),
+                        id: card.getAttribute("data-id") || "",
+                        price: card.getAttribute("data-price") || "",
+                        brand: card.getAttribute("data-brand") || "",
+                        page,
+                        media: [...new Set(media)]
+                    };
+                }).filter(product => product.normalizedName && product.media.length);
+            } catch (error) {
+                console.warn("Cart image catalogue could not read " + page, error);
                 return [];
-
             }
-        );
-
-    return catalogueLoadPromise;
-
-}
-
-function findCatalogueProduct(item){
-
-    if(
-        !item ||
-        !Array.isArray(
-            catalogueProducts
-        )
-    ){
-
-        return null;
-
-    }
-
-    const itemId =
-        Number(
-            item.productId ||
-            item.id
-        );
-
-    if(
-        Number.isFinite(itemId) &&
-        itemId > 0
-    ){
-
-        const byId =
-            catalogueProducts.find(
-                product =>
-                    Number(
-                        product.id
-                    ) === itemId
-            );
-
-        if(byId){
-
-            return byId;
-
-        }
-
-    }
-
-    const itemName =
-        String(
-            item.name || ""
-        )
-        .trim()
-        .toLowerCase();
-
-    if(!itemName){
-
-        return null;
-
-    }
-
-    return (
-        catalogueProducts.find(
-            product =>
-                String(
-                    product.name || ""
-                )
-                .trim()
-                .toLowerCase() ===
-                itemName
-        ) || null
-    );
-
-}
-
-function getCatalogueMedia(product){
-
-    if(!product){
-
+        })
+    ).then(results => results.flat()).catch(error => {
+        console.error("Cart image catalogue error:", error);
         return [];
+    });
 
-    }
-
-    let media =
-        product.media;
-
-    if(
-        typeof media === "string"
-    ){
-
-        media =
-            [media];
-
-    }
-
-    if(!Array.isArray(media)){
-
-        media = [];
-
-    }
-
-    return media
-        .filter(
-            file =>
-                typeof file === "string" &&
-                file.trim()
-        )
-        .map(
-            file =>
-                file.trim()
-        );
-
+    catalogueProducts = await catalogueLoadPromise;
+    return catalogueProducts;
 }
 
-function getCartMediaCandidates(item){
+function findCatalogueProduct(item) {
+    if (!item || !Array.isArray(catalogueProducts)) return null;
 
+    const itemName = normalizeProductName(item.name);
+    const all = catalogueProducts;
+
+    // Critical fix: exact product name across every category first.
+    // IDs are not globally unique between watches, eyewear and couples.
+    if (itemName) {
+        const exactName = all.find(product => product.normalizedName === itemName);
+        if (exactName) return exactName;
+
+        // Use a conservative contains match only if the exact name is unavailable.
+        const closeName = all.find(product =>
+            product.normalizedName &&
+            (product.normalizedName.includes(itemName) || itemName.includes(product.normalizedName))
+        );
+        if (closeName) return closeName;
+    }
+
+    // Last resort: use category-specific catalogue order, then ID if present.
+    const preferredPages = getProductCataloguePages(item);
+    const itemId = String(item.productId || item.id || "").trim();
+    if (itemId) {
+        for (const page of preferredPages) {
+            const match = all.find(product => product.page === page && String(product.id) === itemId);
+            if (match) return match;
+        }
+    }
+
+    return null;
+}
+
+function getCatalogueMedia(product) {
+    return product && Array.isArray(product.media)
+        ? product.media.filter(file => typeof file === "string" && file.trim())
+        : [];
+}
+
+function getCartMediaCandidates(item) {
     const candidates = [];
+    const add = value => {
+        if (typeof value !== "string") return;
+        const clean = value.trim();
+        if (clean && !candidates.includes(clean)) candidates.push(clean);
+    };
 
-    function add(value){
+    // Always prefer the image found from the matching product card.
+    // This prevents stale/wrong watch images saved in old cart records.
+    const product = findCatalogueProduct(item);
+    getCatalogueMedia(product).forEach(add);
 
-        if(
-            typeof value !== "string"
-        ){
-
-            return;
-
-        }
-
-        const clean =
-            value.trim();
-
-        if(!clean){
-
-            return;
-
-        }
-
-        if(
-            !candidates.includes(
-                clean
-            )
-        ){
-
-            candidates.push(
-                clean
-            );
-
-        }
-
-    }
-
-    /*
-     * Newer sunglasses / legacy image format.
-     */
+    // Fallbacks only when the actual product card could not be matched.
     add(item.image);
-
-    /*
-     * Explicit video filename if present.
-     */
     add(item.video);
-
-    /*
-     * media can be an actual filename,
-     * an array of filenames, or only a
-     * media type such as "images"/"video".
-     */
-    if(
-        Array.isArray(
-            item.media
-        )
-    ){
-
-        item.media.forEach(
-            add
-        );
-
-    }
-    else{
-
-        add(item.media);
-
-    }
-
-    /*
-     * If the cart record only contains a media type,
-     * resolve the actual filenames from product-details.html.
-     */
-    const catalogueProduct =
-        findCatalogueProduct(
-            item
-        );
-
-    getCatalogueMedia(
-        catalogueProduct
-    )
-    .forEach(
-        add
-    );
+    if (Array.isArray(item.media)) item.media.forEach(add);
+    else if (typeof item.media === "string" && !["image", "images", "video"].includes(item.media.toLowerCase())) add(item.media);
 
     return candidates;
-
 }
 
-function getCartMedia(item){
-
-    const candidates =
-        getCartMediaCandidates(
-            item
-        );
-
-    return (
-        candidates[0] || ""
-    );
-
+function getCartMedia(item) {
+    return getCartMediaCandidates(item)[0] || "";
 }
 
 function isVideoFile(file){
@@ -4828,135 +4605,50 @@ function renderMediaHTML(
 }
 
 async function repairCartMedia(){
-
-    const catalogue =
-        await loadCatalogueProducts();
-
-    if(
-        !Array.isArray(
-            catalogue
-        ) ||
-        catalogue.length === 0
-    ){
-
-        return false;
-
-    }
+    const catalogue = await loadCatalogueProducts();
+    if (!Array.isArray(catalogue) || catalogue.length === 0) return false;
 
     let changed = false;
+    customerCart = customerCart.map(item => {
+        const product = findCatalogueProduct(item);
+        const media = getCatalogueMedia(product);
+        if (!media.length) return item;
 
-    customerCart =
-        customerCart.map(
-            item => {
+        const firstMedia = media[0];
+        const currentFirst = getCartMedia(item);
+        const correctType = product.page === "sunglasses.html"
+            ? "sunglasses"
+            : product.page === "couple-watches.html"
+                ? "couple-watches"
+                : (item.type || "watch");
 
-                const product =
-                    findCatalogueProduct(
-                        item
-                    );
-
-                if(!product){
-
-                    return item;
-
-                }
-
-                const media =
-                    getCatalogueMedia(
-                        product
-                    );
-
-                if(
-                    media.length === 0
-                ){
-
-                    return item;
-
-                }
-
-                /*
-                 * Save the actual media array back into
-                 * the cart so the problem is permanently
-                 * fixed for future page loads.
-                 */
-                const firstMedia =
-                    media[0];
-
-                const currentMedia =
-                    Array.isArray(
-                        item.media
-                    )
-                    ? item.media
-                    : item.media;
-
-                const shouldRepair =
-                    !item.image &&
-                    (
-                        !currentMedia ||
-                        currentMedia === "images" ||
-                        currentMedia === "image" ||
-                        currentMedia === "video" ||
-                        (
-                            Array.isArray(
-                                currentMedia
-                            ) &&
-                            currentMedia.length === 0
-                        )
-                    );
-
-                if(
-                    shouldRepair ||
-                    (
-                        !item.image &&
-                        !item.video &&
-                        Array.isArray(media)
-                    )
-                ){
-
-                    changed = true;
-
-                    return {
-                        ...item,
-
-                        media:
-                            media,
-
-                        video:
-                            isVideoFile(
-                                firstMedia
-                            )
-                            ? firstMedia
-                            : (
-                                item.video || ""
-                            )
-
-                    };
-
-                }
-
-                return item;
-
-            }
-        );
-
-    if(changed){
-
-        customerCart =
-            normalizeCart(
-                customerCart
-            );
-
-        saveCartLocally();
-
-        if(currentUser){
-
-            saveCustomerCartInBackground();
-
+        // Replace legacy/wrong category image data with the product's real media.
+        if (
+            currentFirst !== firstMedia ||
+            !Array.isArray(item.media) ||
+            item.media.length !== media.length ||
+            item.media.some((file, index) => file !== media[index]) ||
+            item.type !== correctType
+        ) {
+            changed = true;
+            return {
+                ...item,
+                image: isVideoFile(firstMedia) ? (item.image || "") : firstMedia,
+                media: media,
+                video: isVideoFile(firstMedia) ? firstMedia : "",
+                type: correctType,
+                category: correctType
+            };
         }
+        return item;
+    });
 
+    if (changed) {
+        customerCart = normalizeCart(customerCart);
+        saveCartLocally();
+        if (currentUser) saveCustomerCartInBackground();
     }
-
     return changed;
-
 }
 
 
