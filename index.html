@@ -3434,45 +3434,70 @@ letter-spacing:4px;
 
 
 /* =========================================
-   50 MIRARS — FESTIVE OFFER RUNNER
+   50 MIRARS — FLOATING FESTIVAL OFFER BAR
 ========================================= */
 
 .festival-runner {
-    width: 100%;
-    position: relative;
-    z-index: 20;
+    position: fixed;
+    top: 118px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: min(96%, 1400px);
+    height: 42px;
+
+    display: flex;
+    align-items: center;
     overflow: hidden;
-    background: linear-gradient(100deg, #0b0b0b, #19150d, #0b0b0b);
-    border-top: 1px solid rgba(201, 162, 77, 0.45);
-    border-bottom: 1px solid rgba(201, 162, 77, 0.45);
+
+    background: rgba(15, 15, 15, 0.92);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(201, 162, 77, 0.35);
+    border-radius: 14px;
+
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
+
     color: #f8f5ed;
-    padding: 15px 0;
+    z-index: 9998;
+
+    transition: top 0.35s ease;
+}
+
+/* Keep the offer bar below the compact header on scroll */
+.top-header.scrolled ~ .festival-runner {
+    top: 92px;
 }
 
 .festival-runner-track {
     display: flex;
+    align-items: center;
     width: max-content;
-    animation: festivalRunnerMove 34s linear infinite;
+    flex-shrink: 0;
+
+    animation: festivalRunnerMove 32s linear infinite;
     will-change: transform;
 }
 
 .festival-runner-group {
     display: flex;
-    flex-shrink: 0;
     align-items: center;
-    gap: 34px;
-    padding-right: 34px;
+    gap: 30px;
+    padding-right: 30px;
+    flex-shrink: 0;
     white-space: nowrap;
 }
 
 .festival-runner-item {
     display: inline-flex;
     align-items: center;
-    gap: 12px;
+    gap: 8px;
+
     font-family: Inter, sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 1.7px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1.4px;
     text-transform: uppercase;
 }
 
@@ -3483,59 +3508,63 @@ letter-spacing:4px;
 
 .festival-runner-star {
     color: #c9a24d;
-    font-size: 17px;
+    font-size: 15px;
 }
 
 @keyframes festivalRunnerMove {
     from {
         transform: translateX(0);
     }
-
     to {
         transform: translateX(-50%);
     }
 }
 
-/* Pause while the customer hovers over the offer */
 .festival-runner:hover .festival-runner-track {
     animation-play-state: paused;
 }
 
-/* Mobile adjustments */
+/* Make room for the two floating elements */
+body {
+    padding-top: 174px;
+}
+
+/* Tablet and mobile */
 @media (max-width: 768px) {
     .festival-runner {
-        padding: 12px 0;
+        top: 100px;
+        height: 38px;
+        width: 96%;
+        border-radius: 11px;
+    }
+
+    .top-header.scrolled ~ .festival-runner {
+        top: 84px;
     }
 
     .festival-runner-track {
-        animation-duration: 28s;
+        animation-duration: 27s;
     }
 
     .festival-runner-group {
-        gap: 22px;
-        padding-right: 22px;
+        gap: 20px;
+        padding-right: 20px;
     }
 
     .festival-runner-item {
-        font-size: 10px;
-        letter-spacing: 1px;
-        gap: 8px;
+        font-size: 9px;
+        letter-spacing: 0.8px;
+        gap: 6px;
     }
 
-    .festival-runner-star {
-        font-size: 14px;
+    body {
+        padding-top: 148px;
     }
 }
 
-/* Respect reduced-motion preferences */
 @media (prefers-reduced-motion: reduce) {
     .festival-runner-track {
         animation: none;
-        transform: none;
-    }
-
-    .festival-runner-group[aria-hidden="true"] {
-        display: none;
     }
 }
     
@@ -3640,23 +3669,14 @@ placeholder="Search Products...">
 
 </header>
 
-
-</header>
-
-<!-- =========================================
-     INDIAN FESTIVAL OFFER RUNNER
-========================================= -->
-
+<!-- Floating Indian Festival Offer Bar -->
 <div class="festival-runner"
      role="region"
      aria-label="Indian Festival Offers">
 
     <div class="festival-runner-track">
 
-        <!-- First offer group -->
-
         <div class="festival-runner-group">
-
             <span class="festival-runner-item">
                 <strong>Indian Festival Offer</strong>
             </span>
@@ -3680,13 +3700,10 @@ placeholder="Search Products...">
             </span>
 
             <span class="festival-runner-star">✦</span>
-
         </div>
 
-        <!-- Duplicate group for seamless continuous movement -->
-
+        <!-- Duplicate for seamless scrolling -->
         <div class="festival-runner-group" aria-hidden="true">
-
             <span class="festival-runner-item">
                 <strong>Indian Festival Offer</strong>
             </span>
@@ -3710,11 +3727,9 @@ placeholder="Search Products...">
             </span>
 
             <span class="festival-runner-star">✦</span>
-
         </div>
 
     </div>
-
 </div>
 
 <!-- =========================================================
