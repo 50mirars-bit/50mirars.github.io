@@ -3431,6 +3431,113 @@ letter-spacing:4px;
 }
 
 }
+
+
+/* =========================================
+   50 MIRARS — FESTIVE OFFER RUNNER
+========================================= */
+
+.festival-runner {
+    width: 100%;
+    position: relative;
+    z-index: 20;
+    overflow: hidden;
+    background: linear-gradient(100deg, #0b0b0b, #19150d, #0b0b0b);
+    border-top: 1px solid rgba(201, 162, 77, 0.45);
+    border-bottom: 1px solid rgba(201, 162, 77, 0.45);
+    color: #f8f5ed;
+    padding: 15px 0;
+}
+
+.festival-runner-track {
+    display: flex;
+    width: max-content;
+    animation: festivalRunnerMove 34s linear infinite;
+    will-change: transform;
+}
+
+.festival-runner-group {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 34px;
+    padding-right: 34px;
+    white-space: nowrap;
+}
+
+.festival-runner-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: Inter, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.7px;
+    text-transform: uppercase;
+}
+
+.festival-runner-item strong {
+    color: #f2d48c;
+    font-weight: 700;
+}
+
+.festival-runner-star {
+    color: #c9a24d;
+    font-size: 17px;
+}
+
+@keyframes festivalRunnerMove {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* Pause while the customer hovers over the offer */
+.festival-runner:hover .festival-runner-track {
+    animation-play-state: paused;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .festival-runner {
+        padding: 12px 0;
+    }
+
+    .festival-runner-track {
+        animation-duration: 28s;
+    }
+
+    .festival-runner-group {
+        gap: 22px;
+        padding-right: 22px;
+    }
+
+    .festival-runner-item {
+        font-size: 10px;
+        letter-spacing: 1px;
+        gap: 8px;
+    }
+
+    .festival-runner-star {
+        font-size: 14px;
+    }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .festival-runner-track {
+        animation: none;
+        transform: none;
+    }
+
+    .festival-runner-group[aria-hidden="true"] {
+        display: none;
+    }
+}
     
 </style>
 
@@ -3532,6 +3639,83 @@ placeholder="Search Products...">
 </div>
 
 </header>
+
+
+</header>
+
+<!-- =========================================
+     INDIAN FESTIVAL OFFER RUNNER
+========================================= -->
+
+<div class="festival-runner"
+     role="region"
+     aria-label="Indian Festival Offers">
+
+    <div class="festival-runner-track">
+
+        <!-- First offer group -->
+
+        <div class="festival-runner-group">
+
+            <span class="festival-runner-item">
+                <strong>Indian Festival Offer</strong>
+            </span>
+
+            <span class="festival-runner-star">✦</span>
+
+            <span class="festival-runner-item">
+                <strong>10% OFF</strong> on Every Product
+            </span>
+
+            <span class="festival-runner-star">✦</span>
+
+            <span class="festival-runner-item">
+                <strong>20% OFF</strong> on a Watch &amp; Sunglasses Pair
+            </span>
+
+            <span class="festival-runner-star">✦</span>
+
+            <span class="festival-runner-item">
+                Celebrate in Style with 50 Mirars
+            </span>
+
+            <span class="festival-runner-star">✦</span>
+
+        </div>
+
+        <!-- Duplicate group for seamless continuous movement -->
+
+        <div class="festival-runner-group" aria-hidden="true">
+
+            <span class="festival-runner-item">
+                <strong>Indian Festival Offer</strong>
+            </span>
+
+            <span class="festival-runner-star">✦</span>
+
+            <span class="festival-runner-item">
+                <strong>10% OFF</strong> on Every Product
+            </span>
+
+            <span class="festival-runner-star">✦</span>
+
+            <span class="festival-runner-item">
+                <strong>20% OFF</strong> on a Watch &amp; Sunglasses Pair
+            </span>
+
+            <span class="festival-runner-star">✦</span>
+
+            <span class="festival-runner-item">
+                Celebrate in Style with 50 Mirars
+            </span>
+
+            <span class="festival-runner-star">✦</span>
+
+        </div>
+
+    </div>
+
+</div>
 
 <!-- =========================================================
      CINEMATIC HERO
