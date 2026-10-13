@@ -2680,14 +2680,12 @@ a{
                 </div>
 
 
-                <div class="coupon-offer">
-
-                    Anniversary Offer<br>
-                    <strong>10OFF10 · 10% OFF</strong>
-
-                </div>
-
-            </div>
+                
+<div class="coupon-offer">
+    Indian Festival Offers<br>
+    <strong>10OFF10 · 10% OFF</strong><br>
+    <strong>FESTIVAL20OFF · 20% OFF ON 2+ PRODUCTS</strong>
+</div>
 
 
             <div class="coupon-box">
@@ -4021,6 +4019,48 @@ function updateSummary(){
     const subtotal =
         calculateSubtotal();
 
+    
+    // AUTOMATICALLY REMOVE INELIGIBLE OR RETIRED COUPONS
+    const activeCoupon =
+        (localStorage.getItem(getCouponStorageKey()) || "")
+            .toUpperCase();
+
+    if (
+        activeCoupon === "FESTIVAL20OFF" &&
+        customerCart.length < 2
+    ) {
+        localStorage.removeItem(getCouponStorageKey());
+        localStorage.removeItem(getDiscountStorageKey());
+
+        if (couponCodeInput) {
+            couponCodeInput.value = "";
+        }
+
+        if (couponMessage) {
+            couponMessage.innerText =
+                "FESTIVAL20OFF was removed because your cart needs at least 2 different products.";
+
+            couponMessage.style.color = "#b63d32";
+        }
+    }
+
+    // Remove any previously stored BIRTH1 coupon
+    if (activeCoupon === "BIRTH1") {
+        localStorage.removeItem(getCouponStorageKey());
+        localStorage.removeItem(getDiscountStorageKey());
+
+        if (couponCodeInput) {
+            couponCodeInput.value = "";
+        }
+
+        if (couponMessage) {
+            couponMessage.innerText =
+                "BIRTH1 is no longer available. Please choose a current offer.";
+
+            couponMessage.style.color = "#b63d32";
+        }
+    }
+
 
     const savedDiscount =
         parseFloat(
@@ -5273,143 +5313,81 @@ function(
    APPLY COUPON
 ========================================================= */
 
-window.applyCoupon =
 
-function(){
+window.applyCoupon = function () {
+    const code = couponCodeInput.value.trim().toUpperCase();
+    const subtotal = calculateSubtotal();
 
-    const code =
-        couponCodeInput.value
-            .trim()
-            .toUpperCase();
-
-
-    const subtotal =
-        calculateSubtotal();
-
-
-    if(subtotal <= 0){
-
-        couponMessage.innerText =
-            "Your collection is empty.";
-
-        couponMessage.style.color =
-            "#b63d32";
-
+    if (subtotal <= 0 || customerCart.length === 0) {
+        couponMessage.innerText = "Your collection is empty.";
+        couponMessage.style.color = "#b63d32";
         return;
-
     }
 
-
-    if(!code){
-
-        couponMessage.innerText =
-            "Please enter a coupon code.";
-
-        couponMessage.style.color =
-            "#b63d32";
-
+    if (!code) {
+        couponMessage.innerText = "Please enter a coupon code.";
+        couponMessage.style.color = "#b63d32";
         return;
-
     }
-
 
     let discount = 0;
 
-
-    /* BIRTH1 = 20% */
-
-    if(
-        code === "BIRTH1"
-    ){
-
-        discount =
-            subtotal * 0.20;
-
+    // 10OFF10: 10% off all products
+    if (code === "10OFF10") {
+        discount = subtotal * 0.10;
     }
 
+    // FESTIVAL20OFF: 20% off when 2+ different products are in the cart
+    else if (code === "FESTIVAL20OFF") {
+        if (customerCart.length < 2) {
+            localStorage.removeItem(getDiscountStorageKey());
+            localStorage.removeItem(getCouponStorageKey());
 
-    /* 10OFF10 = 10% */
+            couponMessage.innerText =
+                "FESTIVAL20OFF requires at least 2 different products in your cart.";
 
-    else if(
-        code === "10OFF10"
-    ){
+            couponMessage.style.color = "#b63d32";
+            updateSummary();
+            return;
+        }
 
-        discount =
-            subtotal * 0.10;
-
+        discount = subtotal * 0.20;
     }
 
-
-    /* INVALID */
-
-    else{
-
-        localStorage.removeItem(
-            getDiscountStorageKey()
-        );
-
-
-        localStorage.removeItem(
-            getCouponStorageKey()
-        );
-
+    // BIRTH1 and all other unrecognised codes are no longer accepted
+    else {
+        localStorage.removeItem(getDiscountStorageKey());
+        localStorage.removeItem(getCouponStorageKey());
 
         couponMessage.innerText =
-            "Invalid coupon code.";
+            code === "BIRTH1"
+                ? "BIRTH1 has expired. Please use an available festival offer."
+                : "Invalid coupon code. Please check and try again.";
 
-        couponMessage.style.color =
-            "#b63d32";
-
-
+        couponMessage.style.color = "#b63d32";
         updateSummary();
-
         return;
-
     }
 
-
-    /* SAVE DISCOUNT */
-
+    // Save the selected coupon and its discount
     localStorage.setItem(
-
         getDiscountStorageKey(),
-
-        String(
-            discount
-        )
-
+        String(discount)
     );
-
 
     localStorage.setItem(
-
         getCouponStorageKey(),
-
         code
-
     );
-
 
     updateSummary();
 
-
     couponMessage.innerText =
+        code + " applied successfully! You saved ₹" +
+        discount.toLocaleString("en-IN");
 
-        code +
-
-        " applied successfully! You saved ₹" +
-
-        discount.toLocaleString(
-            "en-IN"
-        );
-
-
-    couponMessage.style.color =
-        "#8e6c28";
-
+    couponMessage.style.color = "#8e6c28";
 };
-
-
 
 /* =========================================================
    REMOVE COUPON
