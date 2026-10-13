@@ -2480,6 +2480,146 @@ a{
 
 }
 
+
+/* =========================================
+   50 MIRARS — ROOMY COUPON INPUT
+========================================= */
+
+.coupon-section {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.coupon-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 22px;
+}
+
+.coupon-top > div:first-child {
+    flex: 1 1 220px;
+    min-width: 0;
+}
+
+.coupon-offer {
+    flex: 0 1 280px;
+    max-width: 100%;
+    text-align: right;
+    overflow-wrap: anywhere;
+}
+
+/* Input occupies a full, separate row */
+.coupon-box {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    gap: 12px;
+    width: 100%;
+    align-items: stretch;
+}
+
+.coupon-input {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    min-height: 58px;
+    box-sizing: border-box;
+
+    padding: 16px 20px;
+
+    background: #fbf9f4;
+    color: #171511;
+    border: 1px solid #c9bda7;
+    border-radius: 4px;
+
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 1px;
+
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.coupon-input::placeholder {
+    color: #81796d;
+    opacity: 1;
+    letter-spacing: 0.3px;
+}
+
+.coupon-input:focus {
+    border-color: #b28a43;
+    box-shadow: 0 0 0 3px rgba(178, 138, 67, 0.14);
+}
+
+.apply-coupon-btn,
+.remove-coupon-btn {
+    min-height: 58px;
+    padding: 14px 22px;
+    box-sizing: border-box;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+/* Keep feedback on its own line */
+.coupon-message {
+    display: block;
+    width: 100%;
+    min-height: 20px;
+    margin-top: 12px;
+    overflow-wrap: anywhere;
+    line-height: 1.6;
+}
+
+/* Responsive layout */
+@media (max-width: 900px) {
+    .coupon-top {
+        gap: 14px;
+    }
+
+    .coupon-offer {
+        flex-basis: 100%;
+        text-align: left;
+    }
+
+    .coupon-box {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 10px;
+    }
+
+    .coupon-input {
+        grid-column: 1 / -1;
+        min-height: 60px;
+        font-size: 16px;
+    }
+
+    .apply-coupon-btn,
+    .remove-coupon-btn {
+        width: 100%;
+        min-width: 0;
+        padding: 13px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .coupon-input {
+        padding: 15px;
+        font-size: 15px;
+    }
+
+    .coupon-box {
+        gap: 8px;
+    }
+
+    .apply-coupon-btn,
+    .remove-coupon-btn {
+        font-size: 11px;
+        letter-spacing: 0.5px;
+    }
+}
+
 </style>
 
 </head>
