@@ -2800,6 +2800,88 @@ img, video {
     }
 }
 
+
+
+/* FINAL MOBILE OVERLAP FIX: keep filters in normal flow and collapsible. */
+@media (max-width: 850px) {
+    .gallery-page { width: 100%; max-width: 100%; overflow-x: clip; }
+    .gallery-topbar { position: sticky; top: 0; z-index: 100; width: 100%; }
+    .gallery-layout {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        gap: 0 !important;
+    }
+    .mobile-filter-toggle {
+        display: flex !important;
+        align-items: center;
+        justify-content: space-between;
+        width: calc(100% - 24px);
+        min-height: 44px;
+        margin: 12px 12px 0;
+        padding: 0 13px;
+        border: 1px solid var(--line, #d8d0c2);
+        background: #f4f0e8;
+        color: #111;
+        font: inherit;
+        font-size: 10px;
+        letter-spacing: .1em;
+        text-align: left;
+        cursor: pointer;
+        position: relative;
+        z-index: 2;
+    }
+    .mobile-filter-toggle-arrow { font-size: 17px; }
+    .filter-sidebar {
+        display: none !important;
+        position: static !important;
+        inset: auto !important;
+        float: none !important;
+        transform: none !important;
+        width: calc(100% - 24px) !important;
+        height: auto !important;
+        min-height: 0 !important;
+        max-height: none !important;
+        margin: 0 12px !important;
+        padding: 16px 14px 20px !important;
+        overflow: visible !important;
+        border: 1px solid var(--line, #d8d0c2) !important;
+        border-top: 0 !important;
+        background: #f4f0e8 !important;
+        box-sizing: border-box !important;
+        z-index: 2 !important;
+    }
+    .filter-sidebar.mobile-filter-open { display: block !important; }
+    .products-area {
+        display: block !important;
+        position: relative !important;
+        float: none !important;
+        inset: auto !important;
+        transform: none !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        margin: 0 !important;
+        padding: 0 12px 34px !important;
+        box-sizing: border-box !important;
+        z-index: 1 !important;
+    }
+    .products-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        width: 100% !important;
+        gap: 24px 12px !important;
+    }
+    .product-card { min-width: 0 !important; width: 100% !important; }
+    .filter-sidebar .price-options { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+}
+@media (max-width: 380px) {
+    .products-area { padding-left: 9px !important; padding-right: 9px !important; }
+    .products-grid { column-gap: 9px !important; }
+}
+
 </style>
 
 </head>
@@ -2844,7 +2926,12 @@ img, video {
              FIXED FILTER SIDEBAR
              ================================================= -->
 
-        <aside class="filter-sidebar">
+        <button type="button" class="mobile-filter-toggle" id="mobileFilterToggle" aria-expanded="false" aria-controls="watchFilterSidebar">
+            <span>☷ &nbsp; FILTER WATCHES</span>
+            <span class="mobile-filter-toggle-arrow" aria-hidden="true">＋</span>
+        </button>
+
+        <aside class="filter-sidebar" id="watchFilterSidebar">
 
 
             <div class="filter-heading-row">
@@ -11606,6 +11693,21 @@ if(clearFilters){
     filterProducts();
 
 });
+
+
+
+/* Mobile filters expand above the products instead of overlaying them. */
+(function () {
+    var toggle = document.getElementById('mobileFilterToggle');
+    var sidebar = document.getElementById('watchFilterSidebar');
+    if (!toggle || !sidebar) return;
+    toggle.addEventListener('click', function () {
+        var isOpen = sidebar.classList.toggle('mobile-filter-open');
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        var arrow = toggle.querySelector('.mobile-filter-toggle-arrow');
+        if (arrow) arrow.textContent = isOpen ? '−' : '＋';
+    });
+})();
 
 </script>
 
