@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<meta content="width=1000" name="viewport"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
 <meta content="#f4f0e8" name="theme-color"/>
 <meta content="Discover premium couple watches at 50 Mirars, featuring coordinated luxury timepieces for two." name="description"/>
 <title>Couple Watches | 50 Mirars</title>
@@ -1622,6 +1622,8 @@ body{
     cursor: pointer;
 
 }
+
+
 /* =========================================================
    MOBILE
 ========================================================= */
@@ -2042,6 +2044,396 @@ body{
 
 }
 
+
+/* =========================================================
+   50 MIRARS — MATCH THE WATCH GALLERY MOBILE LAYOUT
+   Keep desktop styling intact; on phones show two products
+   per row and keep filters collapsed until requested.
+========================================================= */
+.mobile-filter-toggle {
+    display: none;
+}
+
+@media (max-width: 850px) {
+    .gallery-layout {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        gap: 0 !important;
+    }
+
+    .mobile-filter-toggle {
+        display: flex !important;
+        align-items: center;
+        justify-content: space-between;
+        width: calc(100% - 24px);
+        min-height: 44px;
+        margin: 12px 12px 0;
+        padding: 0 13px;
+        border: 1px solid var(--line, #d8d0c2);
+        background: #f4f0e8;
+        color: #111;
+        font: inherit;
+        font-size: 10px;
+        letter-spacing: .1em;
+        text-align: left;
+        cursor: pointer;
+        position: relative;
+        z-index: 2;
+    }
+
+    .mobile-filter-toggle-arrow {
+        font-size: 17px;
+    }
+
+    .filter-sidebar {
+        display: none !important;
+        position: static !important;
+        inset: auto !important;
+        float: none !important;
+        transform: none !important;
+        width: calc(100% - 24px) !important;
+        height: auto !important;
+        min-height: 0 !important;
+        max-height: none !important;
+        margin: 0 12px !important;
+        padding: 16px 14px 20px !important;
+        overflow: visible !important;
+        border: 1px solid var(--line, #d8d0c2) !important;
+        border-top: 0 !important;
+        background: #f4f0e8 !important;
+        box-sizing: border-box !important;
+        z-index: 2 !important;
+    }
+
+    .filter-sidebar.mobile-filter-open {
+        display: block !important;
+    }
+
+    .filter-heading-row {
+        margin-bottom: 17px !important;
+    }
+
+    .price-options {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 12px 10px !important;
+    }
+
+    .products-area {
+        display: block !important;
+        position: relative !important;
+        float: none !important;
+        inset: auto !important;
+        transform: none !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        margin: 0 !important;
+        padding: 0 18px 34px !important;
+        box-sizing: border-box !important;
+        z-index: 1 !important;
+    }
+
+    .collection-intro {
+        padding: 30px 1px 24px !important;
+    }
+
+    .products-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        width: 100% !important;
+        column-gap: 20px !important;
+        row-gap: 30px !important;
+    }
+
+    .product-card {
+        min-width: 0 !important;
+        width: 100% !important;
+    }
+
+    .product-media {
+        width: 100% !important;
+        aspect-ratio: 1 / 1 !important;
+    }
+
+    .product-info {
+        padding: 13px 0 0 !important;
+        padding-bottom: 0 !important;
+    }
+
+    .product-info h2,
+    .product-info h3,
+    .product-name {
+        font-size: clamp(15px, 2.1vw, 19px);
+        line-height: 1.22;
+    }
+
+    .product-info .product-bottom {
+        gap: 10px;
+    }
+
+    .footer-container {
+        padding: 38px 18px 0 !important;
+    }
+
+    .footer-top,
+    .footer-middle {
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 28px !important;
+        padding-bottom: 30px !important;
+    }
+
+    .footer-top > h2 {
+        font-size: 30px !important;
+    }
+
+    .contact-column,
+    .whatsapp-column,
+    .footer-links-column,
+    .footer-social {
+        text-align: center;
+    }
+
+    .footer-middle {
+        padding: 30px 0 !important;
+    }
+
+    .footer-links-column {
+        align-items: center;
+    }
+
+    .footer-bottom {
+        padding: 18px 6px !important;
+    }
+
+    .footer-bottom p {
+        font-size: 10px !important;
+    }
+}
+
+@media (max-width: 560px) {
+    .gallery-topbar {
+        height: 58px !important;
+        padding: 0 13px !important;
+        gap: 8px !important;
+    }
+
+    .gallery-title {
+        max-width: 58%;
+        font-size: 13px !important;
+        letter-spacing: .09em !important;
+        line-height: 1.2;
+    }
+
+    .top-back-home {
+        min-height: 34px !important;
+        padding: 0 10px !important;
+        font-size: 8px !important;
+        letter-spacing: .06em !important;
+    }
+
+    .gallery-top-right {
+        gap: 0 !important;
+    }
+
+    .filter-sidebar {
+        padding: 16px 14px 20px !important;
+    }
+
+    .filter-section-title {
+        margin-bottom: 14px !important;
+    }
+
+    .price-option {
+        gap: 7px !important;
+        font-size: 10px !important;
+        line-height: 1.35 !important;
+    }
+
+    .brand-options {
+        max-height: 190px !important;
+        gap: 10px !important;
+    }
+
+    .brand-option {
+        font-size: 12px !important;
+    }
+
+    .sidebar-divider {
+        margin: 17px 0 !important;
+    }
+
+    .products-area {
+        padding: 0 12px 34px !important;
+    }
+
+    .collection-intro {
+        padding: 27px 1px 22px !important;
+    }
+
+    .collection-eyebrow {
+        font-size: 8px !important;
+        letter-spacing: .18em !important;
+        margin-bottom: 10px !important;
+    }
+
+    .collection-heading {
+        font-size: clamp(30px, 8vw, 42px) !important;
+        line-height: 1.02 !important;
+    }
+
+    .collection-description {
+        margin-top: 11px !important;
+        font-size: 11px !important;
+        line-height: 1.55 !important;
+    }
+
+    .products-toolbar {
+        min-height: 0 !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 11px !important;
+        padding: 15px 0 17px !important;
+    }
+
+    .results-count {
+        font-size: 9px !important;
+    }
+
+    .sort-area {
+        width: 100% !important;
+        justify-content: space-between !important;
+        gap: 10px !important;
+    }
+
+    .sort-label {
+        font-size: 9px !important;
+        flex-shrink: 0;
+    }
+
+    .sort-select {
+        min-width: 0 !important;
+        width: min(68%, 230px) !important;
+        max-width: none !important;
+        height: 36px !important;
+        padding: 0 8px !important;
+        font-size: 10px !important;
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 25px 12px !important;
+    }
+
+    .product-media {
+        aspect-ratio: 1 / 1 !important;
+    }
+
+    .media-arrow {
+        width: 29px !important;
+        height: 29px !important;
+        font-size: 17px !important;
+    }
+
+    .media-prev { left: 5px !important; }
+    .media-next { right: 5px !important; }
+
+    .media-counter {
+        top: 6px !important;
+        right: 6px !important;
+        bottom: auto !important;
+        padding: 4px 5px !important;
+        font-size: 8px !important;
+    }
+
+    .media-dots {
+        bottom: 7px !important;
+        gap: 3px !important;
+        max-width: 60% !important;
+    }
+
+    .media-dot {
+        width: 4px !important;
+        height: 4px !important;
+        min-width: 4px !important;
+    }
+
+    .product-info {
+        padding: 10px 0 0 !important;
+        padding-bottom: 0 !important;
+    }
+
+    .product-brand {
+        font-size: 7px !important;
+        letter-spacing: .12em !important;
+        margin-bottom: 5px !important;
+        line-height: 1.35 !important;
+    }
+
+    .product-info h2,
+    .product-info h3,
+    .product-name {
+        font-size: 14px !important;
+        line-height: 1.2 !important;
+        letter-spacing: -.015em !important;
+    }
+
+    .product-info .product-meta {
+        margin-top: 5px !important;
+        font-size: 9px !important;
+        line-height: 1.35 !important;
+        min-height: 0 !important;
+    }
+
+    .product-info .product-bottom {
+        margin-top: 10px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        justify-content: flex-start !important;
+        gap: 8px !important;
+    }
+
+    .product-info .product-price {
+        font-size: 12px !important;
+        white-space: normal !important;
+    }
+
+    .product-info .product-details-btn {
+        display: flex !important;
+        width: 100% !important;
+        min-height: 35px !important;
+        padding: 0 5px !important;
+        font-size: 8px !important;
+        letter-spacing: .055em !important;
+        white-space: normal !important;
+        text-align: center !important;
+        line-height: 1.25 !important;
+    }
+
+    .no-products {
+        padding: 55px 12px !important;
+    }
+
+    .no-products-title {
+        font-size: 25px !important;
+    }
+}
+
+@media (max-width: 380px) {
+    .products-area {
+        padding-left: 9px !important;
+        padding-right: 9px !important;
+    }
+
+    .products-grid {
+        column-gap: 9px !important;
+    }
+}
+
 </style>
 </head>
 <body>
@@ -2066,7 +2458,12 @@ body{
 <!-- =================================================
              FIXED FILTER SIDEBAR
              ================================================= -->
-<aside class="filter-sidebar">
+<button type="button" class="mobile-filter-toggle" id="mobileFilterToggle" aria-expanded="false" aria-controls="coupleFilterSidebar">
+    <span>☷ &nbsp; FILTER COUPLE WATCHES</span>
+    <span class="mobile-filter-toggle-arrow" aria-hidden="true">＋</span>
+</button>
+
+<aside class="filter-sidebar" id="coupleFilterSidebar">
 <div class="filter-heading-row">
 <span class="filter-heading">
                     Filters
@@ -3551,6 +3948,21 @@ if(clearFilters){
 
 });
 
+
+
+/* Mobile filters expand in the page flow, matching The Watch Gallery. */
+(function () {
+    var toggle = document.getElementById('mobileFilterToggle');
+    var sidebar = document.getElementById('coupleFilterSidebar');
+    if (!toggle || !sidebar) return;
+
+    toggle.addEventListener('click', function () {
+        var isOpen = sidebar.classList.toggle('mobile-filter-open');
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        var arrow = toggle.querySelector('.mobile-filter-toggle-arrow');
+        if (arrow) arrow.textContent = isOpen ? '−' : '＋';
+    });
+})();
 
 </script>
 </body>
