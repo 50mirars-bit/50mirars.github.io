@@ -5,8 +5,7 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport"
-      content="width=device-1000">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
 <meta name="theme-color" content="#f4f0e8">
 
@@ -2421,6 +2420,384 @@ body{
 
     }
 
+}
+
+
+
+/* =========================================================
+   MOBILE-FIRST PRODUCT GRID REFINEMENT
+   Keeps the desktop gallery intact while making phone browsing
+   compact, readable, and easy to tap.
+========================================================= */
+
+html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+img, video {
+    max-width: 100%;
+}
+
+.products-area,
+.products-grid,
+.product-card,
+.product-info {
+    min-width: 0;
+}
+
+.product-name,
+.product-info h2,
+.product-info h3 {
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 850px) {
+    .gallery-topbar {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .gallery-layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .filter-sidebar {
+        width: 100%;
+    }
+
+    .products-area {
+        width: 100%;
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        column-gap: 20px;
+        row-gap: 30px;
+    }
+
+    .product-media {
+        aspect-ratio: 1 / 1;
+    }
+
+    .product-info {
+        padding: 13px 0 0;
+    }
+
+    .product-info h2,
+    .product-info h3,
+    .product-name {
+        font-size: clamp(15px, 2.1vw, 19px);
+        line-height: 1.22;
+    }
+
+    .product-info .product-bottom {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 560px) {
+    .gallery-topbar {
+        height: 58px;
+        padding: 0 13px;
+        gap: 8px;
+    }
+
+    .gallery-title {
+        max-width: 58%;
+        font-size: 13px;
+        letter-spacing: .09em;
+        line-height: 1.2;
+    }
+
+    .top-back-home {
+        min-height: 34px;
+        padding: 0 10px;
+        font-size: 8px;
+        letter-spacing: .06em;
+    }
+
+    .gallery-top-right {
+        gap: 0;
+    }
+
+    .filter-sidebar {
+        padding: 17px 14px;
+    }
+
+    .filter-heading-row {
+        margin-bottom: 17px;
+    }
+
+    .filter-section-title {
+        margin-bottom: 14px;
+    }
+
+    .price-options {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px 10px;
+    }
+
+    .price-option {
+        gap: 7px;
+        font-size: 10px;
+        line-height: 1.35;
+    }
+
+    .brand-options {
+        max-height: 190px;
+        gap: 10px;
+    }
+
+    .brand-option {
+        font-size: 12px;
+    }
+
+    .sidebar-divider {
+        margin: 17px 0;
+    }
+
+    .products-area {
+        padding: 0 12px 34px;
+    }
+
+    .collection-intro {
+        padding: 27px 1px 22px;
+    }
+
+    .collection-eyebrow {
+        font-size: 8px;
+        letter-spacing: .18em;
+        margin-bottom: 10px;
+    }
+
+    .collection-heading {
+        font-size: clamp(30px, 8vw, 42px);
+        line-height: 1.02;
+    }
+
+    .collection-description {
+        margin-top: 11px;
+        font-size: 11px;
+        line-height: 1.55;
+    }
+
+    .products-toolbar {
+        min-height: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 11px;
+        padding: 15px 0 17px;
+    }
+
+    .results-count {
+        font-size: 9px;
+    }
+
+    .sort-area {
+        width: 100%;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .sort-label {
+        font-size: 9px;
+        flex-shrink: 0;
+    }
+
+    .sort-select {
+        min-width: 0;
+        width: min(68%, 230px);
+        max-width: none;
+        height: 36px;
+        padding: 0 8px;
+        font-size: 10px;
+    }
+
+    /* Two products per row: avoids oversized, long single-column cards. */
+    .products-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 25px 12px;
+    }
+
+    .product-card {
+        width: 100%;
+    }
+
+    .product-media {
+        aspect-ratio: 1 / 1;
+    }
+
+    .media-arrow {
+        width: 29px;
+        height: 29px;
+        font-size: 17px;
+    }
+
+    .media-prev {
+        left: 5px;
+    }
+
+    .media-next {
+        right: 5px;
+    }
+
+    .media-counter {
+        top: 6px;
+        right: 6px;
+        bottom: auto;
+        padding: 4px 5px;
+        font-size: 8px;
+    }
+
+    .media-dots {
+        bottom: 7px;
+        gap: 3px;
+        max-width: 60%;
+    }
+
+    .media-dot {
+        width: 4px;
+        height: 4px;
+        min-width: 4px;
+    }
+
+    .product-info {
+        padding: 10px 0 0;
+        padding-bottom: 0;
+    }
+
+    .product-brand {
+        font-size: 7px;
+        letter-spacing: .12em;
+        margin-bottom: 5px;
+        line-height: 1.35;
+    }
+
+    .product-info h2,
+    .product-info h3,
+    .product-name {
+        font-size: 14px;
+        line-height: 1.2;
+        letter-spacing: -.015em;
+    }
+
+    .product-info .product-meta {
+        margin-top: 5px;
+        font-size: 9px;
+        line-height: 1.35;
+        min-height: 0;
+    }
+
+    .product-info .product-bottom {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        gap: 8px;
+    }
+
+    .product-info .product-price {
+        font-size: 12px;
+        white-space: normal;
+    }
+
+    .product-info .product-details-btn {
+        width: 100%;
+        min-height: 35px;
+        padding: 0 5px;
+        font-size: 8px;
+        letter-spacing: .055em;
+        white-space: normal;
+        text-align: center;
+        line-height: 1.25;
+    }
+
+    .no-products {
+        padding: 55px 12px;
+    }
+
+    .no-products-title {
+        font-size: 25px;
+    }
+
+    .footer-container {
+        padding: 38px 18px 0;
+    }
+
+    .footer-top,
+    .footer-middle {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 28px;
+        padding-bottom: 30px;
+    }
+
+    .footer-top > h2 {
+        font-size: 30px;
+    }
+
+    .contact-column,
+    .whatsapp-column,
+    .footer-links-column,
+    .footer-social {
+        text-align: center;
+    }
+
+    .footer-middle {
+        padding: 30px 0;
+    }
+
+    .footer-links-column {
+        align-items: center;
+    }
+
+    .footer-bottom {
+        padding: 18px 6px;
+    }
+
+    .footer-bottom p {
+        font-size: 10px;
+    }
+}
+
+/* Very narrow phones: preserve two columns but tighten spacing. */
+@media (max-width: 360px) {
+    .products-area {
+        padding-left: 9px;
+        padding-right: 9px;
+    }
+
+    .products-grid {
+        column-gap: 9px;
+        row-gap: 22px;
+    }
+
+    .product-info h2,
+    .product-info h3,
+    .product-name {
+        font-size: 13px;
+    }
+
+    .product-info .product-details-btn {
+        font-size: 7px;
+        letter-spacing: .035em;
+    }
+
+    .top-back-home {
+        padding: 0 7px;
+        font-size: 7px;
+    }
+}
+
+/* Keep touch controls visible on mobile, but don't cover the product. */
+@media (hover: none) and (max-width: 560px) {
+    .media-arrow {
+        opacity: 1;
+        background: rgba(248, 245, 238, .88);
+    }
 }
 
 </style>
