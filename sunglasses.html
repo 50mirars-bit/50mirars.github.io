@@ -5,8 +5,7 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport"
-      content="width=device-1000">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
 <meta name="theme-color" content="#f4f0e8">
 
@@ -1788,6 +1787,375 @@ body{
 }
 
 /* =========================================================
+   FOOTER
+========================================================= */
+
+.main-footer{
+
+    margin-top:0;
+
+    background:#111;
+
+    color:#fff;
+
+    border-top:
+        1px solid
+        rgba(17,17,17,.12);
+
+}
+
+
+.footer-container{
+
+    width:100%;
+
+    max-width:1400px;
+
+    margin:0 auto;
+
+    padding:
+        60px
+        50px
+        0;
+
+}
+
+
+/* Footer top */
+
+.footer-top{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr
+        1fr
+        1fr;
+
+    gap:50px;
+
+    padding-bottom:50px;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.15);
+
+}
+
+
+.footer-top > h2{
+
+    grid-column:
+        1 / -1;
+
+    text-align:center;
+
+    margin:
+        0
+        0
+        10px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:38px;
+
+    font-weight:400;
+
+    color:#c9a24d;
+
+}
+
+
+/* Footer headings */
+
+.contact-column h3,
+.whatsapp-column h3,
+.footer-links-column h3,
+.footer-social h3{
+
+    color:#c9a24d;
+
+    font-size:12px;
+
+    letter-spacing:.12em;
+
+    text-transform:uppercase;
+
+    margin:
+        0
+        0
+        18px;
+
+}
+
+
+/* Contact */
+
+.contact-column{
+
+    text-align:left;
+
+}
+
+
+.contact-column p{
+
+    color:#999;
+
+    font-size:13px;
+
+    line-height:1.7;
+
+}
+
+
+.footer-link{
+
+    display:block;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    margin-bottom:12px;
+
+    font-size:13px;
+
+    transition:.25s ease;
+
+}
+
+
+.footer-link:hover{
+
+    color:#c9a24d;
+
+}
+
+
+/* =========================================================
+   WHATSAPP
+========================================================= */
+
+.whatsapp-column{
+
+    text-align:center;
+
+}
+
+
+.whatsapp-title{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+}
+
+
+.whatsapp-icon{
+
+    width:28px !important;
+
+    height:28px !important;
+
+    object-fit:contain !important;
+
+}
+
+
+.whatsapp-button{
+
+    display:inline-block;
+
+    background:#c9a24d;
+
+    color:#111;
+
+    text-decoration:none;
+
+    padding:
+        12px
+        28px;
+
+    border-radius:0;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    letter-spacing:.08em;
+
+    text-transform:uppercase;
+
+    transition:.25s ease;
+
+}
+
+
+.whatsapp-button:hover{
+
+    background:#fff;
+
+    color:#111;
+
+}
+
+
+/* =========================================================
+   FOOTER MIDDLE
+========================================================= */
+
+.footer-middle{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr
+        1fr
+        1fr;
+
+    gap:50px;
+
+    padding:50px 0;
+
+}
+
+
+.footer-links-column{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+
+.footer-links-column a{
+
+    color:#bbb;
+
+    text-decoration:none;
+
+    margin-bottom:13px;
+
+    font-size:13px;
+
+    transition:.25s ease;
+
+}
+
+
+.footer-links-column a:hover{
+
+    color:#c9a24d;
+
+}
+
+
+/* =========================================================
+   INSTAGRAM
+========================================================= */
+
+.footer-social{
+
+    text-align:center;
+
+}
+
+
+.footer-social p{
+
+    color:#999;
+
+    margin-bottom:15px;
+
+    font-size:13px;
+
+}
+
+
+.instagram-button{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    width:50px;
+
+    height:50px;
+
+    border:
+        1px solid
+        #c9a24d;
+
+    border-radius:50%;
+
+    transition:.25s ease;
+
+}
+
+
+.instagram-button:hover{
+
+    background:#c9a24d;
+
+}
+
+
+.instagram-button img{
+
+    width:28px;
+
+    height:28px;
+
+    object-fit:contain;
+
+}
+
+
+/* =========================================================
+   COPYRIGHT
+========================================================= */
+
+.footer-bottom{
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.15);
+
+    text-align:center;
+
+    padding:
+        25px
+        10px;
+
+}
+
+
+.footer-bottom p{
+
+    margin:0;
+
+    color:#777;
+
+    font-size:12px;
+
+    line-height:1.6;
+
+}
+
+
+/* =========================================================
    RESPONSIVE
    ========================================================= */
 
@@ -2056,125 +2424,437 @@ body{
 
 
 
-/* =========================================================
-   MOBILE FILTER + PRODUCT LAYOUT FIX
-   Keep filters out of the way until requested, and show
-   a compact two-column product gallery on phones.
-   ========================================================= */
-.mobile-filter-toggle,
-.mobile-filter-close { display:none; }
-.filter-heading-actions { display:flex; align-items:center; gap:12px; }
-
+/* Mobile layout intentionally mirrors the working Watches Gallery layout. */
 @media (max-width: 850px) {
+    .gallery-topbar {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
     .gallery-layout {
-        display:grid;
-        grid-template-columns:minmax(0, 1fr);
-        align-items:start;
-        gap:0;
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .filter-sidebar {
+        width: 100%;
+    }
+
+    .products-area {
+        width: 100%;
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        column-gap: 20px;
+        row-gap: 30px;
+    }
+
+    .product-media {
+        aspect-ratio: 1 / 1;
+    }
+
+    .product-info {
+        padding: 13px 0 0;
+    }
+
+    .product-info h2,
+    .product-info h3,
+    .product-name {
+        font-size: clamp(15px, 2.1vw, 19px);
+        line-height: 1.22;
+    }
+
+    .product-info .product-bottom {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 560px) {
+    .gallery-topbar {
+        height: 58px;
+        padding: 0 13px;
+        gap: 8px;
+    }
+
+    .gallery-title {
+        max-width: 58%;
+        font-size: 13px;
+        letter-spacing: .09em;
+        line-height: 1.2;
+    }
+
+    .top-back-home {
+        min-height: 34px;
+        padding: 0 10px;
+        font-size: 8px;
+        letter-spacing: .06em;
+    }
+
+    .gallery-top-right {
+        gap: 0;
+    }
+
+    .filter-sidebar {
+        padding: 17px 14px;
+    }
+
+    .filter-heading-row {
+        margin-bottom: 17px;
+    }
+
+    .filter-section-title {
+        margin-bottom: 14px;
+    }
+
+    .price-options {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px 10px;
+    }
+
+    .price-option {
+        gap: 7px;
+        font-size: 10px;
+        line-height: 1.35;
+    }
+
+    .brand-options {
+        max-height: 190px;
+        gap: 10px;
+    }
+
+    .brand-option {
+        font-size: 12px;
+    }
+
+    .sidebar-divider {
+        margin: 17px 0;
+    }
+
+    .products-area {
+        padding: 0 12px 34px;
+    }
+
+    .collection-intro {
+        padding: 27px 1px 22px;
+    }
+
+    .collection-eyebrow {
+        font-size: 8px;
+        letter-spacing: .18em;
+        margin-bottom: 10px;
+    }
+
+    .collection-heading {
+        font-size: clamp(30px, 8vw, 42px);
+        line-height: 1.02;
+    }
+
+    .collection-description {
+        margin-top: 11px;
+        font-size: 11px;
+        line-height: 1.55;
+    }
+
+    .products-toolbar {
+        min-height: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 11px;
+        padding: 15px 0 17px;
+    }
+
+    .results-count {
+        font-size: 9px;
+    }
+
+    .sort-area {
+        width: 100%;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .sort-label {
+        font-size: 9px;
+        flex-shrink: 0;
+    }
+
+    .sort-select {
+        min-width: 0;
+        width: min(68%, 230px);
+        max-width: none;
+        height: 36px;
+        padding: 0 8px;
+        font-size: 10px;
+    }
+
+    /* Two products per row: avoids oversized, long single-column cards. */
+    .products-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 25px 12px;
+    }
+
+    .product-card {
+        width: 100%;
+    }
+
+    .product-media {
+        aspect-ratio: 1 / 1;
+    }
+
+    .media-arrow {
+        width: 29px;
+        height: 29px;
+        font-size: 17px;
+    }
+
+    .media-prev {
+        left: 5px;
+    }
+
+    .media-next {
+        right: 5px;
+    }
+
+    .media-counter {
+        top: 6px;
+        right: 6px;
+        bottom: auto;
+        padding: 4px 5px;
+        font-size: 8px;
+    }
+
+    .media-dots {
+        bottom: 7px;
+        gap: 3px;
+        max-width: 60%;
+    }
+
+    .media-dot {
+        width: 4px;
+        height: 4px;
+        min-width: 4px;
+    }
+
+    .product-info {
+        padding: 10px 0 0;
+        padding-bottom: 0;
+    }
+
+    .product-brand {
+        font-size: 7px;
+        letter-spacing: .12em;
+        margin-bottom: 5px;
+        line-height: 1.35;
+    }
+
+    .product-info h2,
+    .product-info h3,
+    .product-name {
+        font-size: 14px;
+        line-height: 1.2;
+        letter-spacing: -.015em;
+    }
+
+    .product-info .product-meta {
+        margin-top: 5px;
+        font-size: 9px;
+        line-height: 1.35;
+        min-height: 0;
+    }
+
+    .product-info .product-bottom {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        gap: 8px;
+    }
+
+    .product-info .product-price {
+        font-size: 12px;
+        white-space: normal;
+    }
+
+    .product-info .product-details-btn {
+        width: 100%;
+        min-height: 35px;
+        padding: 0 5px;
+        font-size: 8px;
+        letter-spacing: .055em;
+        white-space: normal;
+        text-align: center;
+        line-height: 1.25;
+    }
+
+    .no-products {
+        padding: 55px 12px;
+    }
+
+    .no-products-title {
+        font-size: 25px;
+    }
+
+    .footer-container {
+        padding: 38px 18px 0;
+    }
+
+    .footer-top,
+    .footer-middle {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 28px;
+        padding-bottom: 30px;
+    }
+
+    .footer-top > h2 {
+        font-size: 30px;
+    }
+
+    .contact-column,
+    .whatsapp-column,
+    .footer-links-column,
+    .footer-social {
+        text-align: center;
+    }
+
+    .footer-middle {
+        padding: 30px 0;
+    }
+
+    .footer-links-column {
+        align-items: center;
+    }
+
+    .footer-bottom {
+        padding: 18px 6px;
+    }
+
+    .footer-bottom p {
+        font-size: 10px;
+    }
+}
+
+/* Very narrow phones: preserve two columns but tighten spacing. */
+@media (max-width: 360px) {
+    .products-area {
+        padding-left: 9px;
+        padding-right: 9px;
+    }
+
+    .products-grid {
+        column-gap: 9px;
+        row-gap: 22px;
+    }
+
+    .product-info h2,
+    .product-info h3,
+    .product-name {
+        font-size: 13px;
+    }
+
+    .product-info .product-details-btn {
+        font-size: 7px;
+        letter-spacing: .035em;
+    }
+
+    .top-back-home {
+        padding: 0 7px;
+        font-size: 7px;
+    }
+}
+
+/* Keep touch controls visible on mobile, but don't cover the product. */
+@media (hover: none) and (max-width: 560px) {
+    .media-arrow {
+        opacity: 1;
+        background: rgba(248, 245, 238, .88);
+    }
+}
+
+
+
+/* FINAL MOBILE OVERLAP FIX: keep filters in normal flow and collapsible. */
+@media (max-width: 850px) {
+    .gallery-page { width: 100%; max-width: 100%; overflow-x: clip; }
+    .gallery-topbar { position: sticky; top: 0; z-index: 100; width: 100%; }
+    .gallery-layout {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        gap: 0 !important;
     }
     .mobile-filter-toggle {
-        display:flex;
-        grid-row:1;
-        width:100%;
-        min-height:46px;
-        align-items:center;
-        justify-content:space-between;
-        gap:12px;
-        padding:0 15px;
-        margin:12px 0 8px;
-        border:1px solid var(--line);
-        border-radius:2px;
-        background:#fbf8f1;
-        color:#171613;
-        font:600 11px/1.2 Arial,sans-serif;
-        letter-spacing:.13em;
-        cursor:pointer;
-        grid-column:1;
+        display: flex !important;
+        align-items: center;
+        justify-content: space-between;
+        width: calc(100% - 24px);
+        min-height: 44px;
+        margin: 12px 12px 0;
+        padding: 0 13px;
+        border: 1px solid var(--line, #d8d0c2);
+        background: #f4f0e8;
+        color: #111;
+        font: inherit;
+        font-size: 10px;
+        letter-spacing: .1em;
+        text-align: left;
+        cursor: pointer;
+        position: relative;
+        z-index: 2;
     }
-    .mobile-filter-toggle-icon { font-size:20px; line-height:1; }
+    .mobile-filter-toggle-arrow { font-size: 17px; }
     .filter-sidebar {
-        display:none;
-        grid-column:1;
-        grid-row:2;
-        position:static;
-        width:100%;
-        height:auto;
-        min-height:0;
-        max-height:none;
-        overflow:visible;
-        padding:18px 15px 20px;
-        margin:0 0 14px;
-        border:1px solid var(--line);
-        background:#f4f0e8;
-        box-sizing:border-box;
-        z-index:1;
+        display: none !important;
+        position: static !important;
+        inset: auto !important;
+        float: none !important;
+        transform: none !important;
+        width: calc(100% - 24px) !important;
+        height: auto !important;
+        min-height: 0 !important;
+        max-height: none !important;
+        margin: 0 12px !important;
+        padding: 16px 14px 20px !important;
+        overflow: visible !important;
+        border: 1px solid var(--line, #d8d0c2) !important;
+        border-top: 0 !important;
+        background: #f4f0e8 !important;
+        box-sizing: border-box !important;
+        z-index: 2 !important;
     }
-    .gallery-layout.filters-open .filter-sidebar { display:block; }
-    .filter-heading-row { margin-bottom:18px; }
-    .filter-heading-actions { gap:10px; }
-    .mobile-filter-close {
-        display:inline-flex;
-        width:32px; height:32px;
-        align-items:center; justify-content:center;
-        border:1px solid var(--line);
-        background:transparent; color:#171613;
-        font-size:15px; cursor:pointer;
-    }
-    .filter-sidebar .price-options {
-        display:grid;
-        grid-template-columns:repeat(2,minmax(0,1fr));
-        gap:12px 10px;
-    }
-    .filter-sidebar .sidebar-divider { margin:18px 0; }
+    .filter-sidebar.mobile-filter-open { display: block !important; }
     .products-area {
-        grid-column:1;
-        grid-row:3;
-        min-width:0;
-        padding:0 12px 38px;
-        box-sizing:border-box;
+        display: block !important;
+        position: relative !important;
+        float: none !important;
+        inset: auto !important;
+        transform: none !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        margin: 0 !important;
+        padding: 0 12px 34px !important;
+        box-sizing: border-box !important;
+        z-index: 1 !important;
     }
-    .collection-intro { padding:24px 0 18px; }
-    .collection-description { max-width:36ch; font-size:14px; line-height:1.55; }
-    .products-toolbar {
-        display:flex; flex-direction:row; align-items:center;
-        justify-content:space-between; gap:10px; flex-wrap:wrap;
-        padding:14px 0 16px;
-    }
-    .results-count { font-size:11px; }
-    .sort-area { width:auto; display:flex; align-items:center; gap:7px; }
-    .sort-label { font-size:10px; }
-    .sort-select { width:auto; max-width:155px; min-width:0; font-size:11px; }
     .products-grid {
-        grid-template-columns:repeat(2,minmax(0,1fr));
-        gap:24px 11px;
-        width:100%;
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        width: 100% !important;
+        gap: 24px 12px !important;
     }
-    .product-card { min-width:0; width:100%; }
-    .product-media { width:100%; aspect-ratio:1/1; }
-    .product-info { min-width:0; padding-top:10px; }
-    .product-brand { font-size:9px; letter-spacing:.12em; }
-    .product-name { font-size:clamp(12px,3.5vw,15px); line-height:1.35; overflow-wrap:anywhere; }
-    .product-meta { font-size:10px; }
-    .product-bottom { display:flex; flex-direction:column; align-items:stretch; gap:9px; margin-top:10px; }
-    .product-price { font-size:14px; }
-    .product-details-btn {
-        display:flex; width:100%; min-height:36px; box-sizing:border-box;
-        justify-content:center; align-items:center; padding:8px 5px;
-        font-size:10px; text-align:center; white-space:normal;
-    }
-    .media-arrow { width:30px; height:30px; font-size:17px; }
-    .media-prev { left:5px; } .media-next { right:5px; }
-    .media-counter { font-size:9px; padding:4px 6px; }
-    .media-dots { gap:4px; }
+    .product-card { min-width: 0 !important; width: 100% !important; }
+    .filter-sidebar .price-options { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
 }
-@media (max-width:380px) {
-    .products-area { padding-left:9px; padding-right:9px; }
-    .products-grid { gap:20px 8px; }
-    .product-name { font-size:12px; }
-    .product-details-btn { font-size:9px; }
-    .sort-label { display:none; }
-    .sort-select { max-width:145px; }
+@media (max-width: 380px) {
+    .products-area { padding-left: 9px !important; padding-right: 9px !important; }
+    .products-grid { column-gap: 9px !important; }
 }
+
 
 </style>
 
@@ -2216,8 +2896,8 @@ body{
     <main class="gallery-layout">
 
         <button type="button" class="mobile-filter-toggle" id="mobileFilterToggle" aria-expanded="false" aria-controls="sunglassesFilterSidebar">
-            <span class="mobile-filter-toggle-label">FILTER SUNGLASSES</span>
-            <span class="mobile-filter-toggle-icon" aria-hidden="true">＋</span>
+            <span>☷ &nbsp; FILTER SUNGLASSES</span>
+            <span class="mobile-filter-toggle-arrow" aria-hidden="true">＋</span>
         </button>
 
 
@@ -2234,10 +2914,13 @@ body{
                     Filters
                 </span>
 
-                <div class="filter-heading-actions">
-                    <button type="button" class="clear-filters" id="clearFilters">Clear All</button>
-                    <button type="button" class="mobile-filter-close" id="mobileFilterClose" aria-label="Close filters">✕</button>
-                </div>
+                <button
+                    type="button"
+                    class="clear-filters"
+                    id="clearFilters"
+                >
+                    Clear All
+                </button>
 
             </div>
 
@@ -5181,34 +5864,202 @@ body{
 
 </div>
 
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="main-footer">
+
+    <div class="footer-container">
+
+        <div class="footer-top">
+
+            <h2>
+                Contact Us
+            </h2>
+
+
+            <div class="contact-column">
+
+                <h3>
+                    For Customers:
+                </h3>
+
+                <a
+                    href="mailto:50mirars@gmail.com"
+                    class="footer-link"
+                >
+                    50mirars@gmail.com
+                </a>
+
+                <a
+                    href="tel:+918209989013"
+                    class="footer-link"
+                >
+                    82099 89013
+                </a>
+
+                <p>
+                    09:00 - 21:30 | Monday to Sunday
+                </p>
+
+            </div>
+
+
+            <div class="contact-column">
+
+                <h3>
+                    For Sales/Watch Service:
+                </h3>
+
+                <a
+                    href="mailto:50mirars@gmail.com"
+                    class="footer-link"
+                >
+                    50mirars@gmail.com
+                </a>
+
+                <a
+                    href="tel:+918209989013"
+                    class="footer-link"
+                >
+                    82099 89013
+                </a>
+
+                <p>
+                    09:00 - 21:30 | Monday to Sunday
+                </p>
+
+            </div>
+
+
+            <div class="whatsapp-column">
+
+                <h3 class="whatsapp-title">
+
+                    <span>
+                        View Products on WhatsApp
+                    </span>
+
+                    <img
+                        src="whatsapplogo.png"
+                        alt="WhatsApp"
+                        class="whatsapp-icon"
+                    >
+
+                </h3>
+
+                <a
+                    href="https://wa.me/918209989013"
+                    target="_blank"
+                    rel="noopener"
+                    class="whatsapp-button"
+                >
+                    View Products
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="footer-middle">
+
+            <div class="footer-links-column">
+
+                <h3>
+                    Know 50 Mirars
+                </h3>
+
+                <a href="about.html">
+                    About Us
+                </a>
+
+                <a href="faq.html">
+                    FAQ
+                </a>
+
+            </div>
+
+
+            <div class="footer-links-column">
+
+                <h3>
+                    Terms &amp; Conditions
+                </h3>
+
+                <a href="terms.html">
+                    Terms &amp; Conditions
+                </a>
+
+                <a href="privacypolicy.html">
+                    Privacy Policy
+                </a>
+
+            </div>
+
+
+            <div class="footer-social">
+
+                <h3>
+                    50 Mirars
+                </h3>
+
+                <p>
+                    Follow Us On
+                </p>
+
+                <a
+                    href="https://instagram.com/50mirars"
+                    target="_blank"
+                    rel="noopener"
+                    class="instagram-button"
+                    aria-label="Follow 50 Mirars on Instagram"
+                >
+
+                    <img
+                        src="instagramimage.webp"
+                        alt="Instagram"
+                    >
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 50 Mirars - The Watch &amp; Sunglasses Store.
+                All Rights Reserved.
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
 <script>
 
 document.addEventListener("DOMContentLoaded", function () {
 
     /* Mobile filter disclosure: products remain visible by default. */
-    const galleryLayout = document.querySelector(".gallery-layout");
     const mobileFilterToggle = document.getElementById("mobileFilterToggle");
-    const mobileFilterClose = document.getElementById("mobileFilterClose");
-    const filterToggleLabel = mobileFilterToggle ? mobileFilterToggle.querySelector(".mobile-filter-toggle-label") : null;
-    const filterToggleIcon = mobileFilterToggle ? mobileFilterToggle.querySelector(".mobile-filter-toggle-icon") : null;
+    const filterSidebar = document.getElementById("sunglassesFilterSidebar");
 
-    function setMobileFiltersOpen(open) {
-        if (!galleryLayout || !mobileFilterToggle) return;
-        galleryLayout.classList.toggle("filters-open", open);
-        mobileFilterToggle.setAttribute("aria-expanded", String(open));
-        if (filterToggleLabel) filterToggleLabel.textContent = open ? "HIDE FILTERS" : "FILTER SUNGLASSES";
-        if (filterToggleIcon) filterToggleIcon.textContent = open ? "−" : "＋";
+    if (mobileFilterToggle && filterSidebar) {
+        mobileFilterToggle.addEventListener("click", function () {
+            const isOpen = filterSidebar.classList.toggle("mobile-filter-open");
+            mobileFilterToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+            const arrow = mobileFilterToggle.querySelector(".mobile-filter-toggle-arrow");
+            if (arrow) arrow.textContent = isOpen ? "−" : "＋";
+        });
     }
-    if (mobileFilterToggle) mobileFilterToggle.addEventListener("click", function () {
-        setMobileFiltersOpen(!galleryLayout.classList.contains("filters-open"));
-    });
-    if (mobileFilterClose) mobileFilterClose.addEventListener("click", function () {
-        setMobileFiltersOpen(false);
-        mobileFilterToggle.focus();
-    });
-    window.addEventListener("resize", function () {
-        if (window.innerWidth > 850) setMobileFiltersOpen(false);
-    });
 
     /* =====================================================
        ELEMENTS
