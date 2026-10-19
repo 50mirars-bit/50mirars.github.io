@@ -2423,6 +2423,128 @@ body{
 
 }
 
+
+
+/* =========================================================
+   MOBILE FILTER + PRODUCT LAYOUT FIX
+   Keep filters out of the way until requested, and show
+   a compact two-column product gallery on phones.
+   ========================================================= */
+.mobile-filter-toggle,
+.mobile-filter-close { display:none; }
+.filter-heading-actions { display:flex; align-items:center; gap:12px; }
+
+@media (max-width: 850px) {
+    .gallery-layout {
+        display:grid;
+        grid-template-columns:minmax(0, 1fr);
+        align-items:start;
+        gap:0;
+    }
+    .mobile-filter-toggle {
+        display:flex;
+        grid-row:1;
+        width:100%;
+        min-height:46px;
+        align-items:center;
+        justify-content:space-between;
+        gap:12px;
+        padding:0 15px;
+        margin:12px 0 8px;
+        border:1px solid var(--line);
+        border-radius:2px;
+        background:#fbf8f1;
+        color:#171613;
+        font:600 11px/1.2 Arial,sans-serif;
+        letter-spacing:.13em;
+        cursor:pointer;
+        grid-column:1;
+    }
+    .mobile-filter-toggle-icon { font-size:20px; line-height:1; }
+    .filter-sidebar {
+        display:none;
+        grid-column:1;
+        grid-row:2;
+        position:static;
+        width:100%;
+        height:auto;
+        min-height:0;
+        max-height:none;
+        overflow:visible;
+        padding:18px 15px 20px;
+        margin:0 0 14px;
+        border:1px solid var(--line);
+        background:#f4f0e8;
+        box-sizing:border-box;
+        z-index:1;
+    }
+    .gallery-layout.filters-open .filter-sidebar { display:block; }
+    .filter-heading-row { margin-bottom:18px; }
+    .filter-heading-actions { gap:10px; }
+    .mobile-filter-close {
+        display:inline-flex;
+        width:32px; height:32px;
+        align-items:center; justify-content:center;
+        border:1px solid var(--line);
+        background:transparent; color:#171613;
+        font-size:15px; cursor:pointer;
+    }
+    .filter-sidebar .price-options {
+        display:grid;
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:12px 10px;
+    }
+    .filter-sidebar .sidebar-divider { margin:18px 0; }
+    .products-area {
+        grid-column:1;
+        grid-row:3;
+        min-width:0;
+        padding:0 12px 38px;
+        box-sizing:border-box;
+    }
+    .collection-intro { padding:24px 0 18px; }
+    .collection-description { max-width:36ch; font-size:14px; line-height:1.55; }
+    .products-toolbar {
+        display:flex; flex-direction:row; align-items:center;
+        justify-content:space-between; gap:10px; flex-wrap:wrap;
+        padding:14px 0 16px;
+    }
+    .results-count { font-size:11px; }
+    .sort-area { width:auto; display:flex; align-items:center; gap:7px; }
+    .sort-label { font-size:10px; }
+    .sort-select { width:auto; max-width:155px; min-width:0; font-size:11px; }
+    .products-grid {
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:24px 11px;
+        width:100%;
+    }
+    .product-card { min-width:0; width:100%; }
+    .product-media { width:100%; aspect-ratio:1/1; }
+    .product-info { min-width:0; padding-top:10px; }
+    .product-brand { font-size:9px; letter-spacing:.12em; }
+    .product-name { font-size:clamp(12px,3.5vw,15px); line-height:1.35; overflow-wrap:anywhere; }
+    .product-meta { font-size:10px; }
+    .product-bottom { display:flex; flex-direction:column; align-items:stretch; gap:9px; margin-top:10px; }
+    .product-price { font-size:14px; }
+    .product-details-btn {
+        display:flex; width:100%; min-height:36px; box-sizing:border-box;
+        justify-content:center; align-items:center; padding:8px 5px;
+        font-size:10px; text-align:center; white-space:normal;
+    }
+    .media-arrow { width:30px; height:30px; font-size:17px; }
+    .media-prev { left:5px; } .media-next { right:5px; }
+    .media-counter { font-size:9px; padding:4px 6px; }
+    .media-dots { gap:4px; }
+}
+@media (max-width:380px) {
+    .products-area { padding-left:9px; padding-right:9px; }
+    .products-grid { gap:20px 8px; }
+    .product-name { font-size:12px; }
+    .product-details-btn { font-size:9px; }
+    .sort-label { display:none; }
+    .sort-select { max-width:145px; }
+}
+
 </style>
 
 </head>
@@ -2462,12 +2584,17 @@ body{
 
     <main class="gallery-layout">
 
+        <button type="button" class="mobile-filter-toggle" id="mobileFilterToggle" aria-expanded="false" aria-controls="sunglassesFilterSidebar">
+            <span class="mobile-filter-toggle-label">FILTER SUNGLASSES</span>
+            <span class="mobile-filter-toggle-icon" aria-hidden="true">＋</span>
+        </button>
+
 
         <!-- =================================================
              FIXED FILTER SIDEBAR
              ================================================= -->
 
-        <aside class="filter-sidebar">
+        <aside class="filter-sidebar" id="sunglassesFilterSidebar">
 
 
             <div class="filter-heading-row">
@@ -2476,13 +2603,10 @@ body{
                     Filters
                 </span>
 
-                <button
-                    type="button"
-                    class="clear-filters"
-                    id="clearFilters"
-                >
-                    Clear All
-                </button>
+                <div class="filter-heading-actions">
+                    <button type="button" class="clear-filters" id="clearFilters">Clear All</button>
+                    <button type="button" class="mobile-filter-close" id="mobileFilterClose" aria-label="Close filters">✕</button>
+                </div>
 
             </div>
 
@@ -5609,6 +5733,31 @@ body{
 <script>
 
 document.addEventListener("DOMContentLoaded", function () {
+
+    /* Mobile filter disclosure: products remain visible by default. */
+    const galleryLayout = document.querySelector(".gallery-layout");
+    const mobileFilterToggle = document.getElementById("mobileFilterToggle");
+    const mobileFilterClose = document.getElementById("mobileFilterClose");
+    const filterToggleLabel = mobileFilterToggle ? mobileFilterToggle.querySelector(".mobile-filter-toggle-label") : null;
+    const filterToggleIcon = mobileFilterToggle ? mobileFilterToggle.querySelector(".mobile-filter-toggle-icon") : null;
+
+    function setMobileFiltersOpen(open) {
+        if (!galleryLayout || !mobileFilterToggle) return;
+        galleryLayout.classList.toggle("filters-open", open);
+        mobileFilterToggle.setAttribute("aria-expanded", String(open));
+        if (filterToggleLabel) filterToggleLabel.textContent = open ? "HIDE FILTERS" : "FILTER SUNGLASSES";
+        if (filterToggleIcon) filterToggleIcon.textContent = open ? "−" : "＋";
+    }
+    if (mobileFilterToggle) mobileFilterToggle.addEventListener("click", function () {
+        setMobileFiltersOpen(!galleryLayout.classList.contains("filters-open"));
+    });
+    if (mobileFilterClose) mobileFilterClose.addEventListener("click", function () {
+        setMobileFiltersOpen(false);
+        mobileFilterToggle.focus();
+    });
+    window.addEventListener("resize", function () {
+        if (window.innerWidth > 850) setMobileFiltersOpen(false);
+    });
 
     /* =====================================================
        ELEMENTS
