@@ -3568,6 +3568,178 @@ body {
     }
 }
     
+
+/* =========================================================
+   NEW ARRIVALS — LIVE PRODUCT GALLERY
+========================================================= */
+.new-arrivals{
+    background:var(--cream);
+    color:#111;
+    padding:112px 6%;
+    position:relative;
+    overflow:hidden;
+}
+.new-arrivals::before{
+    content:"";
+    position:absolute;
+    top:0; left:0;
+    width:100%; height:1px;
+    background:linear-gradient(90deg,transparent,var(--gold),transparent);
+}
+.new-arrivals-header{
+    max-width:1400px;
+    margin:0 auto 52px;
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:24px;
+}
+.new-arrivals-kicker{
+    display:block;
+    color:#a77c2c;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:4px;
+    margin-bottom:13px;
+}
+.new-arrivals-header h2{
+    font-family:"Cormorant Garamond",serif;
+    font-size:clamp(46px,6vw,70px);
+    font-weight:500;
+    line-height:1;
+}
+.new-arrivals-header p{
+    max-width:390px;
+    color:#666;
+    font-size:14px;
+    line-height:1.8;
+    text-align:right;
+}
+.new-arrivals-grid{
+    max-width:1450px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:26px;
+}
+.new-arrival-card{
+    min-width:0;
+    background:#fff;
+    border:1px solid rgba(201,162,77,.18);
+    border-radius:20px;
+    overflow:hidden;
+    transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease;
+}
+.new-arrival-card:hover{
+    transform:translateY(-7px);
+    border-color:rgba(201,162,77,.55);
+    box-shadow:0 22px 48px rgba(0,0,0,.11);
+}
+.new-arrival-media{
+    display:block;
+    position:relative;
+    aspect-ratio:4/4.5;
+    overflow:hidden;
+    background:#eeeae2;
+}
+.new-arrival-media img,
+.new-arrival-media video{
+    width:100%; height:100%;
+    object-fit:cover;
+    transition:transform .7s ease;
+}
+.new-arrival-card:hover .new-arrival-media img,
+.new-arrival-card:hover .new-arrival-media video{
+    transform:scale(1.045);
+}
+.new-arrival-tag{
+    position:absolute;
+    top:14px; left:14px;
+    z-index:2;
+    padding:7px 11px;
+    background:rgba(17,17,17,.86);
+    color:#f2d48c;
+    border:1px solid rgba(201,162,77,.35);
+    border-radius:30px;
+    font-size:9px;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+}
+.new-arrival-info{padding:19px 19px 20px;}
+.new-arrival-brand{
+    display:block;
+    color:#9a762f;
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:7px;
+}
+.new-arrival-name{
+    min-height:52px;
+    font-family:"Cormorant Garamond",serif;
+    font-size:25px;
+    font-weight:600;
+    line-height:1.08;
+    margin-bottom:10px;
+}
+.new-arrival-price{
+    display:block;
+    color:#333;
+    font-size:15px;
+    font-weight:700;
+    margin-bottom:16px;
+}
+.new-arrival-button{
+    width:100%;
+    min-height:44px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    background:#111;
+    color:#fff;
+    border:1px solid #111;
+    border-radius:999px;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:1.3px;
+    text-transform:uppercase;
+    transition:background .3s ease,color .3s ease,border-color .3s ease;
+}
+.new-arrival-button:hover{
+    background:var(--gold);
+    color:#111;
+    border-color:var(--gold);
+}
+.new-arrivals-empty{
+    grid-column:1/-1;
+    padding:36px 20px;
+    text-align:center;
+    color:#777;
+    border:1px dashed rgba(0,0,0,.18);
+    border-radius:18px;
+}
+@media(max-width:900px){
+    .new-arrivals-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;}
+}
+@media(max-width:768px){
+    .new-arrivals{padding:78px 17px;}
+    .new-arrivals-header{display:block;margin-bottom:32px;}
+    .new-arrivals-header p{text-align:left;margin-top:14px;font-size:13px;}
+    .new-arrivals-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;}
+    .new-arrival-card{border-radius:14px;}
+    .new-arrival-info{padding:13px 12px 14px;}
+    .new-arrival-brand{font-size:8px;letter-spacing:1.3px;}
+    .new-arrival-name{font-size:20px;min-height:43px;margin-bottom:7px;}
+    .new-arrival-price{font-size:13px;margin-bottom:12px;}
+    .new-arrival-button{min-height:40px;font-size:9px;letter-spacing:.8px;}
+    .new-arrival-tag{top:9px;left:9px;font-size:8px;padding:6px 8px;}
+}
+@media(prefers-reduced-motion:reduce){
+    .new-arrival-card,.new-arrival-media img,.new-arrival-media video{transition:none;}
+}
+
 </style>
 
 </head>
@@ -3875,6 +4047,25 @@ and the confidence it quietly leaves behind.
 
 </div>
 
+</section>
+
+
+
+<!-- =========================================================
+     NEW ARRIVALS — AUTOMATICALLY FED BY products.js
+     Placed after the royal introduction and before Curated Collections.
+========================================================= -->
+<section class="new-arrivals" id="newArrivals">
+    <div class="new-arrivals-header">
+        <div>
+            <span class="new-arrivals-kicker">JUST ARRIVED · THE LATEST EDIT</span>
+            <h2>New Arrivals</h2>
+        </div>
+        <p>Discover the latest additions to the 50 Mirars collection, selected for those who appreciate distinctive design and timeless style.</p>
+    </div>
+    <div class="new-arrivals-grid" id="newArrivalsGrid" aria-live="polite">
+        <div class="new-arrivals-empty">Discovering the latest arrivals…</div>
+    </div>
 </section>
 
 <!-- =========================================================
@@ -4712,6 +4903,8 @@ luxury.
 
 </footer>
 
+<script src="products.js"></script>
+
 <script>
 
 /* =========================================================
@@ -5067,6 +5260,69 @@ behavior:"smooth"
 });
 
 });
+
+
+/* =========================================================
+   NEW ARRIVALS — RENDER FROM THE CENTRAL PRODUCTS CATALOGUE
+========================================================= */
+(function renderNewArrivals(){
+    const grid = document.getElementById("newArrivalsGrid");
+    if (!grid) return;
+
+    // products.js is the shared catalogue used by the product/search pages.
+    // New products added to that array appear here automatically.
+    const catalogue = (typeof products !== "undefined" && Array.isArray(products))
+        ? products
+        : (Array.isArray(window.products) ? window.products : []);
+
+    if (!catalogue.length) {
+        grid.innerHTML = '<div class="new-arrivals-empty">New arrivals will appear here as soon as products are added to the catalogue.</div>';
+        return;
+    }
+
+    // Products are appended to the central catalogue as they are added;
+    // reverse order therefore places the most recently added items first.
+    const latest = [...catalogue].reverse().slice(0, 8);
+
+    const escapeHTML = value => String(value ?? "").replace(/[&<>"']/g, char => ({
+        "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"
+    })[char]);
+
+    const formatPrice = value => {
+        if (value === undefined || value === null || value === "") return "";
+        const numeric = Number(String(value).replace(/[^0-9.]/g, ""));
+        return Number.isFinite(numeric) && numeric > 0
+            ? "₹" + numeric.toLocaleString("en-IN")
+            : escapeHTML(value);
+    };
+
+    grid.innerHTML = latest.map(product => {
+        const name = escapeHTML(product.name || product.title || "New Arrival");
+        const brand = escapeHTML(product.brand || product.category || "50 Mirars Selection");
+        const price = formatPrice(product.price);
+        const href = escapeHTML(product.link || product.url || "#");
+        const mediaPath = product.video || product.image || product.thumbnail || "";
+        const media = mediaPath
+            ? (product.video
+                ? `<video src="${escapeHTML(mediaPath)}" muted autoplay loop playsinline preload="metadata" aria-label="${name}"></video>`
+                : `<img class="loaded" src="${escapeHTML(mediaPath)}" alt="${name}" loading="lazy">`)
+            : '<div class="new-arrivals-empty">Image coming soon</div>';
+
+        return `
+            <article class="new-arrival-card">
+                <a class="new-arrival-media" href="${href}" aria-label="View ${name}">
+                    <span class="new-arrival-tag">New Arrival</span>
+                    ${media}
+                </a>
+                <div class="new-arrival-info">
+                    <span class="new-arrival-brand">${brand}</span>
+                    <h3 class="new-arrival-name">${name}</h3>
+                    ${price ? `<span class="new-arrival-price">${price}</span>` : ""}
+                    <a class="new-arrival-button" href="${href}">View Product <span aria-hidden="true">→</span></a>
+                </div>
+            </article>`;
+    }).join("");
+})();
 
 </script>
 
