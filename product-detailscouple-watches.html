@@ -4013,25 +4013,28 @@ function bindActions(){
         );
 
 
-    if(add){
+  if(add){
 
-        add.addEventListener(
-            "click",
-            addToCart
-        );
+    add.addEventListener(
+        "click",
+        () => {
+            window.__50MirarsRunAfterGoogleSignIn("add");
+        }
+    );
 
-    }
+}
 
 
-    if(buy){
+if(buy){
 
-        buy.addEventListener(
-            "click",
-            buyNow
-        );
+    buy.addEventListener(
+        "click",
+        () => {
+            window.__50MirarsRunAfterGoogleSignIn("buy");
+        }
+    );
 
-    }
-
+}
 
     if(whatsapp){
 
@@ -4796,6 +4799,121 @@ document.addEventListener(
 
 </script>
 
-</body>
 
+<script type="module">
+import {
+    initializeApp,
+    getApps
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
+
+import {
+    getAuth,
+    GoogleAuthProvider,
+    signInWithPopup,
+    signInWithRedirect,
+    getRedirectResult,
+    onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyD5oZFRZUDnmb2d1_juGTeWAbQcy3gcyjc",
+    authDomain: "mirars-project.firebaseapp.com",
+    projectId: "mirars-project",
+    storageBucket: "mirars-project.firebasestorage.app",
+    messagingSenderId: "947955901957",
+    appId: "1:947955901957:web:67bb04627f25bf2a419e6c",
+    measurementId: "G-HXESQZER5L"
+};
+
+const app = getApps().length
+    ? getApps()[0]
+    : initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
+
+provider.setCustomParameters({
+    prompt: "select_account"
+});
+
+let currentUser = auth.currentUser;
+
+const pendingActionKey = "50mirarsPendingPurchaseAction";
+
+function completePendingPurchase() {
+    const action = sessionStorage.getItem(pendingActionKey);
+
+    if (!currentUser || !action) return;
+
+    sessionStorage.removeItem(pendingActionKey);
+
+    if (action === "add") {
+        addToCart();
+    } else if (action === "buy") {
+        buyNow();
+    }
+}
+
+onAuthStateChanged(auth, user => {
+    currentUser = user;
+    completePendingPurchase();
+});
+
+window.__50MirarsActualRunAfterGoogleSignIn = async function(action) {
+
+    if (action !== "add" && action !== "buy") return;
+
+    if (currentUser) {
+        if (action === "add") {
+            addToCart();
+        } else {
+            buyNow();
+        }
+        return;
+    }
+
+    sessionStorage.setItem(pendingActionKey, action);
+
+    try {
+        await signInWithPopup(auth, provider);
+
+        currentUser = auth.currentUser;
+        completePendingPurchase();
+
+    } catch (error) {
+
+        if (
+            error.code === "auth/popup-blocked" ||
+            error.code === "auth/operation-not-supported-in-this-environment"
+        ) {
+            try {
+                await signInWithRedirect(auth, provider);
+            } catch (redirectError) {
+                sessionStorage.removeItem(pendingActionKey);
+                console.error(redirectError);
+                alert("Google sign-in failed. Please try again.");
+            }
+
+        } else {
+            sessionStorage.removeItem(pendingActionKey);
+            console.error("Google sign-in error:", error);
+            alert("Google sign-in failed. Please try again.");
+        }
+    }
+};
+
+window.__50MirarsRunAfterGoogleSignIn = function(action) {
+    return window.__50MirarsActualRunAfterGoogleSignIn(action);
+};
+
+try {
+    await getRedirectResult(auth);
+} catch (error) {
+    sessionStorage.removeItem(pendingActionKey);
+    console.error("Google redirect sign-in error:", error);
+    alert("Google sign-in failed. Please try again.");
+}
+</script>
+
+</body>
 </html>
